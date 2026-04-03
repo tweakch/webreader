@@ -159,6 +159,26 @@ const DOCS = {
       'Die Seitenaufteilung wird nicht durch die Quellenangabe beeinflusst.',
     ],
   },
+
+  'speed-reader': {
+    lead: 'Der Schnellleser blendet den normalen Lesebereich aus und zeigt stattdessen Wörter des Märchens einzeln, nacheinander und in hohem Tempo mittig auf dem Bildschirm an — eine Technik aus dem sogenannten RSVP-Lesen (Rapid Serial Visual Presentation).',
+    on: [
+      'Im Lesebereich erscheint anstelle des paginierten Textes ein Schnellleser-Modus mit einem einzelnen Wort in großer Schrift mittig auf dem Bildschirm.',
+      'Über der Wortanzeige befindet sich eine Fortschrittsleiste, die den Leseverlauf im gesamten Text anzeigt.',
+      'Unter der Wortanzeige befinden sich Steuerelemente: Abspielen / Pausieren, Zurückspringen um einen Satz sowie die Einstellung der Lesegeschwindigkeit in Wörtern pro Minute (WpM).',
+      'Drei voreingestellte Geschwindigkeitsstufen stehen zur Wahl: Langsam (200 WpM), Normal (400 WpM) und Schnell (700 WpM). Die gewählte Stufe wird gespeichert.',
+      'Das Lesen kann jederzeit pausiert werden — nach dem Pausieren springt ein erneutes Drücken auf „Abspielen" an der exakt gleichen Stelle weiter.',
+      'Satzenden werden kurz mit einer Pause hervorgehoben, damit der Lesefluss natürlich bleibt und keine Sinnzusammenhänge verloren gehen.',
+      'Der Schnellleser arbeitet auf dem vollständigen Märchentext — er ist nicht an die seitenbasierte Paginierung des normalen Lesemodus gebunden.',
+      'Der Fortschritt im Schnellleser wird beim Wechseln des Märchens oder Schließen der App nicht gespeichert.',
+    ],
+    off: [
+      'Der Schnellleser-Modus ist nicht zugänglich.',
+      'Märchen werden wie gewohnt paginiert im normalen Lesebereich angezeigt.',
+      'Alle anderen Lese- und Typografieeinstellungen bleiben unberührt.',
+    ],
+    tip: 'RSVP-Lesen kann die Lesegeschwindigkeit deutlich steigern, da Augenbewegungen (Sakkaden) entfallen. Es ist jedoch weniger geeignet für Texte, die Reflexion oder Rückblättern erfordern — für Märchen mit linearer Handlung funktioniert es gut.',
+  },
 };
 
 // ── Component ────────────────────────────────────────────────────────────────

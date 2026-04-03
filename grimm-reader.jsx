@@ -233,7 +233,7 @@ const GrimmMarchenApp = () => {
           : 'bg-white/80 border-amber-200/50'
       } border-b`}>
         <div className="h-16 px-4 flex items-center justify-between">
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-3 min-w-0 overflow-hidden">
             <button
               data-testid="menu-toggle"
               onClick={toggleMenu}
@@ -248,7 +248,7 @@ const GrimmMarchenApp = () => {
             <h1 className={`text-2xl font-serif font-bold tracking-wide ${
               darkMode ? 'text-amber-200' : 'text-amber-900'
             }`}>
-              {selectedStory ? selectedStory.title : 'Märchenschatz'}
+              {selectedStory ? '' : 'Märchenschatz'}
             </h1>
           </div>
 
@@ -553,9 +553,16 @@ const GrimmMarchenApp = () => {
                   <ChevronLeft size={20} />
                 </button>
 
-                <span data-testid="page-counter" className="text-sm font-medium tabular-nums">
-                  {currentPage + 1} / {totalPages}
-                </span>
+                <div className="flex flex-col items-center gap-0.5 min-w-0 overflow-hidden px-2">
+                  <span className={`text-xs font-serif truncate max-w-full ${
+                    darkMode ? 'text-amber-500' : 'text-amber-600'
+                  }`}>
+                    {selectedStory.title}
+                  </span>
+                  <span data-testid="page-counter" className="text-xs font-medium tabular-nums">
+                    {currentPage + 1} / {totalPages}
+                  </span>
+                </div>
 
                 <button
                   data-testid="next-page"

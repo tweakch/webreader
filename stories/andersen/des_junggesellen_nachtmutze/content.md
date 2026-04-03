@@ -3,6 +3,7 @@ title: "Des Junggesellen Nachtmütze"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/des_junggesellen_nachtmutze"
 crawledAt: "2026-04-03T11:23:03.401Z"
+wordCount: 4399
 ---
 
 # Des Junggesellen Nachtmütze

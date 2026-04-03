@@ -3,6 +3,7 @@ title: "Häsichenbraut"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/haesichenbraut"
 crawledAt: "2026-04-03T09:12:00.337Z"
+wordCount: 402
 ---
 
 # Häsichenbraut

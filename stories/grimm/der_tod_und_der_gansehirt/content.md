@@ -3,6 +3,7 @@ title: "Der Tod und der Gänsehirt"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/der_tod_und_der_gansehirt"
 crawledAt: "2026-04-03T09:17:21.116Z"
+wordCount: 273
 ---
 
 # Der Tod und der Gänsehirt

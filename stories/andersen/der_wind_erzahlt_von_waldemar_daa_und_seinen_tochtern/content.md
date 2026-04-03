@@ -3,6 +3,7 @@ title: "Der Wind erzählt von Waldemar Daa und seinen Töchtern"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/der_wind_erzahlt_von_waldemar_daa_und_seinen_tochtern"
 crawledAt: "2026-04-03T11:23:16.019Z"
+wordCount: 3991
 ---
 
 # Der Wind erzählt von Waldemar Daa und seinen Töchtern

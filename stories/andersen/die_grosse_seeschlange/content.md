@@ -3,6 +3,7 @@ title: "Die große Seeschlange"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/die_grosse_seeschlange"
 crawledAt: "2026-04-03T11:25:11.167Z"
+wordCount: 3320
 ---
 
 # Die große Seeschlange

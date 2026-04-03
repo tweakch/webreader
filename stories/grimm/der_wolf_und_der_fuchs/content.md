@@ -3,6 +3,7 @@ title: "Der Wolf und der Fuchs"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/der_wolf_und_der_fuchs"
 crawledAt: "2026-04-03T09:12:24.322Z"
+wordCount: 671
 ---
 
 # Der Wolf und der Fuchs

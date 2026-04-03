@@ -3,6 +3,7 @@ title: "Eine Geschichte"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/eine_geschichte"
 crawledAt: "2026-04-03T11:24:07.885Z"
+wordCount: 1583
 ---
 
 # Eine Geschichte

@@ -3,6 +3,7 @@ title: "Der Reisekamerad"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/der_reisekamerad"
 crawledAt: "2026-04-03T11:20:38.830Z"
+wordCount: 7228
 ---
 
 # Der Reisekamerad

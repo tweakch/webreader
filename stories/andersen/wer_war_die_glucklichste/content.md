@@ -3,6 +3,7 @@ title: "Wer war die Glücklichste?"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/wer_war_die_glucklichste"
 crawledAt: "2026-04-03T11:24:39.108Z"
+wordCount: 1356
 ---
 
 # Wer war die Glücklichste?

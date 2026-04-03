@@ -3,6 +3,7 @@ title: "Die Irrlichter sind in der Stadt, sagte die Moorfrau"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/die_irrlichter_sind_in_der_stad_sagte_die_moorfrau"
 crawledAt: "2026-04-03T11:24:17.983Z"
+wordCount: 4570
 ---
 
 # Die Irrlichter sind in der Stadt, sagte die Moorfrau

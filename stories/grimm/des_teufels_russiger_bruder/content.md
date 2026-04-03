@@ -3,6 +3,7 @@ title: "Des Teufels rußiger Bruder"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/des_teufels_russiger_bruder"
 crawledAt: "2026-04-03T09:13:35.077Z"
+wordCount: 1163
 ---
 
 # Des Teufels rußiger Bruder

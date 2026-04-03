@@ -3,6 +3,7 @@ title: "Die drei Faulen"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/die_drei_faulen"
 crawledAt: "2026-04-03T09:15:12.564Z"
+wordCount: 214
 ---
 
 # Die drei Faulen

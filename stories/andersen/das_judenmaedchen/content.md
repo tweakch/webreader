@@ -3,6 +3,7 @@ title: "Das Judenmädchen"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/das_judenmaedchen"
 crawledAt: "2026-04-03T11:22:54.718Z"
+wordCount: 1539
 ---
 
 # Das Judenmädchen

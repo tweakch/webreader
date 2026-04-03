@@ -3,6 +3,7 @@ title: "Die faule Spinnerin"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/die_faule_spinnerin"
 crawledAt: "2026-04-03T09:14:28.563Z"
+wordCount: 676
 ---
 
 # Die faule Spinnerin

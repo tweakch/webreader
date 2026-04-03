@@ -3,6 +3,7 @@ title: "Feder und Tintenfaß"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/feder_und_tintenfass"
 crawledAt: "2026-04-03T11:23:29.425Z"
+wordCount: 798
 ---
 
 # Feder und Tintenfaß

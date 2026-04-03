@@ -3,6 +3,7 @@ title: "Turmwächter Ole"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/turmwachter_ole"
 crawledAt: "2026-04-03T11:23:21.111Z"
+wordCount: 3763
 ---
 
 # Turmwächter Ole

@@ -3,6 +3,7 @@ title: "Die drei Schlangenblätter"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/die_drie_schlangenblatter"
 crawledAt: "2026-04-03T09:10:28.771Z"
+wordCount: 1331
 ---
 
 # Die drei Schlangenblätter

@@ -3,6 +3,7 @@ title: "Die sieben Schwaben"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/die_sieben_schwaben"
 crawledAt: "2026-04-03T09:14:12.737Z"
+wordCount: 944
 ---
 
 # Die sieben Schwaben

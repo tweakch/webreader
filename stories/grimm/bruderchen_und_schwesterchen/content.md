@@ -3,6 +3,7 @@ title: "Brüderchen und Schwesterchen"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/bruderchen_und_schwesterchen"
 crawledAt: "2026-04-03T09:10:19.279Z"
+wordCount: 2252
 ---
 
 # Brüderchen und Schwesterchen

@@ -3,6 +3,7 @@ title: "Der Teufel mit den drei goldenen Haaren"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/der_teufel_mit_den_drei_goldenen_haaren"
 crawledAt: "2026-04-03T09:09:55.477Z"
+wordCount: 2424
 ---
 
 # Der Teufel mit den drei goldenen Haaren

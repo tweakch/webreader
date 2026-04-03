@@ -3,6 +3,7 @@ title: "Der arme Junge im Grab"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/der_arme_junge_im_grab"
 crawledAt: "2026-04-03T09:16:24.888Z"
+wordCount: 1154
 ---
 
 # Der arme Junge im Grab

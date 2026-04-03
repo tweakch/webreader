@@ -3,6 +3,7 @@ title: "Spindel, Weberschiffchen und Nadel"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/spindel_weberschiffchen_und_nadel"
 crawledAt: "2026-04-03T09:16:30.159Z"
+wordCount: 988
 ---
 
 # Spindel, Weberschiffchen und Nadel

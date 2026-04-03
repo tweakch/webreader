@@ -3,6 +3,7 @@ title: "Die letzte Perle"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/die_letzte_perle"
 crawledAt: "2026-04-03T11:22:42.237Z"
+wordCount: 823
 ---
 
 # Die letzte Perle

@@ -3,6 +3,7 @@ title: "Des Hauswarts Sohn"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/des_hauswarts_sohn"
 crawledAt: "2026-04-03T11:24:26.275Z"
+wordCount: 6199
 ---
 
 # Des Hauswarts Sohn

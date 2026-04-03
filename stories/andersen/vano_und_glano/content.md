@@ -3,6 +3,7 @@ title: "Vänö und Glänö"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/vano_und_glano"
 crawledAt: "2026-04-03T11:24:32.058Z"
+wordCount: 635
 ---
 
 # Vänö und Glänö

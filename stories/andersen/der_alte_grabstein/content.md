@@ -3,6 +3,7 @@ title: "Der alte Grabstein"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/der_alte_grabstein"
 crawledAt: "2026-04-03T11:22:14.397Z"
+wordCount: 1074
 ---
 
 # Der alte Grabstein

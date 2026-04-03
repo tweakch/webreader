@@ -3,6 +3,7 @@ title: "Unter dem Weidenbaum"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/unter_dem_weidenbaum"
 crawledAt: "2026-04-03T11:22:26.713Z"
+wordCount: 5595
 ---
 
 # Unter dem Weidenbaum

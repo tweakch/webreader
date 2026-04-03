@@ -3,6 +3,7 @@ title: "Die alte Bettelfrau"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/die_alte_bettelfrau"
 crawledAt: "2026-04-03T09:15:10.335Z"
+wordCount: 144
 ---
 
 # Die alte Bettelfrau

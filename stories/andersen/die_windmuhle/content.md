@@ -3,6 +3,7 @@ title: "Die Windmühle"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/die_windmuhle"
 crawledAt: "2026-04-03T11:24:19.739Z"
+wordCount: 861
 ---
 
 # Die Windmühle

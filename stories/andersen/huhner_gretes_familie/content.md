@@ -3,6 +3,7 @@ title: "Hühner-Gretes Familie"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/huhner_gretes_familie"
 crawledAt: "2026-04-03T11:24:49.887Z"
+wordCount: 4760
 ---
 
 # Hühner-Gretes Familie

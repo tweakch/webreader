@@ -3,6 +3,7 @@ title: "Das Mädchen ohne Hände"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/das_madchen_ohne_hande"
 crawledAt: "2026-04-03T09:10:53.466Z"
+wordCount: 2177
 ---
 
 # Das Mädchen ohne Hände

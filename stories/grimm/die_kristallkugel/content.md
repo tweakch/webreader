@@ -3,6 +3,7 @@ title: "Die Kristallkugel"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/die_kristallkugel"
 crawledAt: "2026-04-03T09:16:46.571Z"
+wordCount: 970
 ---
 
 # Die Kristallkugel

@@ -3,6 +3,7 @@ title: "Die glückliche Familie"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/die_gluckliche_familie"
 crawledAt: "2026-04-03T11:21:55.284Z"
+wordCount: 1180
 ---
 
 # Die glückliche Familie

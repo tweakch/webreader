@@ -3,6 +3,7 @@ title: "Suppe von einem Wurstspeiler"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/suppe_von_einem_wurstspeiler"
 crawledAt: "2026-04-03T11:23:00.936Z"
+wordCount: 4744
 ---
 
 # Suppe von einem Wurstspeiler

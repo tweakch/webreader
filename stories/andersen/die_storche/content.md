@@ -3,6 +3,7 @@ title: "Die Störche"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/die_storche"
 crawledAt: "2026-04-03T11:21:00.170Z"
+wordCount: 1641
 ---
 
 # Die Störche

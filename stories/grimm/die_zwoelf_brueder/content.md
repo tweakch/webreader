@@ -3,6 +3,7 @@ title: "Die zwölf Brüder"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/die_zwoelf_brueder"
 crawledAt: "2026-04-03T09:10:14.985Z"
+wordCount: 1836
 ---
 
 # Die zwölf Brüder

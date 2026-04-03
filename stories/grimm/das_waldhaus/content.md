@@ -3,6 +3,7 @@ title: "Das Waldhaus"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/das_waldhaus"
 crawledAt: "2026-04-03T09:15:55.079Z"
+wordCount: 1704
 ---
 
 # Das Waldhaus

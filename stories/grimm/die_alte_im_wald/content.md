@@ -3,6 +3,7 @@ title: "Die Alte im Wald"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/die_alte_im_wald"
 crawledAt: "2026-04-03T09:14:21.202Z"
+wordCount: 860
 ---
 
 # Die Alte im Wald

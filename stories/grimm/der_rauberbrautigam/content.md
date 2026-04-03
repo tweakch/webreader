@@ -3,6 +3,7 @@ title: "Der Räuberbräutigam"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/der_rauberbrautigam"
 crawledAt: "2026-04-03T09:11:15.785Z"
+wordCount: 1262
 ---
 
 # Der Räuberbräutigam

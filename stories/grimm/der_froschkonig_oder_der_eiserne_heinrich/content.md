@@ -3,6 +3,7 @@ title: "Der Froschkönig oder der eiserne Heinrich"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/der_froschkonig_oder_der_eiserne_heinrich"
 crawledAt: "2026-04-03T09:09:59.518Z"
+wordCount: 1294
 ---
 
 # Der Froschkönig oder der eiserne Heinrich

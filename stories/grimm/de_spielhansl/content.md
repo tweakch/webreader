@@ -3,6 +3,7 @@ title: "Der Spielhansl"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/de_spielhansl"
 crawledAt: "2026-04-03T09:12:53.649Z"
+wordCount: 993
 ---
 
 # Der Spielhansl

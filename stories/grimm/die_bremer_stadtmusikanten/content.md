@@ -3,6 +3,7 @@ title: "Die Bremer Stadtmusikanten"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/die_bremer_stadtmusikanten"
 crawledAt: "2026-04-03T09:10:48.130Z"
+wordCount: 1172
 ---
 
 # Die Bremer Stadtmusikanten

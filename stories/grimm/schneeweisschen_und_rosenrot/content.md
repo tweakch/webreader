@@ -3,6 +3,7 @@ title: "Schneeweißchen und Rosenrot"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/schneeweisschen_und_rosenrot"
 crawledAt: "2026-04-03T09:15:33.719Z"
+wordCount: 2258
 ---
 
 # Schneeweißchen und Rosenrot

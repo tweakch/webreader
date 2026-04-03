@@ -3,6 +3,7 @@ title: "Ferdinand getreu und Ferdinand ungetreu"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/ferenand_getrue_und_ferenand_ungetrue"
 crawledAt: "2026-04-03T09:14:25.809Z"
+wordCount: 1781
 ---
 
 # Ferdinand getreu und Ferdinand ungetreu

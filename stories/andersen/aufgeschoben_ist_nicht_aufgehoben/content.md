@@ -3,6 +3,7 @@ title: "Aufgeschoben ist nicht aufgehoben"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/aufgeschoben_ist_nicht_aufgehoben"
 crawledAt: "2026-04-03T11:24:25.287Z"
+wordCount: 1024
 ---
 
 # Aufgeschoben ist nicht aufgehoben

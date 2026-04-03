@@ -3,6 +3,7 @@ title: "Die Springer"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/die_springer"
 crawledAt: "2026-04-03T11:21:29.592Z"
+wordCount: 630
 ---
 
 # Die Springer

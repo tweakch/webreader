@@ -3,6 +3,7 @@ title: "Die sieben Raben"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/die_sieben_raben"
 crawledAt: "2026-04-03T09:10:44.038Z"
+wordCount: 833
 ---
 
 # Die sieben Raben

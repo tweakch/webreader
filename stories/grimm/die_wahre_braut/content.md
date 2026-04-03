@@ -3,6 +3,7 @@ title: "Die wahre Braut"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/die_wahre_braut"
 crawledAt: "2026-04-03T09:16:26.372Z"
+wordCount: 2414
 ---
 
 # Die wahre Braut

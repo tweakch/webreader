@@ -3,6 +3,7 @@ title: "Die Galoschen des Glücks"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/die_galoschen_des_glucks"
 crawledAt: "2026-04-03T11:20:44.024Z"
+wordCount: 9191
 ---
 
 # Die Galoschen des Glücks

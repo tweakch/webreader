@@ -3,6 +3,7 @@ title: "Was die Distel erlebte"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/was_die_distel_erlebte"
 crawledAt: "2026-04-03T11:24:52.273Z"
+wordCount: 1266
 ---
 
 # Was die Distel erlebte

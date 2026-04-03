@@ -3,6 +3,7 @@ title: "Das Bürle im Himmel"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/das_buerle_im_himmel"
 crawledAt: "2026-04-03T09:15:51.444Z"
+wordCount: 237
 ---
 
 # Das Bürle im Himmel

@@ -3,6 +3,7 @@ title: "Katze und Maus in Gesellschaft"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/katze_und_maus_in_gesellschaft"
 crawledAt: "2026-04-03T09:10:01.316Z"
+wordCount: 883
 ---
 
 # Katze und Maus in Gesellschaft

@@ -3,6 +3,7 @@ title: "Die Hochzeit der Frau Füchsin"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/die_hochzeir_der_frau_fuechsin"
 crawledAt: "2026-04-03T09:11:12.843Z"
+wordCount: 726
 ---
 
 # Die Hochzeit der Frau Füchsin

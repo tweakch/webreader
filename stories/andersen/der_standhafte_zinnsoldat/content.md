@@ -3,6 +3,7 @@ title: "Der standhafte Zinnsoldat"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/der_standhafte_zinnsoldat"
 crawledAt: "2026-04-03T11:20:47.553Z"
+wordCount: 1551
 ---
 
 # Der standhafte Zinnsoldat

@@ -3,6 +3,7 @@ title: "Der goldene Schlüssel"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/der_goldene_schluessel"
 crawledAt: "2026-04-03T09:16:51.080Z"
+wordCount: 167
 ---
 
 # Der goldene Schlüssel

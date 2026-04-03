@@ -3,6 +3,7 @@ title: "Die wunderliche Gasterei"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/die_wunderliche_gasterei"
 crawledAt: "2026-04-03T09:17:28.347Z"
+wordCount: 322
 ---
 
 # Die wunderliche Gasterei

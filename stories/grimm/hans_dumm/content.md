@@ -3,6 +3,7 @@ title: "Hans Dumm"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/hans_dumm"
 crawledAt: "2026-04-03T09:17:30.466Z"
+wordCount: 586
 ---
 
 # Hans Dumm

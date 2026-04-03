@@ -3,6 +3,7 @@ title: "Großmütterchen"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/grossmutterchen"
 crawledAt: "2026-04-03T11:21:37.327Z"
+wordCount: 652
 ---
 
 # Großmütterchen

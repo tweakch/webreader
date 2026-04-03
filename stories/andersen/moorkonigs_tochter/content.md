@@ -3,6 +3,7 @@ title: "Moorkönigs Tochter"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/moorkonigs_tochter"
 crawledAt: "2026-04-03T11:23:11.008Z"
+wordCount: 13063
 ---
 
 # Moorkönigs Tochter

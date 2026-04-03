@@ -3,6 +3,7 @@ title: "Marienkind"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/marienkind"
 crawledAt: "2026-04-03T09:10:02.801Z"
+wordCount: 1767
 ---
 
 # Marienkind

@@ -3,6 +3,7 @@ title: "Die Hand mit dem Messer"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/die_hand_mit_dem_messer"
 crawledAt: "2026-04-03T09:17:17.333Z"
+wordCount: 261
 ---
 
 # Die Hand mit dem Messer

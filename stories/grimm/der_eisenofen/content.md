@@ -3,6 +3,7 @@ title: "Der Eisenofen"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/der_eisenofen"
 crawledAt: "2026-04-03T09:14:27.061Z"
+wordCount: 1975
 ---
 
 # Der Eisenofen

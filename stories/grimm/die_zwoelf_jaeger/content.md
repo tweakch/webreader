@@ -3,6 +3,7 @@ title: "Die zwölf Jäger"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/die_zwoelf_jaeger"
 crawledAt: "2026-04-03T09:12:02.902Z"
+wordCount: 1012
 ---
 
 # Die zwölf Jäger

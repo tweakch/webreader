@@ -3,6 +3,7 @@ title: "Das blaue Licht"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/das_blaue_licht"
 crawledAt: "2026-04-03T09:14:07.162Z"
+wordCount: 1595
 ---
 
 # Das blaue Licht

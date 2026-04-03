@@ -3,6 +3,7 @@ title: "Die drei Brüder"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/die_drei_brueder"
 crawledAt: "2026-04-03T09:14:22.735Z"
+wordCount: 612
 ---
 
 # Die drei Brüder

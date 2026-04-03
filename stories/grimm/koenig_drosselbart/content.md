@@ -3,6 +3,7 @@ title: "König Drosselbart"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/koenig_drosselbart"
 crawledAt: "2026-04-03T09:11:36.697Z"
+wordCount: 1533
 ---
 
 # König Drosselbart

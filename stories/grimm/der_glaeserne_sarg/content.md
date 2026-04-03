@@ -3,6 +3,7 @@ title: "Der gläserne Sarg"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/der_glaeserne_sarg"
 crawledAt: "2026-04-03T09:15:46.029Z"
+wordCount: 2130
 ---
 
 # Der gläserne Sarg

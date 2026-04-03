@@ -3,6 +3,7 @@ title: "Der Frieder und das Katherlieschen"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/der_frieder_und_das_katherlieschen"
 crawledAt: "2026-04-03T09:11:48.739Z"
+wordCount: 2294
 ---
 
 # Der Frieder und das Katherlieschen

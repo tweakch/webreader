@@ -3,6 +3,7 @@ title: "Der gute Handel"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/der_gute_handel"
 crawledAt: "2026-04-03T09:10:11.369Z"
+wordCount: 1545
 ---
 
 # Der gute Handel

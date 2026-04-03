@@ -3,6 +3,7 @@ title: "Das kluge Gretel"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/das_kluge_grethel"
 crawledAt: "2026-04-03T09:12:39.391Z"
+wordCount: 870
 ---
 
 # Das kluge Gretel

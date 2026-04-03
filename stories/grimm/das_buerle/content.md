@@ -3,6 +3,7 @@ title: "Das Bürle"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/das_buerle"
 crawledAt: "2026-04-03T09:11:52.107Z"
+wordCount: 1797
 ---
 
 # Das Bürle

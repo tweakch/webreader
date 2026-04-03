@@ -3,6 +3,7 @@ title: "Die kluge Bauerntochter"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/die_kluge_bauerntochter"
 crawledAt: "2026-04-03T09:13:24.525Z"
+wordCount: 1296
 ---
 
 # Die kluge Bauerntochter

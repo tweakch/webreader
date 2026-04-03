@@ -3,6 +3,7 @@ title: "Sonnenschein-Geschichten"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/sonnenschein_geschichten"
 crawledAt: "2026-04-03T11:24:48.444Z"
+wordCount: 997
 ---
 
 # Sonnenschein-Geschichten

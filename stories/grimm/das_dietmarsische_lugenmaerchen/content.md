@@ -3,6 +3,7 @@ title: "Das Dietmarsische Lügenmärchen"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/das_dietmarsische_lugenmaerchen"
 crawledAt: "2026-04-03T09:15:29.964Z"
+wordCount: 184
 ---
 
 # Das Dietmarsische Lügenmärchen

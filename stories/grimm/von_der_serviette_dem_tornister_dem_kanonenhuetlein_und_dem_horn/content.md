@@ -3,6 +3,7 @@ title: "Von der Serviette, dem Tornister, dem Kanonenhütlein und dem Horn"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/von_der_serviette_dem_tornister_dem_kanonenhuetlein_und_dem_horn"
 crawledAt: "2026-04-03T09:17:25.787Z"
+wordCount: 972
 ---
 
 # Von der Serviette, dem Tornister, dem Kanonenhütlein und dem Horn

@@ -3,6 +3,7 @@ title: "Der Haustürschlüssel"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/der_hausturschlussel"
 crawledAt: "2026-04-03T11:25:17.145Z"
+wordCount: 3875
 ---
 
 # Der Haustürschlüssel

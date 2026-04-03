@@ -3,6 +3,7 @@ title: "Der Vogel des Volkslieds"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/der_vogel_des_volkslieds"
 crawledAt: "2026-04-03T11:24:16.218Z"
+wordCount: 1048
 ---
 
 # Der Vogel des Volkslieds

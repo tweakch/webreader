@@ -3,6 +3,7 @@ title: "Die drei Sprachen"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/die_drei_sprachen"
 crawledAt: "2026-04-03T09:10:57.102Z"
+wordCount: 871
 ---
 
 # Die drei Sprachen

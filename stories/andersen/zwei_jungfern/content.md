@@ -3,6 +3,7 @@ title: "Zwei Jungfern"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/zwei_jungfern"
 crawledAt: "2026-04-03T11:22:35.165Z"
+wordCount: 577
 ---
 
 # Zwei Jungfern

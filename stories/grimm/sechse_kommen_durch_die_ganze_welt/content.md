@@ -3,6 +3,7 @@ title: "Sechse kommen durch die ganze Welt"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/sechse_kommen_durch_die_ganze_welt"
 crawledAt: "2026-04-03T09:12:10.512Z"
+wordCount: 1881
 ---
 
 # Sechse kommen durch die ganze Welt

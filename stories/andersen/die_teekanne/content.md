@@ -3,6 +3,7 @@ title: "Die Teekanne"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/die_teekanne"
 crawledAt: "2026-04-03T11:24:13.933Z"
+wordCount: 583
 ---
 
 # Die Teekanne

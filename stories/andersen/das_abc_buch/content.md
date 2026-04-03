@@ -3,6 +3,7 @@ title: "Das ABC Buch"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/das_abc_buch"
 crawledAt: "2026-04-03T11:23:09.143Z"
+wordCount: 1135
 ---
 
 # Das ABC Buch

@@ -3,6 +3,7 @@ title: "Das Lumpengesindel"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/das_lumpengesindel"
 crawledAt: "2026-04-03T09:10:17.031Z"
+wordCount: 724
 ---
 
 # Das Lumpengesindel

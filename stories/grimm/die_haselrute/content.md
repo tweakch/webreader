@@ -3,6 +3,7 @@ title: "Die Haselrute"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/die_haselrute"
 crawledAt: "2026-04-03T09:17:14.733Z"
+wordCount: 189
 ---
 
 # Die Haselrute

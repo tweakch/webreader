@@ -3,6 +3,7 @@ title: "Das Hirtenbüblein"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/das_hirtenbueblein"
 crawledAt: "2026-04-03T09:15:15.278Z"
+wordCount: 313
 ---
 
 # Das Hirtenbüblein

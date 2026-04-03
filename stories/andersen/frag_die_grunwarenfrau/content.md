@@ -3,6 +3,7 @@ title: "Frag die Grünwarenfrau!"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/frag_die_grunwarenfrau"
 crawledAt: "2026-04-03T11:25:08.129Z"
+wordCount: 225
 ---
 
 # Frag die Grünwarenfrau!

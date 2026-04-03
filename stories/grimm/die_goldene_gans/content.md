@@ -3,6 +3,7 @@ title: "Die goldene Gans"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/die_goldene_gans"
 crawledAt: "2026-04-03T09:11:56.962Z"
+wordCount: 1441
 ---
 
 # Die goldene Gans

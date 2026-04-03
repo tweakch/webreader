@@ -3,6 +3,7 @@ title: "Von einem, der auszog, das Fürchten zu lernen"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/marchen_von_einem_der_auszog_das_furchten_zu_lernen"
 crawledAt: "2026-04-03T09:10:05.304Z"
+wordCount: 3436
 ---
 
 # Von einem, der auszog, das Fürchten zu lernen

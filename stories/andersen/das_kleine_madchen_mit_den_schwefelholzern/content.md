@@ -3,6 +3,7 @@ title: "Das kleine Mädchen mit den Schwefelhölzern"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/das_kleine_madchen_mit_den_schwefelholzern"
 crawledAt: "2026-04-03T11:21:41.096Z"
+wordCount: 924
 ---
 
 # Das kleine Mädchen mit den Schwefelhölzern

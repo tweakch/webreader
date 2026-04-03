@@ -3,6 +3,7 @@ title: "Der Königssohn, der sich vor nichts fürchtet"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/der_koenigssohn_der_sich_vor_nichts_fuerchtet"
 crawledAt: "2026-04-03T09:14:17.312Z"
+wordCount: 1934
 ---
 
 # Der Königssohn, der sich vor nichts fürchtet

@@ -3,6 +3,7 @@ title: "Der Stein der Weisen"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/der_stein_der_weisen"
 crawledAt: "2026-04-03T11:23:14.571Z"
+wordCount: 5649
 ---
 
 # Der Stein der Weisen

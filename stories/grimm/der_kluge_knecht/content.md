@@ -3,6 +3,7 @@ title: "Der kluge Knecht"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/der_kluge_knecht"
 crawledAt: "2026-04-03T09:15:44.100Z"
+wordCount: 234
 ---
 
 # Der kluge Knecht

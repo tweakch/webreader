@@ -3,6 +3,7 @@ title: "Die drei schwarzen Prinzessinnen"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/de_drei_schwatten_prinzessinnen"
 crawledAt: "2026-04-03T09:14:43.303Z"
+wordCount: 660
 ---
 
 # Die drei schwarzen Prinzessinnen

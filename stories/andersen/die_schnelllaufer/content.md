@@ -3,6 +3,7 @@ title: "Die Schnellläufer"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/die_schnelllaufer"
 crawledAt: "2026-04-03T11:23:12.604Z"
+wordCount: 1069
 ---
 
 # Die Schnellläufer

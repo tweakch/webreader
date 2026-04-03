@@ -3,6 +3,7 @@ title: "Der Halskragen"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/der_halskragen"
 crawledAt: "2026-04-03T11:21:58.838Z"
+wordCount: 805
 ---
 
 # Der Halskragen

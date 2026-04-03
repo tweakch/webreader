@@ -3,6 +3,7 @@ title: "Zwei Brüder"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/zwei_bruder"
 crawledAt: "2026-04-03T11:23:35.693Z"
+wordCount: 665
 ---
 
 # Zwei Brüder

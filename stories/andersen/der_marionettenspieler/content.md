@@ -3,6 +3,7 @@ title: "Der Marionettenspieler"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/der_marionettenspieler"
 crawledAt: "2026-04-03T11:24:40.343Z"
+wordCount: 1434
 ---
 
 # Der Marionettenspieler

@@ -3,6 +3,7 @@ title: "Der Sturm zieht mit den Schildern um"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/der_sturm_zieht_mit_den_schildern_um"
 crawledAt: "2026-04-03T11:24:23.363Z"
+wordCount: 1453
 ---
 
 # Der Sturm zieht mit den Schildern um

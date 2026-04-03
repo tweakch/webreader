@@ -3,6 +3,7 @@ title: "Zwölf mit der Post"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/zwolf_mit_der_post"
 crawledAt: "2026-04-03T11:23:42.349Z"
+wordCount: 1408
 ---
 
 # Zwölf mit der Post

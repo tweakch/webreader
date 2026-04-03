@@ -3,6 +3,7 @@ title: "Die Rübe"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/die_ruebe"
 crawledAt: "2026-04-03T09:15:01.856Z"
+wordCount: 995
 ---
 
 # Die Rübe

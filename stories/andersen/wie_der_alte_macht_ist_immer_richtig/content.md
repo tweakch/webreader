@@ -3,6 +3,7 @@ title: "Wie's der Alte macht, ist's immer richtig"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/wie_der_alte_macht_ist_immer_richtig"
 crawledAt: "2026-04-03T11:23:47.131Z"
+wordCount: 1863
 ---
 
 # Wie's der Alte macht, ist's immer richtig

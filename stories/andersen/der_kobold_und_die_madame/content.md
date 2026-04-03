@@ -3,6 +3,7 @@ title: "Der Kobold und die Madame"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/der_kobold_und_die_madame"
 crawledAt: "2026-04-03T11:24:34.671Z"
+wordCount: 1529
 ---
 
 # Der Kobold und die Madame

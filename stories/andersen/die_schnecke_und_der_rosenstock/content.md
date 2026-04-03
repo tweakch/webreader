@@ -3,6 +3,7 @@ title: "Die Schnecke und der Rosenstock"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/die_schnecke_und_der_rosenstock"
 crawledAt: "2026-04-03T11:23:57.681Z"
+wordCount: 790
 ---
 
 # Die Schnecke und der Rosenstock

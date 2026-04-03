@@ -3,6 +3,7 @@ title: "Der Schneider im Himmel"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/der_schneider_im_himmel"
 crawledAt: "2026-04-03T09:11:00.223Z"
+wordCount: 714
 ---
 
 # Der Schneider im Himmel

@@ -3,6 +3,7 @@ title: "Hurleburlebutz"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/hurleburlebutz"
 crawledAt: "2026-04-03T09:17:33.423Z"
+wordCount: 837
 ---
 
 # Hurleburlebutz

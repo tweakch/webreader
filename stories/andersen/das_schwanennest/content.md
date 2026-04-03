@@ -3,6 +3,7 @@ title: "Das Schwanennest"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/das_schwanennest"
 crawledAt: "2026-04-03T11:22:11.815Z"
+wordCount: 474
 ---
 
 # Das Schwanennest

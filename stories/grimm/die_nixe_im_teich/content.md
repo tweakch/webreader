@@ -3,6 +3,7 @@ title: "Die Nixe im Teich"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/die_nixe_im_teich"
 crawledAt: "2026-04-03T09:16:17.473Z"
+wordCount: 2024
 ---
 
 # Die Nixe im Teich

@@ -3,6 +3,7 @@ title: "Die kleine Seejungfer"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/die_kleine_seejungfer"
 crawledAt: "2026-04-03T11:20:40.102Z"
+wordCount: 8444
 ---
 
 # Die kleine Seejungfer

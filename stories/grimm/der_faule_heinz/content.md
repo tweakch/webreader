@@ -3,6 +3,7 @@ title: "Der faule Heinz"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/der_faule_heinz"
 crawledAt: "2026-04-03T09:15:47.519Z"
+wordCount: 903
 ---
 
 # Der faule Heinz

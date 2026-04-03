@@ -3,6 +3,7 @@ title: "Die Goldkinder"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/die_goldkinder"
 crawledAt: "2026-04-03T09:12:59.830Z"
+wordCount: 1779
 ---
 
 # Die Goldkinder

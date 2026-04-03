@@ -3,6 +3,7 @@ title: "Der liebste Roland"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/der_liebste_roland"
 crawledAt: "2026-04-03T09:11:43.300Z"
+wordCount: 1350
 ---
 
 # Der liebste Roland

@@ -3,6 +3,7 @@ title: "Die Glocke"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/die_glocke"
 crawledAt: "2026-04-03T11:21:35.441Z"
+wordCount: 1830
 ---
 
 # Die Glocke

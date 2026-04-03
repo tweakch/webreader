@@ -3,6 +3,7 @@ title: "Der Schmetterling"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/der_schmetterling"
 crawledAt: "2026-04-03T11:23:38.912Z"
+wordCount: 858
 ---
 
 # Der Schmetterling

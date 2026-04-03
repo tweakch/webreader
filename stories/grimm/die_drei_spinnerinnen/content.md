@@ -3,6 +3,7 @@ title: "Die drei Spinnerinnen"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/die_drei_spinnerinnen"
 crawledAt: "2026-04-03T09:10:25.428Z"
+wordCount: 813
 ---
 
 # Die drei Spinnerinnen

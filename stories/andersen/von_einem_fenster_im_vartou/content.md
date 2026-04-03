@@ -3,6 +3,7 @@ title: "Von einem Fenster im Vartou"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/von_einem_fenster_im_vartou"
 crawledAt: "2026-04-03T11:21:42.036Z"
+wordCount: 489
 ---
 
 # Von einem Fenster im Vartou

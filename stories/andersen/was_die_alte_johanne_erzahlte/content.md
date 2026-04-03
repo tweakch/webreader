@@ -3,6 +3,7 @@ title: "Was die alte Johanne erzählte"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/was_die_alte_johanne_erzahlte"
 crawledAt: "2026-04-03T11:25:14.579Z"
+wordCount: 5075
 ---
 
 # Was die alte Johanne erzählte

@@ -3,6 +3,7 @@ title: "Fliedermütterchen"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/fliedermutterchen"
 crawledAt: "2026-04-03T11:21:23.783Z"
+wordCount: 2699
 ---
 
 # Fliedermütterchen

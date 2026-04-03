@@ -3,6 +3,7 @@ title: "Der Mistkäfer"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/der_mistkafer"
 crawledAt: "2026-04-03T11:23:44.918Z"
+wordCount: 2659
 ---
 
 # Der Mistkäfer

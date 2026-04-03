@@ -3,6 +3,7 @@ title: "Die Geschichte von einer Mutter"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/die_geschichte_von_einer_mutter"
 crawledAt: "2026-04-03T11:21:57.910Z"
+wordCount: 1965
 ---
 
 # Die Geschichte von einer Mutter

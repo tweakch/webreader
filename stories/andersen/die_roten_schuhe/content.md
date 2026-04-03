@@ -3,6 +3,7 @@ title: "Die roten Schuhe"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/die_roten_schuhe"
 crawledAt: "2026-04-03T11:21:27.816Z"
+wordCount: 2210
 ---
 
 # Die roten Schuhe

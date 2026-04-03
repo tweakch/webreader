@@ -3,6 +3,7 @@ title: "Die Nachbarfamilien"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/die_nachbarfamilien"
 crawledAt: "2026-04-03T11:21:47.476Z"
+wordCount: 3648
 ---
 
 # Die Nachbarfamilien

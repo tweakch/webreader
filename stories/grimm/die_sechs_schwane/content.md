@@ -3,6 +3,7 @@ title: "Die sechs Schwäne"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/die_sechs_schwane"
 crawledAt: "2026-04-03T09:11:30.738Z"
+wordCount: 1841
 ---
 
 # Die sechs Schwäne

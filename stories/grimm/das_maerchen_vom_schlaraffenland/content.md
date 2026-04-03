@@ -3,6 +3,7 @@ title: "Das Märchen vom Schlaraffenland"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/das_maerchen_vom_schlaraffenland"
 crawledAt: "2026-04-03T09:15:27.477Z"
+wordCount: 305
 ---
 
 # Das Märchen vom Schlaraffenland

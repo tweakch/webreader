@@ -3,6 +3,7 @@ title: "Von dem Machandelboom"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/von_dem_machandelbaum"
 crawledAt: "2026-04-03T09:11:28.698Z"
+wordCount: 3078
 ---
 
 # Von dem Machandelboom

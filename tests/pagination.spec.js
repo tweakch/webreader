@@ -121,10 +121,20 @@ async function assertDeadSpaceWithinOneLine(page, isLastPage) {
   const lastParaBox = await paragraphs.nth(count - 1).boundingBox();
   if (!lastParaBox) return;
 
+  // Subtract structural spacing (bottom padding of the reading area + last paragraph's
+  // margin-bottom) so we only measure the actual unused content space, not CSS chrome.
+  const bottomPadding = await page.locator('[data-testid="page-content"]').evaluate(el =>
+    parseFloat(window.getComputedStyle(el).paddingBottom)
+  );
+  const lastParaMargin = await paragraphs.nth(count - 1).evaluate(el =>
+    parseFloat(window.getComputedStyle(el).marginBottom)
+  );
+
   const deadSpace = navBox.y - (lastParaBox.y + lastParaBox.height);
+  const contentDeadSpace = deadSpace - bottomPadding - lastParaMargin;
   expect(
-    deadSpace,
-    `dead space below last paragraph (${deadSpace.toFixed(1)}px) exceeds one line height (${lineHeight.toFixed(1)}px at fontSize ${fontSize})`,
+    contentDeadSpace,
+    `dead space below last paragraph (${contentDeadSpace.toFixed(1)}px content + ${bottomPadding}px padding + ${lastParaMargin}px margin) exceeds one line height (${lineHeight.toFixed(1)}px at fontSize ${fontSize})`,
   ).toBeLessThanOrEqual(lineHeight + 4); // +4px tolerance for subpixel rounding
 }
 

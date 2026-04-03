@@ -3,6 +3,7 @@ title: "Die kluge Else"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/die_kluge_else"
 crawledAt: "2026-04-03T09:10:58.180Z"
+wordCount: 1281
 ---
 
 # Die kluge Else

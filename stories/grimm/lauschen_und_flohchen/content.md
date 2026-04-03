@@ -3,6 +3,7 @@ title: "Läuschen und Flöhchen"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/lauschen_und_flohchen"
 crawledAt: "2026-04-03T09:10:50.897Z"
+wordCount: 352
 ---
 
 # Läuschen und Flöhchen

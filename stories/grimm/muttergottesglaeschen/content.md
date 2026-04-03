@@ -3,6 +3,7 @@ title: "Muttergottesgläschen"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/muttergottesglaeschen"
 crawledAt: "2026-04-03T09:17:03.380Z"
+wordCount: 139
 ---
 
 # Muttergottesgläschen

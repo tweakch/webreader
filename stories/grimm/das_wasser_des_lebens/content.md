@@ -3,6 +3,7 @@ title: "Das Wasser des Lebens"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/das_wasser_des_lebens"
 crawledAt: "2026-04-03T09:13:30.812Z"
+wordCount: 2084
 ---
 
 # Das Wasser des Lebens

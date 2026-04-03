@@ -3,6 +3,7 @@ title: "Das Mädchen, das auf das Brot trat"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/das_madchen_das_auf_das_brot_trad"
 crawledAt: "2026-04-03T11:23:18.532Z"
+wordCount: 3092
 ---
 
 # Das Mädchen, das auf das Brot trat

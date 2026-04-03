@@ -3,6 +3,7 @@ title: "Hänsel und Gretel"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/hansel_und_gretel"
 crawledAt: "2026-04-03T09:10:26.547Z"
+wordCount: 2667
 ---
 
 # Hänsel und Gretel

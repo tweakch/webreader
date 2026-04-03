@@ -3,6 +3,7 @@ title: "Der gestiefelte Kater"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/der_gestiefelte_kater"
 crawledAt: "2026-04-03T09:17:15.889Z"
+wordCount: 1639
 ---
 
 # Der gestiefelte Kater

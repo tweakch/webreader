@@ -3,6 +3,7 @@ title: "Die weiße und die schwarze Braut"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/die_weisse_und_die_schwarze_braut"
 crawledAt: "2026-04-03T09:14:39.202Z"
+wordCount: 1369
 ---
 
 # Die weiße und die schwarze Braut

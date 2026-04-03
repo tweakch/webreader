@@ -3,6 +3,7 @@ title: "Alles am rechten Platz"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/alles_am_rechten_platz"
 crawledAt: "2026-04-03T11:22:23.471Z"
+wordCount: 2959
 ---
 
 # Alles am rechten Platz

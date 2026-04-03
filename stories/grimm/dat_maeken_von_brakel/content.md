@@ -3,6 +3,7 @@ title: "Das Mädchen von Brakel"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/dat_maeken_von_brakel"
 crawledAt: "2026-04-03T09:14:47.486Z"
+wordCount: 124
 ---
 
 # Das Mädchen von Brakel

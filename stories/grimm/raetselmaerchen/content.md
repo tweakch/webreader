@@ -3,6 +3,7 @@ title: "Rätselmärchen"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/raetselmaerchen"
 crawledAt: "2026-04-03T09:15:31.118Z"
+wordCount: 122
 ---
 
 # Rätselmärchen

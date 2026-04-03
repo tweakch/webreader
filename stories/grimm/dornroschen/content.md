@@ -3,6 +3,7 @@ title: "Dornröschen"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/dornroschen"
 crawledAt: "2026-04-03T09:11:32.848Z"
+wordCount: 1213
 ---
 
 # Dornröschen

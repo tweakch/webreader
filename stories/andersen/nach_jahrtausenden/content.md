@@ -3,6 +3,7 @@ title: "Nach Jahrtausenden"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/nach_jahrtausenden"
 crawledAt: "2026-04-03T11:22:09.613Z"
+wordCount: 635
 ---
 
 # Nach Jahrtausenden

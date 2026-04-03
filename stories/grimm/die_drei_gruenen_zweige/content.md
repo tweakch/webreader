@@ -3,6 +3,7 @@ title: "Die drei grünen Zweige"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/die_drei_gruenen_zweige"
 crawledAt: "2026-04-03T09:17:02.393Z"
+wordCount: 877
 ---
 
 # Die drei grünen Zweige

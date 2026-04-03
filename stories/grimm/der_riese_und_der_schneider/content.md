@@ -3,6 +3,7 @@ title: "Der Riese und der Schneider"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/der_riese_und_der_schneider"
 crawledAt: "2026-04-03T09:16:21.029Z"
+wordCount: 680
 ---
 
 # Der Riese und der Schneider

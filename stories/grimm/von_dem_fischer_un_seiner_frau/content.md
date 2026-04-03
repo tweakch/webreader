@@ -3,6 +3,7 @@ title: "Von dem Fischer und seiner Frau"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/von_dem_fischer_un_seiner_frau"
 crawledAt: "2026-04-03T09:10:34.360Z"
+wordCount: 3014
 ---
 
 # Von dem Fischer und seiner Frau

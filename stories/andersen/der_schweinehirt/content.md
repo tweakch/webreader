@@ -3,6 +3,7 @@ title: "Der Schweinehirt"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/der_schweinehirt"
 crawledAt: "2026-04-03T11:21:08.892Z"
+wordCount: 1385
 ---
 
 # Der Schweinehirt

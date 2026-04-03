@@ -3,6 +3,7 @@ title: "Der Zaunkönig und der Bär"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/der_zaunkoenig_und_der_baer"
 crawledAt: "2026-04-03T09:13:38.915Z"
+wordCount: 854
 ---
 
 # Der Zaunkönig und der Bär

@@ -3,6 +3,7 @@ title: "Hofhahn und Wetterhahn"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/hofhahn_und_wetterhahn"
 crawledAt: "2026-04-03T11:23:30.462Z"
+wordCount: 817
 ---
 
 # Hofhahn und Wetterhahn

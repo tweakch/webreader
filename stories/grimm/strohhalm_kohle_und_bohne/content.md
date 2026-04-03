@@ -3,6 +3,7 @@ title: "Strohhalm, Kohle und Bohne"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/strohhalm_kohle_und_bohne"
 crawledAt: "2026-04-03T09:10:32.938Z"
+wordCount: 485
 ---
 
 # Strohhalm, Kohle und Bohne

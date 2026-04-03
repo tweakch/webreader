@@ -3,6 +3,7 @@ title: "Der Krüppel"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/der_kruppel"
 crawledAt: "2026-04-03T11:25:19.471Z"
+wordCount: 3178
 ---
 
 # Der Krüppel

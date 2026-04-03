@@ -3,6 +3,7 @@ title: "Vogel Phönix"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/vogel_phonix"
 crawledAt: "2026-04-03T11:22:03.269Z"
+wordCount: 439
 ---
 
 # Vogel Phönix

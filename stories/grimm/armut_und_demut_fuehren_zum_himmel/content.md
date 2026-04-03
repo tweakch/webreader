@@ -3,6 +3,7 @@ title: "Armut und Demut führen zum Himmel"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/armut_und_demut_fuehren_zum_himmel"
 crawledAt: "2026-04-03T09:16:58.675Z"
+wordCount: 451
 ---
 
 # Armut und Demut führen zum Himmel

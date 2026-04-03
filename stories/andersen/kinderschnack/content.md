@@ -3,6 +3,7 @@ title: "Kinderschnack"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/kinderschnack"
 crawledAt: "2026-04-03T11:23:25.251Z"
+wordCount: 754
 ---
 
 # Kinderschnack

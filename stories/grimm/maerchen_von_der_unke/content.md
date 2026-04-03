@@ -3,6 +3,7 @@ title: "Märchen von der Unke"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/maerchen_von_der_unke"
 crawledAt: "2026-04-03T09:13:43.743Z"
+wordCount: 450
 ---
 
 # Märchen von der Unke

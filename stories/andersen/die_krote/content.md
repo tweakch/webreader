@@ -3,6 +3,7 @@ title: "Die Kröte"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/die_krote"
 crawledAt: "2026-04-03T11:24:29.778Z"
+wordCount: 2496
 ---
 
 # Die Kröte

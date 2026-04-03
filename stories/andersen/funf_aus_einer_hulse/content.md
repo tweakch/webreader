@@ -3,6 +3,7 @@ title: "Fünf aus einer Hülse"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/funf_aus_einer_hulse"
 crawledAt: "2026-04-03T11:22:32.024Z"
+wordCount: 1156
 ---
 
 # Fünf aus einer Hülse

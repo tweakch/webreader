@@ -3,6 +3,7 @@ title: "Tölpel-Hans"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/tolpel_hans"
 crawledAt: "2026-04-03T11:22:49.681Z"
+wordCount: 1387
 ---
 
 # Tölpel-Hans

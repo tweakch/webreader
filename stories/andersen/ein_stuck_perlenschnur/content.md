@@ -3,6 +3,7 @@ title: "Ein Stück Perlenschnur"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/ein_stuck_perlenschnur"
 crawledAt: "2026-04-03T11:22:57.041Z"
+wordCount: 2132
 ---
 
 # Ein Stück Perlenschnur

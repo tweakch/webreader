@@ -3,6 +3,7 @@ title: "Das singende, springende Löweneckerchen"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/das_singende_springende_loeweneckerchen"
 crawledAt: "2026-04-03T09:13:05.220Z"
+wordCount: 2170
 ---
 
 # Das singende, springende Löweneckerchen

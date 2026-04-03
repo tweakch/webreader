@@ -3,6 +3,7 @@ title: "Die zwölf Apostel"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/die_zwoelf_apostel"
 crawledAt: "2026-04-03T09:16:55.174Z"
+wordCount: 365
 ---
 
 # Die zwölf Apostel

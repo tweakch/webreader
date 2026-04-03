@@ -3,6 +3,7 @@ title: "Der Rosenelf"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/der_rosenelf"
 crawledAt: "2026-04-03T11:20:50.834Z"
+wordCount: 1809
 ---
 
 # Der Rosenelf

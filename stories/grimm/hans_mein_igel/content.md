@@ -3,6 +3,7 @@ title: "Hans mein Igel"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/hans_mein_igel"
 crawledAt: "2026-04-03T09:13:49.432Z"
+wordCount: 1905
 ---
 
 # Hans mein Igel

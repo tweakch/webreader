@@ -3,6 +3,7 @@ title: "Der kleine Klaus und der große Klaus"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/der_kleine_klaus_und_der_grosse_klaus"
 crawledAt: "2026-04-03T11:20:29.461Z"
+wordCount: 4300
 ---
 
 # Der kleine Klaus und der große Klaus

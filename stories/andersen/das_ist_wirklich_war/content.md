@@ -3,6 +3,7 @@ title: "Das ist wirklich wahr"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/das_ist_wirklich_war"
 crawledAt: "2026-04-03T11:22:19.008Z"
+wordCount: 797
 ---
 
 # Das ist wirklich wahr

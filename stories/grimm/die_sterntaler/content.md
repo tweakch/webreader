@@ -3,6 +3,7 @@ title: "Die Sterntaler"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/die_sterntaler"
 crawledAt: "2026-04-03T09:15:17.880Z"
+wordCount: 299
 ---
 
 # Die Sterntaler

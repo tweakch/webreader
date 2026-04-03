@@ -3,6 +3,7 @@ title: "Die Kornähre"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/die_kornaehre"
 crawledAt: "2026-04-03T09:16:40.808Z"
+wordCount: 208
 ---
 
 # Die Kornähre

@@ -3,6 +3,7 @@ title: "Der Fuchs und die Gänse"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/der_fuchs_und_die_ganse"
 crawledAt: "2026-04-03T09:13:01.349Z"
+wordCount: 213
 ---
 
 # Der Fuchs und die Gänse

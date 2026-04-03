@@ -3,6 +3,7 @@ title: "Die himmlische Hochzeit"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/die_himmlische_hochzeit"
 crawledAt: "2026-04-03T09:17:13.507Z"
+wordCount: 482
 ---
 
 # Die himmlische Hochzeit

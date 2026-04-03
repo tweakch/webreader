@@ -3,6 +3,7 @@ title: "Das alte Haus"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/das_alte_haus"
 crawledAt: "2026-04-03T11:21:51.355Z"
+wordCount: 2846
 ---
 
 # Das alte Haus

@@ -3,6 +3,7 @@ title: "Die Wichtelmänner"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/die_wichtelmaenner"
 crawledAt: "2026-04-03T09:11:14.233Z"
+wordCount: 1068
 ---
 
 # Die Wichtelmänner

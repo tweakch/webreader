@@ -3,6 +3,7 @@ title: "Der undankbare Sohn"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/der_undankbare_sohn"
 crawledAt: "2026-04-03T09:15:00.241Z"
+wordCount: 150
 ---
 
 # Der undankbare Sohn

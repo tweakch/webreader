@@ -3,6 +3,7 @@ title: "Der Trommler"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/der_trommler"
 crawledAt: "2026-04-03T09:16:38.570Z"
+wordCount: 3483
 ---
 
 # Der Trommler

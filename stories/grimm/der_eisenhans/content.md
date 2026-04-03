@@ -3,6 +3,7 @@ title: "Der Eisenhans"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/der_eisenhans"
 crawledAt: "2026-04-03T09:14:41.621Z"
+wordCount: 2954
 ---
 
 # Der Eisenhans

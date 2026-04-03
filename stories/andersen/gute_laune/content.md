@@ -3,6 +3,7 @@ title: "Gute Laune"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/gute_laune"
 crawledAt: "2026-04-03T11:22:20.603Z"
+wordCount: 1453
 ---
 
 # Gute Laune

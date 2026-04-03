@@ -3,6 +3,7 @@ title: "Der Fuchs und das Pferd"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/der_fuchs_und_das_pferd"
 crawledAt: "2026-04-03T09:14:34.524Z"
+wordCount: 463
 ---
 
 # Der Fuchs und das Pferd

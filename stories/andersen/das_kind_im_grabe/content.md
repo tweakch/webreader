@@ -3,6 +3,7 @@ title: "Das Kind im Grabe"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/das_kind_im_grabe"
 crawledAt: "2026-04-03T11:23:27.069Z"
+wordCount: 1653
 ---
 
 # Das Kind im Grabe

@@ -3,6 +3,7 @@ title: "Rapunzel"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/rapunzel"
 crawledAt: "2026-04-03T09:10:21.776Z"
+wordCount: 1330
 ---
 
 # Rapunzel

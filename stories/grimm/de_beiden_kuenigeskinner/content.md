@@ -3,6 +3,7 @@ title: "Die beiden Königskinder"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/de_beiden_kuenigeskinner"
 crawledAt: "2026-04-03T09:14:03.445Z"
+wordCount: 2967
 ---
 
 # Die beiden Königskinder

@@ -3,6 +3,7 @@ title: "Die ungleichen Kinder Evas"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/die_ungleichen_kinder_evas"
 crawledAt: "2026-04-03T09:16:15.463Z"
+wordCount: 639
 ---
 
 # Die ungleichen Kinder Evas

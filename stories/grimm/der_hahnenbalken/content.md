@@ -3,6 +3,7 @@ title: "Der Hahnenbalken"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/der_hahnenbalken"
 crawledAt: "2026-04-03T09:15:08.272Z"
+wordCount: 251
 ---
 
 # Der Hahnenbalken

@@ -3,6 +3,7 @@ title: "Fundevogel"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/fundevogel"
 crawledAt: "2026-04-03T09:11:35.190Z"
+wordCount: 880
 ---
 
 # Fundevogel

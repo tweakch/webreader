@@ -3,6 +3,7 @@ title: "Der gelernte Jäger"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/der_gelernte_jaeger"
 crawledAt: "2026-04-03T09:13:58.444Z"
+wordCount: 2088
 ---
 
 # Der gelernte Jäger

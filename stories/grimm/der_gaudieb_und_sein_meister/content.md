@@ -3,6 +3,7 @@ title: "Der Gaudieb und sein Meister"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/der_gaudieb_und_sein_meister"
 crawledAt: "2026-04-03T09:12:04.731Z"
+wordCount: 773
 ---
 
 # Der Gaudieb und sein Meister

@@ -3,6 +3,7 @@ title: "Hans heiratet"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/hans_heiratet"
 crawledAt: "2026-04-03T09:12:58.688Z"
+wordCount: 418
 ---
 
 # Hans heiratet

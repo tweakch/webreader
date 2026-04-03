@@ -3,6 +3,7 @@ title: "Der Flaschenhals"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/der_flaschenhals"
 crawledAt: "2026-04-03T11:22:59.358Z"
+wordCount: 3698
 ---
 
 # Der Flaschenhals

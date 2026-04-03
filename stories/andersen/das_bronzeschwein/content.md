@@ -3,6 +3,7 @@ title: "Das Bronzeschwein"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/das_bronzeschwein"
 crawledAt: "2026-04-03T11:24:02.411Z"
+wordCount: 4044
 ---
 
 # Das Bronzeschwein

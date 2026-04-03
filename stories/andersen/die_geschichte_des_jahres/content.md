@@ -3,6 +3,7 @@ title: "Die Geschichte des Jahres"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/die_geschichte_des_jahres"
 crawledAt: "2026-04-03T11:22:15.790Z"
+wordCount: 3084
 ---
 
 # Die Geschichte des Jahres

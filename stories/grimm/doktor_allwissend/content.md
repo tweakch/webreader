@@ -3,6 +3,7 @@ title: "Doktor Allwissend"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/doktor_allwissend"
 crawledAt: "2026-04-03T09:13:32.564Z"
+wordCount: 695
 ---
 
 # Doktor Allwissend

@@ -3,6 +3,7 @@ title: "Die zwei Brüder"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/die_zwei_bruder"
 crawledAt: "2026-04-03T09:11:50.415Z"
+wordCount: 7700
 ---
 
 # Die zwei Brüder

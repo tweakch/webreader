@@ -3,6 +3,7 @@ title: "Knoist und seine drei Söhne"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/knoist_un_sine_dre_suehne"
 crawledAt: "2026-04-03T09:14:44.857Z"
+wordCount: 150
 ---
 
 # Knoist und seine drei Söhne

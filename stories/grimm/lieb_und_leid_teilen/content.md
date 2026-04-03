@@ -3,6 +3,7 @@ title: "Lieb und Leid teilen"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/lieb_und_leid_teilen"
 crawledAt: "2026-04-03T09:15:57.627Z"
+wordCount: 361
 ---
 
 # Lieb und Leid teilen

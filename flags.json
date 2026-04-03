@@ -1,0 +1,13 @@
+{
+  "favorites":              { "defaultVariant": "on",  "variants": { "on": true, "off": false } },
+  "favorites-only-toggle":  { "defaultVariant": "on",  "variants": { "on": true, "off": false } },
+  "word-count":        { "defaultVariant": "on",  "variants": { "on": true, "off": false } },
+  "reading-duration":  { "defaultVariant": "on",  "variants": { "on": true, "off": false } },
+  "font-size-controls":{ "defaultVariant": "on",  "variants": { "on": true, "off": false } },
+  "eink-flash":        { "defaultVariant": "on",  "variants": { "on": true, "off": false } },
+  "tap-zones":         { "defaultVariant": "on",  "variants": { "on": true, "off": false } },
+  "adaption-switcher": { "defaultVariant": "on", "variants": { "on": true, "off": false } },
+  "typography-panel":  { "defaultVariant": "on",  "variants": { "on": true, "off": false } },
+  "attribution":       { "defaultVariant": "on",  "variants": { "on": true, "off": false } },
+  "theme":             { "defaultVariant": "light", "variants": { "light": "light", "dark": "dark", "system": "system" } }
+}

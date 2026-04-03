@@ -3,6 +3,7 @@ title: "Der Gevatter Tod"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/der_gevatter_tod"
 crawledAt: "2026-04-03T09:11:24.086Z"
+wordCount: 1110
 ---
 
 # Der Gevatter Tod

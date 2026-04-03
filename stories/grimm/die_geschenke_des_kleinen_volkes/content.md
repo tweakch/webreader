@@ -3,6 +3,7 @@ title: "Die Geschenke des kleinen Volkes"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/die_geschenke_des_kleinen_volkes"
 crawledAt: "2026-04-03T09:16:18.749Z"
+wordCount: 850
 ---
 
 # Die Geschenke des kleinen Volkes

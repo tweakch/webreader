@@ -1,29 +1,39 @@
 import React, { useState, useRef, useEffect, useLayoutEffect, useCallback } from 'react';
-import { Menu, X, Plus, Minus, Search, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Menu, X, Plus, Minus, Search, ChevronLeft, ChevronRight, Heart, User } from 'lucide-react';
+import { useBooleanFlagValue, useStringFlagValue } from '@openfeature/react-sdk';
 
 const GrimmMarchenApp = () => {
   const [selectedStory, setSelectedStory] = useState(null);
   const [menuOpen, setMenuOpen] = useState(false);
   const [fontSize, setFontSize] = useState(18);
   const [searchTerm, setSearchTerm] = useState('');
-  const [darkMode, setDarkMode] = useState(false);
   const [currentPage, setCurrentPage] = useState(0);
   const [totalPages, setTotalPages] = useState(1);
   const [pages, setPages] = useState([]); // [{paragraphs: string[], hasTitle: bool}]
   const [isFlashing, setIsFlashing] = useState(false);
   const [selectedVariant, setSelectedVariant] = useState(null);
   const [typoPanelOpen, setTypoPanelOpen] = useState(false);
+  const [profileOpen, setProfileOpen] = useState(false);
   const [lineHeightIdx, setLineHeightIdx] = useState(() => parseInt(localStorage.getItem('wr-lh') ?? '1'));
   const [textWidthIdx, setTextWidthIdx] = useState(() => parseInt(localStorage.getItem('wr-tw') ?? '1'));
   const [wordSpacingIdx, setWordSpacingIdx] = useState(() => parseInt(localStorage.getItem('wr-ws') ?? '0'));
+  const [fontFamilyIdx, setFontFamilyIdx] = useState(() => parseInt(localStorage.getItem('wr-ff') ?? '0'));
 
   const LINE_HEIGHTS = [1.5, 1.8, 2.2];
-  const TEXT_WIDTHS = [560, 768, 1024];
+  const TEXT_WIDTHS = [560, 768, 1200];   // max column width cap (desktop)
+  const H_PADDINGS  = [56,  32,  12];    // horizontal padding px (narrow→wide)
   const WORD_SPACINGS = ['normal', '0.06em', '0.15em'];
+  const FONT_FAMILIES = [
+    { label: 'Serif',      css: 'Georgia, serif' },
+    { label: 'Sans',       css: 'system-ui, sans-serif' },
+    { label: 'Comic Sans', css: '"Comic Sans MS", "Comic Sans", cursive' },
+  ];
 
   const lineHeight = LINE_HEIGHTS[lineHeightIdx];
-  const textWidth = TEXT_WIDTHS[textWidthIdx];
+  const textWidth  = TEXT_WIDTHS[textWidthIdx];
+  const hPadding   = H_PADDINGS[textWidthIdx];
   const wordSpacing = WORD_SPACINGS[wordSpacingIdx];
+  const fontFamily  = FONT_FAMILIES[fontFamilyIdx].css;
 
   const readerAreaRef = useRef(null);
   const measureRef = useRef(null);
@@ -44,12 +54,14 @@ const GrimmMarchenApp = () => {
         const title = titleMatch ? titleMatch[1] : slug;
         const sourceLabelMatch = fmBlock.match(/^source:\s*"(.+)"$/m);
         const sourceLabel = sourceLabelMatch ? sourceLabelMatch[1] : source;
+        const wordCountMatch = fmBlock.match(/^wordCount:\s*(\d+)$/m);
+        const wordCount = wordCountMatch ? parseInt(wordCountMatch[1], 10) : null;
 
         // Strip frontmatter and the # heading line, leaving only paragraphs
         const afterFm = fmMatch ? raw.slice(fmMatch[0].length) : raw;
         const content = afterFm.replace(/^#[^\n]*\n\n/, '').trimEnd();
 
-        return { id: `${source}/${slug}`, title, content, source, sourceLabel };
+        return { id: `${source}/${slug}`, title, content, source, sourceLabel, wordCount };
       })
       .sort((a, b) => a.title.localeCompare(b.title, 'de'));
   }, []);
@@ -106,6 +118,7 @@ const GrimmMarchenApp = () => {
   useEffect(() => { localStorage.setItem('wr-lh', lineHeightIdx); }, [lineHeightIdx]);
   useEffect(() => { localStorage.setItem('wr-tw', textWidthIdx); }, [textWidthIdx]);
   useEffect(() => { localStorage.setItem('wr-ws', wordSpacingIdx); }, [wordSpacingIdx]);
+  useEffect(() => { localStorage.setItem('wr-ff', fontFamilyIdx); }, [fontFamilyIdx]);
 
   // Reset variant when a new story is selected
   useEffect(() => {
@@ -119,9 +132,9 @@ const GrimmMarchenApp = () => {
     const viewportW = readerAreaRef.current.clientWidth;
     if (viewportH === 0) return;
 
-    const PADDING = 32; // 2rem on each side
-    const contentW = Math.min(viewportW - PADDING * 2, textWidth);
-    const availableH = viewportH - PADDING * 2; // subtract top+bottom padding
+    const PADDING_V = 32; // 2rem top + bottom (fixed)
+    const contentW = Math.min(viewportW - hPadding * 2, textWidth);
+    const availableH = viewportH - PADDING_V * 2; // subtract top+bottom padding
 
     const m = measureRef.current;
     m.style.width = contentW + 'px'; // exact same width as the rendered text
@@ -154,7 +167,7 @@ const GrimmMarchenApp = () => {
       // Add title to first page only
       if (isFirstPage) {
         const h2 = document.createElement('h2');
-        h2.style.cssText = `font-size:2.25rem;font-weight:bold;margin:0 0 0.5rem;font-family:Georgia,serif;line-height:1.25;`;
+        h2.style.cssText = `font-size:2.25rem;font-weight:bold;margin:0 0 0.5rem;font-family:${fontFamily};line-height:1.25;`;
         h2.textContent = activeTitle;
         m.appendChild(h2);
         const divider = document.createElement('div');
@@ -164,7 +177,7 @@ const GrimmMarchenApp = () => {
 
       // Add a placeholder paragraph container for text
       const contentDiv = document.createElement('div');
-      contentDiv.style.cssText = `font-size:${fontSize}px;line-height:${lineHeight};word-spacing:${wordSpacing};font-family:Georgia,serif;`;
+      contentDiv.style.cssText = `font-size:${fontSize}px;line-height:${lineHeight};word-spacing:${wordSpacing};font-family:${fontFamily};`;
       let currentPara = document.createElement('p');
       currentPara.style.cssText = 'margin:0 0 1.5rem;';
       contentDiv.appendChild(currentPara);
@@ -221,7 +234,7 @@ const GrimmMarchenApp = () => {
     setPages(pages);
     setTotalPages(pages.length);
     setCurrentPage(0);
-  }, [selectedStory, selectedVariant, fontSize, lineHeight, textWidth, wordSpacing]);
+  }, [selectedStory, selectedVariant, fontSize, lineHeight, textWidth, hPadding, wordSpacing, fontFamily]);
 
   // Build pages synchronously before paint when story or font size changes
   useLayoutEffect(() => {
@@ -269,6 +282,63 @@ const GrimmMarchenApp = () => {
     return () => window.removeEventListener('keydown', handler);
   }, [selectedStory, currentPage, goToPage]);
 
+  const showWordCount = useBooleanFlagValue('word-count', false);
+  const showReadingDuration = useBooleanFlagValue('reading-duration', false);
+  const showFontSizeControls = useBooleanFlagValue('font-size-controls', true);
+  const showEinkFlash = useBooleanFlagValue('eink-flash', true);
+  const showTapZones = useBooleanFlagValue('tap-zones', true);
+  const showAdaptionSwitcher = useBooleanFlagValue('adaption-switcher', true);
+  const showTypographyPanel = useBooleanFlagValue('typography-panel', true);
+  const showAttribution = useBooleanFlagValue('attribution', true);
+  const showFavorites = useBooleanFlagValue('favorites', false);
+  const showFavoritesOnlyToggle = useBooleanFlagValue('favorites-only-toggle', false);
+  const [favoritesOnly, setFavoritesOnly] = useState(false);
+  const flagTheme = useStringFlagValue('theme', 'light');
+
+  const [theme, setTheme] = useState(flagTheme); // 'light' | 'dark' | 'system'
+  const [systemDark, setSystemDark] = useState(
+    () => window.matchMedia('(prefers-color-scheme: dark)').matches
+  );
+
+  useEffect(() => {
+    const mq = window.matchMedia('(prefers-color-scheme: dark)');
+    const handler = e => setSystemDark(e.matches);
+    mq.addEventListener('change', handler);
+    return () => mq.removeEventListener('change', handler);
+  }, []);
+
+  const darkMode = theme === 'dark' || (theme === 'system' && systemDark);
+
+  const [favorites, setFavorites] = useState(() =>
+    new Set(JSON.parse(localStorage.getItem('wr-favorites') ?? '[]'))
+  );
+
+  useEffect(() => {
+    localStorage.setItem('wr-favorites', JSON.stringify([...favorites]));
+  }, [favorites]);
+
+  const toggleFavorite = useCallback((storyId, e) => {
+    e.stopPropagation();
+    setFavorites(prev => {
+      const next = new Set(prev);
+      if (next.has(storyId)) next.delete(storyId); else next.add(storyId);
+      return next;
+    });
+  }, []);
+
+  const favoriteStories = React.useMemo(() =>
+    stories.filter(s => favorites.has(s.id)),
+    [stories, favorites]
+  );
+
+  const storyWordCount = React.useMemo(() => {
+    if (!selectedStory) return 0;
+    const activeContent = selectedVariant?.content ?? selectedStory.content;
+    return activeContent.split(/\s+/).filter(w => w.length > 0).length;
+  }, [selectedStory, selectedVariant]);
+
+  const readingMinutes = Math.ceil(storyWordCount / 200);
+
   const toggleMenu = () => setMenuOpen(!menuOpen);
 
   return (
@@ -303,7 +373,7 @@ const GrimmMarchenApp = () => {
             </h1>
           </div>
 
-          {selectedStory && (
+          {selectedStory && showFontSizeControls && (
             <div className="flex items-center gap-2">
               <button
                 data-testid="font-decrease"
@@ -336,14 +406,15 @@ const GrimmMarchenApp = () => {
           )}
 
           <button
-            onClick={() => setDarkMode(!darkMode)}
+            onClick={() => setTheme(t => t === 'light' ? 'dark' : t === 'dark' ? 'system' : 'light')}
+            title={theme === 'light' ? 'Switch to dark mode' : theme === 'dark' ? 'Switch to system theme' : 'Switch to light mode'}
             className={`px-4 py-2 rounded-lg font-medium transition-all ${
               darkMode
                 ? 'bg-amber-200 text-slate-900 hover:bg-amber-300'
                 : 'bg-amber-900 text-white hover:bg-amber-800'
             }`}
           >
-            {darkMode ? '☀️' : '🌙'}
+            {theme === 'light' ? '🌙' : theme === 'dark' ? '🖥️' : '☀️'}
           </button>
         </div>
       </header>
@@ -351,33 +422,114 @@ const GrimmMarchenApp = () => {
       {/* Main Content Area */}
       <div className="flex-1 flex overflow-hidden">
         {/* Sidebar */}
-        <aside className={`fixed lg:static top-16 bottom-0 left-0 w-80 lg:w-72 z-30 transform transition-transform duration-300 overflow-y-auto ${
+        <aside className={`fixed lg:static top-16 bottom-0 left-0 w-80 lg:w-72 z-30 transform transition-transform duration-300 flex flex-col ${
           menuOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'
         } ${
           darkMode
             ? 'bg-slate-950/95 border-amber-700/30'
             : 'bg-white/95 border-amber-200/50'
         } border-r backdrop-blur-sm`}>
+          <div className="flex-1 overflow-y-auto">
 
           {/* Search — always visible */}
           <div className="p-4">
-            <div className={`relative ${darkMode ? 'text-amber-200' : 'text-amber-900'}`}>
-              <Search size={18} className="absolute left-3 top-3" />
-              <input
-                type="text"
-                placeholder="Märchen suchen..."
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-                className={`w-full pl-10 pr-4 py-2 rounded-lg border transition-colors ${
-                  darkMode
-                    ? 'bg-slate-800 border-amber-700/50 text-amber-200 placeholder-amber-600'
-                    : 'bg-amber-50 border-amber-300 text-amber-900 placeholder-amber-600'
-                } focus:outline-none focus:ring-2 focus:ring-amber-500`}
-              />
+            <div className="flex items-center gap-2">
+              <div className={`relative flex-1 ${darkMode ? 'text-amber-200' : 'text-amber-900'}`}>
+                <Search size={18} className="absolute left-3 top-3" />
+                <input
+                  type="text"
+                  placeholder="Märchen suchen..."
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                  className={`w-full pl-10 pr-4 py-2 rounded-lg border transition-colors ${
+                    darkMode
+                      ? 'bg-slate-800 border-amber-700/50 text-amber-200 placeholder-amber-600'
+                      : 'bg-amber-50 border-amber-300 text-amber-900 placeholder-amber-600'
+                  } focus:outline-none focus:ring-2 focus:ring-amber-500`}
+                />
+              </div>
+              {showFavoritesOnlyToggle && showFavorites && (
+                <button
+                  onClick={() => setFavoritesOnly(v => !v)}
+                  title={favoritesOnly ? 'Alle anzeigen' : 'Nur Favoriten'}
+                  className={`flex-shrink-0 p-2 rounded-lg border transition-colors ${
+                    favoritesOnly
+                      ? darkMode
+                        ? 'bg-amber-700 border-amber-600 text-white'
+                        : 'bg-amber-200 border-amber-300 text-amber-900'
+                      : darkMode
+                        ? 'border-amber-700/50 text-amber-600 hover:text-amber-400 hover:bg-slate-800'
+                        : 'border-amber-300 text-amber-400 hover:text-amber-700 hover:bg-amber-50'
+                  }`}
+                >
+                  <Heart size={16} fill={favoritesOnly ? 'currentColor' : 'none'} />
+                </button>
+              )}
             </div>
           </div>
 
-          {searchTerm ? (
+          {selectedStory && (showWordCount || showReadingDuration) && (
+            <div className={`mx-4 mb-2 rounded-xl px-4 py-3 space-y-1.5 ${
+              darkMode ? 'bg-slate-800' : 'bg-amber-50'
+            }`}>
+              {showWordCount && (
+                <div className={`flex items-center justify-between text-sm ${
+                  darkMode ? 'text-amber-400' : 'text-amber-700'
+                }`}>
+                  <span>Wörter</span>
+                  <span className="tabular-nums font-medium">{storyWordCount.toLocaleString('de')}</span>
+                </div>
+              )}
+              {showReadingDuration && (
+                <div className={`flex items-center justify-between text-sm ${
+                  darkMode ? 'text-amber-400' : 'text-amber-700'
+                }`}>
+                  <span>Lesezeit</span>
+                  <span className="tabular-nums font-medium">~{readingMinutes} min</span>
+                </div>
+              )}
+            </div>
+          )}
+
+          {favoritesOnly && showFavorites ? (
+            /* Favorites-only view */
+            <div className="px-3 pb-4 space-y-1">
+              {favoriteStories.length === 0 ? (
+                <p className={`px-2 py-3 text-sm ${darkMode ? 'text-amber-600' : 'text-amber-700'}`}>
+                  Keine Favoriten
+                </p>
+              ) : favoriteStories.map(story => (
+                <div key={story.id} className="flex items-center gap-1">
+                  <button
+                    data-testid="story-button"
+                    onClick={() => { setSelectedStory(story); setMenuOpen(false); }}
+                    className={`flex-1 min-w-0 text-left px-3 py-2.5 rounded-lg transition-all ${
+                      selectedStory?.id === story.id
+                        ? darkMode ? 'bg-amber-700 text-white' : 'bg-amber-200 text-amber-900'
+                        : darkMode ? 'text-amber-100 hover:bg-slate-800' : 'text-amber-900 hover:bg-amber-100'
+                    }`}
+                  >
+                    <span className="font-serif text-base line-clamp-2 block">{story.title}</span>
+                    <span className={`text-xs px-1.5 py-0.5 rounded ${
+                      selectedStory?.id === story.id
+                        ? darkMode ? 'bg-amber-600/60 text-amber-100' : 'bg-amber-300/60 text-amber-800'
+                        : darkMode ? 'bg-slate-700 text-amber-400' : 'bg-amber-100 text-amber-700'
+                    }`}>
+                      {story.sourceLabel}
+                    </span>
+                  </button>
+                  <button
+                    onClick={(e) => toggleFavorite(story.id, e)}
+                    className={`flex-shrink-0 p-1.5 rounded-lg transition-colors ${
+                      darkMode ? 'text-amber-400 hover:bg-slate-800' : 'text-amber-600 hover:bg-amber-100'
+                    }`}
+                  >
+                    <Heart size={14} fill="currentColor" />
+                  </button>
+                </div>
+              ))}
+            </div>
+          ) : searchTerm ? (
             /* Search results — global, with source badge */
             <div className="px-3 pb-4 space-y-1">
               {filteredStories.length === 0 && (
@@ -386,22 +538,42 @@ const GrimmMarchenApp = () => {
                 </p>
               )}
               {filteredStories.map(story => (
-                <button
-                  key={story.id}
-                  onClick={() => { setSelectedStory(story); setMenuOpen(false); }}
-                  className={`w-full text-left px-3 py-2.5 rounded-lg transition-all ${
-                    selectedStory?.id === story.id
-                      ? darkMode ? 'bg-amber-700 text-white' : 'bg-amber-200 text-amber-900'
-                      : darkMode ? 'text-amber-100 hover:bg-slate-800' : 'text-amber-900 hover:bg-amber-100'
-                  }`}
-                >
-                  <span className="font-serif text-base leading-snug">{story.title}</span>
-                  <span className={`ml-2 text-xs px-1.5 py-0.5 rounded font-sans align-middle ${
-                    darkMode ? 'bg-slate-700 text-amber-400' : 'bg-amber-100 text-amber-700'
-                  }`}>
-                    {story.sourceLabel}
-                  </span>
-                </button>
+                <div key={story.id} className="flex items-center gap-1">
+                  <button
+                    onClick={() => { setSelectedStory(story); setMenuOpen(false); }}
+                    className={`flex-1 min-w-0 text-left px-3 py-2.5 rounded-lg transition-all ${
+                      selectedStory?.id === story.id
+                        ? darkMode ? 'bg-amber-700 text-white' : 'bg-amber-200 text-amber-900'
+                        : darkMode ? 'text-amber-100 hover:bg-slate-800' : 'text-amber-900 hover:bg-amber-100'
+                    }`}
+                  >
+                    <span className="font-serif text-base leading-snug">{story.title}</span>
+                    <span className={`ml-2 text-xs px-1.5 py-0.5 rounded font-sans align-middle ${
+                      darkMode ? 'bg-slate-700 text-amber-400' : 'bg-amber-100 text-amber-700'
+                    }`}>
+                      {story.sourceLabel}
+                    </span>
+                    {showWordCount && story.wordCount != null && (
+                      <span className={`ml-1 text-xs tabular-nums px-1.5 py-0.5 rounded font-sans align-middle ${
+                        darkMode ? 'bg-slate-700 text-amber-500' : 'bg-amber-100 text-amber-600'
+                      }`}>
+                        {story.wordCount.toLocaleString('de')} W
+                      </span>
+                    )}
+                  </button>
+                  {showFavorites && (
+                    <button
+                      onClick={(e) => toggleFavorite(story.id, e)}
+                      className={`flex-shrink-0 p-1.5 rounded-lg transition-colors ${
+                        favorites.has(story.id)
+                          ? darkMode ? 'text-amber-400 hover:bg-slate-800' : 'text-amber-600 hover:bg-amber-100'
+                          : darkMode ? 'text-slate-600 hover:text-amber-400 hover:bg-slate-800' : 'text-amber-300 hover:text-amber-600 hover:bg-amber-100'
+                      }`}
+                    >
+                      <Heart size={14} fill={favorites.has(story.id) ? 'currentColor' : 'none'} />
+                    </button>
+                  )}
+                </div>
               ))}
             </div>
           ) : activeSource ? (
@@ -428,18 +600,40 @@ const GrimmMarchenApp = () => {
               <div className={`mx-3 mb-3 h-px ${darkMode ? 'bg-amber-800/40' : 'bg-amber-200'}`} />
               <div className="px-3 pb-4 space-y-1">
                 {(storiesBySource[activeSource] ?? []).map(story => (
-                  <button
-                    key={story.id}
-                    data-testid="story-button"
-                    onClick={() => { setSelectedStory(story); setMenuOpen(false); }}
-                    className={`w-full text-left px-3 py-2.5 rounded-lg transition-all font-serif text-base line-clamp-2 ${
-                      selectedStory?.id === story.id
-                        ? darkMode ? 'bg-amber-700 text-white' : 'bg-amber-200 text-amber-900'
-                        : darkMode ? 'text-amber-100 hover:bg-slate-800' : 'text-amber-900 hover:bg-amber-100'
-                    }`}
-                  >
-                    {story.title}
-                  </button>
+                  <div key={story.id} className="flex items-center gap-1">
+                    <button
+                      data-testid="story-button"
+                      onClick={() => { setSelectedStory(story); setMenuOpen(false); }}
+                      className={`flex-1 min-w-0 text-left px-3 py-2.5 rounded-lg transition-all ${
+                        selectedStory?.id === story.id
+                          ? darkMode ? 'bg-amber-700 text-white' : 'bg-amber-200 text-amber-900'
+                          : darkMode ? 'text-amber-100 hover:bg-slate-800' : 'text-amber-900 hover:bg-amber-100'
+                      }`}
+                    >
+                      <span className="font-serif text-base line-clamp-2 block">{story.title}</span>
+                      {showWordCount && story.wordCount != null && (
+                        <span className={`mt-0.5 inline-block text-xs tabular-nums px-1.5 py-0.5 rounded ${
+                          selectedStory?.id === story.id
+                            ? darkMode ? 'bg-amber-600/60 text-amber-100' : 'bg-amber-300/60 text-amber-800'
+                            : darkMode ? 'bg-slate-700 text-amber-500' : 'bg-amber-100 text-amber-600'
+                        }`}>
+                          {story.wordCount.toLocaleString('de')} W
+                        </span>
+                      )}
+                    </button>
+                    {showFavorites && (
+                      <button
+                        onClick={(e) => toggleFavorite(story.id, e)}
+                        className={`flex-shrink-0 p-1.5 rounded-lg transition-colors ${
+                          favorites.has(story.id)
+                            ? darkMode ? 'text-amber-400 hover:bg-slate-800' : 'text-amber-600 hover:bg-amber-100'
+                            : darkMode ? 'text-slate-600 hover:text-amber-400 hover:bg-slate-800' : 'text-amber-300 hover:text-amber-600 hover:bg-amber-100'
+                        }`}
+                      >
+                        <Heart size={14} fill={favorites.has(story.id) ? 'currentColor' : 'none'} />
+                      </button>
+                    )}
+                  </div>
                 ))}
               </div>
             </>
@@ -468,6 +662,31 @@ const GrimmMarchenApp = () => {
               ))}
             </div>
           )}
+          </div>{/* end scrollable list */}
+
+          {/* Profile drawer — always visible at sidebar bottom */}
+          <div className={`flex-shrink-0 border-t ${
+            darkMode ? 'border-amber-700/30' : 'border-amber-200/50'
+          }`}>
+            <button
+              onClick={() => { setProfileOpen(true); setMenuOpen(false); }}
+              className={`w-full flex items-center gap-3 px-4 py-3.5 transition-colors ${
+                profileOpen
+                  ? darkMode ? 'bg-amber-700/20 text-amber-200' : 'bg-amber-100 text-amber-900'
+                  : darkMode ? 'text-amber-400 hover:bg-slate-800 hover:text-amber-200' : 'text-amber-700 hover:bg-amber-50 hover:text-amber-900'
+              }`}
+            >
+              <div className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center ${
+                darkMode ? 'bg-slate-700' : 'bg-amber-100'
+              }`}>
+                <User size={16} />
+              </div>
+              <div className="flex-1 min-w-0 text-left">
+                <p className="text-sm font-medium truncate">Mein Profil</p>
+              </div>
+              <ChevronRight size={14} className="flex-shrink-0 opacity-50" />
+            </button>
+          </div>
         </aside>
 
         {/* Hidden measurement container — off-screen, used to calculate paragraph heights */}
@@ -485,7 +704,55 @@ const GrimmMarchenApp = () => {
 
         {/* Reader Area */}
         <main className="flex-1 flex flex-col overflow-hidden w-full">
-          {selectedStory ? (
+          {profileOpen ? (
+            <div className="flex-1 overflow-y-auto">
+              <div className="max-w-lg mx-auto px-6 py-12">
+                <button
+                  onClick={() => setProfileOpen(false)}
+                  className={`flex items-center gap-2 mb-8 text-sm font-medium transition-colors ${
+                    darkMode ? 'text-amber-400 hover:text-amber-200' : 'text-amber-700 hover:text-amber-900'
+                  }`}
+                >
+                  <ChevronLeft size={16} />
+                  Zurück
+                </button>
+
+                {/* Avatar */}
+                <div className="flex flex-col items-center gap-4 mb-10">
+                  <div className={`w-20 h-20 rounded-full flex items-center justify-center ${
+                    darkMode ? 'bg-slate-700 text-amber-300' : 'bg-amber-100 text-amber-700'
+                  }`}>
+                    <User size={36} />
+                  </div>
+                  <div className="text-center">
+                    <p className={`text-xl font-serif font-bold ${darkMode ? 'text-amber-200' : 'text-amber-900'}`}>
+                      Leser
+                    </p>
+                    <p className={`text-sm mt-0.5 ${darkMode ? 'text-amber-600' : 'text-amber-600'}`}>
+                      Gast-Konto
+                    </p>
+                  </div>
+                </div>
+
+                {/* Stats */}
+                <div className={`rounded-2xl border divide-y ${
+                  darkMode ? 'border-amber-700/30 divide-amber-700/30' : 'border-amber-200 divide-amber-200'
+                }`}>
+                  {[
+                    { label: 'Favoriten', value: favorites.size },
+                    { label: 'Verfügbare Märchen', value: stories.length.toLocaleString('de') },
+                  ].map(({ label, value }) => (
+                    <div key={label} className={`flex items-center justify-between px-5 py-4 ${
+                      darkMode ? 'text-amber-200' : 'text-amber-900'
+                    }`}>
+                      <span className="text-sm">{label}</span>
+                      <span className="text-sm font-medium tabular-nums">{value}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          ) : selectedStory ? (
             <>
               {/* Reading viewport */}
               <div
@@ -494,15 +761,17 @@ const GrimmMarchenApp = () => {
                 className="flex-1 overflow-hidden relative"
               >
                 {/* E-ink flash overlay */}
-                <div
-                  className={`absolute inset-0 z-20 pointer-events-none ${
-                    darkMode ? 'bg-slate-800' : 'bg-white'
-                  }`}
-                  style={{
-                    opacity: isFlashing ? 1 : 0,
-                    transition: isFlashing ? 'none' : 'opacity 0.05s',
-                  }}
-                />
+                {showEinkFlash && (
+                  <div
+                    className={`absolute inset-0 z-20 pointer-events-none ${
+                      darkMode ? 'bg-slate-800' : 'bg-white'
+                    }`}
+                    style={{
+                      opacity: isFlashing ? 1 : 0,
+                      transition: isFlashing ? 'none' : 'opacity 0.05s',
+                    }}
+                  />
+                )}
 
                 {/* Current page content — rendered statically, no translateY */}
                 {pages[currentPage] && (
@@ -511,12 +780,12 @@ const GrimmMarchenApp = () => {
                     className={`h-full transition-colors duration-300 ${
                       darkMode ? 'bg-slate-800/50' : 'bg-white/70'
                     }`}
-                    style={{ padding: '2rem' }}
+                    style={{ padding: `2rem ${hPadding}px` }}
                   >
                     <div className="mx-auto w-full" style={{ maxWidth: textWidth + 'px' }}>
                       {pages[currentPage].hasTitle && (
                         <>
-                          <h2 className={`text-4xl font-serif font-bold mb-2 ${
+                          <h2 style={{ fontFamily }} className={`text-4xl font-bold mb-2 ${
                             darkMode ? 'text-amber-200' : 'text-amber-900'
                           }`}>
                             {selectedVariant?.adaptionName ?? selectedStory.title}
@@ -528,8 +797,8 @@ const GrimmMarchenApp = () => {
                       )}
 
                       <div
-                        style={{ fontSize: `${fontSize}px`, lineHeight, wordSpacing }}
-                        className={`font-serif ${darkMode ? 'text-amber-50' : 'text-amber-950'}`}
+                        style={{ fontSize: `${fontSize}px`, lineHeight, wordSpacing, fontFamily }}
+                        className={darkMode ? 'text-amber-50' : 'text-amber-950'}
                       >
                         {/* Reconstruct paragraphs from word tokens */}
                         {(() => {
@@ -557,7 +826,7 @@ const GrimmMarchenApp = () => {
                         })()}
                       </div>
 
-                      {currentPage === totalPages - 1 && (
+                      {showAttribution && currentPage === totalPages - 1 && (
                         <div className={`mt-8 pt-6 border-t ${
                           darkMode ? 'border-amber-700/30' : 'border-amber-300'
                         }`}>
@@ -573,22 +842,26 @@ const GrimmMarchenApp = () => {
                 )}
 
                 {/* Left tap zone — previous page */}
-                <div
-                  className="absolute left-0 top-0 bottom-0 z-10 cursor-pointer"
-                  style={{ width: '30%' }}
-                  onClick={() => goToPage(currentPage - 1)}
-                />
+                {showTapZones && (
+                  <div
+                    className="absolute left-0 top-0 bottom-0 z-10 cursor-pointer"
+                    style={{ width: '30%' }}
+                    onClick={() => goToPage(currentPage - 1)}
+                  />
+                )}
 
                 {/* Right tap zone — next page */}
-                <div
-                  className="absolute right-0 top-0 bottom-0 z-10 cursor-pointer"
-                  style={{ width: '30%' }}
-                  onClick={() => goToPage(currentPage + 1)}
-                />
+                {showTapZones && (
+                  <div
+                    className="absolute right-0 top-0 bottom-0 z-10 cursor-pointer"
+                    style={{ width: '30%' }}
+                    onClick={() => goToPage(currentPage + 1)}
+                  />
+                )}
               </div>
 
               {/* Variant switcher — shown only when adaptions exist */}
-              {(adaptionsByParent[selectedStory.id] ?? []).length > 0 && (
+              {showAdaptionSwitcher && (adaptionsByParent[selectedStory.id] ?? []).length > 0 && (
                 <div className={`flex-shrink-0 flex items-center gap-2 px-4 py-1.5 border-t ${
                   darkMode ? 'bg-slate-900/90 border-amber-700/30' : 'bg-white/90 border-amber-200/50'
                 }`}>
@@ -619,7 +892,7 @@ const GrimmMarchenApp = () => {
               )}
 
               {/* Typography panel — slides open above nav bar */}
-              {typoPanelOpen && (
+              {showTypographyPanel && typoPanelOpen && (
                 <div className={`flex-shrink-0 border-t px-5 py-3 transition-colors ${
                   darkMode ? 'bg-slate-900/95 border-amber-700/30' : 'bg-white/95 border-amber-200/50'
                 }`}>
@@ -660,6 +933,16 @@ const GrimmMarchenApp = () => {
                       })),
                       idx: wordSpacingIdx,
                       set: setWordSpacingIdx,
+                    },
+                    {
+                      label: 'Schriftart',
+                      options: FONT_FAMILIES.map(({ label, css }, i) => ({
+                        i,
+                        icon: <span style={{ fontFamily: css }} className="text-sm leading-none">Aa</span>,
+                        label,
+                      })),
+                      idx: fontFamilyIdx,
+                      set: setFontFamilyIdx,
                     },
                   ].map(({ label, options, idx, set }) => (
                     <div key={label} className="flex items-center gap-3 py-1">
@@ -704,7 +987,7 @@ const GrimmMarchenApp = () => {
                 </button>
 
                 <button
-                  onClick={() => setTypoPanelOpen(v => !v)}
+                  onClick={() => showTypographyPanel && setTypoPanelOpen(v => !v)}
                   className={`flex flex-col items-center gap-0.5 min-w-0 overflow-hidden px-3 py-1 rounded-lg transition-colors ${
                     typoPanelOpen
                       ? darkMode ? 'bg-slate-700' : 'bg-amber-100'
@@ -734,18 +1017,68 @@ const GrimmMarchenApp = () => {
               </div>
             </>
           ) : (
-            <div className="w-full h-full flex flex-col items-center justify-center">
-              <div className="text-6xl mb-4">📚</div>
-              <p className={`text-2xl font-serif font-bold mb-2 ${
-                darkMode ? 'text-amber-200' : 'text-amber-900'
-              }`}>
-                Wähle ein Märchen
-              </p>
-              <p className={`${
-                darkMode ? 'text-amber-600' : 'text-amber-700'
-              }`}>
-                Klicke auf einen Titel in der Seitenleiste
-              </p>
+            <div className="w-full h-full overflow-y-auto">
+              {showFavorites && favoriteStories.length > 0 ? (
+                <div className="p-8 max-w-4xl mx-auto">
+                  <div className="flex items-center gap-2 mb-6">
+                    <Heart size={20} fill="currentColor" className={darkMode ? 'text-amber-400' : 'text-amber-600'} />
+                    <h2 className={`text-xl font-serif font-bold ${darkMode ? 'text-amber-200' : 'text-amber-900'}`}>
+                      Favoriten
+                    </h2>
+                  </div>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+                    {favoriteStories.map(story => (
+                      <div
+                        key={story.id}
+                        className={`group relative rounded-xl border p-4 transition-colors cursor-pointer ${
+                          darkMode
+                            ? 'bg-slate-800/60 border-amber-700/20 hover:bg-slate-800'
+                            : 'bg-white/80 border-amber-200/60 hover:bg-white'
+                        }`}
+                        onClick={() => setSelectedStory(story)}
+                      >
+                        <p className={`font-serif text-base font-medium leading-snug mb-2 pr-6 ${
+                          darkMode ? 'text-amber-100' : 'text-amber-950'
+                        }`}>
+                          {story.title}
+                        </p>
+                        <div className="flex items-center gap-2 flex-wrap">
+                          <span className={`text-xs px-1.5 py-0.5 rounded ${
+                            darkMode ? 'bg-slate-700 text-amber-400' : 'bg-amber-100 text-amber-700'
+                          }`}>
+                            {story.sourceLabel}
+                          </span>
+                          {showWordCount && story.wordCount != null && (
+                            <span className={`text-xs tabular-nums ${darkMode ? 'text-amber-600' : 'text-amber-500'}`}>
+                              {story.wordCount.toLocaleString('de')} W
+                            </span>
+                          )}
+                        </div>
+                        <button
+                          onClick={(e) => toggleFavorite(story.id, e)}
+                          className={`absolute top-3 right-3 p-1 rounded transition-colors ${
+                            darkMode ? 'text-amber-400 hover:bg-slate-700' : 'text-amber-500 hover:bg-amber-100'
+                          }`}
+                        >
+                          <Heart size={14} fill="currentColor" />
+                        </button>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              ) : (
+                <div className="w-full h-full flex flex-col items-center justify-center">
+                  <div className="text-6xl mb-4">📚</div>
+                  <p className={`text-2xl font-serif font-bold mb-2 ${
+                    darkMode ? 'text-amber-200' : 'text-amber-900'
+                  }`}>
+                    Wähle ein Märchen
+                  </p>
+                  <p className={`${darkMode ? 'text-amber-600' : 'text-amber-700'}`}>
+                    Klicke auf einen Titel in der Seitenleiste
+                  </p>
+                </div>
+              )}
             </div>
           )}
         </main>

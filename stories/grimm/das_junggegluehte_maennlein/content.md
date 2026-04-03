@@ -3,6 +3,7 @@ title: "Das junggeglühte Männlein"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/das_junggegluehte_maennlein"
 crawledAt: "2026-04-03T09:15:04.122Z"
+wordCount: 480
 ---
 
 # Das junggeglühte Männlein

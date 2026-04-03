@@ -3,6 +3,7 @@ title: "Im Entenhof"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/im_entenhof"
 crawledAt: "2026-04-03T11:23:50.560Z"
+wordCount: 2008
 ---
 
 # Im Entenhof

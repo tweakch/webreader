@@ -3,6 +3,7 @@ title: "Fitchers Vogel"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/fitchers_vogel"
 crawledAt: "2026-04-03T09:11:27.604Z"
+wordCount: 1234
 ---
 
 # Fitchers Vogel

@@ -3,6 +3,7 @@ title: "Das Feuerzeug"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/das_feuerzeug"
 crawledAt: "2026-04-03T11:20:27.140Z"
+wordCount: 2693
 ---
 
 # Das Feuerzeug

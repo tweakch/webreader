@@ -3,6 +3,7 @@ title: "Vom klugen Schneiderlein"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/vom_klugen_schneiderlein"
 crawledAt: "2026-04-03T09:14:04.956Z"
+wordCount: 1079
 ---
 
 # Vom klugen Schneiderlein

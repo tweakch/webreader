@@ -3,6 +3,7 @@ title: "Das alte Mütterchen"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/das_alte_muetterchen"
 crawledAt: "2026-04-03T09:17:11.012Z"
+wordCount: 315
 ---
 
 # Das alte Mütterchen

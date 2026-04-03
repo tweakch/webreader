@@ -3,6 +3,7 @@ title: "Daumerlings Wanderschaft"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/daumerlings_wanderschaft"
 crawledAt: "2026-04-03T09:11:25.128Z"
+wordCount: 1468
 ---
 
 # Daumerlings Wanderschaft

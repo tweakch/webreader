@@ -3,6 +3,7 @@ title: "Der silberne Schilling"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/der_silberne_schilling"
 crawledAt: "2026-04-03T11:24:00.798Z"
+wordCount: 1607
 ---
 
 # Der silberne Schilling

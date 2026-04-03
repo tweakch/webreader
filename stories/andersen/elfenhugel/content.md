@@ -3,6 +3,7 @@ title: "Elfenhügel"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/elfenhugel"
 crawledAt: "2026-04-03T11:21:25.522Z"
+wordCount: 2319
 ---
 
 # Elfenhügel

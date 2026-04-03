@@ -3,6 +3,7 @@ title: "Die beiden Wanderer"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/die_beiden_wanderer"
 crawledAt: "2026-04-03T09:13:47.645Z"
+wordCount: 3788
 ---
 
 # Die beiden Wanderer

@@ -3,6 +3,7 @@ title: "Rumpelstilzchen"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/rumpelstilzchen"
 crawledAt: "2026-04-03T09:09:57.849Z"
+wordCount: 1012
 ---
 
 # Rumpelstilzchen

@@ -3,6 +3,7 @@ title: "Der unartige Knabe"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/der_unartige_knabe"
 crawledAt: "2026-04-03T11:20:37.456Z"
+wordCount: 761
 ---
 
 # Der unartige Knabe

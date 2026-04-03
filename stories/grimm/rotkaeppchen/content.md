@@ -3,6 +3,7 @@ title: "Rotkäppchen"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/rotkaeppchen"
 crawledAt: "2026-04-03T09:10:46.126Z"
+wordCount: 1275
 ---
 
 # Rotkäppchen

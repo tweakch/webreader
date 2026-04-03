@@ -3,6 +3,7 @@ title: "Das Meerhäschen"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/das_meerhaeschen"
 crawledAt: "2026-04-03T09:16:33.978Z"
+wordCount: 1116
 ---
 
 # Das Meerhäschen

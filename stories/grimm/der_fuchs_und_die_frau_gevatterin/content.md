@@ -3,6 +3,7 @@ title: "Der Fuchs und die Frau Gevatterin"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/der_fuchs_und_die_frau_gevatterin"
 crawledAt: "2026-04-03T09:12:26.787Z"
+wordCount: 346
 ---
 
 # Der Fuchs und die Frau Gevatterin

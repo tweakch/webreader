@@ -3,6 +3,7 @@ title: "Herzeleid"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/herzeleid"
 crawledAt: "2026-04-03T11:22:21.906Z"
+wordCount: 670
 ---
 
 # Herzeleid

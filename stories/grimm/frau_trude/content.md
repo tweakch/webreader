@@ -3,6 +3,7 @@ title: "Frau Trude"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/frau_trude"
 crawledAt: "2026-04-03T09:11:21.568Z"
+wordCount: 289
 ---
 
 # Frau Trude

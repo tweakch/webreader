@@ -3,6 +3,7 @@ title: "Tantchen"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/tantchen"
 crawledAt: "2026-04-03T11:24:28.262Z"
+wordCount: 1921
 ---
 
 # Tantchen

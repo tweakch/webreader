@@ -3,6 +3,7 @@ title: "Die klare Sonne bringts an den Tag"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/die_klare_sonne_bringts_an_den_tag"
 crawledAt: "2026-04-03T09:14:06.005Z"
+wordCount: 510
 ---
 
 # Die klare Sonne bringts an den Tag

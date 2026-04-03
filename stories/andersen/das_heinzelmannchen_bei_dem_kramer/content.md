@@ -3,6 +3,7 @@ title: "Das Heinzelmännchen bei dem Krämer"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/das_heinzelmannchen_bei_dem_kramer"
 crawledAt: "2026-04-03T11:22:25.296Z"
+wordCount: 1396
 ---
 
 # Das Heinzelmännchen bei dem Krämer

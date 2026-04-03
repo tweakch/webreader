@@ -3,6 +3,7 @@ title: "Die Sparbüchse"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/die_sparbuchse"
 crawledAt: "2026-04-03T11:22:45.318Z"
+wordCount: 804
 ---
 
 # Die Sparbüchse

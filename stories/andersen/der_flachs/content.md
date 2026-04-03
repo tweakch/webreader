@@ -3,6 +3,7 @@ title: "Der Flachs"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/der_flachs"
 crawledAt: "2026-04-03T11:22:00.930Z"
+wordCount: 1502
 ---
 
 # Der Flachs

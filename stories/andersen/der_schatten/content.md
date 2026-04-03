@@ -3,6 +3,7 @@ title: "Der Schatten"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/der_schatten"
 crawledAt: "2026-04-03T11:21:50.392Z"
+wordCount: 4657
 ---
 
 # Der Schatten

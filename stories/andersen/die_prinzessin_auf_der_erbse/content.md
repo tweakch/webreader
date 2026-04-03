@@ -3,6 +3,7 @@ title: "Die Prinzessin auf der Erbse"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/die_prinzessin_auf_der_erbse"
 crawledAt: "2026-04-03T11:20:31.925Z"
+wordCount: 357
 ---
 
 # Die Prinzessin auf der Erbse

@@ -3,6 +3,7 @@ title: "Die Rabe"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/die_rabe"
 crawledAt: "2026-04-03T09:13:22.395Z"
+wordCount: 2072
 ---
 
 # Die Rabe

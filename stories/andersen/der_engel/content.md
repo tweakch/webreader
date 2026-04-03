@@ -3,6 +3,7 @@ title: "Der Engel"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/der_engel"
 crawledAt: "2026-04-03T11:21:12.078Z"
+wordCount: 827
 ---
 
 # Der Engel

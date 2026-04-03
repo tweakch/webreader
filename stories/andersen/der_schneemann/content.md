@@ -3,6 +3,7 @@ title: "Der Schneemann"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/der_schneemann"
 crawledAt: "2026-04-03T11:23:49.292Z"
+wordCount: 1775
 ---
 
 # Der Schneemann

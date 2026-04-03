@@ -3,6 +3,7 @@ title: "Die Schlickerlinge"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/die_schlickerlinge"
 crawledAt: "2026-04-03T09:15:24.236Z"
+wordCount: 170
 ---
 
 # Die Schlickerlinge

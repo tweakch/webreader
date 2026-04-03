@@ -3,6 +3,7 @@ title: "Eine Geschichte aus den Sanddünen"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/eine_geschichte_aus_den_sanddunen"
 crawledAt: "2026-04-03T11:23:33.581Z"
+wordCount: 12676
 ---
 
 # Eine Geschichte aus den Sanddünen

@@ -3,6 +3,7 @@ title: "Die klugen Leute"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/die_klugen_leute"
 crawledAt: "2026-04-03T09:13:42.323Z"
+wordCount: 1408
 ---
 
 # Die klugen Leute

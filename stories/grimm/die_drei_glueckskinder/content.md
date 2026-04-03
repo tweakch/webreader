@@ -3,6 +3,7 @@ title: "Die drei Glückskinder"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/die_drei_glueckskinder"
 crawledAt: "2026-04-03T09:12:08.185Z"
+wordCount: 910
 ---
 
 # Die drei Glückskinder

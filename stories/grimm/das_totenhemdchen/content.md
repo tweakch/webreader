@@ -3,6 +3,7 @@ title: "Das Totenhemdchen"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/das_totenhemdchen"
 crawledAt: "2026-04-03T09:13:55.242Z"
+wordCount: 250
 ---
 
 # Das Totenhemdchen

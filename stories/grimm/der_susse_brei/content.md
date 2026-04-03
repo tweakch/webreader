@@ -3,6 +3,7 @@ title: "Der süße Brei"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/der_susse_brei"
 crawledAt: "2026-04-03T09:13:40.553Z"
+wordCount: 224
 ---
 
 # Der süße Brei

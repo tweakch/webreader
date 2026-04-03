@@ -3,6 +3,7 @@ title: "Der Hund und der Sperling"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/der_hund_und_der_sperling"
 crawledAt: "2026-04-03T09:11:47.327Z"
+wordCount: 1097
 ---
 
 # Der Hund und der Sperling

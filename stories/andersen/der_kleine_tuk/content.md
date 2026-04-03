@@ -3,6 +3,7 @@ title: "Der kleine Tuk"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/der_kleine_tuk"
 crawledAt: "2026-04-03T11:21:48.835Z"
+wordCount: 1471
 ---
 
 # Der kleine Tuk

@@ -3,6 +3,7 @@ title: "Der alte Hildebrand"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/der_alte_hildebrand"
 crawledAt: "2026-04-03T09:13:26.961Z"
+wordCount: 1290
 ---
 
 # Der alte Hildebrand

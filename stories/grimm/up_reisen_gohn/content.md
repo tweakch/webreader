@@ -3,6 +3,7 @@ title: "Auf Reisen gehen"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/up_reisen_gohn"
 crawledAt: "2026-04-03T09:14:55.603Z"
+wordCount: 389
 ---
 
 # Auf Reisen gehen

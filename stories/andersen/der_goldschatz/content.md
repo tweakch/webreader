@@ -3,6 +3,7 @@ title: "Der Goldschatz"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/der_goldschatz"
 crawledAt: "2026-04-03T11:24:21.690Z"
+wordCount: 2668
 ---
 
 # Der Goldschatz

@@ -3,6 +3,7 @@ title: "Pieter, Peter und Per"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/pieter_peter_und_per"
 crawledAt: "2026-04-03T11:24:35.627Z"
+wordCount: 1731
 ---
 
 # Pieter, Peter und Per

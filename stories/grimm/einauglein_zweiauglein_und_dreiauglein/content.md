@@ -3,6 +3,7 @@ title: "Einäuglein, Zweiäuglein und Dreiäuglein"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/einauglein_zweiauglein_und_dreiauglein"
 crawledAt: "2026-04-03T09:14:31.243Z"
+wordCount: 2251
 ---
 
 # Einäuglein, Zweiäuglein und Dreiäuglein

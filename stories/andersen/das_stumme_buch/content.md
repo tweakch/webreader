@@ -3,6 +3,7 @@ title: "Das stumme Buch"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/das_stumme_buch"
 crawledAt: "2026-04-03T11:24:09.428Z"
+wordCount: 653
 ---
 
 # Das stumme Buch

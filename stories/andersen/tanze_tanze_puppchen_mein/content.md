@@ -1,11 +1,12 @@
 ---
-title: "\"Tanze, tanze, Püppchen mein!\""
+title: "Tanze, tanze, Püppchen mein!"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/tanze_tanze_puppchen_mein"
 crawledAt: "2026-04-03T11:25:09.242Z"
+wordCount: 357
 ---
 
-# "Tanze, tanze, Püppchen mein!"
+# Tanze, tanze, Püppchen mein!
 
 "Ja, das ist nun ein Lief für ganz kleine Kinder," versicherte Tante Male, "dem kann ich mit dem besten Willen nicht folgen."
 

@@ -3,6 +3,7 @@ title: "Der Bischof von Börglum und seine Sippe"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/der_bischof_von_borglum_und_seine_sippe"
 crawledAt: "2026-04-03T11:23:40.429Z"
+wordCount: 2299
 ---
 
 # Der Bischof von Börglum und seine Sippe

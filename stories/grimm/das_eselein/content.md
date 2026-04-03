@@ -3,6 +3,7 @@ title: "Das Eselein"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/das_eselein"
 crawledAt: "2026-04-03T09:14:58.156Z"
+wordCount: 1159
 ---
 
 # Das Eselein

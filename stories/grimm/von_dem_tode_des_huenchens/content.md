@@ -3,6 +3,7 @@ title: "Von dem Tode des Hühnchens"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/von_dem_tode_des_huenchens"
 crawledAt: "2026-04-03T09:12:46.230Z"
+wordCount: 592
 ---
 
 # Von dem Tode des Hühnchens

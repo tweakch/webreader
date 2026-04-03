@@ -3,6 +3,7 @@ title: "Die Eisjungfrau"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/die_eisjungfrau"
 crawledAt: "2026-04-03T11:23:54.917Z"
+wordCount: 17247
 ---
 
 # Die Eisjungfrau

@@ -3,6 +3,7 @@ title: "Des Kaisers Nachtigall"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/die_nachtigall"
 crawledAt: "2026-04-03T11:21:13.060Z"
+wordCount: 3300
 ---
 
 # Des Kaisers Nachtigall

@@ -3,6 +3,7 @@ title: "Der Ranzen, das Hütlein und das Hörnlein"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/der_ranzen_das_huetlein_und_das_hoernlein"
 crawledAt: "2026-04-03T09:11:40.686Z"
+wordCount: 2112
 ---
 
 # Der Ranzen, das Hütlein und das Hörnlein

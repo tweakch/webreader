@@ -3,6 +3,7 @@ title: "Die drei Vögelchen"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/de_drei_vugelkens"
 crawledAt: "2026-04-03T09:13:28.834Z"
+wordCount: 1329
 ---
 
 # Die drei Vögelchen

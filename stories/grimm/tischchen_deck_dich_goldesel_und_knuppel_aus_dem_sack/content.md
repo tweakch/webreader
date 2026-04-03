@@ -3,6 +3,7 @@ title: "Tischchen deck dich, Goldesel und Knüppel aus dem Sack"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/tischchen_deck_dich_goldesel_und_knuppel_aus_dem_sack"
 crawledAt: "2026-04-03T09:11:02.741Z"
+wordCount: 3501
 ---
 
 # Tischchen deck dich, Goldesel und Knüppel aus dem Sack

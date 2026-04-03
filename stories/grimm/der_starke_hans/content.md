@@ -3,6 +3,7 @@ title: "Der starke Hans"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/der_starke_hans"
 crawledAt: "2026-04-03T09:15:50.189Z"
+wordCount: 2473
 ---
 
 # Der starke Hans

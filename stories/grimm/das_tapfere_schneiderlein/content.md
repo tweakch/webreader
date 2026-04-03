@@ -3,6 +3,7 @@ title: "Das tapfere Schneiderlein"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/das_tapfere_schneiderlein"
 crawledAt: "2026-04-03T09:10:36.494Z"
+wordCount: 2983
 ---
 
 # Das tapfere Schneiderlein

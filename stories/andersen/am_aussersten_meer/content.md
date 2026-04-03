@@ -3,6 +3,7 @@ title: "Am äußersten Meer"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/am_aussersten_meer"
 crawledAt: "2026-04-03T11:22:43.520Z"
+wordCount: 731
 ---
 
 # Am äußersten Meer

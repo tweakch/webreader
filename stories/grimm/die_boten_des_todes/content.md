@@ -3,6 +3,7 @@ title: "Die Boten des Todes"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/die_boten_des_todes"
 crawledAt: "2026-04-03T09:16:09.745Z"
+wordCount: 570
 ---
 
 # Die Boten des Todes

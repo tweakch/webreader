@@ -3,6 +3,7 @@ title: "Jungfrau Maleen"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/jungfrau_maleen"
 crawledAt: "2026-04-03T09:16:47.744Z"
+wordCount: 1833
 ---
 
 # Jungfrau Maleen

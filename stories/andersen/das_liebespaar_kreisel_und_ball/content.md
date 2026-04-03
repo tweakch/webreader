@@ -3,6 +3,7 @@ title: "Das Liebespaar (Kreisel und Ball)"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/das_liebespaar_kreisel_und_ball"
 crawledAt: "2026-04-03T11:21:15.567Z"
+wordCount: 794
 ---
 
 # Das Liebespaar (Kreisel und Ball)

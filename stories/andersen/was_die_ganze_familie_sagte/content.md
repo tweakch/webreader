@@ -3,6 +3,7 @@ title: "Was die ganze Familie sagte"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/was_die_ganze_familie_sagte"
 crawledAt: "2026-04-03T11:24:58.547Z"
+wordCount: 967
 ---
 
 # Was die ganze Familie sagte

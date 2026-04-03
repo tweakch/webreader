@@ -3,6 +3,7 @@ title: "Die Brautschau"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/die_brautschau"
 crawledAt: "2026-04-03T09:15:21.965Z"
+wordCount: 148
 ---
 
 # Die Brautschau

@@ -3,6 +3,7 @@ title: "Die Lumpen"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/die_lumpen"
 crawledAt: "2026-04-03T11:24:45.718Z"
+wordCount: 584
 ---
 
 # Die Lumpen

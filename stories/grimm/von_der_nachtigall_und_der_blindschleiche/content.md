@@ -3,6 +3,7 @@ title: "Von der Nachtigall und der Blindschleiche"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/von_der_nachtigall_und_der_blindschleiche"
 crawledAt: "2026-04-03T09:17:23.434Z"
+wordCount: 212
 ---
 
 # Von der Nachtigall und der Blindschleiche

@@ -3,6 +3,7 @@ title: "Wie Kinder Schlachtens miteinander gespielt haben"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/wie_kinder_schlachtens_miteinander_gespielt_haben"
 crawledAt: "2026-04-03T09:17:19.580Z"
+wordCount: 432
 ---
 
 # Wie Kinder Schlachtens miteinander gespielt haben

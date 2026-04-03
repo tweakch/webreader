@@ -3,6 +3,7 @@ title: "Bruder Lustig"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/bruder_lustig"
 crawledAt: "2026-04-03T09:12:52.405Z"
+wordCount: 3819
 ---
 
 # Bruder Lustig

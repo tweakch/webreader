@@ -3,6 +3,7 @@ title: "Der Dreschflegel vom Himmel"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/der_dreschflegel_vom_himmel"
 crawledAt: "2026-04-03T09:14:00.898Z"
+wordCount: 345
 ---
 
 # Der Dreschflegel vom Himmel

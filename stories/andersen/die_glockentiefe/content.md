@@ -3,6 +3,7 @@ title: "Die Glockentiefe"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/die_glockentiefe"
 crawledAt: "2026-04-03T11:22:58.253Z"
+wordCount: 1235
 ---
 
 # Die Glockentiefe

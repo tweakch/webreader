@@ -3,6 +3,7 @@ title: "Der Tannenbaum"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/der_tannenbaum"
 crawledAt: "2026-04-03T11:21:19.688Z"
+wordCount: 2962
 ---
 
 # Der Tannenbaum

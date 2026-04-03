@@ -3,6 +3,7 @@ title: "Der Fuchs und die Katze"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/der_fuchs_und_die_katze"
 crawledAt: "2026-04-03T09:12:28.083Z"
+wordCount: 271
 ---
 
 # Der Fuchs und die Katze

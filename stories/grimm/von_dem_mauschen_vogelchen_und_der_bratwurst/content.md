@@ -3,6 +3,7 @@ title: "Von dem Mäuschen, Vögelchen und der Bratwurst"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/von_dem_mauschen_vogelchen_und_der_bratwurst"
 crawledAt: "2026-04-03T09:10:42.291Z"
+wordCount: 571
 ---
 
 # Von dem Mäuschen, Vögelchen und der Bratwurst

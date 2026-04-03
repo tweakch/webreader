@@ -3,6 +3,7 @@ title: "Die Hirtin und der Schornsteinfeger"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/die_hirtin_und_der_schornsteinfeger"
 crawledAt: "2026-04-03T11:21:31.426Z"
+wordCount: 1590
 ---
 
 # Die Hirtin und der Schornsteinfeger

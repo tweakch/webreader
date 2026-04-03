@@ -3,6 +3,7 @@ title: "Des Herrn und des Teufels Getier"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/des_herrn_und_des_teufels_getier"
 crawledAt: "2026-04-03T09:15:06.692Z"
+wordCount: 322
 ---
 
 # Des Herrn und des Teufels Getier

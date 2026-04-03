@@ -3,6 +3,7 @@ title: "Die Bienenkönigin"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/die_bienenkonigin"
 crawledAt: "2026-04-03T09:11:53.745Z"
+wordCount: 724
 ---
 
 # Die Bienenkönigin

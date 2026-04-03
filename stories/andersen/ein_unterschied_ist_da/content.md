@@ -3,6 +3,7 @@ title: "Ein Unterschied ist da"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/ein_unterschied_ist_da"
 crawledAt: "2026-04-03T11:22:05.877Z"
+wordCount: 1145
 ---
 
 # Ein Unterschied ist da

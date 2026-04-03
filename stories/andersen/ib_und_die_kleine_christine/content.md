@@ -3,6 +3,7 @@ title: "Ib und die kleine Christine"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/ib_und_die_kleine_christine"
 crawledAt: "2026-04-03T11:22:50.831Z"
+wordCount: 4072
 ---
 
 # Ib und die kleine Christine

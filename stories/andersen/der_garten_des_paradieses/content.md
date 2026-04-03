@@ -3,6 +3,7 @@ title: "Der Garten des Paradieses"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/der_garten_des_paradieses"
 crawledAt: "2026-04-03T11:20:53.271Z"
+wordCount: 5027
 ---
 
 # Der Garten des Paradieses

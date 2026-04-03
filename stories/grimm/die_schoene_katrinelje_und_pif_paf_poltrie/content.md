@@ -3,6 +3,7 @@ title: "Die schöne Katrinelje und Pif Paf Poltrie"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/die_schoene_katrinelje_und_pif_paf_poltrie"
 crawledAt: "2026-04-03T09:14:32.986Z"
+wordCount: 330
 ---
 
 # Die schöne Katrinelje und Pif Paf Poltrie

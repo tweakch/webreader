@@ -3,6 +3,7 @@ title: "Der Bauer und der Teufel"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/der_bauer_und_der_teufel"
 crawledAt: "2026-04-03T09:16:31.950Z"
+wordCount: 343
 ---
 
 # Der Bauer und der Teufel

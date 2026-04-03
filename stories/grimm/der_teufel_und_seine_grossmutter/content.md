@@ -3,6 +3,7 @@ title: "Der Teufel und seine Großmutter"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/der_teufel_und_seine_grossmutter"
 crawledAt: "2026-04-03T09:14:24.147Z"
+wordCount: 1145
 ---
 
 # Der Teufel und seine Großmutter

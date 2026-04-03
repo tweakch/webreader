@@ -3,6 +3,7 @@ title: "Blaubart"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/blaubart"
 crawledAt: "2026-04-03T09:17:31.419Z"
+wordCount: 1088
 ---
 
 # Blaubart

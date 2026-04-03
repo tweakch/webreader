@@ -3,6 +3,7 @@ title: "Der Hase und der Igel"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/der_hase_und_der_igel"
 crawledAt: "2026-04-03T09:16:28.662Z"
+wordCount: 1228
 ---
 
 # Der Hase und der Igel

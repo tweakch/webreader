@@ -3,6 +3,7 @@ title: "Holger Danske"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/holger_danske"
 crawledAt: "2026-04-03T11:21:33.888Z"
+wordCount: 1611
 ---
 
 # Holger Danske

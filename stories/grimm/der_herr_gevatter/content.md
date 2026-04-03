@@ -3,6 +3,7 @@ title: "Der Herr Gevatter"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/der_herr_gevatter"
 crawledAt: "2026-04-03T09:11:19.060Z"
+wordCount: 565
 ---
 
 # Der Herr Gevatter

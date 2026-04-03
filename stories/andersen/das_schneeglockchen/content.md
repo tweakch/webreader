@@ -3,6 +3,7 @@ title: "Das Schneeglöckchen"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/das_schneeglockchen"
 crawledAt: "2026-04-03T11:24:11.591Z"
+wordCount: 1215
 ---
 
 # Das Schneeglöckchen

@@ -3,6 +3,7 @@ title: "Die vier kunstreichen Brüder"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/die_vier_kunstreichen_brueder"
 crawledAt: "2026-04-03T09:14:29.681Z"
+wordCount: 1457
 ---
 
 # Die vier kunstreichen Brüder

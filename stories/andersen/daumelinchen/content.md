@@ -3,6 +3,7 @@ title: "Däumelinchen"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/daumelinchen"
 crawledAt: "2026-04-03T11:20:35.787Z"
+wordCount: 3943
 ---
 
 # Däumelinchen

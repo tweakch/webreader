@@ -3,6 +3,7 @@ title: "Das häßliche junge Entlein"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/das_hassliche_junge_entlein"
 crawledAt: "2026-04-03T11:21:17.920Z"
+wordCount: 3494
 ---
 
 # Das häßliche junge Entlein

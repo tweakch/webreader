@@ -3,6 +3,7 @@ title: "Die sechs Diener"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/die_sechs_diener"
 crawledAt: "2026-04-03T09:14:37.181Z"
+wordCount: 2400
 ---
 
 # Die sechs Diener

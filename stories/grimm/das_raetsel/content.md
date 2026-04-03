@@ -3,6 +3,7 @@ title: "Das Rätsel"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/das_raetsel"
 crawledAt: "2026-04-03T09:10:40.639Z"
+wordCount: 1055
 ---
 
 # Das Rätsel

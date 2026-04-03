@@ -3,6 +3,7 @@ title: "Ein Bild vom Kastellwall"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/ein_bild_vom_kastellwall"
 crawledAt: "2026-04-03T11:21:44.317Z"
+wordCount: 261
 ---
 
 # Ein Bild vom Kastellwall

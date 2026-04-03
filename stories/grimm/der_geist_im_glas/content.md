@@ -3,6 +3,7 @@ title: "Der Geist im Glas"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/der_geist_im_glas"
 crawledAt: "2026-04-03T09:13:34.084Z"
+wordCount: 1652
 ---
 
 # Der Geist im Glas

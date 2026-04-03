@@ -3,6 +3,7 @@ title: "Der Wassertropfen"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/der_wassertropfen"
 crawledAt: "2026-04-03T11:21:53.009Z"
+wordCount: 551
 ---
 
 # Der Wassertropfen

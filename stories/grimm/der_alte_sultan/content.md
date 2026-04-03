@@ -3,6 +3,7 @@ title: "Der alte Sultan"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/der_alte_sultan"
 crawledAt: "2026-04-03T09:11:29.742Z"
+wordCount: 801
 ---
 
 # Der alte Sultan

@@ -3,6 +3,7 @@ title: "Die drei Männlein im Walde"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/die_drei_mannlein_im_walde"
 crawledAt: "2026-04-03T09:10:22.985Z"
+wordCount: 1853
 ---
 
 # Die drei Männlein im Walde

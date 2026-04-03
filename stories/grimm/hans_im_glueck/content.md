@@ -3,6 +3,7 @@ title: "Hans im Glück"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/hans_im_glueck"
 crawledAt: "2026-04-03T09:12:56.075Z"
+wordCount: 1872
 ---
 
 # Hans im Glück

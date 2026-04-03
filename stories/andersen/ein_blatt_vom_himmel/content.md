@@ -3,6 +3,7 @@ title: "Ein Blatt vom Himmel"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/ein_blatt_vom_himmel"
 crawledAt: "2026-04-03T11:22:47.468Z"
+wordCount: 1046
 ---
 
 # Ein Blatt vom Himmel

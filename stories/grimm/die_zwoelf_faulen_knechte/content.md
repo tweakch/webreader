@@ -3,6 +3,7 @@ title: "Die zwölf faulen Knechte"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/die_zwoelf_faulen_knechte"
 crawledAt: "2026-04-03T09:15:13.864Z"
+wordCount: 976
 ---
 
 # Die zwölf faulen Knechte

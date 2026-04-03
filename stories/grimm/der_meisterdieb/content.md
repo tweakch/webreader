@@ -3,6 +3,7 @@ title: "Der Meisterdieb"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/der_meisterdieb"
 crawledAt: "2026-04-03T09:16:35.929Z"
+wordCount: 2853
 ---
 
 # Der Meisterdieb

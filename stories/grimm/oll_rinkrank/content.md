@@ -3,6 +3,7 @@ title: "Oll Rinkrank"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/oll_rinkrank"
 crawledAt: "2026-04-03T09:16:44.586Z"
+wordCount: 771
 ---
 
 # Oll Rinkrank

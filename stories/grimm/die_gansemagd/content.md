@@ -3,6 +3,7 @@ title: "Die Gänsemagd"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/die_gansemagd"
 crawledAt: "2026-04-03T09:13:06.504Z"
+wordCount: 1941
 ---
 
 # Die Gänsemagd

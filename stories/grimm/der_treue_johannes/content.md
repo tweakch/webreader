@@ -3,6 +3,7 @@ title: "Der treue Johannes"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/der_treue_johannes"
 crawledAt: "2026-04-03T09:10:08.798Z"
+wordCount: 2828
 ---
 
 # Der treue Johannes

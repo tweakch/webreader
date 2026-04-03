@@ -3,6 +3,7 @@ title: "Der Wolf und der Mensch"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/der_wolf_und_der_mensch"
 crawledAt: "2026-04-03T09:12:12.566Z"
+wordCount: 393
 ---
 
 # Der Wolf und der Mensch

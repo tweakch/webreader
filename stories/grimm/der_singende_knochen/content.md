@@ -3,6 +3,7 @@ title: "Der singende Knochen"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/der_singende_knochen"
 crawledAt: "2026-04-03T09:10:49.821Z"
+wordCount: 693
 ---
 
 # Der singende Knochen

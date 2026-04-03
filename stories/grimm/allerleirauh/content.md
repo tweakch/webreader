@@ -3,6 +3,7 @@ title: "Allerleirauh"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/allerleirauh"
 crawledAt: "2026-04-03T09:11:58.457Z"
+wordCount: 2009
 ---
 
 # Allerleirauh

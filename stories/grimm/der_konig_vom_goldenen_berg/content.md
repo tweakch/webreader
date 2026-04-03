@@ -3,6 +3,7 @@ title: "Der König vom goldenen Berg"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/der_konig_vom_goldenen_berg"
 crawledAt: "2026-04-03T09:13:12.616Z"
+wordCount: 2243
 ---
 
 # Der König vom goldenen Berg

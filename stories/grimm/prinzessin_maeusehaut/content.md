@@ -3,6 +3,7 @@ title: "Prinzessin Mäusehaut"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/prinzessin_maeusehaut"
 crawledAt: "2026-04-03T09:17:37.597Z"
+wordCount: 428
 ---
 
 # Prinzessin Mäusehaut

@@ -3,6 +3,7 @@ title: "Der letzte Tag"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/der_letzte_tag"
 crawledAt: "2026-04-03T11:22:17.319Z"
+wordCount: 1305
 ---
 
 # Der letzte Tag

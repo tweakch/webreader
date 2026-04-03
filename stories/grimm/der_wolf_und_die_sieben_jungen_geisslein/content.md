@@ -3,6 +3,7 @@ title: "Der Wolf und die sieben jungen Geißlein"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/der_wolf_und_die_sieben_jungen_geisslein"
 crawledAt: "2026-04-03T09:10:07.308Z"
+wordCount: 1009
 ---
 
 # Der Wolf und die sieben jungen Geißlein

@@ -3,6 +3,7 @@ title: "Rohrdommel und Wiedehopf"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/rohrdommel_und_wiedehopf"
 crawledAt: "2026-04-03T09:16:02.621Z"
+wordCount: 215
 ---
 
 # Rohrdommel und Wiedehopf

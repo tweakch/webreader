@@ -3,6 +3,7 @@ title: "Die alte Kirchenglocke"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/die_alte_kirchenglocke"
 crawledAt: "2026-04-03T11:23:59.813Z"
+wordCount: 1662
 ---
 
 # Die alte Kirchenglocke

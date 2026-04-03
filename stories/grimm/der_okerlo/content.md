@@ -3,6 +3,7 @@ title: "Der Okerlo"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/der_okerlo"
 crawledAt: "2026-04-03T09:17:35.550Z"
+wordCount: 809
 ---
 
 # Der Okerlo

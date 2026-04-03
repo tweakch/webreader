@@ -3,6 +3,7 @@ title: "Ole Luk-Oie"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/ole_luk-oie"
 crawledAt: "2026-04-03T11:21:07.269Z"
+wordCount: 3733
 ---
 
 # Ole Luk-Oie

@@ -3,6 +3,7 @@ title: "Der arme Müllerbursch und das Kätzchen"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/der_arme_muellerbursch_und_das_kaetzchen"
 crawledAt: "2026-04-03T09:13:45.212Z"
+wordCount: 1259
 ---
 
 # Der arme Müllerbursch und das Kätzchen

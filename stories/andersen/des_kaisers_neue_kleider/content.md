@@ -3,6 +3,7 @@ title: "Des Kaisers neue Kleider"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/des_kaisers_neue_kleider"
 crawledAt: "2026-04-03T11:20:41.519Z"
+wordCount: 1535
 ---
 
 # Des Kaisers neue Kleider

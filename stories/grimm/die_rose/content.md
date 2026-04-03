@@ -3,6 +3,7 @@ title: "Die Rose"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/die_rose"
 crawledAt: "2026-04-03T09:16:57.293Z"
+wordCount: 157
 ---
 
 # Die Rose

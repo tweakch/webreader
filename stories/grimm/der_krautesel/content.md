@@ -3,6 +3,7 @@ title: "Der Krautesel"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/der_krautesel"
 crawledAt: "2026-04-03T09:14:19.849Z"
+wordCount: 2446
 ---
 
 # Der Krautesel

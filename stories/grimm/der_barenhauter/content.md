@@ -3,6 +3,7 @@ title: "Der Bärenhäuter"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/der_barenhauter"
 crawledAt: "2026-04-03T09:13:37.176Z"
+wordCount: 1843
 ---
 
 # Der Bärenhäuter

@@ -3,6 +3,7 @@ title: "Wunderschön"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/wunderschon"
 crawledAt: "2026-04-03T11:23:31.801Z"
+wordCount: 2367
 ---
 
 # Wunderschön

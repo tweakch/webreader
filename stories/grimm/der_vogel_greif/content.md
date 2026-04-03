@@ -3,6 +3,7 @@ title: "Der Vogel Greif"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/der_vogel_greif"
 crawledAt: "2026-04-03T09:15:48.993Z"
+wordCount: 2607
 ---
 
 # Der Vogel Greif

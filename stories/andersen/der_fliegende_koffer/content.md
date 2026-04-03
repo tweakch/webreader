@@ -3,6 +3,7 @@ title: "Der fliegende Koffer"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/der_fliegende_koffer"
 crawledAt: "2026-04-03T11:20:58.608Z"
+wordCount: 1952
 ---
 
 # Der fliegende Koffer

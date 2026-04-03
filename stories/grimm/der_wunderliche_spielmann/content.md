@@ -3,6 +3,7 @@ title: "Der wunderliche Spielmann"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/der_wunderliche_spielmann"
 crawledAt: "2026-04-03T09:10:13.384Z"
+wordCount: 987
 ---
 
 # Der wunderliche Spielmann

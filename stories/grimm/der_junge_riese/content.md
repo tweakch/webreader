@@ -3,6 +3,7 @@ title: "Der junge Riese"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/der_junge_riese"
 crawledAt: "2026-04-03T09:13:08.198Z"
+wordCount: 2843
 ---
 
 # Der junge Riese

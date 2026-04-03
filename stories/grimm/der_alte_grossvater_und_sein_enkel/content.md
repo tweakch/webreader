@@ -3,6 +3,7 @@ title: "Der alte Großvater und der Enkel"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/der_alte_grossvater_und_sein_enkel"
 crawledAt: "2026-04-03T09:12:41.589Z"
+wordCount: 230
 ---
 
 # Der alte Großvater und der Enkel

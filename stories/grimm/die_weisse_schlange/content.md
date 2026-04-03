@@ -3,6 +3,7 @@ title: "Die weiße Schlange"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/die_weisse_schlange"
 crawledAt: "2026-04-03T09:10:31.239Z"
+wordCount: 1484
 ---
 
 # Die weiße Schlange

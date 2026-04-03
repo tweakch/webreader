@@ -3,6 +3,7 @@ title: "Der Komet"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/der_komet"
 crawledAt: "2026-04-03T11:24:47.124Z"
+wordCount: 1428
 ---
 
 # Der Komet

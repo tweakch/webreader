@@ -3,6 +3,7 @@ title: "Etwas"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/etwas"
 crawledAt: "2026-04-03T11:23:05.636Z"
+wordCount: 2479
 ---
 
 # Etwas

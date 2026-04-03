@@ -3,6 +3,7 @@ title: "Die schönste Rose der Welt"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/die_schonste_rose_der_welt"
 crawledAt: "2026-04-03T11:22:07.686Z"
+wordCount: 762
 ---
 
 # Die schönste Rose der Welt

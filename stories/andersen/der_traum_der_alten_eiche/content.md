@@ -3,6 +3,7 @@ title: "Der Traum der alten Eiche (Ein Weihnachtsmärchen)"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/der_traum_der_alten_eiche"
 crawledAt: "2026-04-03T11:23:07.001Z"
+wordCount: 1976
 ---
 
 # Der Traum der alten Eiche (Ein Weihnachtsmärchen)

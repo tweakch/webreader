@@ -3,6 +3,7 @@ title: "Meister Pfriem"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/meister_pfriem"
 crawledAt: "2026-04-03T09:16:12.204Z"
+wordCount: 1283
 ---
 
 # Meister Pfriem

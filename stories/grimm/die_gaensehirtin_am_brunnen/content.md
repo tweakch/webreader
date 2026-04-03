@@ -3,6 +3,7 @@ title: "Die Gänsehirtin am Brunnen"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/die_gaensehirtin_am_brunnen"
 crawledAt: "2026-04-03T09:16:13.308Z"
+wordCount: 3676
 ---
 
 # Die Gänsehirtin am Brunnen

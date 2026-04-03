@@ -3,6 +3,7 @@ title: "Eine Rose von Homers Grab"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/eine_rose_von_homers_grab"
 crawledAt: "2026-04-03T11:24:05.668Z"
+wordCount: 461
 ---
 
 # Eine Rose von Homers Grab

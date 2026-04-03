@@ -3,6 +3,7 @@ title: "Der Zaunkönig"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/der_zaunkoenig"
 crawledAt: "2026-04-03T09:15:59.673Z"
+wordCount: 1058
 ---
 
 # Der Zaunkönig

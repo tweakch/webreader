@@ -3,6 +3,7 @@ title: "Die Dryade"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/die_dryade"
 crawledAt: "2026-04-03T11:24:44.244Z"
+wordCount: 7317
 ---
 
 # Die Dryade

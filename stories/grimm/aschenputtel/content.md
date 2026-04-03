@@ -3,6 +3,7 @@ title: "Aschenputtel"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/aschenputtel"
 crawledAt: "2026-04-03T09:10:38.925Z"
+wordCount: 2414
 ---
 
 # Aschenputtel

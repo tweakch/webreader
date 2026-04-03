@@ -3,6 +3,7 @@ title: "Der Gärtner und die Herrschaft"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/der_gartner_und_die_herrschaft"
 crawledAt: "2026-04-03T11:25:12.915Z"
+wordCount: 2346
 ---
 
 # Der Gärtner und die Herrschaft

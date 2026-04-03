@@ -3,6 +3,7 @@ title: "Die Wochentage"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/die_wochentage"
 crawledAt: "2026-04-03T11:24:42.025Z"
+wordCount: 625
 ---
 
 # Die Wochentage

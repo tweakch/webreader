@@ -3,6 +3,7 @@ title: "Die drei Federn"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/die_drei_federn"
 crawledAt: "2026-04-03T09:11:55.529Z"
+wordCount: 939
 ---
 
 # Die drei Federn

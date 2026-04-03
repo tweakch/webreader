@@ -3,6 +3,7 @@ title: "Der Jude im Dorn"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/der_jude_im_dorn"
 crawledAt: "2026-04-03T09:13:56.545Z"
+wordCount: 1634
 ---
 
 # Der Jude im Dorn

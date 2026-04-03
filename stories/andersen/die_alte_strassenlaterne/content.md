@@ -3,6 +3,7 @@ title: "Die alte Straßenlaterne"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/die_alte_strassenlaterne"
 crawledAt: "2026-04-03T11:21:45.747Z"
+wordCount: 2333
 ---
 
 # Die alte Straßenlaterne

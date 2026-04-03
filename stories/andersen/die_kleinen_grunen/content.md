@@ -3,6 +3,7 @@ title: "Die kleinen Grünen"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/die_kleinen_grunen"
 crawledAt: "2026-04-03T11:24:33.630Z"
+wordCount: 658
 ---
 
 # Die kleinen Grünen

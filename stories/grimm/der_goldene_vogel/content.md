@@ -3,6 +3,7 @@ title: "Der goldene Vogel"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/der_goldene_vogel"
 crawledAt: "2026-04-03T09:11:44.759Z"
+wordCount: 2796
 ---
 
 # Der goldene Vogel

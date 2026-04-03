@@ -3,6 +3,7 @@ title: "Gottes Speise"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/gottes_speise"
 crawledAt: "2026-04-03T09:17:00.884Z"
+wordCount: 226
 ---
 
 # Gottes Speise

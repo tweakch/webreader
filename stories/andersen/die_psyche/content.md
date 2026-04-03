@@ -3,6 +3,7 @@ title: "Die Psyche"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/die_psyche"
 crawledAt: "2026-04-03T11:23:55.995Z"
+wordCount: 4206
 ---
 
 # Die Psyche

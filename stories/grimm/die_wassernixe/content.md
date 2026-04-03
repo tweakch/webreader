@@ -3,6 +3,7 @@ title: "Die Wassernixe"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/die_wassernixe"
 crawledAt: "2026-04-03T09:12:43.821Z"
+wordCount: 262
 ---
 
 # Die Wassernixe

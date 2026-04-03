@@ -3,6 +3,7 @@ title: "Der Ehre Dornenpfad"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/der_ehre_dornenpfad"
 crawledAt: "2026-04-03T11:22:52.212Z"
+wordCount: 1320
 ---
 
 # Der Ehre Dornenpfad

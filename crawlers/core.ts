@@ -94,9 +94,15 @@ function nextDelay(requestIndex: number): number {
 // File writing
 // ---------------------------------------------------------------------------
 
-function buildFrontmatter(fields: Record<string, string>): string {
-  const lines = Object.entries(fields).map(([k, v]) => `${k}: ${JSON.stringify(v)}`);
+function buildFrontmatter(fields: Record<string, string | number>): string {
+  const lines = Object.entries(fields).map(([k, v]) =>
+    typeof v === 'number' ? `${k}: ${v}` : `${k}: ${JSON.stringify(v)}`
+  );
   return `---\n${lines.join('\n')}\n---\n`;
+}
+
+function countWords(text: string): number {
+  return text.split(/\s+/).filter(w => w.length > 0).length;
 }
 
 export function writeStory(
@@ -111,6 +117,7 @@ export function writeStory(
     source: sourceLabel,
     url: story.url,
     crawledAt: new Date().toISOString(),
+    wordCount: countWords(body),
   });
   const dir = join(storiesDir, sourceId, story.slug);
   mkdirSync(dir, { recursive: true });

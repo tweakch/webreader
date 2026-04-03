@@ -3,6 +3,7 @@ title: "Sie taugte nichts"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/sie_taugte_nichts"
 crawledAt: "2026-04-03T11:22:33.281Z"
+wordCount: 2724
 ---
 
 # Sie taugte nichts

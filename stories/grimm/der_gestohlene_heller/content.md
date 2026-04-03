@@ -3,6 +3,7 @@ title: "Der gestohlene Heller"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/der_gestohlene_heller"
 crawledAt: "2026-04-03T09:15:20.306Z"
+wordCount: 310
 ---
 
 # Der gestohlene Heller

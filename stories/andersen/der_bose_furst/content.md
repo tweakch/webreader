@@ -3,6 +3,7 @@ title: "Der böse Fürst"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/der_bose_furst"
 crawledAt: "2026-04-03T11:21:05.389Z"
+wordCount: 944
 ---
 
 # Der böse Fürst

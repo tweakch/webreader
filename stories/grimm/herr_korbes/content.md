@@ -3,6 +3,7 @@ title: "Herr Korbes"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/herr_korbes"
 crawledAt: "2026-04-03T09:11:16.764Z"
+wordCount: 351
 ---
 
 # Herr Korbes

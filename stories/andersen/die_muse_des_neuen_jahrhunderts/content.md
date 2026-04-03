@@ -3,6 +3,7 @@ title: "Die Muse des neuen Jahrhunderts"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/die_muse_des_neuen_jahrhunderts"
 crawledAt: "2026-04-03T11:23:52.818Z"
+wordCount: 1921
 ---
 
 # Die Muse des neuen Jahrhunderts

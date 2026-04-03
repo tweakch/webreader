@@ -3,6 +3,7 @@ title: "Daumesdick"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/daumesdick"
 crawledAt: "2026-04-03T09:11:04.123Z"
+wordCount: 2098
 ---
 
 # Daumesdick

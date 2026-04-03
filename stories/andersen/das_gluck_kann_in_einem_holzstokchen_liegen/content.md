@@ -3,6 +3,7 @@ title: "Das Glück kann in einem Holzstöckchen liegen"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/das_gluck_kann_in_einem_holzstokchen_liegen"
 crawledAt: "2026-04-03T11:24:55.981Z"
+wordCount: 855
 ---
 
 # Das Glück kann in einem Holzstöckchen liegen

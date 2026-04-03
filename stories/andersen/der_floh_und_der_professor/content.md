@@ -3,6 +3,7 @@ title: "Der Floh und der Professor"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/der_floh_und_der_professor"
 crawledAt: "2026-04-03T11:25:24.394Z"
+wordCount: 1419
 ---
 
 # Der Floh und der Professor

@@ -3,6 +3,7 @@ title: "Die Lichter"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/die_lichter"
 crawledAt: "2026-04-03T11:25:07.106Z"
+wordCount: 886
 ---
 
 # Die Lichter

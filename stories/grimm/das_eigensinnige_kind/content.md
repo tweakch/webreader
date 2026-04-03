@@ -3,6 +3,7 @@ title: "Das eigensinnige Kind"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/das_eigensinnige_kind"
 crawledAt: "2026-04-03T09:14:09.020Z"
+wordCount: 128
 ---
 
 # Das eigensinnige Kind

@@ -3,6 +3,7 @@ title: "Das Erdmännchen"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/dat_erdmaenneken"
 crawledAt: "2026-04-03T09:13:10.378Z"
+wordCount: 1720
 ---
 
 # Das Erdmännchen

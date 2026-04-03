@@ -3,6 +3,7 @@ title: "Anne Lisbeth"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/anne_lisbeth"
 crawledAt: "2026-04-03T11:23:23.090Z"
+wordCount: 4052
 ---
 
 # Anne Lisbeth

@@ -3,6 +3,7 @@ title: "Das Gänseblumchen"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/das_ganseblumchen"
 crawledAt: "2026-04-03T11:20:45.563Z"
+wordCount: 1475
 ---
 
 # Das Gänseblumchen

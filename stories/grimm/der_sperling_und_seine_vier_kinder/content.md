@@ -3,6 +3,7 @@ title: "Der Sperling und seine vier Kinder"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/der_sperling_und_seine_vier_kinder"
 crawledAt: "2026-04-03T09:15:26.496Z"
+wordCount: 821
 ---
 
 # Der Sperling und seine vier Kinder

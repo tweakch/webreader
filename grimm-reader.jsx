@@ -7,7 +7,7 @@ import FeatureDocs from './FeatureDocs';
 const GrimmMarchenApp = () => {
   const [selectedStory, setSelectedStory] = useState(null);
   const [menuOpen, setMenuOpen] = useState(false);
-  const [fontSize, setFontSize] = useState(18);
+  const [fontSize, setFontSize] = useState(() => parseInt(localStorage.getItem('wr-fs') ?? '18'));
   const [searchTerm, setSearchTerm] = useState('');
   const [currentPage, setCurrentPage] = useState(0);
   const [totalPages, setTotalPages] = useState(1);
@@ -22,6 +22,16 @@ const GrimmMarchenApp = () => {
   const [textWidthIdx, setTextWidthIdx] = useState(() => parseInt(localStorage.getItem('wr-tw') ?? '1'));
   const [wordSpacingIdx, setWordSpacingIdx] = useState(() => parseInt(localStorage.getItem('wr-ws') ?? '0'));
   const [fontFamilyIdx, setFontFamilyIdx] = useState(() => parseInt(localStorage.getItem('wr-ff') ?? '0'));
+  const [completedStories, setCompletedStories] = useState(() =>
+    new Set(JSON.parse(localStorage.getItem('wr-completed') ?? '[]'))
+  );
+  const [resumeSession, setResumeSession] = useState(null); // { story, page }
+  const [variantPrefs, setVariantPrefs] = useState(() =>
+    JSON.parse(localStorage.getItem('wr-variant-prefs') ?? '{}')
+  );
+  const pendingResumePageRef = useRef(null);
+  const lastResetStoryRef = useRef(null);
+  const initialResumeApplied = useRef(false);
 
   const LINE_HEIGHTS = [1.5, 1.8, 2.2];
   const TEXT_WIDTHS = [560, 768, 1200];   // max column width cap (desktop)
@@ -95,7 +105,7 @@ const GrimmMarchenApp = () => {
     return map;
   }, []);
 
-  const [activeSource, setActiveSource] = useState(null);
+  const [activeSource, setActiveSource] = useState(() => localStorage.getItem('wr-last-source') || null);
 
   const storiesBySource = React.useMemo(() => {
     const map = {};
@@ -123,11 +133,16 @@ const GrimmMarchenApp = () => {
   useEffect(() => { localStorage.setItem('wr-tw', textWidthIdx); }, [textWidthIdx]);
   useEffect(() => { localStorage.setItem('wr-ws', wordSpacingIdx); }, [wordSpacingIdx]);
   useEffect(() => { localStorage.setItem('wr-ff', fontFamilyIdx); }, [fontFamilyIdx]);
+  useEffect(() => { localStorage.setItem('wr-fs', fontSize); }, [fontSize]);
 
-  // Reset variant when a new story is selected
+  // Reset variant when a new story is selected; restore persisted preference if available
   useEffect(() => {
-    setSelectedVariant(null);
-  }, [selectedStory]);
+    if (!selectedStory) { setSelectedVariant(null); return; }
+    const prefName = variantPrefs[selectedStory.id] ?? null;
+    if (!prefName) { setSelectedVariant(null); return; }
+    const adaptions = adaptionsByParent[selectedStory.id] ?? [];
+    setSelectedVariant(adaptions.find(a => a.adaptionName === prefName) ?? null);
+  }, [selectedStory]); // variantPrefs intentionally omitted — only re-run on story change
 
   const buildPages = useCallback(() => {
     if (!readerAreaRef.current || !measureRef.current || !selectedStory) return;
@@ -237,7 +252,16 @@ const GrimmMarchenApp = () => {
     m.innerHTML = '';
     setPages(pages);
     setTotalPages(pages.length);
-    setCurrentPage(0);
+    // Only reset/restore the page on the first build for a given story.
+    // Subsequent calls from the ResizeObserver on the same story should not
+    // touch currentPage — the existing clamping effect handles out-of-bounds.
+    const currentStoryId = selectedStory?.id ?? null;
+    if (lastResetStoryRef.current !== currentStoryId) {
+      lastResetStoryRef.current = currentStoryId;
+      const resumePage = pendingResumePageRef.current;
+      pendingResumePageRef.current = null;
+      setCurrentPage(resumePage !== null ? Math.min(resumePage, pages.length - 1) : 0);
+    }
   }, [selectedStory, selectedVariant, fontSize, lineHeight, textWidth, hPadding, wordSpacing, fontFamily]);
 
   // Build pages synchronously before paint when story or font size changes
@@ -326,10 +350,10 @@ const GrimmMarchenApp = () => {
     'favorites': _rawFavorites, 'favorites-only-toggle': _rawFavoritesOnlyToggle,
   };
 
-  const [favoritesOnly, setFavoritesOnly] = useState(false);
+  const [favoritesOnly, setFavoritesOnly] = useState(() => localStorage.getItem('wr-favorites-only') === 'true');
   const flagTheme = useStringFlagValue('theme', 'light');
 
-  const [theme, setTheme] = useState(flagTheme); // 'light' | 'dark' | 'system'
+  const [theme, setTheme] = useState(() => localStorage.getItem('wr-theme') ?? flagTheme); // 'light' | 'dark' | 'system'
   const [systemDark, setSystemDark] = useState(
     () => window.matchMedia('(prefers-color-scheme: dark)').matches
   );
@@ -350,6 +374,51 @@ const GrimmMarchenApp = () => {
   useEffect(() => {
     localStorage.setItem('wr-favorites', JSON.stringify([...favorites]));
   }, [favorites]);
+
+  useEffect(() => { localStorage.setItem('wr-theme', theme); }, [theme]);
+  useEffect(() => { localStorage.setItem('wr-favorites-only', favoritesOnly); }, [favoritesOnly]);
+  useEffect(() => { localStorage.setItem('wr-completed', JSON.stringify([...completedStories])); }, [completedStories]);
+  useEffect(() => { localStorage.setItem('wr-variant-prefs', JSON.stringify(variantPrefs)); }, [variantPrefs]);
+  useEffect(() => { localStorage.setItem('wr-last-source', activeSource ?? ''); }, [activeSource]);
+  useEffect(() => {
+    if (!selectedStory) return;
+    localStorage.setItem('wr-last-story', selectedStory.id);
+    localStorage.setItem('wr-last-page', String(currentPage));
+  }, [selectedStory, currentPage]);
+
+  // Bootstrap resume session once after stories load
+  useEffect(() => {
+    if (initialResumeApplied.current || stories.length === 0) return;
+    initialResumeApplied.current = true;
+    const lastStoryId = localStorage.getItem('wr-last-story');
+    const lastPage = parseInt(localStorage.getItem('wr-last-page') ?? '0', 10);
+    if (!lastStoryId) return;
+    const story = stories.find(s => s.id === lastStoryId);
+    if (story) setResumeSession({ story, page: lastPage });
+  }, [stories]);
+
+  // Clear resume banner once a story is open
+  useEffect(() => {
+    if (selectedStory) setResumeSession(null);
+  }, [selectedStory]);
+
+  // Mark story as completed when reaching the last page
+  useEffect(() => {
+    if (!selectedStory || totalPages <= 1 || currentPage !== totalPages - 1) return;
+    setCompletedStories(prev => {
+      if (prev.has(selectedStory.id)) return prev;
+      const next = new Set(prev);
+      next.add(selectedStory.id);
+      return next;
+    });
+  }, [selectedStory, currentPage, totalPages]);
+
+  const selectVariant = useCallback((variant) => {
+    setSelectedVariant(variant);
+    if (selectedStory) {
+      setVariantPrefs(prev => ({ ...prev, [selectedStory.id]: variant?.adaptionName ?? null }));
+    }
+  }, [selectedStory]);
 
   const toggleFavorite = useCallback((storyId, e) => {
     e.stopPropagation();
@@ -544,13 +613,22 @@ const GrimmMarchenApp = () => {
                     }`}
                   >
                     <span className="font-serif text-base line-clamp-2 block">{story.title}</span>
-                    <span className={`text-xs px-1.5 py-0.5 rounded ${
-                      selectedStory?.id === story.id
-                        ? darkMode ? 'bg-amber-600/60 text-amber-100' : 'bg-amber-300/60 text-amber-800'
-                        : darkMode ? 'bg-slate-700 text-amber-400' : 'bg-amber-100 text-amber-700'
-                    }`}>
-                      {story.sourceLabel}
-                    </span>
+                    <div className="flex items-center gap-1 flex-wrap mt-0.5">
+                      <span className={`text-xs px-1.5 py-0.5 rounded ${
+                        selectedStory?.id === story.id
+                          ? darkMode ? 'bg-amber-600/60 text-amber-100' : 'bg-amber-300/60 text-amber-800'
+                          : darkMode ? 'bg-slate-700 text-amber-400' : 'bg-amber-100 text-amber-700'
+                      }`}>
+                        {story.sourceLabel}
+                      </span>
+                      {completedStories.has(story.id) && (
+                        <span data-testid="completed-indicator" className={`text-xs px-1.5 py-0.5 rounded ${
+                          selectedStory?.id === story.id
+                            ? darkMode ? 'bg-amber-600/60 text-amber-100' : 'bg-amber-300/60 text-amber-800'
+                            : darkMode ? 'bg-slate-700 text-amber-500' : 'bg-amber-100 text-amber-600'
+                        }`}>✓</span>
+                      )}
+                    </div>
                   </button>
                   <button
                     onClick={(e) => toggleFavorite(story.id, e)}
@@ -594,6 +672,11 @@ const GrimmMarchenApp = () => {
                         {story.wordCount.toLocaleString('de')} W
                       </span>
                     )}
+                    {completedStories.has(story.id) && (
+                      <span data-testid="completed-indicator" className={`ml-1 text-xs px-1.5 py-0.5 rounded font-sans align-middle ${
+                        darkMode ? 'bg-slate-700 text-amber-500' : 'bg-amber-100 text-amber-600'
+                      }`}>✓</span>
+                    )}
                   </button>
                   {showFavorites && (
                     <button
@@ -615,6 +698,7 @@ const GrimmMarchenApp = () => {
             <>
               <div className="px-3 pb-2">
                 <button
+                  data-testid="back-to-sources"
                   onClick={() => setActiveSource(null)}
                   className={`flex items-center gap-1.5 w-full px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
                     darkMode
@@ -645,14 +729,25 @@ const GrimmMarchenApp = () => {
                       }`}
                     >
                       <span className="font-serif text-base line-clamp-2 block">{story.title}</span>
-                      {showWordCount && story.wordCount != null && (
-                        <span className={`mt-0.5 inline-block text-xs tabular-nums px-1.5 py-0.5 rounded ${
-                          selectedStory?.id === story.id
-                            ? darkMode ? 'bg-amber-600/60 text-amber-100' : 'bg-amber-300/60 text-amber-800'
-                            : darkMode ? 'bg-slate-700 text-amber-500' : 'bg-amber-100 text-amber-600'
-                        }`}>
-                          {story.wordCount.toLocaleString('de')} W
-                        </span>
+                      {(showWordCount && story.wordCount != null || completedStories.has(story.id)) && (
+                        <div className="flex items-center gap-1 flex-wrap mt-0.5">
+                          {showWordCount && story.wordCount != null && (
+                            <span className={`inline-block text-xs tabular-nums px-1.5 py-0.5 rounded ${
+                              selectedStory?.id === story.id
+                                ? darkMode ? 'bg-amber-600/60 text-amber-100' : 'bg-amber-300/60 text-amber-800'
+                                : darkMode ? 'bg-slate-700 text-amber-500' : 'bg-amber-100 text-amber-600'
+                            }`}>
+                              {story.wordCount.toLocaleString('de')} W
+                            </span>
+                          )}
+                          {completedStories.has(story.id) && (
+                            <span data-testid="completed-indicator" className={`inline-block text-xs px-1.5 py-0.5 rounded ${
+                              selectedStory?.id === story.id
+                                ? darkMode ? 'bg-amber-600/60 text-amber-100' : 'bg-amber-300/60 text-amber-800'
+                                : darkMode ? 'bg-slate-700 text-amber-500' : 'bg-amber-100 text-amber-600'
+                            }`}>✓</span>
+                          )}
+                        </div>
                       )}
                     </button>
                     {showFavorites && (
@@ -780,6 +875,7 @@ const GrimmMarchenApp = () => {
                 }`}>
                   {[
                     { label: 'Favoriten', value: favorites.size },
+                    { label: 'Gelesen', value: completedStories.size },
                     { label: 'Verfügbare Märchen', value: stories.length.toLocaleString('de') },
                   ].map(({ label, value }) => (
                     <div key={label} className={`flex items-center justify-between px-5 py-4 ${
@@ -978,7 +1074,7 @@ const GrimmMarchenApp = () => {
                   darkMode ? 'bg-slate-900/90 border-amber-700/30' : 'bg-white/90 border-amber-200/50'
                 }`}>
                   <button
-                    onClick={() => setSelectedVariant(null)}
+                    onClick={() => selectVariant(null)}
                     className={`px-3 py-1 rounded-full text-xs font-medium transition-colors ${
                       selectedVariant === null
                         ? darkMode ? 'bg-amber-700 text-white' : 'bg-amber-200 text-amber-900'
@@ -990,7 +1086,7 @@ const GrimmMarchenApp = () => {
                   {(adaptionsByParent[selectedStory.id] ?? []).map((a, i) => (
                     <button
                       key={i}
-                      onClick={() => setSelectedVariant(a)}
+                      onClick={() => selectVariant(a)}
                       className={`px-3 py-1 rounded-full text-xs font-medium transition-colors ${
                         selectedVariant === a
                           ? darkMode ? 'bg-amber-700 text-white' : 'bg-amber-200 text-amber-900'
@@ -1130,6 +1226,42 @@ const GrimmMarchenApp = () => {
             </>
           ) : (
             <div className="w-full h-full overflow-y-auto">
+              {resumeSession && (
+                <div
+                  data-testid="resume-banner"
+                  className={`mx-4 mt-4 flex items-center gap-3 rounded-xl border px-4 py-3 transition-colors ${
+                    darkMode
+                      ? 'bg-amber-900/30 border-amber-700/40 text-amber-200'
+                      : 'bg-amber-50 border-amber-300 text-amber-900'
+                  }`}
+                >
+                  <span className="text-xl">📖</span>
+                  <button
+                    data-testid="resume-confirm"
+                    onClick={() => {
+                      pendingResumePageRef.current = resumeSession.page;
+                      setSelectedStory(resumeSession.story);
+                      setMenuOpen(false);
+                    }}
+                    className="flex-1 min-w-0 text-left"
+                  >
+                    <p className="text-sm font-medium truncate">Weiterlesen</p>
+                    <p className={`text-xs truncate ${darkMode ? 'text-amber-400' : 'text-amber-600'}`}>
+                      {resumeSession.story.title}, Seite {resumeSession.page + 1}
+                    </p>
+                  </button>
+                  <button
+                    data-testid="resume-dismiss"
+                    onClick={() => setResumeSession(null)}
+                    className={`flex-shrink-0 p-1 rounded transition-colors ${
+                      darkMode ? 'hover:bg-amber-800/50 text-amber-400' : 'hover:bg-amber-200 text-amber-600'
+                    }`}
+                    aria-label="Schließen"
+                  >
+                    ×
+                  </button>
+                </div>
+              )}
               {showFavorites && favoriteStories.length > 0 ? (
                 <div className="p-8 max-w-4xl mx-auto">
                   <div className="flex items-center gap-2 mb-6">
@@ -1164,6 +1296,11 @@ const GrimmMarchenApp = () => {
                             <span className={`text-xs tabular-nums ${darkMode ? 'text-amber-600' : 'text-amber-500'}`}>
                               {story.wordCount.toLocaleString('de')} W
                             </span>
+                          )}
+                          {completedStories.has(story.id) && (
+                            <span data-testid="completed-indicator" className={`text-xs px-1.5 py-0.5 rounded ${
+                              darkMode ? 'bg-slate-700 text-amber-500' : 'bg-amber-100 text-amber-600'
+                            }`}>✓</span>
                           )}
                         </div>
                         <button

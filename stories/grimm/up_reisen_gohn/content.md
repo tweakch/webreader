@@ -5,9 +5,6 @@ url: "https://www.grimmstories.com/de/grimm_maerchen/up_reisen_gohn"
 crawledAt: "2026-04-03T09:14:55.603Z"
 wordCount: 389
 ---
-
-# Auf Reisen gehen
-
 Es war einmal eine arme Frau, die hatte einen Sohn, der wollte so gerne reisen. Da sagte die Mutter: "Wie kannst du reisen? Wir haben ja gar kein Geld, das du mitnehmen kannst." Da sagte der Sohn: "Ich werde mir schon helfen, und werde immer sagen: Nicht viel, nicht viel, nicht viel!"
 
 Da ging er nun eine gute Zeit dahin und sagte immer: "Nicht viel, nicht viel!" Kam er zu einigen Fischern und sagte: "Gott helf euch! Nicht viel, nicht viel, nicht viel!" - "Was sagst du, Kerl, nicht viel?" Und als sie das Fischergarn (Netz) herauszogen, kriegten sie auch nicht viele Fische. Einer der Fischer ging daraufhin mit einem Stock auf den Jungen los und sagte: "Jetzt sollst du mal deine Dresche sehen!" und verdrosch ihn jämmerlich. "Was soll ich denn sagen?" fragte der Junge. "Du sollst sagen: Fang voll, fang voll!"

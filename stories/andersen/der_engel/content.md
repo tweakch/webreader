@@ -6,12 +6,6 @@ crawledAt: "2026-04-03T11:21:12.078Z"
 wordCount: 827
 ---
 
-# Der Engel
-
-Jedesmal, wenn ein gutes Kind stirbt, kommt ein Engel Gottes zur Erde hernieder, nimmt das tote Kind auf seine Arme, breitet die großen, weißen Flügel aus und pflückt eine ganze Handvoll Blumen, die er zu Gott hinaufbringt, damit sie dort noch schöner als auf der Erde blühen. Gott drückt sie dort an sein Herz, aber der Blume, die ihm die liebste ist, gibt er einen Kuß, und dann bekommt sie Stimme und kann in der großen Glückseligkeit mitsingen.
-
-Sieh, alles dieses erzählte ein Engel Gottes, während er ein totes Kind zum Himmel forttrug, und das Kind hörte wie im Traume; sie flogen über die Stätten in der Heimat, wo das Kleine gespielt hatte, und kamen durch Gärten mit herrlichen Blumen.
-
 "Welche wollen wir nun mitnehmen und in den Himmel pflanzen?" fragte der Engel.
 
 Da stand ein schlanker, herrlicher Rosenstock, aber eine böse Hand hatte den Stamm abgebrochen, so daß alle Zweige, voll von großen, halb aufgebrochenen Knospen, vertrocknet rundherum hingen.

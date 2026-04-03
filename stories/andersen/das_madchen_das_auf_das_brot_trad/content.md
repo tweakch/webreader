@@ -5,9 +5,6 @@ url: "https://www.andersenstories.com/de/andersen_maerchen/das_madchen_das_auf_d
 crawledAt: "2026-04-03T11:23:18.532Z"
 wordCount: 3092
 ---
-
-# Das Mädchen, das auf das Brot trat
-
 Die Geschichte von dem Mädchen, das auf das Brot trat, um sich die Schuhe nicht zu beschmutzen, und dem es dann gar schlecht erging, ist wohlbekannt, sie ist geschrieben und sogar gedruckt.
 
 Inge hieß das Mädchen; sie war ein armes Kind, stolz und hochmütig; es war ein schlechter Kern in ihr, wie man sagt. Schon als ganz kleines Kind hatte sie ihre Freude daran, Fliegen zu fangen diesen die Flügel auszurupfen und sie so in Kriechtiere zu verwandeln. Später nahm sie den Maikäfer und den Mistkäfer, steckte jeden an eine Nadel, schob dann ein grünes Blatt oder ein kleines Stück Papier zu ihren Füßen hin, und das arme Tier faßte es und hielt es fest, drehte und wendete es, um von der Nadel loszukommen.

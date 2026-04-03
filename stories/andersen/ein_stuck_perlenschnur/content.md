@@ -5,9 +5,6 @@ url: "https://www.andersenstories.com/de/andersen_maerchen/ein_stuck_perlenschnu
 crawledAt: "2026-04-03T11:22:57.041Z"
 wordCount: 2132
 ---
-
-# Ein Stück Perlenschnur
-
 Die Eisenbahn in Dänemark erstreckt sich bis jetzt nur von Kopenhagen bis Korsör, sie ist ein Stück Perlenschnur, Perlen, an denen Europa so reich ist; die kostbarsten Perlen heißen da: Paris, London, Wien, Neapel! Mancher nennt jedoch nicht diese großen Städte seine schönsten Perlen, aber dagegen zeigt er auf eine kleine unauffällige Stadt, die ist das Heim der Heimat, da wohnen die Lieben! Ja, oft ist es nur ein einzelner Hof, ein kleines Haus zwischen grünen Hecken verborgen, ein Punkt, der hinfliegt, während der Eisenbahnzug vorbeijagt.
 
 Wie viele Perlen sind da auf der Schnur von Kopenhagen bis Korsör? Wir wollen sechs betrachten, denen die meisten Aufmerksamkeit schenken müssen, alte Erinnerungen und die Poesie selber geben diesen Perlen einen Glanz, daß sie in unsere Gedanken strahlen.

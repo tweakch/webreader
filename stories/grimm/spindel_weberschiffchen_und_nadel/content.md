@@ -5,9 +5,6 @@ url: "https://www.grimmstories.com/de/grimm_maerchen/spindel_weberschiffchen_und
 crawledAt: "2026-04-03T09:16:30.159Z"
 wordCount: 988
 ---
-
-# Spindel, Weberschiffchen und Nadel
-
 Es war einmal ein Mädchen, dem starb Vater und Mutter, als es noch ein kleines Kind war. Am Ende des Dorfes wohnte in einem Häuschen ganz allein seine Pate, die sich von Spinnen, Weben und Nähen ernährte. Die Alte nahm das verlassene Kind zu sich, hielt es zur Arbeit an und erzog es in aller Frömmigkeit. Als das Mädchen fünfzehn Jahre alt war, erkrankte sie, rief das Kind an ihr Bett und sagte: "Liebe Tochter, ich fühle, daß mein Ende herannaht, ich hinterlasse dir das Häuschen, darin bist du vor Wind und Wetter geschützt, dazu Spindel, Weberschiffchen und Nadel, damit kannst du dir dein Brot verdienen." Sie legte noch die Hände auf seinen Kopf, segnete es und sprach: "Behalt nur Gott in dem Herzen, so wird dirs wohl gehen." Darauf schloß sie die Augen, und als sie zur Erde bestattet wurde, ging das Mädchen bitterlich weinend hinter dem Sarg und erwies ihr die letzte Ehre.
 
 Das Mädchen lebte nun in dem kleinen Haus ganz allein, war fleißig, spann, webte und nähte, und auf allem, was es tat, ruhte der Segen der guten Alten. Es war, als ob sich der Flachs in der Kammer von selbst mehrte, und wenn sie ein Stück Tuch oder einen Teppich gewebt oder ein Hemd genäht hatte, so fand sich gleich ein Käufer, der es reichlich bezahlte, so daß sie keine Not empfand und andern noch etwas mitteilen konnte.

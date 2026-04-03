@@ -5,9 +5,6 @@ url: "https://www.andersenstories.com/de/andersen_maerchen/der_alte_grabstein"
 crawledAt: "2026-04-03T11:22:14.397Z"
 wordCount: 1074
 ---
-
-# Der alte Grabstein
-
 In einem der kleinen Marktflecken bei einem Manne, der seinen eigenen Hof hatte, saß abends in der Jahreszeit, in der die Abende länger werden, die ganze Familie im Kreise zusammen. Es war noch milde und warm. Die Lampe war angezündet, die langen Gardinen hingen vor den Fenstern nieder, auf denen Blumentöpfe standen, und draußen war herrlicher Mondschein. Aber davon sprachen sie nicht, sie sprachen von einem alten, großen Stein, der unten im Hofe lag, dicht bei der Küchentür, wohin die Mädchen oft das geputzte Kupferzeug stellten, damit es in der Sonne trocknen sollte, und wo die Kinder gern spielten, es war eigentlich ein alter Grabstein.
 
 "Ja," sagte der Hausherr, "ich glaube, er stammt aus der alten, abgebrochenen Klosterkirche. Die Kanzel, die Denkmäler und die Grabsteine wurden ja verkauft! Mein seliger Vater kaufte mehrere davon; sie wurden zu Pflastersteinen zerschlagen, aber dieser Stein blieb übrig und liegt seitdem im Hofe."

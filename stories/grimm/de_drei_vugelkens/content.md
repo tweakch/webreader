@@ -5,9 +5,6 @@ url: "https://www.grimmstories.com/de/grimm_maerchen/de_drei_vugelkens"
 crawledAt: "2026-04-03T09:13:28.834Z"
 wordCount: 1329
 ---
-
-# Die drei Vögelchen
-
 Es ist wohl tausend und mehr Jahre her, da waren hier im Lande lauter kleine Könige; da hat auch einer auf dem Keuterberge gewohnt, der ging sehr gerne auf die Jagd. Als er wieder einmal mit seinen Jägern aus dem Schloß herauszog, hüteten unten am Berge drei Mädchen ihre Kühe, und wie sie den König mit den vielen Leuten sahen, so rief die älteste den anderen beiden Mädchen zu, dabei auf den König weisend: "Helo! Helo! Wenn ich den nicht kriege, so will ich keinen." Da antwortete die zweite auf der anderen Seite vom Berge und wies auf den, der dem König zur rechten Hand ging: "Helo! Helo! Wenn ich den nicht kriege, so will ich keinen!" Da rief die jüngste und wies auf den, der linker Hand ging: "Helo! Helo! Wenn ich den nicht kriege, so will ich keinen!" Das waren aber die beiden Minister. Das hörte der König alles, und als er von der Jagd heimgekommen war, ließ er die drei Mädchen zu sich kommen und fragte sie, was sie da gestern am Berge gesagt hätten. Das wollten sie nun nicht sagen, und der König fragte die älteste, ob sie ihn wohl zum Manne haben wollte? Da sagte sie ja, und ihre beiden Schwestern fragten die beiden Minister, denn sie waren alle drei schön von Angesicht, besonders die Königin, die hatte Haare wie Flachs.
 
 Die beiden Schwestern aber kriegten keine Kinder, und als der König einmal verreisen mußte, ließ er sie zur Königin kommen, um sie aufzumuntern, denn sie war gerade guter Hoffnung. Sie bekam einen kleinen Jungen, der brachte einen roten Stern mit auf die Welt. Da sagten die beiden Schwestern, eine zur anderen, sie wollten den hübschen Jungen ins Wasser werfen. Wie sie ihn hineingeworfen hatten (ich glaube, es war die Weser), da flog ein Vögelchen in die Höhe und sang:

@@ -5,9 +5,6 @@ url: "https://www.andersenstories.com/de/andersen_maerchen/die_nachtigall"
 crawledAt: "2026-04-03T11:21:13.060Z"
 wordCount: 3300
 ---
-
-# Des Kaisers Nachtigall
-
 In China, weißt du ja wohl, ist der Kaiser ein Chinese, und alle, die er um sich hat, sind Chinesen. Es sind nun viele Jahre her, aber gerade deshalb ist es wert, die Geschichte zu hören, ehe sie vergessen wird. Des Kaisers Schloß war das prächtigste der Welt, ganz und gar von feinem Porzellan, so kostbar, aber so spröde, so mißlich daran zu rühren, daß man sich ordentlich in acht nehmen mußte. Im Garten sah man die wunderbarsten Blumen, und an die allerprächtigsten waren Silberglocken gebunden, die erklangen, damit man nicht vorbeigehen möchte, ohne die Blumen zu bemerken. Ja, alles war in des Kaisers Garten fein ausgedacht, und er erstreckte sich so weit, daß der Gärtner selbst das Ende nicht kannte; ging man immer weiter, so kam man in den herrlichsten Wald mit hohen Bäumen und tiefen Seen. Der Wald ging gerade hinunter bis zum Meere, das blau und tief war. Große Schiffe konnten unter den Zweigen hinsegeln, und in diesen wohnte eine Nachtigall, die so herrlich sang, daß selbst der arme Fischer, der soviel anderes zu tun hatte, stillhielt und horchte, wenn er nachts ausgefahren war, um das Fischnetz aufzuziehen. "Ach Gott, wie ist das schön!" sagte er, aber dann mußte er auf sein Netz achtgeben und vergaß den Vogel; doch wenn dieser in der nächsten Nacht wieder sang und der Fischer dorthin kam, sagte er wieder: "Ach Gott, wie ist das doch schön!"
 
 Von allen Ländern kamen Reisende nach der Stadt des Kaisers und bewunderten sie, das Schloß und den Garten; doch wenn sie die Nachtigall zu hören bekamen, sagten sie alle: "Das ist doch das Beste!"

@@ -5,9 +5,6 @@ url: "https://www.andersenstories.com/de/andersen_maerchen/der_tannenbaum"
 crawledAt: "2026-04-03T11:21:19.688Z"
 wordCount: 2962
 ---
-
-# Der Tannenbaum
-
 Draußen im Walde stand ein niedlicher, kleiner Tannenbaum; er hatte einen guten Platz, Sonne konnte er bekommen, Luft war genug da, und ringsumher wuchsen viel größere Kameraden, sowohl Tannen als Fichten. Aber dem kleinen Tannenbaum schien nichts so wichtig wie das Wachsen; er achtete nicht der warmen Sonne und der frischen Luft, er kümmerte sich nicht um die Bauernkinder, die da gingen und plauderten, wenn sie herausgekommen waren, um Erdbeeren und Himbeeren zu sammeln. Oft kamen sie mit einem ganzen Topf voll oder hatten Erdbeeren auf einen Strohhalm gezogen, dann setzten sie sich neben den kleinen Tannenbaum und sagten: "Wie niedlich klein ist der!" Das mochte der Baum gar nicht hören.
 
 Im folgenden Jahre war er ein langes Glied größer, und das Jahr darauf war er um noch eins länger, denn bei den Tannenbäumen kann man immer an den vielen Gliedern, die sie haben, sehen, wie viele Jahre sie gewachsen sind.

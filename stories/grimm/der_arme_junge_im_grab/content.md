@@ -5,9 +5,6 @@ url: "https://www.grimmstories.com/de/grimm_maerchen/der_arme_junge_im_grab"
 crawledAt: "2026-04-03T09:16:24.888Z"
 wordCount: 1154
 ---
-
-# Der arme Junge im Grab
-
 Es war einmal ein armer Hirtenjunge, dem war Vater und Mutter gestorben, und er war von der Obrigkeit einem reichen Mann in das Haus gegeben, der sollte ihn ernähren und erziehen. Der Mann aber und seine Frau hatten ein böses Herz, waren bei allem Reichtum geizig und mißgünstig, und ärgerten sich, wenn jemand einen Bissen von ihrem Brot in den Mund steckte. Der arme Junge mochte tun, was er wollte, er erhielt wenig zu essen, aber desto mehr Schläge.
 
 Eines Tages sollte er die Glucke mit ihren Küchlein hüten. Sie verlief sich aber mit ihren Jungen durch einen Heckenzaun: gleich schoß der Habicht herab und entführte sie durch die Lüfte. Der Junge schrie aus Leibeskräften: "Dieb, Dieb, Spitzbub." Aber was half das? der Habicht brachte seinen Raub nicht wieder zurück. Der Mann hörte den Lärm, lief herbei, und als er vernahm, daß seine Henne weg war, so geriet er in Wut und gab dem Jungen eine solche Tracht Schläge, daß er sich ein paar Tage lang nicht regen konnte. Nun mußte er die Küchlein ohne die Henne hüten, aber da war die Not noch größer, das eine lief dahin, das andere dorthin. Da meinte er es klug zu machen, wenn er sie alle zusammen an eine Schnur bände, weil ihm dann der Habicht keins wegstehlen könnte. Aber weit gefehlt. Nach ein paar Tagen, als er von dem Herumlaufen und vom Hunger ermüdet einschlief, kam der Raubvogel und packte eins von den Küchlein, und da die andern daran festhingen, so trug er sie alle mit fort, setzte sich auf einen Baum und schluckte sie hinunter. Der Bauer kam eben nach Haus, und als er das Unglück sah, erboste er sich und schlug den Jungen so unbarmherzig, daß er mehrere Tage im Bette liegen mußte.

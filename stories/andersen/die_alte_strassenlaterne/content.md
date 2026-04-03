@@ -5,9 +5,6 @@ url: "https://www.andersenstories.com/de/andersen_maerchen/die_alte_strassenlate
 crawledAt: "2026-04-03T11:21:45.747Z"
 wordCount: 2333
 ---
-
-# Die alte Straßenlaterne
-
 Hast du die Geschichte von der alten Straßenlaterne gehört? Sie ist gar nicht sehr belustigend, doch einmal kann man sie wohl hören. Es war eine gute, alte Straßenlaterne, die viele, viele Jahre gedient hatte, aber jetzt entfernt werden sollte. Es war der letzte Abend, an dem sie auf dem Pfahle saß und in der Straße leuchtete, und es war ihr zumute wie einer alten Tänzerin, die den letzten Abend tanzt und weiß, daß sie morgen vergessen in der Bodenkammer sitzt. Die Laterne hatte Furcht vor dem morgigen Tage, denn sie wußte, daß sie dann zum erstenmal auf das Rathaus kommen und von dem hochlöblichen Rat beurteilt werden sollte, ob sie noch tauglich oder unbrauchbar sei.
 
 Da sollte bestimmt werden, ob sie nach einer der Brücken hinausgeschickt werden könne, um dort zu leuchten, oder auf das Land in eine Fabrik; vielleicht sollte sie geradezu in eine Eisengießerei kommen und umgeschmolzen werden. Dann konnte freilich alles aus ihr werden, aber es peinigte sie, daß sie nicht wußte, ob sie dann die Erinnerung daran behalten würde, daß sie eine Straßenlaterne gewesen war.

@@ -5,9 +5,6 @@ url: "https://www.andersenstories.com/de/andersen_maerchen/feder_und_tintenfass"
 crawledAt: "2026-04-03T11:23:29.425Z"
 wordCount: 798
 ---
-
-# Feder und Tintenfaß
-
 In der Stube eines Dichters, wo sein Tintenfaß auf dem Tisch stand, wurde gesagt: "Es ist merkwürdig, was doch alles aus dem Tintenfaß herauskommen kann! Was wohl nun das Nächste sein wird? Ja, es ist merkwürdig!"
 
 "Ja, freilich!" sagte das Tintenfaß. "Es ist merkwürdig, was alles aus mir herauskommen kann! Ja, es ist schier unglaublich! Und ich weiß wirklich selber nicht, was das Nächste sein wird, wenn der Mensch erst beginnt, aus mir zu schöpfen. Ein Tropfen aus mir genügt für eine halbe Seite Papier, und was kann nicht alles auf der stehen! Ich bin etwas ganz Merkwürdiges! Von mir gehen alle Werke des Dichters aus, all diese lebendigen Menschen, die die Leute zu kennen wähnen, diese innigen Gefühle, dieser Humor, diese anmutigen Naturschilderungen; ich selber begreife es nicht, denn ich kenne die Natur nicht, aber es steckt nun einmal in mir! Von mir sind sie ausgegangen und gehen sie aus, die Heerscharen schwebender, anmutiger Mädchen, tapferer Ritter auf schnaubenden Rossen, Blinder und Lahmer; ja ich weiß selber nicht, was alles; ich versichere Ihnen, ich denke nichts dabei!"

@@ -5,9 +5,6 @@ url: "https://www.andersenstories.com/de/andersen_maerchen/die_krote"
 crawledAt: "2026-04-03T11:24:29.778Z"
 wordCount: 2496
 ---
-
-# Die Kröte
-
 Der Brunnen war tief, darum war die Schnur lang. Die Winde ging sehr schwer, wenn man den Eimer mit Wasser über den Brunnenrand heben wollte. Die Sonne konnte niemals hinabgelangen und sich in dem Wasser spiegeln, wie klar es auch war, aber soweit sie in den Brunnen hineinscheinen konnte, wuchs Grün zwischen den Steinen.
 
 Dort unten wohnte die Familie aus dem Geschlecht der Kröten, sie war eingewandert, sie war eigentlich kopfüber hinuntergekommen mittels der alten Krötenmutter, die noch lebte; die grünen Frösche, die hier seit viel längerer Zeit zu Hause waren und im Wasser herumschwammen, erkannten die Vetterschaft an und nannten sie "Brunnengäste." Sie hatten die Absicht, hier unten zu bleiben, sie lebten hier sehr angenehm auf dem Trocknen; so nannten sie die nassen Steine.

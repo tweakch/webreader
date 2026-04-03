@@ -5,9 +5,6 @@ url: "https://www.andersenstories.com/de/andersen_maerchen/der_schweinehirt"
 crawledAt: "2026-04-03T11:21:08.892Z"
 wordCount: 1385
 ---
-
-# Der Schweinehirt
-
 Es war einmal ein armer Prinz; er hatte nur ein ganz kleines Königreich; aber es war immer groß genug, um sich darauf zu verheiraten, und verheiraten wollte er sich.
 
 Nun war es freilich etwas keck von ihm, daß er zur Tochter des Kaisers zu sagen wagte: "Willst du mich haben?" Aber er wagte es doch, denn sein Name war weit und breit berühmt; es gab hundert Prinzessinnen, die gerne ja gesagt hätten; aber ob sie es tat? Nun, wir wollen hören.

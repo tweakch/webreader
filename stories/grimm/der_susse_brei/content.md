@@ -5,9 +5,6 @@ url: "https://www.grimmstories.com/de/grimm_maerchen/der_susse_brei"
 crawledAt: "2026-04-03T09:13:40.553Z"
 wordCount: 224
 ---
-
-# Der süße Brei
-
 Es war einmal ein armes, frommes Mädchen, das lebte mit seiner Mutter allein, und sie hatten nichts mehr zu essen. Da ging das Kind hinaus in den Wald, und begegnete ihm da eine alte Frau, die wußte seinen Jammer schon und schenkte ihm ein Töpfchen, zu dem sollt es sagen: "Töpfchen, koche", so kochte es guten, süßen Hirsebrei, und wenn es sagte: "Töpfchen, steh", so hörte es wieder auf zu kochen.
 
 Das Mädchen brachte den Topf seiner Mutter heim, und nun waren sie ihrer Armut und ihres Hungers ledig und aßen süßen Brei, sooft sie wollten.

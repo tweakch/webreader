@@ -5,9 +5,6 @@ url: "https://www.andersenstories.com/de/andersen_maerchen/tanze_tanze_puppchen_
 crawledAt: "2026-04-03T11:25:09.242Z"
 wordCount: 357
 ---
-
-# Tanze, tanze, Püppchen mein!
-
 "Ja, das ist nun ein Lief für ganz kleine Kinder," versicherte Tante Male, "dem kann ich mit dem besten Willen nicht folgen."
 
 Aber die kleine Amalie konnte es; sie war nur drei Jahre als, spielte mit Puppen und erzog diese so, daß sie ebenso klug wurden wie Tante Male.

@@ -5,9 +5,6 @@ url: "https://www.grimmstories.com/de/grimm_maerchen/der_alte_sultan"
 crawledAt: "2026-04-03T09:11:29.742Z"
 wordCount: 801
 ---
-
-# Der alte Sultan
-
 Es hatte ein Bauer einen treuen Hund, der Sultan hieß, der war alt geworden und hatte alle Zähne verloren, so daß er nichts mehr fest packen konnte. Zu einer Zeit stand der Bauer mit seiner Frau vor der Haustüre und sprach: "Den alten Sultan schieß ich morgen tot, der ist zu nichts mehr nütze." Die Frau, die Mitleid mit dem treuen Tiere hatte, antwortete: "Da er uns so lange Jahre gedient hat und ehrlich bei uns gehalten, so könnten wir ihm wohl das Gnadenbrot geben." - "Ei was," sagte der Mann, "du bist nicht recht gescheit; er hat keinen Zahn mehr im Maul, und kein Dieb fürchtet sich vor ihm, er kann jetzt abgehen. Hat er uns gedient, so hat er sein gutes Fressen dafür gekriegt."
 
 Der arme Hund, der nicht weit davon in der Sonne ausgestreckt lag, hatte alles mit angehört und war traurig, daß morgen sein letzter Tag sein sollte. Er hatte einen guten Freund, das war der Wolf, zu dem schlich er abends hinaus in den Wald und klagte über das Schicksal, das ihm bevorstände. "Höre, Gevatter," sagte der Wolf, "sei guten Mutes, ich will dir aus deiner Not helfen. Ich habe etwas ausgedacht. Morgen in aller Frühe geht dein Herr mit seiner Frau ins Heu, und sie nehmen ihr kleines Kind mit, weil niemand im Hause zurückbleibt. Sie pflegen das Kind während der Arbeit hinter die Hecke in den Schatten zu legen. Lege dich daneben, gleich als wolltest du es bewachen. Ich will dann aus dem Walde herauskommen und das Kind rauben, du mußt mir eifrig nachspringen, als wolltest du mir es wieder abjagen. Ich lasse es fallen, und du bringst es den Eltern wieder zurück, die glauben dann, du hättest es gerettet, und sind viel zu dankbar, als daß sie dir ein Leid antun sollten; im Gegenteil, du kommst in völlige Gnade, und sie werden es dir an nichts mehr fehlen lassen."

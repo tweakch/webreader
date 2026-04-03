@@ -5,9 +5,6 @@ url: "https://www.andersenstories.com/de/andersen_maerchen/der_garten_des_paradi
 crawledAt: "2026-04-03T11:20:53.271Z"
 wordCount: 5027
 ---
-
-# Der Garten des Paradieses
-
 Es war einmal ein Königssohn; niemand hatte so viele und schöne Bücher wie er. Alles, was in dieser Welt geschehen, konnte er darin lesen und die Abbildungen in prächtigen Kupferstichen betrachten. Über jedes Volk und jedes Land konnte er Auskunft erhalten; aber wo der Garten den Paradieses zu finden sei, davon stand kein Wort darin; und der, gerade der war es, an welchen er am meisten dachte.
 
 Seine Großmutter hatte ihm erzählt, als er noch ganz klein war, aber anfangen sollte in die Schule zu gehen, daß alle Blumen im Garten des Paradieses aus dem süßesten Kuchen und die Staubfäden aus feinstem Weine wären; auf der anderen stehe Geschichte, auf der anderen Geographie oder das Einmaleins; man brauche nur Kuchen zu essen, so könne man seine Aufgaben, und je mehr man speise, um so mehr Geschichte, Geographie und Rechnen lerne man.

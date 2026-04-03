@@ -5,9 +5,6 @@ url: "https://www.grimmstories.com/de/grimm_maerchen/der_singende_knochen"
 crawledAt: "2026-04-03T09:10:49.821Z"
 wordCount: 693
 ---
-
-# Der singende Knochen
-
 Es war einmal in einem Lande große Klage über ein Wildschwein, das den Bauern die Äcker umwühlte, das Vieh tötete und den Menschen mit seinen Hauern den Leib aufriß. Der König versprach einem jeden, der das Land von dieser Plage befreien würde, eine große Belohnung; aber das Tier war so groß und stark, daß sich niemand in die Nähe des Waldes wagte, worin es hauste. Endlich ließ der König bekanntmachen, wer das Wildschwein einfange oder töte, solle seine einzige Tochter zur Gemahlin haben.
 
 Nun lebten zwei Brüder in dem Lande, Söhne eines armen Mannes, die meldeten sich und wollten das Wagnis übernehmen. Der älteste, der listig und klug war, tat es aus Hochmut, der jüngste, der unschuldig und dumm war, aus gutem Herzen. Der König sagte: "Damit ihr desto sicherer das Tier findet, so sollt ihr von entgegengesetzten Seiten in den Wald gehen." Da ging der älteste von Abend und der jüngste von Morgen hinein. Und als der jüngste ein Weilchen gegangen war, so trat ein kleines Männlein zu ihm; das hielt einen schwarzen Spieß in der Hand und sprach: "Diesen Spieß gebe ich dir, weil dein Herz unschuldig und gut ist; damit kannst du getrost auf das wilde Schwein eingehen, es wird dir keinen Schaden zufügen." Er dankte dem Männlein, nahm den Spieß auf die Schulter und ging ohne Furcht weiter. Nicht lange, so erblickte er das Tier, das auf ihn losrannte, er hielt ihm aber den Spieß entgegen, und in seiner blinden Wut rannte es so gewaltig hinein, daß ihm das Herz entzweigeschnitten ward. Da nahm er das Ungetüm auf die Schulter, ging heimwärts und wollte es dem Könige bringen.

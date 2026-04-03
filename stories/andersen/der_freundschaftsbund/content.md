@@ -6,6 +6,3 @@ crawledAt: "2026-04-03T11:24:04.511Z"
 wordCount: 3
 ---
 
-# Der Freundschaftsbund
-
-

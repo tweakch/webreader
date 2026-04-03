@@ -5,9 +5,6 @@ url: "https://www.grimmstories.com/de/grimm_maerchen/ferenand_getrue_und_ferenan
 crawledAt: "2026-04-03T09:14:25.809Z"
 wordCount: 1781
 ---
-
-# Ferdinand getreu und Ferdinand ungetreu
-
 Es war einmal ein Mann und eine Frau, die hatten, solange sie reich waren, keine Kinder, als sie aber arm geworden waren, da kriegten sie einen kleinen Jungen. Sie konnten aber keinen Paten für ihn kriegen; da sagte der Mann, er wolle in einen andern Ort gehen und zusehen, daß er dort einen bekomme.
 
 Und wie er so ging, begegnete ihm ein anderer armer Mann, der ihn nach seinem Wohin fragte. Der Mann antwortete, er wolle hin und zusehen, daß er einen Paten kriegte, aber er sei arm, und da wolle kein Mensch Gevatter sein. "Oh," sagte der arme Mann, "Ihr seid arm und ich bin arm, ich will Euer Gevatter werden, aber ich kann dem Kind nichts geben. Doch geht hin und sagt der Wehmutter, sie solle mit dem Kind in die Kirche kommen." Als sie dann zusammen zur Kirche kamen, war der Bettler schon drinnen. Und er gab dem Kind den Namen "Ferdinand getreu."

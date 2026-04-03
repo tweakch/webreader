@@ -5,9 +5,6 @@ url: "https://www.andersenstories.com/de/andersen_maerchen/was_die_alte_johanne_
 crawledAt: "2026-04-03T11:25:14.579Z"
 wordCount: 5075
 ---
-
-# Was die alte Johanne erzählte
-
 Der Wind saust in dem alten Weidenbaum!
 
 Es ist, als hörte man ein Lied; der Wind singt es, der Baum erzählt es. Verstehst du es nicht, dann frage die alte Johanne im Armenhaus, sie weiß Bescheid, sie ist hier im Dorfe geboren.

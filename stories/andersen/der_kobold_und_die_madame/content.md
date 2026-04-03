@@ -5,9 +5,6 @@ url: "https://www.andersenstories.com/de/andersen_maerchen/der_kobold_und_die_ma
 crawledAt: "2026-04-03T11:24:34.671Z"
 wordCount: 1529
 ---
-
-# Der Kobold und die Madame
-
 Den Kobold kennst du; kennst du aber die Madame, die Gärtnersfrau? Sie besaß Bildung, wußte Gedichte auswendig, sie konnte mit Leichtigkeit selber welche schreiben; nur die Reime, "das Klingelingeling," wie sie es nannte, machten ihr ein wenig Mühe. Sie besaß Schreibtalent und Rednertalent, sie hätte sehr gut Pastor sein können oder doch wenigstens Pastorin.
 
 "Die Erde ist herrlich in ihrem Sonntagskleide!" sagte sie, und den Gedanken hatte sie in Verse und "Klingeling" gebracht, hatte ein schönes, langes Lied darüber gemacht.

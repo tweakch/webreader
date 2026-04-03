@@ -6,6 +6,3 @@ crawledAt: "2026-04-03T11:24:54.414Z"
 wordCount: 5
 ---
 
-# Was man erfinden kann
-
-

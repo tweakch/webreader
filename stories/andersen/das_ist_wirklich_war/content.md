@@ -5,9 +5,6 @@ url: "https://www.andersenstories.com/de/andersen_maerchen/das_ist_wirklich_war"
 crawledAt: "2026-04-03T11:22:19.008Z"
 wordCount: 797
 ---
-
-# Das ist wirklich wahr
-
 "Das ist ja eine schreckliche Geschichte" sagte ein Huhn, und zwar an dem Ende des Dorfes, wo die Geschichte nicht passiert war. "Das ist ja eine schreckliche Geschichte im Hühnerhaus. Ich getraue mich gar nicht, heute nacht allein zu schlafen! Es ist nur gut, daß wir soviele im Stalle sind" – Und dann erzählte es, daß sich den anderen Hühnern die Federn sträubten und der Hahn den Kamm sinken ließ. Es ist wirklich wahr.
 
 Aber wir wollen von Anfang anfangen, und der war am anderen Ende des Dorfes in einem Hühnerhaus. Die Sonne ging unter und die Hühner flogen auf. Eins von ihnen, es war weißgefiedert und kurzbeinig, legte seine vorgeschriebene Anzahl Eier und war, als Huhn, in jeder Weise respektabel. Als es die Leiter hinaufstieg, krause es sich mit dem Schnabel, und dabei fiel ihm eine kleine Feder aus.

@@ -5,9 +5,6 @@ url: "https://www.grimmstories.com/de/grimm_maerchen/de_drei_schwatten_prinzessi
 crawledAt: "2026-04-03T09:14:43.303Z"
 wordCount: 660
 ---
-
-# Die drei schwarzen Prinzessinnen
-
 Ostindien wurde vom Feind belagert, der die Stadt nicht eher verlassen wollte, als bis er sechshundert Taler erhalten hatte. Da ließen sie austrommeln, wer das Geld zur Stelle schaffen könnte, der sollte Bürgermeister werden. Nun gab es da einen armen Fischer, der fischte auf der See mit seinem Sohn. Da kam der Feind, nahm den Sohn gefangen und gab ihm dafür sechshundert Taler.
 
 Da ging der Vater hin und gab sie den Herren in der Stadt, und daraufhin zog der Feind ab, und der Fischer wurde Bürgermeister. Dann wurde ausgerufen, wer nicht "Herr Bürgermeister" sagte, der sollte am Galgen hingerichtet werden.

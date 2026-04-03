@@ -5,9 +5,6 @@ url: "https://www.andersenstories.com/de/andersen_maerchen/tantchen"
 crawledAt: "2026-04-03T11:24:28.262Z"
 wordCount: 1921
 ---
-
-# Tantchen
-
 Du hättest Tantchen kennen sollen! Sie war reizend! Ja, das heißt, sie war gar nicht reizend, wie man es versteht, wenn man von 'reizend sein' spricht, aber sie war süß und lieb, unterhaltend auf ihre Weise, richtig um über sie zu sprechen, wenn man über jemanden sprechen und sich lustig machen soll, sie war, um sie direkt in eine Komödie zu setzten - und das einzig und allein, weil sie nur für das Komödienhaus lebte und alles, was sich darinnen rührt. Sie war so ehrenwert, aber der Agent Fabs, den Tantchen immer Flabs nannte, nannte sie theatertoll.
 
 "Das Theater ist meine Schule," sagte sie, "meine Wissensquelle, von dort her habe ich meine biblische Geschichte aufgefrischt: 'Moses', 'Joseph und seine Brüder', das sind nun Opern! Ich habe vom Theater meine Weltgeschichte, Geographie und Menschenkenntnis! Ich kenne das Pariser Leben aus den französischen Stücken - schlüpfrig, aber höchst interessant! Wie habe ich geweint über 'Die Familie Riquebourg', daß der Mann sich tottrinken soll, damit sie den jungen Liebhaber bekommen kann! - Ja, wie viele Tränen habe ich doch geweint in den fünfzig Jahren, die ich abonniert bin!"

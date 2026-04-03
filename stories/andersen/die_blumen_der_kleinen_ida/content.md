@@ -5,9 +5,6 @@ url: "https://www.andersenstories.com/de/andersen_maerchen/die_blumen_der_kleine
 crawledAt: "2026-04-03T11:20:33.843Z"
 wordCount: 2837
 ---
-
-# Die Blumen der kleinen Ida
-
 "Meine armen Blumen sind ganz verwelkt!" sagte die kleine Ida. "Sie waren so schön gestern abend, und nun hängen alle Blätter vertrocknet! Warum tun sie das?" fragte sie den Studenten, der im Sofa saß; denn auf seine Meinung gab sie etwas. Er kannte die allerherrlichsten Geschichten und schnitt so lustige Bilder aus: Herzen mit kleinen Dämchen darin, die tanzten, Blumen und große Schlösser, deren Türen man aufmachen konnte; es war ein lustiger Student! "Warum sehen die Blumen heute so traurig aus?" fragte sie ihn wieder und zeigte ihm einen großen Strauß, der ganz verwelkt war.
 "Ja, weißt du, was ihnen fehlt?" sagte der Student, "die Blumen sind heute nacht zum Ball gewesen, darum lassen sie die Köpfe hängen!"
 "Aber die Blumen können doch nicht tanzen!" sagte die kleine Ida.

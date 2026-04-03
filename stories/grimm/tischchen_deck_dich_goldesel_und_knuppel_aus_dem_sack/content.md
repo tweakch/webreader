@@ -5,9 +5,6 @@ url: "https://www.grimmstories.com/de/grimm_maerchen/tischchen_deck_dich_goldese
 crawledAt: "2026-04-03T09:11:02.741Z"
 wordCount: 3501
 ---
-
-# Tischchen deck dich, Goldesel und Knüppel aus dem Sack
-
 Vor Zeiten war ein Schneider, der drei Söhne hatte und nur eine einzige Ziege. Aber die Ziege, weil sie alle zusammen mit ihrer Milch ernährte, mußte ihr gutes Futter haben und täglich hinaus auf die Weide geführt werden. Die Söhne taten das auch nach der Reihe. Einmal brachte sie der älteste auf den Kirchhof, wo die schönsten Kräuter standen, ließ sie da fressen und herumspringen. Abends, als es Zeit war heimzugehen, fragte er: "Ziege, bist du satt?" Die Ziege antwortete:
 
 "Ich bin so satt,

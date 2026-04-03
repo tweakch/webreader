@@ -5,9 +5,6 @@ url: "https://www.andersenstories.com/de/andersen_maerchen/der_komet"
 crawledAt: "2026-04-03T11:24:47.124Z"
 wordCount: 1428
 ---
-
-# Der Komet
-
 Und der Komet kam, schimmerte mit seinem Feuerkern und drohte mit seinem Schweif; er ward betrachtet aus dem reichen schloß, aus der armen Hütte, aus dem Menschengedränge auf der Straße und vvon dem einsamen Wanderer, der über die wegelose Heide schritt. Ein jeder hatte seinen Gedanken dabei.
 
 "Kommt und seht das Zeichen des Himmel! Kommt und seht den prachtvollen Anblick!" sagte man, und alle beeilten sich, zu sehen.

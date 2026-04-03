@@ -5,9 +5,6 @@ url: "https://www.andersenstories.com/de/andersen_maerchen/das_hassliche_junge_e
 crawledAt: "2026-04-03T11:21:17.920Z"
 wordCount: 3494
 ---
-
-# Das häßliche junge Entlein
-
 Es war so herrlich draußen auf dem Lande. Es war Sommer, das Korn stand gelb, der Hafer grün, das Heu war unten auf den grünen Wiesen in Schobern aufgesetzt, und der Storch ging auf seinen langen, roten Beinen und plapperte ägyptisch, denn diese Sprache hatte er von seiner Frau Mutter gelernt. Rings um die Äcker und die Wiesen gab es große Wälder und mitten in den Wäldern tiefe Seen. Ja, es war wirklich herrlich da draußen auf dem Lande! Mitten im Sonnenschein lag dort ein altes Landgut, von tiefen Kanälen umgeben; und von der Mauer bis zum Wasser herunter wuchsen große Klettenblätter, die so hoch waren, daß kleine Kinder unter den höchsten aufrecht stehen konnten; es war ebenso wild darin wie im tiefsten Walde. Hier saß eine Ente auf ihrem Nest, welche ihre Jungen ausbrüten mußte; aber es wurde ihr fast zu langweilig, bis die Jungen kamen. Dazu erhielt sie selten Besuch; die andern Enten schwammen lieber in den Kanälen umher, als daß sie hinaufliefen, sich unter ein Klettenblatt zu setzen, um mit ihr zu schnattern.
 
 Endlich platzte ein Ei nach dem anderen; "Piep! piep!" sagte es, und alle Eidotter waren lebendig geworden und steckten die Köpfe heraus.

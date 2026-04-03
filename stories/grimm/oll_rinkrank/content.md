@@ -5,9 +5,6 @@ url: "https://www.grimmstories.com/de/grimm_maerchen/oll_rinkrank"
 crawledAt: "2026-04-03T09:16:44.586Z"
 wordCount: 771
 ---
-
-# Oll Rinkrank
-
 Es war einmal ein König, und der hatte eine Tochter; der hatte er einen gläsernem Berg machen lassen und hatte gesagt: Wer darüber laufen könne, ohne zu fallen, der sollte seine Tochter zur Frau haben. Nun war da auch einer, der mochte die Königstochter von Herzen gern leiden. Der fragte den König, ob er seine Tochter nicht haben könnte? "Ja," sagte der König; wenn er über den Berg laufen könnte, ohne zu fallen, dann könnte er sie haben. Da sagte die Königstochter, sie wollte mit ihm hinüberlaufen und ihn halten, wenn er fallen sollte. Da lief sie nun mit ihm hinüber; wie sie aber mitten drauf waren, glitt die Königstochter aus und fiel, und der Glasberg öffnete sich, und sie stürzte da hinein, und der Bräutigam konnte nicht sehen, wo sie geblieben war; denn der Berg hatte sich gleich wieder geschlossen. Da jammerte und weinte er so sehr; und der König war auch so sehr traurig und ließ den Berg wieder wegbrechen und meinte, er könnte sie wieder herauskriegen; aber sie konnten die Stelle nicht finden, wo sie hinuntergefallen war.
 
 Unterdessen war die Königstochter ganz tief auf den Grund in eine große Höhle gekommen. Da kam ihr so ein alter Kerl mit einem ganz langen grauen Bart entgegen; und er sagte, wenn sie seine Magd werden wollte und alles täte, was er ihr befehle, dann sollte sie am Leben bleiben; sonst würde er sie umbringen. Da tat sie alles, was er ihr sagte. Am Morgen nahm er seine Leiter aus der Tasche, legte sie an den Berg und stieg damit aus dem Berg heraus; und dann zog er die Leiter oben zu sich herauf. Und dann mußte sie sein Essen kochen und sein Bett machen und alle Arbeit tun; und dann, wenn er wieder nach Hause kam, brachte er immer einen Haufen Gold und Silber mit.

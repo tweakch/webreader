@@ -5,9 +5,6 @@ url: "https://www.andersenstories.com/de/andersen_maerchen/das_unglaublichste"
 crawledAt: "2026-04-03T11:25:05.583Z"
 wordCount: 1176
 ---
-
-# Das Unglaublichste
-
 Derjenige, welcher das Unglaublichste tun konnte, sollte die Tochter des Königs und das halbe Reich haben. Die jungen Leute, ja selbst die Alten auch, strengten alle ihre Gedanken, Sehnen und Muskeln an. Einer aß so viel, daß er starb; zwei richteten sich durch Trinken zugrunde, um nach ihrem Geschmack das Unglaublichste zu leisten, aber nicht auf solche Weise sollte das geschehen.
 
 Kleine Straßenjungen übten sich darauf, sich selber auf den Rücken zu spucken; das sahen sie für das Unglaublichste an.

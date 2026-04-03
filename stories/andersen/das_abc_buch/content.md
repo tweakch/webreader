@@ -5,9 +5,6 @@ url: "https://www.andersenstories.com/de/andersen_maerchen/das_abc_buch"
 crawledAt: "2026-04-03T11:23:09.143Z"
 wordCount: 1135
 ---
-
-# Das ABC Buch
-
 Es war einmal ein Mann, der hatte einige neue Verse zu einem "ABC-Buch" geschrieben, solche zwei Zeilen für jeden Buchstaben wie in dem alten ABC; ihm schien, daß man etwas Neues haben sollte, die alten Verse waren so abgenutzt, und der fand seine eigenen gerade immer so gut. Das neue ABC lag noch geschrieben da, und es war neben das alte, gedruckte in den großen Büchschrank gestellt worden, in dem so viele gelehrte Bücher und unterhaltende Bücher standen, aber das alte ABC wollte wohl nicht Nachbar des neuen sein und war deshalb vom Bord gesprungen und hatte zugleich dem neuen einen Stoß gegeben, so daß es auch auf dem Boden lag, und zwar waren alle seine losen Blätter ringsum verstreut. Das alte ABC kehrte die erste Seite nach oben, und das ist die wichtigste darin; da stehen alle Buchstaben, die großen und die kleinen. Das Blatt hat nun alles, wovon alle die übrigen Bücher leben, daß Alphabet, die Buchstaben, die doch die Welt regieren; eine schreckliche Macht haben Sie! Es kommt nur darauf an, in welche Stellung sie kommandiert sind; sie können Leben geben, töten, erfreuen und betrüben. Einzeln aufgestellt, bedeuten sie nichts, aber in Reih und Glied aufgestellt, ja, als Gott sie seine Gedanken ausdrücken ließ, vernahmen wir mehr, als wir zu ertragen vermochten, wir beugten uns tief, aber die Buchstaben vermochten die Gedanken zu ertragen.
 
 Da lag es nun und kehrte sich nach oben! Und der Hahn in dem großen A strahle von roten, blauen und grünen Federn; er brüstete sich, denn er wußte, was die Buchstaben bedeuten und daß er der einzige lebendige darunter war.

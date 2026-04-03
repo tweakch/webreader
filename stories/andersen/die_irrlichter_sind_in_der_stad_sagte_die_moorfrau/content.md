@@ -5,9 +5,6 @@ url: "https://www.andersenstories.com/de/andersen_maerchen/die_irrlichter_sind_i
 crawledAt: "2026-04-03T11:24:17.983Z"
 wordCount: 4570
 ---
-
-# Die Irrlichter sind in der Stadt, sagte die Moorfrau
-
 Es war einmal ein Mann, der einst so viele neue Märchen wußte, aber nun seien sie ihm ausgegangen, sagte er; das Märchen, das von selber Besuch machte, kam nicht mehr und klopfte an seine Türe; und weshalb kam es nicht? Ja, das ist freilich war, der Mann hatte in Jahr und Tag nicht daran gedacht, nicht erwartet, daß es kommen sollte, um anzuklopfen, aber es war gewiß auch nicht hier gewesen, denn draußen war Krieg und drinnen Kummer und Not, wie der Krieg sie mitbringt.
 
 Storch und Schwalbe kamen von ihrer langen Reise, sie dachten an keine Gefahr, und als sie kamen waren das Nest verbrannt, die Häuser der Menschen verbrannt, die Hecken zerstört, ja ganz verschwunden; die Rosse der Feinde stampften auf den alten Gräbern, Es waren harte, dunkle Zeiten; aber auch die nehmen ein Ende.

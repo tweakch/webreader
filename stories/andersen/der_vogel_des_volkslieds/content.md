@@ -5,9 +5,6 @@ url: "https://www.andersenstories.com/de/andersen_maerchen/der_vogel_des_volksli
 crawledAt: "2026-04-03T11:24:16.218Z"
 wordCount: 1048
 ---
-
-# Der Vogel des Volkslieds
-
 Es ist Winterzeit; die Erde hat eine Schneedecke, als sei sie von Marmor aus dem Felsen gehauen; die Luft ist hell und klar, der Wind ist scharf wie ein hartgeschmiedetes Schwert, die Bäume stehen da wie weiße Korallen, wie blühende Mandelszweige, hier ist es frisch wie auf den hohen Alpen.
 
 Die Nacht ist prächtig im Nordlichtscheine, im Glanze unzähliger funkelnder Sterne Es kommen die Stürme, die Wolken erheben sich und Schütteln Schwanendaunen herab; die Schneeflocken jagen, decken Hohlweg und Haus, das offene Feld und die eingeschlossenen Straßen.

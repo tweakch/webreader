@@ -5,9 +5,6 @@ url: "https://www.grimmstories.com/de/grimm_maerchen/die_faule_spinnerin"
 crawledAt: "2026-04-03T09:14:28.563Z"
 wordCount: 676
 ---
-
-# Die faule Spinnerin
-
 Auf einem Dorfe lebte ein Mann und eine Frau, und die Frau war so faul, daß sie immer nichts arbeiten wollte: und was ihr der Mann zu spinnen gab, das spann sie nicht fertig, und was sie auch spann, haspelte sie nicht, sondern ließ alles auf dem Klauel gewickelt liegen. Schalt sie nun der Mann, so war sie mit ihrem Maul doch vornen und sprach 'ei, wie sollt ich haspeln, da ich keinen Haspel habe, geh du erst in den Wald und schaff mir einen.' 'Wenns daran liegt,' sagte der Mann, 'so will ich in den Wald gehen und Haspelholz holen.' Da fürchtete sich die Frau, wenn er das Holz hätte, daß er daraus einen Haspel machte, und sie abhaspeln und dann wieder frisch spinnen müßte. Sie besann sich ein bißchen, da kam ihr ein guter Einfall, und sie lief dem Manne heimlich nach in den Wald. Wie er nun auf einen Baum gestiegen war, das Holz auszulesen und zu hauen, schlich sie darunter in das Gebüsch, wo er sie nicht sehen konnte und rief hinauf
 
 'wer Haspelholz haut, der stirbt,

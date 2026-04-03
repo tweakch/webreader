@@ -5,9 +5,6 @@ url: "https://www.andersenstories.com/de/andersen_maerchen/aufgeschoben_ist_nich
 crawledAt: "2026-04-03T11:24:25.287Z"
 wordCount: 1024
 ---
-
-# Aufgeschoben ist nicht aufgehoben
-
 Es lag einmal ein altes Schloß mit sumpfigen Gräben und einer Zugbrücke; die war häufiger aufgezogen als herabgelassen; nicht alle Gäste, die kommen, sind angenehm. Unter dem Dachfirst waren Öffnungen, durch die man hinausschießen und hin und wieder auch kochendes Wasser, ja geschmolznes Blei auf den Feind herabgießen konnte, wenn der zu nahe kam. Drinnen waren die Räume hoch, und das war gut für den vielen Rauch, der aus dem Kaminfeuer aufstieg, in dem die großen, nassen Holzscheite lagen. An den Wänden hingen Bilder von geharnischten Männern und von stolzen Frauen in steifen Kleidern; die stolzeste von ihnen allen ging hier drinnen lebendig umher, sie hieß Mette Mogens und war Herrin im Schloß.
 
 Zur Abendzeit kamen Räuber; sie erschlugen drei von ihren Leuten und auch den Kettenhund, und dann legten sie Frau Mette an die Hundekette in der Hundehütte fest; sie selber aber setzten sich oben im Saal hin und tranken den Wein aus ihrem Keller und all das gute Bier.

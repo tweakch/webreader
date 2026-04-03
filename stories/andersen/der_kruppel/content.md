@@ -5,9 +5,6 @@ url: "https://www.andersenstories.com/de/andersen_maerchen/der_kruppel"
 crawledAt: "2026-04-03T11:25:19.471Z"
 wordCount: 3178
 ---
-
-# Der Krüppel
-
 Es war einmal ein altes Schloß mit jungen, prächtigen Edelleuten. Reichtum und Segen hatten sie, amüsieren wollten sie sich, und Gutes taten sie. Alle Menschen wollten sie froh machen, so wie sie selber es waren.
 
 Am Weihnachtsabend stand ein prächtiger, wunderschöner Weihnachtsbaum im alten Rittersaal, wo Feuer in den Kaminen brannte und wo Tannenzweige um die alten Bilder gehängt waren. Hier versammelten sich die Herrschaft und die Gäste, es wurde gesungen und getanzt.

@@ -5,9 +5,6 @@ url: "https://www.andersenstories.com/de/andersen_maerchen/die_springer"
 crawledAt: "2026-04-03T11:21:29.592Z"
 wordCount: 630
 ---
-
-# Die Springer
-
 Der Floh, der Grashüpfer und die Springgans wollten einmal sehen, wer von ihnen am höchsten springen konnte, und deshalb luden sie alle Welt und wer sonst noch kommen wollte, ein, um der Pracht zuzuschauen. Es waren drei ordentliche Springer, die sich da in der Stube zusammengefunden hatten.
 
 "Der, der am höchsten springt, soll meine Tochter haben" sagte der König, "denn es wäre gar zu kleinlich, wenn diese Personen für nichts und wieder nichts springen sollten."

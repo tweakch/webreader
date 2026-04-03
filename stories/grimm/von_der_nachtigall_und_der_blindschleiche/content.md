@@ -5,9 +5,6 @@ url: "https://www.grimmstories.com/de/grimm_maerchen/von_der_nachtigall_und_der_
 crawledAt: "2026-04-03T09:17:23.434Z"
 wordCount: 212
 ---
-
-# Von der Nachtigall und der Blindschleiche
-
 Es waren einmal eine Nachtigall und eine Blindschleiche, die hatten jede nur ein Aug und lebten zusammen in einem Haus lange Zeit in Frieden und Einigkeit. Eines Tags aber wurde die Nachtigall auf eine Hochzeit gebeten, da sprach sie zur Blindschleiche: "Ich bin da auf eine Hochzeit gebeten und möcht nicht gern so mit einem Aug hingehen, sei doch so gut und leih mir deins dazu, ich bring dir's morgen wieder." Und die Blindschleiche tat es aus Gefälligkeit.
 
 Aber den andern Tag, wie die Nachtigall nach Haus gekommen war, gefiel es ihr so wohl, dass sie zwei Augen im Kopf trug und zu beiden Seiten sehen konnte, dass sie der armen Blindschleiche ihr geliehenes Aug nicht wiedergeben wollte. Da schwur die Blindschleiche, sie wollte sich an ihr, an ihren Kindern und Kindeskindern rächen. "Geh nur," sagte die Nachtigall, "und such einmal:

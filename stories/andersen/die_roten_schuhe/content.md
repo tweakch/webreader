@@ -5,9 +5,6 @@ url: "https://www.andersenstories.com/de/andersen_maerchen/die_roten_schuhe"
 crawledAt: "2026-04-03T11:21:27.816Z"
 wordCount: 2210
 ---
-
-# Die roten Schuhe
-
 Es war einmal ein kleines Mädchen, gar fein und hübsch; aber es war arm und mußte im Sommer immer barfuß gehen, und im Winter mit großen Holzschuhen, so daß der kleine Spann ganz rot wurde; es war zum Erbarmen.
 
 Mitten im Dorfe wohnte die alte Schuhmacherin; sie setzte sich hin und nähte, so gut sie es konnte, von alten roten Tuchlappen ein paar kleine Schuhe. Recht plump wurden sie ja, aber es war doch gut gemeint, denn das kleine Mädchen sollte sie haben. Das kleine Mädchen hieß Karen.

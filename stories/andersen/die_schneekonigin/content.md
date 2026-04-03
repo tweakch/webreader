@@ -5,9 +5,6 @@ url: "https://www.andersenstories.com/de/andersen_maerchen/die_schneekonigin"
 crawledAt: "2026-04-03T11:21:21.271Z"
 wordCount: 11198
 ---
-
-# Die Schneekönigin
-
 IN SIEBEN GESCHICHTEN
 Erste Geschichte,
 welche von dem Spiegel und den Scherben handelt.

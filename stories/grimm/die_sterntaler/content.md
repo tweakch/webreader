@@ -5,9 +5,6 @@ url: "https://www.grimmstories.com/de/grimm_maerchen/die_sterntaler"
 crawledAt: "2026-04-03T09:15:17.880Z"
 wordCount: 299
 ---
-
-# Die Sterntaler
-
 Es war einmal ein kleines Mädchen, dem war Vater und Mutter gestorben, und es war so arm, dass es kein Kämmerchen mehr hatte, darin zu wohnen, und kein Bettchen mehr hatte, darin zu schlafen, und endlich gar nichts mehr als die Kleider auf dem Leib und ein Stückchen Brot in der Hand, das ihm ein mitleidiges Herz geschenkt hatte. Es war aber gut und fromm. Und weil es so von aller Welt verlassen war, ging es im Vertrauen auf den lieben Gott hinaus ins Feld.
 
 Da begegnete ihm ein armer Mann, der sprach: "Ach, gib mir etwas zu essen, ich bin so hungrig." Es reichte ihm das ganze Stückchen Brot und sagte: "Gott segne dir's," und ging weiter. Da kam ein Kind, das jammerte und sprach: "Es friert mich so an meinem Kopfe, schenk mir etwas, womit ich ihn bedecken kann." Da tat es seine Mütze ab und gab sie ihm. Und als es noch eine Weile gegangen war, kam wieder ein Kind und hatte kein Leibchen an und fror: da gab es ihm seins; und noch weiter, da bat eins um ein Röcklein, das gab es auch von sich hin. Endlich gelangte es in einen Wald, und es war schon dunkel geworden, da kam noch eins und bat um ein Hemdlein, und das fromme Mädchen dachte: "Es ist dunkle Nacht, da sieht dich niemand, du kannst wohl dein Hemd weggeben," und zog das Hemd ab und gab es auch noch hin.

@@ -5,9 +5,6 @@ url: "https://www.andersenstories.com/de/andersen_maerchen/der_unartige_knabe"
 crawledAt: "2026-04-03T11:20:37.456Z"
 wordCount: 761
 ---
-
-# Der unartige Knabe
-
 Es war einmal ein alter Dichter, ein richtiger guter, alter Dichter. Eines abends, als er zu Hause saß, zog ein schreckliches Unwetter draußen herauf. Der Regen strömte hernieder, aber der alte Dichter saß warm und gut an seinem Kachelofen, wo das Feuer brannte und die Äpfel brutzelten.
 
 "An den Armen, die in diesem Wetter draußen sind, bleibt kein Faden trocken!" sagte er, denn er war ein guter Dichter.

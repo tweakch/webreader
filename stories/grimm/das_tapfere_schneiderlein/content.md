@@ -5,9 +5,6 @@ url: "https://www.grimmstories.com/de/grimm_maerchen/das_tapfere_schneiderlein"
 crawledAt: "2026-04-03T09:10:36.494Z"
 wordCount: 2983
 ---
-
-# Das tapfere Schneiderlein
-
 An einem Sommermorgen sass ein Schneiderlein auf seinem Tisch am Fenster, war guter Dinge und nähte aus Leibeskräften. Da kam eine Bauersfrau die Strasse herab und rief: "Gut Mus feil! Gut Mus feil!" Das klang dem Schneiderlein lieblich in die Ohren, er steckte sein zartes Haupt zum Fenster hinaus und rief: "Hier herauf, liebe Frau, hier wird sie ihre Ware los."
 
 Die Frau stieg die drei Treppen mit ihrem schweren Korbe zu dem Schneider herauf und musste die Töpfe sämtlich vor ihm auspacken. Er besah sie alle, hob sie in die Höhe, hielt die Nase dran und sagte endlich: "Das Mus scheint mir gut, wieg sie mir doch vier Lot ab, liebe Frau, wenn's auch ein Viertelpfund ist, kommt es mir nicht darauf an." Die Frau, welche gehofft hatte, einen guten Absatz zu finden, gab ihm, was er verlangte, ging aber ganz ärgerlich und brummig fort. "Nun, das Mus soll mir Gott gesegnen," rief das Schneiderlein, "und soll mir Kraft und Stärke geben," holte das Brot aus dem Schrank, schnitt sich ein Stück über den ganzen Laib und strich das Mus darüber. "Das wird nicht bitter schmecken," sprach er, "aber erst will ich den Wams fertig machen, eh ich anbeisse." Er legte das Brot neben sich, nähte weiter und machte vor Freude immer grössere Stiche.

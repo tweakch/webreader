@@ -5,9 +5,6 @@ url: "https://www.grimmstories.com/de/grimm_maerchen/der_okerlo"
 crawledAt: "2026-04-03T09:17:35.550Z"
 wordCount: 809
 ---
-
-# Der Okerlo
-
 Eine Königin setzte ihr Kind in einer goldenen Wiege aufs Meer und ließ es fort schwimmen; es ging aber nicht unter, sondern schwamm zu einer Insel, da wohnten lauter Menschenfresser. Wie nun so die Wiege geschwommen kam, stand gerade die Frau des Menschenfressers am Ufer, und als sie das Kind sah, welches ein wunderschönes Mädchen war, beschloss sie, es großzuziehen für ihren Sohn, der sollte es einmal zur Frau haben. Doch hatte sie große Not damit, dass sie es sorgfältig vor ihrem Mann, dem alten Okerlo, versteckte, denn hätte er es zu Gesicht bekommen, so wäre es mit Haut und Haar aufgefressen worden.
 
 Als nun das Mädchen groß geworden war, sollte es mit dem jungen Okerlo verheiratet werden, es mochte ihn aber gar nicht leiden und weinte den ganzen Tag. Wie es so einmal am Ufer saß, da kam ein junger, schöner Prinz geschwommen, der gefiel ihm, und es gefiel ihm auch, und sie versprachen sich miteinander; indem aber kam die alte Menschenfresserin, die wurde gewaltig bös, dass sie den Prinzen bei der Braut ihres Sohnes fand, und kriegte ihn gleich zu packen: "Wart nun, du sollst zu meines Sohnes Hochzeit gebraten werden!"

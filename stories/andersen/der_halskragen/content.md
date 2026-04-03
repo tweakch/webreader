@@ -5,9 +5,6 @@ url: "https://www.andersenstories.com/de/andersen_maerchen/der_halskragen"
 crawledAt: "2026-04-03T11:21:58.838Z"
 wordCount: 805
 ---
-
-# Der Halskragen
-
 Es war einmal ein feiner Herr, dessen sämtliches Hausgerät aus einem Stiefelknecht und einer Haarbürste bestand, aber er hatte den schönsten Halskragen von der Welt, und dieser Halskragen ist es, dessen Geschichte wir hören werden. Er war nun so alt geworden, daß er daran dachte, sich zu verheiraten, und da traf es sich, daß er mit einem Strumpfband in die Wäsche kam.
 
 Da meinte der Halskragen: "Habe ich doch nie jemand so schlank und so fein und so niedlich gesehen. Darf ich um Ihren Namen bitten?"

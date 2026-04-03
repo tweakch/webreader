@@ -5,9 +5,6 @@ url: "https://www.andersenstories.com/de/andersen_maerchen/das_kind_im_grabe"
 crawledAt: "2026-04-03T11:23:27.069Z"
 wordCount: 1653
 ---
-
-# Das Kind im Grabe
-
 Trauer erfüllte das Haus, Trauer die Herzen; das jüngste Kind, ein Knabe von vier Jahren, die Freude und Hoffnung der Eltern, war gestorben. Es blieben ihnen zwar noch zwei Töchter, von denen die älteste gerade konfirmiert werden sollte, brave, herrliche Mädchen beide, aber das Kind, das man verloren hat, ist doch immer das liebste, und hier war es das jüngste und ein Sohn. Es war eine schwere Prüfung. Die Schwestern trauerten, wie es junge Herzen tun, und waren namentlich von dem Schmerz der Eltern ergriffen, der Vater war tief gebeugt, die Mutter aber von dem großen Kummer überwältigt. Tag und Nacht war sie um das kranke Kind gewesen, hatte es gepflegt, gehoben, getragen; sie hatte gefühlt, wie es ein Teil ihrer selbst war. Sie konnte es nicht fassen, daß das Kind tot war, daß es in den Sarg gelegt werden und im Grabe ruhen sollte. Gott könne ihr dies Kind nicht nehmen, hatte sie gemeint, und als es doch so geschah und kein Zweifel mehr darüber aufkommen konnte, da sprach sie in ihrem krankhaften Schmerz:
 
 "Gott hat es nicht gewußt; er hat herzlose Diener hier auf Erden, die nach eigenem Gutdünken verfahren, die die Gebete einer Mutter nicht beachten:" Sie ließ in ihrem Schmerz von Gott ab, und siehe, da kamen finstere Gedanken, die Gedanken des Todes, des ewigen Todes herauf, daß der Mensch Erde in der Erde werden und daß damit alles vorbei sei. Bei solchen Gedanken hatte sie aber keinen Halt, nichts, an das sie sich anklammern konnte, und die versank in das bodenlose Nichts der Verzweiflung.

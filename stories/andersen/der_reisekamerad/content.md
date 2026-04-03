@@ -5,9 +5,6 @@ url: "https://www.andersenstories.com/de/andersen_maerchen/der_reisekamerad"
 crawledAt: "2026-04-03T11:20:38.830Z"
 wordCount: 7228
 ---
-
-# Der Reisekamerad
-
 Der arme Johannes war tief betrübt, denn sein Vater war sehr krank und hatte nur noch Stunden zu leben. Niemand außer den beiden war in der kleinen Stube. Die Lampe auf dem Tisch war dem Erlöschen nahe, und es war schon später Abend.–
 
 "Du warst mir ein guter Sohn, Johannes!" sagte der kranke Vater, "der liebe Gott wird dir schon weiterhelfen im Leben!" Und er sah mit ernsten, milden Augen auf ihn, holte noch einmal tief Luft und starb; es war gerade, als ob er schliefe. Aber Johannes weinte, denn nun hatte er niemanden in der ganzen Welt, weder Vater noch Mutter, weder Schwester noch Bruder mehr. Der arme Johannes! Er lag vor dem Bette auf seinen Knien und küßte des toten Vaters Hand und weinte viel salzige Tränen; aber zuletzt schlossen sich seine Augen, und er schlief ein, den Kopf auf der harten Bettkante.

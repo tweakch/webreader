@@ -5,9 +5,6 @@ url: "https://www.grimmstories.com/de/grimm_maerchen/der_riese_und_der_schneider
 crawledAt: "2026-04-03T09:16:21.029Z"
 wordCount: 680
 ---
-
-# Der Riese und der Schneider
-
 Einem Schneider, der ein großer Prahler war, aber ein schlechter Zahler, kam es in den Sinn, ein wenig auszugehen und sich in dem Wald umzuschauen. Sobald er nur konnte, verließ er seine Werkstatt,
 
 wanderte seinen Weg

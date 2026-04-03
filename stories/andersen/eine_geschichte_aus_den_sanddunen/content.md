@@ -5,9 +5,6 @@ url: "https://www.andersenstories.com/de/andersen_maerchen/eine_geschichte_aus_d
 crawledAt: "2026-04-03T11:23:33.581Z"
 wordCount: 12676
 ---
-
-# Eine Geschichte aus den Sanddünen
-
 Es ist eine Geschichte aus den jütländischen Sanddünen, die aber nicht in Jütland anhebt, sondern weit weg von dieser nördlichen Halbinsel, im Süden, in Spanien beginnt; das Meer ist die Straße zwischen den Ländern; versetze dich in Gedanken dorthin, hin nach dem sonnigen Spanien! Dort ist es warm und wunderherrlich, dort wachsen die feuerroten Granatblüten zwischen dunklen Lorbeerbäumen; von den Bergen weht ein frischer, labender Wind herab über die Orangengärten, über die prächtigen maurischen Hallen mit ihren goldenen Kuppeln und farbigen Wänden; durch die Straßen ziehen Kinder in Prozessionen mit Lichtern und flatternden Fahnen, und über Ihnen, hoch und klar, erhebt sich der Himmel mit funkelnden Sternen; Gesang und Kastagnetten erklingen, Burschen und Mädchen schwingen sich im Tanz unter blühenden Akazien, während der Bettler auf dem behauenen Marmorstein sitzt, sich an der saftigen Wassermelone labt und das Leben halb träumend genießt; es ist wie ein herrlicher Traum das Ganze, und sich dem hinzugeben - ja, das taten so recht zwei junge Neuvermählte, und ihnen waren auch alle Güter der Erde gegeben: Gesundheit, froher Sinn, Reichtum und Ehre.
 
 "Wir sind so glücklich, wie nur irgend jemand es sein kann!" sprachen sie aus vollster Herzensüberzeugung; doch noch eine Stufe des Glücks konnten sie erklimmen, wenn nämlich Gott ihnen ein Kind, einen Sohn, ihnen ähnlich an Körper und Seele, schenken wollte.

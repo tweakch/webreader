@@ -5,9 +5,6 @@ url: "https://www.grimmstories.com/de/grimm_maerchen/die_hand_mit_dem_messer"
 crawledAt: "2026-04-03T09:17:17.333Z"
 wordCount: 261
 ---
-
-# Die Hand mit dem Messer
-
 Es war ein kleines Mädchen, das hatte drei Brüder, die galten bei der Mutter alles, und es wurde überall zurückgesetzt, hart angefahren und musste tagtäglich morgens früh ausgehen, Torf zu graben auf dürrem Heidegrund, den sie zum Kochen und Brennen brauchten. Noch dazu bekam es ein altes und stumpfes Gerät, womit es die sauere Arbeit verrichten sollte.
 
 Aber das kleine Mädchen hatte einen Liebhaber, der war ein Elfe und wohnte nahe an ihrer Mutter Haus in einem Hügel, und sooft es nun an dem Hügel vorbeikam, so streckte er seine Hand aus dem Fels und hielt darin ein sehr scharfes Messer, das von sonderlicher Kraft war und alles durchschnitt. Mit diesem Messer schnitt sie den Torf bald heraus, ging vergnügt mit der nötigen Ladung heim, und wenn sie am Felsen vorbeikam, klopfte sie zweimal dran, so reichte die Hand heraus und nahm das Messer in Empfang.

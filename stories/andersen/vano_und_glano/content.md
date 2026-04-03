@@ -5,9 +5,6 @@ url: "https://www.andersenstories.com/de/andersen_maerchen/vano_und_glano"
 crawledAt: "2026-04-03T11:24:32.058Z"
 wordCount: 635
 ---
-
-# Vänö und Glänö
-
 An Seelands Küste, gegenüber von Holsteinborg, lagen einmal zwei waldbewachsene Inseln, Vänö und Glänö, auf denen waren Kirchdörfer und Höfe; sie lagen nahe am Strande, sie langen einander nahe, nun ist da nur die eine Insel.
 
 Eines Nachts war ein entsetzliches Wetter, das Meer stieg, wie es seit Menschengedenken nicht gestiegen war, der Sturm nahm gewaltig zu, es war ein Wetter wie am Jüngsten Tag, es toste, als ob die Erde risse, die Kirchenglocken kamen in Schwung und läuteten ohne Menschenhilfe.

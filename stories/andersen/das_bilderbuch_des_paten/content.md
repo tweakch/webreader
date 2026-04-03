@@ -6,6 +6,3 @@ crawledAt: "2026-04-03T11:24:37.833Z"
 wordCount: 5
 ---
 
-# Das Bilderbuch des Paten
-
-

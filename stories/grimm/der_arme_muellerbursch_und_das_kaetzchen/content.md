@@ -5,9 +5,6 @@ url: "https://www.grimmstories.com/de/grimm_maerchen/der_arme_muellerbursch_und_
 crawledAt: "2026-04-03T09:13:45.212Z"
 wordCount: 1259
 ---
-
-# Der arme Müllerbursch und das Kätzchen
-
 In einer Mühle lebte ein alter Müller. der hatte weder Frau noch Kinder, und drei Müllerburschen dienten bei ihm. Wie sie nun etliche Jahre bei ihm gewesen waren, sagte er eines Tages zu ihnen: "Ich bin alt und will mich hinter den Ofen setzen; zieht aus, und wer mir das beste Pferd nach Haus bringt, dem will ich die Mühle geben, und er soll mich dafür bis an meinen Tod verpflegen." Der dritte von den Burschen war aber der Kleinknecht, der ward von den andern für albern gehalten, dem gönnten sie die Mühle nicht; und er wollte sie hernach nicht einmal.
 
 Da zogen alle drei miteinander aus, und wie sie vor das Dorf kamen, sagten die zwei zu dem albernen Hans: "Du kannst nun hier bleiben, du kriegst dein Lebtag keinen Gaul." Hans aber ging doch mit, und als Nacht war, kamen sie an eine Höhle, da hinein legten sie sich schlafen. Die zwei Klugen warteten, bis Hans eingeschlafen war, dann stiegen sie auf, machten sich fort und ließen Hänschen liegen und meinten's recht fein gemacht zu haben; ja, es wird euch doch nicht gut gehen!

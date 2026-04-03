@@ -5,9 +5,6 @@ url: "https://www.andersenstories.com/de/andersen_maerchen/wer_war_die_glucklich
 crawledAt: "2026-04-03T11:24:39.108Z"
 wordCount: 1356
 ---
-
-# Wer war die Glücklichste?
-
 "Welch schöne Rosen!" sagte der Sonnenschein. "Und jede Knospe wird sich entfalten und ebenso schön werden. Das sind meine Kinder! Meine Küsse haben sie belebt."
 
 "Meine Kinder sind es," sagte der Tau; "ich habe sie mit meinen Tränen gesäugt."

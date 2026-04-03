@@ -5,9 +5,6 @@ url: "https://www.grimmstories.com/de/grimm_maerchen/fundevogel"
 crawledAt: "2026-04-03T09:11:35.190Z"
 wordCount: 880
 ---
-
-# Fundevogel
-
 Es war einmal ein Förster, der ging in den Wald auf die Jagd, und wie er in den Wald kam, hörte er schreien, als obs ein kleines Kind wäre. Er ging dem Schreien nach und kam endlich zu einem hohen Baum, und oben darauf saß ein kleines Kind. Es war aber die Mutter mit dem Kinde unter dem Baum eingeschlafen, und ein Raubvogel hatte das Kind in ihrem Schoße gesehen: da war er hinzugeflogen, hatte es mit seinem Schnabel weggenommen und auf den hohen Baum gesetzt.
 
 Der Förster stieg hinauf, holte das Kind herunter und dachte: "Du willst das Kind mit nach Haus nehmen und mit deinem Lenchen zusammen aufziehn." Er brachte es also heim, und die zwei Kinder wuchsen miteinander auf. Das aber, das auf dem Baum gefunden worden war, und weil es ein Vogel weggetragen hatte, wurde Fundevogel geheißen. Fundevogel und Lenchen hatten sich so lieb, nein so lieb, daß, wenn eins das andere nicht sah, ward es traurig.

@@ -5,9 +5,6 @@ url: "https://www.andersenstories.com/de/andersen_maerchen/vogel_phonix"
 crawledAt: "2026-04-03T11:22:03.269Z"
 wordCount: 439
 ---
-
-# Vogel Phönix
-
 Im Garten des Paradieses, unter dem Baume der Erkenntnis, stand ein Rosenstrauch. Hier, in der ersten Rose, wurde ein Vogel geboren, dessen Flug war wie der des Lichts, herrlich war seine Farbe und herrlich sein Gesang.
 
 Als aber Eva die Frucht der Erkenntnis brach und sie und Adam aus dem Garten des Paradieses gejagt wurden, fiel vom flammenden Schwerte des strafenden Engels ein Funken in das Nest des Vogels und zündete es an. Der Vogel starb in den Flammen, aber aus dem glühenden Ei flog ein neuer, der einzige, der stets einzige Vogel Phönix. Die Sage meldet, daß er in Arabien nistet und sich selbst jedes hundertste Jahr in seinem Neste verbrennt, und ein neuer Phönix, wieder der einzige in der Welt, fliegt aus dem glühenden Ei empor.

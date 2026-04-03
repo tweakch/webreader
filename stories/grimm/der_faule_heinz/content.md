@@ -5,9 +5,6 @@ url: "https://www.grimmstories.com/de/grimm_maerchen/der_faule_heinz"
 crawledAt: "2026-04-03T09:15:47.519Z"
 wordCount: 903
 ---
-
-# Der faule Heinz
-
 Heinz war faul, und obgleich er weiter nichts zu tun hatte, als seine Ziege täglich auf die Weide zu treiben, so seufzte er dennoch, wenn er nach vollbrachtem Tagewerk abends nach Hause kam. 'Es ist in Wahrheit eine schwere Last,' sagte er, 'und ein mühseliges Geschäft, so eine Ziege Jahr aus Jahr ein bis in den späten Herbst ins Feld zu treiben. Und wenn man sich noch dabei hinlegen und schlafen könnte! aber nein, da muß man die Augen aufhaben, damit sie die jungen Bäume nicht beschädigt, durch die Hecke in einen Garten dringt oder gar davonläuft. Wie soll da einer zur Ruhe kommen und seines Lebens froh werden!' Er setzte sich, sammelte seine Gedanken und überlegte, wie er seine Schultern von dieser Bürde frei machen könnte. Lange war alles Nachsinnen vergeblich, plötzlich fiels ihm wie Schuppen von den Augen. 'Ich weiß, was ich tue,' rief er aus, 'ich heirate die dicke Trine, die hat auch eine Ziege und kann meine mit austreiben, so brauche ich mich nicht länger zu quälen.'
 
 Heinz erhob sich also, setzte seine müden Glieder in Bewegung, ging quer über die Straße, denn weiter war der Weg nicht, wo die Eltern der dicken Trine wohnten, und hielt um ihre arbeitsame und tugendreiche Tochter an. Die Eltern besannen sich nicht lange, 'gleich und gleich gesellt sich gern,' meinten sie und willigten ein. Nun ward die dicke Trine Heinzens Frau und trieb die beiden Ziegen aus. Heinz hatte gute Tage und brauchte sich von keiner andern Arbeit zu erholen als von seiner eigenen Faulheit. Nur dann und wann ging er mit hinaus und sagte 'es geschieht bloß, damit mir die Ruhe hernach desto besser schmeckt: man verliert sonst alles Gefühl dafür.'

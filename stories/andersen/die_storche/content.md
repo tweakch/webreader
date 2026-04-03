@@ -5,9 +5,6 @@ url: "https://www.andersenstories.com/de/andersen_maerchen/die_storche"
 crawledAt: "2026-04-03T11:21:00.170Z"
 wordCount: 1641
 ---
-
-# Die Störche
-
 Auf dem letzten Hause in einem kleinen Dorfe stand ein Storchennest. Die Storchmutter saß im Neste bei ihren vier kleinen Jungen, die den Kopf mit dem kleinen, schwarzen Schnabel, denn der war noch nicht rot geworden, hervorstreckten. Ein kleines Stück davon entfernt stand auf dem Dachrücken ganz stramm und steif der Storchvater; er hatte das eine Bein unter sich aufgezogen, um doch einige Mühe zu haben, während er Schildwache stand. Fast hätte man glauben mögen, daß er aus Holz geschnitzt sei, so still stand er. "Es sieht gewiß rechtt vornehm aus, daß meine Frau eine Schildwache beim Neste hat!" dachte er. "Sie können ja nicht wissen, daß ich ihr Mann bin, sie glauben sicher, daß mir befohlen worden ist, hier zu stehen. Das sieht recht vornehm aus!" Und er fuhr fort, auf einem Beine zu stehen.
 
 Unten auf der Straße spielte eine Schar Kinder, und da sie die Störche gewahr wurden, sang einer der mutigsten Knaben und später alle zusammen den alten Vers von den Störchen:

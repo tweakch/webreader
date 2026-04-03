@@ -5,9 +5,6 @@ url: "https://www.grimmstories.com/de/grimm_maerchen/das_waldhaus"
 crawledAt: "2026-04-03T09:15:55.079Z"
 wordCount: 1704
 ---
-
-# Das Waldhaus
-
 Ein armer Holzhauer lebte mit seiner Frau und drei Töchtern in einer kleinen Hütte an dem Rande eines einsamen Waldes. Eines Morgens, als er wieder an seine Arbeit wollte, sagte er zu seiner Frau: "Laß mir ein Mittagsbrot von dem ältesten Mädchen hinaus in den Wald bringen, ich werde sonst nicht fertig. Und damit es sich nicht verirrt," setzte er hinzu, "so will ich einen Beutel mit Hirse mitnehmen und die Körner auf den Weg streuen."
 
 Als nun die Sonne mitten über dem Walde stand, machte sich das Mädchen mit einem Topf voll Suppe auf den Weg. Aber die Feld- und Waldsperlinge, die Lerchen und Finken, Amseln und Zeisige hatten die Hirse schon längst aufgepickt, und das Mädchen konnte die Spur nicht finden. Da ging es auf gut Glück immer fort, bis die Sonne sank und die Nacht einbrach. Die Bäume rauschten in der Dunkelheit, die Eulen schnarrten, und es fing an, ihm angst zu werden. Da erblickte es in der Ferne ein Licht, das zwischen den Bäumen blinkte. Dort sollten wohl Leute wohnen, dachte es, die mich über Nacht behalten, und ging auf das Licht zu. Nicht lange, so kam es an ein Haus, dessen Fenster erleuchtet waren. Es klopfte an, und eine rauhe Stimme rief von innen: "Herein!" Das Mädchen trat auf die dunkle Diele und pochte an die Stubentür. "Nur herein," rief die Stimme, und als es öffnete, saß da ein alter, eisgrauer Mann an dem Tisch, hatte das Gesicht auf die beiden Hände gestützt, und sein weißer Bart floß über den Tisch herab fast bis auf die Erde. Am Ofen aber lagen drei Tiere, ein Hühnchen, ein Hähnchen und eine buntgescheckte Kuh. Das Mädchen erzählte dem Alten sein Schicksal und bat um ein Nachtlager. Der Mann sprach:

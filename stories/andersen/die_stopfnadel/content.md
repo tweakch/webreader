@@ -5,9 +5,6 @@ url: "https://www.andersenstories.com/de/andersen_maerchen/die_stopfnadel"
 crawledAt: "2026-04-03T11:21:39.584Z"
 wordCount: 1082
 ---
-
-# Die Stopfnadel
-
 Es war einmal eine Stopfnadel, die sich so fein dünkte, daß sie sich einbildete, eine Nähnadel zu sein.
 
 "Seht nur darauf, daß ihr mich haltet!" sagte die Stopfnadel zu den Fingern, die sie hervornahmen. "Verliert mich nicht! Falle ich hinunter, so ist es sehr die Frage, ob ich wieder gefunden werde, so fein bin ich!"

@@ -5,9 +5,6 @@ url: "https://www.andersenstories.com/de/andersen_maerchen/daumelinchen"
 crawledAt: "2026-04-03T11:20:35.787Z"
 wordCount: 3943
 ---
-
-# Däumelinchen
-
 Es war einmal eine Frau, die sich sehr nach einem kleinen Kinde sehnte, aber sie wußte nicht, woher sie es nehmen sollte. Da ging sie zu einer alten Hexe und sagte zu ihr: "Ich möchte herzlich gern ein kleines Kind haben, willst du mir nicht sagen, woher ich das bekommen kann?"
 
 "Ja, damit wollen wir schon fertig werden!" sagte die Hexe. "Da hast du ein Gerstenkorn; das ist gar nicht von der Art, wie sie auf dem Felde des Landmanns wachsen oder wie sie die Hühner zu fressen bekommen; lege das in einen Blumentopf, so wirst du etwas zu sehen bekommen!"

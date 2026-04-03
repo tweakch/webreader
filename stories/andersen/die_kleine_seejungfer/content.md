@@ -5,9 +5,6 @@ url: "https://www.andersenstories.com/de/andersen_maerchen/die_kleine_seejungfer
 crawledAt: "2026-04-03T11:20:40.102Z"
 wordCount: 8444
 ---
-
-# Die kleine Seejungfer
-
 Weit draußen im Meere ist das Wasser so blau wie die Blütenblätter der schönsten Kornblume, und so klar wie das reinste Glas, aber es ist dort sehr tief, tiefer als irgendein Ankertau reicht, viele Kirchtürme müßten aufeinandergestellt werden, um vom Grunde bis über das Wasser zu reicher. Dort unten wohnt das Meervolk.
 
 Nun muß man nicht etwa glauben, daß dort nur der nackte, weiße Sandboden sei! Nein, da wachsen die wundersamsten Bäume und Pflanzen, deren Stiele und Blätter so geschmeidig sind, daß sie sich bei der geringsten Bewegung des Wassers rühren, als ob sie lebend wären. Alle Fische, klein und groß, schlüpfen zwischen den Zweigen hindurch, gerade wie hier oben die Vögel in der Luft. An der allertiefsten Stelle liegt des Meerkönigs Schloß. Die Mauern sind aus Korallen und die langen spitzen Fenster von allerklarstem Bernstein. Das Dach aber besteht aus Muschelschalen, die sich öffnen und schließen, je nachdem das Wasser strömt; das sieht prächtig aus, denn in jeder liegen strahlende Perlen, eine einzige davon würde der Stolz einer Königskrone sein.

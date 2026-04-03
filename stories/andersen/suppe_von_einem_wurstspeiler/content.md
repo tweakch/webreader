@@ -5,9 +5,6 @@ url: "https://www.andersenstories.com/de/andersen_maerchen/suppe_von_einem_wurst
 crawledAt: "2026-04-03T11:23:00.936Z"
 wordCount: 4744
 ---
-
-# Suppe von einem Wurstspeiler
-
 I. Suppe von einem Wurstspeiler.
 
 "Das war gestern ein ausgezeichnetes Mittagessen" sagte eine alte Mäusedame zu einer anderen, die nicht mit dabei gewesen war. "Ich saß auf dem einundzwanzigsten Platz von dem alten Mäusekönig ab gerechnet, das ist etwas nichts Geringes. Über die Gänge kann ich Ihnen nur sagen, daß sie ausgezeichnet zusammengesetzt waren! Verschimmeltes Brot, Speckschwarte, Talglichte und Wurst und dann dasselbe noch einmal von vorne an. Es war ebensogut, als hätten wir zweimal Mahlzeit gehalten. Es war eine behagliche Stimmung und ein gemütlicher Wirrwar wie in einem Familienkreise. Nichts ist übrig geblieben außer den Wurstspeilern. Darüber wurde natürlich gesprochen und jemand meinte sogar, man könne aus einem Wurstspeiler Suppe kochen. Gehört hatte ja schon jeder davon, aber niemand hatte solche Suppe je gekostet, geschweige denn, daß er sie zu bereiten verstünde. Es wurde ein sehr hübsches Wohl auf den Erfinder der Suppe ausgebracht, er verdiene, Armenhausvorstand zu werden. War das nicht witzig? Und der alte Mäusekönig erhob sich und gelobte, daß diejenige von den jungen Mäuschen, die die besprochene Suppe am wohlschmeckendsten herzustellen verstünde, seine Königin werden sollte. Jahr und Tag sollten sie Bedenkzeit haben."

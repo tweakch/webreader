@@ -5,9 +5,6 @@ url: "https://www.grimmstories.com/de/grimm_maerchen/jorinde_und_joringel"
 crawledAt: "2026-04-03T09:12:07.037Z"
 wordCount: 856
 ---
-
-# Jorinde und Joringel
-
 Es war einmal ein altes Schloß mitten in einem großen dicken Wald, darinnen wohnte eine alte Frau ganz allein, das war eine Erzzauberin. Am Tage machte sie sich zur Katze oder zur Nachteule, des Abends aber wurde sie wieder ordentlich wie ein Mensch gestaltet. Sie konnte das Wild und die Vögel herbeilocken, und dann schlachtete sie, kochte und briet es. Wenn jemand auf hundert Schritte dem Schloß nahe kam, so mußte er stillestehen und konnte sich nicht von der Stelle bewegen, bis sie ihn lossprach; wenn aber eine keusche Jungfrau in diesen Kreis kam, so verwandelte sie dieselbe in einen Vogel und sperrte sie dann in einen Korb ein und trug den Korb in eine Kammer des Schlosses. Sie hatte wohl siebentausend solcher Körbe mit so raren Vögeln im Schlosse.
 
 Nun war einmal eine Jungfrau, die hieß Jorinde; sie war schöner als alle andere Mädchen. Die und dann ein gar schöner Jüngling namens Joringel hatten sich zusammen versprochen. Sie waren in den Brauttagen, und sie hatten ihr größtes Vergnügen eins am andern. Damit sie nun einsmalen vertraut zusammen reden könnten, gingen sie in den Wald spazieren. "Hüte dich," sagte Joringel, "daß du nicht so nahe ans Schloß kommst." Es war ein schöner Abend, die Sonne schien zwischen den Stämmen der Bäume hell ins dunkle Grün des Waldes, und die Turteltaube sang kläglich auf den alten Maibuchen.

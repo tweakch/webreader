@@ -5,9 +5,6 @@ url: "https://www.andersenstories.com/de/andersen_maerchen/die_schnecke_und_der_
 crawledAt: "2026-04-03T11:23:57.681Z"
 wordCount: 790
 ---
-
-# Die Schnecke und der Rosenstock
-
 Rings um den Garten zog sich eine Hecke von Haselbüschen, außerhalb derselben war Feld und Wiese mit Kühen und Schafen, aber mitten in dem Garten stand ein blühender Rosenstock; unter diesem saß eine Schnecke, die hatte vieles in sich, sie hatte sich selbst.
 
 "Wartet nur bis meine Zeit kommt!" sagte sie, "ich werde mehr ausrichten, als Rosen ansetzen, Nüsse tragen oder Milch geben wie Kühe und Schafe!"

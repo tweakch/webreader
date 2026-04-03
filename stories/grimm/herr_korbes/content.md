@@ -5,9 +5,6 @@ url: "https://www.grimmstories.com/de/grimm_maerchen/herr_korbes"
 crawledAt: "2026-04-03T09:11:16.764Z"
 wordCount: 351
 ---
-
-# Herr Korbes
-
 Es war einmal ein Hühnchen und ein Hähnchen, die wollten zusammen eine Reise machen. Da baute das Hähnchen einen schönen Wagen, der vier rote Räder hatte, und spannte vier Mäuschen davor. Das Hühnchen setzte sich mit dem Hähnchen auf, und sie fuhren miteinander fort. Nicht lange, so begegnete ihnen eine Katze, die sprach 'wo wollt ihr hin?, Hähnchen antwortete
 
 'als hinaus

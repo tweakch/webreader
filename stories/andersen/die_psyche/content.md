@@ -5,9 +5,6 @@ url: "https://www.andersenstories.com/de/andersen_maerchen/die_psyche"
 crawledAt: "2026-04-03T11:23:55.995Z"
 wordCount: 4206
 ---
-
-# Die Psyche
-
 In der Morgendämmerung, in der roten Luft, glänzt ein großer Stern, der hellste Stern des Morgens; sein Strahl zittert auf der weißen Wand, als wollte er dort niederschreiben, was er zu erzählen weiß, was er Jahrtausende hindurch hier und dort auf unserer kreisenden Erde gesehen hat.
 
 Hören wir eine seiner Erzählungen:

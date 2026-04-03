@@ -5,9 +5,6 @@ url: "https://www.andersenstories.com/de/andersen_maerchen/die_wochentage"
 crawledAt: "2026-04-03T11:24:42.025Z"
 wordCount: 625
 ---
-
-# Die Wochentage
-
 Die Wochentage wollten auch einmal sich freimachen, zusammenkommen und ein Festmahl abhalten. Jeder Tag war übrigens so in Anspruch genommen, daß sie, während des ganzen Jahres, nicht freie Zeit hatten, um darüber zu verfügen; sie mußten einen besonderen ganzen Tag haben, aber den hatten sie doch auch jedes vierte Jahr: den Schalttag, der wurde in den Februar belegt, um Ordnung in die Zeitrechnung zu bringen.
 
 Auf den Schalttag wollten sie also zusammenkommen zum Festmahl, und da der Februar der Fastnachtsmonat ist, wollten sie karnevalsmäßig angekleidet kommen nach eines jeden Empfindung und Bestimmung; gut essen, gut trinken, Reden halten und einander Annehmlichkeiten sagen und Unannehmlichkeiten in ungenierter Kameradschaft. Die Helden der alten Zeit warfen einander bei den Mahlzeiten die abgenagten Fleischknochen an den Kopf, die Wochentage wollten einander überhäufen mit Leckereien von albernen Späßen und schelmischen Witzen, wie sie zu den unschuldigen Fastnachtsscherzen gehören mögen.

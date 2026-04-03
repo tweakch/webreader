@@ -5,9 +5,6 @@ url: "https://www.andersenstories.com/de/andersen_maerchen/alles_am_rechten_plat
 crawledAt: "2026-04-03T11:22:23.471Z"
 wordCount: 2959
 ---
-
-# Alles am rechten Platz
-
 Es ist über hundert Jahre her.
 Da lag hinter dem Walde an dem großen See ein alter Herrenhof, der war rings von tiefen Gräben umgeben, in denen Kolbenrohr, Schilf und Röhricht wuchsen.
 Drüben vom Hohlwege herüber erklangen Jagdhornruf und Pferdegetrappel, und deshalb beeilte sich das kleine Gänsemädchen, die Gänse auf der Brücke zur Seite zu treiben, ehe die Jagdgesellschaft herangaloppiert kam. Sie kamen so geschwind daher, daß sie hurtig auf einen der großen Steine an der Seite der Brücke springen mußte, um nicht unter die Hufe zu kommen. Ein halbes Kind war sie noch, fein und zierlich, doch mit einem wunderbaren Ausdruck im Antlitz und in den großen, hellen Augen; aber das sah der Gutsherr nicht. Während seines sausenden Galopps drehte er die Peitsche in

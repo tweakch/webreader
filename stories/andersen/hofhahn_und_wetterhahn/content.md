@@ -5,9 +5,6 @@ url: "https://www.andersenstories.com/de/andersen_maerchen/hofhahn_und_wetterhah
 crawledAt: "2026-04-03T11:23:30.462Z"
 wordCount: 817
 ---
-
-# Hofhahn und Wetterhahn
-
 Zwei Hähne waren da, einer auf dem Misthaufen, einer auf dem Dach, hoffärtig waren sie beide, wer von den beiden richtete aber am meisten aus? Sage uns deine Meinung, wir behalten dessen ungeachtet doch unsere eigene bei.
 
 Der Hühnerhof war durch einen Holzzaun von einem anderen Hof getrennt, in welchem ein Misthaufen lag, und auf dem Misthaufen lag und wuchs eine große Gurke, die das Bewußtsein hatte, ein Mistbeetgewächs zu sein.

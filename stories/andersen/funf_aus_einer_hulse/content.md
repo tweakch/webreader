@@ -5,9 +5,6 @@ url: "https://www.andersenstories.com/de/andersen_maerchen/funf_aus_einer_hulse"
 crawledAt: "2026-04-03T11:22:32.024Z"
 wordCount: 1156
 ---
-
-# Fünf aus einer Hülse
-
 Es waren einmal fünf Erbsen in einer Hülse; sie waren grün und die Hülse war auch grün, und deshalb glaubten sie, die ganze Welt sei grün, und das war ganz richtig. Die Hülse wuchs und die Erbsen wuchsen; sie streckten sich eben nach ihrer Decke. – Alle standen schön in einer Reihe. – Die Sonne schien draußen und wärmte die Hülse, und der Regen wusch sie sauber. Es war warm und gut da drinnen, hell am Tage und dunkel in der Nacht, eben wie es sein sollte, und die Erbsen wurden größer und immer nachdenklicher, wie sie so saßen, denn etwas mußten sie ja auch zu tun haben.
 
 "Soll ich hier immer so sitzen bleiben?" fragten sie. "Wenn ich nur nicht hart von dem langen Sitzen werde! Ist es nicht gleichsam, als ob es auch draußen etwas gäbe; ich habe so eine Ahnung."

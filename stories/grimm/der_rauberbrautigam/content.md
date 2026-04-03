@@ -5,9 +5,6 @@ url: "https://www.grimmstories.com/de/grimm_maerchen/der_rauberbrautigam"
 crawledAt: "2026-04-03T09:11:15.785Z"
 wordCount: 1262
 ---
-
-# Der Räuberbräutigam
-
 Es war einmal ein Müller, der hatte eine schöne Tochter, und als sie herangewachsen war, so wünschte er, sie wäre versorgt und gut verheiratet: er dachte "kommt ein ordentlicher Freier und hält um sie an, so will ich sie ihm geben." Nicht lange, so kam ein Freier, der schien sehr reich zu sein, und da der Müller nichts an ihm auszusetzen wußte, so versprach er ihm seine Tochter. Das Mädchen aber hatte ihn nicht so recht lieb, wie eine Braut ihren Bräutigam lieb haben soll, und hatte kein Vertrauen zu ihm: sooft sie ihn ansah oder an ihn dachte, fühlte sie ein Grauen in ihrem Herzen. Einmal sprach er zu ihr "du bist meine Braut und besuchst mich nicht einmal." Das Mädchen antwortete "ich weiß nicht, wo Euer Haus ist." Da sprach der Bräutigam "mein Haus ist draußen im dunkeln Wald." Es suchte Ausreden und meinte, es könnte den Weg dahin nicht finden.
 
 Der Bräutigam sagte "künftigen Sonntag mußt du hinaus zu mir kommen, ich habe die Gäste schon eingeladen, und damit du den Weg durch den Wald findest, so will ich dir Asche streuen." Als der Sonntag kam und das Mädchen sich auf den Weg machen sollte, ward ihm so angst, es wußte selbst nicht recht, warum, und damit es den Weg bezeichnen könnte, steckte es sich beide Taschen voll Erbsen und Linsen. An dem Eingang des Waldes war Asche gestreut, der ging es nach, warf aber bei jedem Schritt rechts und links ein paar Erbsen auf die Erde. Es ging fast den ganzen Tag, bis es mitten in den Wald kam, wo er am dunkelsten war, da stand ein einsames Haus, das gefiel ihm nicht, denn es sah so finster und unheimlich aus. Es trat hinein, aber es war niemand darin und herrschte die größte Stille. Plötzlich rief eine Stimme

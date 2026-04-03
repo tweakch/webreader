@@ -5,9 +5,6 @@ url: "https://www.andersenstories.com/de/andersen_maerchen/etwas"
 crawledAt: "2026-04-03T11:23:05.636Z"
 wordCount: 2479
 ---
-
-# Etwas
-
 "Ich will etwas sein," sagte der älteste von fünf Brüdern, "ich will etwas nützen in de Welt; mag es eine noch so geringe Stellung sein, wenn nur das, was ich ausrichte, etwas Gutes ist, dann ist es in der Tat etwas. Ich will Ziegelsteine machen, die sind nicht zu entbehren, und ich habe wirklich etwas gemacht!"
 
 "Aber etwas gar zuwenig!" sprach der zweite Bruder. "Das, was du tun willst, ist so gut wie gar nichts, das ist Handlangerarbeit und kann durch eine Maschine ausgeführt werden. Nein, dann lieber Maurer sein, das ist doch etwas, das will ich sein. Das ist ein Stand! Durch den wird man in die Zunft aufgenommen, wird Bürger, bekommt seine eigene Fahne, seine Herberge; ja, wenn alles gut geht, kann ich Gesellen halten, werde ich Meister, und meine Frau wird Frau Meisterin heißen; das ist doch etwas!"

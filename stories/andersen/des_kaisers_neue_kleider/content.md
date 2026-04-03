@@ -5,9 +5,6 @@ url: "https://www.andersenstories.com/de/andersen_maerchen/des_kaisers_neue_klei
 crawledAt: "2026-04-03T11:20:41.519Z"
 wordCount: 1535
 ---
-
-# Des Kaisers neue Kleider
-
 Vor vielen Jahren lebte ein Kaiser, der so ungeheuer viel auf neue Kleider hielt, daß er all sein Geld dafür ausgab, um recht geputzt zu sein. Er kümmerte sich nicht um seine Soldaten, kümmerte sich nicht um Theater und liebte es nicht, in den Wald zu fahren, außer um seine neuen Kleider zu zeigen. Er hatte einen Rock für jede Stunde des Tages, und ebenso wie man von einem König sagte, er ist im Rat, so sagte man hier immer: "Der Kaiser ist in der Garderobe!"
 
 In der großen Stadt, in der er wohnte, ging es sehr munter her. An jedem Tag kamen viele Fremde an, und eines Tages kamen auch zwei Betrüger, die gaben sich für Weber aus und sagten, daß sie das schönste Zeug, was man sich denken könne, zu weben verstanden. Die Farben und das Muster seien nicht allein ungewöhnlich schön, sondern die Kleider, die von dem Zeuge genäht würden, sollten die wunderbare Eigenschaft besitzen, daß sie für jeden Menschen unsichtbar seien, der nicht für sein Amt tauge oder der unverzeihlich dumm sei.

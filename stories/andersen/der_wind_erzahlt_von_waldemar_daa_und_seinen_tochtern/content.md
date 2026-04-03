@@ -5,9 +5,6 @@ url: "https://www.andersenstories.com/de/andersen_maerchen/der_wind_erzahlt_von_
 crawledAt: "2026-04-03T11:23:16.019Z"
 wordCount: 3991
 ---
-
-# Der Wind erzählt von Waldemar Daa und seinen Töchtern
-
 Wenn der Wind über das Gras dahinläuft, kräuselt es sich wie ein Gewässer, läuft er über die Saaten hin, dann wogen und wallen sie wie die hohe See; dies ist des Windes Tanz; doch der Wind tanzt nicht nur, er erzählt auch, und wie singt er dann alles so recht aus voller Brust heraus, und wie klingt es gar verschieden in des Waldes Wipfeln, durch die Schallöcher und Ritzen und Sprünge der Mauer! Siehst du, wie der Wind dort oben die Wolken jagt, als seien sie eine verängstigte Lämmerherde! Hörst du, wie der Wind hier unten durch das offene Tor heult, als sei er ein Wächter und blase in sein Horn! Mit wunderlichen Tönen saust und pfeift er die Esse herab, in den Kamin hinein; das Feuer flammt und knistert dabei und leuchtet weit in das Zimmer, und warm und gemütlich ist das Stübchen, gar schön sitzt sich's dort, dem Spuk lauschend.
 
 Lasset den Wind nur erzählen, weiß er doch in Hülle und Fülle Märchen und Geschichten, viel mehr als wir alle insgesamt. Hört einmal zu, wie der Wind erzählt: Huh-uh-usch! Dahingebraust! Das ist der Refrain des Liedes.

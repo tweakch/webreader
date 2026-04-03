@@ -5,9 +5,6 @@ url: "https://www.andersenstories.com/de/andersen_maerchen/das_schneeglockchen"
 crawledAt: "2026-04-03T11:24:11.591Z"
 wordCount: 1215
 ---
-
-# Das Schneeglöckchen
-
 Es ist Winterszeit, die Luft kalt, der Wind scharf, aber zu Hause ist es warm und gut; zu Hause lag die Blume, sie lag in ihrer Zwiebel unter Erde und Schnee.
 
 Eines Tages fiel Regen. Die Tropfen drangen durch die Schneedecke in die Erde hinab, rührten die Blumenzwiebel an und meldeten von der Lichtwelt über ihnen. Bald drang auch der Sonnenstrahl fein und bohrend durch den Schnee, bis zur Zwiebel hinab und stach sie.

@@ -5,9 +5,6 @@ url: "https://www.andersenstories.com/de/andersen_maerchen/zwolf_mit_der_post"
 crawledAt: "2026-04-03T11:23:42.349Z"
 wordCount: 1408
 ---
-
-# Zwölf mit der Post
-
 Es war eine schneidende Kälte, sternenheller Himmel, kein Lüftchen regte sich.
 
 'Bums!' Da wurde ein alter Topf an die Haustüre des Nachbars geworfen. 'Puff, paff!' Dort knallte die Büchse; man begrüßte das neue Jahr. Es war Neujahrsnacht! Jetzt schlug die Turmuhr zwölf!

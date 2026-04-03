@@ -6,6 +6,3 @@ crawledAt: "2026-04-03T11:25:04.149Z"
 wordCount: 2
 ---
 
-# Urgroßvater
-
-

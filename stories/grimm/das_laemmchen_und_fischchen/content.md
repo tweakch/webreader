@@ -5,9 +5,6 @@ url: "https://www.grimmstories.com/de/grimm_maerchen/das_laemmchen_und_fischchen
 crawledAt: "2026-04-03T09:14:51.523Z"
 wordCount: 553
 ---
-
-# Das Lämmchen und Fischchen
-
 Es war einmal ein Brüderchen und Schwesterchen, die hatten sich herzlich lieb. Ihre rechte Mutter war aber tot, und sie hatten eine Stiefmutter, die war ihnen nicht gut und tat ihnen heimlich alles Leid an. Es trug sich zu, daß die zwei mit andern Kindern auf einer Wiese vor dem Haus spielten, und an der Wiese war ein Teich, der ging bis an die eine Seite vom Haus. Die Kinder liefen da herum, kriegten sich und spielten Abzählens:
 
 'Eneke, Beneke, lat mi liewen,

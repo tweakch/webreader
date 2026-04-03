@@ -6,12 +6,6 @@ crawledAt: "2026-04-03T11:22:00.930Z"
 wordCount: 1502
 ---
 
-# Der Flachs
-
-Der Flachs stand in voller Blüte. Er hatte so schöne blaue Blumen, die waren zart wie Mottenflügel und noch zarter. Die Sonne beschien den Flachs, und die Regenwolken begossen ihn, und das tat ihm ebenso gut, wie es kleinen Kindern tut, wenn sie gewaschen werden und dann einen Kuß von der Mutter bekommen. Sie werden ja nur schöner davon. Und das wurde der Flachs auch.
-
-"Die Leute sagen, ich stehe ganz ausgezeichnet," sagte der Flachs, "und ich werde so herrlich lang, daß ich ein prächtiges Stück Leinen geben werde. Nein, wie glücklich ich doch bin. Ich bin bestimmt der Glücklichste von allen. Ich habe es so gut, und ich soll noch zu etwas werden. Wie der Sonnenschein belebt, und wie der Regen schmeckt und erquickt. Ich bin unsagbar glücklich, ich bin der Allerglücklichste."
-
 "Ja, ja, ja" sagten die Zaunpfähle, "Du kennst die Welt nicht, aber wir kennen sie. Wir haben Knorren in uns!" Und dann knackten sie ganz jämmerlich:
 
 "Schnipp, schnapp, schnurre,

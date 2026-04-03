@@ -5,9 +5,6 @@ url: "https://www.grimmstories.com/de/grimm_maerchen/maerchen_von_der_unke"
 crawledAt: "2026-04-03T09:13:43.743Z"
 wordCount: 450
 ---
-
-# Märchen von der Unke
-
 I
 
 Es war einmal ein kleines Kind, dem gab seine Mutter jeden Nachmittag ein Schüsselchen mit Milch und Weckbrocken, und das Kind setzte sich damit hinaus in den Hof. Wenn es aber anfing zu essen, so kam die Hausunke aus einer Mauerritze hervorgekrochen, senkte ihr Köpfchen in die Milch und aß mit. Das Kind hatte seine Freude daran, und wenn es mit seinem Schüsselchen dasaß und die Unke kam nicht gleich herbei, so rief es ihr zu

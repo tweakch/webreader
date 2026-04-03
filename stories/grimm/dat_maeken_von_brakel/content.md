@@ -5,9 +5,6 @@ url: "https://www.grimmstories.com/de/grimm_maerchen/dat_maeken_von_brakel"
 crawledAt: "2026-04-03T09:14:47.486Z"
 wordCount: 124
 ---
-
-# Das Mädchen von Brakel
-
 Es ging einmal ein Mädchen von Brakel nach der St.-Annen-Kapelle unterhalb der Hinnenburg, und weil es gerne einen Mann haben wollte und auch meinte, es wäre sonst niemand in der Kapelle, so sang es:
 
 "O heilige Sankt Anne,

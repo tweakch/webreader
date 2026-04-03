@@ -5,9 +5,6 @@ url: "https://www.grimmstories.com/de/grimm_maerchen/lauschen_und_flohchen"
 crawledAt: "2026-04-03T09:10:50.897Z"
 wordCount: 352
 ---
-
-# Läuschen und Flöhchen
-
 Ein Läuschen und ein Flöhchen, die lebten zusammen in einem Haushalte und brauten das Bier in einer Eierschale. Da fiel das Läuschen hinein und verbrannte sich. Darüber fing das Flöhchen an laut zu schreien. Da sprach die kleine Stubentüre: "Was schreist du, Flöhchen?" – "Weil Läuschen sich verbrannt hat."
 
 Da fing das Türchen an zu knarren. Da sprach ein Besenchen in der Ecke: "Was knarrst du, Türchen?" – "Soll ich nicht knarren?

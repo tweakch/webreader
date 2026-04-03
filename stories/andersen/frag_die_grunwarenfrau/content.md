@@ -5,9 +5,6 @@ url: "https://www.andersenstories.com/de/andersen_maerchen/frag_die_grunwarenfra
 crawledAt: "2026-04-03T11:25:08.129Z"
 wordCount: 225
 ---
-
-# Frag die Grünwarenfrau!
-
 Da war eine alte Mohrrübe drin,
 so knollig, so dick und so schwer,
 die hatte gar einen gefährlichen Sinn,

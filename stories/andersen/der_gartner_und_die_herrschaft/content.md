@@ -5,9 +5,6 @@ url: "https://www.andersenstories.com/de/andersen_maerchen/der_gartner_und_die_h
 crawledAt: "2026-04-03T11:25:12.915Z"
 wordCount: 2346
 ---
-
-# Der Gärtner und die Herrschaft
-
 Eine Meile von der Hauptstadt entfernt stand ein altes Schloß mit dicken Mauern, Türmen und gezackten Giebeln.
 
 Hier wohnte, jedoch nur in der Sommerzeit, eine reiche, hochadelige Herrschaft; das Schloß war das beste und schönste von allen Schlössern, die sie besaß. Es stand wie neugegossen von außen da, und drinnen herrschten Traulichkeit und Bequemlichkeit. Das Wappen der Familie war in Stein über dem Tor eingehauen, wunderschöne Rosen schlangen sich um Wappen und Erker, ein ganzer Grasteppich breitete sich vor dem Schlosse aus, und da waren Rotdorn und Weißdorn, da waren seltene Blumen selbst außerhalb des Treibhauses.

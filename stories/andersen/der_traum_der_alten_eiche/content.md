@@ -5,9 +5,6 @@ url: "https://www.andersenstories.com/de/andersen_maerchen/der_traum_der_alten_e
 crawledAt: "2026-04-03T11:23:07.001Z"
 wordCount: 1976
 ---
-
-# Der Traum der alten Eiche (Ein Weihnachtsmärchen)
-
 Da stand einmal im Walde, an der Steilküste des Meeres, so eine recht alte Eiche, die gerade dreihundertfünfundsechzig Jahre zählte. Aber diese lange Zeit hatte für den Baum nicht mehr zu bedeuten, als ebenso viele Tage für uns Menschen. Wir wachen am Tage, schlafen des Nachts und haben dann unsere Träume; aber mit dem Baume ist es anders, der Baum wacht drei Jahreszeiten hindurch, erst gegen den Winter versinkt er in Schlaf, der Winter ist seine Schlafzeit, er ist seine Nacht nach dem langen Tage, der Frühling, Sommer und Herbst heißt.
 
 Manchen warmen Sommertag hatte die Eintagsfliege um seine Krone getanzt, gelebt, geschwebt und sich glücklich gefühlt, und ruhte dann das kleine Geschöpfeinen Augenblick in stiller Glückseligkeit auf einem der großen frischen Eichenblätter, dann sagte der Baum immer: "Du armes kleines Wesen! Nur einen Augenblick währt Dein ganzes Leben! Wie kurz doch! Es ist traurig!"

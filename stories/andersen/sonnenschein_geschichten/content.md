@@ -5,9 +5,6 @@ url: "https://www.andersenstories.com/de/andersen_maerchen/sonnenschein_geschich
 crawledAt: "2026-04-03T11:24:48.444Z"
 wordCount: 997
 ---
-
-# Sonnenschein-Geschichten
-
 "Jetzt werde ich erzählen!" sagte der Wind.
 
 "Nein, erlauben Sie," sagte das Regenwetter, "jetzt ist die Reihe an mir! Sie haben lange genug an der Straßenecke gestanden und haben geheult, was Sie heulen konnten!"

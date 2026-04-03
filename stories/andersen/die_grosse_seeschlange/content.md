@@ -5,9 +5,6 @@ url: "https://www.andersenstories.com/de/andersen_maerchen/die_grosse_seeschlang
 crawledAt: "2026-04-03T11:25:11.167Z"
 wordCount: 3320
 ---
-
-# Die große Seeschlange
-
 Es war einmal ein kleiner Seefisch aus guter Familie, des Namens entsinne ich mich nicht mehr, den müssen die Gelehrten dir sagten. Der kleine Fisch hatte achtzehnhundert Geschwister, alle gleich alt; sie kannten ihren Vater und Ihre Mutter nicht, sie mußten gleich selber für sich sorgen und umherschwimmen, aber das war ein großes Vergnügen für sie. Wasser zum Trinken hatten sie genug, das ganze Weltmeer, an Nahrung dachten sie nicht, die würde wohl kommen; jeder würde seiner Neigung folgen, jeder würde seine eigene Geschichte haben, ja, daran dachte auch keiner.
 
 Die Sonne schien in das Wasser hinab, es schimmerte um sie herum, es war so klar, es war eine Welt mit den wunderlichsten Geschöpfen, und einige waren so schrecklich groß, mit mächtigen Rachen, die konnten die achtzehnhundert Geschwister verschlingen, aber auch daran dachten sie nicht, denn bisher war noch keines von ihnen verschlungen worden,

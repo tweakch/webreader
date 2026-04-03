@@ -5,9 +5,6 @@ url: "https://www.grimmstories.com/de/grimm_maerchen/einauglein_zweiauglein_und_
 crawledAt: "2026-04-03T09:14:31.243Z"
 wordCount: 2251
 ---
-
-# Einäuglein, Zweiäuglein und Dreiäuglein
-
 Es war eine Frau, die hatte drei Töchter, davon hieß die älteste Einäuglein, weil sie nur ein einziges Auge mitten auf der Stirn hatte, und die mittelste Zweiäuglein, weil sie zwei Augen hatte wie andere Menschen und die jüngste Dreiäuglein, weil sie drei Augen hatte, und das dritte stand ihr gleichfalls mitten auf der Stirne. Darum aber, daß Zweiäuglein nicht anders aussah als andere Menschenkinder, konnten es die Schwestern und die Mutter nicht leiden. Sie sprachen zu ihm: "Du mit deinen zwei Augen bist nicht besser als das gemeine Volk, du gehörst nicht zu uns." Sie stießen es herum und warfen ihm schlechte Kleider hin und gaben ihm nicht mehr zu essen, als was sie übrigließen, und taten ihm Herzeleid an, wo sie nur konnten. Es trug sich zu, daß Zweiäuglein hinaus ins Feld gehen und die Ziege hüten mußte, aber noch ganz hungrig war, weil ihm seine Schwestern so wenig zu essen gegeben hatten. Da setzte es sich auf einen Rain und fing an zu weinen und so zu weinen, daß zwei Bächlein aus seinen Augen herabflossen. Und wie es in seinem Jammer einmal aufblickte, stand eine Frau neben ihm, die fragte: "Zweiäuglein, was weinst du?" Zweiäuglein antwortete: "Soll ich nicht weinen? Weil ich zwei Augen habe wie andere Menschen, so können mich meine Schwestern und meine Mutter nicht leiden, stoßen mich aus einer Ecke in die andere, werfen mir alte Kleider hin und geben mir nichts zu essen, als was sie übriglassen. Heute haben sie mir so wenig gegeben, daß ich noch ganz hungrig bin." Sprach die weise Frau: "Zweiäuglein, trockne dir dein Angesicht, ich will dir etwas sagen, daß du nicht mehr hungern sollst. Sprich nur zu deiner Ziege:
 
 "Zicklein, meck,

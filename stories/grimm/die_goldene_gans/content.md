@@ -5,9 +5,6 @@ url: "https://www.grimmstories.com/de/grimm_maerchen/die_goldene_gans"
 crawledAt: "2026-04-03T09:11:56.962Z"
 wordCount: 1441
 ---
-
-# Die goldene Gans
-
 Es war ein Mann, der hatte drei Söhne, davon hieß der jüngste der Dummling und wurde verachtet und verspottet und bei jeder Gelegenheit zurückgesetzt. Es geschah, daß der älteste in den Wald gehen wollte, Holz hauen, und eh' er ging, gab ihm noch seine Mutter einen schönen feinen Eierkuchen und eine Flasche Wein mit, damit er nicht Hunger und Durst litte. Als er in den Wald kam, begegnete ihm ein altes, graues Männlein, das bot ihm einen guten Tag und sprach: "Gib mir doch ein Stück Kuchen aus deiner Tasche und laß mich einen Schluck von deinem Wein trinken! Ich bin so hungrig und durstig." Der kluge Sohn aber antwortete: "Geb ich dir meinen Kuchen und meinen Wein, so hab ich selber nichts, pack dich deiner Wege!" ließ das Männlein stehen und ging fort. Als er nun anfing, einen Baum zu behauen, dauerte es nicht lange, so hieb er fehl, und die Axt fuhr ihm in den Arm, daß er mußte heimgehen und sich verbinden lassen. Das war aber von dem grauen Männchen gekommen.
 
 Darauf ging der zweite Sohn in den Wald, und die Mutter gab ihm, wie dem ältesten, einen Eierkuchen und eine Flasche Wein. Dem begegnete gleichfalls das alte, graue Männchen und hielt um ein Stückchen Kuchen und einen Trunk Wein an. Aber der zweite Sohn sprach auch ganz verständig: "Was ich dir gebe, das geht mir selber ab, pack dich deiner Wege!" ließ das Männlein stehen und ging fort. Die Strafe blieb nicht aus, als er ein paar Hiebe am Baum getan, hieb er sich ins Bein, daß er mußte nach Haus getragen werden.

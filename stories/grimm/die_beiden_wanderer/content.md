@@ -5,9 +5,6 @@ url: "https://www.grimmstories.com/de/grimm_maerchen/die_beiden_wanderer"
 crawledAt: "2026-04-03T09:13:47.645Z"
 wordCount: 3788
 ---
-
-# Die beiden Wanderer
-
 Berg und Tal begegnen sich nicht, wohl aber die Menschenkinder, zumal gute und böse. So kam auch einmal ein Schuster und ein Schneider auf der Wanderschaft zusammen. Der Schneider war ein kleiner hübscher Kerl und war immer lustig und guter Dinge. Er sah den Schuster von der andern Seite herankommen, und da er an seinem Felleisen merkte, was er für ein Handwerk trieb, rief er ihm ein Spottliedchen zu:
 
 "nähe mir die Naht,

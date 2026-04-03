@@ -5,9 +5,6 @@ url: "https://www.grimmstories.com/de/grimm_maerchen/die_schlickerlinge"
 crawledAt: "2026-04-03T09:15:24.236Z"
 wordCount: 170
 ---
-
-# Die Schlickerlinge
-
 Es war einmal ein Mädchen, das war schön, aber faul und nachlässig. Wenn es spinnen sollte, so war es so verdrießlich, daß, wenn ein kleiner Knoten im Flachs war, es gleich einen ganzen Haufen mit herausriß und neben sich zur Erde schlickerte. Nun hatte es ein Dienstmädchen, das war arbeitsam, suchte den weggeworfenen Flachs zusammen, reinigte ihn, spann ihn fein und ließ sich ein hübsches Kleid daraus weben. Ein junger Mann hatte um das faule Mädchen geworben, und die Hochzeit sollte gehalten werden. Auf dem Polterabend tanzte das fleißige in seinem schönen Kleide lustig herum, da sprach die Braut
 
 'ach, wat kann dat Mäken springen

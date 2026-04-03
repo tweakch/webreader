@@ -5,9 +5,6 @@ url: "https://www.grimmstories.com/de/grimm_maerchen/der_gescheite_hans"
 crawledAt: "2026-04-03T09:10:55.117Z"
 wordCount: 785
 ---
-
-# Der gescheite Hans
-
 Hansens Mutter fragt: "Wohin, Hans?"
 Hans antwortet: "Zur Gretel."
 "Mach's gut, Hans."

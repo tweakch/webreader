@@ -5,9 +5,6 @@ url: "https://www.grimmstories.com/de/grimm_maerchen/die_hochzeir_der_frau_fuech
 crawledAt: "2026-04-03T09:11:12.843Z"
 wordCount: 726
 ---
-
-# Die Hochzeit der Frau Füchsin
-
 ERSTES MÄRCHEN
 
 Es war einmal ein alter Fuchs mit neun Schwänzen, der glaubte, seine Frau wäre ihm nicht treu, und wollte er sie in Versuchung führen. Er streckte sich unter die Bank, regte kein Glied und stellte sich, als wenn er mausetot wäre. Die Frau Füchsin ging auf ihre Kammer, schloß sich ein, und ihre Magd, die Jungfer Katze, saß auf dem Herd und kochte. Als es nun bekannt ward, daß der alte Fuchs gestorben war, so meldeten sich die Freier. Da hörte die Magd, daß jemand vor der Haustüre stand und anklopfte; sie ging und machte auf, und da wars ein junger Fuchs, der sprach

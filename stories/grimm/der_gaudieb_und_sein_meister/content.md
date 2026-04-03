@@ -5,9 +5,6 @@ url: "https://www.grimmstories.com/de/grimm_maerchen/der_gaudieb_und_sein_meiste
 crawledAt: "2026-04-03T09:12:04.731Z"
 wordCount: 773
 ---
-
-# Der Gaudieb und sein Meister
-
 Jan wollte seinen Sohn ein Handwerk lehren lassen; da ging Jan in die Kirche und betete zu unserem Herrgott, was ihm wohl zuträglich wäre. Da steht der Küster hinter dem Altar und sagt: "Das Gaudieben, das Gaudieben." Da geht Jan wieder zu seinem Sohn, er müßte das Gaudieben lernen, das hätte ihm unser Herrgott gesagt. Geht er mit seinem Sohn und sucht sich einen Mann, der das Gaudieben kann. Da gehen sie dann eine ganze Zeit und kommen in einen großen Wald, da steht so ein kleines Häuschen mit so einer alten Frau darin. Sagt Jan zu ihr: "Wißt Ihr nicht einen Mann, der das Gaudieben kann?" - "Das könnt ihr hier wohl lernen," sagt die Frau, "mein Sohn ist ein Meister darin." Da spricht er mit dem Sohn, ob er auch richtig gaudieben könne. Der Gaudiebsmeister sagt: "Ich will's Euren Sohn schon richtig lehren. Kommt nur übers Jahr wieder, wenn Ihr dann Euren Sohn noch kennt, dann will ich gar kein Lehrgeld haben, und kennt Ihr ihn nicht, dann müßt Ihr mir zweihundert Taler geben."
 
 Der Vater geht wieder nach Hause, und der Sohn lernt gut hexen und gaudieben. Als das Jahr um ist, geht der Vater und denkt traurig darüber nach, wie er das anfangen will, daß er seinen Sohn erkennt. Wie er nun so geht und vor sich hinsinnt, da kommt ihm ein kleines Männchen entgegen, das sagt: "Mann, was ist Euch? Ihr seid ja so betrübt?" - "Oh," sagt Jan, "ich habe meinen Sohn vor einem Jahr bei einem Gaudiebsmeister vermietet, der sagte mir, ich solle übers Jahr wiederkommen, und wenn ich dann meinen Sohn nicht kenne, dann sollte ich ihm zweihundert Taler geben; wenn ich ihn aber erkennen würde, dann hätt ich ihm nichts zu geben. Nun bin ich aber so bange, daß ich ihn nicht erkenne, und ich weiß nicht, wo ich das Geld herkriegen soll."

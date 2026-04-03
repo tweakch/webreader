@@ -5,9 +5,6 @@ url: "https://www.andersenstories.com/de/andersen_maerchen/von_einem_fenster_im_
 crawledAt: "2026-04-03T11:21:42.036Z"
 wordCount: 489
 ---
-
-# Von einem Fenster im Vartou
-
 Nach dem grünen Walle hinaus, der sich rings um Kopenhagen zieht, liegt ein großes rotes Haus mit vielen Fenstern, in denen Balsaminen und Ambrabäumchen wachsen; innen sieht es ärmlich aus und armes, altes Volk wohnt dort. Es ist das Vartou, das Armenhaus.
 
 Sieh, oben lehnt sich eine alte Jungfer gegen den Fensterrahmen. Sie pflückt ein welkes Blatt von der Balsamine und sieht auf den grünen Wall hinaus, wo lustige Kinder sich tummeln. Woran denkt sie? Ein Lebensschicksal zieht an ihr vorüber.

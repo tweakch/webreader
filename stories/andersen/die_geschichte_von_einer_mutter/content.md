@@ -5,9 +5,6 @@ url: "https://www.andersenstories.com/de/andersen_maerchen/die_geschichte_von_ei
 crawledAt: "2026-04-03T11:21:57.910Z"
 wordCount: 1965
 ---
-
-# Die Geschichte von einer Mutter
-
 Eine Mutter saß bei ihrem kleinen Kinde. Sie war so betrübt und hatte so große Angst, daß es sterben würde. Es war so bleich; die kleinen Augen hatten sich geschlossen. Der Atem ging ganz leise, nur mitunter tat es einen tiefen Zug gleich einem Seufzer, und die Mutter blickte immer sorgenvoller auf das kleine Wesen.
 
 Da klopfte es an die Tür, und herein kam ein armer, alter Mann, der, wie es schien, in eine große Pferdedecke gehüllt war; denn die wärmt, und das tat ihm not; es war ja kalter Winter. Draußen lag alles mit Eis und Schnee bedeckt, und der Wind blies, daß es einem ins Gesicht schnitt.

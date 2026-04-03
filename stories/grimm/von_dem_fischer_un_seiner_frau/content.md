@@ -5,9 +5,6 @@ url: "https://www.grimmstories.com/de/grimm_maerchen/von_dem_fischer_un_seiner_f
 crawledAt: "2026-04-03T09:10:34.360Z"
 wordCount: 3014
 ---
-
-# Von dem Fischer und seiner Frau
-
 Es war einmal ein Fischer und seine Frau, die wohnten zusammen in einer kleinen Fischerhütte, dicht an der See, und der Fischer ging alle Tage hin und angelte: und angelte und angelte.
 
 So saß er auch einmal mit seiner Angel und sah immer in das klare Wasser hinein: und so saß er nun und saß.

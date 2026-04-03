@@ -5,9 +5,6 @@ url: "https://www.andersenstories.com/de/andersen_maerchen/im_entenhof"
 crawledAt: "2026-04-03T11:23:50.560Z"
 wordCount: 2008
 ---
-
-# Im Entenhof
-
 Es kam eine Ente aus Portugal, einige sagten, aus Spanien, doch das bleibt sich gleich; genug, sie wurde die Portugiesin genannt, legte Eier, wurde geschlachtet und angerichtet – das war ihr Lebenslauf. Alle Enten, die aus ihren Eiern auskrochen, wurden später auch Portugiesin genannt, und das wollte schon etwas heißen. Jetzt war von der ganzen Familie nur noch eine im Entenhof, einem Hof, zu dem auch die Hühner Zutritt haben und in dem der Hahn mit viel Hochmut auftrat.
 
 "Er ärgert mich durch sein lautes Krähen," sagte die Portugiesin. "Aber bübisch ist er, das ist nicht zu leugnen, wenn er auch kein Enterich ist. Er sollte sich mäßigen, aber das ist eine Kunst, die von höherer Bildung zeugt, die haben bloß die kleinen Singvögel, drüben im Nachbargarten, in den Linden. Wie lieblich sie singen! Es liegt so etwas Rührendes in ihrem Gesang, ich nenne es Portugal! Hätte ich nur solch einen kleinen Singvogel, ich würde ihm eine Muter sein, lieb und gut, das liegt mir im Blut, in meinem portugiesischen Blut!"

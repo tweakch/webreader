@@ -5,9 +5,6 @@ url: "https://www.andersenstories.com/de/andersen_maerchen/der_kleine_klaus_und_
 crawledAt: "2026-04-03T11:20:29.461Z"
 wordCount: 4300
 ---
-
-# Der kleine Klaus und der große Klaus
-
 In einem Dorfe wohnten zwei Leute, die beide denselben Namen hatten. Beide hießen Klaus, aber der eine besaß vier Pferde und der andere nur ein einziges. Um sie nun voneinander unterscheiden zu können, nannte man den, der vier Pferde besaß, den großen Klaus, und den, der nur ein einziges hatte, den kleinen Klaus. Nun wollen wir hören, wie es den beiden erging, denn es ist eine wahre Geschichte.
 
 Die ganze Woche hindurch mußte der kleine Klaus für den großen Klaus pflügen und ihm sein einziges Pferd leihen, dann half der große Klaus ihm wieder mit allen seinen vieren, aber nur einmal wöchentlich, und das war des Sonntags. Hussa, wie klatschte der kleine Klaus mit seiner Peitsche über alle fünf Pferde! Sie waren ja nun so gut wie sein an dem einen Tage. Die Sonne schien herrlich, und alle Glocken im Kirchturm läuteten zur Kirche, die Leute waren alle geputzt und gingen mit dem Gesangbuch unter dem Arme, den Prediger zu hören, und sie sahen den kleinen Klaus, der mit fünf Pferden pflügte, und er war so vergnügt, daß er wieder mit der Peitsche klatschte und rief: "Hü, alle meine Pferde!"

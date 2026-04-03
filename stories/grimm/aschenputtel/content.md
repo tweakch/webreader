@@ -5,9 +5,6 @@ url: "https://www.grimmstories.com/de/grimm_maerchen/aschenputtel"
 crawledAt: "2026-04-03T09:10:38.925Z"
 wordCount: 2414
 ---
-
-# Aschenputtel
-
 Einem reichen Manne, dem wurde seine Frau krank, und als sie fühlte, daß ihr Ende herankam, rief sie ihr einziges Töchterlein zu sich ans Bett und sprach: "Liebes Kind, bleibe fromm und gut, so wird dir der liebe Gott immer beistehen, und ich will vom Himmel auf dich herabblicken, und will um dich sein." Darauf tat sie die Augen zu und verschied. Das Mädchen ging jeden Tag hinaus zu dem Grabe der Mutter und weinte, und blieb fromm und gut. Als der Winter kam, deckte der Schnee ein weißes Tüchlein auf das Grab, und als die Sonne im Frühjahr es wieder herabgezogen hatte, nahm sich der Mann eine andere Frau.
 
 Die Frau hatte zwei Töchter mit ins Haus gebracht, die schön und weiß von Angesicht waren, aber garstig und schwarz von Herzen. Da ging eine schlimme Zeit für das arme Stiefkind an. "Soll die dumme Gans bei uns in der Stube sitzen!" sprachen sie, "wer Brot essen will, muß verdienen: hinaus mit der Küchenmagd!" Sie nahmen ihm seine schönen Kleider weg, zogen ihm einen grauen, alten Kittel an und gaben ihm hölzerne Schuhe. "Seht einmal die stolze Prinzessin, wie sie geputzt ist!" riefen sie, lachten und führten es in die Küche. Da mußte es von Morgen bis Abend schwere Arbeit tun, früh vor Tag aufstehen, Wasser tragen, Feuer anmachen, kochen und waschen. Obendrein taten ihm die Schwestern alles ersinnliche Herzeleid an, verspotteten es und schütteten ihm die Erbsen und Linsen in die Asche, so daß es sitzen und sie wieder auslesen mußte. Abends, wenn es sich müde gearbeitet hatte, kam es in kein Bett, sondern mußte sich neben den Herd in die Asche legen. Und weil es darum immer staubig und schmutzig aussah, nannten sie es Aschenputtel.

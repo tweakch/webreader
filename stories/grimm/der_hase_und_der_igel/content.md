@@ -5,9 +5,6 @@ url: "https://www.grimmstories.com/de/grimm_maerchen/der_hase_und_der_igel"
 crawledAt: "2026-04-03T09:16:28.662Z"
 wordCount: 1228
 ---
-
-# Der Hase und der Igel
-
 Diese Geschichte hört sich ziemlich lügenhaft an, Jungens, aber wahr ist sie doch, denn mein Großvater, von dem ich sie habe, pflegte immer, wenn er sie behaglich erzählte, dabei zu sagen: "Wahr muß sie doch sein, mein Sohn, anders könnte man sie auch gar nicht erzählen." Und die Geschichte hat sich so zugetragen:
 
 Es war an einem Sonntagmorgen zur Herbstzeit, gerade als der Buchweizen blühte: die Sonne war hell am Himmel aufgegangen, der Morgenwind ging warm über die Stoppeln, die Lerchen sangen in der Luft, die Bienen summten im Buchweizen, die Leute gingen in ihrem Sonntagsstaat nach der Kirche, und alle Kreatur war vergnügt, und der Swinegel auch.

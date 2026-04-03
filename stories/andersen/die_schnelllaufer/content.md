@@ -5,9 +5,6 @@ url: "https://www.andersenstories.com/de/andersen_maerchen/die_schnelllaufer"
 crawledAt: "2026-04-03T11:23:12.604Z"
 wordCount: 1069
 ---
-
-# Die Schnellläufer
-
 Es war ein Preis ausgesetzt, ja, es waren zwei ausgesetzt, ein kleiner und ein großer, für die größte Schnelligkeit, aber nicht etwa bei einem Laufe, sondern über das ganze Jahr verteilt.
 
 "Ich bekam den ersten Preis" sagte der Hase; "Gerechtigkeit muß doch sein, wenn die eigene Familie und gute Freunde mit im Rate sitzen; aber daß die Schnecke den zweiten Preis bekam, finde ich beinahe beleidigend für mich!"

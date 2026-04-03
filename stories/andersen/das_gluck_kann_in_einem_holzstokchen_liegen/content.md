@@ -5,9 +5,6 @@ url: "https://www.andersenstories.com/de/andersen_maerchen/das_gluck_kann_in_ein
 crawledAt: "2026-04-03T11:24:55.981Z"
 wordCount: 855
 ---
-
-# Das Glück kann in einem Holzstöckchen liegen
-
 Jetzt will ich eine Geschichte vom Glück erzählen. Wir alle kennen das Glück: einige sehen es jahraus, jahrein, andere nur in gewissen Jahren, an einem einzelnen Tage, ja, es gibt sogar Menschen, welche es nur ein einziges Mal im Leben sehen; aber sehen tun wir es alle.
 
 Nun brauche ich nicht zu erzählen, denn jeder weiß es, daß unser Herrgott das kleine Kind bringt und es einer Mutter in den Schoß legt; das kann in dem reichen Schlosse und in der Wohnung des Wohlhabenden geschehen, aber auch auf freiem Felde, wo der kalte Wind weht - aber nicht jeder weiß, und dennoch ist es gewiß, daß unser Herrgott, wenn er das Kind bringt, auch eine Glücksgabe für dasselbe mitbringt; aber diese liegt nicht in die Augen fallend neben ihm, sie liegt irgendwo auf der Erde, wo man sie am wenigsten zu finden erwartet, und doch findet sie sich immer; das ist das Erfreuliche. Sie kann in einen Apfel gelegt sein, und sie war es für einen Gelehrten, welcher Newton hieß. Der Apfel fiel, und da fand er sein Glück. Kennst du die Geschichte nicht, so bitte den, der sie kennt, sie dir zu erzählen; ich habe eine andere Geschichte zu erzählen, und das ist eine Geschichte von einer Birne.

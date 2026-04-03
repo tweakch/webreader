@@ -5,9 +5,6 @@ url: "https://www.grimmstories.com/de/grimm_maerchen/prinzessin_maeusehaut"
 crawledAt: "2026-04-03T09:17:37.597Z"
 wordCount: 428
 ---
-
-# Prinzessin Mäusehaut
-
 Ein König hatte drei Töchter; da wollte er wissen, welche ihn am liebsten hätte, ließ sie vor sich kommen und fragte sie. Die älteste sprach, sie habe ihn lieber als das ganze Königreich; die zweite, als alle Edelsteine und Perlen auf der Welt; die dritte aber sagte, sie habe ihn lieber als das Salz. Der König ward aufgebracht, dass sie ihre Liebe zu ihm mit einer so geringen Sache vergleiche, übergab sie einem Diener und befahl, er solle sie in den Wald führen und töten.
 
 Wie sie in den Wald gekommen waren, bat die Prinzessin den Diener um ihr Leben; dieser war ihr treu und würde sie doch nicht getötet haben, er sagte auch, er wolle mit ihr gehen und ganz nach ihren Befehlen tun. Die Prinzessin verlangte aber nichts als ein Kleid von Mausehaut, und als er ihr das geholt, wickelte sie sich hinein und ging fort. Sie ging geradezu an den Hof eines benachbarten Königs, gab sich für einen Mann aus und bat den König, dass er sie in seine Dienste nehme. Der König sagte es zu, und sie solle bei ihm die Aufwartung haben. Abends musste sie ihm die Stiefel ausziehen, die warf er ihr allemal an den Kopf. Einmal fragte er, woher sie sei. "Aus dem Lande, wo man den Leuten die Stiefel nicht um den Kopf wirft." Der König ward da aufmerksam, endlich brachten ihm die andern Diener einen Ring; Mausehaut habe ihn verloren, der sei zu kostbar, den müsse er gestohlen haben. Der König ließ Mausehaut vor sich kommen und fragte, woher der Ring sei. Da konnte sich Mausehaut nicht länger verbergen, sie wickelte sich von der Mausehaut los, ihre goldgelben Haare quollen hervor, und sie trat heraus, so schön, aber auch so schön, dass der König gleich die Krone von seinem Kopf abnahm und ihr aufsetzte und sie für seine Gemahlin erklärte.

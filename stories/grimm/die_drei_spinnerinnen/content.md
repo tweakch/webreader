@@ -5,9 +5,6 @@ url: "https://www.grimmstories.com/de/grimm_maerchen/die_drei_spinnerinnen"
 crawledAt: "2026-04-03T09:10:25.428Z"
 wordCount: 813
 ---
-
-# Die drei Spinnerinnen
-
 Es war ein Mädchen faul und wollte nicht spinnen, und die Mutter mochte sagen, was sie wollte, sie konnte es nicht dazu bringen. Endlich überkam die Mutter einmal Zorn und Ungeduld, daß sie ihm Schläge gab, worüber es laut zu weinen anfing. Nun fuhr gerade die Königin vorbei, und als sie das Weinen hörte, ließ sie anhalten, trat in das Haus und fragte die Mutter, warum sie ihre Tochter schlüge, daß man draußen auf der Straße das Schreien hörte. Da schämte sich die Frau, daß sie die Faulheit ihrer Tochter offenbaren sollte, und sprach: "Ich kann sie nicht vom Spinnen abbringen, sie will immer und ewig spinnen, und ich bin arm und kann den Flachs nicht herbeischaffen." Da antwortete die Königin: "Ich höre nichts lieber als spinnen und bin nicht vergnügter, als wenn die Räder schnurren. Gebt mir Eure Tochter mit ins Schloß, ich habe Flachs genug, da soll sie spinnen, soviel sie Lust hat." Die Mutter war's von Herzen gerne zufrieden, und die Königin nahm das Mädchen mit.
 
 Als sie ins Schloß gekommen waren, führte sie es hinauf zu drei Kammern, die lagen von unten bis oben voll vom schönsten Flachs.

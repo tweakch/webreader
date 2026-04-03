@@ -5,9 +5,6 @@ url: "https://www.grimmstories.com/de/grimm_maerchen/der_liebste_roland"
 crawledAt: "2026-04-03T09:11:43.300Z"
 wordCount: 1350
 ---
-
-# Der liebste Roland
-
 Es war einmal eine Frau, die war eine rechte Hexe, und hatte zwei Töchter, eine hässlich und böse, und die liebte sie, weil sie ihre rechte Tochter war, und eine schön und gut, die hasste sie, weil sie ihre Stieftochter war.
 
 Zu einer Zeit hatte die Stieftochter eine schöne Schürze, die der andern gefiel, so dass sie neidisch war und ihrer Mutter sagte, sie wollte und müsste die Schürze haben. "Sei still, mein Kind," sprach die Alte, "du sollst sie auch haben. Deine Stiefschwester hat längst den Tod verdient, heute nacht, wenn sie schläft, so komm und ich haue ihr den Kopf ab. Sorge nur, dass du hinten ins Bett zu liegen kommst, und schieb sie recht vornen hin."

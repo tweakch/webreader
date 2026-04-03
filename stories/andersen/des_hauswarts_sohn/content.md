@@ -5,9 +5,6 @@ url: "https://www.andersenstories.com/de/andersen_maerchen/des_hauswarts_sohn"
 crawledAt: "2026-04-03T11:24:26.275Z"
 wordCount: 6199
 ---
-
-# Des Hauswarts Sohn
-
 Der General wohnte im ersten Stockwerk, der Hauswart wohnte im Keller; es war ein großer Abstand zwischen den beiden Familien, das ganze Erdgeschoß und die Rangordnung; aber unter einem Dache wohnten sie und mit der Aussicht auf die Straße und den Hof. Und auf dem Hof war ein Rasenplatz mit einer blühenden Akazie, wenn sie blühte, und darunter saß zuweilen eine geputzte Amme mit dem noch mehr geputzten Kind des Generals, der "kleinen Emilie." Vor ihnen tanzte auf seinen bloßen Beinen des Hauswarts kleiner Junge mit den großen braunen Augen und dem dunklen Haar, und die Kleine lachte ihm zu und streckte die Händchen nach ihm aus, und wenn der General das von seinem Fenster aus sah, so nickte er hinunter und sagte: "Charmant!" Die Generalin selber, die so jung war, daß sie fast ihres Gatten Tochter aus einer frühen Ehe hätte sein können, sah nie zu dem Fenster auf den Hof hinaus, aber sie hatte Befehl gegeben, der kleine Junge aus dem Keller dürfe gern mit dem Kinde spielen, es aber nicht anrühren. Die Amme gehorchte genau dem Befehl der gnädigen Frau.
 
 Und die Sonne schien zu den Bewohnern des ersten Stockwerks und zu denen im Keller hinein, die Akazie setzte Blüten an, und sie fielen wieder ab, und im nächsten Jahr kamen neue; der Baum blühte, und des Hauswarts kleiner Sohn blühte, er sah aus wie eine frische Tulpe.

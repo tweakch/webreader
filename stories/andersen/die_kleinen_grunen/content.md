@@ -5,9 +5,6 @@ url: "https://www.andersenstories.com/de/andersen_maerchen/die_kleinen_grunen"
 crawledAt: "2026-04-03T11:24:33.630Z"
 wordCount: 658
 ---
-
-# Die kleinen Grünen
-
 Im Fenster stand ein Rosenstock. Kürzlich war er noch frisch und blank, doch nun sah er matt aus, er litt unter irgend etwas. Er hatte Einquartierung bekommen die ihn auffraß; übrigens recht ehrenhafte Einquartierung in grüner Uniform.
 
 Ich sprach mit einem der Einquartierten, er war erst drei Tage alt und schon Großvater. Weißt du, was er sagte? Wahr ist es, was er sagte; er sprach von sich und der ganzen Einquartierung.

@@ -5,9 +5,6 @@ url: "https://www.grimmstories.com/de/grimm_maerchen/der_sperling_und_seine_vier
 crawledAt: "2026-04-03T09:15:26.496Z"
 wordCount: 821
 ---
-
-# Der Sperling und seine vier Kinder
-
 Ein Sperling hatte vier Junge in einem Schwalbennest. Wie sie nun flügge sind, stoßen böse Buben das Nest ein, sie kommen aber alle glücklich in Windbraus davon. Nun ist dem Alten leid, weil seine Söhne in die Welt kommen, daß er sie nicht vor allerlei Gefahr erst verwarnet und ihnen gute Lehren fürgesagt habe.
 
 Aufn Herbst kommen in einem Weizenacker viel Sperlinge zusammen, allda trifft der Alte seine vier Jungen an, die führe er voll Freuden mit sich heim. 'Ach, meine lieben Söhne, was habe ihr mir den Sommer über Sorge gemacht, dieweil ihr ohne meine Lehre in Winde kamet; höret meine Worte und folget eurem Vater und sehet euch wohl vor: kleine Vöglein haben große Gefährlichkeit auszustehen!' Darauf fragte er den ältern, wo er sich den Sommer über aufgehalten und wie er sich ernähret hätte. 'Ich habe mich in den Gärten gehalten, Räuplein und Würmlein gesucht, bis die Kirschen reif wurden.' 'Ach, mein Sohn,' sagte der Vater, 'die Schnabelweid ist nicht bös, aber es ist große Gefahr dabei, darum habe fortan deiner wohl acht, und sonderlich, wenn Leut in Gärten umhergehen, die lange grüne Stangen tragen, die inwendig hohl sind und oben ein Löchlein haben.' 'Ja, mein Vater, wenn dann ein grün Blättlein aufs Löchlein mit Wachs geklebt wäre?' spricht der Sohn. 'Wo hast du das gesehen?' 'In eines Kaufmanns Garten,' sagt der Junge. 'O mein Sohn,' spricht der Vater, 'Kaufleut, geschwinde Leut! bist du um die Weltkinder gewesen, so hast du Weltgeschmeidigkeit genug gelernt, siehe und brauchs nur recht wohl und trau dir nicht zuviel.'

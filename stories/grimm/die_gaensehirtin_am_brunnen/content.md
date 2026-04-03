@@ -5,9 +5,6 @@ url: "https://www.grimmstories.com/de/grimm_maerchen/die_gaensehirtin_am_brunnen
 crawledAt: "2026-04-03T09:16:13.308Z"
 wordCount: 3676
 ---
-
-# Die Gänsehirtin am Brunnen
-
 Es war einmal ein steinaltes Mütterchen, das lebte mit seiner Herde Gänse in einer Einöde zwischen Bergen und hatte da ein kleines Haus. Die Einöde war von einem großen Wald umgeben, und jeden Morgen nahm die Alte ihre Krücke und wackelte in den Wald. Da war aber das Mütterchen ganz geschäftig, mehr als man ihm bei seinen hohen Jahren zugetraut hätte, sammelte Gras für seine Gänse, brach sich das wilde Obst ab, soweit es mit den Händen reichen konnte, und trug alles auf seinem Rücken heim. Man hätte meinen sollen, die schwere Last müßte sie zu Boden drücken, aber sie brachte sie immer glücklich nach Haus. Wenn ihr jemand begegnete, so grüßte sie ganz freundlich: "Guten Tag, lieber Landsmann, heute ist schönes Wetter. Ja, Ihr wundert Euch, daß ich das Gras schleppe; aber jeder muß seine Last auf den Rücken nehmen." Doch die Leute begegneten ihr nicht gerne und nahmen lieber einen Umweg, und wenn ein Vater mit seinem Knaben an ihr vorüberging, so sprach er leise zu ihm: "Nimm dich in acht vor der Alten, die hat's faustdick hinter den Ohren: es ist eine Hexe."
 
 Eines Morgens ging ein hübscher junger Mann durch den Wald. Die Sonne schien hell, die Vögel sangen, und ein kühles Lüftchen strich durch das Laub, und er war voll Freude und Lust. Noch war ihm kein Mensch begegnet, als er plötzlich die alte Hexe erblickte, die am Boden auf den Knien saß und Gras mit einer Sichel abschnitt. Eine ganze Last hatte sie schon in ihr Tragtuch geschoben und daneben standen zwei Körbe, die mit wilden Birnen und Äpfeln angefüllt waren. "Aber, Mütterchen," sprach er, "wie kannst du das alles fortschaffen?" - "Ich muß sie tragen, lieber Herr," antwortete sie, "reicher Leute Kinder brauchen es nicht. Aber beim Bauer heißt's:

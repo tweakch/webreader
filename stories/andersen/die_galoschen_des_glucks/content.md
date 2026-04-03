@@ -5,9 +5,6 @@ url: "https://www.andersenstories.com/de/andersen_maerchen/die_galoschen_des_glu
 crawledAt: "2026-04-03T11:20:44.024Z"
 wordCount: 9191
 ---
-
-# Die Galoschen des Glücks
-
 1. Ein Anfang.
 
 Es war einmal in Kopenhagen in einem der Häuser in der Nähe vom Königsneumarkt eine große Gesellschaft eingeladen, denn das muß zwischendurch auch einmal sein, dann ist es abgemacht, und man kann auch wieder eingeladen werden. Die eine Hälfte der Gesellschaft saß schon an den Spieltischen, und die andere Hälfte wartete ab, was sich entwickeln würde, denn die Hausfrau hatte gesagt: "Nun, was tun wir jetzt!" Soweit war man nun, und die Unterhaltung ging ziemlich lebhaft. Unter anderem kam auch die Rede auf das Mittelalter. Einzelne sahen es für weit schöner an als die Jetztzeit, ja, Justizrat Knap verteidigte diese Meinung so eifrig, daß die Frau des Hauses es sofort mit ihm hielt, und beide eiferten nun gegen Oerstedts Artikel im Almanach über alte und neue Zeit, worin unserem Zeitalter im wesentlichen der Vorrang eingeräumt wird. Justizrat Knap betrachtete die Zeit des dänischen Königs Hans als die hervorragendste und glücklichste.

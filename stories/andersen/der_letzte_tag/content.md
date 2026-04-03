@@ -5,9 +5,6 @@ url: "https://www.andersenstories.com/de/andersen_maerchen/der_letzte_tag"
 crawledAt: "2026-04-03T11:22:17.319Z"
 wordCount: 1305
 ---
-
-# Der letzte Tag
-
 Der heiligste von allen unseren Lebenstagen ist der Tag, an dem wir sterben; das ist der letzte Tag, der heilige, große Tag der Verwandlung. Hast Du schon einmal von rechtem Ernste erfüllt über diese mächtige, und allen gewisse letzte Stunde auf Erden nachgedacht?
 
 Da war einmal ein Mann, ein Strenggläubiger, wie er genannt wurde, ein Streiter für das Wort, das ihm Gesetz war, ein eifernder Diener eines eifernden Gottes. – Nun stand der Tod an seinem Bette. Der Tod mit seinem strengen himmlischen Antlitz.

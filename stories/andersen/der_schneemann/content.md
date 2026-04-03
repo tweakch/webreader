@@ -5,9 +5,6 @@ url: "https://www.andersenstories.com/de/andersen_maerchen/der_schneemann"
 crawledAt: "2026-04-03T11:23:49.292Z"
 wordCount: 1775
 ---
-
-# Der Schneemann
-
 "Eine so wunderbare Kälte ist es, daß mir der ganze Körper knackt!" sagte der Schneemann. "Der Wind kann einem wirklich Leben einbeißen. Und wie die Glühende dort glotzt!" Er meinte die Sonne, die gerade im Untergehen begriffen war. "Mich soll sie nicht zum Blinzeln bringen, ich werden schon die Stückchen festhalten."
 
 Er hatte nämlich statt der Augen zwei große, dreieckige Stückchen von einem Dachziegel im Kopf; sein Mund bestand aus einem alten Rechen, folglich hatte sein Mund auch Zähne.

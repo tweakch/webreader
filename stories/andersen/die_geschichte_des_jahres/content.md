@@ -5,9 +5,6 @@ url: "https://www.andersenstories.com/de/andersen_maerchen/die_geschichte_des_ja
 crawledAt: "2026-04-03T11:22:15.790Z"
 wordCount: 3084
 ---
-
-# Die Geschichte des Jahres
-
 Es war in den letzten Tagen des Januar; ein fürchterlicher Schneesturm trieb daher. Der Schnee fegte wirbelnd durch die Straßen und Gassen. Die Fensterscheiben waren außen wie vom Schnee gepolstert, von den Dächern stürzte er in ganzen Haufen und die Leute hasteten vorwärts; sie liefen, sie flogen und stürzten einander in die Arme, hielten sich aneinander einen Augenblick fest und hatten wenigstens solange einen Halt. Wagen und Pferde waren gleichsam überpudert, die Diener standen mit dem Rücken gegen den Wagen gelehnt, um sich vor dem Winde zu schützen, und die Fußgänger suchten beständig Deckung hinter den Wagen, die nur langsam in dem tiefen Schnee von der Stelle kamen. Als sich endlich der Sturm legte, und ein schmaler Fußsteig längs den Häusern ausgeworfen wurde, standen die Leute doch noch stille, wenn sie sich begegneten. Keiner von ihren hatte Lust, den ersten Schritt in den tiefen Schnee an den Seiten zu tun, damit der andere vorüber könne. Schweigend standen sie still, bis endlich, fast wie in einer stummen Übereinkunft, jeder von ihnen ein Bein preisgab und es in dem Schneehaufen versinken ließ.
 
 Gegen Abend wurde es windstill. Der Himmel sah aus wie gefegt und höher und durchsichtiger als zuvor; die Sterne waren funkelfnagelneu und glänzten blau und klar. Dabei fror es, daß der Schnee krachte. Bei dem Wetter konnte wohl die oberste Schneeschicht so fest werden, daß sie am Morgen die Spatzen trug; die hüpften bald oben herum bald unten, wo geschaufelt war; viel Nahrung war jedoch nicht zu finden und sie froren bitterlich.

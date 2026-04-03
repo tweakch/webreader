@@ -5,9 +5,6 @@ url: "https://www.andersenstories.com/de/andersen_maerchen/die_lichter"
 crawledAt: "2026-04-03T11:25:07.106Z"
 wordCount: 886
 ---
-
-# Die Lichter
-
 Es war einmal ein großes Wachslicht, das wußte wohl, was es war.
 
 "Ich bin in Wachs geboren und in einer Form gegossen," sagte dasselbe. "Ich leuchte heller und brenne länger als andere Lichter; mein Platz ist auf dem Kronleuchter oder auf seinem silbernen Leuchter."

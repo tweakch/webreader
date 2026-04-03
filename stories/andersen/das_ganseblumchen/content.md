@@ -5,9 +5,6 @@ url: "https://www.andersenstories.com/de/andersen_maerchen/das_ganseblumchen"
 crawledAt: "2026-04-03T11:20:45.563Z"
 wordCount: 1475
 ---
-
-# Das Gänseblumchen
-
 Nun höre einmal!–
 
 Draußen auf dem Lande, dicht am Wege, lag ein Landhaus; du hast es gewiß selbst schon einmal gesehen! Davor liegt ein kleines Gärtchen mit Blumen und einem Zaun, der gestrichen ist. Dicht dabei am Graben, mitten in dem herrlichen grünen Grase, wuchs ein kleines Gänseblümchen. Die Sonne schien ebenso warm und schön darauf herab, wie auf die großen, reichen Prachtblumen im Garten, und deshalb wuchs es von Stunde zu Stunde. Eines Morgens stand es entfaltet da mit seinen kleinen, weißen Blättern, die wie Strahlen rings um die kleine gelbe Sonne in der Mitte sitzen. Es dachte gar nicht daran, daß kein Mensch es dort im Grase sah und daß es nur ein armes, verachtetes Blümchen sei: nein, es war froh und wandte sich der warmen Sonne entgegen, sah zu ihr auf und horchte auf die Lerche, die in den Lüften sang.

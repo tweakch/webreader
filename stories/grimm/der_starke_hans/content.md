@@ -5,9 +5,6 @@ url: "https://www.grimmstories.com/de/grimm_maerchen/der_starke_hans"
 crawledAt: "2026-04-03T09:15:50.189Z"
 wordCount: 2473
 ---
-
-# Der starke Hans
-
 Es war einmal ein Mann und eine Frau, die hatten nur ein einziges Kind und lebten in einem abseits gelegenen Tale ganz allein. Es trug sich zu, daß die Mutter einmal ins Holz ging, Tannenreiser zu lesen, und den kleinen Hans, der erst zwei Jahr alt war, mitnahm. Da es gerade in der Frühlingszeit war und das Kind seine Freude an den bunten Blumen hatte, so ging sie immer weiter mit ihm in den Wald hinein.
 
 Plötzlich sprangen aus dem Gebüsch zwei Räuber hervor, packten die Mutter und das Kind und führten sie tief in den schwarzen Wald, wo jahraus, jahrein kein Mensch hinkam. Die arme Frau bat die Räuber inständig, sie mit ihrem Kinde freizulassen, aber das Herz der Räuber war von Stein; sie hörten nicht auf ihr Bitten und Flehen und trieben sie mit Gewalt an weiterzugehen.

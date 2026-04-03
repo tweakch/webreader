@@ -5,9 +5,6 @@ url: "https://www.andersenstories.com/de/andersen_maerchen/die_eisjungfrau"
 crawledAt: "2026-04-03T11:23:54.917Z"
 wordCount: 17247
 ---
-
-# Die Eisjungfrau
-
 I. Klein-Rudi
 
 Laßt uns die Schweiz besuchen, laßt uns in dem herrlichen Berglande umsehen, wo die Wälder die steilen Felsenwände hinaufwachsen; laßt uns die blendenden Schneegefilde emporsteigen und wieder in die grünen Wiesen hinabgehen, wo Flüsse und Bäche dahinbrausen, als befürchteten sie, das Meer nicht früh genug erreichen und verschwinden zu können. Die Sonne brennt in dem tiefen Tale; sie brennt auch auf die schweren Schneemassen, so daß sie im Laufe der Jahre zu schimmernden Eisblöcken zusammenschmelzen und rollende Lawinen, aufgetürmte Gletscher werden. Zwei solcher Gletscher liegen in den breiten Felsenklüften unterhalb des Schreckhorns und des Wetterhorns bei dem kleinen Bergstädtchen Grindelwald. Sie gehören zu den merkwürdigsten und ziehen deshalb während der Sommerzeit viele Fremde aus allen Ländern der Welt herbei. Sie kommen über die hohen schneebedeckten Berge; sie kommen aus den tiefen Tälern und müssen dann stundenlang steigen, und während sie steigen, senkt sich das Tal tiefer und tiefer, sie sehen tief hinein, als schauten sie aus einen Luftballon. Oben hängen oft die Wolken wie dicke, schwere Vorhänge um die Berggipfel, während unten im Tale, wo die vielen braunen hölzernen Häuser verstreut liegen, noch ein Sonnenstrahl glänzt und ein grünes Plätzchen wie durchsichtig hervortaucht. Das Wasser braust, rauscht und gießt herab; das Wasser rieselt und plätschert hernieder; es sieht aus, als ob silberne Bänder von den Felsen hinabflatterten.

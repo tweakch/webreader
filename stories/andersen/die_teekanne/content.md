@@ -5,9 +5,6 @@ url: "https://www.andersenstories.com/de/andersen_maerchen/die_teekanne"
 crawledAt: "2026-04-03T11:24:13.933Z"
 wordCount: 583
 ---
-
-# Die Teekanne
-
 Es war einmal eine stolze Teekanne, stolz auf ihr Porzellan, stolz auf ihre lange Tülle, stolz auf ihren breiten Henkel; sie hatte etwas vorne an und hinten an, den Henkel hinten, die Tülle vorn, und davon sprach sie; aber sie sprach nicht von ihrem Deckel, der war zerbrochen, der war gekittet, der hatte einen Fehler, und von seinen Fehlern spricht man nicht gerne, das tun die andern genug. Tassen, Sahnekännchen und Zuckerdose, das ganze Teegeschirr würden wohl mehr an die Gebrechlichkeit des Deckels denken und von der sprechen als von dem guten Henkel und der ausgezeichneten Tülle, das wußte die Teekanne.
 
 "Ich kenne sie!" sagte sie zu sich selber. "Ich kenne auch wohl meine Mängel, und ich erkenne sie, darin liegt meine Demut, meine Bescheidenheit, Mängel haben wir alle, aber man hat doch auch Begabung. Die Tassen erhielten einen Henkel, die Zuckerdose einen Deckel, und ich erhielt noch ein Ding voraus, das sie niemals erhalten, ich erhielt eine Tülle, die Macht mich zur Königin auf dem Teetisch. Der Zuckerschale und dem Sahnekännchen ward es vergönnt, die Dienerinnen des Wohlgeschmacks zu sein, aber ich bin die Gebende, die Herrschende, ich verbreite den Segen unter der durstenden Menschheit; in meinem Innern werden die chinesischen Blätter mit dem kochenden geschmacklosen Wasser verbunden."

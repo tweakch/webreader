@@ -5,9 +5,6 @@ url: "https://www.andersenstories.com/de/andersen_maerchen/ein_unterschied_ist_d
 crawledAt: "2026-04-03T11:22:05.877Z"
 wordCount: 1145
 ---
-
-# Ein Unterschied ist da
-
 Es war im Maimonat, der Wind blies noch kalt; aber "Der Frühling ist da," sagten Büsche und Bäume, Feld und Flur; es wimmelte von Blumen bis in die lebendigen Hecken hinauf. Dort führte der Frühling selbst seine Sache, er predigte von einem kleinen Apfelbaume herab, dort hing ein einziger Zweig, frisch und blühend, mit feinen, rosenroten Knospen überstreut, die im Begriff waren, sich zu öffnen. Er wußte recht wohl, wie schön er sei, denn es liegt im Blatte sowohl wie im Blute; deshalb überraschte es ihn auch nicht, als ein herrschaftlicher Wagen vor ihm anhielt und die junge Gräfin sagte, daß ein Apfelzweig das Lieblichste sei, das man sehen könne; er sei der Frühling selbst in seiner herrlichsten Offenbarung. Der Zweig wurde abgebrochen, sie nahm ihn in ihre feine Hand und beschattete ihn mit ihrem seidenen Sonnenschirme – dann fuhren sie nach dem Schlosse mit seinen hohen Sälen und prächtigen Zimmern. Klare, weiße Gardinen flatterten vor den offenen Fenstern, herrliche Blumen standen in glänzenden, durchsichtigen Vasen, und in eine, die wie aus frischgefallenem Schnee geschnitten war, wurde der Apfelzweig zwischen frische, lichte Buchenzweige gesteckt; es war eine Lust, ihn zu sehen.
 
 Da wurde der Zweig stolz.

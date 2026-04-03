@@ -5,9 +5,6 @@ url: "https://www.andersenstories.com/de/andersen_maerchen/ein_blatt_vom_himmel"
 crawledAt: "2026-04-03T11:22:47.468Z"
 wordCount: 1046
 ---
-
-# Ein Blatt vom Himmel
-
 Hoch oben in der dünnen, klaren Luft flog ein Engel mit einer Blume aus dem Himmelsgarten, und während er einen Kuß auf die Blume drückte, löste sich ein winzig kleines Blättchen ab und fiel auf die nasse Erde mitten im Walde; da faßte es sogleich Wurzeln und begann mitten zwischen den anderen Kräutern zu sprossen.
 
 "Das ist ja ein merkwürdiger Steckling" sagten sie, und keiner wollte sich zu ihm bekennen, weder die Distel noch die Brennessel.

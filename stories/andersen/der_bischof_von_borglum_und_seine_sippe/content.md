@@ -5,9 +5,6 @@ url: "https://www.andersenstories.com/de/andersen_maerchen/der_bischof_von_borgl
 crawledAt: "2026-04-03T11:23:40.429Z"
 wordCount: 2299
 ---
-
-# Der Bischof von Börglum und seine Sippe
-
 Jetzt sind wir oben in Jütland, oberhalb des Wildmoores; wir können den "Westwauwau" hören (wie dort die Nordsee heißt); hören wie er bellt, er ist ganz nahe. Aber vor uns erhebt sich ein großer Sandhügel; lange haben wir ihn schon gesehen und wir fahren noch immer auf ihn zu, langsam fahren wir in dem tiefen Sande. Oben auf dem Sandhügel liegt ein großes altes Gebäude; es ist das Kloster Börglum, dessen größter Flügel noch heute als Kirche dient.. Spät am Abend langen wir an, aber es ist klares Wetter, es ist die Zeit der hellen Nächte. Weit, weit hinaus kann man von hier schauen, über Feld und Moor bis zur Aalborger Bucht, über Heide und Wiese, über das dunkelblaue Meer hin.
 
 Nun sind wir oben, nun rasseln wir zwischen Ställen und Scheunen hindurch, biegen um und fahren gerade durch das große Tor in den alten Burghof hinein, wo die Mauer entlang eine Reihe stattlicher Lindenbäume steht. Dort stehen sie geschützt vor Wind und Wetter, deshalb wachsen sie, daß ihre Zweige die Fenster fast verhüllen.

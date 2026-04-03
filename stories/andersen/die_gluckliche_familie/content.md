@@ -5,9 +5,6 @@ url: "https://www.andersenstories.com/de/andersen_maerchen/die_gluckliche_famili
 crawledAt: "2026-04-03T11:21:55.284Z"
 wordCount: 1180
 ---
-
-# Die glückliche Familie
-
 Das größte grüne Blatt hierzulande ist sicherlich das Klettenblatt. Hält man es vor seinen Leib, so ist es wie eine richtige Schürze, und legt man es auf seinen Kopf, so ist es bei Regenwetter fast so gut wie ein Regenschirm; denn es ist so riesig groß. Niemals wächst eine Klette allein, nein, wo die eine wächst, wachsen auch mehr. Das ist eine große Herrlichkeit, und all die Herrlichkeit ist Schneckenspeise. Die großen weißen Schnecken, die die vornehmen Leute in alten Zeiten zu Frikassee verwenden ließen, sie verspeisten und dazu sagten: "Hum! Das schmeckt herrlich!"– denn sie glaubten wirklich, es schmecke so herrlich,– die lebten von den Klettenblättern, und deshalb wurden die Kletten gesät.
 
 Nun war da ein alter Herrenhof, wo man keine Schnecken mehr aß; sie waren ganz ausgestorben. Aber die Kletten waren nicht ausgestorben; sie wuchsen und wachsen, wuchsen über alle Gänge und alle Beete, man konnte ihrer gar nicht mehr Herr werden; es war ein wahrer Klettenwald. Hier und da stand ein Apfel- oder ein Pflaumenbaum, sonst hätte man nie und nimmer geglaubt, daß dies ein Garten sei, alles war voller Kletten, und da drinnen wohnten die beiden letzten uralten Schnecken.

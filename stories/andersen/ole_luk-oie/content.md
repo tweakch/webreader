@@ -5,9 +5,6 @@ url: "https://www.andersenstories.com/de/andersen_maerchen/ole_luk-oie"
 crawledAt: "2026-04-03T11:21:07.269Z"
 wordCount: 3733
 ---
-
-# Ole Luk-Oie
-
 Es gibt niemanden in der ganzen Welt, der so viele Geschichten weiß, wie Ole Luk-Oie. Der kann gehörig erzählen:
 
 So gegen Abend hin, wenn die Kinder noch so nett am Tisch oder auf ihrem Schemel sitzen, kommt Ole Luk-Oie. Er kommt sachte die Treppe herauf, denn er geht auf Socken; er macht ganz leise die Türe auf und husch! da spritzt er den Kindern süße Milch in die Augen hinein, und das so fein, so fein, aber doch immer genug, daß sie die Augen nicht aufhalten und ihn deshalb auch nicht sehen können. Er schleicht sich gerade hinter sie, bläst ihnen sachte in den Nacken, und davon wird es ihnen schwer im Kopf. O ja! aber es tut nicht weh, denn Ole Luk-Oie meint es gerade gut mit den Kindern; er will nur, daß sie ruhig sein sollen, und das sind sie, wenn man sie zu Bett gebracht hat; sie sollen still sein, damit er ihnen Geschichten erzählen kann.

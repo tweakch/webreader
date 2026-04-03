@@ -11,6 +11,7 @@ const GrimmMarchenApp = () => {
   const [totalPages, setTotalPages] = useState(1);
   const [pages, setPages] = useState([]); // [{paragraphs: string[], hasTitle: bool}]
   const [isFlashing, setIsFlashing] = useState(false);
+  const [selectedVariant, setSelectedVariant] = useState(null);
 
   const readerAreaRef = useRef(null);
   const measureRef = useRef(null);
@@ -41,6 +42,31 @@ const GrimmMarchenApp = () => {
       .sort((a, b) => a.title.localeCompare(b.title, 'de'));
   }, []);
 
+  const adaptionsByParent = React.useMemo(() => {
+    const modules = import.meta.glob('/stories/*/*/adaptions/*/content.md', { eager: true, query: '?raw', import: 'default' });
+    const map = {};
+    Object.entries(modules).forEach(([path, raw]) => {
+      // /stories/{source}/{parentSlug}/adaptions/{adaptionSlug}/content.md
+      const parts = path.split('/');
+      const source = parts[parts.length - 5];
+      const parentSlug = parts[parts.length - 4];
+      const parentId = `${source}/${parentSlug}`;
+
+      const fmMatch = raw.match(/^---\n([\s\S]*?)\n---\n/);
+      const fmBlock = fmMatch ? fmMatch[1] : '';
+      const adaptionNameMatch = fmBlock.match(/^adaption:\s*"(.+)"$/m);
+      const adaptionName = adaptionNameMatch ? adaptionNameMatch[1] : parts[parts.length - 2];
+
+      const afterFm = fmMatch ? raw.slice(fmMatch[0].length) : raw;
+      // Strip bold title line (e.g. **Title**\n\n) that adaptions embed in content
+      const content = afterFm.replace(/^\*\*[^\n]*\*\*\n\n/, '').trimEnd();
+
+      if (!map[parentId]) map[parentId] = [];
+      map[parentId].push({ adaptionName, content });
+    });
+    return map;
+  }, []);
+
   const [activeSource, setActiveSource] = useState(null);
 
   const storiesBySource = React.useMemo(() => {
@@ -64,6 +90,11 @@ const GrimmMarchenApp = () => {
     ? stories.filter(s => s.title.toLowerCase().includes(searchTerm.toLowerCase()))
     : [];
 
+  // Reset variant when a new story is selected
+  useEffect(() => {
+    setSelectedVariant(null);
+  }, [selectedStory]);
+
   const buildPages = useCallback(() => {
     if (!readerAreaRef.current || !measureRef.current || !selectedStory) return;
 
@@ -79,8 +110,11 @@ const GrimmMarchenApp = () => {
     m.style.width = contentW + 'px'; // exact same width as the rendered text
     m.style.padding = '0';
 
+    const activeContent = selectedVariant?.content ?? selectedStory.content;
+    const activeTitle = selectedVariant?.adaptionName ?? selectedStory.title;
+
     // Split content into tokens: words and paragraph markers
-    const paragraphs = selectedStory.content.split('\n\n');
+    const paragraphs = activeContent.split('\n\n');
     const tokens = [];
 
     paragraphs.forEach((para) => {
@@ -104,7 +138,7 @@ const GrimmMarchenApp = () => {
       if (isFirstPage) {
         const h2 = document.createElement('h2');
         h2.style.cssText = `font-size:2.25rem;font-weight:bold;margin:0 0 0.5rem;font-family:Georgia,serif;line-height:1.25;`;
-        h2.textContent = selectedStory.title;
+        h2.textContent = activeTitle;
         m.appendChild(h2);
         const divider = document.createElement('div');
         divider.style.cssText = 'height:4px;width:5rem;margin-bottom:2rem;';
@@ -170,7 +204,7 @@ const GrimmMarchenApp = () => {
     setPages(pages);
     setTotalPages(pages.length);
     setCurrentPage(0);
-  }, [selectedStory, fontSize]);
+  }, [selectedStory, selectedVariant, fontSize]);
 
   // Build pages synchronously before paint when story or font size changes
   useLayoutEffect(() => {
@@ -468,7 +502,7 @@ const GrimmMarchenApp = () => {
                           <h2 className={`text-4xl font-serif font-bold mb-2 ${
                             darkMode ? 'text-amber-200' : 'text-amber-900'
                           }`}>
-                            {selectedStory.title}
+                            {selectedVariant?.adaptionName ?? selectedStory.title}
                           </h2>
                           <div className={`h-1 w-20 rounded-full mb-8 ${
                             darkMode ? 'bg-amber-700' : 'bg-amber-300'
@@ -535,6 +569,37 @@ const GrimmMarchenApp = () => {
                   onClick={() => goToPage(currentPage + 1)}
                 />
               </div>
+
+              {/* Variant switcher — shown only when adaptions exist */}
+              {(adaptionsByParent[selectedStory.id] ?? []).length > 0 && (
+                <div className={`flex-shrink-0 flex items-center gap-2 px-4 py-1.5 border-t ${
+                  darkMode ? 'bg-slate-900/90 border-amber-700/30' : 'bg-white/90 border-amber-200/50'
+                }`}>
+                  <button
+                    onClick={() => setSelectedVariant(null)}
+                    className={`px-3 py-1 rounded-full text-xs font-medium transition-colors ${
+                      selectedVariant === null
+                        ? darkMode ? 'bg-amber-700 text-white' : 'bg-amber-200 text-amber-900'
+                        : darkMode ? 'text-amber-400 hover:bg-slate-800' : 'text-amber-700 hover:bg-amber-100'
+                    }`}
+                  >
+                    Original
+                  </button>
+                  {(adaptionsByParent[selectedStory.id] ?? []).map((a, i) => (
+                    <button
+                      key={i}
+                      onClick={() => setSelectedVariant(a)}
+                      className={`px-3 py-1 rounded-full text-xs font-medium transition-colors ${
+                        selectedVariant === a
+                          ? darkMode ? 'bg-amber-700 text-white' : 'bg-amber-200 text-amber-900'
+                          : darkMode ? 'text-amber-400 hover:bg-slate-800' : 'text-amber-700 hover:bg-amber-100'
+                      }`}
+                    >
+                      {a.adaptionName}
+                    </button>
+                  ))}
+                </div>
+              )}
 
               {/* Page navigation bar — flex sibling, not overlapping */}
               <div data-testid="nav-bar" className={`flex-shrink-0 h-12 flex items-center justify-between px-6 backdrop-blur-sm border-t transition-colors ${

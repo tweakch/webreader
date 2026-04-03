@@ -1,0 +1,17 @@
+{
+  "name": "Märchenschatz",
+  "short_name": "Märchen",
+  "description": "Grimms Märchen — e-ink style reader",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#78350f",
+  "theme_color": "#78350f",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

@@ -1,6 +1,8 @@
 import React, { useState, useRef, useEffect, useLayoutEffect, useCallback } from 'react';
 import { Menu, X, Plus, Minus, Search, ChevronLeft, ChevronRight, Heart, User } from 'lucide-react';
 import { useBooleanFlagValue, useStringFlagValue } from '@openfeature/react-sdk';
+import { FEATURES } from './features';
+import FeatureDocs from './FeatureDocs';
 
 const GrimmMarchenApp = () => {
   const [selectedStory, setSelectedStory] = useState(null);
@@ -14,6 +16,8 @@ const GrimmMarchenApp = () => {
   const [selectedVariant, setSelectedVariant] = useState(null);
   const [typoPanelOpen, setTypoPanelOpen] = useState(false);
   const [profileOpen, setProfileOpen] = useState(false);
+  const [docsOpen, setDocsOpen] = useState(false);
+  const [docsAnchor, setDocsAnchor] = useState(null);
   const [lineHeightIdx, setLineHeightIdx] = useState(() => parseInt(localStorage.getItem('wr-lh') ?? '1'));
   const [textWidthIdx, setTextWidthIdx] = useState(() => parseInt(localStorage.getItem('wr-tw') ?? '1'));
   const [wordSpacingIdx, setWordSpacingIdx] = useState(() => parseInt(localStorage.getItem('wr-ws') ?? '0'));
@@ -282,16 +286,46 @@ const GrimmMarchenApp = () => {
     return () => window.removeEventListener('keydown', handler);
   }, [selectedStory, currentPage, goToPage]);
 
-  const showWordCount = useBooleanFlagValue('word-count', false);
-  const showReadingDuration = useBooleanFlagValue('reading-duration', false);
-  const showFontSizeControls = useBooleanFlagValue('font-size-controls', true);
-  const showEinkFlash = useBooleanFlagValue('eink-flash', true);
-  const showTapZones = useBooleanFlagValue('tap-zones', true);
-  const showAdaptionSwitcher = useBooleanFlagValue('adaption-switcher', true);
-  const showTypographyPanel = useBooleanFlagValue('typography-panel', true);
-  const showAttribution = useBooleanFlagValue('attribution', true);
-  const showFavorites = useBooleanFlagValue('favorites', false);
-  const showFavoritesOnlyToggle = useBooleanFlagValue('favorites-only-toggle', false);
+  const _rawWordCount          = useBooleanFlagValue('word-count', false);
+  const _rawReadingDuration    = useBooleanFlagValue('reading-duration', false);
+  const _rawFontSizeControls   = useBooleanFlagValue('font-size-controls', true);
+  const _rawEinkFlash          = useBooleanFlagValue('eink-flash', true);
+  const _rawTapZones           = useBooleanFlagValue('tap-zones', true);
+  const _rawAdaptionSwitcher   = useBooleanFlagValue('adaption-switcher', true);
+  const _rawTypographyPanel    = useBooleanFlagValue('typography-panel', true);
+  const _rawAttribution        = useBooleanFlagValue('attribution', true);
+  const _rawFavorites          = useBooleanFlagValue('favorites', false);
+  const _rawFavoritesOnlyToggle = useBooleanFlagValue('favorites-only-toggle', false);
+
+  // User feature overrides — stored in localStorage, take precedence over flag defaults
+  const [userFeatureOverrides, setUserFeatureOverrides] = useState(
+    () => JSON.parse(localStorage.getItem('wr-feature-overrides') ?? '{}')
+  );
+  useEffect(() => {
+    localStorage.setItem('wr-feature-overrides', JSON.stringify(userFeatureOverrides));
+  }, [userFeatureOverrides]);
+
+  const _o = (key, raw) => Object.hasOwn(userFeatureOverrides, key) ? userFeatureOverrides[key] : raw;
+  const showWordCount           = _o('word-count',           _rawWordCount);
+  const showReadingDuration     = _o('reading-duration',     _rawReadingDuration);
+  const showFontSizeControls    = _o('font-size-controls',   _rawFontSizeControls);
+  const showEinkFlash           = _o('eink-flash',           _rawEinkFlash);
+  const showTapZones            = _o('tap-zones',            _rawTapZones);
+  const showAdaptionSwitcher    = _o('adaption-switcher',    _rawAdaptionSwitcher);
+  const showTypographyPanel     = _o('typography-panel',     _rawTypographyPanel);
+  const showAttribution         = _o('attribution',          _rawAttribution);
+  const showFavorites           = _o('favorites',            _rawFavorites);
+  const showFavoritesOnlyToggle = _o('favorites-only-toggle', _rawFavoritesOnlyToggle);
+
+  // Raw values keyed by feature key — used in profile feature toggles
+  const _rawFlagValues = {
+    'word-count': _rawWordCount, 'reading-duration': _rawReadingDuration,
+    'font-size-controls': _rawFontSizeControls, 'eink-flash': _rawEinkFlash,
+    'tap-zones': _rawTapZones, 'adaption-switcher': _rawAdaptionSwitcher,
+    'typography-panel': _rawTypographyPanel, 'attribution': _rawAttribution,
+    'favorites': _rawFavorites, 'favorites-only-toggle': _rawFavoritesOnlyToggle,
+  };
+
   const [favoritesOnly, setFavoritesOnly] = useState(false);
   const flagTheme = useStringFlagValue('theme', 'light');
 
@@ -704,7 +738,13 @@ const GrimmMarchenApp = () => {
 
         {/* Reader Area */}
         <main className="flex-1 flex flex-col overflow-hidden w-full">
-          {profileOpen ? (
+          {docsOpen ? (
+            <FeatureDocs
+              darkMode={darkMode}
+              initialAnchor={docsAnchor}
+              onBack={() => { setDocsOpen(false); setProfileOpen(true); }}
+            />
+          ) : profileOpen ? (
             <div className="flex-1 overflow-y-auto">
               <div className="max-w-lg mx-auto px-6 py-12">
                 <button
@@ -749,6 +789,78 @@ const GrimmMarchenApp = () => {
                       <span className="text-sm font-medium tabular-nums">{value}</span>
                     </div>
                   ))}
+                </div>
+
+                {/* Feature toggles */}
+                <div className="mt-10">
+                  <div className="flex items-center justify-between mb-3 px-1">
+                    <h2 className={`text-xs font-semibold uppercase tracking-wider ${
+                      darkMode ? 'text-amber-500' : 'text-amber-600'
+                    }`}>
+                      Funktionen
+                    </h2>
+                    <button
+                      onClick={() => { setDocsOpen(true); setDocsAnchor(null); setProfileOpen(false); }}
+                      className={`text-xs transition-colors hover:underline ${
+                        darkMode ? 'text-amber-400/70 hover:text-amber-400' : 'text-amber-600/70 hover:text-amber-700'
+                      }`}
+                    >
+                      Alle Funktionen erklärt →
+                    </button>
+                  </div>
+                  <div className={`rounded-2xl border divide-y ${
+                    darkMode ? 'border-amber-700/30 divide-amber-700/30' : 'border-amber-200 divide-amber-200'
+                  }`}>
+                    {FEATURES.map(({ key, label, description, Icon }) => {
+                      const effective = _o(key, _rawFlagValues[key] ?? false);
+                      return (
+                        <div key={key} className={`px-5 py-4 flex items-start gap-4 ${
+                          darkMode ? 'text-amber-200' : 'text-amber-900'
+                        }`}>
+                          <div className={`flex-shrink-0 mt-0.5 w-10 h-10 rounded-xl flex items-center justify-center transition-colors ${
+                            effective
+                              ? darkMode ? 'bg-amber-700/40 text-amber-300' : 'bg-amber-100 text-amber-700'
+                              : darkMode ? 'bg-slate-700/60 text-amber-700' : 'bg-amber-50/80 text-amber-400'
+                          }`}>
+                            <div className="w-5 h-5"><Icon /></div>
+                          </div>
+                          <div className="flex-1 min-w-0">
+                            <div className="flex items-center justify-between gap-3">
+                              <p className={`text-sm font-medium transition-opacity ${
+                                effective ? '' : 'opacity-40'
+                              }`}>{label}</p>
+                              <button
+                                role="switch"
+                                aria-checked={effective}
+                                aria-label={label}
+                                onClick={() => setUserFeatureOverrides(prev => ({ ...prev, [key]: !effective }))}
+                                className={`flex-shrink-0 relative inline-flex h-5 w-9 items-center rounded-full transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 ${
+                                  effective
+                                    ? darkMode ? 'bg-amber-500' : 'bg-amber-600'
+                                    : darkMode ? 'bg-slate-600' : 'bg-amber-200'
+                                }`}
+                              >
+                                <span className={`inline-block h-3.5 w-3.5 transform rounded-full bg-white shadow-sm transition-transform ${
+                                  effective ? 'translate-x-[18px]' : 'translate-x-[2px]'
+                                }`} />
+                              </button>
+                            </div>
+                            <p className={`text-xs mt-1 leading-relaxed ${
+                              darkMode ? 'text-amber-600' : 'text-amber-500'
+                            }`}>{description}</p>
+                            <button
+                              onClick={() => { setDocsOpen(true); setDocsAnchor(key); setProfileOpen(false); }}
+                              className={`text-xs mt-1 inline-block transition-colors hover:underline ${
+                                darkMode ? 'text-amber-400/70 hover:text-amber-400' : 'text-amber-600/70 hover:text-amber-700'
+                              }`}
+                            >
+                              Mehr erfahren →
+                            </button>
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
                 </div>
               </div>
             </div>

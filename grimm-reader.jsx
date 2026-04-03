@@ -72,59 +72,103 @@ const GrimmMarchenApp = () => {
     if (viewportH === 0) return;
 
     const PADDING = 32; // 2rem on each side
-    const availableH = viewportH - PADDING * 2;
     const contentW = Math.min(viewportW - PADDING * 2, 768); // max-w-3xl
+    const availableH = viewportH - PADDING * 2; // subtract top+bottom padding
 
     const m = measureRef.current;
-    m.style.width = contentW + 'px';
+    m.style.width = contentW + 'px'; // exact same width as the rendered text
+    m.style.padding = '0';
 
-    // Measure title block (h2 + decorative divider)
-    const h2 = document.createElement('h2');
-    h2.style.cssText = `font-size:2.25rem;font-weight:bold;margin:0 0 0.5rem;font-family:Georgia,serif;line-height:1.25;`;
-    h2.textContent = selectedStory.title;
-    m.appendChild(h2);
-    const divider = document.createElement('div');
-    divider.style.cssText = 'height:4px;width:5rem;margin-bottom:2rem;';
-    m.appendChild(divider);
-    const titleBlockH = m.scrollHeight;
-    m.innerHTML = '';
-
-    // Measure each paragraph individually
+    // Split content into tokens: words and paragraph markers
     const paragraphs = selectedStory.content.split('\n\n');
-    const paraHeights = paragraphs.map(text => {
-      const p = document.createElement('p');
-      p.style.cssText = `font-size:${fontSize}px;line-height:1.8;font-family:Georgia,serif;margin:0 0 1.5rem;`;
-      p.textContent = text;
-      m.appendChild(p);
-      const h = m.scrollHeight;
-      m.innerHTML = '';
-      return h;
+    const tokens = [];
+
+    paragraphs.forEach((para) => {
+      const words = para.split(/\s+/).filter(w => w.length > 0);
+      words.forEach((word, wordIdx) => {
+        tokens.push({
+          word,
+          isPara: wordIdx === words.length - 1, // last word of THIS paragraph
+        });
+      });
     });
 
-    // Pack paragraphs into page buckets
-    const result = [];
-    let currentParas = [];
-    let usedH = titleBlockH; // first page reserves space for title
+    // Render and measure: build pages by adding words until they overflow
+    const pages = [];
     let isFirstPage = true;
 
-    for (let i = 0; i < paragraphs.length; i++) {
-      const ph = paraHeights[i];
-      if (usedH + ph > availableH && currentParas.length > 0) {
-        result.push({ paragraphs: currentParas, hasTitle: isFirstPage });
-        currentParas = [paragraphs[i]];
-        usedH = ph;
-        isFirstPage = false;
-      } else {
-        currentParas.push(paragraphs[i]);
-        usedH += ph;
+    while (tokens.length > 0) {
+      m.innerHTML = '';
+
+      // Add title to first page only
+      if (isFirstPage) {
+        const h2 = document.createElement('h2');
+        h2.style.cssText = `font-size:2.25rem;font-weight:bold;margin:0 0 0.5rem;font-family:Georgia,serif;line-height:1.25;`;
+        h2.textContent = selectedStory.title;
+        m.appendChild(h2);
+        const divider = document.createElement('div');
+        divider.style.cssText = 'height:4px;width:5rem;margin-bottom:2rem;';
+        m.appendChild(divider);
       }
-    }
-    if (currentParas.length > 0) {
-      result.push({ paragraphs: currentParas, hasTitle: isFirstPage });
+
+      // Add a placeholder paragraph container for text
+      const contentDiv = document.createElement('div');
+      contentDiv.style.cssText = `font-size:${fontSize}px;line-height:1.8;font-family:Georgia,serif;`;
+      let currentPara = document.createElement('p');
+      currentPara.style.cssText = 'margin:0 0 1.5rem;';
+      contentDiv.appendChild(currentPara);
+      m.appendChild(contentDiv);
+
+      let pageTokens = [];
+      let paraEnded = false;
+
+      // Fill this page with words
+      while (tokens.length > 0) {
+        const token = tokens[0];
+        const word = token.word + (token.isPara ? '' : ' ');
+
+        // Tentatively add the word
+        if (currentPara.textContent.length === 0) {
+          currentPara.textContent = word;
+        } else {
+          currentPara.textContent += word;
+        }
+
+        // Check overflow: zero out the trailing margin on the last paragraph so it
+        // doesn't count as used space (the margin only matters between paragraphs).
+        currentPara.style.marginBottom = '0';
+        const overflows = m.scrollHeight > availableH;
+        currentPara.style.marginBottom = '1.5rem';
+
+        if (overflows) {
+          // Word doesn't fit — remove it and end page
+          currentPara.textContent = currentPara.textContent.slice(0, -word.length);
+          break;
+        }
+
+        // Word fits — consume it
+        tokens.shift();
+        pageTokens.push(token);
+
+        // If paragraph ends, add a new paragraph element for the next word
+        if (token.isPara && tokens.length > 0) {
+          currentPara = document.createElement('p');
+          currentPara.style.cssText = 'margin:0 0 1.5rem;';
+          contentDiv.appendChild(currentPara);
+        }
+      }
+
+      pages.push({
+        tokens: pageTokens,
+        hasTitle: isFirstPage,
+      });
+
+      isFirstPage = false;
     }
 
-    setPages(result);
-    setTotalPages(result.length);
+    m.innerHTML = '';
+    setPages(pages);
+    setTotalPages(pages.length);
     setCurrentPage(0);
   }, [selectedStory, fontSize]);
 
@@ -191,6 +235,7 @@ const GrimmMarchenApp = () => {
         <div className="h-16 px-4 flex items-center justify-between">
           <div className="flex items-center gap-3">
             <button
+              data-testid="menu-toggle"
               onClick={toggleMenu}
               className={`lg:hidden p-2 rounded-lg transition-colors ${
                 darkMode
@@ -210,6 +255,7 @@ const GrimmMarchenApp = () => {
           {selectedStory && (
             <div className="flex items-center gap-2">
               <button
+                data-testid="font-decrease"
                 onClick={() => setFontSize(Math.max(14, fontSize - 2))}
                 className={`p-2 rounded-lg transition-colors ${
                   darkMode
@@ -225,6 +271,7 @@ const GrimmMarchenApp = () => {
                 {fontSize}
               </span>
               <button
+                data-testid="font-increase"
                 onClick={() => setFontSize(Math.min(28, fontSize + 2))}
                 className={`p-2 rounded-lg transition-colors ${
                   darkMode
@@ -332,6 +379,7 @@ const GrimmMarchenApp = () => {
                 {(storiesBySource[activeSource] ?? []).map(story => (
                   <button
                     key={story.id}
+                    data-testid="story-button"
                     onClick={() => { setSelectedStory(story); setMenuOpen(false); }}
                     className={`w-full text-left px-3 py-2.5 rounded-lg transition-all font-serif text-base line-clamp-2 ${
                       selectedStory?.id === story.id
@@ -350,6 +398,7 @@ const GrimmMarchenApp = () => {
               {sources.map(src => (
                 <button
                   key={src.id}
+                  data-testid="source-button"
                   onClick={() => setActiveSource(src.id)}
                   className={`w-full flex items-center justify-between px-4 py-3.5 rounded-xl transition-all ${
                     darkMode
@@ -390,6 +439,7 @@ const GrimmMarchenApp = () => {
               {/* Reading viewport */}
               <div
                 ref={readerAreaRef}
+                data-testid="reader-viewport"
                 className="flex-1 overflow-hidden relative"
               >
                 {/* E-ink flash overlay */}
@@ -406,6 +456,7 @@ const GrimmMarchenApp = () => {
                 {/* Current page content — rendered statically, no translateY */}
                 {pages[currentPage] && (
                   <div
+                    data-testid="page-content"
                     className={`h-full transition-colors duration-300 ${
                       darkMode ? 'bg-slate-800/50' : 'bg-white/70'
                     }`}
@@ -429,11 +480,30 @@ const GrimmMarchenApp = () => {
                         style={{ fontSize: `${fontSize}px`, lineHeight: '1.8' }}
                         className={`font-serif ${darkMode ? 'text-amber-50' : 'text-amber-950'}`}
                       >
-                        {pages[currentPage].paragraphs.map((paragraph, idx) => (
-                          <p key={idx} className="mb-6 first-letter:font-bold">
-                            {paragraph}
-                          </p>
-                        ))}
+                        {/* Reconstruct paragraphs from word tokens */}
+                        {(() => {
+                          const paras = [];
+                          let currentPara = [];
+
+                          pages[currentPage].tokens.forEach((token) => {
+                            currentPara.push(token.word);
+                            if (token.isPara) {
+                              paras.push(currentPara.join(' '));
+                              currentPara = [];
+                            }
+                          });
+
+                          // If there are leftover words (happens when page breaks mid-paragraph)
+                          if (currentPara.length > 0) {
+                            paras.push(currentPara.join(' '));
+                          }
+
+                          return paras.map((text, idx) => (
+                            <p key={idx} className="mb-6 first-letter:font-bold">
+                              {text}
+                            </p>
+                          ));
+                        })()}
                       </div>
 
                       {currentPage === totalPages - 1 && (
@@ -467,12 +537,13 @@ const GrimmMarchenApp = () => {
               </div>
 
               {/* Page navigation bar — flex sibling, not overlapping */}
-              <div className={`flex-shrink-0 h-12 flex items-center justify-between px-6 backdrop-blur-sm border-t transition-colors ${
+              <div data-testid="nav-bar" className={`flex-shrink-0 h-12 flex items-center justify-between px-6 backdrop-blur-sm border-t transition-colors ${
                 darkMode
                   ? 'bg-slate-900/90 border-amber-700/30 text-amber-300'
                   : 'bg-white/90 border-amber-200/50 text-amber-800'
               }`}>
                 <button
+                  data-testid="prev-page"
                   onClick={() => goToPage(currentPage - 1)}
                   disabled={currentPage === 0}
                   className={`p-1 rounded transition-colors disabled:opacity-30 ${
@@ -482,11 +553,12 @@ const GrimmMarchenApp = () => {
                   <ChevronLeft size={20} />
                 </button>
 
-                <span className="text-sm font-medium tabular-nums">
+                <span data-testid="page-counter" className="text-sm font-medium tabular-nums">
                   {currentPage + 1} / {totalPages}
                 </span>
 
                 <button
+                  data-testid="next-page"
                   onClick={() => goToPage(currentPage + 1)}
                   disabled={currentPage >= totalPages - 1}
                   className={`p-1 rounded transition-colors disabled:opacity-30 ${

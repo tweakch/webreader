@@ -11,5 +11,7 @@
   "attribution":       { "defaultVariant": "on",  "variants": { "on": true, "off": false } },
   "theme":             { "defaultVariant": "light", "variants": { "light": "light", "dark": "dark", "system": "system" } },
   "theme-toggle":      { "defaultVariant": "on",  "variants": { "on": true, "off": false } },
-  "speed-reader":      { "defaultVariant": "off", "variants": { "on": true, "off": false } }
+  "speed-reader":      { "defaultVariant": "off", "variants": { "on": true, "off": false } },
+  "audio-player":      { "defaultVariant": "off", "variants": { "on": true, "off": false } },
+  "big-fonts":         { "defaultVariant": "off", "variants": { "off": "off", "big": "big", "bigger": "bigger", "biggest": "biggest" } }
 }

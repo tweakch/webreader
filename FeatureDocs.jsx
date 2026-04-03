@@ -160,6 +160,23 @@ const DOCS = {
     ],
   },
 
+  'audio-player': {
+    lead: 'Der Audio-Player blendet oberhalb der Navigationsleiste eine kompakte Abspielleiste ein, wenn zum geöffneten Märchen eine Audiodatei hinterlegt ist — etwa eine Vorlesung oder eine Vertonung.',
+    on: [
+      'Ist für das aktuell geöffnete Märchen eine Audiodatei vorhanden, erscheint über der Navigationsleiste ein schmaler Player-Streifen.',
+      'Der Streifen enthält einen Fortschrittsbalken, der den aktuellen Abspielstand im Verhältnis zur Gesamtlänge anzeigt.',
+      'Zwei Schaltflächen stehen zur Verfügung: Abspielen/Pausieren sowie Zurücksetzen (springt an den Anfang und hält an).',
+      'Neben den Schaltflächen wird die verstrichene Zeit und — sobald die Metadaten geladen sind — die Gesamtdauer angezeigt.',
+      'Beim Wechsel zu einem anderen Märchen wird der Player automatisch gestoppt und zurückgesetzt.',
+      'Hat ein Märchen keine zugehörige Audiodatei, bleibt der Player-Streifen vollständig ausgeblendet — die Funktion ist eingeschaltet, aber unauffällig.',
+    ],
+    off: [
+      'Der Player-Streifen wird nicht angezeigt, auch wenn für ein Märchen eine Audiodatei vorhanden ist.',
+      'Die Audiodatei ist weiterhin im Build enthalten, wird aber nicht geladen oder abgespielt.',
+    ],
+    tip: 'Audiodateien werden pro Märchen als audio.mp3 im jeweiligen Story-Verzeichnis abgelegt (z. B. stories/hohler/es_baernduetsches_gschichtli/audio.mp3). Der Crawler legt sie nicht an — sie müssen manuell hinzugefügt werden.',
+  },
+
   'speed-reader': {
     lead: 'Der Schnellleser blendet den normalen Lesebereich aus und zeigt stattdessen Wörter des Märchens einzeln, nacheinander und in hohem Tempo mittig auf dem Bildschirm an — eine Technik aus dem sogenannten RSVP-Lesen (Rapid Serial Visual Presentation).',
     on: [
@@ -201,7 +218,7 @@ const OffBadge = ({ darkMode }) => (
   </span>
 );
 
-const FeatureDocs = ({ darkMode, onBack, initialAnchor }) => {
+const FeatureDocs = ({ darkMode, onBack, initialAnchor, featureState, onToggle }) => {
   const scrollRef = useRef(null);
 
   useEffect(() => {
@@ -289,18 +306,39 @@ const FeatureDocs = ({ darkMode, onBack, initialAnchor }) => {
 
                 {/* Section heading */}
                 <div className="flex items-center gap-3 mb-5">
-                  <div className={`flex-shrink-0 w-10 h-10 rounded-xl flex items-center justify-center ${
-                    darkMode ? 'bg-amber-700/40 text-amber-300' : 'bg-amber-100 text-amber-700'
+                  <div className={`flex-shrink-0 w-10 h-10 rounded-xl flex items-center justify-center transition-colors ${
+                    featureState?.[key]
+                      ? darkMode ? 'bg-amber-700/40 text-amber-300' : 'bg-amber-100 text-amber-700'
+                      : darkMode ? 'bg-slate-700/60 text-amber-700' : 'bg-amber-50/80 text-amber-400'
                   }`}>
                     <div className="w-5 h-5"><Icon /></div>
                   </div>
-                  <div className="flex items-baseline gap-3">
-                    <h2 className={`text-lg font-serif font-semibold ${
-                      darkMode ? 'text-amber-200' : 'text-amber-900'
-                    }`}>{label}</h2>
-                    <span className={`text-xs font-mono ${darkMode ? 'text-amber-700' : 'text-amber-400'}`}>
-                      #{sectionIndex + 1}
-                    </span>
+                  <div className="flex-1 flex items-center justify-between gap-3">
+                    <div className="flex items-baseline gap-3">
+                      <h2 className={`text-lg font-serif font-semibold transition-opacity ${
+                        featureState?.[key] ? '' : 'opacity-40'
+                      } ${darkMode ? 'text-amber-200' : 'text-amber-900'}`}>{label}</h2>
+                      <span className={`text-xs font-mono ${darkMode ? 'text-amber-700' : 'text-amber-400'}`}>
+                        #{sectionIndex + 1}
+                      </span>
+                    </div>
+                    {onToggle && featureState && (
+                      <button
+                        role="switch"
+                        aria-checked={featureState[key]}
+                        aria-label={label}
+                        onClick={() => onToggle(key)}
+                        className={`flex-shrink-0 relative inline-flex h-5 w-9 items-center rounded-full transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 ${
+                          featureState[key]
+                            ? darkMode ? 'bg-amber-500' : 'bg-amber-600'
+                            : darkMode ? 'bg-slate-600' : 'bg-amber-200'
+                        }`}
+                      >
+                        <span className={`inline-block h-3.5 w-3.5 transform rounded-full bg-white shadow-sm transition-transform ${
+                          featureState[key] ? 'translate-x-[18px]' : 'translate-x-[2px]'
+                        }`} />
+                      </button>
+                    )}
                   </div>
                 </div>
 

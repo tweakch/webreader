@@ -1,8 +1,10 @@
 import React, { useState, useRef, useEffect, useLayoutEffect, useCallback } from 'react';
-import { Menu, X, Plus, Minus, Search, ChevronLeft, ChevronRight, Heart, User } from 'lucide-react';
+import { Menu, X, Plus, Minus, Search, ChevronLeft, ChevronRight, Heart, User, Play, Pause, RotateCcw } from 'lucide-react';
 import { useBooleanFlagValue, useStringFlagValue } from '@openfeature/react-sdk';
 import { FEATURES } from './features';
 import FeatureDocs from './FeatureDocs';
+
+const storyAudioFiles = import.meta.glob('/stories/*/*/audio.mp3', { eager: true, query: '?url', import: 'default' });
 
 const GrimmMarchenApp = () => {
   const [selectedStory, setSelectedStory] = useState(null);
@@ -51,6 +53,10 @@ const GrimmMarchenApp = () => {
 
   const readerAreaRef = useRef(null);
   const measureRef = useRef(null);
+  const audioRef = useRef(null);
+  const [isAudioPlaying, setIsAudioPlaying] = useState(false);
+  const [audioCurrentTime, setAudioCurrentTime] = useState(0);
+  const [audioDuration, setAudioDuration] = useState(0);
 
   const stories = React.useMemo(() => {
     const modules = import.meta.glob('/stories/*/*/content.md', { eager: true, query: '?raw', import: 'default' });
@@ -143,6 +149,16 @@ const GrimmMarchenApp = () => {
     const adaptions = adaptionsByParent[selectedStory.id] ?? [];
     setSelectedVariant(adaptions.find(a => a.adaptionName === prefName) ?? null);
   }, [selectedStory]); // variantPrefs intentionally omitted — only re-run on story change
+
+  // Pause and reset audio whenever the story changes
+  useEffect(() => {
+    if (!audioRef.current) return;
+    audioRef.current.pause();
+    audioRef.current.currentTime = 0;
+    setIsAudioPlaying(false);
+    setAudioCurrentTime(0);
+    setAudioDuration(0);
+  }, [selectedStory]);
 
   const buildPages = useCallback(() => {
     if (!readerAreaRef.current || !measureRef.current || !selectedStory) return;
@@ -320,6 +336,7 @@ const GrimmMarchenApp = () => {
   const _rawAttribution        = useBooleanFlagValue('attribution', true);
   const _rawFavorites          = useBooleanFlagValue('favorites', false);
   const _rawFavoritesOnlyToggle = useBooleanFlagValue('favorites-only-toggle', false);
+  const _rawAudioPlayer        = useBooleanFlagValue('audio-player', false);
 
   // User feature overrides — stored in localStorage, take precedence over flag defaults
   const [userFeatureOverrides, setUserFeatureOverrides] = useState(
@@ -340,6 +357,7 @@ const GrimmMarchenApp = () => {
   const showAttribution         = _o('attribution',          _rawAttribution);
   const showFavorites           = _o('favorites',            _rawFavorites);
   const showFavoritesOnlyToggle = _o('favorites-only-toggle', _rawFavoritesOnlyToggle);
+  const showAudioPlayer         = _o('audio-player',          _rawAudioPlayer);
 
   // Raw values keyed by feature key — used in profile feature toggles
   const _rawFlagValues = {
@@ -348,10 +366,16 @@ const GrimmMarchenApp = () => {
     'tap-zones': _rawTapZones, 'adaption-switcher': _rawAdaptionSwitcher,
     'typography-panel': _rawTypographyPanel, 'attribution': _rawAttribution,
     'favorites': _rawFavorites, 'favorites-only-toggle': _rawFavoritesOnlyToggle,
+    'audio-player': _rawAudioPlayer,
   };
 
   const [favoritesOnly, setFavoritesOnly] = useState(() => localStorage.getItem('wr-favorites-only') === 'true');
   const flagTheme = useStringFlagValue('theme', 'light');
+  const bigFontsVariant = useStringFlagValue('big-fonts', 'off');
+  const maxFontSize = { off: 28, big: 28, bigger: 34, biggest: 40 }[bigFontsVariant] ?? 28;
+
+  // Clamp stored font size when the flag variant reduces the ceiling
+  useEffect(() => { setFontSize(f => Math.min(f, maxFontSize)); }, [maxFontSize]);
 
   const [theme, setTheme] = useState(() => localStorage.getItem('wr-theme') ?? flagTheme); // 'light' | 'dark' | 'system'
   const [systemDark, setSystemDark] = useState(
@@ -496,7 +520,7 @@ const GrimmMarchenApp = () => {
               </span>
               <button
                 data-testid="font-increase"
-                onClick={() => setFontSize(Math.min(28, fontSize + 2))}
+                onClick={() => setFontSize(Math.min(maxFontSize, fontSize + 2))}
                 className={`p-2 rounded-lg transition-colors ${
                   darkMode
                     ? 'hover:bg-slate-800 text-amber-200'
@@ -838,6 +862,8 @@ const GrimmMarchenApp = () => {
               darkMode={darkMode}
               initialAnchor={docsAnchor}
               onBack={() => { setDocsOpen(false); setProfileOpen(true); }}
+              featureState={Object.fromEntries(FEATURES.map(({ key }) => [key, _o(key, _rawFlagValues[key] ?? false)]))}
+              onToggle={(key) => setUserFeatureOverrides(prev => ({ ...prev, [key]: !_o(key, _rawFlagValues[key] ?? false) }))}
             />
           ) : profileOpen ? (
             <div className="flex-1 overflow-y-auto">
@@ -1176,6 +1202,76 @@ const GrimmMarchenApp = () => {
                   ))}
                 </div>
               )}
+
+              {/* Audio player — only when flag is on and the story has an audio file */}
+              {showAudioPlayer && (() => {
+                const audioUrl = selectedStory
+                  ? (storyAudioFiles[`/stories/${selectedStory.id}/audio.mp3`] ?? null)
+                  : null;
+                if (!audioUrl) return null;
+                const fmtTime = s => `${Math.floor(s / 60)}:${String(Math.floor(s % 60)).padStart(2, '0')}`;
+                const progress = audioDuration > 0 ? (audioCurrentTime / audioDuration) * 100 : 0;
+                return (
+                  <>
+                    <audio
+                      ref={audioRef}
+                      src={audioUrl}
+                      onTimeUpdate={() => setAudioCurrentTime(audioRef.current?.currentTime ?? 0)}
+                      onLoadedMetadata={() => setAudioDuration(audioRef.current?.duration ?? 0)}
+                      onEnded={() => setIsAudioPlaying(false)}
+                    />
+                    <div className={`flex-shrink-0 border-t transition-colors ${
+                      darkMode ? 'bg-slate-900/95 border-amber-700/30' : 'bg-white/95 border-amber-200/50'
+                    }`}>
+                      {/* Progress bar */}
+                      <div className={`h-0.5 ${darkMode ? 'bg-slate-700' : 'bg-amber-100'}`}>
+                        <div
+                          className={`h-full transition-all duration-300 ${darkMode ? 'bg-amber-500' : 'bg-amber-600'}`}
+                          style={{ width: `${progress}%` }}
+                        />
+                      </div>
+                      <div className="flex items-center gap-3 px-5 py-2">
+                        {/* Reset */}
+                        <button
+                          onClick={() => {
+                            audioRef.current.pause();
+                            audioRef.current.currentTime = 0;
+                            setIsAudioPlaying(false);
+                            setAudioCurrentTime(0);
+                          }}
+                          className={`p-1.5 rounded-lg transition-colors ${
+                            darkMode ? 'text-amber-400 hover:bg-slate-800' : 'text-amber-700 hover:bg-amber-100'
+                          }`}
+                        >
+                          <RotateCcw size={15} />
+                        </button>
+                        {/* Play / Pause */}
+                        <button
+                          onClick={() => {
+                            if (isAudioPlaying) {
+                              audioRef.current.pause();
+                              setIsAudioPlaying(false);
+                            } else {
+                              audioRef.current.play();
+                              setIsAudioPlaying(true);
+                            }
+                          }}
+                          className={`p-1.5 rounded-lg transition-colors ${
+                            darkMode ? 'text-amber-300 hover:bg-slate-800' : 'text-amber-800 hover:bg-amber-100'
+                          }`}
+                        >
+                          {isAudioPlaying ? <Pause size={17} /> : <Play size={17} />}
+                        </button>
+                        {/* Time */}
+                        <span className={`text-xs tabular-nums ml-1 ${darkMode ? 'text-amber-600' : 'text-amber-500'}`}>
+                          {fmtTime(audioCurrentTime)}
+                          {audioDuration > 0 && <> / {fmtTime(audioDuration)}</>}
+                        </span>
+                      </div>
+                    </div>
+                  </>
+                );
+              })()}
 
               {/* Page navigation bar — flex sibling, not overlapping */}
               <div data-testid="nav-bar" className={`flex-shrink-0 h-12 flex items-center justify-between px-6 backdrop-blur-sm border-t transition-colors ${

@@ -1,7 +1,7 @@
 ---
-title: "Es bärndütsches Gschichtli (ds Totemügerli)"
-author: "Franz Hohler"
-source: "https://www.mittelschulvorbereitung.ch/"
+title: "Es bärndütsches Gschichtli"
+source: "Franz Hohler"
+url: "https://www.mittelschulvorbereitung.ch/contentLD/DE/Div21fBerndGschicht.pdf"
 date: "1967"
 wordcount: 555
 ---

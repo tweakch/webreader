@@ -123,6 +123,18 @@ export const FEATURES = [
     ),
   },
   {
+    key: 'audio-player',
+    label: 'Audio-Player',
+    description: 'Zeigt einen eingebetteten Audioplayer an, wenn zum Märchen eine Audiodatei vorhanden ist.',
+    Icon: () => (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
+        <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
+        <path d="M15.54 8.46a5 5 0 0 1 0 7.07" />
+        <path d="M19.07 4.93a10 10 0 0 1 0 14.14" />
+      </svg>
+    ),
+  },
+  {
     key: 'speed-reader',
     label: 'Schnellleser',
     description: 'Zeigt Wörter einzeln nacheinander in hoher Geschwindigkeit an — zum Training oder für schnelles Erfassen langer Texte.',

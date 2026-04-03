@@ -12,6 +12,18 @@ const GrimmMarchenApp = () => {
   const [pages, setPages] = useState([]); // [{paragraphs: string[], hasTitle: bool}]
   const [isFlashing, setIsFlashing] = useState(false);
   const [selectedVariant, setSelectedVariant] = useState(null);
+  const [typoPanelOpen, setTypoPanelOpen] = useState(false);
+  const [lineHeightIdx, setLineHeightIdx] = useState(() => parseInt(localStorage.getItem('wr-lh') ?? '1'));
+  const [textWidthIdx, setTextWidthIdx] = useState(() => parseInt(localStorage.getItem('wr-tw') ?? '1'));
+  const [wordSpacingIdx, setWordSpacingIdx] = useState(() => parseInt(localStorage.getItem('wr-ws') ?? '0'));
+
+  const LINE_HEIGHTS = [1.5, 1.8, 2.2];
+  const TEXT_WIDTHS = [560, 768, 1024];
+  const WORD_SPACINGS = ['normal', '0.06em', '0.15em'];
+
+  const lineHeight = LINE_HEIGHTS[lineHeightIdx];
+  const textWidth = TEXT_WIDTHS[textWidthIdx];
+  const wordSpacing = WORD_SPACINGS[wordSpacingIdx];
 
   const readerAreaRef = useRef(null);
   const measureRef = useRef(null);
@@ -90,6 +102,11 @@ const GrimmMarchenApp = () => {
     ? stories.filter(s => s.title.toLowerCase().includes(searchTerm.toLowerCase()))
     : [];
 
+  // Persist typography settings
+  useEffect(() => { localStorage.setItem('wr-lh', lineHeightIdx); }, [lineHeightIdx]);
+  useEffect(() => { localStorage.setItem('wr-tw', textWidthIdx); }, [textWidthIdx]);
+  useEffect(() => { localStorage.setItem('wr-ws', wordSpacingIdx); }, [wordSpacingIdx]);
+
   // Reset variant when a new story is selected
   useEffect(() => {
     setSelectedVariant(null);
@@ -103,7 +120,7 @@ const GrimmMarchenApp = () => {
     if (viewportH === 0) return;
 
     const PADDING = 32; // 2rem on each side
-    const contentW = Math.min(viewportW - PADDING * 2, 768); // max-w-3xl
+    const contentW = Math.min(viewportW - PADDING * 2, textWidth);
     const availableH = viewportH - PADDING * 2; // subtract top+bottom padding
 
     const m = measureRef.current;
@@ -147,7 +164,7 @@ const GrimmMarchenApp = () => {
 
       // Add a placeholder paragraph container for text
       const contentDiv = document.createElement('div');
-      contentDiv.style.cssText = `font-size:${fontSize}px;line-height:1.8;font-family:Georgia,serif;`;
+      contentDiv.style.cssText = `font-size:${fontSize}px;line-height:${lineHeight};word-spacing:${wordSpacing};font-family:Georgia,serif;`;
       let currentPara = document.createElement('p');
       currentPara.style.cssText = 'margin:0 0 1.5rem;';
       contentDiv.appendChild(currentPara);
@@ -204,7 +221,7 @@ const GrimmMarchenApp = () => {
     setPages(pages);
     setTotalPages(pages.length);
     setCurrentPage(0);
-  }, [selectedStory, selectedVariant, fontSize]);
+  }, [selectedStory, selectedVariant, fontSize, lineHeight, textWidth, wordSpacing]);
 
   // Build pages synchronously before paint when story or font size changes
   useLayoutEffect(() => {
@@ -496,7 +513,7 @@ const GrimmMarchenApp = () => {
                     }`}
                     style={{ padding: '2rem' }}
                   >
-                    <div className="max-w-3xl mx-auto w-full">
+                    <div className="mx-auto w-full" style={{ maxWidth: textWidth + 'px' }}>
                       {pages[currentPage].hasTitle && (
                         <>
                           <h2 className={`text-4xl font-serif font-bold mb-2 ${
@@ -511,7 +528,7 @@ const GrimmMarchenApp = () => {
                       )}
 
                       <div
-                        style={{ fontSize: `${fontSize}px`, lineHeight: '1.8' }}
+                        style={{ fontSize: `${fontSize}px`, lineHeight, wordSpacing }}
                         className={`font-serif ${darkMode ? 'text-amber-50' : 'text-amber-950'}`}
                       >
                         {/* Reconstruct paragraphs from word tokens */}
@@ -601,6 +618,74 @@ const GrimmMarchenApp = () => {
                 </div>
               )}
 
+              {/* Typography panel — slides open above nav bar */}
+              {typoPanelOpen && (
+                <div className={`flex-shrink-0 border-t px-5 py-3 transition-colors ${
+                  darkMode ? 'bg-slate-900/95 border-amber-700/30' : 'bg-white/95 border-amber-200/50'
+                }`}>
+                  {[
+                    {
+                      label: 'Zeilenabstand',
+                      options: LINE_HEIGHTS.map((v, i) => ({
+                        i,
+                        icon: (
+                          <span className="flex flex-col gap-px items-center" style={{ gap: `${i * 2 + 1}px` }}>
+                            {[0,1,2].map(n => <span key={n} className="block h-px w-4 bg-current" />)}
+                          </span>
+                        ),
+                      })),
+                      idx: lineHeightIdx,
+                      set: setLineHeightIdx,
+                    },
+                    {
+                      label: 'Textbreite',
+                      options: [4, 6, 8].map((w, i) => ({
+                        i,
+                        icon: (
+                          <span className="flex flex-col gap-px items-center">
+                            <span className="block h-px bg-current" style={{ width: `${w * 4}px` }} />
+                            <span className="block h-px bg-current" style={{ width: `${w * 4}px` }} />
+                            <span className="block h-px bg-current" style={{ width: `${w * 4}px` }} />
+                          </span>
+                        ),
+                      })),
+                      idx: textWidthIdx,
+                      set: setTextWidthIdx,
+                    },
+                    {
+                      label: 'Wortabstand',
+                      options: ['aa', 'a a', 'a  a'].map((txt, i) => ({
+                        i,
+                        icon: <span className="font-serif text-sm leading-none">{txt}</span>,
+                      })),
+                      idx: wordSpacingIdx,
+                      set: setWordSpacingIdx,
+                    },
+                  ].map(({ label, options, idx, set }) => (
+                    <div key={label} className="flex items-center gap-3 py-1">
+                      <span className={`text-xs w-24 shrink-0 ${darkMode ? 'text-amber-500' : 'text-amber-600'}`}>
+                        {label}
+                      </span>
+                      <div className="flex gap-1.5">
+                        {options.map(({ i, icon }) => (
+                          <button
+                            key={i}
+                            onClick={() => set(i)}
+                            className={`w-10 h-8 flex items-center justify-center rounded-lg transition-colors ${
+                              idx === i
+                                ? darkMode ? 'bg-amber-700 text-white' : 'bg-amber-200 text-amber-900'
+                                : darkMode ? 'text-amber-400 hover:bg-slate-800' : 'text-amber-700 hover:bg-amber-100'
+                            }`}
+                          >
+                            {icon}
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              )}
+
               {/* Page navigation bar — flex sibling, not overlapping */}
               <div data-testid="nav-bar" className={`flex-shrink-0 h-12 flex items-center justify-between px-6 backdrop-blur-sm border-t transition-colors ${
                 darkMode
@@ -618,7 +703,14 @@ const GrimmMarchenApp = () => {
                   <ChevronLeft size={20} />
                 </button>
 
-                <div className="flex flex-col items-center gap-0.5 min-w-0 overflow-hidden px-2">
+                <button
+                  onClick={() => setTypoPanelOpen(v => !v)}
+                  className={`flex flex-col items-center gap-0.5 min-w-0 overflow-hidden px-3 py-1 rounded-lg transition-colors ${
+                    typoPanelOpen
+                      ? darkMode ? 'bg-slate-700' : 'bg-amber-100'
+                      : darkMode ? 'hover:bg-slate-800' : 'hover:bg-amber-50'
+                  }`}
+                >
                   <span className={`text-xs font-serif truncate max-w-full ${
                     darkMode ? 'text-amber-500' : 'text-amber-600'
                   }`}>
@@ -627,7 +719,7 @@ const GrimmMarchenApp = () => {
                   <span data-testid="page-counter" className="text-xs font-medium tabular-nums">
                     {currentPage + 1} / {totalPages}
                   </span>
-                </div>
+                </button>
 
                 <button
                   data-testid="next-page"

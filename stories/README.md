@@ -1,6 +1,6 @@
 # Story Library
 
-## [Grimms Märchen](./grimm/README.md)
+## [Andersens Märchen](./andersen/README.md)
 
-- Source: https://www.grimmstories.com/de/grimm_maerchen/list
-- Stories: 223 ok, 0 failed
+- Source: https://www.andersenstories.com/de/andersen_maerchen/list
+- Stories: 156 ok, 0 failed

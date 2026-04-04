@@ -1,8 +1,12 @@
 export default {
   content: [
     "./index.html",
+    "./design.html",
     "./grimm-reader.jsx",
     "./main.jsx",
+    "./features.jsx",
+    "./FeatureDocs.jsx",
+    "./design/**/*.{jsx,js}",
   ],
   theme: {
     extend: {

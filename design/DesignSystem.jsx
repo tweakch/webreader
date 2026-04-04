@@ -1,17 +1,21 @@
 import React, { useState, useEffect, createContext, useContext } from 'react';
 import {
-  ChevronLeft, ChevronRight, Search, Heart, Menu, Plus, Minus,
+  ChevronLeft, ChevronRight, Heart, Menu, Plus, Minus,
   Play, Pause, RotateCcw, X, User,
 } from 'lucide-react';
 import { FEATURES } from '../features.jsx';
 import flagConfig from '../flags.json';
+import Toggle from '../ui/Toggle.jsx';
+import { ThemeContext } from '../ui/ThemeContext.jsx';
+import IconButton from '../ui/IconButton.jsx';
+import SearchInput from '../ui/SearchInput.jsx';
 
 // ─── Theme helpers (mirrors grimm-reader logic exactly) ───────────────────────
 
 const THEMES_NORMAL = [
   { id: 'light',  label: 'Hell' },
   { id: 'dark',   label: 'Dunkel' },
-  { id: 'system', label: 'System' },
+  // { id: 'system', label: 'System' },
 ];
 
 const THEMES_HC = [
@@ -76,7 +80,9 @@ function ThemeRow({ children, noPad = false }) {
               dark       ? 'bg-gradient-to-br from-amber-950 via-slate-900 to-slate-950' :
                            'bg-gradient-to-br from-amber-50 via-yellow-50 to-orange-50'
             }`}>
-              {children({ dark, hc }, id)}
+              <ThemeContext.Provider value={{ dark, hc }}>
+                {children({ dark, hc }, id)}
+              </ThemeContext.Provider>
             </div>
           </div>
         );
@@ -254,19 +260,13 @@ function ButtonsSection({ flags }) {
           {({ dark, hc }) => (
             <div className="flex items-center gap-1">
               {showFontControls && <>
-                <button className={`p-2 rounded-lg ${
-                  hc && dark ? 'text-white hover:bg-white/10' : hc ? 'text-gray-900 hover:bg-gray-100' : dark ? 'text-amber-200 hover:bg-slate-800' : 'text-amber-900 hover:bg-amber-100'
-                }`}><Minus size={18} /></button>
+                <IconButton><Minus size={18} /></IconButton>
                 <span className={`text-sm font-medium w-10 text-center ${
                   hc && dark ? 'text-white' : hc ? 'text-gray-900' : dark ? 'text-amber-200' : 'text-amber-900'
                 }`}>18</span>
-                <button className={`p-2 rounded-lg ${
-                  hc && dark ? 'text-white hover:bg-white/10' : hc ? 'text-gray-900 hover:bg-gray-100' : dark ? 'text-amber-200 hover:bg-slate-800' : 'text-amber-900 hover:bg-amber-100'
-                }`}><Plus size={18} /></button>
+                <IconButton><Plus size={18} /></IconButton>
               </>}
-              <button className={`p-2 rounded-lg ${
-                hc && dark ? 'text-white hover:bg-white/10' : hc ? 'text-gray-900 hover:bg-gray-100' : dark ? 'text-amber-200 hover:bg-slate-800' : 'text-amber-900 hover:bg-amber-100'
-              }`}><Menu size={24} /></button>
+              <IconButton><Menu size={24} /></IconButton>
             </div>
           )}
         </ThemeRow>
@@ -336,18 +336,7 @@ function FormSection({ flags }) {
         <ThemeRow>
           {({ dark, hc }) => (
             <div className="flex items-center gap-2">
-              <div className={`relative flex-1 ${hc && dark ? 'text-white' : hc ? 'text-gray-900' : dark ? 'text-amber-200' : 'text-amber-900'}`}>
-                <Search size={18} className="absolute left-3 top-2.5" />
-                <input
-                  readOnly
-                  placeholder="Märchen suchen..."
-                  className={`w-full pl-10 pr-4 py-2 rounded-lg border text-sm ${
-                    hc && dark ? 'bg-black border-white/40 text-white placeholder-white/30' : hc ? 'bg-white border-black/30 text-gray-900 placeholder-gray-400' :
-                    dark ? 'bg-slate-800 border-amber-700/50 text-amber-200 placeholder-amber-600' :
-                           'bg-amber-50 border-amber-300 text-amber-900 placeholder-amber-600'
-                  } focus:outline-none`}
-                />
-              </div>
+              <SearchInput placeholder="Märchen suchen..." readOnly />
               {showFavOnly && (
                 <button className={`flex-shrink-0 p-2 rounded-lg border ${
                   hc   ? 'border-white/40 text-white' :
@@ -381,9 +370,7 @@ function HeaderSection({ flags }) {
             hc && dark ? 'border-white/40' : hc ? 'border-black/20' : dark ? 'border-amber-700/30' : 'border-amber-200/50'
           }`}>
             <div className="flex items-center gap-3">
-              <button className={`p-2 rounded-lg ${
-                hc && dark ? 'text-white hover:bg-white/10' : hc ? 'text-gray-900 hover:bg-gray-100' : dark ? 'text-amber-200 hover:bg-slate-800' : 'text-amber-900 hover:bg-amber-100'
-              }`}><Menu size={24} /></button>
+              <IconButton><Menu size={24} /></IconButton>
               <h1 className={`text-2xl font-serif font-bold tracking-wide ${
                 hc && dark ? 'text-white' : hc ? 'text-gray-900' : dark ? 'text-amber-200' : 'text-amber-900'
               }`}>Märchenschatz</h1>
@@ -391,15 +378,11 @@ function HeaderSection({ flags }) {
             <div className="flex items-center gap-2">
               {showFontControls && (
                 <>
-                  <button className={`p-2 rounded-lg ${
-                    hc && dark ? 'text-white' : hc ? 'text-gray-900' : dark ? 'text-amber-200' : 'text-amber-900'
-                  }`}><Minus size={18} /></button>
+                  <IconButton><Minus size={18} /></IconButton>
                   <span className={`text-sm font-medium w-10 text-center ${
                     hc && dark ? 'text-white' : hc ? 'text-gray-900' : dark ? 'text-amber-200' : 'text-amber-900'
                   }`}>18</span>
-                  <button className={`p-2 rounded-lg ${
-                    hc && dark ? 'text-white' : hc ? 'text-gray-900' : dark ? 'text-amber-200' : 'text-amber-900'
-                  }`}><Plus size={18} /></button>
+                  <IconButton><Plus size={18} /></IconButton>
                 </>
               )}
               <button className={`px-4 py-2 rounded-lg font-medium text-sm ${
@@ -422,21 +405,15 @@ function HeaderSection({ flags }) {
               hc && dark ? 'border-white/40' : hc ? 'border-black/20' : dark ? 'border-amber-700/30' : 'border-amber-200/50'
             }`}>
               <div className="flex items-center gap-3">
-                <button className={`p-2 rounded-lg ${
-                  hc && dark ? 'text-white' : hc ? 'text-gray-900' : dark ? 'text-amber-200' : 'text-amber-900'
-                }`}><Menu size={24} /></button>
+                <IconButton><Menu size={24} /></IconButton>
               </div>
               {showFontControls && (
                 <div className="flex items-center gap-2">
-                  <button className={`p-2 rounded-lg ${
-                    hc && dark ? 'text-white' : hc ? 'text-gray-900' : dark ? 'text-amber-200' : 'text-amber-900'
-                  }`}><Minus size={18} /></button>
+                  <IconButton><Minus size={18} /></IconButton>
                   <span className={`text-sm font-medium w-10 text-center ${
                     hc && dark ? 'text-white' : hc ? 'text-gray-900' : dark ? 'text-amber-200' : 'text-amber-900'
                   }`}>18</span>
-                  <button className={`p-2 rounded-lg ${
-                    hc && dark ? 'text-white' : hc ? 'text-gray-900' : dark ? 'text-amber-200' : 'text-amber-900'
-                  }`}><Plus size={18} /></button>
+                  <IconButton><Plus size={18} /></IconButton>
                 </div>
               )}
               <button className={`px-4 py-2 rounded-lg font-medium text-sm ${

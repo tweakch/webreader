@@ -1,10 +1,12 @@
 import React, { useState, useRef, useEffect, useLayoutEffect, useCallback } from 'react';
-import { Menu, X, Plus, Minus, Search, ChevronLeft, ChevronRight, Heart, User, Play, Pause, RotateCcw } from 'lucide-react';
+import { Menu, X, Plus, Minus, ChevronLeft, ChevronRight, Heart, User, Play, Pause, RotateCcw } from 'lucide-react';
 import { useBooleanFlagValue, useStringFlagValue } from '@openfeature/react-sdk';
 import { FEATURES } from './features';
 import FeatureDocs from './FeatureDocs';
 import { ThemeContext } from './ui/ThemeContext';
 import Toggle from './ui/Toggle';
+import IconButton from './ui/IconButton';
+import SearchInput from './ui/SearchInput';
 
 const storyAudioFiles = import.meta.glob('/stories/*/*/audio.mp3', { eager: true, query: '?url', import: 'default' });
 
@@ -502,17 +504,13 @@ const GrimmMarchenApp = () => {
       } border-b`}>
         <div className="h-16 px-4 flex items-center justify-between">
           <div className="flex items-center gap-3 min-w-0 overflow-hidden">
-            <button
+            <IconButton
               data-testid="menu-toggle"
               onClick={toggleMenu}
-              className={`lg:hidden p-2 rounded-lg transition-colors ${
-                darkMode
-                  ? 'hover:bg-slate-800 text-amber-200'
-                  : 'hover:bg-amber-100 text-amber-900'
-              }`}
+              className="lg:hidden"
             >
               {menuOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
+            </IconButton>
             <h1 className={`text-2xl font-serif font-bold tracking-wide ${
               darkMode ? 'text-amber-200' : 'text-amber-900'
             }`}>
@@ -522,33 +520,23 @@ const GrimmMarchenApp = () => {
 
           {selectedStory && showFontSizeControls && (
             <div className="flex items-center gap-2">
-              <button
+              <IconButton
                 data-testid="font-decrease"
                 onClick={() => setFontSize(Math.max(14, fontSize - 2))}
-                className={`p-2 rounded-lg transition-colors ${
-                  darkMode
-                    ? 'hover:bg-slate-800 text-amber-200'
-                    : 'hover:bg-amber-100 text-amber-900'
-                }`}
               >
                 <Minus size={18} />
-              </button>
+              </IconButton>
               <span className={`text-sm font-medium w-12 text-center ${
                 darkMode ? 'text-amber-200' : 'text-amber-900'
               }`}>
                 {fontSize}
               </span>
-              <button
+              <IconButton
                 data-testid="font-increase"
                 onClick={() => setFontSize(Math.min(maxFontSize, fontSize + 2))}
-                className={`p-2 rounded-lg transition-colors ${
-                  darkMode
-                    ? 'hover:bg-slate-800 text-amber-200'
-                    : 'hover:bg-amber-100 text-amber-900'
-                }`}
               >
                 <Plus size={18} />
-              </button>
+              </IconButton>
             </div>
           )}
 
@@ -593,20 +581,11 @@ const GrimmMarchenApp = () => {
           {/* Search — always visible */}
           <div className="p-4">
             <div className="flex items-center gap-2">
-              <div className={`relative flex-1 ${darkMode ? 'text-amber-200' : 'text-amber-900'}`}>
-                <Search size={18} className="absolute left-3 top-3" />
-                <input
-                  type="text"
-                  placeholder="Märchen suchen..."
-                  value={searchTerm}
-                  onChange={(e) => setSearchTerm(e.target.value)}
-                  className={`w-full pl-10 pr-4 py-2 rounded-lg border transition-colors ${
-                    darkMode
-                      ? 'bg-slate-800 border-amber-700/50 text-amber-200 placeholder-amber-600'
-                      : 'bg-amber-50 border-amber-300 text-amber-900 placeholder-amber-600'
-                  } focus:outline-none focus:ring-2 focus:ring-amber-500`}
-                />
-              </div>
+              <SearchInput
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                placeholder="Märchen suchen..."
+              />
               {showFavoritesOnlyToggle && showFavorites && (
                 <button
                   onClick={() => setFavoritesOnly(v => !v)}

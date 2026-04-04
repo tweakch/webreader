@@ -40,6 +40,10 @@ const GrimmMarchenApp = () => {
   const [variantPrefs, setVariantPrefs] = useState(() =>
     JSON.parse(localStorage.getItem('wr-variant-prefs') ?? '{}')
   );
+  const [blacklist, setBlacklist] = useState(() =>
+    new Set(JSON.parse(localStorage.getItem('wr-blacklist') ?? '[]'))
+  );
+  const [blacklistInput, setBlacklistInput] = useState('');
   const pendingResumePageRef = useRef(null);
   const lastResetStoryRef = useRef(null);
   const initialResumeApplied = useRef(false);
@@ -110,14 +114,22 @@ const GrimmMarchenApp = () => {
 
   const [activeSource, setActiveSource] = useState(() => localStorage.getItem('wr-last-source') || null);
 
+  const visibleStories = React.useMemo(() => {
+    if (blacklist.size === 0) return stories;
+    const words = [...blacklist].map(w => w.toLowerCase());
+    return stories.filter(s =>
+      !words.some(w => s.title.toLowerCase().includes(w) || s.content.toLowerCase().includes(w))
+    );
+  }, [stories, blacklist]);
+
   const storiesBySource = React.useMemo(() => {
     const map = {};
-    for (const story of stories) {
+    for (const story of visibleStories) {
       if (!map[story.source]) map[story.source] = [];
       map[story.source].push(story);
     }
     return map;
-  }, [stories]);
+  }, [visibleStories]);
 
   const sources = React.useMemo(() =>
     Object.entries(storiesBySource).map(([id, list]) => ({
@@ -128,7 +140,7 @@ const GrimmMarchenApp = () => {
   , [storiesBySource]);
 
   const filteredStories = searchTerm
-    ? stories.filter(s => s.title.toLowerCase().includes(searchTerm.toLowerCase()))
+    ? visibleStories.filter(s => s.title.toLowerCase().includes(searchTerm.toLowerCase()))
     : [];
 
   // Persist typography settings
@@ -328,6 +340,7 @@ const GrimmMarchenApp = () => {
   const _rawHighContrastTheme  = useBooleanFlagValue('high-contrast-theme', false);
   const _rawSpeedReader        = useBooleanFlagValue('speed-reader', false);
   const _rawSpeedreaderOrp     = useBooleanFlagValue('speedreader-orp', false);
+  const _rawWordBlacklist      = useBooleanFlagValue('word-blacklist', false);
 
   // User feature overrides — stored in localStorage, take precedence over flag defaults
   const [userFeatureOverrides, setUserFeatureOverrides] = useState(
@@ -352,6 +365,7 @@ const GrimmMarchenApp = () => {
   const showHighContrastTheme   = _o('high-contrast-theme',   _rawHighContrastTheme);
   const showSpeedReader         = _o('speed-reader',          _rawSpeedReader);
   const showSpeedreaderOrp      = _o('speedreader-orp',        _rawSpeedreaderOrp);
+  const showWordBlacklist       = _o('word-blacklist',          _rawWordBlacklist);
 
   // Raw values keyed by feature key — used in profile feature toggles
   const _rawFlagValues = {
@@ -364,6 +378,7 @@ const GrimmMarchenApp = () => {
     'high-contrast-theme': _rawHighContrastTheme,
     'speed-reader': _rawSpeedReader,
     'speedreader-orp': _rawSpeedreaderOrp,
+    'word-blacklist': _rawWordBlacklist,
   };
 
   const [favoritesOnly, setFavoritesOnly] = useState(() => localStorage.getItem('wr-favorites-only') === 'true');
@@ -410,6 +425,7 @@ const GrimmMarchenApp = () => {
   useEffect(() => { localStorage.setItem('wr-favorites-only', favoritesOnly); }, [favoritesOnly]);
   useEffect(() => { localStorage.setItem('wr-completed', JSON.stringify([...completedStories])); }, [completedStories]);
   useEffect(() => { localStorage.setItem('wr-variant-prefs', JSON.stringify(variantPrefs)); }, [variantPrefs]);
+  useEffect(() => { localStorage.setItem('wr-blacklist', JSON.stringify([...blacklist])); }, [blacklist]);
   useEffect(() => { localStorage.setItem('wr-last-source', activeSource ?? ''); }, [activeSource]);
   useEffect(() => {
     if (!selectedStory) return;
@@ -468,6 +484,17 @@ const GrimmMarchenApp = () => {
     });
   }, []);
 
+  const addBlacklistWord = useCallback(() => {
+    const word = blacklistInput.trim().toLowerCase();
+    if (!word) return;
+    setBlacklist(prev => new Set([...prev, word]));
+    setBlacklistInput('');
+  }, [blacklistInput]);
+
+  const removeBlacklistWord = useCallback((word) => {
+    setBlacklist(prev => { const next = new Set(prev); next.delete(word); return next; });
+  }, []);
+
   const handleShare = useCallback((story) => {
     const text = `„${story.title}"`;
     if (navigator.share) {
@@ -478,8 +505,8 @@ const GrimmMarchenApp = () => {
   }, []);
 
   const favoriteStories = React.useMemo(() =>
-    stories.filter(s => favorites.has(s.id)),
-    [stories, favorites]
+    visibleStories.filter(s => favorites.has(s.id)),
+    [visibleStories, favorites]
   );
 
   const storyWordCount = React.useMemo(() => {
@@ -856,6 +883,65 @@ const GrimmMarchenApp = () => {
                     </div>
                   ))}
                 </div>
+
+                {/* Word Blacklist */}
+                {showWordBlacklist && (
+                  <div className="mt-8">
+                    <h2 className={`text-xs font-semibold uppercase tracking-wider mb-3 px-1 ${
+                      darkMode ? 'text-amber-500' : 'text-amber-600'
+                    }`}>
+                      Wort-Blacklist
+                    </h2>
+                    <div className={`rounded-2xl border ${
+                      darkMode ? 'border-amber-700/30' : 'border-amber-200'
+                    }`}>
+                      <div className={`flex gap-2 px-4 py-3 ${
+                        blacklist.size > 0 ? `border-b ${darkMode ? 'border-amber-700/30' : 'border-amber-200'}` : ''
+                      }`}>
+                        <input
+                          data-testid="blacklist-input"
+                          type="text"
+                          value={blacklistInput}
+                          onChange={e => setBlacklistInput(e.target.value)}
+                          onKeyDown={e => { if (e.key === 'Enter') addBlacklistWord(); }}
+                          placeholder="Wort hinzufügen…"
+                          className={`flex-1 bg-transparent text-sm outline-none placeholder:opacity-40 ${
+                            darkMode ? 'text-amber-100' : 'text-amber-900'
+                          }`}
+                        />
+                        <button
+                          data-testid="blacklist-add"
+                          onClick={addBlacklistWord}
+                          disabled={!blacklistInput.trim()}
+                          className={`px-3 py-1 rounded-lg text-xs font-medium transition-colors disabled:opacity-30 ${
+                            darkMode ? 'bg-amber-700/40 text-amber-200 hover:bg-amber-700/60' : 'bg-amber-100 text-amber-800 hover:bg-amber-200'
+                          }`}
+                        >
+                          Hinzufügen
+                        </button>
+                      </div>
+                      {[...blacklist].map(word => (
+                        <div key={word} className={`flex items-center justify-between px-4 py-2.5 border-b last:border-b-0 ${
+                          darkMode ? 'border-amber-700/30 text-amber-200' : 'border-amber-200 text-amber-900'
+                        }`}>
+                          <span className="text-sm">{word}</span>
+                          <button
+                            data-testid="blacklist-remove"
+                            onClick={() => removeBlacklistWord(word)}
+                            className={`p-1 rounded transition-colors ${
+                              darkMode ? 'text-amber-600 hover:text-amber-400' : 'text-amber-400 hover:text-amber-700'
+                            }`}
+                          >
+                            <X size={14} />
+                          </button>
+                        </div>
+                      ))}
+                    </div>
+                    <p className={`mt-2 px-1 text-xs ${darkMode ? 'text-amber-700' : 'text-amber-500'}`}>
+                      Märchen, die eines dieser Wörter enthalten, werden in der Seitenleiste ausgeblendet.
+                    </p>
+                  </div>
+                )}
 
                 {/* Feature toggles */}
                 <div className="mt-10">

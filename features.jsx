@@ -198,6 +198,17 @@ export const FEATURES = [
     ),
   },
   {
+    key: 'word-blacklist',
+    label: 'Wort-Blacklist',
+    description: 'Wörter eintragen, die du nicht lesen möchtest — Märchen mit diesen Wörtern werden in der Seitenleiste ausgeblendet.',
+    Icon: () => (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
+        <circle cx="12" cy="12" r="10" />
+        <line x1="4.93" y1="4.93" x2="19.07" y2="19.07" />
+      </svg>
+    ),
+  },
+  {
     key: 'simplified-ui',
     label: 'Vereinfachte Ansicht',
     description: 'Blendet erweiterte Einstellungen aus und vergrößert Schaltflächen — für eine übersichtlichere, zugänglichere Bedienung.',

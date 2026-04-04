@@ -535,6 +535,23 @@ const DOCS = {
     tip: 'RSVP-Lesen kann die Lesegeschwindigkeit deutlich steigern, da Augenbewegungen (Sakkaden) entfallen. Es ist jedoch weniger geeignet für Texte, die Reflexion oder Rückblättern erfordern — für Märchen mit linearer Handlung funktioniert es gut.',
   },
 
+  'word-blacklist': {
+    lead: 'Die Wort-Blacklist blendet Märchen, die bestimmte Wörter enthalten, automatisch aus der Seitenleiste aus — nützlich, wenn du bestimmte Themen oder Begriffe vermeiden möchtest.',
+    on: [
+      'Im Profil erscheint ein neuer Bereich „Wort-Blacklist" mit einem Eingabefeld.',
+      'Trage ein Wort ein und bestätige mit „Hinzufügen" oder der Eingabetaste — das Wort wird sofort gespeichert.',
+      'Märchen, deren Titel oder Inhalt dieses Wort enthält (Groß-/Kleinschreibung egal), verschwinden aus der Seitenleiste.',
+      'Die gefilterten Märchen sind nicht gelöscht — sie werden nur ausgeblendet. Entferne das Wort aus der Liste, um sie wieder zu sehen.',
+      'Alle eingetragenen Wörter werden im Browser gespeichert und bleiben beim nächsten Besuch aktiv.',
+    ],
+    off: [
+      'Der Bereich „Wort-Blacklist" ist im Profil nicht sichtbar.',
+      'Alle Märchen werden wie gewohnt angezeigt, unabhängig davon, ob Wörter eingetragen sind.',
+      'Bereits eingetragene Wörter bleiben gespeichert und werden sofort wieder wirksam, sobald die Funktion erneut eingeschaltet wird.',
+    ],
+    tip: 'Die Filterung prüft den gesamten Märchentext, nicht nur den Titel. Ein Wort wie „Blut" blendet also auch Märchen aus, in denen das Wort nur einmal vorkommt.',
+  },
+
   'speedreader-orp': {
     lead: 'Die ORP-Lesemarke (Optimal Recognition Point) hebt einen bestimmten Buchstaben jedes Worts farblich hervor und richtet ihn an einem festen Bildschirmpunkt aus — optionale Führungslinien helfen dem Auge, den Fixationspunkt zu halten.',
     steps: [

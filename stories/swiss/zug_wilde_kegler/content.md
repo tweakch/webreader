@@ -1,5 +1,5 @@
 ---
-title: "Der \r\n            wilde Kegler"
+title: "Der wilde Kegler"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/zug/wilde_kegler.html"
 crawledAt: "2026-04-04T21:39:13.965Z"

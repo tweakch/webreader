@@ -1,5 +1,5 @@
 ---
-title: "Die \r\n            gefährliche Bäckerei"
+title: "Die gefährliche Bäckerei"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/baeckerei.html"
 crawledAt: "2026-04-04T21:28:53.556Z"

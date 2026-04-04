@@ -1,5 +1,5 @@
 ---
-title: "Der \r\n            einäugige Hund"
+title: "Der einäugige Hund"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/einaeugige_hund.html"
 crawledAt: "2026-04-04T21:27:53.158Z"

@@ -1,5 +1,5 @@
 ---
-title: "Die \r\n            nächtlichen Reiter"
+title: "Die nächtlichen Reiter"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/naechtliche_reiter.html"
 crawledAt: "2026-04-04T21:29:54.270Z"

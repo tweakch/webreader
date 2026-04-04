@@ -1,5 +1,5 @@
 ---
-title: "Johann \r\n            Chaldar"
+title: "Johann Chaldar"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/allgemein/johann_chaldar.html"
 crawledAt: "2026-04-04T21:21:06.814Z"

@@ -1,5 +1,5 @@
 ---
-title: "Der \r\n            Markenrücker auf Gaplon"
+title: "Der Markenrücker auf Gaplon"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/gaplon.html"
 crawledAt: "2026-04-04T21:29:10.253Z"

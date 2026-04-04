@@ -1,5 +1,5 @@
 ---
-title: "Die \r\n            Franzosen zaubern"
+title: "Die Franzosen zaubern"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/franzosen_zaubern.html"
 crawledAt: "2026-04-04T21:33:42.535Z"

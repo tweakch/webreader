@@ -1,5 +1,5 @@
 ---
-title: "Das \r\n            Ave Maria auf den Alpen"
+title: "Das Ave Maria auf den Alpen"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/ave_maria.html"
 crawledAt: "2026-04-04T21:32:52.321Z"

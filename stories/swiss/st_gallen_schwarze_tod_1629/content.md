@@ -1,5 +1,5 @@
 ---
-title: "Der \r\n            schwarze Tod, 1629"
+title: "Der schwarze Tod, 1629"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/schwarze_tod_1629.html"
 crawledAt: "2026-04-04T21:26:41.965Z"

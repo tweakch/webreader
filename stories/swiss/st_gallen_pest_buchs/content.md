@@ -1,5 +1,5 @@
 ---
-title: "Die \r\n            Pest"
+title: "Die Pest"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/pest_buchs.html"
 crawledAt: "2026-04-04T21:27:35.659Z"

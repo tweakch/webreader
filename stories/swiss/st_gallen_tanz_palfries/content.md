@@ -1,5 +1,5 @@
 ---
-title: "Der \r\n            Tanz auf Palfries"
+title: "Der Tanz auf Palfries"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/tanz_palfries.html"
 crawledAt: "2026-04-04T21:28:46.108Z"

@@ -1,5 +1,5 @@
 ---
-title: "Der \r\n            weiße Vogel"
+title: "Der weiße Vogel"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/weisse_vogel.html"
 crawledAt: "2026-04-04T21:34:42.755Z"

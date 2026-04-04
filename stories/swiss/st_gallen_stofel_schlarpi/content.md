@@ -1,5 +1,5 @@
 ---
-title: "Der \r\n            Stofel-Schlarpi in der Alp Ladils"
+title: "Der Stofel-Schlarpi in der Alp Ladils"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/stofel_schlarpi.html"
 crawledAt: "2026-04-04T21:31:05.642Z"

@@ -1,5 +1,5 @@
 ---
-title: "Schloss \r\n            Gräplang"
+title: "Schloss Gräplang"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/schloss_graeplang.html"
 crawledAt: "2026-04-04T21:33:55.477Z"

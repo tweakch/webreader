@@ -1,5 +1,5 @@
 ---
-title: "Das \r\n            Totenbein"
+title: "Das Totenbein"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/zug/totenbein.html"
 crawledAt: "2026-04-04T21:39:03.524Z"

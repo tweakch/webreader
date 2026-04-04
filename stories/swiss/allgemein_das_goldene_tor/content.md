@@ -1,5 +1,5 @@
 ---
-title: "Das \r\n            goldene Tor"
+title: "Das goldene Tor"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/allgemein/das_goldene_tor.html"
 crawledAt: "2026-04-04T21:21:14.607Z"

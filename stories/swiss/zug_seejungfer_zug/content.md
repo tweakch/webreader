@@ -1,5 +1,5 @@
 ---
-title: "Die \r\n            Seejungfer von Zug"
+title: "Die Seejungfer von Zug"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/zug/seejungfer_zug.html"
 crawledAt: "2026-04-04T21:38:35.732Z"

@@ -1,5 +1,5 @@
 ---
-title: "2. \r\n            Der Nachttanz am Schallberg"
+title: "2. Der Nachttanz am Schallberg"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/allgemein/nachttanz_schallberg.html"
 crawledAt: "2026-04-04T21:21:26.327Z"

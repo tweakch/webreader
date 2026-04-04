@@ -1,5 +1,5 @@
 ---
-title: "Der \r\n            dumme Riese und das kluge Schneiderlein"
+title: "Der dumme Riese und das kluge Schneiderlein"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/allgemein/riese_schneiderlein.html"
 crawledAt: "2026-04-04T21:21:12.457Z"

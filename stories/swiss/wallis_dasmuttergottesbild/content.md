@@ -1,5 +1,5 @@
 ---
-title: "Das \r\n            Muttergottesbild am Felsen"
+title: "Das Muttergottesbild am Felsen"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/wallis/dasmuttergottesbild.html"
 crawledAt: "2026-04-04T21:37:19.071Z"

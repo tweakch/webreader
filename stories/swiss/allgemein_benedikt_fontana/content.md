@@ -1,5 +1,5 @@
 ---
-title: "1. \r\n            Benedikt Fontana"
+title: "1. Benedikt Fontana"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/allgemein/benedikt_fontana.html"
 crawledAt: "2026-04-04T21:21:34.578Z"

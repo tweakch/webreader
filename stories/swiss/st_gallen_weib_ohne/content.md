@@ -1,5 +1,5 @@
 ---
-title: "Das \r\n            Weib ohne Kopf"
+title: "Das Weib ohne Kopf"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/weib_ohne.html"
 crawledAt: "2026-04-04T21:27:55.464Z"

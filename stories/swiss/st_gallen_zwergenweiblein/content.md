@@ -1,5 +1,5 @@
 ---
-title: "Das \r\n            Zwergenweiblein zu Fontanix"
+title: "Das Zwergenweiblein zu Fontanix"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/zwergenweiblein.html"
 crawledAt: "2026-04-04T21:29:56.551Z"

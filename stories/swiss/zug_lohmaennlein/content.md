@@ -1,5 +1,5 @@
 ---
-title: "Das \r\n            Lohmännlein"
+title: "Das Lohmännlein"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/zug/lohmaennlein.html"
 crawledAt: "2026-04-04T21:40:13.623Z"

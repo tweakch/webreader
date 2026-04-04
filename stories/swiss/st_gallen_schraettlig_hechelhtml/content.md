@@ -1,5 +1,5 @@
 ---
-title: "Der \r\n            Schrättlig auf der Hechel"
+title: "Der Schrättlig auf der Hechel"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/schraettlig_hechelhtml.html"
 crawledAt: "2026-04-04T21:28:33.780Z"

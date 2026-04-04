@@ -1,5 +1,5 @@
 ---
-title: "Die \r\n            Erdmännchen und die Hebamme"
+title: "Die Erdmännchen und die Hebamme"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/zug/hebamme.html"
 crawledAt: "2026-04-04T21:40:54.171Z"

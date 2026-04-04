@@ -1,5 +1,5 @@
 ---
-title: "Die \r\n            Bättnerberger lernen das Holzfällen"
+title: "Die Bättnerberger lernen das Holzfällen"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/battnerberger.html"
 crawledAt: "2026-04-04T21:30:44.604Z"

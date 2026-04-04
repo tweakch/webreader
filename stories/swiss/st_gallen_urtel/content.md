@@ -1,5 +1,5 @@
 ---
-title: "Das \r\n            Urtel"
+title: "Das Urtel"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/urtel.html"
 crawledAt: "2026-04-04T21:29:19.999Z"

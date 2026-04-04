@@ -1,5 +1,5 @@
 ---
-title: "Die \r\n            Vergebung der Schuld"
+title: "Die Vergebung der Schuld"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/uri/dievergebung.html"
 crawledAt: "2026-04-04T21:37:14.285Z"

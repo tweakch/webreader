@@ -1,5 +1,5 @@
 ---
-title: "Die \r\n            Zigeuner können mehr als andere Leute"
+title: "Die Zigeuner können mehr als andere Leute"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/zigeuner.html"
 crawledAt: "2026-04-04T21:26:25.126Z"

@@ -1,5 +1,5 @@
 ---
-title: "Beim \r\n            Schutzenbirnbaum"
+title: "Beim Schutzenbirnbaum"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/schutzenbirnbaum.html"
 crawledAt: "2026-04-04T21:25:58.725Z"

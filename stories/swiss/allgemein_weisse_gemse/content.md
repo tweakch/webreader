@@ -1,5 +1,5 @@
 ---
-title: "Die \r\n            weiße Gemse"
+title: "Die weiße Gemse"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/allgemein/weisse_gemse.html"
 crawledAt: "2026-04-04T21:21:16.804Z"

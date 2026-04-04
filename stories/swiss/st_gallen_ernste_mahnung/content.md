@@ -1,5 +1,5 @@
 ---
-title: "Ernste \r\n            Mahnung"
+title: "Ernste Mahnung"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/ernste_mahnung.html"
 crawledAt: "2026-04-04T21:32:57.941Z"

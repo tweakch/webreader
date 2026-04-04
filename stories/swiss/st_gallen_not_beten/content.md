@@ -1,5 +1,5 @@
 ---
-title: "Wie \r\n            man in der Not beten lernt"
+title: "Wie man in der Not beten lernt"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/not_beten.html"
 crawledAt: "2026-04-04T21:27:58.808Z"

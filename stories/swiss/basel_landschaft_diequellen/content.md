@@ -1,5 +1,5 @@
 ---
-title: "Die \r\n            Quellen der Schafmatt"
+title: "Die Quellen der Schafmatt"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/basel_landschaft/diequellen.html"
 crawledAt: "2026-04-04T21:22:51.501Z"

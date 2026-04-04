@@ -1,5 +1,5 @@
 ---
-title: "Der \r\n            Drache am Hirschensprung"
+title: "Der Drache am Hirschensprung"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/hirschensprung.html"
 crawledAt: "2026-04-04T21:26:16.807Z"

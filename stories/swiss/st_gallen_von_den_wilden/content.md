@@ -1,5 +1,5 @@
 ---
-title: "Von \r\n            den wilden Leuten"
+title: "Von den wilden Leuten"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/von_den_wilden.html"
 crawledAt: "2026-04-04T21:33:45.269Z"

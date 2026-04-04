@@ -1,5 +1,5 @@
 ---
-title: "Die \r\n            St. Galler Mönche erbeten Wein"
+title: "Die St. Galler Mönche erbeten Wein"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/diestgallermoenche.html"
 crawledAt: "2026-04-04T21:23:32.462Z"

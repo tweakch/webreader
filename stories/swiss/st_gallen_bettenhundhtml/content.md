@@ -1,5 +1,5 @@
 ---
-title: "Der \r\n            Bettenhund"
+title: "Der Bettenhund"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/bettenhundhtml.html"
 crawledAt: "2026-04-04T21:25:51.456Z"

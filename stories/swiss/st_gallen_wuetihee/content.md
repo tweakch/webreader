@@ -1,5 +1,5 @@
 ---
-title: "Das \r\n            Wuetihee"
+title: "Das Wuetihee"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/wuetihee.html"
 crawledAt: "2026-04-04T21:25:24.049Z"

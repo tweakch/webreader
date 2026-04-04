@@ -1,5 +1,5 @@
 ---
-title: "Der \r\n            Beusch"
+title: "Der Beusch"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/besuch.html"
 crawledAt: "2026-04-04T21:33:20.552Z"

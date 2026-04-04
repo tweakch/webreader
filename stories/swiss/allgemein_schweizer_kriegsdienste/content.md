@@ -1,5 +1,5 @@
 ---
-title: "Die \r\n            Schweizer in fremden Kriegsdiensten"
+title: "Die Schweizer in fremden Kriegsdiensten"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/allgemein/schweizer_kriegsdienste.html"
 crawledAt: "2026-04-04T21:22:11.241Z"

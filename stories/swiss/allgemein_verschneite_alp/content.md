@@ -1,5 +1,5 @@
 ---
-title: "Die \r\n            verschneite Alp"
+title: "Die verschneite Alp"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/allgemein/verschneite_alp.html"
 crawledAt: "2026-04-04T21:20:45.987Z"

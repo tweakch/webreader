@@ -1,5 +1,5 @@
 ---
-title: "Die \r\n            schnelle Post"
+title: "Die schnelle Post"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/schnelle_post.html"
 crawledAt: "2026-04-04T21:26:53.412Z"

@@ -1,5 +1,5 @@
 ---
-title: "Die \r\n            freien Walser"
+title: "Die freien Walser"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/walser_frei.html"
 crawledAt: "2026-04-04T21:32:13.357Z"

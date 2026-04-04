@@ -1,5 +1,5 @@
 ---
-title: "Der \r\n            Geiger zu Fursch"
+title: "Der Geiger zu Fursch"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/geiger_fursch.html"
 crawledAt: "2026-04-04T21:34:20.974Z"

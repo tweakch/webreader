@@ -1,5 +1,5 @@
 ---
-title: "Der \r\n            Riese"
+title: "Der Riese"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/riese_sevelen.html"
 crawledAt: "2026-04-04T21:28:15.221Z"

@@ -1,5 +1,5 @@
 ---
-title: "Der \r\n            Egelsee"
+title: "Der Egelsee"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/egelsee.html"
 crawledAt: "2026-04-04T21:26:21.648Z"

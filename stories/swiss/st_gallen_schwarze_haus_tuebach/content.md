@@ -1,5 +1,5 @@
 ---
-title: "Das \r\n            schwarze Haus"
+title: "Das schwarze Haus"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/schwarze_haus_tuebach.html"
 crawledAt: "2026-04-04T21:24:17.608Z"

@@ -1,5 +1,5 @@
 ---
-title: "Die \r\n            Zwerge von Forsteck"
+title: "Die Zwerge von Forsteck"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/zwerge_forstes.html"
 crawledAt: "2026-04-04T21:26:29.729Z"

@@ -1,5 +1,5 @@
 ---
-title: "Zu \r\n            den Toten gerufen"
+title: "Zu den Toten gerufen"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/zu_toten.html"
 crawledAt: "2026-04-04T21:29:52.358Z"

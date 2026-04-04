@@ -1,5 +1,5 @@
 ---
-title: "Der \r\n            verschwundene Herzog"
+title: "Der verschwundene Herzog"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/allgemein/verschwundene_herzog.html"
 crawledAt: "2026-04-04T21:21:22.699Z"

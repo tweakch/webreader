@@ -1,5 +1,5 @@
 ---
-title: "Es \r\n            ging doch"
+title: "Es ging doch"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/es.html"
 crawledAt: "2026-04-04T21:25:19.047Z"

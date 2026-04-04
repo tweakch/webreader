@@ -1,5 +1,5 @@
 ---
-title: "Kapelle \r\n            Splee"
+title: "Kapelle Splee"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/splee.html"
 crawledAt: "2026-04-04T21:29:40.638Z"

@@ -1,5 +1,5 @@
 ---
-title: "Der \r\n            feurige Drache in der Alp Maltschül"
+title: "Der feurige Drache in der Alp Maltschül"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/feurige_drache.html"
 crawledAt: "2026-04-04T21:27:51.783Z"

@@ -1,5 +1,5 @@
 ---
-title: "Der \r\n            Geiger auf dem Galgen"
+title: "Der Geiger auf dem Galgen"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/geiger_galgen.html"
 crawledAt: "2026-04-04T21:29:50.563Z"

@@ -1,5 +1,5 @@
 ---
-title: "Die \r\n            Pest, 1629"
+title: "Die Pest, 1629"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/pest_gretschins.html"
 crawledAt: "2026-04-04T21:28:38.637Z"

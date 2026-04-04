@@ -1,5 +1,5 @@
 ---
-title: "2. \r\n            Die drei Rosse"
+title: "2. Die drei Rosse"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/allgemein/drei_rosse.html"
 crawledAt: "2026-04-04T21:20:59.708Z"

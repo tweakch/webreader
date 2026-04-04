@@ -1,5 +1,5 @@
 ---
-title: "Die \r\n            Kröten"
+title: "Die Kröten"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/kroeten.html"
 crawledAt: "2026-04-04T21:24:47.676Z"

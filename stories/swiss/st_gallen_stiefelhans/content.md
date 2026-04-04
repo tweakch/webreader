@@ -1,5 +1,5 @@
 ---
-title: "Der \r\n            Stiefelhans"
+title: "Der Stiefelhans"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/stiefelhans.html"
 crawledAt: "2026-04-04T21:26:14.511Z"

@@ -1,5 +1,5 @@
 ---
-title: "Der \r\n            geheimnisvolle Krämer"
+title: "Der geheimnisvolle Krämer"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/kraemer.html"
 crawledAt: "2026-04-04T21:30:41.721Z"

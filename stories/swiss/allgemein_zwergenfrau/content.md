@@ -1,5 +1,5 @@
 ---
-title: "Die \r\n            Zwergenfrau"
+title: "Die Zwergenfrau"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/allgemein/zwergenfrau.html"
 crawledAt: "2026-04-04T21:22:08.301Z"

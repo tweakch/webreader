@@ -1,5 +1,5 @@
 ---
-title: "Auf \r\n            der Alp Fursch"
+title: "Auf der Alp Fursch"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/alp_fursch.html"
 crawledAt: "2026-04-04T21:34:23.391Z"

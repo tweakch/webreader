@@ -1,5 +1,5 @@
 ---
-title: "Der \r\n            böse Schlossherr"
+title: "Der böse Schlossherr"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/boese_schlossherr.html"
 crawledAt: "2026-04-04T21:33:53.323Z"

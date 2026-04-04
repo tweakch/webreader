@@ -1,5 +1,5 @@
 ---
-title: "Der \r\n            Reiter in der Alp Farnboden"
+title: "Der Reiter in der Alp Farnboden"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/reiter_farnboden.html"
 crawledAt: "2026-04-04T21:27:57.107Z"

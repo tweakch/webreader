@@ -1,5 +1,5 @@
 ---
-title: "Die \r\n            Verbannten am Morgarten"
+title: "Die Verbannten am Morgarten"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/zug/morgarten.html"
 crawledAt: "2026-04-04T21:38:30.627Z"

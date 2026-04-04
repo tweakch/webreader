@@ -1,5 +1,5 @@
 ---
-title: "Der \r\n            starke Wein"
+title: "Der starke Wein"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/zug/wein.html"
 crawledAt: "2026-04-04T21:39:50.609Z"

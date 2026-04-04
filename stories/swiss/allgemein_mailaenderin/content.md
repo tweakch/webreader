@@ -1,5 +1,5 @@
 ---
-title: "Die \r\n            vornehme Mailänderin"
+title: "Die vornehme Mailänderin"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/allgemein/mailaenderin.html"
 crawledAt: "2026-04-04T21:22:36.487Z"

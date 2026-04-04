@@ -1,5 +1,5 @@
 ---
-title: "Die \r\n            \"gstellten\" Ziegen"
+title: "Die \"gstellten\" Ziegen"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/ziegen.html"
 crawledAt: "2026-04-04T21:28:26.082Z"

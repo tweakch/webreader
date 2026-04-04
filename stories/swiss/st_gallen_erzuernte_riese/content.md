@@ -1,5 +1,5 @@
 ---
-title: "Der \r\n            erzürnte Riese"
+title: "Der erzürnte Riese"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/erzuernte_riese.html"
 crawledAt: "2026-04-04T21:31:22.130Z"

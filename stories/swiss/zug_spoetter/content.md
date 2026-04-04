@@ -1,5 +1,5 @@
 ---
-title: "Der \r\n            frevle Spötter"
+title: "Der frevle Spötter"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/zug/spoetter.html"
 crawledAt: "2026-04-04T21:38:34.067Z"

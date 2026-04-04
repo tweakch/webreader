@@ -1,5 +1,5 @@
 ---
-title: "Pest, \r\n            1620"
+title: "Pest, 1620"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/pest_1620.html"
 crawledAt: "2026-04-04T21:26:07.033Z"

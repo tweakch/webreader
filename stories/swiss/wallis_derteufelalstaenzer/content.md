@@ -1,5 +1,5 @@
 ---
-title: "Der \r\n            Teufel als Tänzer"
+title: "Der Teufel als Tänzer"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/wallis/derteufelalstaenzer.html"
 crawledAt: "2026-04-04T21:37:30.111Z"

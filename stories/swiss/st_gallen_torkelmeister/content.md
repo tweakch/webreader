@@ -1,5 +1,5 @@
 ---
-title: "Der \r\n            untreue Torkelmeister"
+title: "Der untreue Torkelmeister"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/torkelmeister.html"
 crawledAt: "2026-04-04T21:25:21.987Z"

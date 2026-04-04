@@ -1,5 +1,5 @@
 ---
-title: "Die \r\n            Vorladung ins Tal Josaphat"
+title: "Die Vorladung ins Tal Josaphat"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/josaphat.html"
 crawledAt: "2026-04-04T21:33:07.176Z"

@@ -1,5 +1,5 @@
 ---
-title: "Aus \r\n            der Hungerzeit"
+title: "Aus der Hungerzeit"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/hungerzeit.html"
 crawledAt: "2026-04-04T21:25:26.961Z"

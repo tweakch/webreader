@@ -1,5 +1,5 @@
 ---
-title: "Die \r\n            fromme Klausnerin von Schönbrunn"
+title: "Die fromme Klausnerin von Schönbrunn"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/zug/klausnerin_schoenbrunn.html"
 crawledAt: "2026-04-04T21:39:00.604Z"

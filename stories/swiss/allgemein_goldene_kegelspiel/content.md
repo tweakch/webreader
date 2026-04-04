@@ -1,5 +1,5 @@
 ---
-title: "Das \r\n            goldene Kegelspiel"
+title: "Das goldene Kegelspiel"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/allgemein/goldene_kegelspiel.html"
 crawledAt: "2026-04-04T21:21:04.448Z"

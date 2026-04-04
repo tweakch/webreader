@@ -1,5 +1,5 @@
 ---
-title: "Der \r\n            Fahlmann in der Alp Altsäss"
+title: "Der Fahlmann in der Alp Altsäss"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/fahlmann.html"
 crawledAt: "2026-04-04T21:28:17.087Z"

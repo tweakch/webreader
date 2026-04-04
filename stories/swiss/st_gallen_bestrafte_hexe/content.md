@@ -1,5 +1,5 @@
 ---
-title: "Die \r\n            bestrafte Hexe"
+title: "Die bestrafte Hexe"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/bestrafte_hexe.html"
 crawledAt: "2026-04-04T21:33:34.129Z"

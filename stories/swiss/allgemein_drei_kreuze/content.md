@@ -1,5 +1,5 @@
 ---
-title: "Die \r\n            drei Kreuze"
+title: "Die drei Kreuze"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/allgemein/drei_kreuze.html"
 crawledAt: "2026-04-04T21:22:12.847Z"

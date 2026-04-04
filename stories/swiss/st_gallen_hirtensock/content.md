@@ -1,5 +1,5 @@
 ---
-title: "Die \r\n            Milch im Hirtenstock"
+title: "Die Milch im Hirtenstock"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/hirtensock.html"
 crawledAt: "2026-04-04T21:33:16.788Z"

@@ -1,5 +1,5 @@
 ---
-title: "Die \r\n            Gründung des Klosters"
+title: "Die Gründung des Klosters"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/gruendung_kloster.html"
 crawledAt: "2026-04-04T21:30:36.157Z"

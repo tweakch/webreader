@@ -1,5 +1,5 @@
 ---
-title: "Wie \r\n            die warme Quelle entdeckt wurde"
+title: "Wie die warme Quelle entdeckt wurde"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/warme_quelle.html"
 crawledAt: "2026-04-04T21:30:38.079Z"

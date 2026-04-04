@@ -1,5 +1,5 @@
 ---
-title: "Die \r\n            Erlösung von den Giftschlangen"
+title: "Die Erlösung von den Giftschlangen"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/erloesung_giftschlangen.html"
 crawledAt: "2026-04-04T21:31:56.781Z"

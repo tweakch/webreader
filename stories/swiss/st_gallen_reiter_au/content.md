@@ -1,5 +1,5 @@
 ---
-title: "Der \r\n            unheimliche Reiter"
+title: "Der unheimliche Reiter"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/reiter_au.html"
 crawledAt: "2026-04-04T21:25:10.384Z"

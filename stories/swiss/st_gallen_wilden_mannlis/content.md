@@ -1,5 +1,5 @@
 ---
-title: "Des \r\n            \"wilden Mannlis\" Dankbarkeit"
+title: "Des \"wilden Mannlis\" Dankbarkeit"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/wilden_mannlis.html"
 crawledAt: "2026-04-04T21:30:43.139Z"

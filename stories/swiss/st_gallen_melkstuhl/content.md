@@ -1,5 +1,5 @@
 ---
-title: "Der \r\n            vergessene Melkstuhl"
+title: "Der vergessene Melkstuhl"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/melkstuhl.html"
 crawledAt: "2026-04-04T21:32:34.984Z"

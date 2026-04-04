@@ -1,5 +1,5 @@
 ---
-title: "Der \r\n            Allmendgeist von Ägeri"
+title: "Der Allmendgeist von Ägeri"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/zug/allmendgeist.html"
 crawledAt: "2026-04-04T21:39:32.694Z"

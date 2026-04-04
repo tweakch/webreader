@@ -1,5 +1,5 @@
 ---
-title: "Der \r\n            heilige Martin"
+title: "Der heilige Martin"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/martin.html"
 crawledAt: "2026-04-04T21:31:20.465Z"

@@ -1,5 +1,5 @@
 ---
-title: "Die \r\n            Plöhligeiß"
+title: "Die Plöhligeiß"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/ploehligeiss.html"
 crawledAt: "2026-04-04T21:26:18.182Z"

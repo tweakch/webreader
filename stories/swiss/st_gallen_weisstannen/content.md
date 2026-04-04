@@ -1,5 +1,5 @@
 ---
-title: "Die \r\n            Pest in Weißtannen, 1611"
+title: "Die Pest in Weißtannen, 1611"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/weisstannen.html"
 crawledAt: "2026-04-04T21:32:15.637Z"

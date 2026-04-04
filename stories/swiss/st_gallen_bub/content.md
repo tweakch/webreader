@@ -1,5 +1,5 @@
 ---
-title: "Der \r\n            unerschrockene Bub"
+title: "Der unerschrockene Bub"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/bub.html"
 crawledAt: "2026-04-04T21:34:18.462Z"

@@ -1,5 +1,5 @@
 ---
-title: "Sichere \r\n            Hilfe"
+title: "Sichere Hilfe"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/sicher_hilfe.html"
 crawledAt: "2026-04-04T21:25:32.544Z"

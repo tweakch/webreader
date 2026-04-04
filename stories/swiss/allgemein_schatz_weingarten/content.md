@@ -1,5 +1,5 @@
 ---
-title: "Der \r\n            Schatz zu Weingarten"
+title: "Der Schatz zu Weingarten"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/allgemein/schatz_weingarten.html"
 crawledAt: "2026-04-04T21:21:50.934Z"

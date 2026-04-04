@@ -1,5 +1,5 @@
 ---
-title: "Das \r\n            Plattenwibli"
+title: "Das Plattenwibli"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/plattenwibli.html"
 crawledAt: "2026-04-04T21:28:18.384Z"

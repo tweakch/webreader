@@ -1,5 +1,5 @@
 ---
-title: "Der \r\n            Spielmann zu Sankt Gallen"
+title: "Der Spielmann zu Sankt Gallen"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/derspielmanzustgallen.html"
 crawledAt: "2026-04-04T21:23:34.589Z"

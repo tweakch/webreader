@@ -1,5 +1,5 @@
 ---
-title: "Die \r\n            Spinnerin im Lafadarschwalde"
+title: "Die Spinnerin im Lafadarschwalde"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/spinnerin.html"
 crawledAt: "2026-04-04T21:29:05.453Z"

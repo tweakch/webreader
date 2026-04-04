@@ -1,5 +1,5 @@
 ---
-title: "Die \r\n            Frau im Äsch"
+title: "Die Frau im Äsch"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/zug/aesch.html"
 crawledAt: "2026-04-04T21:40:01.642Z"

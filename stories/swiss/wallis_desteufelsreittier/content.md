@@ -1,5 +1,5 @@
 ---
-title: "Des \r\n            Teufels Reittier"
+title: "Des Teufels Reittier"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/wallis/desteufelsreittier.html"
 crawledAt: "2026-04-04T21:37:31.469Z"

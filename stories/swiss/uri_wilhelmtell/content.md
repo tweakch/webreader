@@ -1,5 +1,5 @@
 ---
-title: "Wilhelm \r\n            Tell"
+title: "Wilhelm Tell"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/uri/wilhelmtell.html"
 crawledAt: "2026-04-04T21:36:52.602Z"

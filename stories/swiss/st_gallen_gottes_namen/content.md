@@ -1,5 +1,5 @@
 ---
-title: "In \r\n            Gottes Namen"
+title: "In Gottes Namen"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/gottes_namen.html"
 crawledAt: "2026-04-04T21:34:37.995Z"

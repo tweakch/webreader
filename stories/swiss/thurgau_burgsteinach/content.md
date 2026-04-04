@@ -1,5 +1,5 @@
 ---
-title: "Burg \r\n            Steinach"
+title: "Burg Steinach"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/thurgau/burgsteinach.html"
 crawledAt: "2026-04-04T21:36:51.698Z"

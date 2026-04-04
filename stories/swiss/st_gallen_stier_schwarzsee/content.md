@@ -1,5 +1,5 @@
 ---
-title: "Der \r\n            wilde Stier am Schwarzsee"
+title: "Der wilde Stier am Schwarzsee"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/stier_schwarzsee.html"
 crawledAt: "2026-04-04T21:30:06.572Z"

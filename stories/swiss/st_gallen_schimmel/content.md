@@ -1,5 +1,5 @@
 ---
-title: "Den \r\n            verwünschten Schimmel nicht"
+title: "Den verwünschten Schimmel nicht"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/schimmel.html"
 crawledAt: "2026-04-04T21:33:00.430Z"

@@ -1,5 +1,5 @@
 ---
-title: "'s \r\n            Tufmannli"
+title: "'s Tufmannli"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/tufmannli.html"
 crawledAt: "2026-04-04T21:28:41.251Z"

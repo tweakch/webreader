@@ -1,5 +1,5 @@
 ---
-title: "Die \r\n            fliegende Viper"
+title: "Die fliegende Viper"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/allgemein/viper.html"
 crawledAt: "2026-04-04T21:22:17.735Z"

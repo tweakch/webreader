@@ -1,5 +1,5 @@
 ---
-title: "Ein \r\n            unseliger Abt"
+title: "Ein unseliger Abt"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/abt.html"
 crawledAt: "2026-04-04T21:30:40.626Z"

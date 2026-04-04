@@ -1,5 +1,5 @@
 ---
-title: "Das \r\n            Echo am Lauiberg"
+title: "Das Echo am Lauiberg"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/allgemein/lauiberg.html"
 crawledAt: "2026-04-04T21:22:19.519Z"

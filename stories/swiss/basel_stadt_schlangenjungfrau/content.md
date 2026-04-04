@@ -1,5 +1,5 @@
 ---
-title: "Die \r\n            Schlangenjungfrau"
+title: "Die Schlangenjungfrau"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/basel_stadt/schlangenjungfrau.html"
 crawledAt: "2026-04-04T21:22:52.580Z"

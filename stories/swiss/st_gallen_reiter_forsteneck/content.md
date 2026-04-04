@@ -1,5 +1,5 @@
 ---
-title: "Der \r\n            Reiter beim Schloß Forsteck"
+title: "Der Reiter beim Schloß Forsteck"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/reiter_forsteneck.html"
 crawledAt: "2026-04-04T21:26:35.051Z"

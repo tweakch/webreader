@@ -1,5 +1,5 @@
 ---
-title: "1. \r\n            Das Nachtpferd Zawudschawu"
+title: "1. Das Nachtpferd Zawudschawu"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/allgemein/zawudschawu.html"
 crawledAt: "2026-04-04T21:20:57.371Z"

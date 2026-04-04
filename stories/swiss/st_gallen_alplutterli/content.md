@@ -1,5 +1,5 @@
 ---
-title: "Das \r\n            Alpmutterli"
+title: "Das Alpmutterli"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/alplutterli.html"
 crawledAt: "2026-04-04T21:32:48.329Z"

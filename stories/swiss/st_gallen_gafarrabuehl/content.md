@@ -1,5 +1,5 @@
 ---
-title: "Der \r\n            Hexentanz auf dem Gafarrabühl"
+title: "Der Hexentanz auf dem Gafarrabühl"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/gafarrabuehl.html"
 crawledAt: "2026-04-04T21:33:21.801Z"

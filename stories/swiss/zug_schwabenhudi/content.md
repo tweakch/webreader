@@ -1,5 +1,5 @@
 ---
-title: "Das \r\n            Schwabenhudi"
+title: "Das Schwabenhudi"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/zug/schwabenhudi.html"
 crawledAt: "2026-04-04T21:40:39.545Z"

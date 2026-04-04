@@ -1,5 +1,5 @@
 ---
-title: "Die \r\n            Nonne von Steinhausen"
+title: "Die Nonne von Steinhausen"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/zug/steinhausen.html"
 crawledAt: "2026-04-04T21:38:52.553Z"

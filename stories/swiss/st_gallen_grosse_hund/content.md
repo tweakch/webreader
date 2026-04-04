@@ -1,5 +1,5 @@
 ---
-title: "Der \r\n            große Hund"
+title: "Der große Hund"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/grosse_hund.html"
 crawledAt: "2026-04-04T21:26:11.394Z"

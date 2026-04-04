@@ -1,5 +1,5 @@
 ---
-title: "Mit \r\n            verdrehtem Kopf"
+title: "Mit verdrehtem Kopf"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/mit_kopf.html"
 crawledAt: "2026-04-04T21:27:16.213Z"

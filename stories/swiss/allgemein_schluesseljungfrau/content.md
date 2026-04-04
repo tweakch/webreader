@@ -1,5 +1,5 @@
 ---
-title: "Die \r\n            Schlüsseljungfrau"
+title: "Die Schlüsseljungfrau"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/allgemein/schluesseljungfrau.html"
 crawledAt: "2026-04-04T21:22:23.273Z"

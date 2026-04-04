@@ -1,5 +1,5 @@
 ---
-title: "Auch \r\n            das Wasser bannt er"
+title: "Auch das Wasser bannt er"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/auch_das_wasser.html"
 crawledAt: "2026-04-04T21:25:34.161Z"

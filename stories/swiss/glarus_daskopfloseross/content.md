@@ -1,5 +1,5 @@
 ---
-title: "Das \r\n            kopflose Roß, der Geißer, der Fäyer"
+title: "Das kopflose Roß, der Geißer, der Fäyer"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/glarus/daskopfloseross.html"
 crawledAt: "2026-04-04T21:22:59.102Z"

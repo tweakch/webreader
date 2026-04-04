@@ -1,5 +1,5 @@
 ---
-title: "Das \r\n            Kloster zu Neuheim"
+title: "Das Kloster zu Neuheim"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/zug/kloster_neuheim.html"
 crawledAt: "2026-04-04T21:38:56.685Z"

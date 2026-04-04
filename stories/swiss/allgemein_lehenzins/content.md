@@ -1,5 +1,5 @@
 ---
-title: "Der \r\n            Lehenzins"
+title: "Der Lehenzins"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/allgemein/lehenzins.html"
 crawledAt: "2026-04-04T21:20:52.554Z"

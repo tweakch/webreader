@@ -1,5 +1,5 @@
 ---
-title: "Die \r\n            Ratte am Zytturm"
+title: "Die Ratte am Zytturm"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/zug/zytturm.html"
 crawledAt: "2026-04-04T21:40:10.597Z"

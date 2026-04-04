@@ -1,5 +1,5 @@
 ---
-title: "Auf \r\n            und fort"
+title: "Auf und fort"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/auf_fort.html"
 crawledAt: "2026-04-04T21:33:47.584Z"

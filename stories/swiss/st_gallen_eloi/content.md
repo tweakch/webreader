@@ -1,5 +1,5 @@
 ---
-title: "St. \r\n            Eloi"
+title: "St. Eloi"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/eloi.html"
 crawledAt: "2026-04-04T21:29:29.047Z"

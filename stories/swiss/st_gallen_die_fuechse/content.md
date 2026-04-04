@@ -1,5 +1,5 @@
 ---
-title: "Die \r\n            Füchse"
+title: "Die Füchse"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/die_fuechse.html"
 crawledAt: "2026-04-04T21:33:32.558Z"

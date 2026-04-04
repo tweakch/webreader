@@ -1,5 +1,5 @@
 ---
-title: "Das \r\n            Tuch voll Weizen"
+title: "Das Tuch voll Weizen"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/tuch_voll.html"
 crawledAt: "2026-04-04T21:29:00.968Z"

@@ -1,5 +1,5 @@
 ---
-title: "Der \r\n            Meinrads-Stein"
+title: "Der Meinrads-Stein"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/zug/meinrads_stein.html"
 crawledAt: "2026-04-04T21:38:08.761Z"

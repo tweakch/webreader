@@ -1,5 +1,5 @@
 ---
-title: "Die \r\n            verhexten Kühe"
+title: "Die verhexten Kühe"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/verhexte_kuehe.html"
 crawledAt: "2026-04-04T21:34:39.440Z"

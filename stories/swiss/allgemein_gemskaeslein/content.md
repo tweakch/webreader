@@ -1,5 +1,5 @@
 ---
-title: "Das \r\n            Gemskäslein"
+title: "Das Gemskäslein"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/allgemein/gemskaeslein.html"
 crawledAt: "2026-04-04T21:20:54.059Z"

@@ -1,5 +1,5 @@
 ---
-title: "Die \r\n            Zwerge am Gonzen"
+title: "Die Zwerge am Gonzen"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/zwerge_gonzen.html"
 crawledAt: "2026-04-04T21:29:36.592Z"

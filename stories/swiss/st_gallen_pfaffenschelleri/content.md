@@ -1,5 +1,5 @@
 ---
-title: "Die \r\n            Pfaffenchelleri"
+title: "Die Pfaffenchelleri"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/pfaffenschelleri.html"
 crawledAt: "2026-04-04T21:29:13.711Z"

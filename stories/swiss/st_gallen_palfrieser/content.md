@@ -1,5 +1,5 @@
 ---
-title: "Die \r\n            alten Palfrieser"
+title: "Die alten Palfrieser"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/palfrieser.html"
 crawledAt: "2026-04-04T21:28:43.568Z"

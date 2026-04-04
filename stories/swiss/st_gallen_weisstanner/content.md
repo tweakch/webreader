@@ -1,5 +1,5 @@
 ---
-title: "Der \r\n            Venetianer und der Weißtanner"
+title: "Der Venetianer und der Weißtanner"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/weisstanner.html"
 crawledAt: "2026-04-04T21:32:26.623Z"

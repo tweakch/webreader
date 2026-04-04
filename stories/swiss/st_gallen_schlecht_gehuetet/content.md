@@ -1,5 +1,5 @@
 ---
-title: "Schlecht \r\n            gehütet"
+title: "Schlecht gehütet"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/schlecht_gehuetet.html"
 crawledAt: "2026-04-04T21:33:02.046Z"

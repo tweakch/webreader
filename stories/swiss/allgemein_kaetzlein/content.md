@@ -1,5 +1,5 @@
 ---
-title: "Das \r\n            Kätzlein"
+title: "Das Kätzlein"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/allgemein/kaetzlein.html"
 crawledAt: "2026-04-04T21:21:46.298Z"

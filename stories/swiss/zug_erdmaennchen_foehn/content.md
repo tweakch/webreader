@@ -1,5 +1,5 @@
 ---
-title: "Das \r\n            Erdmännchen und der Föhn"
+title: "Das Erdmännchen und der Föhn"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/zug/erdmaennchen_foehn.html"
 crawledAt: "2026-04-04T21:40:56.695Z"

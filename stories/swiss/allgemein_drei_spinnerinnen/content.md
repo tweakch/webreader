@@ -1,5 +1,5 @@
 ---
-title: "Die \r\n            drei Spinnerinnen"
+title: "Die drei Spinnerinnen"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/allgemein/drei_spinnerinnen.html"
 crawledAt: "2026-04-04T21:22:30.489Z"

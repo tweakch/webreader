@@ -1,5 +1,5 @@
 ---
-title: "Das \r\n            Hexlein von Risch"
+title: "Das Hexlein von Risch"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/zug/hexe_risch.html"
 crawledAt: "2026-04-04T21:40:37.331Z"

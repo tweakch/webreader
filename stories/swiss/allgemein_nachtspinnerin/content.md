@@ -1,5 +1,5 @@
 ---
-title: "Die \r\n            Nachtspinnerin"
+title: "Die Nachtspinnerin"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/allgemein/nachtspinnerin.html"
 crawledAt: "2026-04-04T21:22:38.548Z"

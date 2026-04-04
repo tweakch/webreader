@@ -1,5 +1,5 @@
 ---
-title: "Das \r\n            Muoltahee"
+title: "Das Muoltahee"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/muoltahee.html"
 crawledAt: "2026-04-04T21:26:12.547Z"

@@ -1,5 +1,5 @@
 ---
-title: "Die \r\n            Hexe am Fenster"
+title: "Die Hexe am Fenster"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/hexe_fenster.html"
 crawledAt: "2026-04-04T21:28:34.843Z"

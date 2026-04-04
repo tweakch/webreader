@@ -1,5 +1,5 @@
 ---
-title: "Der \r\n            geschundene Senn"
+title: "Der geschundene Senn"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/uri/dergeschundenesenn.html"
 crawledAt: "2026-04-04T21:37:12.248Z"

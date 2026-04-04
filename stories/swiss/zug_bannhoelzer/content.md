@@ -1,5 +1,5 @@
 ---
-title: "Der \r\n            Bannhölzer"
+title: "Der Bannhölzer"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/zug/bannhoelzer.html"
 crawledAt: "2026-04-04T21:39:13.003Z"

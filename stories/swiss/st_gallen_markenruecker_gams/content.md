@@ -1,5 +1,5 @@
 ---
-title: "Der \r\n            Markenrücker"
+title: "Der Markenrücker"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/markenruecker_gams.html"
 crawledAt: "2026-04-04T21:26:39.245Z"

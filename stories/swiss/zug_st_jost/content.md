@@ -1,5 +1,5 @@
 ---
-title: "Meinrad \r\n            auf St.Jost"
+title: "Meinrad auf St.Jost"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/zug/st_jost.html"
 crawledAt: "2026-04-04T21:38:10.168Z"

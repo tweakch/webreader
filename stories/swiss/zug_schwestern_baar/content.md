@@ -1,5 +1,5 @@
 ---
-title: "Die \r\n            Schwestern von Baar"
+title: "Die Schwestern von Baar"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/zug/schwestern_baar.html"
 crawledAt: "2026-04-04T21:38:54.644Z"

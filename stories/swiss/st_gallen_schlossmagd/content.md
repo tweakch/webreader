@@ -1,5 +1,5 @@
 ---
-title: "Das \r\n            \"Helf dr Gott\" der Schlossmagd"
+title: "Das \"Helf dr Gott\" der Schlossmagd"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/schlossmagd.html"
 crawledAt: "2026-04-04T21:34:07.992Z"

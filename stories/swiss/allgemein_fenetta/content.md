@@ -1,5 +1,5 @@
 ---
-title: "Fenetta, \r\n            das Inselfräulein"
+title: "Fenetta, das Inselfräulein"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/allgemein/fenetta.html"
 crawledAt: "2026-04-04T21:22:15.995Z"

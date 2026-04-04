@@ -1,5 +1,5 @@
 ---
-title: "Der \r\n            Gifibuzen"
+title: "Der Gifibuzen"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/allgemein/gifibuzen.html"
 crawledAt: "2026-04-04T21:22:31.847Z"

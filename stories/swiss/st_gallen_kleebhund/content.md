@@ -1,5 +1,5 @@
 ---
-title: "Der \r\n            Kleebhund"
+title: "Der Kleebhund"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/kleebhund.html"
 crawledAt: "2026-04-04T21:24:38.813Z"

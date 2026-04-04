@@ -1,5 +1,5 @@
 ---
-title: "Der \r\n            Geist"
+title: "Der Geist"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/geist_werdenberg.html"
 crawledAt: "2026-04-04T21:27:13.695Z"

@@ -1,5 +1,5 @@
 ---
-title: "Die \r\n            \"Fährlisau\" mit ihren Jungen beim Kropfenbrünneli"
+title: "Die \"Fährlisau\" mit ihren Jungen beim Kropfenbrünneli"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/faehrlisau.html"
 crawledAt: "2026-04-04T21:29:07.795Z"

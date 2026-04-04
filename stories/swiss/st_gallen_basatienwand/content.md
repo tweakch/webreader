@@ -1,5 +1,5 @@
 ---
-title: "An \r\n            der Basatienwand"
+title: "An der Basatienwand"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/basatienwand.html"
 crawledAt: "2026-04-04T21:29:47.124Z"

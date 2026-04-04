@@ -1,5 +1,5 @@
 ---
-title: "Der \r\n            Goldfluh an der Naselawand"
+title: "Der Goldfluh an der Naselawand"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/goldfluh.html"
 crawledAt: "2026-04-04T21:32:30.569Z"

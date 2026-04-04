@@ -1,5 +1,5 @@
 ---
-title: "Die \r\n            Beute von Grandson"
+title: "Die Beute von Grandson"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/allgemein/grandson.html"
 crawledAt: "2026-04-04T21:21:20.683Z"

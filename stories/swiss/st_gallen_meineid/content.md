@@ -1,5 +1,5 @@
 ---
-title: "Der \r\n            Meineid"
+title: "Der Meineid"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/meineid.html"
 crawledAt: "2026-04-04T21:31:18.809Z"

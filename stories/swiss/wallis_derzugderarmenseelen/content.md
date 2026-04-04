@@ -1,5 +1,5 @@
 ---
-title: "Der \r\n            Zug der armen Seelen"
+title: "Der Zug der armen Seelen"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/wallis/derzugderarmenseelen.html"
 crawledAt: "2026-04-04T21:37:28.363Z"

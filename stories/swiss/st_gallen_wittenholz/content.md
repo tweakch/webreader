@@ -1,5 +1,5 @@
 ---
-title: "Im \r\n            Wittenholz"
+title: "Im Wittenholz"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/wittenholz.html"
 crawledAt: "2026-04-04T21:24:13.907Z"

@@ -1,5 +1,5 @@
 ---
-title: "Gründung \r\n            der Stadt Zug"
+title: "Gründung der Stadt Zug"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/zug/gruendungzug.html"
 crawledAt: "2026-04-04T21:37:41.385Z"

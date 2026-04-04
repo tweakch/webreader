@@ -1,5 +1,5 @@
 ---
-title: "Die \r\n            Geisterschlacht"
+title: "Die Geisterschlacht"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/zug/geisterschlacht.html"
 crawledAt: "2026-04-04T21:38:15.076Z"

@@ -1,5 +1,5 @@
 ---
-title: "Das \r\n            Nachtfüllen"
+title: "Das Nachtfüllen"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/nachtfuellen.html"
 crawledAt: "2026-04-04T21:33:37.793Z"

@@ -1,5 +1,5 @@
 ---
-title: "Die \r\n            Toten vom Gubel"
+title: "Die Toten vom Gubel"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/zug/gubel.html"
 crawledAt: "2026-04-04T21:38:48.681Z"

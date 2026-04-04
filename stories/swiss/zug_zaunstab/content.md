@@ -1,5 +1,5 @@
 ---
-title: "Der \r\n            Zaunstab"
+title: "Der Zaunstab"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/zug/zaunstab.html"
 crawledAt: "2026-04-04T21:39:01.575Z"

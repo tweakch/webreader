@@ -1,5 +1,5 @@
 ---
-title: "Der \r\n            Untergang der Schweizergarde in Paris"
+title: "Der Untergang der Schweizergarde in Paris"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/allgemein/schweizergarde.html"
 crawledAt: "2026-04-04T21:22:40.873Z"

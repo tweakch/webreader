@@ -1,5 +1,5 @@
 ---
-title: "Der \r\n            Muggisturz und das wilde Mädchen"
+title: "Der Muggisturz und das wilde Mädchen"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/muggisturz.html"
 crawledAt: "2026-04-04T21:33:49.465Z"

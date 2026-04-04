@@ -1,5 +1,5 @@
 ---
-title: "Das \r\n            missachtete Arbeitstabu"
+title: "Das missachtete Arbeitstabu"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/wallis/dasmissachtetearbeitstabu.html"
 crawledAt: "2026-04-04T21:37:22.418Z"

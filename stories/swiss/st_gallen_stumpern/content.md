@@ -1,5 +1,5 @@
 ---
-title: "Von \r\n            den Stumpern und Markenrückern"
+title: "Von den Stumpern und Markenrückern"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/stumpern.html"
 crawledAt: "2026-04-04T21:27:07.388Z"

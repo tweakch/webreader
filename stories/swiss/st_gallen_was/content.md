@@ -1,5 +1,5 @@
 ---
-title: "Was \r\n            war es?"
+title: "Was war es?"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/was.html"
 crawledAt: "2026-04-04T21:25:47.252Z"

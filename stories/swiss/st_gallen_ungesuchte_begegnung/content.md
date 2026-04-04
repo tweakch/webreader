@@ -1,5 +1,5 @@
 ---
-title: "Eine \r\n            ungesuchte Begegnung"
+title: "Eine ungesuchte Begegnung"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/ungesuchte_begegnung.html"
 crawledAt: "2026-04-04T21:27:17.825Z"

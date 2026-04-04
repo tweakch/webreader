@@ -1,5 +1,5 @@
 ---
-title: "Das \r\n            Bleichi-Mueterli"
+title: "Das Bleichi-Mueterli"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/zug/bleichi.html"
 crawledAt: "2026-04-04T21:39:47.026Z"

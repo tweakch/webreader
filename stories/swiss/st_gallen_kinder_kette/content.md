@@ -1,5 +1,5 @@
 ---
-title: "Zwei \r\n            Rinder in einer Kette"
+title: "Zwei Rinder in einer Kette"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/kinder_kette.html"
 crawledAt: "2026-04-04T21:28:29.510Z"

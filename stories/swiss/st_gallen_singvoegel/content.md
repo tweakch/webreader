@@ -1,5 +1,5 @@
 ---
-title: "Die \r\n            neckischen Singvögel"
+title: "Die neckischen Singvögel"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/singvoegel.html"
 crawledAt: "2026-04-04T21:33:30.310Z"

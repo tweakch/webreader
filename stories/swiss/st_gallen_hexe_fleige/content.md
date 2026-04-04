@@ -1,5 +1,5 @@
 ---
-title: "Die \r\n            Hexe als Fliege"
+title: "Die Hexe als Fliege"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/hexe_fleige.html"
 crawledAt: "2026-04-04T21:27:05.029Z"

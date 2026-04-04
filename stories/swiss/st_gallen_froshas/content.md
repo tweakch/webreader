@@ -1,5 +1,5 @@
 ---
-title: "Der \r\n            Froshas"
+title: "Der Froshas"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/froshas.html"
 crawledAt: "2026-04-04T21:29:31.499Z"

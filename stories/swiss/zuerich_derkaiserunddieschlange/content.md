@@ -1,5 +1,5 @@
 ---
-title: "Der \r\n            Kaiser und die Schlange"
+title: "Der Kaiser und die Schlange"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/zuerich/derkaiserunddieschlange.html"
 crawledAt: "2026-04-04T21:37:32.789Z"

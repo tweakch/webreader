@@ -1,5 +1,5 @@
 ---
-title: "Die \r\n            weisse Frau"
+title: "Die weisse Frau"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/weisse_frau_saragans.html"
 crawledAt: "2026-04-04T21:33:11.825Z"

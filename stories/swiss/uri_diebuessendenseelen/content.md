@@ -1,5 +1,5 @@
 ---
-title: "Die \r\n            büssenden Seelen im Eis"
+title: "Die büssenden Seelen im Eis"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/uri/diebuessendenseelen.html"
 crawledAt: "2026-04-04T21:37:15.891Z"

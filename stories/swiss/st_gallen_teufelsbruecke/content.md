@@ -1,5 +1,5 @@
 ---
-title: "Die \r\n            Teufelsbrücke"
+title: "Die Teufelsbrücke"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/teufelsbruecke.html"
 crawledAt: "2026-04-04T21:25:25.524Z"

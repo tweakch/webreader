@@ -1,5 +1,5 @@
 ---
-title: "Die \r\n            Ochsen auf dem Acker zu Melchtal"
+title: "Die Ochsen auf dem Acker zu Melchtal"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/obwalden/dieochsenaufdemacker.html"
 crawledAt: "2026-04-04T21:23:16.913Z"

@@ -1,5 +1,5 @@
 ---
-title: "Die \r\n            Erlösung einer Hexe durch ihren Taufpaten"
+title: "Die Erlösung einer Hexe durch ihren Taufpaten"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/erloesung.html"
 crawledAt: "2026-04-04T21:31:54.950Z"

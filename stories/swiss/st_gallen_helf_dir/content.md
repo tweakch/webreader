@@ -1,5 +1,5 @@
 ---
-title: "Helf \r\n            dir Gott"
+title: "Helf dir Gott"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/helf_dir.html"
 crawledAt: "2026-04-04T21:28:04.595Z"

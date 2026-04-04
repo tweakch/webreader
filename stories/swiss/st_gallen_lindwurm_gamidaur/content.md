@@ -1,5 +1,5 @@
 ---
-title: "Der \r\n            Lindwurm in Gamidaur"
+title: "Der Lindwurm in Gamidaur"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/lindwurm_gamidaur.html"
 crawledAt: "2026-04-04T21:30:09.084Z"

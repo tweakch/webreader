@@ -1,5 +1,5 @@
 ---
-title: "4. \r\n            Das mutige Thurgauer Mägdlein"
+title: "4. Das mutige Thurgauer Mägdlein"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/allgemein/thurgauer_maegdelein.html"
 crawledAt: "2026-04-04T21:21:40.616Z"

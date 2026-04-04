@@ -1,5 +1,5 @@
 ---
-title: "Der \r\n            weisse Klee"
+title: "Der weisse Klee"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/weisse_klee.html"
 crawledAt: "2026-04-04T21:27:33.755Z"

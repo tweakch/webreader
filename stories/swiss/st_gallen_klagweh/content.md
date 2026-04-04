@@ -1,5 +1,5 @@
 ---
-title: "Wuatahee \r\n            und Klagweh"
+title: "Wuatahee und Klagweh"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/klagweh.html"
 crawledAt: "2026-04-04T21:25:37.617Z"

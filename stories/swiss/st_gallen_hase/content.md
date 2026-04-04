@@ -1,5 +1,5 @@
 ---
-title: "Der \r\n            dreibeinige Hase"
+title: "Der dreibeinige Hase"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/hase.html"
 crawledAt: "2026-04-04T21:26:19.530Z"

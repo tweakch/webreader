@@ -1,5 +1,5 @@
 ---
-title: "Die \r\n            Frau von der Zuger Burg"
+title: "Die Frau von der Zuger Burg"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/zug/diefrauvonderzugerburg.html"
 crawledAt: "2026-04-04T21:37:43.536Z"

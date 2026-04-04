@@ -1,5 +1,5 @@
 ---
-title: "Ewig \r\n            verflucht"
+title: "Ewig verflucht"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/ewig.html"
 crawledAt: "2026-04-04T21:32:10.402Z"

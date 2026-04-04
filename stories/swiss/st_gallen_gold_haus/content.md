@@ -1,5 +1,5 @@
 ---
-title: "Das \r\n            Gold unter dem Hause"
+title: "Das Gold unter dem Hause"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/gold_haus.html"
 crawledAt: "2026-04-04T21:33:51.229Z"

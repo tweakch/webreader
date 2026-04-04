@@ -1,5 +1,5 @@
 ---
-title: "Uli \r\n            Rotach"
+title: "Uli Rotach"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/allgemein/uli_rotach.html"
 crawledAt: "2026-04-04T21:20:44.577Z"

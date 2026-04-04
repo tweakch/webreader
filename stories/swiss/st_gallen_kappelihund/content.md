@@ -1,5 +1,5 @@
 ---
-title: "Der \r\n            Kappelihund"
+title: "Der Kappelihund"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/kappelihund.html"
 crawledAt: "2026-04-04T21:24:52.064Z"

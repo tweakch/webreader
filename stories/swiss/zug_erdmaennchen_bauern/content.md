@@ -1,5 +1,5 @@
 ---
-title: "Die \r\n            Erdmännchen bei den Bauern"
+title: "Die Erdmännchen bei den Bauern"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/zug/erdmaennchen_bauern.html"
 crawledAt: "2026-04-04T21:40:44.213Z"

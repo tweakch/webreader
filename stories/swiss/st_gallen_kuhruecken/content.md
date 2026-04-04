@@ -1,5 +1,5 @@
 ---
-title: "Das \r\n            Kuhrücken auf der Alp Altsäß"
+title: "Das Kuhrücken auf der Alp Altsäß"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/kuhruecken.html"
 crawledAt: "2026-04-04T21:28:19.862Z"

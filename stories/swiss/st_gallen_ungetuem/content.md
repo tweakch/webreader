@@ -1,5 +1,5 @@
 ---
-title: "Das \r\n            Ungetüm"
+title: "Das Ungetüm"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/ungetuem.html"
 crawledAt: "2026-04-04T21:34:27.662Z"

@@ -1,5 +1,5 @@
 ---
-title: "Cyprian, \r\n            Baldrian und Bibernell"
+title: "Cyprian, Baldrian und Bibernell"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/cyprian.html"
 crawledAt: "2026-04-04T21:34:36.053Z"

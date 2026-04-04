@@ -1,5 +1,5 @@
 ---
-title: "Wie \r\n            Sargans zu seinem Namen gekommen"
+title: "Wie Sargans zu seinem Namen gekommen"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/sargans.html"
 crawledAt: "2026-04-04T21:29:17.588Z"

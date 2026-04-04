@@ -1,5 +1,5 @@
 ---
-title: "Der \r\n            ungetreue Hirt"
+title: "Der ungetreue Hirt"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/ungetreue_hirte.html"
 crawledAt: "2026-04-04T21:31:26.998Z"

@@ -1,5 +1,5 @@
 ---
-title: "Das \r\n            Nachtvolk"
+title: "Das Nachtvolk"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/nachtvolk_fronfastenkinder.html"
 crawledAt: "2026-04-04T21:30:53.542Z"

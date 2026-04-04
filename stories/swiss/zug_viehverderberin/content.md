@@ -1,5 +1,5 @@
 ---
-title: "Die \r\n            Viehverderberin"
+title: "Die Viehverderberin"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/zug/viehverderberin.html"
 crawledAt: "2026-04-04T21:40:32.520Z"

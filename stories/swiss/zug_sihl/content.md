@@ -1,5 +1,5 @@
 ---
-title: "Der \r\n            Holzsteg über die Sihl"
+title: "Der Holzsteg über die Sihl"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/zug/sihl.html"
 crawledAt: "2026-04-04T21:39:51.476Z"

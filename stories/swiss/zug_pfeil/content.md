@@ -1,5 +1,5 @@
 ---
-title: "Hünenbergers \r\n            Pfeil"
+title: "Hünenbergers Pfeil"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/zug/pfeil.html"
 crawledAt: "2026-04-04T21:38:28.761Z"

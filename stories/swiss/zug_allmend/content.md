@@ -1,5 +1,5 @@
 ---
-title: "Die \r\n            verwunschene Allmend"
+title: "Die verwunschene Allmend"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/zug/allmend.html"
 crawledAt: "2026-04-04T21:39:34.569Z"

@@ -1,5 +1,5 @@
 ---
-title: "Der \r\n            Schatz"
+title: "Der Schatz"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/schatz.html"
 crawledAt: "2026-04-04T21:25:56.989Z"

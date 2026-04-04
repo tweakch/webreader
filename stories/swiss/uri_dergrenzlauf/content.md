@@ -1,5 +1,5 @@
 ---
-title: "Der \r\n            Grenzlauf"
+title: "Der Grenzlauf"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/uri/dergrenzlauf.html"
 crawledAt: "2026-04-04T21:36:57.314Z"

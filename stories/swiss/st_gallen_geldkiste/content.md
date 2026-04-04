@@ -1,5 +1,5 @@
 ---
-title: "Die \r\n            Geldkiste auf Schloß Freudenberg"
+title: "Die Geldkiste auf Schloß Freudenberg"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/geldkiste.html"
 crawledAt: "2026-04-04T21:30:12.003Z"

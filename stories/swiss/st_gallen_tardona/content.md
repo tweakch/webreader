@@ -1,5 +1,5 @@
 ---
-title: "Der \r\n            Tanzboden in der Alp Tardona"
+title: "Der Tanzboden in der Alp Tardona"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/tardona.html"
 crawledAt: "2026-04-04T21:31:31.537Z"

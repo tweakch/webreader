@@ -1,5 +1,5 @@
 ---
-title: "6. \r\n            Der einfältige Allgäuer"
+title: "6. Der einfältige Allgäuer"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/allgemein/einfaeltige_allgaeuer.html"
 crawledAt: "2026-04-04T21:21:44.690Z"

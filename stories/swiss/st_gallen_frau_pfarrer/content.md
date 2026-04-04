@@ -1,5 +1,5 @@
 ---
-title: "Der \r\n            verbannte Geist der Frau Pfarrer"
+title: "Der verbannte Geist der Frau Pfarrer"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/frau_pfarrer.html"
 crawledAt: "2026-04-04T21:28:31.580Z"

@@ -1,5 +1,5 @@
 ---
-title: "Ritter \r\n            Tannhuser"
+title: "Ritter Tannhuser"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/tannhuser.html"
 crawledAt: "2026-04-04T21:32:23.193Z"

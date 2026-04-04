@@ -1,5 +1,5 @@
 ---
-title: "Die \r\n            Vuivra"
+title: "Die Vuivra"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/wallis/vuivra.html"
 crawledAt: "2026-04-04T21:37:26.056Z"

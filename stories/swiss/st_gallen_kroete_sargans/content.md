@@ -1,5 +1,5 @@
 ---
-title: "Die \r\n            Kröte"
+title: "Die Kröte"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/kroete_sargans.html"
 crawledAt: "2026-04-04T21:29:26.935Z"

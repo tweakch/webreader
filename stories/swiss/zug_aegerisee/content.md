@@ -1,5 +1,5 @@
 ---
-title: "Die \r\n            Ritter im Ägerisee"
+title: "Die Ritter im Ägerisee"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/zug/aegerisee.html"
 crawledAt: "2026-04-04T21:38:31.617Z"

@@ -1,5 +1,5 @@
 ---
-title: "Der \r\n            Jungfernbrunnen von Hünenberg"
+title: "Der Jungfernbrunnen von Hünenberg"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/zug/jungfernbrunnen.html"
 crawledAt: "2026-04-04T21:38:23.735Z"

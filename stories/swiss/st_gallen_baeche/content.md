@@ -1,5 +1,5 @@
 ---
-title: "Die \r\n            Bäche dürfen nicht verunreinigt werden"
+title: "Die Bäche dürfen nicht verunreinigt werden"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/baeche.html"
 crawledAt: "2026-04-04T21:27:47.667Z"

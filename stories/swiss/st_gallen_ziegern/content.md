@@ -1,5 +1,5 @@
 ---
-title: "Wie \r\n            man das Ziegern gelernt hat"
+title: "Wie man das Ziegern gelernt hat"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/ziegern.html"
 crawledAt: "2026-04-04T21:30:48.660Z"

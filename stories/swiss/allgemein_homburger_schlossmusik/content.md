@@ -1,5 +1,5 @@
 ---
-title: "1. \r\n            Die Homburger Schloßmusik"
+title: "1. Die  Schloßmusik"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/allgemein/homburger_schlossmusik.html"
 crawledAt: "2026-04-04T21:21:25.133Z"

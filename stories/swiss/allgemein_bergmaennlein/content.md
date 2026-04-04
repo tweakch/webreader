@@ -1,5 +1,5 @@
 ---
-title: "Das \r\n            Bergmännlein"
+title: "Das Bergmännlein"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/allgemein/bergmaennlein.html"
 crawledAt: "2026-04-04T21:22:05.170Z"

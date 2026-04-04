@@ -1,5 +1,5 @@
 ---
-title: "Die \r\n            Steckenfahrt"
+title: "Die Steckenfahrt"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/steckenfahrt.html"
 crawledAt: "2026-04-04T21:33:35.040Z"

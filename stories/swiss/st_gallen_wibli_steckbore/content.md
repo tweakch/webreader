@@ -1,5 +1,5 @@
 ---
-title: "'s \r\n            Wibli vo Steckbore"
+title: "'s Wibli vo Steckbore"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/wibli_steckbore.html"
 crawledAt: "2026-04-04T21:25:36.434Z"

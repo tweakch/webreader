@@ -1,5 +1,5 @@
 ---
-title: "Der\r\n            Berggeist"
+title: "DerBerggeist"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/appenzell_ausserhoden/derberggeist.html"
 crawledAt: "2026-04-04T21:22:49.855Z"

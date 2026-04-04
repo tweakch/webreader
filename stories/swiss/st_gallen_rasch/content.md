@@ -1,5 +1,5 @@
 ---
-title: "Rasch \r\n            gewählt"
+title: "Rasch gewählt"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/rasch.html"
 crawledAt: "2026-04-04T21:33:12.819Z"

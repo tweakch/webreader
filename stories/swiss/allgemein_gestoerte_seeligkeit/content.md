@@ -1,5 +1,5 @@
 ---
-title: "Die \r\n            gestörte Seligkeit"
+title: "Die gestörte Seligkeit"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/allgemein/gestoerte_seeligkeit.html"
 crawledAt: "2026-04-04T21:21:05.346Z"

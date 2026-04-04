@@ -1,5 +1,5 @@
 ---
-title: "Der \r\n            Valeishund"
+title: "Der Valeishund"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/valeishund.html"
 crawledAt: "2026-04-04T21:30:04.562Z"

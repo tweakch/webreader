@@ -1,5 +1,5 @@
 ---
-title: "Der \r\n            Teufelsstein"
+title: "Der Teufelsstein"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/zug/teufelsstein.html"
 crawledAt: "2026-04-04T21:38:41.349Z"

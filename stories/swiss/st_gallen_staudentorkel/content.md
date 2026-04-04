@@ -1,5 +1,5 @@
 ---
-title: "Der \r\n            Staudentorkel"
+title: "Der Staudentorkel"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/staudentorkel.html"
 crawledAt: "2026-04-04T21:25:52.810Z"

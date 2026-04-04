@@ -1,5 +1,5 @@
 ---
-title: "Drei \r\n            Kühe in zwei Ketten"
+title: "Drei Kühe in zwei Ketten"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/drei_kuehe.html"
 crawledAt: "2026-04-04T21:31:50.790Z"

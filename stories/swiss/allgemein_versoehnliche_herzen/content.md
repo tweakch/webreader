@@ -1,5 +1,5 @@
 ---
-title: "Versöhnliche \r\n            Herzen"
+title: "Versöhnliche Herzen"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/allgemein/versoehnliche_herzen.html"
 crawledAt: "2026-04-04T21:22:22.022Z"

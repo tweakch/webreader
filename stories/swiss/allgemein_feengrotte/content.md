@@ -1,5 +1,5 @@
 ---
-title: "Die \r\n            Feengrotte"
+title: "Die Feengrotte"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/allgemein/feengrotte.html"
 crawledAt: "2026-04-04T21:21:28.391Z"

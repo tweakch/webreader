@@ -1,5 +1,5 @@
 ---
-title: "Das \r\n            Totenvolk oder Nachtvolk"
+title: "Das Totenvolk oder Nachtvolk"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/totenvolk.html"
 crawledAt: "2026-04-04T21:27:20.572Z"

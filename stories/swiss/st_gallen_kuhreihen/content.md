@@ -1,5 +1,5 @@
 ---
-title: "Wie \r\n            der Kuhreihen [Jodler] kam"
+title: "Wie der Kuhreihen [Jodler] kam"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/kuhreihen.html"
 crawledAt: "2026-04-04T21:30:21.274Z"

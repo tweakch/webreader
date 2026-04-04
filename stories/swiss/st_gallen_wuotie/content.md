@@ -1,5 +1,5 @@
 ---
-title: "Das \r\n            Wuotië"
+title: "Das Wuotië"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/wuotie.html"
 crawledAt: "2026-04-04T21:24:48.802Z"

@@ -1,5 +1,5 @@
 ---
-title: "Entrückt \r\n            und irregeführt"
+title: "Entrückt und irregeführt"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/entrueckt.html"
 crawledAt: "2026-04-04T21:27:09.764Z"

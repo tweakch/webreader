@@ -1,5 +1,5 @@
 ---
-title: "Flüssiges \r\n            Gold"
+title: "Flüssiges Gold"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/fluessiges_gold.html"
 crawledAt: "2026-04-04T21:26:02.851Z"

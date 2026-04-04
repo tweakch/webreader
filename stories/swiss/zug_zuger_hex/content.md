@@ -1,5 +1,5 @@
 ---
-title: "Die \r\n            Zuger Hex auf dem Markt"
+title: "Die Zuger Hex auf dem Markt"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/zug/zuger_hex.html"
 crawledAt: "2026-04-04T21:40:35.262Z"

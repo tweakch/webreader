@@ -1,5 +1,5 @@
 ---
-title: "Der \r\n            Geldschatz vom Girenbüchel"
+title: "Der Geldschatz vom Girenbüchel"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/girenbuechel.html"
 crawledAt: "2026-04-04T21:29:42.027Z"

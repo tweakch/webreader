@@ -1,5 +1,5 @@
 ---
-title: "Aus \r\n            dem alten Zürichkrieg"
+title: "Aus dem alten Zürichkrieg"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/allgemein/zuerichkrieg.html"
 crawledAt: "2026-04-04T21:21:08.897Z"

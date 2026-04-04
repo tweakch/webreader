@@ -1,5 +1,5 @@
 ---
-title: "Der \r\n            Tag von Giornico"
+title: "Der Tag von Giornico"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/allgemein/giornico.html"
 crawledAt: "2026-04-04T21:21:30.104Z"

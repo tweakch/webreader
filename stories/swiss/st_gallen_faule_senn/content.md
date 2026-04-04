@@ -1,5 +1,5 @@
 ---
-title: "Der \r\n            faule Senn"
+title: "Der faule Senn"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/faule_senn.html"
 crawledAt: "2026-04-04T21:26:24.076Z"

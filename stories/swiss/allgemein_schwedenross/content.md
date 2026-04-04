@@ -1,5 +1,5 @@
 ---
-title: "3. \r\n            Das Schwedenroß"
+title: "3. Das Schwedenroß"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/allgemein/schwedenross.html"
 crawledAt: "2026-04-04T21:21:02.107Z"

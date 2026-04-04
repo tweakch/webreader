@@ -1,5 +1,5 @@
 ---
-title: "Die \r\n            Juden auf der Baarburg"
+title: "Die Juden auf der Baarburg"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/zug/juden_baarburg.html"
 crawledAt: "2026-04-04T21:38:44.928Z"

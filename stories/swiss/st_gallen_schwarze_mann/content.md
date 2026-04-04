@@ -1,5 +1,5 @@
 ---
-title: "Der \r\n            schwarze Mann ohne Kopf"
+title: "Der schwarze Mann ohne Kopf"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/schwarze_mann.html"
 crawledAt: "2026-04-04T21:27:12.069Z"

@@ -1,5 +1,5 @@
 ---
-title: "Der \r\n            Schütze"
+title: "Der Schütze"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/der_schuetze.html"
 crawledAt: "2026-04-04T21:31:30.257Z"

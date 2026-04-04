@@ -1,5 +1,5 @@
 ---
-title: "Die \r\n            eigene Frau als Hexe"
+title: "Die eigene Frau als Hexe"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/eigene_hexe.html"
 crawledAt: "2026-04-04T21:34:40.295Z"

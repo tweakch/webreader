@@ -1,5 +1,5 @@
 ---
-title: "Eine \r\n            Müßiggängerin"
+title: "Eine Müßiggängerin"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/muessiggaengerin.html"
 crawledAt: "2026-04-04T21:33:46.626Z"

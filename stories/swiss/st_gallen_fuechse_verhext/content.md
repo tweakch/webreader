@@ -1,5 +1,5 @@
 ---
-title: "Die \r\n            verhexten Füchse"
+title: "Die verhexten Füchse"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/fuechse_verhext.html"
 crawledAt: "2026-04-04T21:34:44.755Z"

@@ -1,5 +1,5 @@
 ---
-title: "Alte \r\n            Jungfern"
+title: "Alte Jungfern"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/alte_jungfern.html"
 crawledAt: "2026-04-04T21:29:48.938Z"

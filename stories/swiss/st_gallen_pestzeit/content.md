@@ -1,5 +1,5 @@
 ---
-title: "Aus \r\n            der Pestzeit"
+title: "Aus der Pestzeit"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/pestzeit.html"
 crawledAt: "2026-04-04T21:28:08.960Z"

@@ -1,5 +1,5 @@
 ---
-title: "Der \r\n            Geist auf Wildenburg"
+title: "Der Geist auf Wildenburg"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/zug/geist_wildenburg.html"
 crawledAt: "2026-04-04T21:38:19.086Z"

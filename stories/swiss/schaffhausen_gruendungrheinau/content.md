@@ -1,5 +1,5 @@
 ---
-title: "Die \r\n            Gründung des Klosters Rheinau"
+title: "Die Gründung des Klosters Rheinau"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/schaffhausen/gruendungrheinau.html"
 crawledAt: "2026-04-04T21:23:19.530Z"

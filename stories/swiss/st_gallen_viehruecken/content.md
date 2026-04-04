@@ -1,5 +1,5 @@
 ---
-title: "Das \r\n            Viehrücken auf den Alpen"
+title: "Das Viehrücken auf den Alpen"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/viehruecken.html"
 crawledAt: "2026-04-04T21:32:49.819Z"

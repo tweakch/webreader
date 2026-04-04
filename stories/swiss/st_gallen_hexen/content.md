@@ -1,5 +1,5 @@
 ---
-title: "Hexen, \r\n            1601, 1691"
+title: "Hexen, 1601, 1691"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/hexen.htm"
 crawledAt: "2026-04-04T21:23:44.566Z"

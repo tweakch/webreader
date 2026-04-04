@@ -1,5 +1,5 @@
 ---
-title: "Das \r\n            verschwundene Kloster"
+title: "Das verschwundene Kloster"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/zug/kloster_verschwunden.html"
 crawledAt: "2026-04-04T21:38:58.773Z"

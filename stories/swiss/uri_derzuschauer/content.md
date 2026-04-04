@@ -1,5 +1,5 @@
 ---
-title: "Der \r\n            Zuschauer bei der Totenprozession"
+title: "Der Zuschauer bei der Totenprozession"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/uri/derzuschauer.html"
 crawledAt: "2026-04-04T21:37:08.552Z"

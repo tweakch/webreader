@@ -1,5 +1,5 @@
 ---
-title: "Das \r\n            Bergwerk auf dem Knappertopf"
+title: "Das Bergwerk auf dem Knappertopf"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/bergwerk.html"
 crawledAt: "2026-04-04T21:31:01.996Z"

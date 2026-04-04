@@ -1,5 +1,5 @@
 ---
-title: "Die \r\n            Einladung"
+title: "Die Einladung"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/einladung.html"
 crawledAt: "2026-04-04T21:31:15.069Z"

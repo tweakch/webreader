@@ -1,5 +1,5 @@
 ---
-title: "Der \r\n            Surberger hat recht"
+title: "Der Surberger hat recht"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/surberger.html"
 crawledAt: "2026-04-04T21:26:45.512Z"

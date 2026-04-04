@@ -1,5 +1,5 @@
 ---
-title: "Der \r\n            Richter von Bellenz"
+title: "Der Richter von Bellenz"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/allgemein/richter_bellenz.html"
 crawledAt: "2026-04-04T21:21:32.541Z"

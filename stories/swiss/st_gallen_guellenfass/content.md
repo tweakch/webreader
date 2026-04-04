@@ -1,5 +1,5 @@
 ---
-title: "Der \r\n            Landvogt im Güllenfass"
+title: "Der Landvogt im Güllenfass"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/guellenfass.html"
 crawledAt: "2026-04-04T21:33:09.523Z"

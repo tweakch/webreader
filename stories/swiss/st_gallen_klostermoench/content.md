@@ -1,5 +1,5 @@
 ---
-title: "Der \r\n            Gemsjäger und der Klostermönch"
+title: "Der Gemsjäger und der Klostermönch"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/klostermoench.html"
 crawledAt: "2026-04-04T21:31:32.547Z"

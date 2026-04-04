@@ -1,5 +1,5 @@
 ---
-title: "Gallus \r\n            im Harmersbacher Tal"
+title: "Gallus im Harmersbacher Tal"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/gallusimharmersbachertal.html"
 crawledAt: "2026-04-04T21:23:30.228Z"

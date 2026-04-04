@@ -1,5 +1,5 @@
 ---
-title: "Der \r\n            Narr von Stockach"
+title: "Der Narr von Stockach"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/zug/stockach.html"
 crawledAt: "2026-04-04T21:38:27.065Z"

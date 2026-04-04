@@ -1,5 +1,5 @@
 ---
-title: "Zwei \r\n            Kühe an einer Kette"
+title: "Zwei Kühe an einer Kette"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/zwei_kuehe.html"
 crawledAt: "2026-04-04T21:33:18.314Z"

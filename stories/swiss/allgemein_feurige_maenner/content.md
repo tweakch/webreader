@@ -1,5 +1,5 @@
 ---
-title: "Die \r\n            feurigen Männer"
+title: "Die feurigen Männer"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/allgemein/feurige_maenner.html"
 crawledAt: "2026-04-04T21:21:50.018Z"

@@ -1,5 +1,5 @@
 ---
-title: "Das \r\n            Fräulein von Forsteck"
+title: "Das Fräulein von Forsteck"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/fraeulein_forsteneck.html"
 crawledAt: "2026-04-04T21:26:33.809Z"

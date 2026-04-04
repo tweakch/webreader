@@ -1,5 +1,5 @@
 ---
-title: "De \r\n            drei Joggäli auf Ruhegg"
+title: "De drei Joggäli auf Ruhegg"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/joggaeli.html"
 crawledAt: "2026-04-04T21:34:25.733Z"

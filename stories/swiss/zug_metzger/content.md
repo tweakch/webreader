@@ -1,5 +1,5 @@
 ---
-title: "Der \r\n            tapfere Metzger"
+title: "Der tapfere Metzger"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/zug/metzger.html"
 crawledAt: "2026-04-04T21:38:17.163Z"

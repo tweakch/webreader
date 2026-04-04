@@ -1,5 +1,5 @@
 ---
-title: "Der \r\n            Brudermord"
+title: "Der Brudermord"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/brudermord.html"
 crawledAt: "2026-04-04T21:28:57.244Z"

@@ -1,5 +1,5 @@
 ---
-title: "Die \r\n            Schlange im Feldrietli"
+title: "Die Schlange im Feldrietli"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/schlange_feldrietli.html"
 crawledAt: "2026-04-04T21:26:51.170Z"

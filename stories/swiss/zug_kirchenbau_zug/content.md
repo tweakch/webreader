@@ -1,5 +1,5 @@
 ---
-title: "Der \r\n            Kirchenbau von Zug"
+title: "Der Kirchenbau von Zug"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/zug/kirchenbau_zug.html"
 crawledAt: "2026-04-04T21:38:04.785Z"

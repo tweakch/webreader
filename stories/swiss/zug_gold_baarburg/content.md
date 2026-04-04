@@ -1,5 +1,5 @@
 ---
-title: "Vom \r\n            Gold in der Baarburg"
+title: "Vom Gold in der Baarburg"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/zug/gold_baarburg.html"
 crawledAt: "2026-04-04T21:38:46.146Z"

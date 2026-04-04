@@ -1,5 +1,5 @@
 ---
-title: "Der \r\n            Unheilfisch im Zugersee"
+title: "Der Unheilfisch im Zugersee"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/zug/unheilfisch.html"
 crawledAt: "2026-04-04T21:38:43.623Z"

@@ -1,5 +1,5 @@
 ---
-title: "Die \r\n            Kirche zu Grabs"
+title: "Die Kirche zu Grabs"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/kirche_grabs.html"
 crawledAt: "2026-04-04T21:26:40.472Z"

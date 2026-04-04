@@ -1,5 +1,5 @@
 ---
-title: "Föhnwetter, \r\n            das schlechteste Wetter"
+title: "Föhnwetter, das schlechteste Wetter"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/foehnwetter.html"
 crawledAt: "2026-04-04T21:27:45.577Z"

@@ -1,5 +1,5 @@
 ---
-title: "Das \r\n            Beste in dem Schotten"
+title: "Das Beste in dem Schotten"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/schotten.html"
 crawledAt: "2026-04-04T21:30:50.241Z"

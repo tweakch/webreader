@@ -1,5 +1,5 @@
 ---
-title: "Wenn \r\n            man nicht recht hört"
+title: "Wenn man nicht recht hört"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/wenn_man.html"
 crawledAt: "2026-04-04T21:27:05.957Z"

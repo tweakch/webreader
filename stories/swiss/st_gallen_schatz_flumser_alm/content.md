@@ -1,5 +1,5 @@
 ---
-title: "Der \r\n            Schatz auf der Flumser Alp"
+title: "Der Schatz auf der Flumser Alp"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/schatz_flumser_alm.html"
 crawledAt: "2026-04-04T21:34:32.100Z"

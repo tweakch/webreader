@@ -1,5 +1,5 @@
 ---
-title: "Unsere \r\n            kleinste Glocke"
+title: "Unsere kleinste Glocke"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/kleinste_glocke.html"
 crawledAt: "2026-04-04T21:25:17.894Z"

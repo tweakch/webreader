@@ -1,5 +1,5 @@
 ---
-title: "Der \r\n            Stockhüper"
+title: "Der Stockhüper"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/zug/stockhueper.html"
 crawledAt: "2026-04-04T21:39:30.546Z"

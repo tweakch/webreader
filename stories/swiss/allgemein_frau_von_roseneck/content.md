@@ -1,5 +1,5 @@
 ---
-title: "2. \r\n            Die Frau von Roseneck"
+title: "2. Die Frau von Roseneck"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/allgemein/frau_von_roseneck.html"
 crawledAt: "2026-04-04T21:21:36.322Z"

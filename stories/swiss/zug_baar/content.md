@@ -1,5 +1,5 @@
 ---
-title: "Die \r\n            dankbaren Toten zu Baar"
+title: "Die dankbaren Toten zu Baar"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/zug/baar.html"
 crawledAt: "2026-04-04T21:38:02.444Z"

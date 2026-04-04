@@ -1,5 +1,5 @@
 ---
-title: "Das \r\n            Muttergottesbild in der Kapelle zu Gasenzen"
+title: "Das Muttergottesbild in der Kapelle zu Gasenzen"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/muttergottesbild_gasenzen.html"
 crawledAt: "2026-04-04T21:26:37.461Z"

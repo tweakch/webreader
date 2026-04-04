@@ -1,5 +1,5 @@
 ---
-title: "Die \r\n            Uhren zu Basel"
+title: "Die Uhren zu Basel"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/basel_stadt/dieuhrenzubasel.html"
 crawledAt: "2026-04-04T21:22:54.177Z"

@@ -1,5 +1,5 @@
 ---
-title: "Das \r\n            Bockschinden ob Valeis"
+title: "Das Bockschinden ob Valeis"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/bockschinden_valeis.html"
 crawledAt: "2026-04-04T21:30:02.346Z"

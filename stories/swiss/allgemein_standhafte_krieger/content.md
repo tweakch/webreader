@@ -1,5 +1,5 @@
 ---
-title: "3. \r\n            Die standhaften Krieger"
+title: "3. Die standhaften Krieger"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/allgemein/standhafte_krieger.html"
 crawledAt: "2026-04-04T21:21:38.518Z"

@@ -1,5 +1,5 @@
 ---
-title: "Das \r\n            Bergmännli im Erzloch"
+title: "Das Bergmännli im Erzloch"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/bermaennli.html"
 crawledAt: "2026-04-04T21:29:35.056Z"

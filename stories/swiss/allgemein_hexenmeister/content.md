@@ -1,5 +1,5 @@
 ---
-title: "Der \r\n            Hexenmeister"
+title: "Der Hexenmeister"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/allgemein/hexenmeister.html"
 crawledAt: "2026-04-04T21:21:47.978Z"

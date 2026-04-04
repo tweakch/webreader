@@ -1,5 +1,5 @@
 ---
-title: "Die \r\n            vier Musikanten"
+title: "Die vier Musikanten"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/vier_musikanten.html"
 crawledAt: "2026-04-04T21:28:58.973Z"

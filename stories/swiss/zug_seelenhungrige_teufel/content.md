@@ -1,5 +1,5 @@
 ---
-title: "Seelenhungrige \r\n            Teufel"
+title: "Seelenhungrige Teufel"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/zug/seelenhungrige_teufel.html"
 crawledAt: "2026-04-04T21:40:26.487Z"

@@ -1,5 +1,5 @@
 ---
-title: "Der \r\n            böse Ahnherr"
+title: "Der böse Ahnherr"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/boese_ahnherr.html"
 crawledAt: "2026-04-04T21:33:56.963Z"

@@ -1,5 +1,5 @@
 ---
-title: "Der \r\n            Lindwurm"
+title: "Der Lindwurm"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/lindwurm_grabs.html"
 crawledAt: "2026-04-04T21:27:29.877Z"

@@ -1,5 +1,5 @@
 ---
-title: "'s \r\n            Schneemannli"
+title: "'s Schneemannli"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/schneemannli.html"
 crawledAt: "2026-04-04T21:34:13.111Z"

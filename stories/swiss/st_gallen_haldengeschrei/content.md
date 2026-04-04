@@ -1,5 +1,5 @@
 ---
-title: "Das \r\n            Haldengeschrei"
+title: "Das Haldengeschrei"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/haldengeschrei.html"
 crawledAt: "2026-04-04T21:31:28.890Z"

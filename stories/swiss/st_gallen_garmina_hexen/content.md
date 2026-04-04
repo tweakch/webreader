@@ -1,5 +1,5 @@
 ---
-title: "Die \r\n            Garmina-Hexen"
+title: "Die Garmina-Hexen"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/garmina_hexen.html"
 crawledAt: "2026-04-04T21:31:34.794Z"

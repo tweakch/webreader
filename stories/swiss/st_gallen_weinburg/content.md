@@ -1,5 +1,5 @@
 ---
-title: "Die \r\n            Weinburg"
+title: "Die Weinburg"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/weinburg.html"
 crawledAt: "2026-04-04T21:25:54.601Z"

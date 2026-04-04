@@ -1,5 +1,5 @@
 ---
-title: "Das \r\n            Dorfschwein"
+title: "Das Dorfschwein"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/dorfschwein.html"
 crawledAt: "2026-04-04T21:33:39.356Z"

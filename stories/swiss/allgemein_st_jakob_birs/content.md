@@ -1,5 +1,5 @@
 ---
-title: "Die \r\n            Schlacht bei St. Jakob an der Birs"
+title: "Die Schlacht bei St. Jakob an der Birs"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/allgemein/st_jakob_birs.html"
 crawledAt: "2026-04-04T21:21:10.253Z"

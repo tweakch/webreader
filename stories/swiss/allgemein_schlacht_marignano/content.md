@@ -1,5 +1,5 @@
 ---
-title: "Die \r\n            Schlacht bei Marignano"
+title: "Die Schlacht bei Marignano"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/allgemein/schlacht_marignano.html"
 crawledAt: "2026-04-04T21:22:01.298Z"

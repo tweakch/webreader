@@ -1,5 +1,5 @@
 ---
-title: "Der \r\n            besiegte Schwarzkünstler, 1799"
+title: "Der besiegte Schwarzkünstler, 1799"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/schwarzkuenstler.html"
 crawledAt: "2026-04-04T21:30:34.076Z"

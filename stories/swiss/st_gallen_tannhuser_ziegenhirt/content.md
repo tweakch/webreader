@@ -1,5 +1,5 @@
 ---
-title: "Tannhuser \r\n            und der Ziegenhirt"
+title: "Tannhuser und der Ziegenhirt"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/tannhuser_ziegenhirt.html"
 crawledAt: "2026-04-04T21:32:24.791Z"

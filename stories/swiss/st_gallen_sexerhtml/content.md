@@ -1,5 +1,5 @@
 ---
-title: "Der \r\n            große Sexer"
+title: "Der große Sexer"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/sexerhtml.html"
 crawledAt: "2026-04-04T21:34:29.205Z"

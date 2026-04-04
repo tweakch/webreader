@@ -1,5 +1,5 @@
 ---
-title: "Die \r\n            Tarnkappe"
+title: "Die Tarnkappe"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/freiburg/tarnkappe.html"
 crawledAt: "2026-04-04T21:22:57.328Z"

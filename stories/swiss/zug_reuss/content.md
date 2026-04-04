@@ -1,5 +1,5 @@
 ---
-title: "Das \r\n            Licht an der Reuß"
+title: "Das Licht an der Reuß"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/zug/reuss.html"
 crawledAt: "2026-04-04T21:38:37.247Z"

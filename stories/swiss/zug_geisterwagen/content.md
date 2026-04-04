@@ -1,5 +1,5 @@
 ---
-title: "Der \r\n            Geisterwagen"
+title: "Der Geisterwagen"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/zug/geisterwagen.html"
 crawledAt: "2026-04-04T21:39:53.058Z"

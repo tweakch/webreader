@@ -1,5 +1,5 @@
 ---
-title: "Im \r\n            Schloß Sargans"
+title: "Im Schloß Sargans"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/schloss_sargans.html"
 crawledAt: "2026-04-04T21:29:38.570Z"

@@ -1,5 +1,5 @@
 ---
-title: "Das \r\n            Panner von Zug"
+title: "Das Panner von Zug"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/allgemein/panner_zug.html"
 crawledAt: "2026-04-04T21:20:55.914Z"

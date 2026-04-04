@@ -1,5 +1,5 @@
 ---
-title: "Die \r\n            Mordnacht von Zug"
+title: "Die Mordnacht von Zug"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/zug/mordnacht.html"
 crawledAt: "2026-04-04T21:37:50.396Z"

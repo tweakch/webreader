@@ -1,5 +1,5 @@
 ---
-title: "Sieben \r\n            Füchse"
+title: "Sieben Füchse"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/sieben_fuechse.html"
 crawledAt: "2026-04-04T21:29:03.392Z"

@@ -1,5 +1,5 @@
 ---
-title: "5. \r\n            Die Versöhnung"
+title: "5. Die Versöhnung"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/allgemein/versoehnung.html"
 crawledAt: "2026-04-04T21:21:42.355Z"

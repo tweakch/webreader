@@ -1,5 +1,5 @@
 ---
-title: "Der \r\n            Geissbachzopfi"
+title: "Der Geissbachzopfi"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/geissbachzopfi.html"
 crawledAt: "2026-04-04T21:28:21.964Z"

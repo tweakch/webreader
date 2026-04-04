@@ -1,5 +1,5 @@
 ---
-title: "Die \r\n            listigen Wildleutchen"
+title: "Die listigen Wildleutchen"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/allgemein/listige_wildleutchen.html"
 crawledAt: "2026-04-04T21:22:00.052Z"

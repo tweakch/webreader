@@ -1,5 +1,5 @@
 ---
-title: "Hans \r\n            Öfeli-Chächeli"
+title: "Hans Öfeli-Chächeli"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/oefeli.html"
 crawledAt: "2026-04-04T21:26:47.879Z"

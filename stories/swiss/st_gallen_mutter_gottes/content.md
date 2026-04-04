@@ -1,5 +1,5 @@
 ---
-title: "Die \r\n            Mutter Gottes"
+title: "Die Mutter Gottes"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/mutter_gottes.html"
 crawledAt: "2026-04-04T21:25:20.167Z"

@@ -1,5 +1,5 @@
 ---
-title: "Goldbethli \r\n            und Harzbabi"
+title: "Goldbethli und Harzbabi"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/allgemein/goldbethli_harzbabi.html"
 crawledAt: "2026-04-04T21:21:18.188Z"

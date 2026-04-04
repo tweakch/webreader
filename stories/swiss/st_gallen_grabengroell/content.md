@@ -1,5 +1,5 @@
 ---
-title: "Das \r\n            Grabengröll"
+title: "Das Grabengröll"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/grabengroell.html"
 crawledAt: "2026-04-04T21:28:01.170Z"

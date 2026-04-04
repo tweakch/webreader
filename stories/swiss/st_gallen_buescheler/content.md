@@ -1,5 +1,5 @@
 ---
-title: "Der \r\n            Büscheler. Der Faser. Das Wetterfasen"
+title: "Der Büscheler. Der Faser. Das Wetterfasen"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/buescheler.html"
 crawledAt: "2026-04-04T21:34:11.858Z"

@@ -1,5 +1,5 @@
 ---
-title: "Das \r\n            Venediger Männlein"
+title: "Das Venediger Männlein"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/allgemein/venediger_maennlein.html"
 crawledAt: "2026-04-04T21:22:02.778Z"

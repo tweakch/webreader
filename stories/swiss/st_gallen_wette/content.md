@@ -1,5 +1,5 @@
 ---
-title: "Die \r\n            Wette"
+title: "Die Wette"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/wette.html"
 crawledAt: "2026-04-04T21:26:01.220Z"

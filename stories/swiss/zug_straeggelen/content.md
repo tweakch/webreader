@@ -1,5 +1,5 @@
 ---
-title: "Die \r\n            Sträggelen"
+title: "Die Sträggelen"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/zug/straeggelen.html"
 crawledAt: "2026-04-04T21:39:43.460Z"

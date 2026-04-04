@@ -1,5 +1,5 @@
 ---
-title: "Bühl-Anneli \r\n            auf Spillberg bei Ragaz"
+title: "Bühl-Anneli auf Spillberg bei Ragaz"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/buehlanneli.html"
 crawledAt: "2026-04-04T21:30:16.066Z"

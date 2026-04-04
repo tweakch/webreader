@@ -1,5 +1,5 @@
 ---
-title: "Die \r\n            St.Oswaldreliquien"
+title: "Die St.Oswaldreliquien"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/zug/diestoswaldreliquien.html"
 crawledAt: "2026-04-04T21:37:52.880Z"

@@ -1,5 +1,5 @@
 ---
-title: "Der \r\n            Rat des \"wilden Mannli\""
+title: "Der Rat des \"wilden Mannli\""
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/rat_mannli.html"
 crawledAt: "2026-04-04T21:30:46.876Z"

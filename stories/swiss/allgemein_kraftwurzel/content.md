@@ -1,5 +1,5 @@
 ---
-title: "Die \r\n            Kraftwurzel"
+title: "Die Kraftwurzel"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/allgemein/kraftwurzel.html"
 crawledAt: "2026-04-04T21:22:25.529Z"

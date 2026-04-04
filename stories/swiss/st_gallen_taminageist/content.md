@@ -1,5 +1,5 @@
 ---
-title: "Der \r\n            Taminageist"
+title: "Der Taminageist"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/taminageist.html"
 crawledAt: "2026-04-04T21:31:23.125Z"

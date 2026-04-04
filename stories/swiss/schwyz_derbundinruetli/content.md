@@ -1,5 +1,5 @@
 ---
-title: "Der \r\n            Bund in Rütli"
+title: "Der Bund in Rütli"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/schwyz/derbundinruetli.html"
 crawledAt: "2026-04-04T21:23:20.808Z"

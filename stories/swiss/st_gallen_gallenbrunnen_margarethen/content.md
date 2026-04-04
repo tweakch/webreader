@@ -1,5 +1,5 @@
 ---
-title: "Der \r\n            Gallenbrunnen"
+title: "Der Gallenbrunnen"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/gallenbrunnen_margarethen.html"
 crawledAt: "2026-04-04T21:24:56.918Z"

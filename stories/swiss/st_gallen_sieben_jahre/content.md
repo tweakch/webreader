@@ -1,5 +1,5 @@
 ---
-title: "Sieben \r\n            Jahre"
+title: "Sieben Jahre"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/sieben_jahre.html"
 crawledAt: "2026-04-04T21:31:00.614Z"

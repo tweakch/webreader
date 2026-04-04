@@ -1,5 +1,5 @@
 ---
-title: "Altentötung \r\n            der Zwerge"
+title: "Altentötung der Zwerge"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/wallis/altentoetungderzwerge.html"
 crawledAt: "2026-04-04T21:37:24.807Z"

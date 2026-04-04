@@ -1,5 +1,5 @@
 ---
-title: "Die \r\n            drei Kreuze auf Vasecla"
+title: "Die drei Kreuze auf Vasecla"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/vasecla.html"
 crawledAt: "2026-04-04T21:32:28.059Z"

@@ -1,5 +1,5 @@
 ---
-title: "Das \r\n            Gräggi"
+title: "Das Gräggi"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/graeggi_sargans.html"
 crawledAt: "2026-04-04T21:29:33.215Z"

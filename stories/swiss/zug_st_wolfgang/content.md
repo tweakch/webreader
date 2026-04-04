@@ -1,5 +1,5 @@
 ---
-title: "Die \r\n            Kirche zu St. Wolfgang"
+title: "Die Kirche zu St. Wolfgang"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/zug/st_wolfgang.html"
 crawledAt: "2026-04-04T21:37:56.889Z"

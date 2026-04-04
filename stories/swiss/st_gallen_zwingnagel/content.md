@@ -1,5 +1,5 @@
 ---
-title: "Der \r\n            Zwingnagel"
+title: "Der Zwingnagel"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/zwingnagel.html"
 crawledAt: "2026-04-04T21:34:34.830Z"

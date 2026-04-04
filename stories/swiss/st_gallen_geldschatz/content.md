@@ -1,5 +1,5 @@
 ---
-title: "Der \r\n            Geldschatz auf Freudenberg"
+title: "Der Geldschatz auf Freudenberg"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/geldschatz.html"
 crawledAt: "2026-04-04T21:30:11.113Z"

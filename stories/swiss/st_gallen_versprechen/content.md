@@ -1,5 +1,5 @@
 ---
-title: "Das \r\n            Versprechen"
+title: "Das Versprechen"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/versprechen.html"
 crawledAt: "2026-04-04T21:25:49.761Z"

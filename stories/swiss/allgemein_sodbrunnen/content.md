@@ -1,5 +1,5 @@
 ---
-title: "Der \r\n            Sodbrunnen"
+title: "Der Sodbrunnen"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/allgemein/sodbrunnen.html"
 crawledAt: "2026-04-04T21:22:09.165Z"

@@ -1,5 +1,5 @@
 ---
-title: "Die \r\n            Heiden"
+title: "Die Heiden"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/die_heiden.html"
 crawledAt: "2026-04-04T21:33:44.403Z"

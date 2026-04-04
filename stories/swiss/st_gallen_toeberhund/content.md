@@ -1,5 +1,5 @@
 ---
-title: "Der \r\n            Töberhund"
+title: "Der Töberhund"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/toeberhund.html"
 crawledAt: "2026-04-04T21:24:53.101Z"

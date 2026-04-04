@@ -1,5 +1,5 @@
 ---
-title: "Die \r\n            Herren von Ägeri"
+title: "Die Herren von Ägeri"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/zug/aegeri.html"
 crawledAt: "2026-04-04T21:38:21.377Z"

@@ -1,5 +1,5 @@
 ---
-title: "Der \r\n            kleine Schweinehirt"
+title: "Der kleine Schweinehirt"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/allgemein/schweinehirt.html"
 crawledAt: "2026-04-04T21:22:14.986Z"

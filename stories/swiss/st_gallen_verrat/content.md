@@ -1,5 +1,5 @@
 ---
-title: "Der \r\n            Verrat"
+title: "Der Verrat"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/verrat.html"
 crawledAt: "2026-04-04T21:28:52.168Z"

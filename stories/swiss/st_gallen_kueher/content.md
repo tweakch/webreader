@@ -1,5 +1,5 @@
 ---
-title: "Der \r\n            Küher"
+title: "Der Küher"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/kueher.html"
 crawledAt: "2026-04-04T21:30:55.814Z"

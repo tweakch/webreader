@@ -1,5 +1,5 @@
 ---
-title: "Der \r\n            Drache"
+title: "Der Drache"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/drache_azmoos.html"
 crawledAt: "2026-04-04T21:28:48.196Z"

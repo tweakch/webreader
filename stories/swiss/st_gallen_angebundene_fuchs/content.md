@@ -1,5 +1,5 @@
 ---
-title: "Der \r\n            angebundene Fuchs"
+title: "Der angebundene Fuchs"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/angebundene_fuchs.html"
 crawledAt: "2026-04-04T21:31:46.094Z"

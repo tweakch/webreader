@@ -1,5 +1,5 @@
 ---
-title: "Die \r\n            Brandstifterin"
+title: "Die Brandstifterin"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/zug/brandstifterin.html"
 crawledAt: "2026-04-04T21:40:33.556Z"

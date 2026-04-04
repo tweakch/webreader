@@ -1,5 +1,5 @@
 ---
-title: "Das \r\n            verwünschte Schloss"
+title: "Das verwünschte Schloss"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/verwuenschte_schloss.html"
 crawledAt: "2026-04-04T21:34:09.707Z"

@@ -1,5 +1,5 @@
 ---
-title: "Die \r\n            böse Nachbarin"
+title: "Die böse Nachbarin"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/st_gallen/boese_nachbarin.html"
 crawledAt: "2026-04-04T21:26:55.367Z"

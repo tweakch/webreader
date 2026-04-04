@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect, useLayoutEffect, useCallback } from 'react';
-import { Menu, X, Plus, Minus, ChevronLeft, ChevronRight, Heart, User } from 'lucide-react';
+import { Menu, X, Plus, Minus, ChevronLeft, ChevronRight, Heart, User, RotateCcw } from 'lucide-react';
 import { useBooleanFlagValue, useStringFlagValue } from '@openfeature/react-sdk';
 import { FEATURES } from './features';
 import FeatureDocs from './FeatureDocs';
@@ -35,6 +35,10 @@ const GrimmMarchenApp = () => {
     new Set(JSON.parse(localStorage.getItem('wr-completed') ?? '[]'))
   );
   const [resumeSession, setResumeSession] = useState(null); // { story, page }
+  const [speedReaderMode, setSpeedReaderMode] = useState(false);
+  const [srPlaying, setSrPlaying] = useState(false);
+  const [srWordIdx, setSrWordIdx] = useState(0);
+  const [srWpm, setSrWpm] = useState(() => parseInt(localStorage.getItem('wr-sr-wpm') ?? '200'));
   const [variantPrefs, setVariantPrefs] = useState(() =>
     JSON.parse(localStorage.getItem('wr-variant-prefs') ?? '{}')
   );
@@ -324,6 +328,7 @@ const GrimmMarchenApp = () => {
   const _rawFavoritesOnlyToggle = useBooleanFlagValue('favorites-only-toggle', false);
   const _rawAudioPlayer        = useBooleanFlagValue('audio-player', false);
   const _rawHighContrastTheme  = useBooleanFlagValue('high-contrast-theme', false);
+  const _rawSpeedReader        = useBooleanFlagValue('speed-reader', false);
 
   // User feature overrides — stored in localStorage, take precedence over flag defaults
   const [userFeatureOverrides, setUserFeatureOverrides] = useState(
@@ -346,6 +351,7 @@ const GrimmMarchenApp = () => {
   const showFavoritesOnlyToggle = _o('favorites-only-toggle', _rawFavoritesOnlyToggle);
   const showAudioPlayer         = _o('audio-player',          _rawAudioPlayer);
   const showHighContrastTheme   = _o('high-contrast-theme',   _rawHighContrastTheme);
+  const showSpeedReader         = _o('speed-reader',          _rawSpeedReader);
 
   // Raw values keyed by feature key — used in profile feature toggles
   const _rawFlagValues = {
@@ -356,6 +362,7 @@ const GrimmMarchenApp = () => {
     'favorites': _rawFavorites, 'favorites-only-toggle': _rawFavoritesOnlyToggle,
     'audio-player': _rawAudioPlayer,
     'high-contrast-theme': _rawHighContrastTheme,
+    'speed-reader': _rawSpeedReader,
   };
 
   const [favoritesOnly, setFavoritesOnly] = useState(() => localStorage.getItem('wr-favorites-only') === 'true');
@@ -464,6 +471,56 @@ const GrimmMarchenApp = () => {
   }, [selectedStory, selectedVariant]);
 
   const readingMinutes = Math.ceil(storyWordCount / 200);
+
+  const srWords = React.useMemo(() => {
+    if (!selectedStory) return [];
+    const content = selectedVariant?.content ?? selectedStory.content;
+    return content.split(/\s+/).filter(w => w.length > 0);
+  }, [selectedStory, selectedVariant]);
+
+  useEffect(() => { localStorage.setItem('wr-sr-wpm', srWpm); }, [srWpm]);
+
+  // Reset speed reader position when story or variant changes
+  useEffect(() => {
+    setSrWordIdx(0);
+    setSrPlaying(false);
+  }, [selectedStory, selectedVariant]);
+
+  // Exit speed reader mode when flag is disabled or no story is open
+  useEffect(() => {
+    if (!showSpeedReader || !selectedStory) {
+      setSpeedReaderMode(false);
+      setSrPlaying(false);
+    }
+  }, [showSpeedReader, selectedStory]);
+
+  // Playing interval — advances one word at a time, pauses longer at sentence ends
+  useEffect(() => {
+    if (!srPlaying || !srWords.length) return;
+    if (srWordIdx >= srWords.length - 1) { setSrPlaying(false); return; }
+    const word = srWords[srWordIdx] ?? '';
+    const isSentenceEnd = /[.!?]["»]?$/.test(word);
+    const ms = Math.round(60000 / srWpm) * (isSentenceEnd ? 2 : 1);
+    const id = setTimeout(() => {
+      setSrWordIdx(i => {
+        const next = i + 1;
+        if (next >= srWords.length) { setSrPlaying(false); return i; }
+        return next;
+      });
+    }, ms);
+    return () => clearTimeout(id);
+  }, [srPlaying, srWordIdx, srWpm, srWords]);
+
+  const srBackSentence = useCallback(() => {
+    setSrWordIdx(i => {
+      if (i === 0) return 0;
+      let pos = i - 1;
+      // Walk back to the start of the current sentence
+      while (pos > 0 && !/[.!?]["»]?$/.test(srWords[pos - 1])) pos--;
+      return pos;
+    });
+    setSrPlaying(false);
+  }, [srWords]);
 
   const toggleMenu = () => setMenuOpen(!menuOpen);
 
@@ -892,6 +949,112 @@ const GrimmMarchenApp = () => {
                 data-testid="reader-viewport"
                 className="flex-1 overflow-hidden relative"
               >
+                {speedReaderMode ? (
+                  /* RSVP speed reader view */
+                  <div className={`h-full flex flex-col items-center justify-center gap-6 py-8 px-6 transition-colors duration-300 ${
+                    highContrast ? (darkMode ? 'bg-black' : 'bg-white') : darkMode ? 'bg-slate-800/50' : 'bg-white/70'
+                  }`}>
+                    {/* Progress bar */}
+                    <div className={`w-full h-0.5 rounded-full ${
+                      highContrast ? (darkMode ? 'bg-white/20' : 'bg-black/10') : darkMode ? 'bg-slate-700' : 'bg-amber-100'
+                    }`}>
+                      <div
+                        className={`h-full rounded-full transition-all duration-100 ${
+                          highContrast ? (darkMode ? 'bg-white' : 'bg-black') : darkMode ? 'bg-amber-500' : 'bg-amber-600'
+                        }`}
+                        style={{ width: `${(srWordIdx / Math.max(1, srWords.length - 1)) * 100}%` }}
+                      />
+                    </div>
+                    {/* Word display — ORP: second letter aligned to horizontal center */}
+                    {(() => {
+                      const word = srWords[srWordIdx] ?? '';
+                      const before = word.length > 1 ? word[0] : '';
+                      const pivot  = word.length > 1 ? word[1] : word;
+                      const after  = word.length > 2 ? word.slice(2) : '';
+                      const textCls = `text-5xl font-serif font-bold tracking-wide cursor-pointer select-none transition-opacity duration-150 ${
+                        srPlaying ? '' : 'opacity-40'
+                      } ${
+                        highContrast ? (darkMode ? 'text-white' : 'text-gray-900') : darkMode ? 'text-amber-200' : 'text-amber-900'
+                      }`;
+                      const pivotCls = highContrast
+                        ? (darkMode ? 'text-white' : 'text-gray-900')
+                        : darkMode ? 'text-amber-400' : 'text-amber-600';
+                      return (
+                        <div
+                          data-testid="speed-reader-word"
+                          onClick={() => setSrPlaying(v => !v)}
+                          className={`flex items-center w-full ${textCls}`}
+                        >
+                          <div className="flex-1 flex justify-end">{before}</div>
+                          <span className={pivotCls}>{pivot}</span>
+                          <div className="flex-1 flex justify-start">{after}</div>
+                        </div>
+                      );
+                    })()}
+                    {/* Controls row */}
+                    <div className="flex items-center gap-4">
+                      {/* Back sentence */}
+                      <button
+                        data-testid="speed-reader-back"
+                        onClick={srBackSentence}
+                        title="Zum Satzanfang"
+                        className={`p-2 rounded-lg transition-colors ${
+                          highContrast ? (darkMode ? 'text-white/60 hover:bg-white/10' : 'text-gray-500 hover:bg-black/5') : darkMode ? 'text-amber-600 hover:bg-slate-700' : 'text-amber-400 hover:bg-amber-50'
+                        }`}
+                      >
+                        <RotateCcw size={16} />
+                      </button>
+                      {/* Play / Pause */}
+                      <button
+                        data-testid="speed-reader-play"
+                        onClick={() => setSrPlaying(v => !v)}
+                        className={`flex items-center justify-center w-10 h-10 rounded-xl transition-colors ${
+                          highContrast
+                            ? (darkMode ? 'bg-white text-black hover:bg-gray-100' : 'bg-black text-white hover:bg-gray-900')
+                            : darkMode ? 'bg-amber-500/30 text-amber-300 hover:bg-amber-500/40' : 'bg-amber-100 text-amber-700 hover:bg-amber-200'
+                        }`}
+                      >
+                        {srPlaying ? (
+                          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+                            <rect x="6" y="4" width="4" height="16" rx="1" />
+                            <rect x="14" y="4" width="4" height="16" rx="1" />
+                          </svg>
+                        ) : (
+                          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+                            <polygon points="5,3 19,12 5,21" />
+                          </svg>
+                        )}
+                      </button>
+                      {/* WpM controls */}
+                      <div className="flex items-center gap-1.5">
+                        <button
+                          data-testid="speed-reader-wpm-decrease"
+                          onClick={() => setSrWpm(w => Math.max(10, w - 10))}
+                          className={`flex items-center justify-center w-7 h-7 rounded-lg transition-colors ${
+                            highContrast ? (darkMode ? 'text-white/60' : 'text-gray-500') : darkMode ? 'bg-slate-700/60 text-amber-600 hover:bg-slate-600' : 'bg-amber-50 text-amber-500 hover:bg-amber-100'
+                          }`}
+                        >
+                          <Minus size={11} />
+                        </button>
+                        <span className={`text-xs font-mono font-bold tabular-nums text-center ${
+                          highContrast ? (darkMode ? 'text-white' : 'text-gray-900') : darkMode ? 'text-amber-300' : 'text-amber-800'
+                        }`} style={{ minWidth: '3.8rem' }}>
+                          {srWpm} WpM
+                        </span>
+                        <button
+                          data-testid="speed-reader-wpm-increase"
+                          onClick={() => setSrWpm(w => Math.min(1000, w + 10))}
+                          className={`flex items-center justify-center w-7 h-7 rounded-lg transition-colors ${
+                            highContrast ? (darkMode ? 'text-white/60' : 'text-gray-500') : darkMode ? 'bg-slate-700/60 text-amber-600 hover:bg-slate-600' : 'bg-amber-50 text-amber-500 hover:bg-amber-100'
+                          }`}
+                        >
+                          <Plus size={11} />
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                ) : (
+                <>
                 {/* E-ink flash overlay */}
                 {showEinkFlash && (
                   <div
@@ -990,6 +1153,8 @@ const GrimmMarchenApp = () => {
                     onClick={() => goToPage(currentPage + 1)}
                   />
                 )}
+                </>
+                )}
               </div>
 
               {/* Variant switcher — shown only when adaptions exist */}
@@ -1052,7 +1217,7 @@ const GrimmMarchenApp = () => {
                 <button
                   data-testid="prev-page"
                   onClick={() => goToPage(currentPage - 1)}
-                  disabled={currentPage === 0}
+                  disabled={currentPage === 0 || speedReaderMode}
                   className={`p-1 rounded transition-colors disabled:opacity-30 ${
                     darkMode ? 'hover:bg-slate-700' : 'hover:bg-amber-100'
                   }`}
@@ -1061,7 +1226,7 @@ const GrimmMarchenApp = () => {
                 </button>
 
                 <button
-                  onClick={() => showTypographyPanel && setTypoPanelOpen(v => !v)}
+                  onClick={() => !speedReaderMode && showTypographyPanel && setTypoPanelOpen(v => !v)}
                   className={`flex flex-col items-center gap-0.5 min-w-0 overflow-hidden px-3 py-1 rounded-lg transition-colors ${
                     typoPanelOpen
                       ? darkMode ? 'bg-slate-700' : 'bg-amber-100'
@@ -1073,21 +1238,53 @@ const GrimmMarchenApp = () => {
                   }`}>
                     {selectedStory.title}
                   </span>
-                  <span data-testid="page-counter" className="text-xs font-medium tabular-nums">
-                    {currentPage + 1} / {totalPages}
-                  </span>
+                  {speedReaderMode ? (
+                    <span className="text-xs font-medium tabular-nums">
+                      {srWordIdx + 1} / {srWords.length}
+                    </span>
+                  ) : (
+                    <span data-testid="page-counter" className="text-xs font-medium tabular-nums">
+                      {currentPage + 1} / {totalPages}
+                    </span>
+                  )}
                 </button>
 
-                <button
-                  data-testid="next-page"
-                  onClick={() => goToPage(currentPage + 1)}
-                  disabled={currentPage >= totalPages - 1}
-                  className={`p-1 rounded transition-colors disabled:opacity-30 ${
-                    darkMode ? 'hover:bg-slate-700' : 'hover:bg-amber-100'
-                  }`}
-                >
-                  <ChevronRight size={20} />
-                </button>
+                <div className="flex items-center gap-1">
+                  {showSpeedReader && (
+                    <button
+                      data-testid="speed-reader-toggle"
+                      onClick={() => { setSpeedReaderMode(v => !v); setSrPlaying(false); }}
+                      title={speedReaderMode ? 'Normaler Lesebereich' : 'Schnellleser'}
+                      className={`flex items-center justify-center w-9 h-9 rounded-xl transition-colors ${
+                        speedReaderMode
+                          ? highContrast
+                            ? (darkMode ? 'bg-white text-black' : 'bg-black text-white')
+                            : darkMode ? 'bg-amber-500/30 text-amber-300' : 'bg-amber-100 text-amber-700'
+                          : highContrast
+                            ? (darkMode ? 'text-white/60' : 'text-gray-500')
+                            : darkMode ? 'bg-slate-700/60 text-amber-700' : 'bg-amber-50/80 text-amber-400'
+                      }`}
+                    >
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
+                        <circle cx="12" cy="12" r="10" />
+                        <line x1="12" y1="8" x2="12" y2="12" />
+                        <line x1="12" y1="12" x2="15" y2="10" />
+                        <path d="M5 3.5A9.97 9.97 0 0 1 12 2c2.76 0 5.26 1.12 7.07 2.93" strokeLinecap="round" />
+                        <path d="M3.5 5A9.97 9.97 0 0 0 2 12" strokeLinecap="round" />
+                      </svg>
+                    </button>
+                  )}
+                  <button
+                    data-testid="next-page"
+                    onClick={() => goToPage(currentPage + 1)}
+                    disabled={currentPage >= totalPages - 1 || speedReaderMode}
+                    className={`p-1 rounded transition-colors disabled:opacity-30 ${
+                      darkMode ? 'hover:bg-slate-700' : 'hover:bg-amber-100'
+                    }`}
+                  >
+                    <ChevronRight size={20} />
+                  </button>
+                </div>
               </div>
             </>
           ) : (

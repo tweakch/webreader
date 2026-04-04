@@ -52,6 +52,9 @@ The sidebar has two levels: source list → story list. State: `activeSource` (n
 Used by Playwright tests — don't remove them:
 `reader-viewport`, `page-content`, `nav-bar`, `page-counter`, `prev-page`, `next-page`, `font-increase`, `font-decrease`, `menu-toggle`, `source-button`, `story-button`
 
+Speed reader (visible when `speed-reader` flag is on):
+`speed-reader-toggle` (nav-bar button to enter/exit mode), `speed-reader-word` (RSVP word display), `speed-reader-play` (play/pause), `speed-reader-back` (back to sentence start), `speed-reader-wpm-decrease`, `speed-reader-wpm-increase`
+
 ### Tailwind
 
 Using Tailwind v4 with `@tailwindcss/postcss`. The CSS entry point uses `@import "tailwindcss"` and `@config "./tailwind.config.js"` (required in v4 to load a config file). Dark mode is implemented via conditional class strings — not the `dark:` variant.

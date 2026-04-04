@@ -7,6 +7,8 @@ import { FEATURES } from '../features.jsx';
 import flagConfig from '../flags.json';
 import Toggle from '../ui/Toggle.jsx';
 import { ThemeContext } from '../ui/ThemeContext.jsx';
+import StoryButton from '../ui/StoryButton.jsx';
+import TypographyPanel from '../ui/TypographyPanel.jsx';
 import IconButton from '../ui/IconButton.jsx';
 import SearchInput from '../ui/SearchInput.jsx';
 
@@ -465,35 +467,13 @@ function NavBarSection({ flags }) {
       {showTypo && (
         <Item label="Typografie-Panel (ausgeklappt)">
           <ThemeRow noPad>
-            {({ dark, hc }) => (
-              <div className={`border-t px-5 py-3 ${
-                hc && dark ? 'bg-black border-white/40' : hc ? 'bg-white border-black/30' :
-                dark ? 'bg-slate-900/95 border-amber-700/30' :
-                       'bg-white/95 border-amber-200/50'
-              }`}>
-                {[
-                  { label: 'Zeilenabstand', active: 1 },
-                  { label: 'Textbreite',    active: 1 },
-                  { label: 'Wortabstand',   active: 0 },
-                ].map(({ label, active }) => (
-                  <div key={label} className="flex items-center gap-3 py-1">
-                    <span className={`text-xs w-28 shrink-0 ${
-                      hc && dark ? 'text-white/60' : hc ? 'text-gray-500' : dark ? 'text-amber-500' : 'text-amber-600'
-                    }`}>{label}</span>
-                    <div className="flex gap-1.5">
-                      {[0, 1, 2].map(i => (
-                        <button key={i} className={`w-9 h-7 flex items-center justify-center rounded-lg text-xs ${
-                          i === active
-                            ? hc && dark ? 'bg-white text-black' : hc ? 'bg-black text-white' :
-                              dark ? 'bg-amber-700 text-white' : 'bg-amber-200 text-amber-900'
-                            : hc   ? 'text-white/60 hover:bg-white/10' :
-                              dark ? 'text-amber-400 hover:bg-slate-800' : 'text-amber-700 hover:bg-amber-100'
-                        }`}>{i + 1}</button>
-                      ))}
-                    </div>
-                  </div>
-                ))}
-              </div>
+            {() => (
+              <TypographyPanel
+                lineHeightIdx={1}   onLineHeightChange={() => {}}
+                textWidthIdx={1}    onTextWidthChange={() => {}}
+                wordSpacingIdx={0}  onWordSpacingChange={() => {}}
+                fontFamilyIdx={0}   onFontFamilyChange={() => {}}
+              />
             )}
           </ThemeRow>
         </Item>
@@ -557,61 +537,19 @@ function SidebarSection({ flags }) {
 
       <Item label="Märchenliste (Ebene 2)" description="mit optionalen Metadaten-Badges">
         <ThemeRow>
-          {({ dark, hc }) => (
+          {() => (
             <div className="space-y-1">
               {stories.map(({ title, wc, active, done, fav }) => (
-                <div key={title} className="flex items-center gap-1">
-                  <button
-                    data-testid="story-button"
-                    className={`flex-1 min-w-0 text-left px-3 py-2.5 rounded-lg transition-all ${
-                      active
-                        ? hc && dark ? 'bg-white text-black' : hc ? 'bg-black text-white' :
-                          dark ? 'bg-amber-700 text-white' : 'bg-amber-200 text-amber-900'
-                        : hc && dark ? 'text-white hover:bg-white/10' : hc ? 'text-gray-900 hover:bg-gray-100' :
-                          dark ? 'text-amber-100 hover:bg-slate-800' : 'text-amber-900 hover:bg-amber-100'
-                    }`}
-                  >
-                    <span className="font-serif text-base line-clamp-1 block">{title}</span>
-                    <div className="flex items-center gap-1 mt-0.5 flex-wrap">
-                      {showWordCount && (
-                        <span className={`text-xs px-1.5 py-0.5 rounded tabular-nums ${
-                          active
-                            ? hc && dark ? 'bg-black/20' : hc ? 'bg-white/20' :
-                              dark ? 'bg-amber-600/60 text-amber-100' : 'bg-amber-300/60 text-amber-800'
-                            : hc && dark ? 'bg-white/10' : hc ? 'bg-black/10' :
-                              dark ? 'bg-slate-700 text-amber-400' : 'bg-amber-100 text-amber-700'
-                        }`}>{wc.toLocaleString('de')} W</span>
-                      )}
-                      {showDuration && (
-                        <span className={`text-xs px-1.5 py-0.5 rounded tabular-nums ${
-                          active
-                            ? hc && dark ? 'bg-black/20' : hc ? 'bg-white/20' :
-                              dark ? 'bg-amber-600/60 text-amber-100' : 'bg-amber-300/60 text-amber-800'
-                            : hc && dark ? 'bg-white/10' : hc ? 'bg-black/10' :
-                              dark ? 'bg-slate-700 text-amber-400' : 'bg-amber-100 text-amber-700'
-                        }`}>~{Math.ceil(wc / 200)} min</span>
-                      )}
-                      {done && (
-                        <span data-testid="completed-indicator" className={`text-xs px-1.5 py-0.5 rounded ${
-                          active
-                            ? hc && dark ? 'bg-black/20' : hc ? 'bg-white/20' :
-                              dark ? 'bg-amber-600/60 text-amber-100' : 'bg-amber-300/60 text-amber-800'
-                            : hc && dark ? 'bg-white/10' : hc ? 'bg-black/10' :
-                              dark ? 'bg-slate-700 text-amber-500' : 'bg-amber-100 text-amber-600'
-                        }`}>✓</span>
-                      )}
-                    </div>
-                  </button>
-                  {showFav && (
-                    <button className={`flex-shrink-0 p-1.5 rounded-lg ${
-                      fav
-                        ? hc && dark ? 'text-white' : hc ? 'text-gray-800' : dark ? 'text-amber-400' : 'text-amber-600'
-                        : hc && dark ? 'text-white/25' : hc ? 'text-gray-300' : dark ? 'text-slate-600' : 'text-amber-300'
-                    }`}>
-                      <Heart size={14} fill={fav ? 'currentColor' : 'none'} />
-                    </button>
-                  )}
-                </div>
+                <StoryButton
+                  key={title}
+                  story={{ title, wordCount: wc, sourceLabel: '' }}
+                  isActive={active}
+                  isCompleted={done}
+                  isFavorite={fav}
+                  showWordCount={showWordCount}
+                  showFavoriteButton={showFav}
+                  testId="story-button"
+                />
               ))}
             </div>
           )}

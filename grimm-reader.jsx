@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect, useLayoutEffect, useCallback } from 'react';
-import { Menu, X, Plus, Minus, ChevronLeft, ChevronRight, Heart, User, Play, Pause, RotateCcw } from 'lucide-react';
+import { Menu, X, Plus, Minus, ChevronLeft, ChevronRight, Heart, User } from 'lucide-react';
 import { useBooleanFlagValue, useStringFlagValue } from '@openfeature/react-sdk';
 import { FEATURES } from './features';
 import FeatureDocs from './FeatureDocs';
@@ -7,6 +7,9 @@ import { ThemeContext } from './ui/ThemeContext';
 import Toggle from './ui/Toggle';
 import IconButton from './ui/IconButton';
 import SearchInput from './ui/SearchInput';
+import StoryButton from './ui/StoryButton';
+import TypographyPanel, { LINE_HEIGHTS, WORD_SPACINGS, FONT_FAMILIES } from './ui/TypographyPanel';
+import AudioPlayer from './ui/AudioPlayer';
 
 const storyAudioFiles = import.meta.glob('/stories/*/*/audio.mp3', { eager: true, query: '?url', import: 'default' });
 
@@ -39,15 +42,8 @@ const GrimmMarchenApp = () => {
   const lastResetStoryRef = useRef(null);
   const initialResumeApplied = useRef(false);
 
-  const LINE_HEIGHTS = [1.5, 1.8, 2.2];
   const TEXT_WIDTHS = [560, 768, 1200];   // max column width cap (desktop)
   const H_PADDINGS  = [56,  32,  12];    // horizontal padding px (narrow→wide)
-  const WORD_SPACINGS = ['normal', '0.06em', '0.15em'];
-  const FONT_FAMILIES = [
-    { label: 'Serif',      css: 'Georgia, serif' },
-    { label: 'Sans',       css: 'system-ui, sans-serif' },
-    { label: 'Comic Sans', css: '"Comic Sans MS", "Comic Sans", cursive' },
-  ];
 
   const lineHeight = LINE_HEIGHTS[lineHeightIdx];
   const textWidth  = TEXT_WIDTHS[textWidthIdx];
@@ -57,11 +53,6 @@ const GrimmMarchenApp = () => {
 
   const readerAreaRef = useRef(null);
   const measureRef = useRef(null);
-  const audioRef = useRef(null);
-  const [isAudioPlaying, setIsAudioPlaying] = useState(false);
-  const [audioCurrentTime, setAudioCurrentTime] = useState(0);
-  const [audioDuration, setAudioDuration] = useState(0);
-
   const stories = React.useMemo(() => {
     const modules = import.meta.glob('/stories/*/*/content.md', { eager: true, query: '?raw', import: 'default' });
     return Object.entries(modules)
@@ -154,15 +145,6 @@ const GrimmMarchenApp = () => {
     setSelectedVariant(adaptions.find(a => a.adaptionName === prefName) ?? null);
   }, [selectedStory]); // variantPrefs intentionally omitted — only re-run on story change
 
-  // Pause and reset audio whenever the story changes
-  useEffect(() => {
-    if (!audioRef.current) return;
-    audioRef.current.pause();
-    audioRef.current.currentTime = 0;
-    setIsAudioPlaying(false);
-    setAudioCurrentTime(0);
-    setAudioDuration(0);
-  }, [selectedStory]);
 
   const buildPages = useCallback(() => {
     if (!readerAreaRef.current || !measureRef.current || !selectedStory) return;
@@ -637,43 +619,19 @@ const GrimmMarchenApp = () => {
                   Keine Favoriten
                 </p>
               ) : favoriteStories.map(story => (
-                <div key={story.id} className="flex items-center gap-1">
-                  <button
-                    data-testid="story-button"
-                    onClick={() => { setSelectedStory(story); setMenuOpen(false); }}
-                    className={`flex-1 min-w-0 text-left px-3 py-2.5 rounded-lg transition-all ${
-                      selectedStory?.id === story.id
-                        ? darkMode ? 'bg-amber-700 text-white' : 'bg-amber-200 text-amber-900'
-                        : darkMode ? 'text-amber-100 hover:bg-slate-800' : 'text-amber-900 hover:bg-amber-100'
-                    }`}
-                  >
-                    <span className="font-serif text-base line-clamp-2 block">{story.title}</span>
-                    <div className="flex items-center gap-1 flex-wrap mt-0.5">
-                      <span className={`text-xs px-1.5 py-0.5 rounded ${
-                        selectedStory?.id === story.id
-                          ? darkMode ? 'bg-amber-600/60 text-amber-100' : 'bg-amber-300/60 text-amber-800'
-                          : darkMode ? 'bg-slate-700 text-amber-400' : 'bg-amber-100 text-amber-700'
-                      }`}>
-                        {story.sourceLabel}
-                      </span>
-                      {completedStories.has(story.id) && (
-                        <span data-testid="completed-indicator" className={`text-xs px-1.5 py-0.5 rounded ${
-                          selectedStory?.id === story.id
-                            ? darkMode ? 'bg-amber-600/60 text-amber-100' : 'bg-amber-300/60 text-amber-800'
-                            : darkMode ? 'bg-slate-700 text-amber-500' : 'bg-amber-100 text-amber-600'
-                        }`}>✓</span>
-                      )}
-                    </div>
-                  </button>
-                  <button
-                    onClick={(e) => toggleFavorite(story.id, e)}
-                    className={`flex-shrink-0 p-1.5 rounded-lg transition-colors ${
-                      darkMode ? 'text-amber-400 hover:bg-slate-800' : 'text-amber-600 hover:bg-amber-100'
-                    }`}
-                  >
-                    <Heart size={14} fill="currentColor" />
-                  </button>
-                </div>
+                <StoryButton
+                  key={story.id}
+                  story={story}
+                  isActive={selectedStory?.id === story.id}
+                  isCompleted={completedStories.has(story.id)}
+                  isFavorite={true}
+                  showSourceBadge
+                  showFavoriteButton
+                  alwaysFilled
+                  testId="story-button"
+                  onClick={() => { setSelectedStory(story); setMenuOpen(false); }}
+                  onFavoriteClick={(e) => toggleFavorite(story.id, e)}
+                />
               ))}
             </div>
           ) : searchTerm ? (
@@ -685,47 +643,19 @@ const GrimmMarchenApp = () => {
                 </p>
               )}
               {filteredStories.map(story => (
-                <div key={story.id} className="flex items-center gap-1">
-                  <button
-                    onClick={() => { setSelectedStory(story); setMenuOpen(false); }}
-                    className={`flex-1 min-w-0 text-left px-3 py-2.5 rounded-lg transition-all ${
-                      selectedStory?.id === story.id
-                        ? darkMode ? 'bg-amber-700 text-white' : 'bg-amber-200 text-amber-900'
-                        : darkMode ? 'text-amber-100 hover:bg-slate-800' : 'text-amber-900 hover:bg-amber-100'
-                    }`}
-                  >
-                    <span className="font-serif text-base leading-snug">{story.title}</span>
-                    <span className={`ml-2 text-xs px-1.5 py-0.5 rounded font-sans align-middle ${
-                      darkMode ? 'bg-slate-700 text-amber-400' : 'bg-amber-100 text-amber-700'
-                    }`}>
-                      {story.sourceLabel}
-                    </span>
-                    {showWordCount && story.wordCount != null && (
-                      <span className={`ml-1 text-xs tabular-nums px-1.5 py-0.5 rounded font-sans align-middle ${
-                        darkMode ? 'bg-slate-700 text-amber-500' : 'bg-amber-100 text-amber-600'
-                      }`}>
-                        {story.wordCount.toLocaleString('de')} W
-                      </span>
-                    )}
-                    {completedStories.has(story.id) && (
-                      <span data-testid="completed-indicator" className={`ml-1 text-xs px-1.5 py-0.5 rounded font-sans align-middle ${
-                        darkMode ? 'bg-slate-700 text-amber-500' : 'bg-amber-100 text-amber-600'
-                      }`}>✓</span>
-                    )}
-                  </button>
-                  {showFavorites && (
-                    <button
-                      onClick={(e) => toggleFavorite(story.id, e)}
-                      className={`flex-shrink-0 p-1.5 rounded-lg transition-colors ${
-                        favorites.has(story.id)
-                          ? darkMode ? 'text-amber-400 hover:bg-slate-800' : 'text-amber-600 hover:bg-amber-100'
-                          : darkMode ? 'text-slate-600 hover:text-amber-400 hover:bg-slate-800' : 'text-amber-300 hover:text-amber-600 hover:bg-amber-100'
-                      }`}
-                    >
-                      <Heart size={14} fill={favorites.has(story.id) ? 'currentColor' : 'none'} />
-                    </button>
-                  )}
-                </div>
+                <StoryButton
+                  key={story.id}
+                  story={story}
+                  isActive={selectedStory?.id === story.id}
+                  isCompleted={completedStories.has(story.id)}
+                  isFavorite={favorites.has(story.id)}
+                  showSourceBadge
+                  showWordCount={showWordCount}
+                  showFavoriteButton={showFavorites}
+                  inlineBadges
+                  onClick={() => { setSelectedStory(story); setMenuOpen(false); }}
+                  onFavoriteClick={(e) => toggleFavorite(story.id, e)}
+                />
               ))}
             </div>
           ) : activeSource ? (
@@ -753,51 +683,18 @@ const GrimmMarchenApp = () => {
               <div className={`mx-3 mb-3 h-px ${darkMode ? 'bg-amber-800/40' : 'bg-amber-200'}`} />
               <div className="px-3 pb-4 space-y-1">
                 {(storiesBySource[activeSource] ?? []).map(story => (
-                  <div key={story.id} className="flex items-center gap-1">
-                    <button
-                      data-testid="story-button"
-                      onClick={() => { setSelectedStory(story); setMenuOpen(false); }}
-                      className={`flex-1 min-w-0 text-left px-3 py-2.5 rounded-lg transition-all ${
-                        selectedStory?.id === story.id
-                          ? darkMode ? 'bg-amber-700 text-white' : 'bg-amber-200 text-amber-900'
-                          : darkMode ? 'text-amber-100 hover:bg-slate-800' : 'text-amber-900 hover:bg-amber-100'
-                      }`}
-                    >
-                      <span className="font-serif text-base line-clamp-2 block">{story.title}</span>
-                      {(showWordCount && story.wordCount != null || completedStories.has(story.id)) && (
-                        <div className="flex items-center gap-1 flex-wrap mt-0.5">
-                          {showWordCount && story.wordCount != null && (
-                            <span className={`inline-block text-xs tabular-nums px-1.5 py-0.5 rounded ${
-                              selectedStory?.id === story.id
-                                ? darkMode ? 'bg-amber-600/60 text-amber-100' : 'bg-amber-300/60 text-amber-800'
-                                : darkMode ? 'bg-slate-700 text-amber-500' : 'bg-amber-100 text-amber-600'
-                            }`}>
-                              {story.wordCount.toLocaleString('de')} W
-                            </span>
-                          )}
-                          {completedStories.has(story.id) && (
-                            <span data-testid="completed-indicator" className={`inline-block text-xs px-1.5 py-0.5 rounded ${
-                              selectedStory?.id === story.id
-                                ? darkMode ? 'bg-amber-600/60 text-amber-100' : 'bg-amber-300/60 text-amber-800'
-                                : darkMode ? 'bg-slate-700 text-amber-500' : 'bg-amber-100 text-amber-600'
-                            }`}>✓</span>
-                          )}
-                        </div>
-                      )}
-                    </button>
-                    {showFavorites && (
-                      <button
-                        onClick={(e) => toggleFavorite(story.id, e)}
-                        className={`flex-shrink-0 p-1.5 rounded-lg transition-colors ${
-                          favorites.has(story.id)
-                            ? darkMode ? 'text-amber-400 hover:bg-slate-800' : 'text-amber-600 hover:bg-amber-100'
-                            : darkMode ? 'text-slate-600 hover:text-amber-400 hover:bg-slate-800' : 'text-amber-300 hover:text-amber-600 hover:bg-amber-100'
-                        }`}
-                      >
-                        <Heart size={14} fill={favorites.has(story.id) ? 'currentColor' : 'none'} />
-                      </button>
-                    )}
-                  </div>
+                  <StoryButton
+                    key={story.id}
+                    story={story}
+                    isActive={selectedStory?.id === story.id}
+                    isCompleted={completedStories.has(story.id)}
+                    isFavorite={favorites.has(story.id)}
+                    showWordCount={showWordCount}
+                    showFavoriteButton={showFavorites}
+                    testId="story-button"
+                    onClick={() => { setSelectedStory(story); setMenuOpen(false); }}
+                    onFavoriteClick={(e) => toggleFavorite(story.id, e)}
+                  />
                 ))}
               </div>
             </>
@@ -1128,151 +1025,21 @@ const GrimmMarchenApp = () => {
 
               {/* Typography panel — slides open above nav bar */}
               {showTypographyPanel && typoPanelOpen && (
-                <div className={`flex-shrink-0 border-t px-5 py-3 transition-colors ${
-                  darkMode ? 'bg-slate-900/95 border-amber-700/30' : 'bg-white/95 border-amber-200/50'
-                }`}>
-                  {[
-                    {
-                      label: 'Zeilenabstand',
-                      options: LINE_HEIGHTS.map((v, i) => ({
-                        i,
-                        icon: (
-                          <span className="flex flex-col gap-px items-center" style={{ gap: `${i * 2 + 1}px` }}>
-                            {[0,1,2].map(n => <span key={n} className="block h-px w-4 bg-current" />)}
-                          </span>
-                        ),
-                      })),
-                      idx: lineHeightIdx,
-                      set: setLineHeightIdx,
-                    },
-                    {
-                      label: 'Textbreite',
-                      options: [4, 6, 8].map((w, i) => ({
-                        i,
-                        icon: (
-                          <span className="flex flex-col gap-px items-center">
-                            <span className="block h-px bg-current" style={{ width: `${w * 4}px` }} />
-                            <span className="block h-px bg-current" style={{ width: `${w * 4}px` }} />
-                            <span className="block h-px bg-current" style={{ width: `${w * 4}px` }} />
-                          </span>
-                        ),
-                      })),
-                      idx: textWidthIdx,
-                      set: setTextWidthIdx,
-                    },
-                    {
-                      label: 'Wortabstand',
-                      options: ['aa', 'a a', 'a  a'].map((txt, i) => ({
-                        i,
-                        icon: <span className="font-serif text-sm leading-none">{txt}</span>,
-                      })),
-                      idx: wordSpacingIdx,
-                      set: setWordSpacingIdx,
-                    },
-                    {
-                      label: 'Schriftart',
-                      options: FONT_FAMILIES.map(({ label, css }, i) => ({
-                        i,
-                        icon: <span style={{ fontFamily: css }} className="text-sm leading-none">Aa</span>,
-                        label,
-                      })),
-                      idx: fontFamilyIdx,
-                      set: setFontFamilyIdx,
-                    },
-                  ].map(({ label, options, idx, set }) => (
-                    <div key={label} className="flex items-center gap-3 py-1">
-                      <span className={`text-xs w-24 shrink-0 ${darkMode ? 'text-amber-500' : 'text-amber-600'}`}>
-                        {label}
-                      </span>
-                      <div className="flex gap-1.5">
-                        {options.map(({ i, icon }) => (
-                          <button
-                            key={i}
-                            onClick={() => set(i)}
-                            className={`w-10 h-8 flex items-center justify-center rounded-lg transition-colors ${
-                              idx === i
-                                ? darkMode ? 'bg-amber-700 text-white' : 'bg-amber-200 text-amber-900'
-                                : darkMode ? 'text-amber-400 hover:bg-slate-800' : 'text-amber-700 hover:bg-amber-100'
-                            }`}
-                          >
-                            {icon}
-                          </button>
-                        ))}
-                      </div>
-                    </div>
-                  ))}
-                </div>
+                <TypographyPanel
+                  lineHeightIdx={lineHeightIdx}   onLineHeightChange={setLineHeightIdx}
+                  textWidthIdx={textWidthIdx}     onTextWidthChange={setTextWidthIdx}
+                  wordSpacingIdx={wordSpacingIdx} onWordSpacingChange={setWordSpacingIdx}
+                  fontFamilyIdx={fontFamilyIdx}   onFontFamilyChange={setFontFamilyIdx}
+                />
               )}
 
               {/* Audio player — only when flag is on and the story has an audio file */}
-              {showAudioPlayer && (() => {
-                const audioUrl = selectedStory
-                  ? (storyAudioFiles[`/stories/${selectedStory.id}/audio.mp3`] ?? null)
-                  : null;
-                if (!audioUrl) return null;
-                const fmtTime = s => `${Math.floor(s / 60)}:${String(Math.floor(s % 60)).padStart(2, '0')}`;
-                const progress = audioDuration > 0 ? (audioCurrentTime / audioDuration) * 100 : 0;
-                return (
-                  <>
-                    <audio
-                      ref={audioRef}
-                      src={audioUrl}
-                      onTimeUpdate={() => setAudioCurrentTime(audioRef.current?.currentTime ?? 0)}
-                      onLoadedMetadata={() => setAudioDuration(audioRef.current?.duration ?? 0)}
-                      onEnded={() => setIsAudioPlaying(false)}
-                    />
-                    <div className={`flex-shrink-0 border-t transition-colors ${
-                      darkMode ? 'bg-slate-900/95 border-amber-700/30' : 'bg-white/95 border-amber-200/50'
-                    }`}>
-                      {/* Progress bar */}
-                      <div className={`h-0.5 ${darkMode ? 'bg-slate-700' : 'bg-amber-100'}`}>
-                        <div
-                          className={`h-full transition-all duration-300 ${darkMode ? 'bg-amber-500' : 'bg-amber-600'}`}
-                          style={{ width: `${progress}%` }}
-                        />
-                      </div>
-                      <div className="flex items-center gap-3 px-5 py-2">
-                        {/* Reset */}
-                        <button
-                          onClick={() => {
-                            audioRef.current.pause();
-                            audioRef.current.currentTime = 0;
-                            setIsAudioPlaying(false);
-                            setAudioCurrentTime(0);
-                          }}
-                          className={`p-1.5 rounded-lg transition-colors ${
-                            darkMode ? 'text-amber-400 hover:bg-slate-800' : 'text-amber-700 hover:bg-amber-100'
-                          }`}
-                        >
-                          <RotateCcw size={15} />
-                        </button>
-                        {/* Play / Pause */}
-                        <button
-                          onClick={() => {
-                            if (isAudioPlaying) {
-                              audioRef.current.pause();
-                              setIsAudioPlaying(false);
-                            } else {
-                              audioRef.current.play();
-                              setIsAudioPlaying(true);
-                            }
-                          }}
-                          className={`p-1.5 rounded-lg transition-colors ${
-                            darkMode ? 'text-amber-300 hover:bg-slate-800' : 'text-amber-800 hover:bg-amber-100'
-                          }`}
-                        >
-                          {isAudioPlaying ? <Pause size={17} /> : <Play size={17} />}
-                        </button>
-                        {/* Time */}
-                        <span className={`text-xs tabular-nums ml-1 ${darkMode ? 'text-amber-600' : 'text-amber-500'}`}>
-                          {fmtTime(audioCurrentTime)}
-                          {audioDuration > 0 && <> / {fmtTime(audioDuration)}</>}
-                        </span>
-                      </div>
-                    </div>
-                  </>
-                );
-              })()}
+              {showAudioPlayer && (
+                <AudioPlayer
+                  key={selectedStory?.id}
+                  src={storyAudioFiles[`/stories/${selectedStory?.id}/audio.mp3`] ?? null}
+                />
+              )}
 
               {/* Page navigation bar — flex sibling, not overlapping */}
               <div data-testid="nav-bar" className={`flex-shrink-0 h-12 flex items-center justify-between px-6 backdrop-blur-sm border-t transition-colors ${

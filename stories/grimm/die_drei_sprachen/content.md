@@ -3,8 +3,9 @@ title: "Die drei Sprachen"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/die_drei_sprachen"
 crawledAt: "2026-04-03T09:10:57.102Z"
-wordCount: 871
+wordCount: 867
 ---
+
 In der Schweiz lebte einmal ein alter Graf, der hatte nur einen einzigen Sohn, aber er war dumm und konnte nichts lernen. Da sprach der Vater: "Höre, mein Sohn, ich bringe nichts in deinen Kopf, ich mag es anfangen, wie ich will. Du mußt fort von hier, ich will dich einem berühmten Meister übergeben. der soll es mit dir versuchen." Der Junge ward in eine fremde Stadt geschickt, und blieb bei dem Meister ein ganzes Jahr. Nach Verlauf dieser Zeit kam er wieder heim, und der Vater fragte: "Nun mein Sohn, was hast du gelernt?" – "Vater, ich habe gelernt, was die Hunde bellen," antwortete er. "Daß Gott erbarm!" rief der Vater aus, "ist das alles, was du gelernt hast? ich will dich in eine andere Stadt zu einem andern Meister tun."
 
 Der Junge ward hingebracht, und blieb bei diesem Meister auch ein Jahr. Als er zurückkam, fragte der Vater wiederum: "Mein Sohn, was hast du gelernt?" Er antwortete: "Vater, ich habe gelernt, was die Vögli sprechen." Da geriet der Vater in Zorn und sprach: "O, du verlorner Mensch, hast die kostbare Zeit hingebracht und nichts gelernt, und schämst dich nicht, mir unter die Augen zu treten? Ich will dich zu einem dritten Meister schicken, aber lernst du auch diesmal nichts, so will ich dein Vater nicht mehr sein." Der Sohn blieb bei dem dritten Meister ebenfalls ein ganzes Jahr, und als er wieder nach Haus kam und der Vater fragte: "Mein Sohn, was hast du gelernt?" so antwortete er: "Lieber Vater, ich habe dieses Jahr gelernt, was die Frösche quaken." Da geriet der Vater in den höchsten Zorn, sprang auf, rief seine Leute herbei und sprach:"Dieser Mensch ist mein Sohn nicht mehr, ich stoße ihn aus und gebiete euch, daß ihr ihn hinaus in den Wald führt und ihm das Leben nehmt." Sie führten ihn hinaus, aber als sie ihn töten sollten, konnten sie nicht vor Mitleiden und ließen ihn gehen. Sie schnitten einem Reh Augen und Zunge aus, damit sie dem Alten die Wahrzeichen bringen konnten.

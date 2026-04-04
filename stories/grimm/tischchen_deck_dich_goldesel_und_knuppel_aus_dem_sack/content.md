@@ -3,18 +3,16 @@ title: "Tischchen deck dich, Goldesel und Knüppel aus dem Sack"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/tischchen_deck_dich_goldesel_und_knuppel_aus_dem_sack"
 crawledAt: "2026-04-03T09:11:02.741Z"
-wordCount: 3501
+wordCount: 3491
 ---
+
 Vor Zeiten war ein Schneider, der drei Söhne hatte und nur eine einzige Ziege. Aber die Ziege, weil sie alle zusammen mit ihrer Milch ernährte, mußte ihr gutes Futter haben und täglich hinaus auf die Weide geführt werden. Die Söhne taten das auch nach der Reihe. Einmal brachte sie der älteste auf den Kirchhof, wo die schönsten Kräuter standen, ließ sie da fressen und herumspringen. Abends, als es Zeit war heimzugehen, fragte er: "Ziege, bist du satt?" Die Ziege antwortete:
 
-"Ich bin so satt,
-Ich mag kein Blatt, meh! meh!"
+"Ich bin so satt, Ich mag kein Blatt, meh! meh!"
 
 "So komm nach Haus," sprach der Junge, faßte sie am Strickchen, führte sie in den Stall und band sie fest. "Nun," sagte der alte Schneider, "hat die Ziege ihr gehöriges Futter?" - "Oh," antwortete der Sohn, "die ist so satt, sie mag kein Blatt." Der Vater aber wollte sich selbst überzeugen, ging hinab in den Stall streichelte das liebe Tier und fragte: "Ziege, bist du auch satt?" Die Ziege antwortete:
 
-"Wovon sollt ich satt sein?
-Ich sprang nur über Gräbelein
-Und fand kein einzig Blättelein, meh! meh!"
+"Wovon sollt ich satt sein? Ich sprang nur über Gräbelein Und fand kein einzig Blättelein, meh! meh!"
 
 "Was muß ich hören!" rief der Schneider, lief hinauf und sprach zu dem Jungen: "Ei, du Lügner, sagst die Ziege wäre satt und hast sie hungern lassen?" Und in seinem Zorne nahm er die Elle von der Wand und jagte ihn mit Schlägen hinaus.
 
@@ -22,40 +20,31 @@ Am andern Tag war die Reihe am zweiten Sohn, der suchte an der Gartenhecke einen
 
 Abends, als er heim wollte, fragte er: "Ziege, bist du satt?" Die Ziege antwortete:
 
-"Ich bin so satt,
-Ich mag kein Blatt, meh! meh!"
+"Ich bin so satt, Ich mag kein Blatt, meh! meh!"
 
 "So komm nach Haus," sprach der Junge, zog sie heim und band sie im Stall fest. "Nun," sagte der alte Schneider, "hat die Ziege ihr gehöriges Futter?" - "Oh," antwortete der Sohn, ,die ist so satt, sie mag kein Blatt." Der Schneider wollte sich darauf nicht verlassen, ging hinab in den Stall und fragte: "Ziege, bist du auch satt?" Die Ziege antwortete:
 
-"Wovon sollt ich satt sein?
-Ich sprang nur über Gräbelein
-Und fand kein einzig Blättelein, meh! meh!"
+"Wovon sollt ich satt sein? Ich sprang nur über Gräbelein Und fand kein einzig Blättelein, meh! meh!"
 
 "Der gottlose Bösewicht!" schrie der Schneider, "so ein frommes Tier hungern zu lassen " Lief hinauf und schlug mit der Elle den Jungen zur Haustüre hinaus.
 
 Die Reihe kam jetzt an den dritten Sohn, der wollte seine Sache gut machen, suchte Buschwerk mit dem schönsten Laube aus und ließ die Ziege daran fressen. Abends, als er heim wollte, fragte er: "Ziege, bist du auch satt?" Die Ziege antwortete:
 
-"Ich bin so satt,
-Ich mag kein Blatt, meh! meh!"
+"Ich bin so satt, Ich mag kein Blatt, meh! meh!"
 
 "So komm nach Haus," sagte der Junge, führte sie in den Stall und band sie fest. "Nun," sagte der alte Schneider, "hat die Ziege ihr gehöriges Futter?" - "Oh," antwortete der Sohn, "die ist so satt, sie mag kein Blatt." Der Schneider traute nicht, ging hinab und fragte: "Ziege, bist du auch satt?" Das boshafte Tier antwortete:
 
-"Wovon sollt ich satt sein?
-Ich sprang nur über Gräbelein
-Und fand kein einzig Blättelein, meh! meh!"
+"Wovon sollt ich satt sein? Ich sprang nur über Gräbelein Und fand kein einzig Blättelein, meh! meh!"
 
 "Oh, die Lügenbrut!" rief der Schneider, "einer so gottlos und pflichtvergessen wie der andere! Ihr sollt mich nicht länger zum Narren haben!" Und vor Zorn ganz außer sich sprang er hinauf und gerbte dem armen Jungen mit der Elle den Rücken so gewaltig, daß er zum Haus hinaussprang.
 
 Der alte Schneider war nun mit seiner Ziege allein. Am andern Morgen ging er hinab in den Stall, liebkoste die Ziege und sprach: "Komm, mein liebes Tierlein, ich will dich selbst zur Weide führen." Er nahm sie am Strick und brachte sie zu grünen Hecken und unter Schafrippe und was sonst die Ziegen gerne fressen. "Da kannst du dich einmal nach Herzenslust sättigen," sprach er zu ihr und ließ sie weiden bis zum Abend. Da fragte er: "Ziege, bist du satt?" Sie antwortete:
 
-"Ich bin so satt,
-Ich mag kein Blatt, meh! meh!"
+"Ich bin so satt, Ich mag kein Blatt, meh! meh!"
 
 "So komm nach Haus," sagte der Schneider, führte sie in den Stall und band sie fest. Als er wegging, kehrte er sich noch einmal um und sagte: "Nun bist du doch einmal satt!" Aber die Ziege machte es ihm nicht besser und rief:
 
-"Wie sollt ich satt sein?
-Ich sprang nur über Gräbelein
-Und fand kein einzig Blättelein, meh! meh!"
+"Wie sollt ich satt sein? Ich sprang nur über Gräbelein Und fand kein einzig Blättelein, meh! meh!"
 
 Als der Schneider das hörte, stutzte er und sah wohl, daß er seine drei Söhne ohne Ursache verstoßen hatte. "Wart," rief er, " Du undankbares Geschöpf, dich fortzujagen ist noch zu wenig, ich will dich zeichnen, daß du dich unter ehrbaren Schneidern nicht mehr darfst sehen lassen." In einer Hast sprang er hinauf, holte sein Bartmesser, seifte der Ziege den Kopf ein und schor sie so glatt wie seine flache Hand. Und weil die Elle zu ehrenvoll gewesen wäre, holte er die Peitsche und versetzte ihr solche Hiebe, daß sie in gewaltigen Sprüngen davonlief.
 

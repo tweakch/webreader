@@ -3,8 +3,9 @@ title: "Der Teufel mit den drei goldenen Haaren"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/der_teufel_mit_den_drei_goldenen_haaren"
 crawledAt: "2026-04-03T09:09:55.477Z"
-wordCount: 2424
+wordCount: 2416
 ---
+
 Es war einmal eine arme Frau, die gebar ein Söhnlein, und weil es eine Glückshaut umhatte, als es zur Welt kam, so ward ihm geweissagt, es werde im vierzehnten Jahr die Tochter des Königs zur Frau haben.
 
 Es trug sich zu, dass der König bald darauf ins Dorf kam, und niemand wusste, dass es der König war, und als er die Leute fragte, was es Neues gäbe, so antworteten sie: "Es ist in diesen Tagen ein Kind mit einer Glückshaut geboren: was so einer unternimmt, das schlägt ihm zum Glück aus. Es ist ihm auch vorausgesagt, in seinem vierzehnten Jahre solle er die Tochter des Königs zur Frau haben."

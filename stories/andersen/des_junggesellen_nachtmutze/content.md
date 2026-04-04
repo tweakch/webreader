@@ -3,16 +3,14 @@ title: "Des Junggesellen Nachtmütze"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/des_junggesellen_nachtmutze"
 crawledAt: "2026-04-03T11:23:03.401Z"
-wordCount: 4399
+wordCount: 4395
 ---
+
 Da gibt es in Kopenhagen eine Gasse, die den wunderlichen Namen "Hyskengasse" trägt. Und weshalb heißt sie so, was hat es zu bedeuten? Es soll deutsch sein, aber damit tut man den Deutschen unrecht. "Häuschen" müßte es heißen und das bedeutet: kleine Häuser. Diese hier waren damals, und das ist viele Jahre her, eigentlich nichts anderes als hölzerne Buden, fast wie man sie heutzutage auf den Märkten aufgestellt sieht. Ein wenig größer waren sie wohl und mit Fenstern versehen, aber die Scheiben waren aus Horn oder Blasenhaut, denn in jener Zeit waren gläserne Scheiben zu teuer für die Häuser. Aber die Zeit liegt so weit zurück, daß Urgroßvaters Urgroßvater, wenn er davon sprach, es auch schon die alten Zeiten nannte. Es ist mehrere hundert Jahre her. Damals trieben die reichen Kaufleute in Bremen und Lübeck den Handel in Kopenhagen. Sie selbst kamen nicht herauf, sie sandten nur ihre Handlungsgehülfen, und diese wohnten in den Holzbuden der "Kleinhäuschengasse" und besorgten den Verkauf von Bier und Gewürz. Das deutsche Bier war so gut, und es gab so viele Sorten: Bremer, Prysinger, Emser Bier – ja, Braunschweiger Mumme, und dann alle die Gewürze wie Safran, Anis, Ingwer und besonders Pfeffer. Dieser spielte die Hauptrolle hier, und daher trug er auch den deutschen Handlungsgehülfen in Dänemark den Namen "Pfefferschwengel" ein. Sie mußten sich zuhause sonderbarerweise verpflichten, sich hier oben nicht zu verheiraten. Viele von ihnen wurden hier alt; selbst mußten sie für sich sorgen, im Hause umherpusseln und kramen, selbst ihr Feuer machen – daher wurden einige ganz eigenartige alte Burschen mit wunderlichen Gedanken und Gewohnheiten. Nach ihnen nannte man bald jede unverheiratete Mannsperson, die in ein gesetzteres Alter kam, einen "Pfefferschwengel." Alles dies muß man wissen, um die Geschichte zu verstehen.
 
 Man macht sich über den Junggesellen lustig und sagt, er solle sich seine Nachtmütze über die Ohren ziehen und zu Bett gehen:
 
-"Schneidet Holz zu Schwellen,
-Ihr alten Junggesellen.
-Die Nachtmütz liegt bei Euch im Bett,
-Doch kein Feinsliebchen weich und nett."
+"Schneidet Holz zu Schwellen, Ihr alten Junggesellen. Die Nachtmütz liegt bei Euch im Bett, Doch kein Feinsliebchen weich und nett."
 
 Ja, so singt man von ihnen! Man verspottet den Junggesellen und seine Nachtmütze – just weil man ihn und sie so wenig kennt – ach, die Nachtmütze soll
 
@@ -52,14 +50,11 @@ Es verging ein Jahr, es vergingen zwei, drei Jahre, und in dieser ganzen Zeit ka
 
 Wie oft hatten nicht Anton und Molly zusammen die Geschichte von Tristan und Isolde gehört, und ebenso oft hatte er dabei an sich selbst und Molly gedacht, obwohl der Name Tristan bedeuten sollte, daß "er mit Trauer geboren war," und das paßte nicht auf Anton. Niemals wollte er auch, gleichwie Tristan, den Gedanken hegen müssen, "sie hat mich vergessen." Doch auch Isolde vergaß ja nicht den Freund ihres Herzens, und als sie beide gestorben und einzeln zu beiden Seiten der Kirche begraben waren, wuchsen die Lindenbäume aus ihren Gräbern über das Kirchendach hin und trafen einander dort blühend. Das erschien Anton so schön und doch zugleich so traurig – aber mit ihm und Molly konnte es nicht traurig ausgehen, und deshalb flötete er ein Lied des Minnesängers Walther von der Vogelweide:
 
-"Unter der Linden.
-An der Heide."
+"Unter der Linden. An der Heide."
 
 Und so besonders schön erklang es darin:
 
-"Vor dem Wald mit süßem Schall
-Tandaradei.
-Sang im Tal die Nachtigall."
+"Vor dem Wald mit süßem Schall Tandaradei. Sang im Tal die Nachtigall."
 
 Die Weise lag ihm immerfort auf der Zunge, und er sang sie und flötete sie in der mondhellen Nacht, als er zu Pferde durch den tiefen Hohlweg ritt, um nach Weimar zu kommen und Molly zu besuchen. Er wollte unerwartet kommen, und er kam unerwartet.
 
@@ -85,9 +80,7 @@ Und Jahre vergingen. Antons Vater war tot, Fremde wohnten in seinem Vaterhause. 
 
 Das war ein sündhafter Gedanke, und er bekreuzigte sich. Da sang ein kleiner Vogel aus dem Gebüsch, und das alte Minnelied kam ihm in den Sinn:
 
-"Vor dem Wald mit süßem Schall
-Tandaradei.
-Sang im Tal die Nachtigall."
+"Vor dem Wald mit süßem Schall Tandaradei. Sang im Tal die Nachtigall."
 
 So vieles fiel ihm wieder ein hier, in der Stadt seiner Kindheit, die er durch Tränen wiedersah. Sein Vaterhaus stand wie zuvor, aber der Garten war umgelegt. Ein Feldweg führte über eine Ecke des alten Gartenlandes, und der Apfelbaum, den er damals nicht zerstört hatte, stand noch dort, aber draußen vor dem Garten auf der anderen Seite des Weges. Doch die Sonne beschien ihn noch wie früher, er trug reiche Frucht, und seine Zweige bogen sich unter ihrer Last zu Boden.
 

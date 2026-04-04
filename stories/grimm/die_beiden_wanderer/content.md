@@ -3,14 +3,12 @@ title: "Die beiden Wanderer"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/die_beiden_wanderer"
 crawledAt: "2026-04-03T09:13:47.645Z"
-wordCount: 3788
+wordCount: 3784
 ---
+
 Berg und Tal begegnen sich nicht, wohl aber die Menschenkinder, zumal gute und böse. So kam auch einmal ein Schuster und ein Schneider auf der Wanderschaft zusammen. Der Schneider war ein kleiner hübscher Kerl und war immer lustig und guter Dinge. Er sah den Schuster von der andern Seite herankommen, und da er an seinem Felleisen merkte, was er für ein Handwerk trieb, rief er ihm ein Spottliedchen zu:
 
-"nähe mir die Naht,
-ziehe mir den Draht,
-streich ihn rechts und links mit Pech,
-schlag'schlag mir fest den Zweck."
+"nähe mir die Naht, ziehe mir den Draht, streich ihn rechts und links mit Pech, schlag'schlag mir fest den Zweck."
 
 Der Schuster aber konnte keinen Spaß vertragen, er verzog ein Gesicht, als wenn er Essig getrunken hätte, und machte Miene, das Schneiderlein am Kragen zu packen. Der kleine Kerl fing aber an zu lachen, reichte ihm seine Flasche und sprach: "Es ist nicht bös gemeint, trink einmal und schluck die Galle hinunter." Der Schuster tat einen gewaltigen Schluck, und das Gewitter auf seinem Gesicht fing an sich zu verziehen. Er gab dem Schneider die Flasche zurück und sprach: "Ich habe ihr ordentlich zugesprochen, man sagt wohl vom vielen Trinken, aber nicht vom großen Durst. Wollen wir zusammen wandern?" "Mir ist's recht," antwortete der Schneider, "wenn du nur Lust hast, in eine große Stadt zu gehen, wo es nicht an Arbeit fehlt." "Gerade dahin wollte ich auch," antwortete der Schuster, "in einem kleinen Nest ist nichts zu verdienen, und auf dem Lande gehen die Leute lieber barfuß." Sie wanderten also zusammen weiter und setzten immer einen Fuß vor den andern wie die Wiesel im Schnee.
 

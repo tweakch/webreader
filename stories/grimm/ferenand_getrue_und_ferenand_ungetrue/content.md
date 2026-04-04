@@ -3,8 +3,9 @@ title: "Ferdinand getreu und Ferdinand ungetreu"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/ferenand_getrue_und_ferenand_ungetrue"
 crawledAt: "2026-04-03T09:14:25.809Z"
-wordCount: 1781
+wordCount: 1775
 ---
+
 Es war einmal ein Mann und eine Frau, die hatten, solange sie reich waren, keine Kinder, als sie aber arm geworden waren, da kriegten sie einen kleinen Jungen. Sie konnten aber keinen Paten für ihn kriegen; da sagte der Mann, er wolle in einen andern Ort gehen und zusehen, daß er dort einen bekomme.
 
 Und wie er so ging, begegnete ihm ein anderer armer Mann, der ihn nach seinem Wohin fragte. Der Mann antwortete, er wolle hin und zusehen, daß er einen Paten kriegte, aber er sei arm, und da wolle kein Mensch Gevatter sein. "Oh," sagte der arme Mann, "Ihr seid arm und ich bin arm, ich will Euer Gevatter werden, aber ich kann dem Kind nichts geben. Doch geht hin und sagt der Wehmutter, sie solle mit dem Kind in die Kirche kommen." Als sie dann zusammen zur Kirche kamen, war der Bettler schon drinnen. Und er gab dem Kind den Namen "Ferdinand getreu."
@@ -21,15 +22,11 @@ Ferdinand getreu ging daraufhin in den Stall zu seinem Schimmel und weinte und j
 
 Da ließ der König alle Schlächter im Lande schlachten und alle Bäcker backen, daß die Schiffe voll wurden. Wie sie voll sind, sagt das Schimmelchen zu Ferdinand getreu: "Nun besteige mich und reite mit mir zum Schiff; wenn dann die Riesen kommen, so sage:
 
-Still, still, meine lieben Riesechen,
-Ich hab euch wohl bedacht,
-Ich hab euch was mitgebracht.
+Still, still, meine lieben Riesechen, Ich hab euch wohl bedacht, Ich hab euch was mitgebracht.
 
 Und wenn die Vögel kommen, so sagst du wieder:
 
-Still, still, meine lieben Vögelchen,
-Ich hab euch wohl bedacht,
-Ich hab euch was mitgebracht.
+Still, still, meine lieben Vögelchen, Ich hab euch wohl bedacht, Ich hab euch was mitgebracht.
 
 Dann tun sie dir nichts, und wenn du dann zu dem Schloß kommst, dann helfen dir die Riesen; du gehst hinauf zum Schloß und nimmst ein paar Riesen mit: da liegt die Prinzessin und schläft. Du darfst sie aber nicht aufwecken, sondern die Riesen müssen sie mit dem Bett zusammen auf das Schiff tragen." Und da geschah nun alles, wie das Schimmelchen gesagt hatte, und den Riesen und Vögeln gab der Ferdinand getreu, was er ihnen mitgebracht hatte, dafür wurden die Riesen willig und trugen die Prinzessin zum Schiff, das sogleich zum König fuhr. Und als sie zum König kamen, sagte die Prinzessin, sie könne nicht leben, sie müsse ihre Schriften haben, die wären auf dem Schlosse liegengeblieben. Da wurde Ferdinand getreu auf Anstiften von Ferdinand ungetreu gerufen, und der König befahl ihm, er solle die Schriften vom Schlosse holen, sonst müßte er sterben. Da geht er wieder in den Stall und weint und sagt: "Oh, mein liebes Schimmelchen, nun soll ich noch einmal weg; wie soll ich das machen?" Da sagte der Schimmel, sie sollten das Schiff wieder volladen. Da geht es wieder wie das vorige Mal, und die Riesen und die Vögel werden von dem Fleisch gesättigt und besänftigt. Als sie wieder zum Schloß kommen, sagt der Schimmel zu ihm, er solle nur hineingehen, dort, im Schlafzimmmer der Prinzessin, lägen die Schriften. Da geht Ferdinand getreu hinein und holt sie. Als sie wieder auf dem Wasser sind, da läßt er seine Schreibfeder ins Wasser fallen. Da sagt der Schimmel: "Nun kann ich dir aber nicht helfen." Da fällt ihm seine Flöte ein, und er fängt zu spielen an. Da kommt der Fisch und hat die Feder im Maul und hält sie ihm hin. Nun brachte er die Schriften zum Schloß, wo die Hochzeit gehalten wurde.
 

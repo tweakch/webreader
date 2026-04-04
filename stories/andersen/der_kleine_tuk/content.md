@@ -3,8 +3,9 @@ title: "Der kleine Tuk"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/der_kleine_tuk"
 crawledAt: "2026-04-03T11:21:48.835Z"
-wordCount: 1471
+wordCount: 1467
 ---
+
 Ja, das war der kleine Tuk. Er hieß eigentlich nicht Tuk; aber zu jener Zeit, als er noch nicht richtig sprechen konnte, nannte er sich selbst Tuk; das sollte Karl bedeuten, und es ist gut, wenn man das weiß. Er sollte sein Schwesterchen Gustave warten, die viel kleiner als er war, und dann sollte er auch seine Aufgaben lernen; aber diese beiden Dinge wollten sich nicht recht vereinigen lassen. Der arme Knabe saß mit seiner Schwester auf dem Schoße und sang ihr alle Lieder vor, die er wußte. Inzwischen wanderten die Augen verstohlen zu dem Geographiebuche, das aufgeschlagen vor ihm lag. Bis morgen sollte er alle Städte in Seeland auswendig wissen samt allem, was es in ihnen Bemerkenswertes gab.
 
 Nun kam seine Mutter, die fortgewesen war, heim und nahm ihm die kleine Gustave ab. Tuk lief ans Fenster und las, daß er sich fast die Augen ausgelesen hätte; denn es war schon am Dunkelwerden und die Nacht rückte näher und näher. Aber die Mutter hatte nicht die Mittel, Licht zu kaufen.

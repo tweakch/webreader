@@ -3,8 +3,9 @@ title: "Herzeleid"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/herzeleid"
 crawledAt: "2026-04-03T11:22:21.906Z"
-wordCount: 670
+wordCount: 668
 ---
+
 Es ist eigentlich eine Geschichte in zwei Teilen, mit der wir hier aufwarten; der erste Teil könnte recht gut fortfallen, – aber er gibt uns die Vorkenntnisse, und die sind nützlich!
 
 Wir hielten uns weiter drinnen auf dem Lande auf einem Herrenhofe auf. Da traf es sich, daß die Herrschaft dort für einen Tag fortfuhr und an demselben Tage aus dem benachbarten Flecken eine Frau mit ihrem Mops kam. Sie kam, wie sie sagte, um Aktien auf ihre Gerberei aufzunehmen. Ihr Papiere hatte sie mitgebracht und wir rieten ihr, einen Umschlag darum zu tun und den Namen des Gutsbesitzers darauf zu schreiben: "Generalkriegskommissar, Ritter etc."

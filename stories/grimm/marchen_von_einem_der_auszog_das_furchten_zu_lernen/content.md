@@ -3,8 +3,9 @@ title: "Von einem, der auszog, das Fürchten zu lernen"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/marchen_von_einem_der_auszog_das_furchten_zu_lernen"
 crawledAt: "2026-04-03T09:10:05.304Z"
-wordCount: 3436
+wordCount: 3427
 ---
+
 Ein Vater hatte zwei Söhne, davon war der älteste klug und gescheit, und wußte sich in alles wohl zu schicken. Der jüngste aber war dumm, konnte nichts begreifen und lernen, und wenn ihn die Leute sahen, sprachen sie: "Mit dem wird der Vater noch seine Last haben!" Wenn nun etwas zu tun war, so mußte es der älteste allzeit ausrichten; hieß ihn aber der Vater noch spät oder gar in der Nacht etwas holen, und der Weg ging dabei über den Kirchhof oder sonst einen schaurigen Ort, so antwortete er wohl: "Ach nein, Vater, ich gehe nicht dahin, es gruselt mir!" Denn er fürchtete sich. Oder wenn abends beim Feuer Geschichten erzählt wurden, wobei einem die Haut schaudert, so sprachen die Zuhörer manchmal: "Ach, es gruselt mir!" Der jüngste saß in einer Ecke und hörte das mit an und konnte nicht begreifen, was es heißen sollte. "Immer sagen sie, es gruselt mir, es gruselt mir! Mir gruselt's nicht. Das wird wohl eine Kunst sein, von der ich auch nichts verstehe."
 
 Nun geschah es, daß der Vater einmal zu ihm sprach: "Hör, du in der Ecke dort, du wirst groß und stark, du mußt auch etwas lernen, womit du dein Brot verdienst. Siehst du, wie dein Bruder sich Mühe gibt, aber an dir ist Hopfen und Malz verloren." - "Ei, Vater," antwortete er, "ich will gerne was lernen; ja, wenn's anginge, so möchte ich lernen, daß mir's gruselte; davon verstehe ich noch gar nichts." Der älteste lachte, als er das hörte und dachte bei sich: Du lieber Gott, was ist mein Bruder für ein Dummbart, aus dem wird sein Lebtag nichts. Was ein Häkchen werden will, muß sich beizeiten krümmen. Der Vater seufzte und antwortete ihm: "Das Gruseln, das sollst du schon lernen, aber dein Brot wirst du damit nicht verdienen."

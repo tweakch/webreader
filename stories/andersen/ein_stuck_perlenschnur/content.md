@@ -3,8 +3,9 @@ title: "Ein Stück Perlenschnur"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/ein_stuck_perlenschnur"
 crawledAt: "2026-04-03T11:22:57.041Z"
-wordCount: 2132
+wordCount: 2128
 ---
+
 Die Eisenbahn in Dänemark erstreckt sich bis jetzt nur von Kopenhagen bis Korsör, sie ist ein Stück Perlenschnur, Perlen, an denen Europa so reich ist; die kostbarsten Perlen heißen da: Paris, London, Wien, Neapel! Mancher nennt jedoch nicht diese großen Städte seine schönsten Perlen, aber dagegen zeigt er auf eine kleine unauffällige Stadt, die ist das Heim der Heimat, da wohnen die Lieben! Ja, oft ist es nur ein einzelner Hof, ein kleines Haus zwischen grünen Hecken verborgen, ein Punkt, der hinfliegt, während der Eisenbahnzug vorbeijagt.
 
 Wie viele Perlen sind da auf der Schnur von Kopenhagen bis Korsör? Wir wollen sechs betrachten, denen die meisten Aufmerksamkeit schenken müssen, alte Erinnerungen und die Poesie selber geben diesen Perlen einen Glanz, daß sie in unsere Gedanken strahlen.
@@ -21,15 +22,11 @@ Zu Stadt Slagelse -! Was spiegelt sich hier in der Perle Schein? Verschwunden si
 
 Korsör - hier wurdest du geboren, der uns gab:
 
-"- Scherz mit Ernst gemischt
-in Weisen von Knud Seeländer."
+"- Scherz mit Ernst gemischt in Weisen von Knud Seeländer."
 
 Du Meister in Wort und Witz! Die sinkenden, alten Wälle der verlassenen Festung sind nun hier die letzten sichtbaren Zeuges des Heims deiner Kindheit; wenn die Sonne untergeht, zeigen ihre Schatten hin auf den Fleck, wo dein Geburtshaus stand; von diesen Wällen nach Sprogös Höhe blickend sahst du, als du "klein warst," - "den Mond hinter die Insel gleiten" und besangst ihn unsterblich, wie du später die Berge der Schweiz besangst, du, der herumzog in dem Labyrinth der Welt und fand:
 
-.".. nirgends blühen die Rosen so reich,
-und nirgends sind die Dornen so klein,
-und nirgends sind die Kissen so weich,
-als wo unsere Unschuld schlummerte ein."
+.".. nirgends blühen die Rosen so reich, und nirgends sind die Dornen so klein, und nirgends sind die Kissen so weich, als wo unsere Unschuld schlummerte ein."
 
 Der Fröhlichkeit bezaubernder Sänger! Wir flechten dir einen Kranz von Waldmeister und werden ihn in die See, und die Woge wird ihn zu der Kieler Bucht tragen, in deren Küste dein Staub gelegt ist; er bringt einen Gruß von dem jungen Geschlecht, einen Gruß von der Geburtsstand Korsör - wo die Perlenschnur aufhört.
 

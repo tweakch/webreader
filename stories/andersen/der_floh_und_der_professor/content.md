@@ -3,8 +3,9 @@ title: "Der Floh und der Professor"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/der_floh_und_der_professor"
 crawledAt: "2026-04-03T11:25:24.394Z"
-wordCount: 1419
+wordCount: 1413
 ---
+
 Es war einmal ein Luftschiffer, dem ging es verkehrt, der Ballon zersprang, der Mann plumpste herunter und ging in Stücke. Seinen Jungen hatte er zwei Minuten früher mit dem Fallschirm herabgeschickt, das war des Jungen Glück, er blieb unbeschädigt und ging umher mit großen Vorkenntnissen, um Luftschiffer zu werden, aber er hatte keinen Ballon und auch nicht die Mittel, sich einen zu verschaffen.
 
 Leben mußte er, und so verlegte er sich auf die Künste der Behendigkeit und darauf, mit dem Leib reden zu können, das heißt, Bauchredner zu sein. Jung war er und sah gut aus, und als er einen Bart bekam und gute Kleider anzog, konnte er für ein Grafenkind gehalten werden. Die Damen fanden ihn schön, ja, eine Jungfrau wurde so eingenommen von seiner Schönheit und seinen Behendigkeitskünsten, daß sie ihn zu fremden Städten und Ländern begleitete; dort nannte er sich Professor, weniger konnte es nicht sein.

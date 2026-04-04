@@ -3,8 +3,9 @@ title: "Fitchers Vogel"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/fitchers_vogel"
 crawledAt: "2026-04-03T09:11:27.604Z"
-wordCount: 1234
+wordCount: 1231
 ---
+
 Es war einmal ein Hexenmeister, der nahm die Gestalt eines armen Mannes an, ging vor die Häuser und bettelte und fing die schönen Mädchen. Kein Mensch wußte, wo er sie hinbrachte, denn sie kamen nie wieder zum Vorschein. Nun trat er auch einmal vor die Thüre eines Mannes, der drei schöne Töchter hatte, sah aus wie ein armer schwacher Bettler und trug eine Kötze auf dem Rücken, als wollte er milde Gaben darin sammeln. Er bat um ein bischen Essen, und als die älteste herauskam und ihm ein Stück Brot reichen wollte, rührte er sie nur an, und sie mußte in seine Kötze springen. Darauf eilte er mit starken Schritten fort und trug sie in einen finstern Wald zu seinem Haus, das mitten darin stand. In dem Haus war alles prächtig: er gab ihr, was sie nur wünschte und sprach: "Mein Schatz, es wird dir wohl gefallen bei mir, denn du hast alles, was dein Herz begehrt." Das dauerte ein paar Tage, da sagte er: "Ich muß fortreisen und dich eine kurze Zeit allein lassen, da sind die Hausschlüssel: du kannst überall hingehen und alles betrachten, nur nicht in eine Stube, die dieser kleine Schlüssel da aufschließt, das verbiet ich dir bei Lebensstrafe." Auch gab er ihr ein Ei und sprach: "Das Ei verwahre mir sorgfältig und trag es lieber beständig bei dir, denn gienge es verloren, so würde ein großes Unglück daraus entstehen." Sie nahm die Schlüssel und das Ei, und versprach alles wohl auszurichten. Als er fort war, gieng sie in dem Haus herum von unten bis oben und besah alles: die Stuben glänzten von Silber und Gold und sie meinte, sie hätte nie so große Pracht gesehen. Endlich kam sie auch zu der verbotenen Thür, sie wollte vorüber gehen, aber die Neugierde ließ ihr keine Ruhe. Sie besah den Schlüssel, er sah aus wie ein anderer, sie steckte ihn ein und drehte ein wenig, da sprang die Thür auf. Aber was erblickte sie, als sie hinein trat: ein großes blutiges Becken stand in der Mitte, und darin lagen todte zerhauene Menschen: daneben stand ein Holzblock und ein blinkendes Beil lag darauf. Sie erschrak so sehr, daß das Ei, das sie in der Hand hielt, hineinplumpte. Sie holte es wieder heraus und wischte das Blut ab, aber vergeblich, es kam den Augenblick wieder zum Vorschein, sie wischte und schabte, aber sie konnte es nicht herunterkriegen.
 
 Nicht lange, so kam der Mann von der Reise zurück, und das erste, was er forderte, war der Schlüssel und das Ei. Sie reichte es ihm hin, aber sie zitterte dabei, und er sah gleich an den rothen Flecken, daß sie in der Blutkammer gewesen war. "Bist du gegen meinen Willen in die Kammer gegangen," sprach er, "so sollst du jetzt gegen deinen Willen wieder hinein. Dein Leben ist zu Ende." Er warf sie nieder, schleifte sie an den Haaren hin, schlug ihr das Haupt auf dem Block ab und zerhackte sie, daß ihr rothes Blut auf dem Boden dahin floß. Dann warf er sie zu den übrigen ins Becken.
@@ -15,18 +16,10 @@ Der Hexenmeister hob den Korb auf seinen Rücken und gieng damit fort, er ward i
 
 Daheim aber ordnete die Braut das Hochzeitsfest an. Sie nahm einen Todtenkopf mit grinsenden Zähnen und setzte ihm einen Schmuck auf und trug ihn oben vors Bodenloch und ließ ihn da herausschauen. Dann ladete sie die Freunde des Hexenmeisters zum Fest ein, und wie das geschehen war, steckte sie sich in ein Faß mit Honig, schnitt das Bett auf und wälzte sich darin, daß sie aussah wie ein wunderlicher Vogel und kein Mensch sie erkennen konnte. Da gieng sie zum Haus hinaus, und unterwegs begegnete ihr ein Theil der Hochzeitsgäste, die fragten:
 
-"Du Fitchers Vogel, wo kommst du her?"
-"Ich komme von Fitze Fitchers Hause her."
-"Was macht denn da die junge Braut?"
-"Hat gekehrt von unten bis oben das Haus
-und guckt zum Bodenloch heraus."
+"Du Fitchers Vogel, wo kommst du her?" "Ich komme von Fitze Fitchers Hause her." "Was macht denn da die junge Braut?" "Hat gekehrt von unten bis oben das Haus und guckt zum Bodenloch heraus."
 
 Endlich begegnete ihr der Bräutigam, der langsam zurückwanderte. Er fragte wie die andern:
 
-"Du Fitchers Vogel, wo kommst du her?"
-"Ich komme von Fitze Fitchers Hause her."
-"Was macht denn da meine junge Braut?"
-"Hat gekehrt von unten bis oben das Haus
-und guckt zum Bodenloch heraus."
+"Du Fitchers Vogel, wo kommst du her?" "Ich komme von Fitze Fitchers Hause her." "Was macht denn da meine junge Braut?" "Hat gekehrt von unten bis oben das Haus und guckt zum Bodenloch heraus."
 
 Der Bräutigam schaute hinauf und sah den geputzten Todtenkopf: da meinte er, es wäre seine Braut und nickte ihr zu und grüßte sie freundlich. Wie er aber sammt seinen Gästen ins Haus gegangen war, da kam die Hilfe von den Schwestern an. Sie schlossen alle Thüren des Hauses zu, daß niemand entfliehen konnte, und steckten es an, daß der Hexenmeister mitsamt seinem Gesindel verbrannte.

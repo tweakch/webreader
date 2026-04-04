@@ -3,8 +3,9 @@ title: "Die Lumpen"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/die_lumpen"
 crawledAt: "2026-04-03T11:24:45.718Z"
-wordCount: 584
+wordCount: 581
 ---
+
 Draußen vor der Fabrik standen in Haufen hoch aufgestapelte große Lumpenbündel, die von weit und breit gesammelt waren; jeder Lump hatte seine Geschichte, jeder führte seine Rede, aber man kann sie nicht alle zugleich hören. Einige Lumpen waren inländisch, andere waren aus fremden Landen. Hier lag nun ein dänischer Lump gleich neben einem norwegischen Lumpen; urdänisch war der eine, und stocknorwegisch war der andere, und das war das Komische an den beiden, wird jeder vernünftige Norweger und jeder vernünftige Däne sagen.
 
 Sie erkannten nun einander an der Sprache, obgleich jede von ihnen, sagte der Norweger, so verschieden war wie Französisch und Hebräisch. "Wir gehen zur Quelle, um es ungefälscht und ursprünglich zu haben, und der Däne macht sich seine suzelsüße Quatschsprache."

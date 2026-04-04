@@ -3,8 +3,9 @@ title: "Ole Luk-Oie"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/ole_luk-oie"
 crawledAt: "2026-04-03T11:21:07.269Z"
-wordCount: 3733
+wordCount: 3730
 ---
+
 Es gibt niemanden in der ganzen Welt, der so viele Geschichten weiß, wie Ole Luk-Oie. Der kann gehörig erzählen:
 
 So gegen Abend hin, wenn die Kinder noch so nett am Tisch oder auf ihrem Schemel sitzen, kommt Ole Luk-Oie. Er kommt sachte die Treppe herauf, denn er geht auf Socken; er macht ganz leise die Türe auf und husch! da spritzt er den Kindern süße Milch in die Augen hinein, und das so fein, so fein, aber doch immer genug, daß sie die Augen nicht aufhalten und ihn deshalb auch nicht sehen können. Er schleicht sich gerade hinter sie, bläst ihnen sachte in den Nacken, und davon wird es ihnen schwer im Kopf. O ja! aber es tut nicht weh, denn Ole Luk-Oie meint es gerade gut mit den Kindern; er will nur, daß sie ruhig sein sollen, und das sind sie, wenn man sie zu Bett gebracht hat; sie sollen still sein, damit er ihnen Geschichten erzählen kann.
@@ -37,15 +38,9 @@ Dies war eine Lustfahrt! Bald waren die Wälder dicht und dunkel, bald waren sie
 
 Bald segelte Hjalmar durch Wälder, bald durch große Säle oder mitten durch eine Stadt. Er kam auch durch die, in welcher seine Kinderfrau wohnte, die ihn getragen hatte, als er noch ein ganz kleiner Knabe war, und die ihm immer so gut gewesen; sie nickte und winkte und sang den niedlichen kleinen Vers, den sie selbst gedichtet und Hjalmar gesendet hatte:
 
-Ich denke deiner so manches Mal,
-Mein teurer Hjalmar, du Lieber!
-Ich gab dir Küsse ja ohne Zahl
-Auf Stirn, Mund und Augenlider.
+Ich denke deiner so manches Mal, Mein teurer Hjalmar, du Lieber! Ich gab dir Küsse ja ohne Zahl Auf Stirn, Mund und Augenlider.
 
-Ich hörte dich lallen das erste Wort,
-Doch mußt' ich dir Abschied sagen.
-Es segne der Herr dich an jedem Ort,
-Du Engel, den ich getragen!
+Ich hörte dich lallen das erste Wort, Doch mußt' ich dir Abschied sagen. Es segne der Herr dich an jedem Ort, Du Engel, den ich getragen!
 
 Und alle Vögel sangen mit, die Blumen tanzten auf den Stielen, und die alten Bäume nickten, gerade als ob Ole Luk-Oie ihnen auch Geschichten erzählte.
 
@@ -95,12 +90,7 @@ Freitag
 
 Und Hjalmar sah auf den Tisch. Da stand das kleine Papphaus mit Licht in den Fenstern, und draußen vor demselben präsentierten alle Zinnsoldaten das Gewehr. Das Brautpaar saß ganz gedankenvoll, wozu es wohl Ursache hatte, auf dem Fußboden und lehnte sich gegen das Tischbein. Aber Ole Luk-Oie, in der Großmutter schwarzen Rock gekleidet, traute sie. Als die Trauung vorbei war, stimmten alle Möbel in der Stube folgenden schönen Gesang an, welcher von dem Bleistift geschrieben war; er ging nach der Melodie des Zapfenstreiches:
 
-Das Lied ertöne wie der Wind;
-Dem Brautpaar Hoch! das sich verbind't;
-Sie sprangen beide steif und blind,
-Da sie von Handschuhleder sind!
-:;: Hurra, Hurra! ob taub und blind,
- Wir singen es in Wetter und Wind!:;:
+Das Lied ertöne wie der Wind; Dem Brautpaar Hoch! das sich verbind't; Sie sprangen beide steif und blind, Da sie von Handschuhleder sind! :;: Hurra, Hurra! ob taub und blind, Wir singen es in Wetter und Wind!:;:
 
 Und nun bekamen sie Geschenke, aber sie hatten sich alle Speisewaren verbeten, denn sie hatten an ihrer Liebe genug.
 

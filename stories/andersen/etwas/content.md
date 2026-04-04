@@ -3,8 +3,9 @@ title: "Etwas"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/etwas"
 crawledAt: "2026-04-03T11:23:05.636Z"
-wordCount: 2479
+wordCount: 2477
 ---
+
 "Ich will etwas sein," sagte der älteste von fünf Brüdern, "ich will etwas nützen in de Welt; mag es eine noch so geringe Stellung sein, wenn nur das, was ich ausrichte, etwas Gutes ist, dann ist es in der Tat etwas. Ich will Ziegelsteine machen, die sind nicht zu entbehren, und ich habe wirklich etwas gemacht!"
 
 "Aber etwas gar zuwenig!" sprach der zweite Bruder. "Das, was du tun willst, ist so gut wie gar nichts, das ist Handlangerarbeit und kann durch eine Maschine ausgeführt werden. Nein, dann lieber Maurer sein, das ist doch etwas, das will ich sein. Das ist ein Stand! Durch den wird man in die Zunft aufgenommen, wird Bürger, bekommt seine eigene Fahne, seine Herberge; ja, wenn alles gut geht, kann ich Gesellen halten, werde ich Meister, und meine Frau wird Frau Meisterin heißen; das ist doch etwas!"
@@ -29,14 +30,7 @@ Auf dem hohen Erdwall, dem schützenden Deich an der Meeresküste, wollte Margar
 
 Der zweite Bruder, ja der verstand nun das Mauern besser, war er doch auch dazu angelernt. Als er die Gesellenprüfung bestanden hatte, schnürte er seinen Ranzen und stimmte das Lied des Handwerkers an:
 
-Weil ich jung bin, will ich wandern,
-draußen will ich Häuser baun,
-ziehen von einem Ort zum andern;
-Jugendsinn gibt mir Vertrauen.
-Und kehr ich heim ins Vaterland,
-wo mein die Liebst harrt!
-Hurra, der brave Handwerksstand!
-Wie bald ich Meister ward!
+Weil ich jung bin, will ich wandern, draußen will ich Häuser baun, ziehen von einem Ort zum andern; Jugendsinn gibt mir Vertrauen. Und kehr ich heim ins Vaterland, wo mein die Liebst harrt! Hurra, der brave Handwerksstand! Wie bald ich Meister ward!
 
 Und das war er dann auch. Als er zurückgekehrt und Meister geworden war, baute er in der Stadt ein Haus neben dem andern, eine ganze Straße, und als die Straße vollendet war, sich gut ausnahm und der Stadt zur Zierde gereichte, bauten die Häuschen ihm wieder ein Haus, das sein Eigentum sein sollte. Doch wie können die Häuser wohl bauen? Frage sie, und sie werden dir die Antwort schuldig bleiben; aber die Leute antworten und sagen: "Allerdings hat ihm die Straße sein Haus gebaut!" Klein war es und der Fußboden war mit Lehm belegt, aber als er mit seiner Braut über den Lehmboden dahintanzte, da wurde dieser blank wie poliert, und aus jedem Stein in der Wand sprang eine Blume hervor und schmückte das Zimmer wie die kostbarste Tapete. Es war ein hübsches Haus und ein glückliches Ehepaar. Die Fahne der Innung flatterte vor dem Hause, Gesellen und Lehrburschen schrieen: "Hurra!" Ja, war der etwas! Und dann starb er, das war auch etwas!
 

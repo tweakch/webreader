@@ -3,8 +3,9 @@ title: "Die wilden Schwäne"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/die_wilde_schwane"
 crawledAt: "2026-04-03T11:20:48.661Z"
-wordCount: 5921
+wordCount: 5917
 ---
+
 Weit von hier, dort, wo die Schwalben hinfliegen, wenn wir Winter haben, wohnte ein König der elf Söhne und eine Tochter Elisa hatte. Die elf Brüder waren Prinzen und gingen mit dem Stern auf der Brust und dem Säbel an der Seite in die Schule. Sie schrieben mit Diamantgriffeln auf Goldtafeln und lernten ebenso gut auswendig, wie sie lasen; man konnte gleich hören, daß sie Prinzen waren. Die Schwester Elisa saß auf einem kleinen Schemel von Spiegelglas und hatte ein Bilderbuch, welches für das halbe Königreich erkauft war.
 
 Oh, die Kinder hatten es so gut; aber so sollte es nicht immer bleiben!

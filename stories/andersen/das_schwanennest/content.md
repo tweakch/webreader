@@ -3,8 +3,9 @@ title: "Das Schwanennest"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/das_schwanennest"
 crawledAt: "2026-04-03T11:22:11.815Z"
-wordCount: 474
+wordCount: 471
 ---
+
 Zwischen der Ostsee und der Nordsee liegt ein altes Schwanennest, das wird Dänemark genannt. Darin sind und werden Schwäne geboren, deren Name niemals sterben wird.
 
 In grauer Vorzeit flog eine Schar von Schwänen über die Alpen hinab zu Mailands grünen Ebenen, wo gut wohnen war. Diese Schar Schwäne wurden Langobarden geheißen. Eine andere Schar, mit leuchtendem Gefieder und treuen Augen schwangen sich bis hinunter nach Byzanz. Dort ließen sie sich um den Thron des Kaisers nieder und breiteten ihre großen, weißen Schwingen wie Flügel aus, um ihn zu beschirmen. Sie erhielten den Namen Väringer.

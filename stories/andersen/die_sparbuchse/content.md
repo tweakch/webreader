@@ -3,8 +3,9 @@ title: "Die Sparbüchse"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/die_sparbuchse"
 crawledAt: "2026-04-03T11:22:45.318Z"
-wordCount: 804
+wordCount: 801
 ---
+
 Da gab es soviel Spielzeug in der Kinderstube; oben auf dem Schranke stand die Sparbüchse. Sie war aus Ton und hatte die Gestalt eines Schweins. Auf dem Rücken hatte sie natürlich einen Spalt und der Spalt war mit einem Messer noch größer gemacht worden, damit auch Silbertaler hineingehen könnten, und es waren wirklich zwei, neben vielen anderen Schillingen, durch den Spalt gewandert. Die Sparbüchse war vollgepfropft, daß sie gar nicht mehr klappern konnte, und das ist das Höchste, wozu eine Sparbüchse es bringen kann. Da stand sie nun ganz oben auf dem Schranke und sah auf alles in der Stube herab, sie wußte recht wohl, daß sie mit dem, was sie im Bauche hatte, das Ganze hätte kaufen können, und das ist ein angenehmes Bewußtsein.
 
 Das dachten die anderen auch, obwohl sie es nicht sagten; es gab ja auch andere Dinge, um darüber zu sprechen. Die Kommodenschublade stand halb aufgezogen und darin erhob sich eine große Puppe; etwas alt war sie schon und am Halse gekittet. Sie guckte heraus und sagte: "Wollen wir nun Menschen spielen? Das ist doch immer etwas!" Und dann rührte es sich überall emsig, sogar die Bilder drehten sich an den Wänden, sie zeigten, daß sie auch eine Kehrseite hatten, und dagegen war nichts zu sagen.

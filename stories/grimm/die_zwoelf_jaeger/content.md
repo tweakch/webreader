@@ -3,8 +3,9 @@ title: "Die zwölf Jäger"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/die_zwoelf_jaeger"
 crawledAt: "2026-04-03T09:12:02.902Z"
-wordCount: 1012
+wordCount: 1008
 ---
+
 Es war einmal ein Königssohn, der hatte eine Braut und hatte sie sehr lieb. Als er nun bei ihr saß und ganz vergnügt war, da kam die Nachricht, daß sein Vater todkrank läge und ihn noch vor seinem Ende zu sehen verlangte. Da sprach er zu seiner Liebsten: "Ich muß nun fort und muß dich verlassen, da geb ich dir einen Ring zu meinem Andenken. Wann ich König bin, komm ich wieder und hol dich heim." Da ritt er fort, und als er bei seinem Vater anlangte, war dieser sterbens krank und dem Tode nah. Er sprach zu ihm: "Liebster Sohn, ich habe dich vor meinem Ende noch einmal sehen wollen, versprich mir, nach meinem Willen dich zu verheiraten," und nannte ihm eine gewisse Königstochter, die sollte seine Gemahlin werden. Der Sohn war so betrübt, daß er sich gar nicht bedachte, sondern sprach: "Ja, lieber Vater, was Euer Wille ist, soll geschehen," und darauf schloß der König die Augen und starb.
 
 Als nun der Sohn zum König ausgerufen und die Trauerzeit verflossen war, mußte er das Versprechen halten, das er seinem Vater gegeben hatte, und ließ um die Königstochter werben, und sie ward ihm auch zugesagt. Das hörte seine erste Braut und grämte sich über die Untreue so sehr, daß sie fast verging. Da sprach ihr Vater zu ihr: "Liebstes Kind, warum bist du so traurig? Was du dir wünschest, das sollst du haben." Sie bedachte sich einen Augenblick, dann sprach sie: "Lieber Vater, ich wünsche mir elf Mädchen, von Angesicht, Gestalt und Wuchs mir völlig gleich." Sprach der König: "Wenns möglich ist, soll dein Wunsch erfüllt werden," und ließ in seinem ganzen Reich so lange suchen, bis elf Jungfrauen gefunden waren, seiner Tochter von Angesicht, Gestalt und Wuchs völlig gleich.

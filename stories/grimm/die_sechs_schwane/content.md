@@ -3,8 +3,9 @@ title: "Die sechs Schwäne"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/die_sechs_schwane"
 crawledAt: "2026-04-03T09:11:30.738Z"
-wordCount: 1841
+wordCount: 1837
 ---
+
 Es jagte einmal ein König in einem großen Wald und jagte einem Wild so eifrig nach, daß ihm niemand von seinen Leuten folgen konnte. Als der Abend herankam, hielt er still und blickte um sich, da sah er, daß er sich verirrt hatte. Er suchte einen Ausgang, konnte aber keinen finden. Da sah er eine alte Frau mit wackelndem Kopfe, die auf ihn zukam; das war aber eine Hexe.
 
 "Liebe Frau," sprach er zu ihr, "könnt Ihr mir nicht den Weg durch den Wald zeigen?"

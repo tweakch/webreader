@@ -3,8 +3,9 @@ title: "Zwei Brüder"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/zwei_bruder"
 crawledAt: "2026-04-03T11:23:35.693Z"
-wordCount: 665
+wordCount: 662
 ---
+
 Auf einer der dänischen Inseln, wo alte Thingsteine, der Urväter Gerichtssitzes, sich in den Kornfeldern erheben und große Bäume in den Buchenwäldern, liegt ein kleines Städtchen, dessen niedrige Häuser mit roten Ziegeln gedeckt sind. In einem dieser Häuser wurden über glühenden Kohlen auf dem offenen Herd wunderliche Dinge gebraut, es wurde in Gläsern gekocht, gemischt und destilliert, und Kräuter wurden zerhackt und in Mörsern zerstoßen; ein älterer Mann stand dem Ganzen vor.
 
 "Man muß nur das Rechte tun," sprach er, "ja, das Rechte, das Richtige, die Wahrheit in jedem erschaffenen Teil muß man kennen und sich an sie halten."

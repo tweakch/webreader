@@ -3,8 +3,9 @@ title: "Die schöne Katrinelje und Pif Paf Poltrie"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/die_schoene_katrinelje_und_pif_paf_poltrie"
 crawledAt: "2026-04-03T09:14:32.986Z"
-wordCount: 330
+wordCount: 322
 ---
+
 'Guten Tag, Vater Hollenthe.' 'Großen Dank, Pif Paf Poltrie.' 'Könnt ich wohl Eure Tochter kriegen?, 'O ja, wenns die Mutter Malcho (Melk-Kuh), der Bruder Hohenstolz, die Schwester Käsetraut und die schöne Katrinelje will, so kanns geschehen.'
 
 'Wo ist dann die Mutter Malcho?'

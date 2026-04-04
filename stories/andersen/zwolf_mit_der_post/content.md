@@ -3,8 +3,9 @@ title: "Zwölf mit der Post"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/zwolf_mit_der_post"
 crawledAt: "2026-04-03T11:23:42.349Z"
-wordCount: 1408
+wordCount: 1403
 ---
+
 Es war eine schneidende Kälte, sternenheller Himmel, kein Lüftchen regte sich.
 
 'Bums!' Da wurde ein alter Topf an die Haustüre des Nachbars geworfen. 'Puff, paff!' Dort knallte die Büchse; man begrüßte das neue Jahr. Es war Neujahrsnacht! Jetzt schlug die Turmuhr zwölf!
@@ -55,8 +56,6 @@ Der November war es, der so hustete, während er ausstieg. Er war sehr mit Schnu
 
 Endlich kam der letzte Reisende zum Vorschein, das alte Mütterchen Dezember mit der Feuerkiepe; die Alte fror, aber ihre Augen strahlten wie zwei helle Sterne. Sie trug einen Blumentopf auf dem Arme, in dem ein kleiner Tannenbaum eingepflanzt war. "Den Baum will ich hegen und pflegen, damit er gedeihe und groß werde bis zum Weihnachtsabend, vom Fußboden bis an die Decke reiche und emporschieße mit flammenden Lichtern, goldenen Äpfeln und ausgeschnittenen Figürchen. Die Feuerkiepe wärmt wie ein Ofen; ich hole das Märchenbuch aus der Tasche und lese laut aus ihm vor, daß alle Kinder im Zimmer still, die Figürchen an dem Baume aber lebendig werden und der kleine Engel von Wachs auf der äußersten Spitze die Flittergoldflügel ausbreitet, herabfliegt vom grünen Sitze und klein und groß im Zimmer küßt, ja, auch die armen Kinder küßt, die draußen auf dem Flure und auf der Straße stehen und das Weihnachtslied von dem Bethlehemsgestirne singen."
 
-"So! Jetzt kann die Kutsche abfahren," sagte die Schildwache, "wir haben sie alle zwölf. Der Beiwagen mag vorfahren!"
-"Laß doch erst die zwölf zu mir herein!" sprach der Wachhabende, "einen nach dem andern! Die Pässe behalte ich hier; sie gelten jeder einen Monat; wenn der verstrichen ist, werde ich das Verhalten auf dem Passe bescheinigen. Herr Januar, belieben Sie näher zu treten."
-Und Herr Januar trat näher.
+"So! Jetzt kann die Kutsche abfahren," sagte die Schildwache, "wir haben sie alle zwölf. Der Beiwagen mag vorfahren!" "Laß doch erst die zwölf zu mir herein!" sprach der Wachhabende, "einen nach dem andern! Die Pässe behalte ich hier; sie gelten jeder einen Monat; wenn der verstrichen ist, werde ich das Verhalten auf dem Passe bescheinigen. Herr Januar, belieben Sie näher zu treten." Und Herr Januar trat näher.
 
 Wenn ein Jahr verstrichen ist, werde ich dir sagen, was die zwölf uns allen gebracht haben. Jetzt weiß ich es noch nicht, und sie wissen es wohl selbst nicht – denn es ist eine seltsam unruhige Zeit, in der wir leben.

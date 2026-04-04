@@ -3,8 +3,9 @@ title: "Eine Rose von Homers Grab"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/eine_rose_von_homers_grab"
 crawledAt: "2026-04-03T11:24:05.668Z"
-wordCount: 461
+wordCount: 455
 ---
+
 In allen Liedern des Orients erklingt die Liebe der Nachtigall zu der Rose. In den schweigenden, sternklaren Nächten bringt der geflügelte Sänger seiner duftenden Blume eine Serenade dar.
 
 Nicht weit von Smyrna, unter den hohen Platanen, wo der Kaufmann seine belasteten Kamele treibt, die stolz ihre langen Hälse erheben und schwerfällig über eine Erde stampfen, die heilig ist, sah ich eine blühende Rosenhecke. Wilde Tauben flogen zwischen den Zweigen der hochstämmigen Bäume, und die Flügel der Tauben glänzten, wenn ein Sonnenstrahl darüber hinglitt, als seien sie aus Perlmutter gemacht.

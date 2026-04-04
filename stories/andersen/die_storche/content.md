@@ -3,20 +3,14 @@ title: "Die Störche"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/die_storche"
 crawledAt: "2026-04-03T11:21:00.170Z"
-wordCount: 1641
+wordCount: 1638
 ---
+
 Auf dem letzten Hause in einem kleinen Dorfe stand ein Storchennest. Die Storchmutter saß im Neste bei ihren vier kleinen Jungen, die den Kopf mit dem kleinen, schwarzen Schnabel, denn der war noch nicht rot geworden, hervorstreckten. Ein kleines Stück davon entfernt stand auf dem Dachrücken ganz stramm und steif der Storchvater; er hatte das eine Bein unter sich aufgezogen, um doch einige Mühe zu haben, während er Schildwache stand. Fast hätte man glauben mögen, daß er aus Holz geschnitzt sei, so still stand er. "Es sieht gewiß rechtt vornehm aus, daß meine Frau eine Schildwache beim Neste hat!" dachte er. "Sie können ja nicht wissen, daß ich ihr Mann bin, sie glauben sicher, daß mir befohlen worden ist, hier zu stehen. Das sieht recht vornehm aus!" Und er fuhr fort, auf einem Beine zu stehen.
 
 Unten auf der Straße spielte eine Schar Kinder, und da sie die Störche gewahr wurden, sang einer der mutigsten Knaben und später alle zusammen den alten Vers von den Störchen:
 
-"Storch, Storch, fliege heim,
-Stehe nicht auf einem Bein,
-Deine Frau im Neste liegt,
-Wo sie ihre Jungen wiegt.
-Das eine wird gehängt,
-Das andre wird versengt,
-Das dritte man erschießt,
-Wenn man das vierte spießt!"
+"Storch, Storch, fliege heim, Stehe nicht auf einem Bein, Deine Frau im Neste liegt, Wo sie ihre Jungen wiegt. Das eine wird gehängt, Das andre wird versengt, Das dritte man erschießt, Wenn man das vierte spießt!"
 
 "Höre nur, was die Kinder singen!" sagten die kleinen Storchkinder. "Sie singen, wir sollen gehängt und versengt werden!"
 
@@ -28,8 +22,7 @@ Aber die Knaben fuhren fort zu singen, und sie zischten den Storch mit den Finge
 
 Am nächsten Tage, als die Kinder wieder zum Spielen zusammenkamen und die Störche erblickten, gangen sie ihr Lied:
 
-"Das eine wird gehängt,
-das andre wird versengt–"
+"Das eine wird gehängt, das andre wird versengt–"
 
 "Werden wir wohl gehängt und versengt werden?" fragten die Jungen Störche.
 

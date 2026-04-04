@@ -3,8 +3,9 @@ title: "Die Galoschen des Glücks"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/die_galoschen_des_glucks"
 crawledAt: "2026-04-03T11:20:44.024Z"
-wordCount: 9191
+wordCount: 9186
 ---
+
 1. Ein Anfang.
 
 Es war einmal in Kopenhagen in einem der Häuser in der Nähe vom Königsneumarkt eine große Gesellschaft eingeladen, denn das muß zwischendurch auch einmal sein, dann ist es abgemacht, und man kann auch wieder eingeladen werden. Die eine Hälfte der Gesellschaft saß schon an den Spieltischen, und die andere Hälfte wartete ab, was sich entwickeln würde, denn die Hausfrau hatte gesagt: "Nun, was tun wir jetzt!" Soweit war man nun, und die Unterhaltung ging ziemlich lebhaft. Unter anderem kam auch die Rede auf das Mittelalter. Einzelne sahen es für weit schöner an als die Jetztzeit, ja, Justizrat Knap verteidigte diese Meinung so eifrig, daß die Frau des Hauses es sofort mit ihm hielt, und beide eiferten nun gegen Oerstedts Artikel im Almanach über alte und neue Zeit, worin unserem Zeitalter im wesentlichen der Vorrang eingeräumt wird. Justizrat Knap betrachtete die Zeit des dänischen Königs Hans als die hervorragendste und glücklichste.
@@ -143,29 +144,11 @@ Als er seinen Wunsch aussprach, wirkten die Galoschen, die er angezogen hatte, u
 
 Da stand er oben im Zimmer und hielt ein kleines rosenrotes Papier zwischen den Fingern, worauf ein Gedicht stand, ein Gedicht von dem Herrn Leutnant selbst; denn wer wäre nicht einmal in seinem Leben in der Stimmung zum Dichten gewesen, und schreibt man dann seine Gedanken nieder, dann hat man die Verse! Hier stand geschrieben:
 
-Ach wär' ich reich! dacht ich manch liebes Mal,
-Als ich kaum einen halben Meter groß.
-Ach wär' ich reich! So würd' ich General
-Bekäme Säbel, Uniform und Roß.
-Bald kommt die Zeit, da werd' ich General
-Doch eh ich reich, bin sicher längst ich tot –
-O Herr, mein Gott!
+Ach wär' ich reich! dacht ich manch liebes Mal, Als ich kaum einen halben Meter groß. Ach wär' ich reich! So würd' ich General Bekäme Säbel, Uniform und Roß. Bald kommt die Zeit, da werd' ich General Doch eh ich reich, bin sicher längst ich tot – O Herr, mein Gott!
 
-Jung, lebensfroh, saß ich zur Abendstund,
-und, da ich reich an Märchen und Geschichten,
-küßt' mich die Siebenjährige auf den Mund.
-An Geld gehört' ich zu den armen Wichten.
-Die Kleine fragte doch nur nach Geschichten.
-Da war ich reich! Doch nicht an Golde rot –
-O Herr, mein Gott!
+Jung, lebensfroh, saß ich zur Abendstund, und, da ich reich an Märchen und Geschichten, küßt' mich die Siebenjährige auf den Mund. An Geld gehört' ich zu den armen Wichten. Die Kleine fragte doch nur nach Geschichten. Da war ich reich! Doch nicht an Golde rot – O Herr, mein Gott!
 
-Ach, wär' ich reich! so fleht' mein ganz Gemüt.
-Sie, die so schön, so klug, so herzensgut –
-das Mägdlein ist zur Jungfrau aufgeblüht.
-Verstünd' sie doch das Flehn in meinem Blut!
-Sie tät es sicher, wär' sie mir noch gut.
-Doch, da ich arm, verschweig ich meine Not –
-O Herr, mein Gott!
+Ach, wär' ich reich! so fleht' mein ganz Gemüt. Sie, die so schön, so klug, so herzensgut – das Mägdlein ist zur Jungfrau aufgeblüht. Verstünd' sie doch das Flehn in meinem Blut! Sie tät es sicher, wär' sie mir noch gut. Doch, da ich arm, verschweig ich meine Not – O Herr, mein Gott!
 
 Ja, solche Verse schreibt man, wenn man verliebt ist, aber ein besonnener Mann läßt sie nicht drucken. Leutnant, Liebe und Armut, das ist ein Dreieck, oder auch, das ist die Hälfte des zerbrochenen Glückswürfels. Das fühlte der Leutnant auch, und darum legte er sein Haupt gegen den Fensterrahmen und seufzte ganz tief:
 
@@ -201,8 +184,7 @@ Wie gesagt, des Wächters Körper kam aufs Hospital und wurde dort in die Reinig
 
 Am selben Tage wurde er wieder entlassen, aber die Galoschen blieben im Hospital.
 
-4. Ein Hauptmoment. Eine Deklamationsnummer.
-Eine höchst ungewöhnliche Reise.
+4. Ein Hauptmoment. Eine Deklamationsnummer. Eine höchst ungewöhnliche Reise.
 
 Ein jeder Kopenhagener weiß, wie der Eingang zum Friedrichshospital aussieht, aber da wahrscheinlich auch einige Nicht-Kopenhagener diese Geschichte lesen werden, müssen wir eine kurze Beschreibung geben.
 
@@ -336,10 +318,7 @@ Der Student wanderte im Gange auf und ab. Es war erst sechs Uhr. Draußen von de
 
 "O, reisen! reisen!" rief er laut, "das ist doch das größte Glück in der Welt! Das ist meiner Wünsche höchstes Ziel! Das würde die Unruhe, die mich quält, stillen. Aber weit fort müßte es sein! Ich möchte die herrliche Schweiz sehen, nach. Italien fahren und – " Es war gut, daß die Galoschen sofort wirkten, sonst würde er allzu weit herumgekommen sein sowohl für seinen Geschmack als auch für den unseren. Er reiste; er war mitten in der Schweiz aber mit acht Anderen in einer Postkutsche zusammengepackt. Er hatte Kopfschmerzen, einen steifen Nacken, und das Blut machte seine Beine schwer und geschwollen, so daß ihn die Stiefel zwickten. Er schwebte in einem Zustande zwischen Wachen und Schlafen. In seiner rechten Tasche hatte er einen Kreditbrief, in der linken seinen Paß, und in einem kleinen Lederbeutel auf der Brust waren einige Goldstücke eingenäht. Jeder Traum endete damit, das eines oder das andere dieser Kostbarkeiten verloren sei. Deshalb fuhr er jeden Augenblick empor, und die erste Bewegung, die seine Hand machte, war ein Dreieck von rechts nach links und zur Brust hinauf, um zu fühlen, ob sie noch da waren oder nicht. Regenschirme, Stöcke und Hüte schaukelten im Netz über seinem Kopfe und verhinderten so ziemlich die Aussicht, die großartig war. Er schielte danach, während sein Herz sang, was ein Dichter, den wir kennen, auch schon gesungen hat, als er in der Schweiz war, er hat es aber bis jetzt nicht drucken lassen:
 
-Ja, hier ist es schön und klar und still!
-Sieh den Montblanc, mein Lieber, und schweige.
-Wenn nur das Kleingeld ausreichen will,
-Aber das geht gar bald auf die Neige!
+Ja, hier ist es schön und klar und still! Sieh den Montblanc, mein Lieber, und schweige. Wenn nur das Kleingeld ausreichen will, Aber das geht gar bald auf die Neige!
 
 Groß, ernst und düster war die Natur rings um ihn. Die Tannenwälder erschienen wie Heidekraut auf den hohen Felsen, deren Spitzen sich im Wolkenschleier verbergen. Nun begann es zu schneien und der kalte Wind blies.
 
@@ -365,15 +344,9 @@ Und, wie das Wort ausgesprochen war, war er in seinem Heim. Die langen, weißen 
 
 Jede Leiche ist der Unsterblichkeit Sphinx; auch die Sphinx hier in dem schwarzen Sarge gab keine Antwort auf das, was der Lebende zwei Tage vorher niedergeschrieben hatte
 
-Du starker Tod, Dein Schweigen wecket Grauen;
-Des Kirchhofs Gräber zeigen Deine Spur.
-Soll meinem Geiste keine Hoffnung blauen?
-Blüh ich als Gras im Todesgarten nur?
+Du starker Tod, Dein Schweigen wecket Grauen; Des Kirchhofs Gräber zeigen Deine Spur. Soll meinem Geiste keine Hoffnung blauen? Blüh ich als Gras im Todesgarten nur?
 
-"Dein größtes Leiden hat die Welt doch nie erblickt.
-Der, der Du gleich Dir bliebst zum letzten ohne Arg.
-Im Leben werd Dein Herz von manchem mehr bedrückt,
-Als von der Erde, die man wirft auf Deinen Sarg!"
+"Dein größtes Leiden hat die Welt doch nie erblickt. Der, der Du gleich Dir bliebst zum letzten ohne Arg. Im Leben werd Dein Herz von manchem mehr bedrückt, Als von der Erde, die man wirft auf Deinen Sarg!"
 
 Zwei Gestalten bewegten sich im Zimmer. Wir kennen sie beide: Es waren die Trauer und die Abgesandte des Glückes. Sie beugten sich über den Toten.
 

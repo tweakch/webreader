@@ -3,8 +3,9 @@ title: "Die Prinzessin auf der Erbse"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/die_prinzessin_auf_der_erbse"
 crawledAt: "2026-04-03T11:20:31.925Z"
-wordCount: 357
+wordCount: 351
 ---
+
 Es war einmal ein Prinz, der wollte eine Prinzessin heiraten. Aber das sollte eine wirkliche Prinzessin sein. Da reiste er in der ganzen Welt herum, um eine solche zu finden, aber überall fehlte etwas. Prinzessinnen gab es genug, aber ob es wirkliche Prinzessinnen waren, konnte er nie herausfinden. Immer war da etwas, was nicht ganz in Ordnung war. Da kam er wieder nach Hause und war ganz traurig, denn er wollte doch gern eine wirkliche Prinzessin haben.
 
 Eines Abends zog ein furchtbares Wetter auf; es blitzte und donnerte, der Regen stürzte herab, und es war ganz entsetzlich. Da klopfte es an das Stadttor, und der alte König ging hin, um aufzumachen.

@@ -3,8 +3,9 @@ title: "Der Wind erzählt von Waldemar Daa und seinen Töchtern"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/der_wind_erzahlt_von_waldemar_daa_und_seinen_tochtern"
 crawledAt: "2026-04-03T11:23:16.019Z"
-wordCount: 3991
+wordCount: 3981
 ---
+
 Wenn der Wind über das Gras dahinläuft, kräuselt es sich wie ein Gewässer, läuft er über die Saaten hin, dann wogen und wallen sie wie die hohe See; dies ist des Windes Tanz; doch der Wind tanzt nicht nur, er erzählt auch, und wie singt er dann alles so recht aus voller Brust heraus, und wie klingt es gar verschieden in des Waldes Wipfeln, durch die Schallöcher und Ritzen und Sprünge der Mauer! Siehst du, wie der Wind dort oben die Wolken jagt, als seien sie eine verängstigte Lämmerherde! Hörst du, wie der Wind hier unten durch das offene Tor heult, als sei er ein Wächter und blase in sein Horn! Mit wunderlichen Tönen saust und pfeift er die Esse herab, in den Kamin hinein; das Feuer flammt und knistert dabei und leuchtet weit in das Zimmer, und warm und gemütlich ist das Stübchen, gar schön sitzt sich's dort, dem Spuk lauschend.
 
 Lasset den Wind nur erzählen, weiß er doch in Hülle und Fülle Märchen und Geschichten, viel mehr als wir alle insgesamt. Hört einmal zu, wie der Wind erzählt: Huh-uh-usch! Dahingebraust! Das ist der Refrain des Liedes.
@@ -87,8 +88,7 @@ Es war ein harter Tag, um Haltung zu bewahren, aber der Sinn war hart. Nichts ko
 
 Ida schritt an der einen Seite, Anna Dorothea an der anderen Seite des alten Mannes dahin: Johanna wandte sich an der Einfahrt um - wozu? Das Glück wollte sich doch nicht wenden. Sie blickte auf das rote Gemäuer der alten Burg des Marsk Stig, dachte sie vielleicht an dessen Töchter?
 
-Die Älteste reicht der Jüngsten die Hand,
-und weit sie fuhren ins fremde Land.
+Die Älteste reicht der Jüngsten die Hand, und weit sie fuhren ins fremde Land.
 
 Dachte sie an dieses alte Lied? Hier waren sie ihrer drei, und auch der Vater war dabei. Sie schritten den Weg entlang, wo sie einst dahingefahren waren in der reichen Karosse; sie gingen den Bettlergang mit dem Vater, wanderten hinaus auf das offenen Feld, auf die Heide in die Lehmhütte, die sie für anderthalb Taler jährlich Mietzins erstanden hatten, in den neuen Herrensitz mit leeren Wänden und leeren Gefäßen, Krähen und Dohlen flogen über die dahin und schrieen wie zum Spott: "Krah, krah, aus dem Nest! Krah, krah!" wie sie es geschrieen im Wald bei Borreby, als die Bäume gefällt wurden.
 

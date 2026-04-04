@@ -3,8 +3,9 @@ title: "Der Komet"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/der_komet"
 crawledAt: "2026-04-03T11:24:47.124Z"
-wordCount: 1428
+wordCount: 1425
 ---
+
 Und der Komet kam, schimmerte mit seinem Feuerkern und drohte mit seinem Schweif; er ward betrachtet aus dem reichen schloß, aus der armen Hütte, aus dem Menschengedränge auf der Straße und vvon dem einsamen Wanderer, der über die wegelose Heide schritt. Ein jeder hatte seinen Gedanken dabei.
 
 "Kommt und seht das Zeichen des Himmel! Kommt und seht den prachtvollen Anblick!" sagte man, und alle beeilten sich, zu sehen.
@@ -47,15 +48,11 @@ Vierzehn Tage und vierzehn Nächte war die ganze Luft mit Wolken angefüllt, man
 
 Der alte Schulmeister saß in seiner kleinen Kammer dicht neben der Schulstube. Die Bornholmer Uhr aus der Zeit seiner Eltern stand in der Ecke, die schweren Bleilote hoben sich nicht und sanken auch nicht. der Perpendikel rührte sich niocht; der kleine Kuckuck, der ehemals herauskam und die Stunden rief, hatte mehrere Jahre lang schweigend hinter dem geschlossenen Deckel gesessen; alles war stumm und still da drinnen, die Uhr ging nicht mehr. Aber das alte Kalvier dicht dabei, das auch aus der Zeit der Eltern stammte, hatte noch Leben, die Saiten konnten noch klingen, freilich ein wenig heiser, konnten die Melodien eines ganzen Menschanalters singen. Der alte Mann ward dadurch an so vieles erinnert, an Frohes und Traurioges, während einer ganzen Reihe von Jahren, von der Zeit an, da er als kleiner Knabe den Kometen sah, bis auf heute, wo er wieder hier war. Er erinnerte sich dessen, was die Mutter von dem Hobelspan im Licht gesagt hatte, er erinnerte sich der herrlichen Seifenblasen, die er gemacht hatte; eine jede sei ein Lebensjahr, hatte sie gesagt, wie schimmernd, wie farbenreich! Alles Schöne und Erfreuliche hatte er darin gesehen: Kinderspiele und Jugendlust, die ganze weite Welt lag im Sonnenschein offen vor ihm, und dahinaus sollte er! Es waren Zukunftsblasen. Als alter Mann tönnten ihm aus den Saiten des Klaviers Melodien aus entschwundenen Zeiten entgegen: Erinnerungsblasen mit dem Farbenschimmer der Erinnerungen; da erklang Großmutters Stricklied:
 
-"Wohl keine Amazone hat
-den ersten Strumpf gestrickt."
+"Wohl keine Amazone hat den ersten Strumpf gestrickt."
 
 Da erklang das Lied, da die alte Magd des Hauses ihm als Kind gesungen:
 
-"Gar mancherlei Gedanken
-hienieden muß bestehn,
-wer jung und unerfahren
-und wenig hat gesehn!"
+"Gar mancherlei Gedanken hienieden muß bestehn, wer jung und unerfahren und wenig hat gesehn!"
 
 Ja, dann ertönten die Melodien, von dem ersten Ball, ein Menuett und ein Molinaski; jetzt klangen weiche, wehmutsvolle Töne, die Augen des alten Mannes füllten sich mit Tränen, jetzt brauste ein Kriegsmarsch, jetzt kam ein geistliches Lied, dann folgten untere Töne, eine Blase nach der andern, wie zu der Zeit, da er als kleiner Knabe Blasen aus dem Seifenwasser in die Luft hinausgesandt hatte.
 

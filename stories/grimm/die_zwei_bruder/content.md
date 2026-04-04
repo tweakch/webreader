@@ -3,8 +3,9 @@ title: "Die zwei Brüder"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/die_zwei_bruder"
 crawledAt: "2026-04-03T09:11:50.415Z"
-wordCount: 7700
+wordCount: 7696
 ---
+
 Es waren einmal zwei Brüder, ein reicher und ein armer. Der reiche war ein Goldschmied und bös von Herzen; der arme nährte sich davon, daß er Besen band, und war gut und redlich. Der arme hatte zwei Kinder, das waren Zwillingsbrüder und sich so ähnlich wie ein Tropfen Wasser dem andern. Die zwei Knaben gingen in des Reichen Haus ab und zu und erhielten von dem Abfall manchmal etwas zu essen. Es trug sich zu, daß der arme Mann, als er in den Wald ging, Reisig zu holen, einen Vogel sah, der ganz golden war und so schön, wie ihm noch niemals einer vor Augen gekommen war. Da hob er ein Steinchen auf, warf nach ihm und traf ihn auch glücklich; es fiel aber nur eine goldene Feder herab, und der Vogel flog fort. Der Mann nahm die Feder und brachte sie seinem Bruder, der sah sie an und sprach "Es ist eitel Gold," und gab ihm viel Geld dafür. Am andern Tag stieg der Mann auf einen Birkenbaum und wollte ein paar Äste abhauen. Da flog derselbe Vogel heraus, und als der Mann nachsuchte, fand er ein Nest, und ein Ei lag darin das war von Gold. Er nahm das Ei mit heim und brachte es seinem Bruder, der sprach wiederum: "Es ist eitel Gold" und gab ihm, was es wert war. Zuletzt sagte der Goldschmied: "Den Vogel selber möcht' ich wohl haben." Der Arme ging zum drittenmal in den Wald und sah den Goldvogel wieder auf dem Baum sitzen. Da nahm er einen Stein und warf ihn herunter und brachte ihn seinem Bruder, der gab ihm einen großen Haufen Gold dafür. Nun kann ich mir forthelfen, dachte er und ging zufrieden nach Haus.
 
 Der Goldschmied war klug und listig und wußte wohl, was das für ein Vogel war. Er rief seine Frau und sprach: "Brat mir den Goldvogel und sorge, daß nichts davon wegkommt, ich habe Lust, ihn ganz allein zu essen." Der Vogel war aber kein gewöhnlicher, sondern so wunderbarer Art, daß wer Herz und Leber von ihm aß, jeden Morgen ein Goldstück unter seinem Kopfkissen fand. Die Frau machte den Vogel zurecht, steckte ihn an einen Spieß und ließ ihn braten. Nun geschah es, daß während er am Feuer stand und die Frau anderer Arbeit wegen notwendig aus der Küche gehen mußte, die zwei Kinder des armen Besenbinders hereinliefen, sich vor den Spieß stellten und ihn ein paarmal herumdrehten. Und als da gerade zwei Stücklein aus dem Vogel in die Pfanne herabfielen, sprach der eine: "Die paar Bißchen wollen wir essen, ich bin so hungrig, es wird's ja niemand daran merken." Da aßen sie beide die Stückchen auf; die Frau kam aber dazu, sah, daß sie etwas aßen, und sprach: "Was habt ihr gegessen?" - "Ein paar Stückchen, die aus dem Vogel herausgefallen sind," antworteten sie. "Das ist Herz und Leber gewesen, sprach die Frau ganz erschrocken, und damit ihr Mann nichts vermißte und nicht böse ward, schlachtete sie geschwind ein Hähnchen, nahm Herz und Leber heraus und legte es zu dem Goldvogel. Als er gar war, trug sie ihn dem Goldschmied auf, der ihn ganz allein verzehrte und nichts übrigließ Am andern Morgen aber, als er unter sein Kopfkissen griff und dachte das Goldstück hervorzuholen, war so wenig wie sonst eins zu finden.
@@ -17,28 +18,23 @@ Als sie herangewachsen waren, nahm sie ihr Pflegevater eines Tages mit in den Wa
 
 Als der bestimmte Tag kam, schenkte der Pflegevater jedem eine gute Büchse und einen Hund und ließ jeden von seinen gesparten Goldstücken nehmen, soviel er wollte. Darauf begleitete er sie ein Stück Wegs, und beim Abschied gab er ihnen noch ein blankes Messer und sprach: "Wann ihr euch einmal trennt, so stoßt dies Messer am Scheideweg in einen Baum, daran kann einer, wenn er zurückkommt, sehen, wie es seinem abwesenden Bruder ergangen ist, denn die Seite, nach welcher dieser ausgezogen ist, rostet, wann er stirbt solange er aber lebt, bleibt sie blank." Die zwei Brüder gingen immer weiter fort und kamen in einen Wald, so groß, daß sie unmöglich in einem Tag herauskonnten. Also blieben sie die Nacht darin und aßen, was sie in die Jägertaschen gesteckt hatten; sie gingen aber auch noch den zweiten Tag und kamen nicht heraus. Da sie nichts zu essen hatten, so sprach der eine: "Wir müssen uns etwas schießen, sonst leiden wir Hunger," lud sein Büchse und sah sich um. Und als ein alter Hase dahergelaufen kam, legte er an, aber der Hase rief:
 
-"Lieber Jäger, laß mich leben,
-Ich will dir auch zwei Junge geben."
+"Lieber Jäger, laß mich leben, Ich will dir auch zwei Junge geben."
 
 Sprang auch gleich ins Gebüsch und brachte zwei Junge; die Tierlein spielten aber so munter und waren so artig, daß die Jäger es nicht übers Herz bringen konnten, sie zu töten Sie behielten sie also bei sich, und die kleinen Hasen folgten ihnen auf dem Fuße nach. Bald darauf schlich ein Fuchs vorbei, den wollten sie niederschießen, aber der Fuchs rief:
 
-"Lieber Jäger, laß mich leben,
-Ich will dir auch zwei Junge geben."
+"Lieber Jäger, laß mich leben, Ich will dir auch zwei Junge geben."
 
 Er brachte auch zwei Füchslein, und die Jäger mochten sie auch nicht töten, gaben sie den Hasen zur Gesellschaft, und sie folgten ihnen nach. Nicht lange, so schritt ein Wolf aus dem Dickicht, die Jäger legten auf ihn an, aber der Wolf rief:
 
-"Lieber Jäger, laß mich leben,
-Ich will dir auch zwei Junge geben."
+"Lieber Jäger, laß mich leben, Ich will dir auch zwei Junge geben."
 
 Die zwei jungen Wölfe taten die Jäger zu den anderen Tieren, und sie folgten ihnen nach. Darauf kam ein Bär, der wollte gern noch länger herumtraben und rief:
 
-"Lieber Jäger, laß mich leben,
-Ich will dir auch zwei Junge geben."
+"Lieber Jäger, laß mich leben, Ich will dir auch zwei Junge geben."
 
 Die zwei jungen Bären wurden zu den andern gesellt, und waren ihrer schon acht. Endlich, wer kam? Ein Löwe kam und schüttelte seine Mähne. Aber die Jäger ließen sich nicht schrecken und zielten auf ihn; aber der Löwe sprach gleichfalls:
 
-"Lieber Jäger, laß mich leben,
-Ich will dir auch zwei Junge geben."
+"Lieber Jäger, laß mich leben, Ich will dir auch zwei Junge geben."
 
 Er holte auch seine Jungen herbei, und nun hatten die Jäger zwei Löwen, zwei Bären, zwei Wölfe, zwei Füchse und zwei Hasen, die ihnen nachzogen und dienten. Indessen war ihr Hunger damit nicht gestillt worden, da sprachen sie zu den Füchsen: "Hört, ihr Schleicher, schafft uns etwas zu essen, ihr seid ]a listig und verschlagen." Sie antworteten: "Nicht weit von hier liegt ein Dorf, wo wir schon manches Huhn geholt haben; den Weg dahin wollen wir euch zeigen." Da gingen sie ins Dorf, kauften sich etwas zu essen und ließen ihren Tieren Futter geben und zogen dann weiter. Die Füchse aber wußten guten Bescheid in der Gegend, wo die Hühnerhöfe waren, und konnten die Jäger überall zurechtweisen. Nun zogen sie eine Weile herum, konnten aber keinen Dienst finden, wo sie zusammen geblieben wären, da sprachen sie: "Es geht nicht anders, wir müssen uns trennen." Sie teilten die Tiere, so daß jeder einen Löwen, einen Bären, einen Wolf, einen Fuchs und einen Hasen bekam. Dann nahmen sie Abschied, versprachen sich brüderliche Liebe bis in den Tod und stießen das Messer, das ihnen ihr Pflegevater mitgegeben, in einen Baum; worauf der eine nach Osten, der andere nach Westen zog.
 

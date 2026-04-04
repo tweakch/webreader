@@ -3,8 +3,9 @@ title: "Die alte Kirchenglocke"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/die_alte_kirchenglocke"
 crawledAt: "2026-04-03T11:23:59.813Z"
-wordCount: 1662
+wordCount: 1658
 ---
+
 In dem deutschen Lande Württemberg, wo die Akazienbäume an den Landstraßen so herrlich blühen und sich die Apfel- und Birnbäume im Herbste unter ihrem reifen Segen beugen, liegt ein Städtchen: Marbach. Es gehört zu den ganz kleinen Städten, aber schön liegt es am Neckar, der an Städten, alten Ritterburgen und grünen Weinbergen vorübereilt, um seine Gewässer mit dem stolzen Rheinstrome zu vermischen.
 
 Es war spät im Jahre, das rotgefärbte Weinlaub hing welk hinab, Regenschauer fielen und der kalte Wind wurde immer heftiger; für die Armen war es nicht die angenehmste Zeit. Es wurden finstere Tage, und finsterer noch war es in den alten kleinen Häusern. Eines davon lag mit dem Giebel nach der Straße zu, mit niedrigen Fenstern, ärmlich und gering anzusehen; und so war auch die Familie, die darin wohnte, aber brav und fleißig, mit Gottesfurcht in der Schatzkammer ihres Herzens. Noch ein Kind wollte der liebe Gott ihnen in kurzem schenken. Die Stunde war gekommen, die Mutter lag in Angst und Wehen; da tönte vom nahen Kirchturm Glockenklang zu ihr herein, so tief, so festlich. Es war eine Feierstunde, und der Glockenschall erfüllte die Betende mit Andacht und Zuversicht. Ihre Gedanken erhoben sich mit inniger Liebe zu Gott, und in demselben Augenblicke gebar sie ihren kleinen Sohn und fühlte sich so unendlich froh und glücklich. Die Glocke auf dem Turme schien ihre Freude über Stadt und Land hinaus zu läuten. Zwei klare Kinderaugen blickten sie an und des Kleinen Haar leuchtete, als ob es vergoldet wäre. Das Kind wurde an dem dunklen Novembertage in der Welt empfangen. Mutter und Vater küssten es, und in ihre Bibel schrieben sie: "Den zehnten November 1759 schenkte Gott uns einen Sohn"; und später wurde hinzugefügt, dass er in der Taufe die Namen "Johann Christoph Friedrich" erhielt.

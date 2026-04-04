@@ -3,8 +3,9 @@ title: "Der Schneemann"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/der_schneemann"
 crawledAt: "2026-04-03T11:23:49.292Z"
-wordCount: 1775
+wordCount: 1772
 ---
+
 "Eine so wunderbare Kälte ist es, daß mir der ganze Körper knackt!" sagte der Schneemann. "Der Wind kann einem wirklich Leben einbeißen. Und wie die Glühende dort glotzt!" Er meinte die Sonne, die gerade im Untergehen begriffen war. "Mich soll sie nicht zum Blinzeln bringen, ich werden schon die Stückchen festhalten."
 
 Er hatte nämlich statt der Augen zwei große, dreieckige Stückchen von einem Dachziegel im Kopf; sein Mund bestand aus einem alten Rechen, folglich hatte sein Mund auch Zähne.
@@ -89,11 +90,6 @@ Und bald darauf war auch der Winter überstanden.
 
 "Weg! weg!" bellte der heisere Kettenhund; aber die Mädchen aus dem Hause sangen:
 
-Waldmeister grün! Hervor aus dem Haus,
-Weide! Die wollenen Handschuhe aus;
-Lerche und Kuckuck! Singt fröhlich drein,
-Frühling im Februar wird es sein!
-Ich singe mit: Kuckuck! Kiwitt!
-Komm, liebe Sonne, komm oft – kiwitt!
+Waldmeister grün! Hervor aus dem Haus, Weide! Die wollenen Handschuhe aus; Lerche und Kuckuck! Singt fröhlich drein, Frühling im Februar wird es sein! Ich singe mit: Kuckuck! Kiwitt! Komm, liebe Sonne, komm oft – kiwitt!
 
 Und dann denkt niemand an den Schneemann.

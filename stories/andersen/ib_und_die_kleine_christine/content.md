@@ -3,8 +3,9 @@ title: "Ib und die kleine Christine"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/ib_und_die_kleine_christine"
 crawledAt: "2026-04-03T11:22:50.831Z"
-wordCount: 4072
+wordCount: 4066
 ---
+
 Bei Gudenaa, im Walde von Silkeborg, erhebt sich wie ein großer Wall ein Landrücken und am Fuße dieses Landrückens nach Westen zu, lag und liegt noch heute ein kleines Bauernhaus mit einigen mageren Feldern; der Sand schimmerte allerorten unter dem dünnen Roggen- und Gerstenboden hervor. Es sind nun ein gut Teil Jahre vergangen seitdem. Die Leute, die hier wohnten, bebauten ihren kleinen Acker und hielten drei Schafe, ein Schwein und zwei Ochsen; kurz gesagt, sie konnten recht wohl davon leben, wenn sie bescheidene Ansprüche stellten. Ja, sie hätten es wohl auch dazu bringen können, ein paar Pferde zu halten; aber sie sagten wie die anderen Bauern auch: "Das Pferd frißt sich selbst auf." – Es zehrt das Gute, was es schafft, reichlich wieder auf. Jeppe-Jäns beackerte sein kleines Feld im Sommer selbst und während des Winters war er ein flinker Holzschuhmacher. Dazu hatte er auch einen Gehülfen, einen Knecht, der es verstand, die Holzschuhe zurechtzuschneiden, so daß sie sowohl fest, als auch leicht und wohlgeformt waren. Löffel und Schuhe schnitzten sie, das brachte Geld; man konnte Jeppe-Jäns nicht zu den armen Leuten zählen.
 
 Der kleine Ib, ein siebenjähriger Knabe, das einzige Kind des Hauses, saß dabei und sah zu, er schnitzte an einem Stecken, schnitt sich auch wohl in den Finger; aber eines Tages hatte er zwei Stücken Holz zurechtgeschnitzt, die kleinen Schuhen gleich sahen. Sie sollten, so sagte er, der kleinen Christine geschenkt werden; das war des Schiffers kleine Tochter. Sie war fein und zart wie vornehmer Leute Kind. Hätte sie Kleider gehabt, die ihrer lieblichen Erscheinung angemessen waren, so hätte niemand geglaubt, daß sie aus dem Torfhaus in der Seiser Heide stamme. Dort drüben wohnte ihr Vater. Er war Witwer und ernährte sich damit, aus dem Walde Brennholz nach Silkeborg, ja, oft noch weiter hinauf zu schiffen. Er hatte niemand, der auf die kleine Christine, die ein Jahr jünger als Ib war, geachtet hätte, und so war sie fast immer bei ihm auf dem Kahn oder zwischen dem Heidekraut und den Preißelbeerbüschen; und ging es einmal ganz bis nach Randers hinauf, so kam die kleine Christine zu Jeppe-Jäns hinüber.
@@ -91,8 +92,7 @@ Und Ib schrieb, aber er konnte nicht recht die Worte setzen, wie er wollte und s
 
 "Den Brief an Deinen Vater habe ich gelesen und sehe daraus, daß es Dir in jeder Beziehung wohl geht und Du es noch besser haben könntest! Frage Dein Herz, Christine! und bedenke wohl, was Deiner wartet, wenn Du mich nimmst! Was mein ist, ist nur geringe. Denke nicht an mich und wie ich es tragen werde, denke nur an Deinen eigenen Nutzen. An mich bist Du durch kein Versprechen gebunden, und hast Du mir in Deinem Herzen eins gegeben, so löse ich Dich davon. Alles Glück der Welt sei mit Dir, kleine Christine. Der liebe Gott wird wohl auch für mein Herz Trost wissen.
 
-Immer Dein aufrichtiger Freund
-Ib."
+Immer Dein aufrichtiger Freund Ib."
 
 Und der Brief wurde abgesandt und Christine bekam ihn.
 

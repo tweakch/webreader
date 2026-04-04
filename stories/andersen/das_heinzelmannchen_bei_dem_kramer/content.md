@@ -3,8 +3,9 @@ title: "Das Heinzelmännchen bei dem Krämer"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/das_heinzelmannchen_bei_dem_kramer"
 crawledAt: "2026-04-03T11:22:25.296Z"
-wordCount: 1396
+wordCount: 1390
 ---
+
 Es war einmal ein richtiger Student, der wohnte in einer Dachkammer, und ihm gehörte gar nichts; – es war aber auch einmal ein richtiger Krämer, der wohnte zu ebener Erde, und ihm gehörte das ganze Haus. Zu ihm hielt sich das Heinzelmännchen, denn beim Krämer gab es jeden Weihnachtsabend eine Schüssel voll Grützbrei mit einem großen Klumpen Butter mitten darin! Das konnte der Krämer ganz gut geben; darum blieb das Heinzelmännchen im Krämerladen, und das war sehr lehrreich.
 
 Eines Abends trat der Student durch die Hintertür ein, um selbst Licht und Käse zu kaufen; er hatte niemand zu schicken, darum ging er selbst; er bekam, was er wünschte, bezahlte es, und der Krämer und auch dessen Frau nickten ihm einen 'guten Abend' zu; das war eine Frau, die mehr konnte als mit dem Kopfe nicken; sie hatte Rednergabe! – Der Student nickte ebenfalls, blieb aber auf einmal stehen, und zwar indem er den Bogen Papier las, in den der Käse gewickelt war. Es war ein Blatt, herausgerissen aus einem alten Buche, das eigentlich nicht hätte zerrissen werden sollen; denn es war ein Buch voller Poesie.

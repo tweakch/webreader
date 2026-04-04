@@ -3,8 +3,9 @@ title: "Der Schatten"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/der_schatten"
 crawledAt: "2026-04-03T11:21:50.392Z"
-wordCount: 4657
+wordCount: 4654
 ---
+
 In den heißen Ländern brennt die Sonne freilich anders als bei uns. Die Leute werden ganz mahagonibraun, ja, in den allerheißesten Ländern brennen sie gar zu Mohren. Aber es war nur zu den heißen, wohin ein gelehrter Mann aus den kalten Ländern gekommen war. Der glaubte nun, daß er dort umherlaufen könne wie zu Hause; aber das gewöhnte er sich bald ab. Er und alle vernünftigen Leute mußten drinnen bleiben. Die Fensterläden und Türen blieben den ganzen Tag über geschlossen; es sah aus, als schliefe das ganze Haus oder als sei niemand zu Hause. Die schmale Straße mit den hohen Häusern, wo er wohnte, war nun auch gerade so gebaut, daß die Sonne vom Morgen bis zum Abend darauf liegen mußte; es war wirklich nicht auszuhalten!
 
 Der gelehrte Mann aus den kalten Ländern – er war ein junger Mann und ein kluger Mann – meinte fast, er säße in einem glühenden Ofen. Das zehrte an ihm; er wurde ganz mager. Selbst sein Schatten schrumpfte zusammen; er wurde viel kleiner als zu Hause, die Sonne zehrte auch an diesem. – Erst am Abend lebten sie auf, wenn die Sonne untergegangen war. –

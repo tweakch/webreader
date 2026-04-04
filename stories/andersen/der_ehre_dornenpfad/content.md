@@ -3,8 +3,9 @@ title: "Der Ehre Dornenpfad"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/der_ehre_dornenpfad"
 crawledAt: "2026-04-03T11:22:52.212Z"
-wordCount: 1320
+wordCount: 1316
 ---
+
 So heißt ein altes Märchen: "Der Ehre Dornenpfad," und es handelt von einem Schützen mit Namen Bryde, der wohl zu großen Ehren und Würden kam, aber nicht ohne lange und vielfältige Widerwärtigkeiten und Fährnisse des Lebens durchzumachen. Manch einer von uns hat es gewiß als Kind gehört oder es vielleicht später gelesen und dabei an seinen eigenen stillen Dornenweg und die vielen Widerwärtigkeiten gedacht. Märchen und Wirklichkeit liegen einander so nahe, aber das Märchen hat seine harmonische Lösung hier auf Erden, während die Wirklichkeit sie meist aus dem Erdenleben hinaus in Zeit und Ewigkeit verlegt.
 
 Die Weltgeschichte ist eine Laterne magica, die uns in Lichtbildern auf dem dunklen Grunde der Zeit zeigt, wie der Menschheit Wohltäter, die Märtyrer des Genies, den dornigen Pfad der Ehre wandeln.

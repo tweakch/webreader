@@ -3,40 +3,28 @@ title: "König Drosselbart"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/koenig_drosselbart"
 crawledAt: "2026-04-03T09:11:36.697Z"
-wordCount: 1533
+wordCount: 1530
 ---
+
 Ein König hatte eine Tochter, die war über alle Maßen schön, aber dabei so stolz und übermütig, daß ihr kein Freier gut genug war. Sie wies einen nach dem andern ab, und trieb noch dazu Spott mit ihnen. Einmal ließ der König ein großes Fest anstellen, und ladete dazu aus der Nähe und Ferne die heiratslustigen Männer ein. Sie wurden alle in eine Reihe nach Rang und Stand geordnet; erst kamen die Könige, dann die Herzöge, die Fürsten, Grafen und Freiherrn, zuletzt die Edelleute. Nun ward die Königstochter durch die Reihen geführt, aber an jedem hatte sie etwas auszusetzen. Der eine war ihr zu dick, "das Weinfaß!" sprach sie. Der andere zu lang, "lang und schwank hat keinen Gang." Der dritte zu kurz, "kurz und dick hat kein Geschick." Der vierte zu blaß, "der bleiche Tod!" der fünfte zu rot, "der Zinshahn!" der sechste war nicht gerad genug, "grünes Holz, hinterm Ofen getrocknet!" Und so hatte sie an einem jeden etwas auszusetzen, besonders aber machte sie sich über einen guten König lustig, der ganz oben stand und dem das Kinn ein wenig krumm gewachsen war. "Ei," rief sie und lachte, "der hat ein Kinn, wie die Drossel einen Schnabel," und seit der Zeit bekam er den Namen 'Drosselbart'. Der alte König aber, als er sah, daß seine Tochter nichts tat als über die Leute spotten, und alle Freier, die da versammelt waren, verschmähte, ward er zornig und schwur, sie sollte den ersten besten Bettler zum Manne nehmen, der vor seine Türe käme.
 
 Ein paar Tage darauf hub ein Spielmann an unter dem Fenster zu singen, um damit ein geringes Almosen zu verdienen. Als es der König hörte, sprach er: "Laßt ihn heraufkommen." Da trat der Spielmann in seinen schmutzigen verlumpten Kleidern herein, sang vor dem König und seiner Tochter, und bat, als er fertig war, um eine milde Gabe. Der König sprach: "Dein Gesang hat mir so wohl gefallen, daß ich dir meine Tochter da zur Frau geben will." Die Königstochter erschrak, aber der König sagte: "Ich habe den Eid getan, dich dem ersten besten Bettelmann zu geben, den will ich auch halten." Es half keine Einrede, der Pfarrer ward geholt, und sie mußte sich gleich mit dem Spielmann trauen lassen. Als das geschehen war, sprach der König: "Nun schickt sichs nicht, daß du als ein Bettelweib noch Iänger in meinem Schloß bleibst, du kannst nur mit deinem Manne fortziehen."
 
 Der Bettelmann führte sie an der Hand hinaus, und sie mußte mit ihm zu Fuß fortgehen. Als sie in einen großen Wald kamen, da fragte sie: "Ach, wem gehört der schöne Wald?"
 
-"Der gehört dem König Drosselbart;
-hättst du'n genommen, so wär er dein."
-"Ich arme Jungfer zart,
-ach, hätt ich genommen
-den König Drosselbart!"
+"Der gehört dem König Drosselbart; hättst du'n genommen, so wär er dein." "Ich arme Jungfer zart, ach, hätt ich genommen den König Drosselbart!"
 
 Darauf kamen sie über eine Wiese, da fragte sie wieder: "Wem gehört die schöne grüne Wiese?"
 
-"Sie gehört dem König Drosselbart;
-hättst du'n genommen, so wär sie dein."
-"Ich arme Jungfer zart,
-ach, hätt ich genommen
-den König Drosselbart!"
+"Sie gehört dem König Drosselbart; hättst du'n genommen, so wär sie dein." "Ich arme Jungfer zart, ach, hätt ich genommen den König Drosselbart!"
 
 Dann kamen sie durch eine große Stadt, da fragte sie wieder: "Wem gehört diese schöne große Stadt?"
 
-"Sie gehört dem König Drosselbart,
-hättst du'n genommen, so wär sie dein."
-"Ich arme Jungfer zart,
-ach, hätt ich genommen
-den König Drosselbart!"
+"Sie gehört dem König Drosselbart, hättst du'n genommen, so wär sie dein." "Ich arme Jungfer zart, ach, hätt ich genommen den König Drosselbart!"
 
 "Es gefällt mir gar nicht," sprach der Spielmann, "daß du dir immer einen andern zum Mann wünschest: bin ich dir nicht gut genug?" Endlich kamen sie an ein ganz kleines Häuschen, da sprach sie:
 
-"Ach, Gott, was ist das Haus so klein!
-wem mag das elende winzige Häuschen sein?"
+"Ach, Gott, was ist das Haus so klein! wem mag das elende winzige Häuschen sein?"
 
 Der Spielmann antwortete: "Das ist mein und dein Haus, wo wir zusammen wohnen." Sie mußte sich bücken, damit sie zu der niedrigen Tür hineinkam. "Wo sind die Diener?" sprach die Königstochter. "Was Diener!" antwortete der Bettelmann, "du mußt selber tun, was du willst getan haben. Mach nur gleich Feuer an und stell Wasser auf, daß du mir mein Essen kochst; ich bin ganz müde." Die Königstochter verstand aber nichts vom Feueranmachen und Kochen, und der Bettelmann mußte selber mit Hand anlegen, daß es noch so leidlich ging. Als sie die schmale Kost verzehrt hatten, legten sie sich zu Bett: aber am Morgen trieb er sie schon ganz früh heraus, weil sie das Haus besorgen sollte. Ein paar Tage lebten sie auf diese Art schlecht und recht, und zehrten ihren Vorrat auf. Da sprach der Mann: "Frau, so gehts nicht länger, daß wir hier zehren und nichts verdienen. Du sollst Körbe flechten." Er ging aus, schnitt Weiden und brachte sie heim: da fing sie an zu flechten, aber die harten Weiden stachen ihr die zarten Hände wund. "Ich sehe, das geht nicht," sprach der Mann, "spinn lieber, vielleicht kannst du das besser." Sie setzte sich hin und versuchte zu spinnen, aber der harte Faden schnitt ihr bald in die weichen Finger, daß das Blut daran herunterlief. "Siehst du," sprach der Mann, "du taugst zu keiner Arbeit, mit dir bin ich schlimm angekommen. Nun will ichs versuchen, und einen Handel mit Töpfen und irdenem Geschirr anfangen: du sollst dich auf den Markt setzen und die Ware feil halten." - "Ach," dachte sie, "wenn auf den Markt Leute aus meines Vaters Reich kommen, und sehen mich da sitzen und feil halten, wie werden sie mich verspotten!" Aber es half nichts, sie mußte sich fügen, wenn sie nicht Hungers sterben wollten. Das erstemal gings gut, denn die Leute kauften der Frau, weil sie schön war, gern ihre Ware ab, und bezahlten, was sie forderte: ja, viele gaben ihr das Geld, und ließen ihr die Töpfe noch dazu. Nun lebten sie von dem Erworbenen, solange es dauerte, da handelte der Mann wieder eine Menge neues Geschirr ein. Sie setzte sich damit an eine Ecke des Marktes, und stellte es um sich her und hielt feil. Da kam plötzlich ein trunkener Husar dahergejagt, und ritt geradezu in die Töpfe hinein, daß alles in tausend Scherben zersprang. Sie fing an zu weinen und wußte vor Angst nicht, was sie anfangen sollte. "Ach, wie wird mirs ergehen!" rief sie, "was wird mein Mann dazu sagen!" Sie lief heim und erzählte ihm das Unglück. "Wer setzt sich auch an die Ecke des Marktes mit irdenem Geschirr!" sprach der Mann, "laß nur das Weinen, ich sehe wohl, du bist zu keiner ordentlichen Arbeit zu gebrauchen. Da bin ich in unseres Königs Schloß gewesen und habe gefragt, ob sie nicht eine Küchenmagd brauchen könnten, und sie haben mir versprochen, sie wollten dich dazu nehmen; dafür bekommst du freies Essen."
 

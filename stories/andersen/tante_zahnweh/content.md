@@ -3,8 +3,9 @@ title: "Tante Zahnweh"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/tante_zahnweh"
 crawledAt: "2026-04-03T11:25:21.763Z"
-wordCount: 3536
+wordCount: 3533
 ---
+
 Woher haben wir die Geschichte?
 
 Willst du es wissen?

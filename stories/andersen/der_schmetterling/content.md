@@ -3,8 +3,9 @@ title: "Der Schmetterling"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/der_schmetterling"
 crawledAt: "2026-04-03T11:23:38.912Z"
-wordCount: 858
+wordCount: 855
 ---
+
 Der Schmetterling wollte eine Braut haben und sich unter den Blumen eine recht niedliche aussuchen. Zu dem Ende warf er einen musternden Blick über den ganzen Blumenflor und fand, daß jede Blume recht still und eher ehrsam auf ihrem Stengel saß, gerade wie es einer Jungfrau geziemt, wenn sie nicht verlobt ist; allein es waren gar viele da, und die Wahl drohte mühsam zu werden. Diese Mühe gefiel dem Schmetterling nicht, deshalb flog er auf Besuch zu dem Gänseblümchen. Dieses Blümlein nennen die Franzosen 'Margarete'; sie wissen auch, daß Margarete wahrsagen kann, und das tut sie, wenn die Liebesleute, wie es oft geschieht, ein Blättchen nach dem andern von ihr abpflücken, während sie an jedes eine Frage über den Geliebten stellen: 'Von Herzen? – Mit Schmerzen? – Liebt mich sehr? – ein klein wenig? – Ganz und gar nicht?' und dergleichen mehr. Jeder fragt in seiner Sprache. Der Schmetterling kam auch zu Margarete um zu fragen; er zupfte ihr aber nicht die Blätter aus, sondern er drückte jedem Blatte einen Kuß auf, denn er meinte, man käme mit Güte besser fort.
 
 "Beste Margarete Gänseblümlein!" sprach er zu ihr, "Sie sind die klügste Frau unter den Blumen, Sie können wahrsagen – bitte, bitte, mir zu sagen, bekomme ich die oder die? Welche wird meine Braut sein? – Wenn ich das weiß, werde ich geradeswegs zu ihr hinfliegen und um sie anhalten."

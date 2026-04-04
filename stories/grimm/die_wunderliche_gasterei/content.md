@@ -3,8 +3,9 @@ title: "Die wunderliche Gasterei"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/die_wunderliche_gasterei"
 crawledAt: "2026-04-03T09:17:28.347Z"
-wordCount: 322
+wordCount: 318
 ---
+
 Auf eine Zeit lebte eine Blutwurst und eine Leberwurst in Freundschaft, und die Blutwurst bat die Leberwurst zu Gast. Wie es Essenszeit war, ging die Leberwurst auch ganz vergnügt zu der Blutwurst, als sie aber in die Hausthüre trat, sah sie allerlei wunderliche Dinge, auf jeder Stiege der Treppe, deren viele waren, immer etwas anderes, da war etwa ein Besen und eine Schippe, die sich miteinander schlugen, dann ein Affe mit einer großen Wunde am Kopf und dergleichen mehr.
 
 Die Leberwurst war ganz erschrocken und bestürzt darüber, doch nahm sie sich ein Herz, trat in die Stube und wurde von der Blutwurst freundschaftlich empfangen. Die Leberwurst hub an, sich nach den seltsamen Dingen zu erkundigen, die draußen auf der Treppe wären, die Blutwurst that aber, als hörte sie es nicht, oder als sei es nicht der Mühe werth davon zu sprechen, oder sie sagte etwa von der Schippe und dem Besen: "Es wird meine Magd gewesen seyn, die auf der Treppe mit jemand geschwätzt hat," und brachte die Rede auf etwas anderes.

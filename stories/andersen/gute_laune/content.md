@@ -3,8 +3,9 @@ title: "Gute Laune"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/gute_laune"
 crawledAt: "2026-04-03T11:22:20.603Z"
-wordCount: 1453
+wordCount: 1450
 ---
+
 Mein Vater hat mir das beste Erbteil hinterlassen; von ihm habe ich die gute Laune. Und wer war mein Vater? Ja, das hat mit der Laune wohl nichts zu schaffen. Er war lebhaft und betriebsam, wohlbeleibt und rund; sein Äußeres und Inneres standen völlig im Gegensatz zu seinem Gewerbe. Und was war sein Geschäft, seine gesellschaftliche Stellung? Ja, wenn das gleich im Anfang eines Buches niedergeschrieben und gedruckt wird, so ist es verständlich, daß einige, die es lesen, das Buch zur Seite legen und sagen: Das sieht mir zu unheimlich aus, damit will ich nichts zu tun haben, und doch war mein Vater weder Abdecker noch Scharfrichter, im Gegenteil, sein Geschäft stellte ihn oft an die Spitze der ehrenwertesten Männer, und dort war er ganz zu recht, ganz an seinem Platze; er mußte der Erste sein, vor dem Bischof und vor Prinzen von Geblüt – und er war der Erste – er war Leichenwagenkutscher.
 
 Nun ist es heraus. Und das kann ich sagen, wenn man meinen Vater dort oben sitzen sah vor dem Omnibus des Todes, in seinem langen, schwarzen Mantel und mit dem schwarzbefransten Dreispitz auf dem Kopfe und dazu in sein Gesicht blickte, das ganz leibhaftig aussah, als habe man die Sonne abgezeichnet, rund und lachend, dann konnte man an Trauer und Grab nicht denken; das Antlitz sagte: "Das tut nichts, es geht alles viel besser, als man glaubt!"

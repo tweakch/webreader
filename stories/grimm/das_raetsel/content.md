@@ -3,8 +3,9 @@ title: "Das Rätsel"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/das_raetsel"
 crawledAt: "2026-04-03T09:10:40.639Z"
-wordCount: 1055
+wordCount: 1052
 ---
+
 Es war einmal ein Königssohn, der bekam Lust, in der Welt umherzuziehen, und nahm niemand mit als einen treuen Diener. Eines Tags geriet er in einen großen Wald, und als der Abend kam, konnte er keine Herberge finden und wußte nicht, wo er die Nacht zubringen sollte. Da sah er ein Mädchen, das nach einem kleinen Häuschen zuging, und als er näher kam, sah er, daß das Mädchen jung und schön war. Er redete es an und sprach "liebes Kind, kann ich und mein Diener in dem Häuschen für die Nacht ein Unterkommen finden?" - "Ach ja," sagte das Mädchen mit trauriger Stimme, "das könnt ihr wohl, aber ich rate euch nicht dazu; geht nicht hinein." - "Warum soll ich nicht?" fragte der Königssohn. Das Mädchen seufzte und sprach "meine Stiefmutter treibt böse Künste, sie meints nicht gut mit den Fremden."
 
 Da merkte er wohl, daß er zu dem Hause einer Hexe gekommen war, doch weil es finster ward und er nicht weiter konnte, sich auch nicht fürchtete, so trat er ein. Die Alte saß auf einem Lehnstuhl beim Feuer und sah mit ihren roten Augen die Fremden an. "Guten Abend," schnarrte sie und tat ganz freundlich, "laßt euch nieder und ruht euch aus." Sie blies die Kohlen an, bei welchen sie in einem kleinen Topf etwas kochte. Die Tochter warnte die beiden, vorsichtig zu sein, nichts zu essen und nichts zu trinken, denn die Alte braue böse Getränke.

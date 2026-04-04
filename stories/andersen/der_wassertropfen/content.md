@@ -3,8 +3,9 @@ title: "Der Wassertropfen"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/der_wassertropfen"
 crawledAt: "2026-04-03T11:21:53.009Z"
-wordCount: 551
+wordCount: 548
 ---
+
 Du kennst doch wohl ein Vergrößerungsglas, so ein rundes Brillenglas, das alles hundertmal größer macht, als es ist. Wenn man es nimmt und vor das Auge hält und sich einen Wassertropfen aus dem Teiche draußen ansieht, so erblickt man über tausend wunderliche Tierchen, die man sonst nie im Wasser bemerkt; aber sie sind da, es ist so. Es sieht fast aus wie ein ganzer Teller voll Krabben, die zwischen einander herumspringen, und so freßgierig sind, daß sie einander Arme und Beine, Enden und Kanten wegreißen, und doch sind sie froh und vergnügt auf ihre Art.
 
 Nun war einmal ein alter Mann, den alle Leute Kribbel-Krabbel nannten, denn so hieß er. Er wollte immer das Beste von einer Sache haben, und wenn es so nicht gehen wollte, dann nahm er es durch Zauberei.

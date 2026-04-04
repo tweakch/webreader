@@ -3,8 +3,9 @@ title: "Zwei Jungfern"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/zwei_jungfern"
 crawledAt: "2026-04-03T11:22:35.165Z"
-wordCount: 577
+wordCount: 574
 ---
+
 Hast Du jemals eine Jungfer gesehen? Ich meine was die Steinsetzer eine Jungfer nennen, eine, mit der man die Pflastersteine feststampft. Sie ist ganz aus Holz, nach unten breit und mit eisernen Reifen beschlagen, und oben schmal und von einem Stab durchzogen, das sind ihre Arme.
 
 In einem Hofe standen zwei solcher Jungfern, sie standen zwischen Schaufeln, Klaftermaßen und Schiebkarren, und dorthin drang das Gerücht, daß die Jungfern für die Zukunft nicht mehr "Jungfern," sondern "Stempel" genannt werden sollten, und das ist die neueste und einzig richtige Benennung in der Steinsetzersprache für das, was wir alle in alten Zeiten eine Jungfer nannten.

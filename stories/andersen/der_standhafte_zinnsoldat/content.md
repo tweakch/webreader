@@ -3,8 +3,9 @@ title: "Der standhafte Zinnsoldat"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/der_standhafte_zinnsoldat"
 crawledAt: "2026-04-03T11:20:47.553Z"
-wordCount: 1551
+wordCount: 1547
 ---
+
 Es waren einmal fünfundzwanzig Zinnsoldaten, die waren alle Brüder, denn sie waren aus einem alten zinnernen Löffel gemacht worden. Das Gewehr hielten sie im Arm und das Gesicht geradeaus; rot und blau, überaus herrlich war die Uniform; das allererste, was sie in dieser Welt hörten, als der Deckel von der Schachtel genommen wurde, in der sie lagen, war das Wort "Zinnsoldaten!" Das rief ein kleiner Knabe und klatschte in die Hände; er hatte sie erhalten, denn es war sein Geburtstag, und er stellte sie nun auf dem Tische auf. Der eine Soldat glich dem andern leibhaft, nur ein einziger war etwas anders; er hatte nur ein Bein, denn er war zuletzt gegossen worden, und da war nicht mehr Zinn genug da; doch stand er ebenso fest auf seinem einen Bein wie die andern auf ihren zweien, und gerade er war es, der sich bemerkbar machte.
 
 Auf dem Tisch, auf dem sie aufgestellt wurden, stand vieles andere Spielzeug; aber das, was am meisten in die Augen fiel, war ein niedliches Schloß von Papier; durch die kleinen Fenster konnte man gerade in die Säle hineinsehen. Draußen vor ihm standen kleine Bäume rings um einem kleinen Spiegel, der wie ein kleiner See aussehen sollte. Schwäne von Wachs schwammen darauf und spiegelten sich. Das war alles niedlich, aber das niedlichste war doch ein kleines Mädchen, das mitten in der offenen Schloßtür stand; sie war auch aus Papier ausgeschnitten, aber sie hatte ein schönes Kleid und ein kleines, schmales, blaues Band über den Schultern, gerade wie ein Schärpe; mitten in diesem saß ein glänzender Stern, gerade so groß wir ihr Gesicht. Das kleine Mädchen streckte seine beiden Arme aus, denn es war eine Tänzerin, und dann hob es das eine Bein so hoch empor, daß der Zinnsoldat es durchaus nicht finden konnte und glaubte, daß es gerade wie er nur ein Bein habe.
@@ -47,8 +48,7 @@ Aber die Strömung wurde stärker und stärker! Der Zinnsoldat konnte schon da, 
 
 Nun war er schon so nahe dabei, daß er nicht mehr anhalten konnte. Das Boot fuhr hinaus, der Zinnsoldat hielt sich so steif, wie er konnte; niemand sollte ihm nachsagen, daß er mit den Augen blinke. Das Boot schnurrte drei-, viermal herum und war bis zum Rande mit Wasser gefüllt, es mußte sinken. Der Zinnsoldat stand bis zum Halse im Wasser, und tiefer und tiefer sank das Boot, mehr und mehr löste das Papier sich auf; nun ging das Wasser über des Soldaten Kopf. Da dachte er an die kleine, niedliche Tänzerin, die er nie mehr zu Gesicht bekommen sollte, und es klang vor des Zinnsoldaten Ohren das Lied:
 
-'Fahre, fahre Kriegsmann!
-Den Tod mußt du erleiden!'
+'Fahre, fahre Kriegsmann! Den Tod mußt du erleiden!'
 
 Nun ging das Papier entzwei, und der Zinnsoldat stürzte hindurch, wurde aber augenblicklich von einem großen Fisch verschlungen.
 

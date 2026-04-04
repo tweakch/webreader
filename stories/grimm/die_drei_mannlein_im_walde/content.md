@@ -3,8 +3,9 @@ title: "Die drei Männlein im Walde"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/die_drei_mannlein_im_walde"
 crawledAt: "2026-04-03T09:10:22.985Z"
-wordCount: 1853
+wordCount: 1847
 ---
+
 Es war ein Mann, dem starb seine Frau, und eine Frau, der starb ihr Mann; und der Mann hatte eine Tochter, und die Frau hatte auch eine Tochter. Die Mädchen waren miteinander bekannt und gingen zusammen spazieren und kamen hernach zu der Frau ins Haus. Da sprach sie zu des Mannes Tochter: "Hör, sage deinem Vater, ich wollt ihn heiraten, dann sollst du jeden Morgen dich in Milch waschen und Wein trinken, meine Tochter aber soll sich in Wasser waschen und Wasser trinken." Das Mädchen ging nach Haus und erzählte seinem Vater, was die Frau gesagt hatte.
 
 Der Mann sprach: "Was soll ich tun? Das Heiraten ist eine Freude und ist auch eine Qual." Endlich, weil er keinen Entschluß fassen konnte, zog er seinen Stiefel aus und sagte: "Nimm diesen Stiefel, der hat in der Sohle ein Loch, geh damit auf den Boden, häng ihn an den großen Nagel und gieß dann Wasser hinein. Hält er das Wasser, so will ich wieder eine Frau nehmen, läuft's aber durch, so will ich nicht."
@@ -49,8 +50,7 @@ Als der König wieder zurückkam und mit seiner Frau sprechen wollte, rief die A
 
 In der Nacht aber sah der Küchenjunge, wie eine Ente durch die Gosse geschwommen kam, die sprach:
 
-"König, was machst du?
-Schläfst du oder wachst du?"
+"König, was machst du? Schläfst du oder wachst du?"
 
 Und als er keine Antwort gab, sprach sie:
 

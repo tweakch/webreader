@@ -3,8 +3,9 @@ title: "Was die Distel erlebte"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/was_die_distel_erlebte"
 crawledAt: "2026-04-03T11:24:52.273Z"
-wordCount: 1266
+wordCount: 1261
 ---
+
 Zu dem reichen Herrensitz gehörte ein schöner, gutgehaltener Garten mit seltenen Bäumen und Blumen; die Gäste auf dem Schloß äußerten ihr Entzücken darüber, die Bewohner der Umgegend, vom Lande wie aus den Städten, kamen an Sonn- und Feiertagen und baten um Erlaubnis, den Garten zu sehen, ja, ganze Schulen fanden sich zu ähnlichen Besuchen ein.
 
 Vor dem Garten, an dem Gitter nach dem Feldwege hinaus, stand eine mächtige Distel; sie war so groß, von der Wurzel aus in mehrere Zweige geteilt, daß man sie wohl einen Distelbusch nennen konnte. Niemand sah sie an außer dem alten Esel, der den Milchwagen des Milchmädchens zog. Er machte einen langen Hals nach der Distel und sagte: "Du bist schön! Ich könnte dich auffressen!" Aber die Leine, an der der Esel angepflockt stand, war nicht lang genug, als daß er sie hätte fressen können.

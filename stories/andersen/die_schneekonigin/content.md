@@ -3,16 +3,14 @@ title: "Die Schneekönigin"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/die_schneekonigin"
 crawledAt: "2026-04-03T11:21:21.271Z"
-wordCount: 11198
+wordCount: 11195
 ---
-IN SIEBEN GESCHICHTEN
-Erste Geschichte,
-welche von dem Spiegel und den Scherben handelt.
+
+IN SIEBEN GESCHICHTEN Erste Geschichte, welche von dem Spiegel und den Scherben handelt.
 
 Seht, nun fangen wir an. Wenn wir am Ende der Geschichte sind, wissen wir mehr als jetzt, denn es war ein böser Kobold! Es war einer der allerärgsten, es war der Teufel! Eines Tages war er recht bei Laune, denn er hatte einen Spiegel gemacht, welcher die Eigenschaft besaß, daß alles Gute und Schöne, was sich darin spiegelte, fast zu Nichts zusammenschwand, aber das, was nichts taugte und sich schlecht ausnahm, hervortrat und noch ärger wurde. Die herrlichsten Landschaften sahen wie gekochter Spinat darin aus, und die besten Menschen wurden widerlich und standen auf dem Kopfe ohne Rumpf, die Gesichter wurden so verdreht, daß sie nicht zu erkennen waren, und hatte man einen Sonnenfleck, so konnte man überzeugt sein, daß er sich über Nase und Mund verbreitete. Das sei äußerst belustigend, sagte der Teufel. Fuhr nun ein guter frommer Gedanke durch einen Menschen, dann zeigte sich ein Grinsen im Spiegel, so daß der Teufel über seine künstliche Erfindung lachen mußte. Alle, welche die Koboldschule besuchten, denn er hielt Koboldschule, erzählten überall, daß ein Wunder geschehen sei; nun könne man erst sehen, meinten sie, wie die Welt und die Menschen wirklich aussähen. Sie liefen mit dem Spiegel umher, und zuletzt gab es kein Land oder keinen Menschen mehr, welcher nicht verdreht darin erschienen wäre. Nun wollten sie auch zum Himmel auffliegen, um sich über die Engel und den lieben Gott lustig zu machen. Je höher sie mit dem Spiegel flogen, um so mehr grinste er; sie konnten ihn kaum festhalten. Sie flogen höher und höher, Gott und den Engeln näher; da erzitterte der Spiegel so fürchterlich in seinem Grinsen, daß er ihren Händen entfiel und zur Erde stürzte, wo er in hundert Millionen, Billionen und noch mehr Stücke zersprang. Und nun grade verursachte er weit größeres Unglück als zuvor; denn einige Stücke waren kaum so groß wie ein Sandkorn, und diese flogen ringsumher in der weiten Welt, und wo jemand sie in das Auge bekam, da blieben sie sitzen, und da sahen die Menschen alles verkehrt oder hatten nur Augen für das Verkehrte bei einer Sache; denn jede kleine Spiegelscherbe hatte dieselben Kräfte behalten, welche der ganze Spiegel besaß. Einige Menschen bekamen sogar eine Spiegelscherbe in das Herz,m und dann war es ganz greulich; das Herz wurde einem Klumpen Eis gleich. Einige Spiegelscherben waren so groß, daß sie zu Fensterscheiben verbraucht wurden; aber durch diese Scheiben taugte es nicht, seine Freunde zu betrachten. Andere Stücke kamen in Brillen, und dann ging es schlecht, wenn die Leute diese Brillen aufsetzten, um recht zu sehen und gerecht zu sein; der Böse lachte, daß ihm der Bauch wackelte, und das kitzelte ihn so angenehm. Aber draußen flogen noch kleine Glasscherben in der Luft umher. Nun werden wir's hören!
 
-Zweite Geschichte
-Ein kleiner Knabe und ein kleines Mädchen
+Zweite Geschichte Ein kleiner Knabe und ein kleines Mädchen
 
 Drinnen in der großen Stadt, wo so viele Menschen und Häuser sind, ja nicht einmal Platz genug ist, daß alle Leute einen kleinen Garten besitzen können, und wo sich deshalb die meisten mit Blumen in Blumentöpfen begnügen müssen, waren zwei arme Kinder, die einen etwas größeren Garten als einen Blumentopf besaßen. Sie waren nicht Bruder und Schwester, aber sie waren sich ebenso gut, als wenn sie es gewesen wären. Die Eltern wohnten einander gerade gegenüber in zwei Dachkammern, wo das Dach des einen Nachbarhauses gegen das andere stieß und die Wasserrinne zwischen den Dächern entlang lief; dort war in jedem Haus ein kleines Fenster; man brauchte nur über die Rinne zu schreiten, so konnte man von dem einen Fenster zum anderen gelangen.
 
@@ -34,8 +32,7 @@ Am nächsten Tag wurde es klarer Frost – und dann kam das Frühjahr; die Sonne
 
 Die Rosen blühten diesen Sommer so prachtvoll; das kleine Mädchen hatte einen Psalm gelernt, in welchem auch von Rosen die Rede war; und bei den Rosen dachte sie an ihre eigenen; und sie sang ihn dem kleinen Knaben vor, und er sang mit:
 
-Die Rosen, sie verblüh'n und verwehen,
-Wir werden das Christkindlein sehen!
+Die Rosen, sie verblüh'n und verwehen, Wir werden das Christkindlein sehen!
 
 Und die Kleinen hielten einander bei den Händen, küßten die Rosen, blickten in Gottes hellen Sonnenschein hinein und sprachen zu demselben, als ob das Jesuskind da sei. Was waren das für herrliche Sommertage; wie schön war es draußen bei den frischen Rosenstöcken, welche unermüdlich zu blühen schienen!
 
@@ -69,8 +66,7 @@ Die Schneeflocken wurden größer und größer; zuletzt sahen sie aus wie große
 
 Kay sah sie an; sie war so schön; ein klügeres, lieblicheres Antlitz konnte er sich nicht denken. Nun erschien sie ihm nicht von Eis wie damals, als sie draußen vor dem Fenster saß und ihm winkte; in seinen Augen war sie vollkommen; er fühlte gar keine Furcht. Er erzählte ihr, daß er kopfrechnen könne, und zwar mit Brüchen; er wisse des Landes Quadratmeilen und die Einwohnerzahl; sie lächelte immer. Da kam es ihm vor, als sei es doch nicht genug, was er wisse; und er blickte hinauf in den großen Luftraum; und sie flog mit ihm, flog hoch hinauf auf die schwarze Wolke, und der Sturm sauste und brauste; es war, als sänge er alte Lieder. Sie flogen über Wälder und Seen, über Meere und Länder; unter ihnen sauste der kalte Wind, die Wölfe heulten, der Schnee knisterte; über demselben flogen die schwarzen, schreienden Krähen dahin; aber hoch oben schien der Mond so groß und klar, und dort betrachtete Kay die lange, lange Winternacht. Am Tage schlief er zu den Füßen der Schneekönigin.
 
-Dritte Geschichte
-Der Blumengarten bei der Frau, welche zaubern konnte<\b>
+Dritte Geschichte Der Blumengarten bei der Frau, welche zaubern konnte<\b>
 
 Aber wie erging es der kleinen Gerda, als Kay nicht zurückkehrte? Wo war er nur geblieben? Niemand wußte es, niemand konnte Bescheid geben. Die Knaben erzählten nur, daß sie ihn seinen Schlitten an einen mächtig großen hätten binden sehen, der in die Straße hinein und zu dem Stadttor hinausgefahren sei. Niemand wußte, wo er war, und viele Tränen flossen. Die kleine Gerda weinte so viel und so lange, denn sagte sie, er sei tot, er sei im Fluß ertrunken, der nahe bei der Schule vorbeifloß; oh, das waren recht lange, finstere Wintertage!
 
@@ -136,9 +132,7 @@ Die Tür war verschlossen, aber sie drückte auf die verrostete Klinke, so daß 
 
 "Gott, wie habe ich mich verspätet!" sagte die kleine Gerda. "Es ist ja Herbst geworden! Da darf ich nicht ruhen!" Und sie erhob sich, um zu gehen.
 
-Oh, wie waren ihre kleinen Füße wund und müde! Ringsumher sah es kalt und rauh aus; die langen Weidenblätter waren ganz gelb, und der Trau tröpfelte als Wasser herab. Ein Blatt fiel nach dem andern ab; nur der Schlehdorn trug noch Früchte, die waren aber herbe und zogen ihr den Mund zusammen. Oh, wie war es grau und schwer in der weiten Welt!
-Vierte Geschichte
-Prinz und Prinzessin
+Oh, wie waren ihre kleinen Füße wund und müde! Ringsumher sah es kalt und rauh aus; die langen Weidenblätter waren ganz gelb, und der Trau tröpfelte als Wasser herab. Ein Blatt fiel nach dem andern ab; nur der Schlehdorn trug noch Früchte, die waren aber herbe und zogen ihr den Mund zusammen. Oh, wie war es grau und schwer in der weiten Welt! Vierte Geschichte Prinz und Prinzessin
 
 Gerda mußte wieder ausruhen; da hüpfte dort auf dem Schnee, der Stelle, wo sie saß, gerade gegenüber, eine große Krähe; die hatte lange ruhig gesessen, sie betrachtet und mit dem Kopf gewackelt. Nun sagte sie: "Kra! Kra – Gu' Tag! Gu' Tag." Besser konnte sie es nicht herausbringen, aber sie meinte es gut mit dem kleinen Mädchen und frage, wohin sie so allein in die weite Welt hinausginge. Das Wort allein verstand Gerda sehr wohl und fühlte recht, wieviel darin liegt; und sie erzählte der Krähe ihr ganzes Leben und Schicksal und fragte, ob sie Kay nicht gesehen habe.
 
@@ -196,8 +190,7 @@ Und sie erhielt sowohl Stiefel als auch einen Muff; sie wurde niedlich gekleidet
 
 "Lebe wohl! Lebe wohl!" riefen der Prinz und die Prinzessin; und die kleine Gerda weinte, und die Krähe weinte. So ging es die ersten Meilen; da sagte auch die Krähe Lebewohl, und das war der schwerste Abschied; sie flog auf einen Baum und schlug mit ihren schwarzen Flügeln, so lange sie den Wagen, welcher wie der helle Sonnenschein glänzte, erblicken konnte.
 
-Fünfte Geschichte
-Das kleine Räubermädchen
+Fünfte Geschichte Das kleine Räubermädchen
 
 Sie fuhren durch den dunklen Wald, aber die Kutsche leuchtete wie eine Fackel; das stach den Räubern in die Augen, das konnten sie nicht ertragen. "Das ist Gold, das ist Gold!" riefen sie, stürzten hervor, hielten die Pferde an, schlugen die kleinen Vorreiter, den Kutscher und die Diener tot und zogen dann die kleine Gerda aus dem Wagen.
 
@@ -245,8 +238,7 @@ Und Gerda streckte die Hände mit den großen Fausthandschuhen gegen das Räuber
 
 "Das sind meine alten Nordlichter!" sagte das Rentier; "sieh, wie sie leuchten!" Und dann lief es noch schneller davon, Tag und Nacht. Die Brote wurden verzehrt, der Schinken auch, und dann waren sie in Lappland.
 
-Sechste Geschichte
-Die Lappin und die Finnin
+Sechste Geschichte Die Lappin und die Finnin
 
 Bei einem kleinen Haus hielten sie an; es war sehr jämmerlich. Das Dach ging bis zur Erde herunter, und die Tür war so niedrig, daß die Familie auf dem Bauch kriechen mußte, wenn sie heraus oder hinein wollte. Hier war außer einer alten Lappin, die bei einer Tranlampe Fische kochte, niemand im Hause; und das Rentier erzählte Gerdas ganze Geschichte, aber zuerst seine eigene, denn diese erschien ihm weit wichtiger; und Gerda war so angegriffen von der Kälte, daß sie nicht sprechen konnte.
 
@@ -274,9 +266,7 @@ Sie lief vorwärts, so schnell sie nur konnte. Da kam ein ganzes Regiment Schnee
 
 Da betete die kleine Gerda ihr Vaterunser. Und die Kälte war so groß, daß sie ihren eigenen Atem sehen konnte; der ging ihr wie Rauch aus dem Munde. Der Atem wurde dichter und dichter und gestaltete sich zu kleinen Engeln, die mehr und mehr wuchsen, wenn sie die Erde berührten; und alle hatten Helme auf dem Kopf und Spieße und Schilde in den Händen. Ihre Anzahl wurde größer und größer, und als Gerda ihr Vaterunser beendet hatte, war eine ganze Legion um sie. Sie stachen mit ihren Spießen gegen die greulichen Schneeflocken, so daß diese in hundert Stücke zersprangen. Und die kleine Gerda ging ganz sicher und frischen Mutes vorwärts. Die Engel streichelten ihr Hände und Füße, da empfand sie weniger, wie kalt es war und eilte zu der Schneekönigin Schloß.
 
-Aber nun müssen wir doch erst sehen, was Kay macht. Er dachte freilich nicht an die kleine Gerda, und am wenigsten, daß sie draußen vor dem Schlosse stehe.
-Siebente Geschichte
-Von dem Schloß der Schneekönigin und war sich später darin zutrug
+Aber nun müssen wir doch erst sehen, was Kay macht. Er dachte freilich nicht an die kleine Gerda, und am wenigsten, daß sie draußen vor dem Schlosse stehe. Siebente Geschichte Von dem Schloß der Schneekönigin und war sich später darin zutrug
 
 Die Wände des Schlosses waren gebildet von dem treibenden Schnee und Fenster und Türen von den schneidenden Winden. Es waren über hundert Säle darin, alle wie sie der Schnee zusammenwehte. Der größte erstreckte sich mehrere Meilen lang. Das starke Nordlicht beleuchtete sie alle, und sie waren so groß, so leer, so eisig kalt und so glänzend! nie gab es hier Lustbarkeiten, nicht einmal einen kleinen Bärenball, wozu der Sturm hätte aufspielen und wobei die Eisbären hätten auf den Hinterfüßen gehen und ihre feinen Manieren zeigen können; nie eine kleine Spielgesellschaft mit Maulklapp und Tatzenschlag; nie ein klein bißchen Kaffeeklatsch von den Weißfuchs- Fräuleins; leer, groß und kalt war es in der Schneekönigin Sälen. Die Nordlichter flammten so genau, daß man sie zählen konnte, wann sie am höchsten und wann sie am niedrigsten standen. Mitten in diesem leeren unendlichen Schneesaal war ein zugefrorener See, der war in tausend Stücke zersprungen; aber jedes Stück war dem andern so gleich, daß es ein vollkommenes Kunstwerk war. Und mitten auf dem See saß die Schneekönigin, wenn sie zu Hause war, und dann sagte sie, daß sie im Spiegel des Verstandes säße und daß dieser der einzige und der beste in der Welt sei.
 
@@ -288,8 +278,7 @@ Da geschah es, daß die kleine Gerda durch das große Tor in das Schloß trat. H
 
 Aber er saß ganz still, steif und kalt; da weinte die kleine Gerda heiße Tränen, die fielen auf seine Brust, sie drangen in sein Herz, sie tauten den Eisklumpen auf und verzehrten das kleine Spiegelstück darin. Er betrachtete sie, und sie sang:
 
-Rosen, die blüh'n und verwehen;
-Wir werden das Christkindlein sehen!
+Rosen, die blüh'n und verwehen; Wir werden das Christkindlein sehen!
 
 Da brach Kay in Tränen aus. Er weinte so, daß das Spiegelsplitterchen aus dem Auge schwamm, und nun erkannte er sie und jubelte: "Gerda! Liebe, kleine Gerda! Wo bist du so lange gewesen? Und wo bin ich gewesen?" Und er blickte rings um sich her. "Wie kalt es hier ist! Wie es hier weit und leer ist!"
 
@@ -309,7 +298,6 @@ Das Rentier und das Junge sprangen zur Seite und folgten, gerade bis zur Grenze 
 
 Und Kay und Gerda sahen einander in die Augen, und sie verstanden auf einmal den alten Gesang:
 
-Rosen, die blüh'n und verwehen;
-Wir werden das Christkindlein sehen!
+Rosen, die blüh'n und verwehen; Wir werden das Christkindlein sehen!
 
 Da saßen sie beide, erwachsen und doch Kinder, Kinder im Herzen; und es war Sommer, warmer, wohltuender Sommer.

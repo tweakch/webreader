@@ -3,8 +3,9 @@ title: "Der silberne Schilling"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/der_silberne_schilling"
 crawledAt: "2026-04-03T11:24:00.798Z"
-wordCount: 1607
+wordCount: 1603
 ---
+
 Es war einmal ein Schilling, blank ging er aus der Münze hervor, sprang und klang. "Hurra! Jetzt geht's in die weite Welt hinaus!" Und er kam freilich in die weite Welt hinaus.
 
 Das Kind hielt ihn mit warmen Händen, der Geizige mit kalten, krampfhaften Händen; der Ältere wendete und drehte ihn Gott weiß wie viele Male, während die Jugend ihn gleich wieder rollen ließ. Der Schilling war aus Silber, hatte sehr wenig Kupfer an sich und befand sich bereits ein ganzes Jahr in der Welt, das heißt in dem Land, in dem er geprägt worden war. Eines Tages aber ging er auf Reisen ins Ausland; er war die letzte Landesmünze im Geldbeutel, den ein reisender Herr bei sich hatte, der Herr wußte selber nicht, daß er den Schilling noch hatte, bis er ihm unter die Finger kam. "Hier habe ich ja noch einen Schilling aus der Heimat!" sagte er, "nun, der kann die Reise mitmachen!" und der Schilling klang und sprang vor Freude, als er ihn wieder in den Beutel steckte. Hier lag er nun bei fremden Kameraden, die kamen und gingen, einer machte dem anderen Platz, aber der Schilling aus der Heimat blieb immer im Beutel, das war eine Auszeichnung.

@@ -3,8 +3,9 @@ title: "Die Bienenkönigin"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/die_bienenkonigin"
 crawledAt: "2026-04-03T09:11:53.745Z"
-wordCount: 724
+wordCount: 721
 ---
+
 Zwei Königssöhne gingen einmal auf Abenteuer und gerieten in ein wildes, wüstes Leben, so daß sie gar nicht wieder nach Haus kamen. Der jüngste, welcher der Dummling hieß, machte sich auf und suchte seine Brüder. Aber wie er sie endlich fand, verspotteten sie ihn, daß er mit seiner Einfalt sich durch die Welt schlagen wollte, und sie zwei könnten nicht durchkommen und wären doch viel klüger.
 
 Sie zogen alle drei miteinander fort und kamen an einen Ameisenhaufen. Die zwei ältesten wollten ihn aufwühlen und sehen, wie die kleinen Ameisen in der Angst herumkröchen und ihre Eier forttrügen, aber der Dummling sagte: "Laßt die Tiere in Frieden, ich leid's nicht, daß ihr sie stört!"

@@ -3,8 +3,9 @@ title: "Der Wolf und die sieben jungen Geißlein"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/der_wolf_und_die_sieben_jungen_geisslein"
 crawledAt: "2026-04-03T09:10:07.308Z"
-wordCount: 1009
+wordCount: 1001
 ---
+
 Es war einmal eine alte Geiß, die hatte sieben junge Geißlein, und hatte sie lieb, wie eine Mutter ihre Kinder lieb hat. Eines Tages wollte sie in den Wald gehen und Futter holen, da rief sie alle sieben herbei und sprach: "Liebe Kinder, ich will hinaus in den Wald, seid auf eurer Hut vor dem Wolf, wenn er hereinkommt, so frißt er euch mit Haut und Haar. Der Bösewicht verstellt sich oft, aber an seiner rauhen Stimme und an seinen schwarzen Füßen werdet ihr ihn gleich erkennen." Die Geißlein sagten: "Liebe Mutter, wir wollen uns schon in acht nehmen, Ihr könnt ohne Sorge fortgehen." Da meckerte die Alte und machte sich getrost auf den Weg.
 
 Es dauerte nicht lange, da klopfte jemand an die Haustür und rief: "Macht auf, ihr lieben Kinder, eure Mutter ist da und hat jedem von euch etwas mitgebracht!" Aber die Geißlein hörten an der rauhen Stimme, daß es der Wolf war. "Wir machen nicht auf," riefen sie, "du bist unsere Mutter nicht, die hat eine feine und liebliche Stimme, aber deine Stimme aber ist rau; du bist der Wolf." Da ging der Wolf fort zu einem Krämer und kaufte sich ein großes Stück Kreide; er aß es auf und machte damit seine Stimme fein. Dann kam er zurück, klopfte an die Haustür und rief: "Macht auf, ihr lieben Kinder, eure Mutter ist da und hat jedem von euch etwas mitgebracht!" Aber der Wolf hatte seine schwarze Pfote in das Fenster gelegt, das sahen die Kinder und riefen: "Wir machen nicht auf, unsere Mutter hat keinen schwarzen Fuß, wie du; du bist der Wolf!" Da lief der Wolf zu einem Bäcker und sprach: "Ich habe mich an den Fuß gestoßen, streich mir Teig darüber." Als ihm der Bäcker die Pfote bestrichen hatte, so lief er zum Müller und sprach: "Streu mir weißes Mehl auf meine Pfote." Der Müller dachte: Der Wolf will einen betrügen, und weigerte sich; aber der Wolf sprach: "Wenn du es nicht tust, fresse ich dich!" Da fürchtete sich der Müller und machte ihm die Pfote weiß. Ja, so sind die Menschen.
@@ -17,9 +18,6 @@ Endlich ging sie in ihrem Jammer hinaus, und das jüngste Geißlein lief mit. Al
 
 Als der Wolf endlich ausgeschlafen hatte, machte er sich auf die Beine, und weil ihm die Steine im Magen so großen Durst erregten, so wollte er zu einem Brunnen gehen und trinken. Als er aber anfing zu gehen und sich hin und her zu bewegen, so stießen die Steine in seinem Bauch aneinander und rappelten. Da rief er:
 
-"Was rumpelt und pumpelt
-In meinem Bauch herum?
-Ich meinte, es wären sechs Geißelein,
-Doch sind's lauter Wackerstein."
+"Was rumpelt und pumpelt In meinem Bauch herum? Ich meinte, es wären sechs Geißelein, Doch sind's lauter Wackerstein."
 
 Und als er an den Brunnen kam und sich über das Wasser bückte und trinken wollte, da zogen ihn die schweren Steine hinein, und er mußte jämmerlich ersaufen. Als die sieben Geißlein das sahen, kamen sie eilig herbeigelaufen und riefen laut: "Der Wolf ist tot! Der Wolf ist tot!" und tanzten mit ihrer Mutter vor Freude um den Brunnen herum.

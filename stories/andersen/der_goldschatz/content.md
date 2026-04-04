@@ -3,8 +3,9 @@ title: "Der Goldschatz"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/der_goldschatz"
 crawledAt: "2026-04-03T11:24:21.690Z"
-wordCount: 2668
+wordCount: 2665
 ---
+
 Des Trommelschlägers Frau ging zur Kirche; sie sah den neuen Altar mit den gemalten Bildern und den geschnitzten Engeln; die waren ganz wunderschön, sowohl die auf der Leinwand mit Farben und einen Heiligenschein als auch die in Holz geschnitzten, die angemalt und vergoldet waren. Das Haar strahlte wie Gold und Sonnenschein, wunderschön war das; aber Gottes Sonnenschein war doch noch schöner; der schien klarer, röter zwischen den dunklen Bäumen, wenn die Sonne unterging. Wunderschön war es, in Gottes Antlitz hineinzusehen! Und sie sah in die rote Sonne hinein, und sie dachte so vieles dabei, sie dachte an den Kleinen, den der Storch bringen sollte, und die Frau des Trommelschlägers war so glücklich in dem Gedankten, sie sah und sah, und sie wünschte, das Kind möchte einen Widerschein von all diesem Glanz bekommen, möchte doch wenigsten einem von den strahlenden Engeln auf dem Altarbild gleichen.
 
 Und als sie dann ihr kleines Kind wirklich in den Armen hielt und es dem Vater hinreichte, da sah es aus wie einer von den Engeln in der Kirche, das Haar war wie Gold, der Schein der untergehenden Sonne lag darauf.

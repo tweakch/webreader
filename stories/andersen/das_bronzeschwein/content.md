@@ -3,8 +3,9 @@ title: "Das Bronzeschwein"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/das_bronzeschwein"
 crawledAt: "2026-04-03T11:24:02.411Z"
-wordCount: 4044
+wordCount: 4041
 ---
+
 In der Stadt Florenz, nicht weit von der Piazza del Granduca, liegt eine kleine Querstraße, ich glaube, man nennt sie Porta rossa. In dieser, vor einer Art Grünkramladen, befindet sich ein kunstreich und sorgfältig gearbeitetes Bronzeschwein. Ein frisches, klares Wässerlein rieselt aus dem Maul des Tieres, das vor Alter ganz schwarzgrün aussieht. Nur der Rüssel glänzt, als ob er blankpoliert sei, und das ist er auch, denn die vielen hundert Kinder und Lazzaroni fassen ihn mit ihren Händen an und setzen ihren Mund an sein Maul, um zu trinken. Es gibt ein hübsches Bild, wenn so ein anmutiger halbnackter Knabe das wohlgeformte Tier umarmt und seinen frischen Mund an dessen Rüssel jetzt.
 
 Ein jeder, der nach Florenz kommt, wird wohl dorthin finden, denn er braucht nur den ersten besten Bettler nach dem Bronzeschwein zu fragen.

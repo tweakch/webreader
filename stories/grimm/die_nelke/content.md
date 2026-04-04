@@ -3,8 +3,9 @@ title: "Die Nelke"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/die_nelke"
 crawledAt: "2026-04-03T09:12:30.130Z"
-wordCount: 1673
+wordCount: 1670
 ---
+
 Es war eine Königin, die hatte unser Herrgott verschlossen, daß sie keine Kinder gebar. Da ging sie alle Morgen in den Garten und bat zu Gott im Himmel, er möchte ihr einen Sohn oder eine Tochter bescheren. Da kam ein Engel vom Himmel und sprach 'gib dich zufrieden, du sollst einen Sohn haben mit wünschlichen Gedanken, denn was er sich wünscht auf der Welt, das wird er erhalten.' Sie ging zum König und sagte ihm die fröhliche Botschaft, und als die Zeit herum war, gebar sie einen Sohn, und der König war in großer Freude.
 
 Nun ging sie alle Morgen mit dem Kind in den Tiergarten, und wusch sich da bei einem klaren Brunnen. Es geschah einstmals, als das Kind schon ein wenig älter war, daß es ihr auf dem Schoß lag und sie entschlief. Da kam der alte Koch, der wußte, daß das Kind wünschliche Gedanken hatte, und raubte es, und nahm ein Huhn und zerriß es, und tropfte ihr das Blut auf die Schürze und das Kleid. Da trug er das Kind fort an einen verborgenen Ort, wo es eine Amme tränken mußte, und lief zum König und klagte die Königin an, sie habe ihr Kind von den wilden Tieren rauben lassen. Und als der König das Blut an der Schürze sah, glaubte er es und geriet in einen solchen Zorn, daß er einen tiefen Turm bauen ließ, in den weder Sonne noch Mond schien, und ließ seine Gemahlin hineinsetzen und vermauern; da sollte sie sieben Jahre sitzen, ohne Essen und Trinken, und sollte verschmachten. Aber Gott schickte zwei Engel vom Himmel in Gestalt von weißen Tauben, die mußten täglich zweimal zu ihr fliegen und ihr das Essen bringen, bis die sieben Jahre herum waren.

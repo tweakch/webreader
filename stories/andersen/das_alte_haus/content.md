@@ -3,8 +3,9 @@ title: "Das alte Haus"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/das_alte_haus"
 crawledAt: "2026-04-03T11:21:51.355Z"
-wordCount: 2846
+wordCount: 2842
 ---
+
 Drüben in der Straße stand ein altes, altes Haus, das war fast dreihundert Jahr alt, so konnte man an einem Balken lesen, an dem die Jahreszahl zugleich mit Tulpen und Hopfenranken eingekerbt war. Da standen ganze Verse in der Schreibweise alter Tage, und über jedem Fenster war ein fratzenhaftes Gesicht in den Balken eingeschnitten. Das obere Stockwerk hing weit über das untere, und unter dem Dache war eine Bleirinne mit Drachenköpfen. Das Regenwasser sollte aus dem Rachen herauslaufen, aber es lief aus dem Bauche, denn es war ein Loch in der Rinne.
 
 Alle anderen Häuser in der Straße waren so neu und so nett, mit großen Scheiben und glatten Wänden, und man konnte wohl sehen, daß sie nichts mit dem alten Haus zu tun haben wollten. Sie dachten wohl: "Wie lange soll das Gerümpel hier noch der Straße zur Schande stehen bleiben. Der Erker steht so weit heraus, daß niemand aus unseren Fenstern sehen kann, was auf der anderen Seite geschieht! Die Treppe ist so breit, wie bei einem Schloß und so hoch wie bei einem Kirchturm. Das Eisengeländer sieht ja aus, wie die Tür zu einem alten Erbbegräbnis, dazu hat es noch Messingknöpfe. Das ist geschmacklos!"

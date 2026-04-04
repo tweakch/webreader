@@ -3,8 +3,9 @@ title: "Die Glocke"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/die_glocke"
 crawledAt: "2026-04-03T11:21:35.441Z"
-wordCount: 1830
+wordCount: 1827
 ---
+
 In den engen Straßen der großen Stadt hörte bald der eine, bald der andere am Abend, wenn die Sonne unterging und die Wolken zwischen den Schornsteinen golden aufleuchteten, einen wunderlichen Laut, fast wie der Ton einer Kirchenglocke, aber man hörte ihn nur für einen Augenblick, dann wurde er wieder von dem Geräusch der rasselnden Wagen und des Straßenlärms übertönt. "Nun läutet die Abendglocke." sagte man, "nun geht die Sonne unter."
 
 Wenn man außerhalb der Stadt war, wo die Häuser von Gärten und kleinen Feldern umgeben waren und weiter voneinander entfernt standen, sah man den Abendhimmel noch prächtiger und hörte den Glockenklang weit stärker. Es war, als käme der Ton von einer Kirche tief in dem stillen, duftenden Walde; und die Leute blickten hinüber und wurden ganz andächtig.

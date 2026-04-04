@@ -3,8 +3,9 @@ title: "Der Rosenelf"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/der_rosenelf"
 crawledAt: "2026-04-03T11:20:50.834Z"
-wordCount: 1809
+wordCount: 1806
 ---
+
 Mitten in einem Garten wuchs ein Rosenstock, der war ganz voller Rosen; und in einer derselben, der schönsten von allen, wohnte ein Elf. Der war so winzig klein, daß kein menschliches Auge ihn erblicken konnte. Hinter jedem Blatt in der Rose hatte er eine Schlafkammer. Er war so wohlgebildet und schön, wie nur ein Kind sein kann, und hatte Flügel von den Schultern hinunter bis zu den Füßen. Oh, welcher Duft war in seinen Zimmern und wie schön und klar waren die Wände; es waren ja die blaßroten Rosenblätter.
 
 Den ganzen Tag erfreute er sich im warmen Sonnenschein, flog von Blume zu Blume, tanzte auf den Flügeln des fliegenden Schmetterlings und maß, wie viele Schritte er zu gehen habe, um über alle Landstraßen und Stege zu gelangen, welche auf einem einzigen Lindenblatt sind. Was wir die Adern im Blatt nennen, hielt er für Landstraßen und Stege. Ja, das waren meilenlange Wege für ihn! Ehe er damit fertig wurde, ging die Sonne unter. Er hatte auch so spät damit angefangen!

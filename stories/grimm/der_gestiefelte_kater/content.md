@@ -3,8 +3,9 @@ title: "Der gestiefelte Kater"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/der_gestiefelte_kater"
 crawledAt: "2026-04-03T09:17:15.889Z"
-wordCount: 1639
+wordCount: 1635
 ---
+
 Es war einmal ein Müller, der hatte drei Söhne, seine Mühle, einen Esel und einen Kater; die Söhne mußten mahlen, der Esel Getreide holen und Mehl forttragen, die Katze dagegen die Mäuse wegfangen. Als der Müller starb, teilten sich die drei Söhne in die Erbschaft: der älteste bekam die Mühle, der zweite den Esel, der dritte den Kater; weiter blieb nichts für ihn übrig. Da war er traurig und sprach zu sich selbst: "Mir ist es doch recht schlimm ergangen, mein ältester Bruder kann mahlen, mein zweiter auf seinem Esel reiten - was kann ich mit dem Kater anfangen? Ich laß mir ein Paar Pelzhandschuhe aus seinem Fell machen, dann ist's vorbei."
 
 "Hör", fing der Kater an, der alles verstanden hatte, "du brauchst mich nicht zu töten, um ein Paar schlechte Handschuhe aus meinem Pelz zu kriegen; laß mir nur ein Paar Stiefel machen, daß ich ausgehen und mich unter den Leuten sehen lassen kann, dann soll dir bald geholfen sein." Der Müllersohn verwunderte sich, daß der Kater so sprach, weil aber eben der Schuster vorbeiging, rief er ihn herein und ließ ihm die Stiefel anmessen. Als sie fertig waren, zog sie der Kater an, nahm einen Sack, machte dessen Boden voll Korn, band aber eine Schnur drum, womit man ihn zuziehen konnte, dann warf er ihn über den Rücken und ging auf zwei Beinen, wie ein Mensch, zur Tür hinaus.

@@ -3,8 +3,9 @@ title: "Elfenhügel"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/elfenhugel"
 crawledAt: "2026-04-03T11:21:25.522Z"
-wordCount: 2319
+wordCount: 2317
 ---
+
 Da schlüpften so flink einige Eidechsen in den Spalten eines alten Baumes umher; sie konnten einander gut verstehen, denn sie sprachen die Eidechsensprache.
 
 "Nein, wie es poltert und brummt in dem alten Elfenhügel" sagte die eine Eidechse, "ich habe vor dem Spektakel nun schon zwei Nächte lang kein Auge zugetan, ebensogut könnte ich liegen und Zahnschmerzen haben, denn dann schlafe ich auch nicht."

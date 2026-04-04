@@ -3,8 +3,9 @@ title: "Moorkönigs Tochter"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/moorkonigs_tochter"
 crawledAt: "2026-04-03T11:23:11.008Z"
-wordCount: 13063
+wordCount: 13060
 ---
+
 Die Störche erzählen ihren Jungen gar viele Märchen, und alle handeln von Sumpf und Moor; gewöhnlich sind sie dem Alter und Fassungsvermögen angepaßt. Die kleinsten sind schon entzückt, wenn man "Kribble, krabble, plurremurre" sagt, das finden sie sehr ergötzlich; aber die älteren wollen Geschichten mit tieferem Inhalt hören, am liebsten, wenn sie von der Familie handeln. Von den zwei ältesten und längsten Märchen, die sich bei den Störchen erhalten haben, kennen wir alle das eine, das von Moses, der von seiner Mutter in den Fluten des Nils ausgesetzt und von der Tochter des Königs gefunden wurde, eine gute Erziehung erhielt und ein großer Mann wurde, von dem man nicht einmal weiß, wo er begraben wurde. Aber das ist etwas ganz Alltägliches.
 
 Das andere Märchen ist nicht so bekannt, vielleicht weil es mehr inländisch ist. Dies Märchen hat sich wohl tausend Jahre schon von Storchmutter zu Storchmutter übertragen, und jede hat es besser und besser erzählt, und wir erzählen es am allerbesten.

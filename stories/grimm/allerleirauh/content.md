@@ -3,8 +3,9 @@ title: "Allerleirauh"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/allerleirauh"
 crawledAt: "2026-04-03T09:11:58.457Z"
-wordCount: 2009
+wordCount: 2007
 ---
+
 Es war einmal ein König, der hatte eine Frau mit goldenen Haaren, und sie war so schön, daß sich ihresgleichen nicht mehr auf Erden fand. Es geschah, daß sie krank lag, und als fühlte sie bald, daß sie sterben würde, rief sie den König und sprach: "Wenn du nach meinem Tode dich wieder vermählen willst, so nimm keine, die nicht ebenso schön ist, als ich bin, und die nicht solche Haare hat, wie ich habe; das mußt du mir versprechen!" Nachdem es ihr der König versprochen hatte, tat sie die Augen zu und starb.
 
 Der König war lange Zeit nicht zu trösten und dachte nicht daran, eine zweite Frau zu nehmen. Endlich sprachen seine Räte: "Es geht nicht anders, der König muß sich wieder vermählen, damit wir eine Königin haben." Nun wurden Boten weit und breit herumgeschickt, um eine Braut zu suchen, die an Schönheit der verstorbenen Königin ganz gleichkäme. Es war aber keine in der ganzen Welt zu finden, und wenn man sie auch gefunden hätte, so war doch keine da, die solche goldene Haare gehabt hätte. Also kamen die Boten unverrichteter Sache wieder heim.

@@ -3,8 +3,9 @@ title: "Der Reisekamerad"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/der_reisekamerad"
 crawledAt: "2026-04-03T11:20:38.830Z"
-wordCount: 7228
+wordCount: 7225
 ---
+
 Der arme Johannes war tief betrübt, denn sein Vater war sehr krank und hatte nur noch Stunden zu leben. Niemand außer den beiden war in der kleinen Stube. Die Lampe auf dem Tisch war dem Erlöschen nahe, und es war schon später Abend.–
 
 "Du warst mir ein guter Sohn, Johannes!" sagte der kranke Vater, "der liebe Gott wird dir schon weiterhelfen im Leben!" Und er sah mit ernsten, milden Augen auf ihn, holte noch einmal tief Luft und starb; es war gerade, als ob er schliefe. Aber Johannes weinte, denn nun hatte er niemanden in der ganzen Welt, weder Vater noch Mutter, weder Schwester noch Bruder mehr. Der arme Johannes! Er lag vor dem Bette auf seinen Knien und küßte des toten Vaters Hand und weinte viel salzige Tränen; aber zuletzt schlossen sich seine Augen, und er schlief ein, den Kopf auf der harten Bettkante.
@@ -103,8 +104,7 @@ Als Johannes sie erblickte, ward sein Antlitz so rot, wie von Blut übergossen, 
 
 "Es steht ja jedem frei, sich um sie zu bewerben, auch dem elendsten Bettler. Ich will auch auf das Schloß gehen, ich kann es nicht lassen!"
 
-Alle sagten sie, er solle das nicht tun, es würde ihm bestimmt so ergehen, wie allen anderen. Auch der Reisekamerad riet ihm davon ab, aber Johannes meinte, es würde schon alles gut gehen, und er bürstete seine Schuhe und seine Kleider, wusch Gesicht und Hände, kämmte sein schönes blondes Haar und ging dann ganz allein in die Stadt hinein auf das Schloß.
-hcaev007_02.jpg
+Alle sagten sie, er solle das nicht tun, es würde ihm bestimmt so ergehen, wie allen anderen. Auch der Reisekamerad riet ihm davon ab, aber Johannes meinte, es würde schon alles gut gehen, und er bürstete seine Schuhe und seine Kleider, wusch Gesicht und Hände, kämmte sein schönes blondes Haar und ging dann ganz allein in die Stadt hinein auf das Schloß. hcaev007_02.jpg
 
 "Herein!" sagte der alte König, als Johannes an die Türe klopfte. Johannes öffnete, und der alte König, im Schlafrock und gestickten Pantoffeln, kam ihm entgegen. Die Goldkrone hatte er auf dem Kopf, das Zepter in der einen Hand und den Reichsapfel in der anderen. "Warte ein bißchen!" sagte er, und nahm den Apfel unter den Arm, damit er Johannes die Hand reichen konnte. Aber kaum hörte er, daß Johannes ein Freier war, fing er so bitterlich an zu weinen, daß sowohl Zepter wie Reichsapfel auf die Erde fielen und er die Augen an seinem Schlafrock trocknen mußte. Der arme, alte König!
 
@@ -168,8 +168,7 @@ Dann flogen sie in dem bösen Wetter davon, und der Reisekamerad zerschlug seine
 
 Am nächsten Morgen gab er Johannes das Taschentuch, sagte aber, daß er es nicht eher aufknüpfen dürfe, bevor die Prinzessin fragte, woran sie gedacht habe.
 
-Es waren so viele Menschen in dem großen Saale auf dem Schloß, daß sie so dicht standen wie Radieschen, die zum Bündel gebunden sind. Der Rat saß in seinen Stühlen mit den weichen Kopfkissen, und der alte König hatte neue Kleider an, die goldene Krone und das Zepter waren poliert, alles war feiertäglich; aber die Prinzessin war sehr bleich und hatte ein kohlschwarzes Kleid an, als ob sie zum Begräbnis gehen sollte.
-hcaev007_03.jpg
+Es waren so viele Menschen in dem großen Saale auf dem Schloß, daß sie so dicht standen wie Radieschen, die zum Bündel gebunden sind. Der Rat saß in seinen Stühlen mit den weichen Kopfkissen, und der alte König hatte neue Kleider an, die goldene Krone und das Zepter waren poliert, alles war feiertäglich; aber die Prinzessin war sehr bleich und hatte ein kohlschwarzes Kleid an, als ob sie zum Begräbnis gehen sollte. hcaev007_03.jpg
 
 "An was habe ich gedacht?" sagte sie zu Johannes, und sogleich band er das Taschentuch auf, war aber selbst erschrocken, als er das scheußliche Zaubererhaupt erblickte. Ein kalter Schauder überlief alle die Menschen im Saal, denn es war entsetzlich anzusehen. Aber die Prinzessin saß gerade wie ein Steinbild und konnte kein einziges Wort hervorbringen. Zuletzt erhob sie sich und reichte Johannes die Hand, denn er hatte ja richtig geraten. Sie wandte den Blick ab und seufzte ganz laut: "Nun bist du mein Herr! Heute abend wollen wir Hochzeit halten!"
 
@@ -177,12 +176,7 @@ hcaev007_03.jpg
 
 Am Abend war die ganze Stadt illuminiert, die Soldaten schossen mit Kanonen und die Knaben mit Knallerbsen, und auf dem Schlosse wurde gegessen und getrunken, angestoßen und gesprungen, all die vornehmen Herren und schönen Fräulein tanzten miteinander, und man konnte weit hinaus hören, wie sie sangen:
 
-"Hier sind viele hübsche Mädchen,
-Die ein Tänzchen haben wolle.
-Küß mich! Dreh dich wie ein Rädchen,
-Schmuckes Mädchen! Nur nicht schmollen!
-Dreh dich um mich, wie die Sonn um die Welt
-und bis von den Schühlein die Sohle fällt!"
+"Hier sind viele hübsche Mädchen, Die ein Tänzchen haben wolle. Küß mich! Dreh dich wie ein Rädchen, Schmuckes Mädchen! Nur nicht schmollen! Dreh dich um mich, wie die Sonn um die Welt und bis von den Schühlein die Sohle fällt!"
 
 Aber die Prinzessin war ja noch eine Hexe und hatte Johannes gar nicht lieb. Das überlegte der Reisekamerad, und darum gab er Johannes drei Federn aus den Schwanenflügeln und eine kleine Flasche mit einigen Tropfen darin, und sagte zu Ihm, er solle vor das Brautbett ein großes Faß, mit Wasser gefüllt, setzen lassen, und wenn dann die Prinzessin in das Bett steigen wolle, so solle er ihr einen kleinen Stoß geben, daß sie in das Wasser hinunterfalle, wo er sie dreimal untertauchen solle, nachdem er zuvor die Federn und die Tropfen hineingetan hätte, dann würde sie von dem Zauber befreit werden und ihn recht lieb haben.
 

@@ -3,8 +3,9 @@ title: "Der Mistkäfer"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/der_mistkafer"
 crawledAt: "2026-04-03T11:23:44.918Z"
-wordCount: 2659
+wordCount: 2656
 ---
+
 Das Leibroß des Kaisers bekam goldene Hufbeschläge, ein goldenes Hufeisen an jedes Bein.
 
 Aber weshalb das?

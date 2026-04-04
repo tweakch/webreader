@@ -3,8 +3,9 @@ title: "Tölpel-Hans"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/tolpel_hans"
 crawledAt: "2026-04-03T11:22:49.681Z"
-wordCount: 1387
+wordCount: 1385
 ---
+
 Tief im Innern des Landes lag ein alter Herrenhof; dort war ein Gutsherr, der zwei Söhne hatte, die sich so witzig und gewitzigt dünkten, daß die Hälfte genügt hätte. Sie wollten sich nun um die Königstochter bewerben, denn die hatte öffentlich anzeigen lassen, sie wolle den zum Ehegemahl wählen, der seine Worte am besten zu stellen wisse.
 
 Die beiden bereiteten sich nun volle acht Tage auf die Bewerbung vor, die längste, aber allerdings auch genügende Zeit, die ihnen vergönnt war, denn sie hatten Vorkenntnisse, und wie nützlich die sind, weiß jedermann. Der eine wußte das ganze lateinische Wörterbuch und nebenbei auch drei Jahrgänge vom Tageblatte des Städtchens auswendig, und zwar so, daß er alles von vorne und hinten, je nach Belieben, hersagen konnte. Der andere hatte sich in die Innungsgesetze hineingearbeitet und wußte auswendig, was jeder Innungsvorstand wissen muß, weshalb er auch meinte, er könne bei Staatsangelegenheiten mitreden und seinen Senf dazugeben; ferner verstand er noch eins: Er konnte Hosenträger mit Rosen und anderen Blümchen und Schnörkeleien besticken, denn er war auch fein und fingerfertig.

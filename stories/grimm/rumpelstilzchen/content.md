@@ -3,8 +3,9 @@ title: "Rumpelstilzchen"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/rumpelstilzchen"
 crawledAt: "2026-04-03T09:09:57.849Z"
-wordCount: 1012
+wordCount: 1010
 ---
+
 Es war einmal ein Müller, der war arm, aber er hatte eine schöne Tochter. Nun traf es sich, daß er mit dem König zu sprechen kam, und um sich ein Ansehen zu geben, sagte er zu ihm: "Ich habe eine Tochter, die kann Stroh zu Gold spinnen." Der König sprach zum Müller: "Das ist eine Kunst, die mir wohl gefällt, wenn deine Tochter so geschickt ist, wie du sagst, so bring sie morgen in mein Schloß, da will ich sie auf die Probe stellen."
 
 Als nun das Mädchen zu ihm gebracht ward, führte er es in eine Kammer, die ganz voll Stroh lag, gab ihr Rad und Haspel und sprach: "Jetzt mache dich an die Arbeit, und wenn du diese Nacht durch bis morgen früh dieses Stroh nicht zu Gold versponnen hast, so mußt du sterben." Darauf schloß er die Kammer selbst zu, und sie blieb allein darin. Da saß nun die arme Müllerstochter und wußte um ihr Leben keinen Rat: sie verstand gar nichts davon, wie man Stroh zu Gold spinnen konnte, und ihre Angst ward immer größer, daß sie endlich zu weinen anfing. Da ging auf einmal die Türe auf, und trat ein kleines Männchen herein und sprach: "Guten Abend, Jungfer Müllerin, warum weint Sie so sehr?"
@@ -21,11 +22,7 @@ Nun besann sich die Königin die ganze Nacht über auf alle Namen, die sie jemal
 
 Den dritten Tag kam der Bote wieder zurück und erzählte: "Neue Namen habe ich keinen einzigen finden können, aber wie ich an einen hohen Berg um die Waldecke kam, wo Fuchs und Has sich gute Nacht sagen, so sah ich da ein kleines Haus, und vor dem Haus brannte ein Feuer, und um das Feuer sprang ein gar zu lächerliches Männchen, hüpfte auf einem Bein und schrie:
 
-"Heute back ich,
-Morgen brau ich,
-Übermorgen hol ich der Königin ihr Kind;
-Ach, wie gut ist, daß niemand weiß,
-daß ich Rumpelstilzchen heiß!"
+"Heute back ich, Morgen brau ich, Übermorgen hol ich der Königin ihr Kind; Ach, wie gut ist, daß niemand weiß, daß ich Rumpelstilzchen heiß!"
 
 Da könnt ihr denken, wie die Königin froh war, als sie den Namen hörte, und als bald hernach das Männlein hereintrat und fragte: "Nun, Frau Königin, wie heiß ich?" fragte sie erst: "Heißest du Kunz?" - "Nein." - "Heißest du Heinz?" - "Nein." - "Heißt du etwa Rumpelstilzchen?"
 

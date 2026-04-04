@@ -3,8 +3,9 @@ title: "Das Judenmädchen"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/das_judenmaedchen"
 crawledAt: "2026-04-03T11:22:54.718Z"
-wordCount: 1539
+wordCount: 1536
 ---
+
 Unter den anderen Kindern in der Armenschule war auch ein kleines Judenmädchen, aufgeweckt und gut, die flinkeste unter allen; aber an einer der Lehrstunden konnte sie nicht teilnehmen, das war die Religionsstunde, sie war ja in einer christlichen Schule.
 
 Sie durfte ihr Geografiebuch vor sich haben und darin lesen oder ihre Rechenaufgaben fertig machen, aber das war bald getan. Es lag wohl ein Buch aufgeschlagen vor ihr, aber sie las nicht darin, sie saß und hörte zu, und bald bemerkte der Lehrer, daß sie seinen Worten folgte, wie fast keines der anderen Kinder.

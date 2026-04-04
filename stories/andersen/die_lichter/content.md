@@ -3,8 +3,9 @@ title: "Die Lichter"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/die_lichter"
 crawledAt: "2026-04-03T11:25:07.106Z"
-wordCount: 886
+wordCount: 883
 ---
+
 Es war einmal ein großes Wachslicht, das wußte wohl, was es war.
 
 "Ich bin in Wachs geboren und in einer Form gegossen," sagte dasselbe. "Ich leuchte heller und brenne länger als andere Lichter; mein Platz ist auf dem Kronleuchter oder auf seinem silbernen Leuchter."
@@ -47,9 +48,7 @@ Und ihr Gesicht strahlte vor Glückseligkeit, das Licht fiel gerade auf dasselbe
 
 Das Tisch wurde gedeckt, die Kartoffeln verspeist, Oh, wie das schmeckt! Es war ein rechter Festschmaus, und nun bekam jedes Kind noch einen Apfel und das jüngste Kind sagte den kleinen Vers her:
 
-"Du guter Gott, ich danke dir,
-heut gabst du wieder Speise mir!
-Amen."
+"Du guter Gott, ich danke dir, heut gabst du wieder Speise mir! Amen."
 
 "Habe ich das nicht hübsch gesagt?" rief dann die Kleine.
 

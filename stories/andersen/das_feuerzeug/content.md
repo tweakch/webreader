@@ -3,8 +3,9 @@ title: "Das Feuerzeug"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/das_feuerzeug"
 crawledAt: "2026-04-03T11:20:27.140Z"
-wordCount: 2693
+wordCount: 2690
 ---
+
 Es kam ein Soldat die Landstraße dahermarschiert: Eins, zwei! Eins, zwei! Er hatte seinen Tornister auf dem Rücken und einen Säbel an der Seite, denn er war im Kriege gewesen und wollte nun heim. Da traf er eine alte Hexe auf dem Wege. Sie war garstig, ihre Unterlippe hing ihr bis auf die Brust hinab. Sie sagte: "Guten Abend, Soldat! Was für einen schönen Säbel du hast und was für einen großen Tornister! Du bist ein richtiger Soldat! Nun sollst du soviel Geld bekommen, wie du haben willst!"
 
 "Schönen Dank, alte Hexe!" sagte der Soldat.

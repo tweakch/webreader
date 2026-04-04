@@ -3,8 +3,9 @@ title: "Der singende Knochen"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/der_singende_knochen"
 crawledAt: "2026-04-03T09:10:49.821Z"
-wordCount: 693
+wordCount: 689
 ---
+
 Es war einmal in einem Lande große Klage über ein Wildschwein, das den Bauern die Äcker umwühlte, das Vieh tötete und den Menschen mit seinen Hauern den Leib aufriß. Der König versprach einem jeden, der das Land von dieser Plage befreien würde, eine große Belohnung; aber das Tier war so groß und stark, daß sich niemand in die Nähe des Waldes wagte, worin es hauste. Endlich ließ der König bekanntmachen, wer das Wildschwein einfange oder töte, solle seine einzige Tochter zur Gemahlin haben.
 
 Nun lebten zwei Brüder in dem Lande, Söhne eines armen Mannes, die meldeten sich und wollten das Wagnis übernehmen. Der älteste, der listig und klug war, tat es aus Hochmut, der jüngste, der unschuldig und dumm war, aus gutem Herzen. Der König sagte: "Damit ihr desto sicherer das Tier findet, so sollt ihr von entgegengesetzten Seiten in den Wald gehen." Da ging der älteste von Abend und der jüngste von Morgen hinein. Und als der jüngste ein Weilchen gegangen war, so trat ein kleines Männlein zu ihm; das hielt einen schwarzen Spieß in der Hand und sprach: "Diesen Spieß gebe ich dir, weil dein Herz unschuldig und gut ist; damit kannst du getrost auf das wilde Schwein eingehen, es wird dir keinen Schaden zufügen." Er dankte dem Männlein, nahm den Spieß auf die Schulter und ging ohne Furcht weiter. Nicht lange, so erblickte er das Tier, das auf ihn losrannte, er hielt ihm aber den Spieß entgegen, und in seiner blinden Wut rannte es so gewaltig hinein, daß ihm das Herz entzweigeschnitten ward. Da nahm er das Ungetüm auf die Schulter, ging heimwärts und wollte es dem Könige bringen.
@@ -15,11 +16,6 @@ Der älteste hielt ihn bis zum Abend zurück, da gingen sie zusammen fort. Als s
 
 Weil aber vor Gott nichts verborgen bleibt, sollte auch diese schwarze Tat ans Licht kommen. Nach langen Jahren trieb ein Hirt einmal seine Herde über die Brücke und sah unten im Sande ein schneeweißes Knöchlein liegen und dachte, das gäbe ein gutes Mundstück. Da stieg er herab, hob es auf und schnitzte ein Mundstück daraus für sein Horn. Als er zum erstenmal darauf geblasen hatte, so fing das Knöchlein zu großer Verwunderung des Hirten von selbst an zu singen:
 
-"Ach, du liebes Hirtelein,
-du bläst auf meinem Knöchelein,
-mein Bruder hat mich erschlagen,
-unter der Brücke begraben,
-um das wilde Schwein,
-für des Königs Töchterlein."
+"Ach, du liebes Hirtelein, du bläst auf meinem Knöchelein, mein Bruder hat mich erschlagen, unter der Brücke begraben, um das wilde Schwein, für des Königs Töchterlein."
 
 "Was für ein wunderliches Hörnchen," sagte der Hirt, "das von selber singt, das muß ich dem Herrn König bringen." Als er damit vor den König kam, fing das Hörnchen abermals an sein Liedchen zu singen. Der König verstand es wohl und ließ die Erde unter der Brücke aufgraben, da kam das ganze Gerippe des Erschlagenen zum Vorschein. Der böse Bruder konnte die Tat nicht leugnen, ward in einen Sack genäht und lebendig ersäuft, die Gebeine des Gemordeten aber wurden auf den Kirchhof in ein schönes Grab zur Ruhe gelegt.

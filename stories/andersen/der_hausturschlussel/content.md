@@ -3,8 +3,9 @@ title: "Der Haustürschlüssel"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/der_hausturschlussel"
 crawledAt: "2026-04-03T11:25:17.145Z"
-wordCount: 3875
+wordCount: 3872
 ---
+
 Jeder Schlüssel hat seine Geschichte, und es gibt viele Schlüssel: Kammerherrnschlüssel, Uhrschlüssel, St.-Peters-Schlüssel; wir könnten von allen Schlüsseln erzählen, aber jetzt erzählen wir nur von dem Haustürschlüssel des Kammerrats.
 
 Er war bei einem Schlosser zur Welt gekommen, aber er hätte gern glauben können, daß es ein Grobschmied sei, so faßte der Mann ihn an, hämmerte und feilte. Er war zu groß für die Hosentasche, darum mußte er in die Rocktasche. Hier lag er oft im Dunkeln, aber übrigens hatte er einen bestimmten Platz an der Wand neben der Silhouette des Kammerrats aus der Kindheit.

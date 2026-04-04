@@ -3,8 +3,9 @@ title: "Der Buchweizen"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/der_buchweizen"
 crawledAt: "2026-04-03T11:21:10.951Z"
-wordCount: 623
+wordCount: 620
 ---
+
 Häufig, wenn man nach einem Gewitter an einem Acker vorübergeht, auf dem Buchweizen wächst, sieht man, daß er ganz schwarz geworden und abgesengt ist; es ist gerade, als ob eine Feuerflamme über ihn hingefahren wäre, und der Landmann sagt dann: "Das hat er vom Blitze bekommen!" Aber warum bekam er das? Ich will erzählen, was der Sperling mir gesagt hat, und der Sperling hat es von einem alten Weidenbaume gehört, der bei einem Buchweizenfelde steht. Es ist ein ehrwürdiger, großer Weidenbaum, aber verkrüppelt und alt, er ist in der Mitte geborsten, und es wachsen Gras und Brombeerranken aus der Spalte hervor; der Baum neigt sich vornüber, und die Zweige hängen ganz auf die Erde hinunter, gerade als ob sie langes, grünes Haar wären.
 
 Auf allen Feldern ringsumher wuchsen Korn, Roggen, Gerste und Hafer, ja der herrliche Hafer, der, wenn er reif ist, gerade wie eine Menge kleiner, gelber Kanarienvögel an einem Zweige aussieht. Das Korn stand gesegnet, und je schwerer es war, desto tiefer neigte es sich in frommer Demut.

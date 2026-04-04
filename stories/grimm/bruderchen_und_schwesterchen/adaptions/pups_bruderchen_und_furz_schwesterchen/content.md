@@ -9,39 +9,31 @@ crawledAt: "2026-04-03T09:10:19.279Z"
 
 **Pups-Brüderchen und Furz-Schwesterchen**
 
-Pups-Brüderchen nahm Furz-Schwesterchen an der Hand und sprach:
-„Seit die Mutter fort ist, haben wir nichts zu lachen – außer… na ja, manchmal dich.“
+Pups-Brüderchen nahm Furz-Schwesterchen an der Hand und sprach: „Seit die Mutter fort ist, haben wir nichts zu lachen – außer… na ja, manchmal dich.“
 
 „Sehr witzig“, sagte Furz-Schwesterchen und ließ demonstrativ einen kleinen *Pfffft* los. „Das war ein Warnschuss.“
 
-Sie liefen davon, hinaus in die Welt. Den ganzen Tag marschierten sie über Wiesen, Felder und Steine. Wenn es regnete, sagte Furz-Schwesterchen:
-„Der Himmel weint.“
-„Und du antwortest“, meinte Pups-Brüderchen trocken.
+Sie liefen davon, hinaus in die Welt. Den ganzen Tag marschierten sie über Wiesen, Felder und Steine. Wenn es regnete, sagte Furz-Schwesterchen: „Der Himmel weint.“ „Und du antwortest“, meinte Pups-Brüderchen trocken.
 
 Am Abend kamen sie in einen großen Wald. Müde und hungrig krochen sie in einen hohlen Baum und schliefen ein.
 
 ---
 
-Am nächsten Morgen wachte Pups-Brüderchen auf und hielt sich den Bauch.
-„Schwesterchen… ich habe Durst!“
+Am nächsten Morgen wachte Pups-Brüderchen auf und hielt sich den Bauch. „Schwesterchen… ich habe Durst!“
 
 „Ich auch“, sagte sie. „Und… noch was anderes.“
 
-Sie fanden ein plätscherndes Brünnlein. Doch als Furz-Schwesterchen lauschte, hörte sie es wispern:
-„Wer aus mir trinkt, wird ein Tiger… und pupst sehr laut!“
+Sie fanden ein plätscherndes Brünnlein. Doch als Furz-Schwesterchen lauschte, hörte sie es wispern: „Wer aus mir trinkt, wird ein Tiger… und pupst sehr laut!“
 
 „LASS DAS!“, rief sie. „Du bist schon schlimm genug!“
 
-Also gingen sie weiter. Beim zweiten Brünnlein flüsterte das Wasser:
-„Wer aus mir trinkt, wird ein Wolf… mit furchtbaren Furz-Attacken!“
+Also gingen sie weiter. Beim zweiten Brünnlein flüsterte das Wasser: „Wer aus mir trinkt, wird ein Wolf… mit furchtbaren Furz-Attacken!“
 
 „Definitiv nein“, sagte Furz-Schwesterchen.
 
-Beim dritten Brünnlein aber rauschte es:
-„Wer aus mir trinkt, wird ein Reh… mit kleinen, niedlichen Püpsern.“
+Beim dritten Brünnlein aber rauschte es: „Wer aus mir trinkt, wird ein Reh… mit kleinen, niedlichen Püpsern.“
 
-Pups-Brüderchen kniete sich sofort hin.
-„Niedlich klingt gut!“
+Pups-Brüderchen kniete sich sofort hin. „Niedlich klingt gut!“
 
 „NEIN—!“
 
@@ -55,13 +47,11 @@ Furz-Schwesterchen seufzte. „Na toll. Jetzt bist du ein Reh… aber wenigstens
 
 Sie lebten zusammen im Wald. Furz-Schwesterchen sammelte Beeren und Nüsse, während das Reh fröhlich herumhüpfte – und gelegentlich kleine *pfffts* hinterließ.
 
-„Du markierst nicht dein Revier!“, schimpfte sie.
-Das Reh tat unschuldig. *Pffft.*
+„Du markierst nicht dein Revier!“, schimpfte sie. Das Reh tat unschuldig. *Pffft.*
 
 ---
 
-Eines Tages hörte das Reh Jagdhörner.
-„Ich will mitmachen!“
+Eines Tages hörte das Reh Jagdhörner. „Ich will mitmachen!“
 
 „Nur wenn du abends wiederkommst und unser Geheimwort sagst“, sagte Furz-Schwesterchen.
 
@@ -71,8 +61,7 @@ Sie grinste: „*Pups-Passwort!*“
 
 ---
 
-Das Reh rannte los, schneller als alle Jäger. Am Abend kam es zurück, klopfte und rief:
-„Pups-Passwort!“
+Das Reh rannte los, schneller als alle Jäger. Am Abend kam es zurück, klopfte und rief: „Pups-Passwort!“
 
 „Welches?“
 
@@ -86,8 +75,7 @@ Die Tür ging auf. „Na gut.“
 
 ---
 
-Eines Tages folgte ein König dem Reh bis zum Häuschen. Er klopfte.
-„Pups-Passwort!“
+Eines Tages folgte ein König dem Reh bis zum Häuschen. Er klopfte. „Pups-Passwort!“
 
 Furz-Schwesterchen öffnete – und staunte. Kein Reh. Ein König!
 
@@ -111,11 +99,9 @@ Am Ende wurde sie entlarvt, besiegt und – zack! – alles wurde wieder gut.
 
 Das Reh verwandelte sich zurück in Pups-Brüderchen.
 
-Er sah Furz-Schwesterchen an.
-„Ich bin wieder ich!“
+Er sah Furz-Schwesterchen an. „Ich bin wieder ich!“
 
-Sie lächelte.
-„Schön… aber eines hat sich nicht geändert.“
+Sie lächelte. „Schön… aber eines hat sich nicht geändert.“
 
 Er hob eine Augenbraue.
 

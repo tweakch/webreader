@@ -3,8 +3,9 @@ title: "Wie Kinder Schlachtens miteinander gespielt haben"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/wie_kinder_schlachtens_miteinander_gespielt_haben"
 crawledAt: "2026-04-03T09:17:19.580Z"
-wordCount: 432
+wordCount: 425
 ---
+
 I
 
 In einer Stadt, Franecker genannt, gelegen in Westfriesland, da ist es geschehen, daß junge Kinder, fünf- und sechsjährige, Mägdlein und Knaben, miteinander spielten. Und sie ordneten ein Büblein an, das solle der Metzger sein, ein anderes Büblein, das solle Koch sein, und ein drittes Büblein, das solle eine Sau sein. Ein Mägdlein, ordneten sie, solle Köchin sein, wieder ein anderes, das solle Unterköchin sein; und die Unterköchin solle in einem Geschirrlein das Blut von der Sau empfahen, daß man Würste könne machen. Der Metzger geriet nun verabredetermaßen an das Büblein, das die Sau sollte sein, riß es nieder und schnitt ihm mit einem Messerlein die Gurgel auf, und die Unterköchin empfing das Blut in ihrem Geschirrlein. Ein Ratsherr, der von ungefähr vorübergeht, sieht dies Elend: er nimmt von Stund an den Metzger mit sich und führt ihn in des Obersten Haus, welcher sogleich den ganzen Rat versammeln ließ. Sie saßen all über diesen Handel und wußten nicht, wie sie ihm tun sollten, denn sie sahen wohl, daß es kindlicherweise geschehen war. Einer unter ihnen, ein alter weiser Mann, gab den Rat, der oberste Richter solle einen schönen roten Apfel in eine Hand nehmen, in die andere einen rheinischen Gulden, solle das Kind zu sich rufen und beide Hände gleich gegen dasselbe ausstrecken: nehme es den Apfel, so soll' es ledig erkannt werden, nehme es aber den Gulden, so solle man es töten. Dem wird gefolgt, das Kind aber ergreift den Apfel lachend, wird also aller Strafe ledig erkannt.

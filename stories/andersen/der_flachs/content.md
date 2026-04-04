@@ -3,14 +3,12 @@ title: "Der Flachs"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/der_flachs"
 crawledAt: "2026-04-03T11:22:00.930Z"
-wordCount: 1502
+wordCount: 1366
 ---
 
 "Ja, ja, ja" sagten die Zaunpfähle, "Du kennst die Welt nicht, aber wir kennen sie. Wir haben Knorren in uns!" Und dann knackten sie ganz jämmerlich:
 
-"Schnipp, schnapp, schnurre,
-Basselurre,
-Aus ist das Lied."
+"Schnipp, schnapp, schnurre, Basselurre, Aus ist das Lied."
 
 "Nein, das ist es nicht" sagte der Flachs. "Die Sonne scheint am Morgen, der Regen tut so wohl, ich kann hören, wie ich wachse, ich kann fühlen, wie ich blühe! Ich bin der Allerglücklichste."
 
@@ -24,8 +22,7 @@ Aber es kam freilich recht schlimm. Der Flachs wurde gebrochen, gedörrt und geh
 
 "Ja, aber das ist ja prächtig! Das hätte ich nie geglaubt Nein, wie gut es doch das Glück mit mir meint. Ja, die Zaunpfähle wußten wahrlich gut Bescheid mit ihrem:
 
-'Schnipp, schnapp, schnurre,
-Basselurre!'
+'Schnipp, schnapp, schnurre, Basselurre!'
 
 Das Lied ist gar nicht aus. Nun fängt es erst an. Das ist doch gar zu prächtig! Ich habe ja etwas leiden müssen, aber dafür bin ich jetzt auch etwas geworden. Ich bin doch der Glücklichste von allen. Ich bin so stark und so weich, so weiß und so lang. Das ist doch etwas anderes, als nur eine Pflanze zu sein, selbst wenn man Blüten trägt. Man wird nicht gepflegt, und Wasser bekommt man nur, wenn es regnet. Jetzt habe ich Aufwartung. Das Mädchen wendet mich jeden Morgen, und mit der Gießkanne bekomme ich jeden Abend ein Regenbad; ja, die Pfarrersfrau selbst hat sogar eine Rede über mich gehalten und gesagt, daß ich das beste Stück im ganzen Kirchspiel sei. Glücklicher kann ich gar nicht werden!"
 
@@ -53,9 +50,7 @@ Alles Papier lag in einem Bündel auf dem Feuer. Uh! wie loderte es auf I "Uh!" 
 
 "Nun hebe ich mich gerade zur Sonne empor" sagte es in der Flamme, und es war, als ob tausend Stimmchen es aus einem Munde sagten. Und die Flamme schlug hoch durch den Schornstein hinaus; und feiner als die Flamme, ganz unsichtbar für die Augen der Menschen, schwebten kleine, winzige Wesen, ebensoviele, wie da Blumen auf dem Flachs geblüht hatten. Sie waren noch leichter als die Flamme, die sie geboren hatte, und als sie erlosch und von dem Papier nur die schwarze Asche übrig war, tanzten sie noch einmal darüber hin, und wo sie sie berührten, sah man ihre Fußspur, das waren jene roten Fünkchen, die aussahen, wie Kinder, die aus der Schule kommen, und der Schulmeister kommt als letzter. Das war ein Vergnügen mit anzusehen! Und die Kinder des Hauses standen und sangen über der toten Asche:
 
-"Schnipp, schnapp, schnurre,
-Basselurre,
-aus ist das Lied."
+"Schnipp, schnapp, schnurre, Basselurre, aus ist das Lied."
 
 Aber die kleinen unsichtbaren Wesen sagten jedes für sich: "Das Lied ist niemals aus. Das ist das Schönste an allem. Ich weiß es, und deshalb bin ich der Allerglücklichste."
 

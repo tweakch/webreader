@@ -3,8 +3,9 @@ title: "Der Schweinehirt"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/der_schweinehirt"
 crawledAt: "2026-04-03T11:21:08.892Z"
-wordCount: 1385
+wordCount: 1382
 ---
+
 Es war einmal ein armer Prinz; er hatte nur ein ganz kleines Königreich; aber es war immer groß genug, um sich darauf zu verheiraten, und verheiraten wollte er sich.
 
 Nun war es freilich etwas keck von ihm, daß er zur Tochter des Kaisers zu sagen wagte: "Willst du mich haben?" Aber er wagte es doch, denn sein Name war weit und breit berühmt; es gab hundert Prinzessinnen, die gerne ja gesagt hätten; aber ob sie es tat? Nun, wir wollen hören.
@@ -45,8 +46,7 @@ Aber dieser ließ sich nicht einschüchtern. Er bemalte sich das Antlitz mit Bra
 
 So wurde der Prinz angestellt als kaiserlicher Schweinehirt. Er bekam eine jämmerlich kleine Kammer unten bei den Schweinen, und da mußte er bleiben; aber den ganzen Tag saß er und arbeitete, und als es Abend war, hatte er einen niedlichen, kleinen Topf gemacht. Rings um ihn waren Schellen, und sobald der Topf kochte, klingelten sie und spielten die schöne Melodie:
 
-"Ach, du lieber Augustin,
-Alles ist hin, hin, hin!"
+"Ach, du lieber Augustin, Alles ist hin, hin, hin!"
 
 Aber das Allerkünstlichste war, daß, wenn man den Finger in den Dampf des Topfes hielt, man sogleich riechen konnte, welche Speisen auf jedem Feuerherd in der Stadt zubereitet wurden. Das war wahrlich etwas ganz anderes als die Rose!
 
@@ -68,8 +68,7 @@ Aber sie zog Holzpantoffeln an.
 
 "Er ist unartig!" sagte die Prinzessin, und dann ging sie; aber als sie ein kleines Stück gegangen war, erklangen die Schellen so lieblich:
 
-"Ach, du lieber Augustin,
-Alles ist hin, hin, hin!"
+"Ach, du lieber Augustin, Alles ist hin, hin, hin!"
 
 "Höre," sagte die Prinzessin, "frage ihn, ob er zehn Küsse von meinen Hofdamen will!"
 
@@ -123,5 +122,4 @@ Der Schweinehirt aber ging hinter einen Baum, wischte sich das Schwarze und Brau
 
 Und dann ging er in sein Königreich hinein; da konnte sie draußen ihr Lied singen:
 
-"Ach, du lieber Augustin,
-Alles ist hin, hin, hin!"
+"Ach, du lieber Augustin, Alles ist hin, hin, hin!"

@@ -3,8 +3,9 @@ title: "Die Hirtin und der Schornsteinfeger"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/die_hirtin_und_der_schornsteinfeger"
 crawledAt: "2026-04-03T11:21:31.426Z"
-wordCount: 1590
+wordCount: 1584
 ---
+
 Hast du wohl je einen recht alten Holzschrank, ganz schwarz vom Alter und mit ausgeschnitzten Schnörkeln und Laubwerk daran, gesehen? Gerade ein solcher stand in einer Wohnstube; er war von der Urgroßmutter geerbt und mit ausgeschnitzten Rosen und Tulpen von oben bis unten bedeckt. Da waren die sonderbarsten Schnörkel, und aus ihnen ragten kleine Hirschköpfe mit Geweihen hervor. Aber mitten auf dem Schranke stand ein ganzer Mann geschnitzt; er war freilich lächerlich anzusehen, und er grinste auch, man konnte es nicht lachen nennen. Er hatte Ziegenbocksbeine, kleine Hörner am Kopfe und einen langen Bart. Die Kinder nannten ihn immer den ZiegenbocksbeinOber- und Unterkriegsbefehlshaber; das war ein langes Wort, und es gibt nicht viele, die den Titel bekommen. Da war er nun! Immer sah er nach dem Tische unter dem Spiegel, denn da stand eine liebliche, kleine Hirtin von Porzellan; die Schuhe waren vergoldet, das Kleid mit einer roten Rose niedlich aufgeheftet, und dann hatte sie einen Goldhut und einen Hirtenstab; sie war wunderschön. Dicht neben ihr stand ein kleiner Schornsteinfeger, so schwarz wie Kohle, aber auch aus Porzellan; er war ebenso rein und fein wie irgendein anderer. Der Porzellanfabrikant hätte ebensogut einen Prinzen oder einen König aus ihm machen können, denn das war einerlei.
 
 Da stand er mit seiner Leiter und mit einem Antlitz, so weiß und rot wie ein Mädchen, und das war eigentlich ein Fehler, denn etwas schwarz hätte es doch wohl sein können. Er hatte seinen Platz ganz nahe bei der Hirtin; und da sie nun so hingestellt waren, hatten sie sich verlobt - sie paßten ja zueinander, sie waren von demselben Porzellan und beide gleich zerbrechlich.

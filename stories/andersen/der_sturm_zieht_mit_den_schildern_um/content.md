@@ -3,8 +3,9 @@ title: "Der Sturm zieht mit den Schildern um"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/der_sturm_zieht_mit_den_schildern_um"
 crawledAt: "2026-04-03T11:24:23.363Z"
-wordCount: 1453
+wordCount: 1445
 ---
+
 In alten Tagen, als Großvater ein ganz kleiner Knabe war und mit roten Höschen umherlief, auch mit einem roten Rocke, mit einen Gurt um den Leib und einer Feder aus der Casquette - denn so gingen die kleinen Knaben in seiner Kindheit gekleidet, wenn sie recht geputzt waren -, da war so vieles ganz anders wie jetzt; da war gar oft viel Staat auf der Straße, Staat, den wir nicht mehr sehen, weil er abgeschafft ist - er war zu altväterisch; aber unterhaltend ist es doch, Großvater davon erzählen zu hören.
 
 Es muß damals wirklich ein Staat gewesen sein, als der Schuhmacher beim Wechsel des Gerichtshauses das Schild hinüberbrachte. Die seidene Fahne wehte; auf das Schild selber waren ein großer Stiefel und ein Adler mit zwei Köpfen gemalt; die jüngsten Buschen trugen das "Willkommen" und die Lade der Handwerker-Innung und hatten rote und weiße Bänder an ihren Hemdärmeln herabflattern; die älteren trugen gezogene Degen mit einer Zitrone auf der Spitze. Da war tolle Musik, und das prächtigste von allen Instrumenten war "der Vogel" wie Großvater die große Stange nannte mit dem Halbmonde daran und allen möglichen Tingeltangel; eine richtig türkische Musik. Die Stange wurde hoch in die Luft gehoben und geschwungen, daß es klingelte und klang und es einem die Augen blendete, wenn die Sonne auf das Gold, Silber und Messing schien.

@@ -3,8 +3,9 @@ title: "Die letzte Perle"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/die_letzte_perle"
 crawledAt: "2026-04-03T11:22:42.237Z"
-wordCount: 823
+wordCount: 819
 ---
+
 Das war ein reiches Haus, ein glückliches Haus. Alles darin, Herrschaften wie Dienende und gleichzeitig auch ihre Freunde waren glückselig und fröhlich; heute war ein Erbe geboren, ein Sohn, und Mutter und Kind befanden sich wohl.
 
 Die Lampe in dem behaglichen Schlafzimmer war halb überdeckt; schwere seidene Gardinen von kostbaren Stoffen hingen fest zugezogen vor den Fenstern. Der Teppich war dick und weich wie Moos; alles war wie geschaffen zum Schlummer, zum Schlafe, zum köstlichen Ruhen, und dem gab sich auch die Pflegerin hin, sie schlief, und das konnte sie mit ruhigem Gewissen; denn alles war gut und in seiner Ordnung. Des Hauses Schutzgeist stand am Kopfende des Bettes; über das Kind an der Mutter Brust hin breitete es sich reich, gleichsam wie ein Netz funkelnder Sterne aus, jeder Stern war eine Perle des Glückes. Des Lebens gute Feen, alle hatten sie dem Neugeborenen ihre Gaben gebracht. Hier funkelten Gesundheit, Reichtum, Glück und Liebe, kurz alles, was Menschen sich auf dieser Erde nur wünschen können.

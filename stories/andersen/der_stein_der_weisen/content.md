@@ -3,8 +3,9 @@ title: "Der Stein der Weisen"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/der_stein_der_weisen"
 crawledAt: "2026-04-03T11:23:14.571Z"
-wordCount: 5649
+wordCount: 5644
 ---
+
 Du kennst doch die Geschichte von Holger Danske; wir wollen sie Dir nicht erzählen, nur fragen, ob Du Dich noch erinnerst, daß "Holger Danske das große Land Indien nach Osten zu am Ende der Welt gewann bis zu dem Baume, der der Baum der Sonne genannte wird," wie Christian Pedersen es erzählte. Kennst Du Christian Pedersen? Es kommt auch nicht darauf an, daß Du ihn kennst. Holger Danske gab dort dem Priester Jon, Macht und Herrscherwürde über das ganze Land Indien. Kennst Du den Priester Jon? Ja, darauf kommt es auch nicht viel an, denn er kommt in dieser Geschichte gar nicht vor. Hier sollst Du von dem Baum der Sonne hören "im Lande Indien nach Osten zu am Ende der Welt," wie man einst glaubte, als man noch nicht Geographie gelernt hatte, wie wir es heute lernen. Aber darauf kommt es auch nicht an.
 
 Der Baum der Sonne war ein prächtiger Baum, wie wir nie einen gesehen haben und auch Du nie einen zu sehen bekommen wirst. Seine Krone erstreckte sich mehrere Meilen weit in der Runde, er bildete eigentlich einen ganzen Wald, und jeder seiner kleinsten Zweige war wieder ein ganzer Baum; Palmen, Buchen, Pinien und Platanen, alle Arten von Bäumen, die sich in der ganzen Welt finden, trieben hier als kleine Zweige aus den größeren Zweigen hervor, und diese selbst glichen mit ihren Knoten und Krümmungen Tälern und Höhen. Sie waren mit einem samtweichen Grün bekleidet, das von Blumen wimmelte. Jeder Zweig war wie eine ausgedehnte, blühende Wiese oder der lieblichste Garten. Die Sonne sandte ihm liebreich Ihre wohltuendsten Strahlen herab, denn es war ja der Baum der Sonne. Die Vögel von allen Enden der Welt versammelten sich hier, Vögel aus den fernen Urwäldern Amerikas, aus Damaskus, Rosengärten, aus den waldigen Wüsten des inneren Afrika, wo Elefant und Löwe, allein zu regieren vermeinen. Der Polarvogel kommt, und Storch und Schwalbe natürlich auch. Aber die Vögel waren nicht die einzigen lebenden Geschöpfe, die hierher kamen. Der Hirsch, das Eichhörnchen, die Antilope und Hunderte von anderen Tieren, flüchtig und schön, waren hier zu Hause. Ein großer, duftender Garten war ja des Baumes Krone, und innen, wo sich die allergrößten Zweige wie grüne Höhen emporstreckten, lag ein kristallenes Schloß mit einer Aussicht auf alle Länder der Welt. Jeder Turm hob sich liliengleich, durch den Stengel konnte man emporsteigen, denn es waren Treppen darin. Da kannst Du es wohl auch verstehen, daß man auf die Blätter hinaus treten konnte, die Altane bildeten, und oben, in der Blume selbst, war der herrlichste, strahlendste Festsaal, der als Dach nichts anderes als den blauen Himmel mit Sonne und Sternen hatte. Ebenso herrlich, nur auf eine andere Weise, waren die weitläufigen Säle. Hier spiegelte sich an den Wänden ringsum die ganze Welt ab. Man konnte alles dort sehen, was geschah, so daß man keine Zeitungen zu lesen brauchte, die gab es hier auch nicht. Alles war hier in lebenden Bildern zu sehen, man konnte und mochte es nur nicht alles ansehen, denn zuviel ist zuviel, selbst für den weisesten Mann, und hier wohnte der weiseste Mann. Sein Name ist so schwer auszusprechen, Du könntest ihn doch nicht aussprechen, und deshalb kann er Dir gleichgültig sein. Er wußte alles, was ein Mensch wissen kann und je auf dieser Welt wissen wird; jede Erfindung, die gemacht worden war oder noch gemacht werden sollte, kannte er, aber auch nicht mehr, denn alles hat ja seine Grenzen. Der weise König Salomo war nur halb so klug, und der war doch ein recht kluger Mann; er herrschte über die Kräfte der Natur, über mächtige Geister, ja, der Tod selbst mußte ihm jeden Morgen Botschaft bringen und die Liste derer, die an diesem Tage sterben sollten. Aber König Salomo selbst mußte auch sterben, und das war der Gedanke, der oft seltsam lebhaft den Forscher, den mächtigen Herrn in dem Schlosse auf dem Baume der Sonne erfüllte. Auch er, der so hoch über der Weisheit der Menschen stand, mußte einst sterben, das wußte er, und auch seine Kinder mußten sterben. Wie des Waldes Laub würden sie fallen und zu Staub werden. Das Menschengeschlecht sah er vergehen, wie die Blätter vom Baume wehen, und neue kamen an deren Stelle. Aber die abgefallenen Blätter wuchsen niemals wieder, sie wurden zu Staub oder gingen in andere Pflanzen über. Was geschah mit den Menschen, wenn der Engel des Todes zu ihnen kam. Was hieß es, zu sterben? Der Körper löste sich auf und die Seele – Ja, was wurde aus ihr? Wohin ging sie? "Zum ewigen Leben!" sagt die Religion zum Troste. Aber wie war der Übergang? Wo lebte man und wie? "Oben im Himmel." sagten die Frommen. "Dort hinauf gehen wir." – "Dort hinauf" wiederholte der Weise und sah zu Sonne und Sternen empor. "Dort hinauf!" und er sah aus der runden Erdkugel, daß oben und unten ein und dasselbe waren, je nachdem, wo man auf der schwebenden Kugel stand; stieg er hinauf, so hoch wie der Erde höchste Berge ihre Gipfel erheben, so wurde die Luft, die wir hier unten klar und durchsichtig nennen, zu einem kohlschwarzen Dunkel, dicht wie ein Tuch; die Sonne war wie ein glühender Ball ohne Strahlen anzusehen, und die Erde lag von orangefarbenen Nebeln verhüllt. Hier lag die Grenze für unser körperliches und seelisches Sehvermögen; wie gering ist unser Wissen, selbst der Weiseste wußte nur wenig von dem, was für uns das Wichtigste ist!
@@ -81,50 +82,41 @@ Die blinde Tochter war sein Trost und seine Freude; so innig und liebevoll schlo
 
 So ging sie hinaus in die laute, lärmende, wunderliche Welt, und wohin sie kam, wurde der Himmel sonnenklar, sie konnte die warmen Strahlen empfinden, der Regenbogen spannte sich aus der schwarzen Wolke über die blaue Luft, sie hörte der Vögel Gesang, spürte den Duft der Orangen- und Äpfelgärten so stark, daß sie fast glaubte, ihn zu schmecken. Weiche Töne und lieblicher Gesang erreichten sie, doch auch Heulen und Schreien; seltsam im Streit miteinander standen Gedanken und Urteil. Tief in ihrem Herzen klangen die Herzens- und Gedankenstimmen der Menschenbrust wieder; es erbrauste im Chor:
 
-"Nur Sturm ist unser Erdenlos,
-eine Nacht, darin wir weinen."
+"Nur Sturm ist unser Erdenlos, eine Nacht, darin wir weinen."
 
 Aber es ertönte auch der Gesang:
 
-"Unser Leben ist die lieblichste Ros'
-Und Freudensonnen uns scheinen."
+"Unser Leben ist die lieblichste Ros' Und Freudensonnen uns scheinen."
 
 Und klang es bitter:
 
-"Ein jeder denket nur an sich,
-Auf den Nutzen geht alles Streben."
+"Ein jeder denket nur an sich, Auf den Nutzen geht alles Streben."
 
 So lautete es als Antwort:
 
-"Ein Strom der Liebe geht inniglich
-Durch unser Erdenleben."
+"Ein Strom der Liebe geht inniglich Durch unser Erdenleben."
 
 Wohl hörte sie die Worte:
 
-"Das Ganze ist so klein und dumm,
-Man kehr einmal die Dinge um."
+"Das Ganze ist so klein und dumm, Man kehr einmal die Dinge um."
 
 Aber sie hörte auch:
 
-"Soviele Taten sind groß und gut
-In der Welt man nichts davon wissen tut."
+"Soviele Taten sind groß und gut In der Welt man nichts davon wissen tut."
 
 und klang es ringsum in brausendem Chor:
 
-"Schab Rübchen nur, lach alles aus,
-Bell mit, wenn Hunde bellen!"
+"Schab Rübchen nur, lach alles aus, Bell mit, wenn Hunde bellen!"
 
 so erklang es in des blinden Mädchens Herzen:
 
-"Vertrau auf Gott in Nacht und Graus
-Stets rinnen seine Quellen"
+"Vertrau auf Gott in Nacht und Graus Stets rinnen seine Quellen"
 
 Und wo sie im Kreise von Männern und Frauen, bei Alten und Jungen erschien, da leuchtete in den Seelen die Erkenntnis des Wahren, Guten und Schönen auf; wohin sie kam, in des Künstlers Werkstätte, in den reichen Festsaal oder in die Fabrik zwischen die schnurrenden Räder, war es, als ob ein Sonnenstrahl leuchte, eine Seite erklänge, eine Blume dufte oder ein erquickender Tautropfen auf ein verschmachtendes Blatt fiele.
 
 Aber darin konnte sich der Teufel nicht finden. Er hatte mehr Verstand als zehntausend Männer, und so wußte er sich zu helfen. Er ging in den Sumpf, nahm die aus dem fauligen Wasser aufsteigenden Blasen, ließ das siebenfache Echo des Lügenwortes über sie hinschallen, um sie kräftiger zu machen. Er pulverisierte bezahlte Ehrenverse und lügenhafte Leichenpredigten, so viele sich nur finden ließen, kochte sie in Tränen, die der Neid geweint hatte, streute oben etwas Schminke darauf, die von einer vergilbten Jungfernwange gekratzt war, und schuf hieraus eine Mädchengestalt, die in Bewegung und Aussehen der des segensreichen blinden Mädchens glich. "Den milden Engel des Gefühls" nannten sie die Menschen, und so darauf legte der Teufel sein Spiel an. Die Welt wußte nicht, wer von den beiden die Richtige war, und woher sollte die Welt das auch wissen.
 
-"Vertrau auf Gott in Nacht und Graus,
-Stets rinnen seine Quellen."
+"Vertrau auf Gott in Nacht und Graus, Stets rinnen seine Quellen."
 
 Sang das blinde Mädchen in vollem Glauben. Die vier grünen Blätter vom Baume der Sonne hatte sie Wind und Wetter übergeben, um sie als Brief und Gruß an ihre Brüder gelangen zu lassen, und sie war dessen ganz sicher, daß ihr Wunsch sich erfüllen würde, ja, und auch das Juwel würde sich finden, das alle irdische Herrlichkeit überstrahlte; von der Menschheit Stirn würde es bis zu ihres Vaters Haus leuchten.
 

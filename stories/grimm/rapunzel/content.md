@@ -3,26 +3,24 @@ title: "Rapunzel"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/rapunzel"
 crawledAt: "2026-04-03T09:10:21.776Z"
-wordCount: 1330
+wordCount: 1328
 ---
+
 Es war einmal ein Mann und eine Frau, die wünschten sich schon lange vergeblich ein Kind, endlich machte sich die Frau Hoffnung, der liebe Gott werde ihren Wunsch erfüllen. Die Leute hatten in ihrem Hinterhaus ein kleines Fenster, daraus konnte man in einen prächtigen Garten sehen, der voll der schönsten Blumen und Kräuter stand; er war aber von einer hohen Mauer umgeben, und niemand wagte hineinzugehen, weil er einer Zauberin gehörte, die große Macht hatte und von aller Welt gefürchtet ward. Eines Tages stand die Frau an diesem Fenster und sah in den Garten hinab, da erblickte sie ein Beet, das mit den schönsten Rapunzeln bepflanzt war; und sie sahen so frisch und grün aus, dass sie lüstern ward und das größte Verlangen empfand, von den Rapunzeln zu essen. Das Verlangen nahm jeden Tag zu, und da sie wusste, dass sie keine davon bekommen konnte, so fiel sie ganz ab, sah blass und elend aus. Da erschrak der Mann und fragte: "Was fehlt dir, liebe Frau?" - "Ach," antwortete sie, "wenn ich keine Rapunzeln aus dem Garten hinter unserm Hause zu essen kriege, so sterbe ich." Der Mann, der sie lieb hatte, dachte: "Eh du deine Frau sterben läßest, holst du ihr von den Rapunzeln, es mag kosten, was es will." In der Abenddämmerung stieg er also über die Mauer in den Garten der Zauberin, stach in aller Eile eine Handvoll Rapunzeln und brachte sie seiner Frau. Sie machte sich sogleich Salat daraus und aß sie in voller Begierde auf. Sie hatten ihr aber so gut, so gut geschmeckt, dass sie den andern Tag noch dreimal soviel Lust bekam. Sollte sie Ruhe haben, so musste der Mann noch einmal in den Garten steigen. Er machte sich also in der Abenddämmerung wieder hinab, als er aber die Mauer herabgeklettert war, erschrak er gewaltig, denn er sah die Zauberin vor sich stehen. "Wie kannst du es wagen," sprach sie mit zornigem Blick, "in meinen Garten zu steigen und wie ein Dieb mir meine Rapunzeln zu stehlen? Das soll dir schlecht bekommen." - "Ach," antwortete er, "lasst Gnade für Recht ergehen, ich habe mich nur aus Not dazu entschlossen: meine Frau hat Eure Rapunzeln aus dem Fenster erblickt, und empfindet ein so großes Gelüsten, dass sie sterben würde, wenn sie nicht davon zu essen bekäme." Da ließ die Zauberin in ihrem Zorne nach und sprach zu ihm: "Verhält es sich so, wie du sagst, so will ich dir gestatten, Rapunzeln mitzunehmen, soviel du willst, allein ich mache eine Bedingung: Du musst mir das Kind geben, das deine Frau zur Welt bringen wird. Es soll ihm gut gehen, und ich will für es sorgen wie eine Mutter." Der Mann sagte in der Angst alles zu, und als die Frau in Wochen kam, so erschien sogleich die Zauberin, gab dem Kinde den Namen Rapunzel und nahm es mit sich fort.
 
 Rapunzel ward das schönste Kind unter der Sonne. Als es zwölf Jahre alt war, schloss es die Zauberin in einen Turm, der in einem Walde lag, und weder Treppe noch Türe hatte, nur ganz oben war ein kleines Fensterchen. Wenn die Zauberin hinein wollte, so stellte sie sich hin und rief:
 
-"Rapunzel, Rapunzel,
-Laß mir dein Haar herunter."
+"Rapunzel, Rapunzel, Laß mir dein Haar herunter."
 
 Rapunzel hatte lange prächtige Haare, fein wie gesponnen Gold. Wenn sie nun die Stimme der Zauberin vernahm, so band sie ihre Zöpfe los, wickelte sie oben um einen Fensterhaken, und dann fielen die Haare zwanzig Ellen tief herunter, und die Zauberin, stieg daran hinauf.
 
 Nach ein paar Jahren trug es sich zu, dass der Sohn des Königs durch den Wald ritt und an dem Turm vorüberkam. Da hörte er einen Gesang, der war so lieblich, dass er still hielt und horchte. Das war Rapunzel, die in ihrer Einsamkeit sich die Zeit vertrieb, ihre süße Stimme erschallen zu lassen. Der Königssohn wollte zu ihr hinaufsteigen und suchte nach einer Türe des Turms, aber es war keine zu finden. Er ritt heim, doch der Gesang hatte ihm so sehr das Herz gerührt, dass er jeden Tag hinaus in den Wald ging und zuhörte. Als er einmal so hinter einem Baum stand, sah er, dass eine Zauberin herankam, und hörte, wie sie hinaufrief:
 
-"Rapunzel, Rapunzel,
-Laß dein Haar herunter."
+"Rapunzel, Rapunzel, Laß dein Haar herunter."
 
 Da ließ Rapunzel die Haarflechten herab, und die Zauberin stieg zu ihr hinauf. "Ist das die Leiter, auf welcher man hinaufkommt, so will ich auch einmal mein Glück versuchen." Und den folgenden Tag, als es anfing dunkel zu werden, ging er zu dem Turme und rief:
 
-"Rapunzel, Rapunzel,
-Laß dein Haar herunter."
+"Rapunzel, Rapunzel, Laß dein Haar herunter."
 
 Alsbald fielen die Haare herab, und der Königssohn stieg hinauf.
 
@@ -30,7 +28,6 @@ Anfangs erschrak Rapunzel gewaltig, als ein Mann zu ihr hereinkam, wie ihre Auge
 
 Denselben Tag aber, wo sie Rapunzel verstoßen hatte, machte abends die Zauberin die abgeschnittenen Flechten oben am Fensterhaken fest, und als der Königssohn kam und rief:
 
-"Rapunzel, Rapunzel,
-Laß dein Haar herunter."
+"Rapunzel, Rapunzel, Laß dein Haar herunter."
 
 so ließ sie die Haare hinab. Der Königssohn stieg hinauf, aber er fand oben nicht seine liebste Rapunzel, sondern die Zauberin, die ihn mit bösen und giftigen Blicken ansah. "Aha," rief sie höhnisch, "du willst die Frau Liebste holen, aber der schöne Vogel sitzt nicht mehr im Nest und singt nicht mehr, die Katze hat ihn geholt und wird dir auch noch die Augen auskratzen. Für dich ist Rapunzel verloren, du wirst sie nie wieder erblicken." Der Königssohn geriet außer sich vor Schmerzen, und in der Verzweiflung sprang er den Turm herab: das Leben brachte er davon, aber die Dornen, in die er fiel, zerstachen ihm die Augen. Da irrte er blind im Walde umher, aß nichts als Wurzeln und Beeren, und tat nichts als jammern und weinen über den Verlust seiner liebsten Frau. So wanderte er einige Jahre im Elend umher und geriet endlich in die Wüstenei, wo Rapunzel mit den Zwillingen, die sie geboren hatte, einem Knaben und Mädchen, kümmerlich lebte. Er vernahm eine Stimme, und sie deuchte ihn so bekannt; da ging er darauf zu, und wie er herankam, erkannte ihn Rapunzel und fiel ihm um den Hals und weinte. Zwei von ihren Tränen aber benetzten seine Augen, da wurden sie wieder klar, und er konnte damit sehen wie sonst. Er führte sie in sein Reich, wo er mit Freude empfangen ward, und sie lebten noch lange glücklich und vergnügt.

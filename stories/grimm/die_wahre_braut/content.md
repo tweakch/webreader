@@ -3,8 +3,9 @@ title: "Die wahre Braut"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/die_wahre_braut"
 crawledAt: "2026-04-03T09:16:26.372Z"
-wordCount: 2414
+wordCount: 2410
 ---
+
 Es war einmal ein Mädchen, das war jung und schön, aber seine Mutter war ihm früh gestorben, und die Stiefmutter tat ihm alles gebrannte Herzeleid an. Wenn sie ihm eine Arbeit auftrug, sie mochte noch so schwer sein, so ging es unverdrossen daran und tat, was in seinen Kräften stand. Aber es konnte damit das Herz der bösen Frau nicht rühren, immer war sie unzufrieden, immer war es nicht genug. Je fleißiger es arbeitete, je mehr ward ihm aufgelegt, und sie hatte keinen andern Gedanken, als wie sie ihm eine immer größere Last aufbürden und das Leben recht sauer machen wollte.
 
 Eines Tages sagte sie zu ihm: "Da hast du zwölf Pfund Federn, die sollst du abschleißen, und wenn du nicht heute abend damit fertig bist, so wartet eine Tracht Schläge auf dich. Meinst du, du könntest den ganzen Tag faulenzen?" Das arme Mädchen setzte sich zu der Arbeit nieder, aber die Tränen flossen ihm dabei über die Wangen herab, denn es sah wohl, daß es unmöglich war, mit der Arbeit in einem Tage zu Ende zu kommen. Wenn es ein Häufchen Federn vor sich liegen hatte und es seufzte oder schlug in seiner Angst die Hände zusammen, so stoben sie auseinander, und es mußte sie wieder auflesen und von neuem anfangen. Da stützte es einmal die Ellbogen auf den Tisch, legte sein Gesicht in beide Hände und rief: "Ist denn niemand auf Gottes Erdboden, der sich meiner erbarmt?" Indem hörte es eine sanfte Stimme, die sprach: "Tröste dich, mein Kind, ich bin gekommen, dir zu helfen." Das Mädchen blickte auf und eine alte Frau stand neben ihm. Sie faßte das Mädchen freundlich an der Hand und sprach: "Vertraue mir nur an, was dich drückt." Da sie so herzlich sprach, so erzählte ihr das Mädchen von seinem traurigen Leben, daß ihm eine Last auf die andere gelegt würde und es mit den aufgegebenen Arbeiten nicht mehr zu Ende kommen könnte. "Wenn ich mit diesen Federn heute abend nicht fertig bin, so schlägt mich die Stiefmutter; sie hat mirs angedroht, und ich weiß, sie hält Wort." Ihre Tränen fingen wieder an zu fließen, aber die gute Alte sprach: "Sei unbesorgt, mein Kind, ruhe dich aus, ich will derweil deine Arbeit verrichten." Das Mädchen legte sich auf sein Bett und schlief bald ein. Die Alte setzte sich an den Tisch bei die Federn, hu! wie flogen sie von den Kielen ab, die sie mit ihren dürren Händen kaum berührte. Bald war sie mit den zwölf Pfund fertig. Als das Mädchen erwachte, lagen große schneeweiße Haufen aufgetürmt, und alles war im Zimmer reinlich aufgeräumt, aber die Alte war verschwunden. Das Mädchen dankte Gott und saß still, bis der Abend kam. Da trat die Stiefmutter herein und staunte über die vollbrachte Arbeit. "Siehst du, Trulle," sprach sie, "was man ausrichtet, wenn man fleißig ist? hättest du nicht noch etwas anderes vornehmen können? aber da sitzest du und legst die Hände in den Schoß." Als sie hinausging, sprach sie: "Die Kreatur kann mehr als Brot essen, ich muß ihr schwerere Arbeit auflegen."
@@ -19,10 +20,7 @@ Das Mädchen blieb unter der Linde sitzen, bis die Sonne unterging, aber er kam 
 
 Nun lebte sie als eine Hirtin, hütete ihre Herde, war traurig und voll Sehnsucht nach ihrem Geliebten. Sie hatte ein Kälbchen, das gewöhnte sie an sich, fütterte es aus der Hand, und wenn sie sprach:
 
-"Kälbchen, Kälbchen, knie nieder,
-vergiß nicht deine Hirtin wieder,
-wie der Königssohn die Braut vergaß,
-die unter der grünen Linde saß,"
+"Kälbchen, Kälbchen, knie nieder, vergiß nicht deine Hirtin wieder, wie der Königssohn die Braut vergaß, die unter der grünen Linde saß,"
 
 so kniete das Kälbchen nieder und ward von ihr gestreichelt.
 
@@ -30,10 +28,7 @@ Als sie ein paar Jahre einsam und kummervoll gelebt hatte, so verbreitete sich i
 
 Am andern Tag kam er wieder des Wegs. Als er in ihrer Nähe war, sprach sie zum Kälbchen:
 
-"Kälbchen, Kälbchen, knie nieder,
-vergiß nicht deine Hirtin wieder,
-wie der Königssohn die Braut vergaß,
-die unter der grünen Linde saß."
+"Kälbchen, Kälbchen, knie nieder, vergiß nicht deine Hirtin wieder, wie der Königssohn die Braut vergaß, die unter der grünen Linde saß."
 
 Als er die Stimme vernahm, blickte er herab und hielt sein Pferd an. Er schaute der Hirtin ins Gesicht, hielt dann die Hand vor die Augen, als wollte er sich auf etwas besinnen, aber schnell ritt er weiter und war bald verschwunden. "Ach," sagte sie, "er kennt mich nicht mehr," und ihre Trauer ward immer größer.
 

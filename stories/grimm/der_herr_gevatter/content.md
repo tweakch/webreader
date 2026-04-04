@@ -3,8 +3,9 @@ title: "Der Herr Gevatter"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/der_herr_gevatter"
 crawledAt: "2026-04-03T09:11:19.060Z"
-wordCount: 565
+wordCount: 561
 ---
+
 Ein armer Mann hatte so viel Kinder, daß er schon alle Welt zu Gevatter gebeten hatte, und als er noch eins bekam, so war niemand mehr übrig, den er bitten konnte. Er wußte nicht, was er anfangen sollte, legte sich in seiner Betrübnis nieder und schlief ein. Da träumte ihm, er sollte vor das Tor gehen und den ersten, der ihm begegnete, zu Gevatter bitten. Als er aufgewacht war, beschloß er dem Traume zu folgen, ging hinaus vor das Tor, und den ersten, der ihm begegnete, bat er zu Gevatter. Der Fremde schenkte ihm ein Gläschen mit Wasser und sagte 'das ist ein wunderbares Wasser, damit kannst du die Kranken gesund machen, du mußt nur sehen, wo der Tod steht. Steht er beim Kopf, so gib dem Kranken von dem Wasser, und er wird gesund werden, steht er aber bei den Füßen, so ist alle Mühe vergebens, er muß sterben.' Der Mann konnte von nun an immer sagen, ob ein Kranker zu retten war oder nicht, ward berühmt durch seine Kunst und verdiente viel Geld. Einmal ward er zu dem Kind des Königs gerufen, und als er eintrat, sah er den Tod bei dem Kopfe stehen und heilte es mit dem Wasser, und so war es auch bei dem zweitenmal, aber das drittemal stand der Tod bei den Füßen, da mußte das Kind sterben.
 
 Der Mann wollte doch einmal seinen Gevatter besuchen und ihm erzählen, wie es mit dem Wasser gegangen war. Als er aber ins Haus kam, war eine so wunderliche Wirtschaft darin. Auf der ersten Treppe zankten sich Schippe und Besen, und schmissen gewaltig aufeinander los. Er fragte sie 'wo wohnt der Herr Gevatter?' Der Besen antwortete 'eine Treppe höher.'

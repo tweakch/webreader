@@ -3,8 +3,9 @@ title: "Von dem Mäuschen, Vögelchen und der Bratwurst"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/von_dem_mauschen_vogelchen_und_der_bratwurst"
 crawledAt: "2026-04-03T09:10:42.291Z"
-wordCount: 571
+wordCount: 563
 ---
+
 Es waren einmal ein Mäuschen, ein Vögelchen und eine Bratwurst in Gesellschaft geraten, hatten einen Haushalt geführt, lange wohl und köstlich im Frieden gelebt, und trefflich an Gütern zugenommen. Des Vögelchens Arbeit war, daß es täglich im Wald fliegen und Holz beibringen müßte. Die Maus sollte Wasser tragen, Feuer anmachen und den Tisch decken, die Bratwurst aber sollte kochen.
 
 Wem zu wohl ist, den gelüstet immer nach neuen Dingen! Also eines Tages stieß dem Vöglein unterwegs ein anderer Vogel auf, dem es seine treffliche Gelegenheit erzählte und rühmte. Derselbe andere Vogel schalt es aber einen armen Tropf, der große Arbeit, die beiden zu Haus aber gute Tage hätten. Denn, wenn die Maus ihr Feuer angemacht und Wasser getragen hatte, so begab sie sich in ihr Kämmerlein zur Ruhe, bis man sie hieß den Tisch decken. Das Würstlein blieb beim Hafen (Topf), sah zu, daß die Speise wohl kochte, und wenn es bald Essenszeit war, schlingte es sich ein mal viere durch den Brei oder das Gemüs, so war es geschmalzen, gesalzen und bereitet. Kam dann das Vöglein heim und legte seine Bürde ab, so saßen sie zu Tisch, und nach gehabtem Mahl schliefen sie sich die Haut voll bis an den andern Morgen; und das war ein herrlich Leben.

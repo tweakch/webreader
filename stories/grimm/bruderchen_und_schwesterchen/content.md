@@ -3,8 +3,9 @@ title: "Brüderchen und Schwesterchen"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/bruderchen_und_schwesterchen"
 crawledAt: "2026-04-03T09:10:19.279Z"
-wordCount: 2252
+wordCount: 2248
 ---
+
 Brüderchen nahm sein Schwesterchen an der Hand und sprach: "Seit die Mutter tot ist, haben wir keine gute Stunde mehr. Die Stiefmutter schlägt uns alle Tage, und wenn wir zu ihr kommen, stößt sie uns mit den Füßen fort. Die harten Brotkrusten, die übrig bleiben, sind unsere Speise, und dem Hündlein unter dem Tisch geht's besser, dem wirft sie doch manchmal einen guten Bissen zu. Daß Gott erbarm! Wenn das unsere Mutter wüßte! Komm, wir wollen miteinander in die weite Welt gehen!" Sie gingen den ganzen Tag über Wiesen, Felder und Steine, und wenn es regnete, sprach das Schwesterchen: "Gott und unsere Herzen, die weinen zusammen!" Abends kamen sie in einen großen Wald und waren so müde von Jammer, Hunger und dem langen Weg, daß sie sich in einen hohlen Baum setzten und einschliefen.
 
 Am anderen Morgen, als sie aufwachten, stand die Sonne schon hoch am Himmel und schien heiß in den Baum hinein. Da sprach das Brüderchen: "Schwesterchen, mich dürstet, wenn ich ein Brünnlein wüßte, ich ging und tränk einmal; ich mein, ich hört eins rauschen." Brüderchen stand auf, nahm Schwesterchen an der Hand, und sie wollten das Brünnlein suchen. Die böse Stiefmutter aber war eine Hexe und hatte wohl gesehen, wie die beiden Kinder fortgegangen waren, war ihnen nachgeschlichen, heimlich, wie die Hexen schleichen, und hatte alle Brunnen im Walde verwünscht. Als sie nun ein Brünnlein fanden, daß so glitzerig über die Steine sprang, wollte das Brüderchen daraus trinken. Aber das Schwesterchen hörte, wie es im Rauschen sprach: "Wer aus mir trinkt, wird ein Tiger, wer aus mir trinkt, wird ein Tiger." - Da rief das Schwesterchen: "Ich bitte dich, Brüderlein, trink nicht, sonst wirst du ein wildes Tier und zerreißest mich!" Das Brüderchen trank nicht, ob es gleich so großen Durst hatte, und sprach: "Ich will warten, bis zur nächsten Quelle." Als sie zum zweiten Brünnlein kamen, hörte das Schwesterchen, wie auch dieses sprach: "Wer aus mir trinkt, wird ein Wolf, wer aus mir trinkt, wird ein Wolf." Da rief das Schwesterchen: "Brüderchen, ich bitte dich, trink nicht, sonst wirst du ein Wolf und frissest mich!" - Das Brüderchen trank nicht und sprach: "Ich will warten, bis wir zur nächsten Quelle kommen, aber dann muß ich trinken, du magst sagen, was du willst, mein Durst ist gar zu groß." Und als sie zum dritten Brünnlein kamen, hörte das Schwesterlein, wie es im Rauschen sprach: "Wer aus mir trinkt, wird ein Reh; wer aus mir trinkt, wird ein Reh." Das Schwesterchen sprach: "Ach Brüderchen, ich bitte dich, trink nicht, sonst wirst du ein Reh und läufst mir fort." Aber das Brüderchen hatte sich gleich beim Brünnlein niedergekniet, hinabgebeugt und von dem Wasser getrunken und wie die ersten Tropfen auf seine Lippen gekommen waren, lag es da als ein Rehkälbchen.
@@ -25,17 +26,14 @@ So kam sie viele Nächte und sprach niemals ein einziges Wort dabei; die Kinderf
 
 Als nun so eine Zeit verflossen war, da hub die Königin in der Nacht an zu reden und sprach:
 
-"Was macht mein Kind? Was macht mein Reh?
-Nun komm ich noch zweimal und dann nimmermehr."
+"Was macht mein Kind? Was macht mein Reh? Nun komm ich noch zweimal und dann nimmermehr."
 
 Die Kinderfrau antwortete ihr nicht, aber als sie wieder verschwunden war, ging sie zum König und erzählte ihm alles. Sprach der König: "Ach Gott! Was ist das! Ich will in der nächsten Nacht bei dem Kinde wachen." Abends ging er in die Kinderstube, aber um Mitternacht erschien die Königin wieder und sprach:
 
-"Was macht mein Kind? Was macht mein Reh?
-Nun komm ich noch einmal und dann nimmermehr."
+"Was macht mein Kind? Was macht mein Reh? Nun komm ich noch einmal und dann nimmermehr."
 
 Und pflegte dann des Kindes, wie sie gewöhnlich tat, ehe sie verschwand. Der König getraute sich nicht, sie anzureden, aber er wachte auch in der folgenden Nacht. Sie sprach abermals:
 
-"Was macht mein Kind? Was macht mein Reh?
-Nun komm ich noch diesmal und dann nimmermehr."
+"Was macht mein Kind? Was macht mein Reh? Nun komm ich noch diesmal und dann nimmermehr."
 
 Da konnte sich der König nicht zurückhalten, sprang zu ihr und sprach: "Du kannst niemand anders sein, als meine liebe Frau!" Da antwortete sie: "Ja, ich bin deine Frau," und hatte in dem Augenblick durch Gottes Gnade das Leben wiedererhalten, war frisch, rot und gesund. Darauf erzählte sie dem König den Frevel, den die böse Hexe und ihre Tochter an ihr verübt hatten. Der König ließ beide vor Gericht führen, und es ward ihnen das Urteil gesprochen. Die Tochter ward in den Wald geführt, wo sie die wilden Tiere zerrissen, die Hexe aber ward ins Feuer gelegt und mußte jammervoll verbrennen. Und wie sie zu Asche verbrannt war, verwandelte sich das Rehkälbchen und erhielt seine menschliche Gestalt wieder; Schwesterchen und Brüderchen aber lebten glücklich zusammen bis an ihr Ende.

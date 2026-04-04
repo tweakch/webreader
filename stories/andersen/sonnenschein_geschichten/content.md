@@ -3,8 +3,9 @@ title: "Sonnenschein-Geschichten"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/sonnenschein_geschichten"
 crawledAt: "2026-04-03T11:24:48.444Z"
-wordCount: 997
+wordCount: 995
 ---
+
 "Jetzt werde ich erzählen!" sagte der Wind.
 
 "Nein, erlauben Sie," sagte das Regenwetter, "jetzt ist die Reihe an mir! Sie haben lange genug an der Straßenecke gestanden und haben geheult, was Sie heulen konnten!"

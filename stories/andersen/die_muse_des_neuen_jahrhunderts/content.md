@@ -3,8 +3,9 @@ title: "Die Muse des neuen Jahrhunderts"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/die_muse_des_neuen_jahrhunderts"
 crawledAt: "2026-04-03T11:23:52.818Z"
-wordCount: 1921
+wordCount: 1915
 ---
+
 Die Muse des neuen Jahrhunderts, die die Kindeskinder unserer Kinder, vielleicht ein noch späteres Geschlecht, nicht aber wir kennenlernen werden, wann wird sie erscheinen? Wie wird sie aussehen? Was wird sie singen? Welche Saiten der Seele wird sie anschlagen? Auf welchen Höhepunkt wird sie ihr Zeitalter erheben?
 
 So viele Fragen in unserer emsigen Zeit, wo die Poesie einem fast im Wege ist und man genau weiß, daß das viele "Unsterbliche," welches die Poeten der Gegenwart schreiben, in Zukunft vielleicht nur ein Dasein führen wird wie Kohleinschriften auf Gefängniswänden, gesehen und gelesen nur von einzelnen Neugierigen.

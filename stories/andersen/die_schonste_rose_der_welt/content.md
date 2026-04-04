@@ -3,8 +3,9 @@ title: "Die schönste Rose der Welt"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/die_schonste_rose_der_welt"
 crawledAt: "2026-04-03T11:22:07.686Z"
-wordCount: 762
+wordCount: 756
 ---
+
 Es war eine mächtige Königin, in deren Garten befanden sich die schönsten Blumen jeder Jahreszeit und aus allen Ländern der Welt; aber die Rosen liebte sie besonders, und deshalb hatte sie von diesen die verschiedensten Arten, von der wilden Heckenrose mit den nach Äpfeln duftenden grünen Blättern bis zur schönsten Rose aus Frankreichs Provence. Und sie wuchsen an den Mauern des Schlosses hinauf, rankten sich um Säulen und Fensterrahmen, in die Gänge hinein und an den Decken der Säle entlang, und jede gab ihr Bestes in Duft, Form und Farbe.
 
 Aber Trauer und Trübsal wohnten drinnen. Die Königin lag auf dem Sterbelager und die Ärzte verkündeten, daß sie sterben müsse.

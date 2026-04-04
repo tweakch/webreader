@@ -3,8 +3,9 @@ title: "Was die ganze Familie sagte"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/was_die_ganze_familie_sagte"
 crawledAt: "2026-04-03T11:24:58.547Z"
-wordCount: 967
+wordCount: 961
 ---
+
 Was sagte die ganze Familie? Ja, höre nun erst, was die kleine Marie sagte.
 
 Es war der Geburtstag der kleinen Marie, der schönste von allen Tagen, fand sie. Alle kleinen Freunde und Freundinnen kamen, um mit ihr zu spielen, und ihr feinstes Kleid hatte sie an; das hatte sie von der Großmutter bekommen, die bei dem lieben Gott war; aber die Großmutter hatte es noch selber zugeschnitten und genäht, ehe sie zu dem hellen, schönen Himmel aufflog. Der Tisch in Mariens Stube strahlte von Geschenken; da war die reizendste kleine Küche mit allem, was zu einer Küche gehört, und eine Puppe, die die Augen verdrehen und "Au!" sagen konnte, wenn man sie auf den Magen drückte. Ja, da war auch ein Bilderbuch, in dem die schönsten Geschichten zu lesen waren, wenn man lesen konnte! Aber schöner als alle Geschichten war es doch, viele Geburtstage zu erleben.

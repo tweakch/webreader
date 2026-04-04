@@ -3,8 +3,9 @@ title: "Von dem Tode des Hühnchens"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/von_dem_tode_des_huenchens"
 crawledAt: "2026-04-03T09:12:46.230Z"
-wordCount: 592
+wordCount: 586
 ---
+
 Auf eine Zeit ging das Hühnchen mit dem Hähnchen in den Nußberg, und sie machten miteinander aus, wer einen Nußkern fände, sollte ihn mit dem andern teilen. Nun fand das Hühnchen eine große große Nuß, sagte aber nichts davon und wollte den Kern allein essen. Der Kern war aber so dick, daß es ihn nicht hinunterschlucken konnte und er ihm im Hals stecken blieb, daß ihm angst wurde, es müßte ersticken. Da schrie das Hühnchen 'Hähnchen, ich bitte dich lauf, was du kannst, und hol mir Wasser, sonst erstick ich.' Das Hähnchen lief, was es konnte, zum Brunnen und sprach 'Born, du sollst mir Wasser geben; das Hühnchen liegt auf dem Nußberg, hat einen großen Nußkern geschluckt und will ersticken.' Der Brunnen antwortete 'lauf erst hin zur Braut und laß dir rote Seide geben.' Das Hähnchen lief zur Braut 'Braut, du sollst mir rote Seide geben: rote Seide will ich dem Brunnen geben, der Brunnen soll mir Wasser geben, das Wasser will ich dem Hühnchen bringen, das liegt auf dem Nußberg, hat einen großen Nußkern geschluckt und will daran ersticken.' Die Braut antwortete 'lauf erst und hol mir mein Kränzlein, das blieb an einer Weide hängen.' Da lief das Hähnchen zur Weide und zog das Kränzlein von dem Ast und brachte es der Braut, und die Braut gab ihm rote Seide dafür, die brachte es dem Brunnen, der gab ihm Wasser dafür. Da brachte das Hähnchen das Wasser zum Hühnchen, wie es aber hinkam, war dieweil das Hühnchen erstickt, und lag da tot und regte sich nicht. Da ward das Hähnchen so traurig, daß es laut schrie, und kamen alle Tiere und beklagten das Hühnchen; und sechs Mäuse bauten einen kleinen Wagen, das Hühnchen darin zum Grabe zu fahren; und als der Wagen fertig war, spannten sie sich davor, und das Hähnchen fuhr. Auf dem Wege aber kam der Fuchs 'wo willst du hin, Hähnchen?' 'Ich will mein Hühn chen begraben.' 'Darf ich mitfahren?'
 
 'Ja, aber setz dich hinten auf den Wagen, vorn könnens meine Pferdchen nicht vertragen.'

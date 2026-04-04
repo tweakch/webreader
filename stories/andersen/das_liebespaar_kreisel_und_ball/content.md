@@ -3,8 +3,9 @@ title: "Das Liebespaar (Kreisel und Ball)"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/das_liebespaar_kreisel_und_ball"
 crawledAt: "2026-04-03T11:21:15.567Z"
-wordCount: 794
+wordCount: 788
 ---
+
 Ein Kreisel und ein Ball lagen im Kasten beisammen unter anderem Spielzeug, und da sagte der Kreisel zum Ball: "Wollen wir nicht Brautleute sein, da wir doch in dem Kasten zusammenliegen?" Aber der Ball, der von Saffian genäht war und der sich ebensoviel einbildete wie ein feines Fräulein, wollte auf dergleichen nicht antworten.
 
 Am nächsten Tage kam der kleine Knabe, dem das Spielzeug gehörte; er bemalte den Kreisel rot und gelb und schlug einen Messingnagel mitten hinein; dies sah gerade recht prächtig aus, wenn der Kreisel sich herumdrehte.

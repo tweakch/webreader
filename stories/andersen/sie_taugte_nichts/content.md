@@ -3,8 +3,9 @@ title: "Sie taugte nichts"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/sie_taugte_nichts"
 crawledAt: "2026-04-03T11:22:33.281Z"
-wordCount: 2724
+wordCount: 2720
 ---
+
 Der Stadtvogt stand am offenen Fenster. Er hatte ein Oberhemd an und eine Brustnadel in der Hemdkrause stecken und war außerordentlich gut rasiert, das hatte er eigenhändig getan und sich dabei nur einen kleinen Schnitt zugezogen, doch über diesen hatte er ein Stückchen Zeitungspapier geklebt.
 
 "Hörst Du, Kleiner" rief er.

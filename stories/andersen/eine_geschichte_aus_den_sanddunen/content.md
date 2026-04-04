@@ -3,8 +3,9 @@ title: "Eine Geschichte aus den Sanddünen"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/eine_geschichte_aus_den_sanddunen"
 crawledAt: "2026-04-03T11:23:33.581Z"
-wordCount: 12676
+wordCount: 12670
 ---
+
 Es ist eine Geschichte aus den jütländischen Sanddünen, die aber nicht in Jütland anhebt, sondern weit weg von dieser nördlichen Halbinsel, im Süden, in Spanien beginnt; das Meer ist die Straße zwischen den Ländern; versetze dich in Gedanken dorthin, hin nach dem sonnigen Spanien! Dort ist es warm und wunderherrlich, dort wachsen die feuerroten Granatblüten zwischen dunklen Lorbeerbäumen; von den Bergen weht ein frischer, labender Wind herab über die Orangengärten, über die prächtigen maurischen Hallen mit ihren goldenen Kuppeln und farbigen Wänden; durch die Straßen ziehen Kinder in Prozessionen mit Lichtern und flatternden Fahnen, und über Ihnen, hoch und klar, erhebt sich der Himmel mit funkelnden Sternen; Gesang und Kastagnetten erklingen, Burschen und Mädchen schwingen sich im Tanz unter blühenden Akazien, während der Bettler auf dem behauenen Marmorstein sitzt, sich an der saftigen Wassermelone labt und das Leben halb träumend genießt; es ist wie ein herrlicher Traum das Ganze, und sich dem hinzugeben - ja, das taten so recht zwei junge Neuvermählte, und ihnen waren auch alle Güter der Erde gegeben: Gesundheit, froher Sinn, Reichtum und Ehre.
 
 "Wir sind so glücklich, wie nur irgend jemand es sein kann!" sprachen sie aus vollster Herzensüberzeugung; doch noch eine Stufe des Glücks konnten sie erklimmen, wenn nämlich Gott ihnen ein Kind, einen Sohn, ihnen ähnlich an Körper und Seele, schenken wollte.
@@ -33,17 +34,13 @@ Und alles schien sich ihnen zu fügen, sie schritten voran in Ehre, in Wohlsein 
 
 Ein altes Heldenlied heißt: "Des Königs von England Sohn"; der segelte auch an Bord eines prächtigen Schiffes, der Anker ward ausgelegt mit rotem Gold, jedes Tau mit Seide durchflochten - an dieses Schiff mußte man unwillkürlich denken, wenn man das aus Spanien sah, denn hier war dieselbe Pracht, und derselbe Abschiedsgedanke drängte sich einem auf, der Gedanke:
 
-Gott lasse uns alle in Freuden
-einst wieder zusammenfinden!
+Gott lasse uns alle in Freuden einst wieder zusammenfinden!
 
 Und der Wind blies schön seewärts an der spanischen Küste, der Abschied war nur ein kurzer; in wenigen Wochen würden sie das Ziel ihrer Reise erreichen können; aber als sie auf die hohe See kamen, legte sich der Wind, das Meer ward blank und still, die Sterne des Himmels strahlten, es waren gleichsam Festabende, die in der reichen Kajüte verstrichen.
 
 Endlich wünschte man doch, daß es ein wenig Luft und Fahrtwind geben möge, aber er blies nicht, und erhob sich ja einmal der Wind, da war es immer Gegenwind; so vergingen Wochen, ja volle zwei Monde, erst dann stellte sich der rechte Wind ein, er blies aus Südwest; das Schiff fuhr auf der hohen See zwischen Schottland und Jütland, und der Wind nahm zu, ganz wie in der alten Weise von "Des Königs von England Sohn."
 
-Da gab es ein Wetter und Wolkenguß,
-kein Land, keinen Schutz sie fanden,
-und sie warfen ihr Ankergold -
-doch der Wind blies westeinwärts auf Dänemark.
+Da gab es ein Wetter und Wolkenguß, kein Land, keinen Schutz sie fanden, und sie warfen ihr Ankergold - doch der Wind blies westeinwärts auf Dänemark.
 
 Das ist nun lange her. König Christian der Siebente saß damals auf dem dänischen Thron und war noch ein junger Mann. Vieles ist seit der Zeit geschehen, vieles hat gewechselt und sich verändert; See und Moorland haben sich in grünende Wiesen verwandelt, Heide ist Ackerland geworden, und im Schutz der Westjüten-Hütten wachsen Apfelbäume und Rosen, wenn man sie auch freilich suchen muß, denn sie ducken sich vor dem scharfen Westwind.
 
@@ -71,8 +68,7 @@ Der Mond war aufgegangen, es wäre hell genug gewesen, um zu sehen, hätte man d
 
 Das Leben kehrte ihr wieder, aber im Fieber; sie wußte nichts von dem, was geschehen war oder wo sie sich befand, und so war es ja gerade gut, denn alles, was ihr lieb und wert war, lag auf dem Meeresgrund; es erging Schiff und Menschen draußen, wie es das Heldenlied von "Des Königs von England Sohn" singt.
 
-Es war ein Grauen zu sehen -
-in Stücke klein das Schiff verwehen.
+Es war ein Grauen zu sehen - in Stücke klein das Schiff verwehen.
 
 Wrackstücke und Späne trieben an Land, sie war die einzig Überlebende von allen an Bord. Noch fegte der Wind heulend über die Küste. Einige kurze Augenblicke schien sie zu ruhen, aber bald traten Schmerzein ein, und ein Angstschrei tönte von ihren Lippen, sie schlug ihre wunderbar schönen Augen auf, sprach einige Worte, aber niemand hier verstand sie.
 
@@ -230,10 +226,7 @@ Jeden Sonntag, wenn er in der Kirche saß und sein Blick sich auf die Muttergott
 
 Der Herbst kam mit Regen- und Schneewetter, das Wasser blieb auf den Wegen stehen, der Sand konnte all das Wasser nicht einsaugen, man mußte von Haus zu Haus waten, wenn nicht sogar im Kahn fahren; die Stürme warfen ein Schiff nach dem andern auf die todbringenden Riffe, Schnee- und Sandstürme rasten, der Sand flog um die Häuser herum und legte sich hoch an ihnen hinaus, so daß die Bewohner oben aus dem Schornstein hinauskriechen mußten, aber hier oben an der Nordsee Strand war das nichts Bemerkenswertes; im Zimmer war es gemütlich, gab es Schutz und Wärme, Heidetorf und Wrackstücke knisterten im Ofen, und Kaufmann Brönne las laut vor aus einer alten Chronik, las von dem Dänenprinzen Hamlet, der von England aus hier bei Bowberg an Land gegangen und eine Schlacht geliefert hatte; bei Ramme sei sein Grab, nur einige Meilen von dem Ort entfernt, wo der Aalbauer wohnte; Hünengräber zu Hunderten erhoben sich dort auf der Heide, ein großer Kirchhof. Kaufmann Brönne war dort gewesen am Grabe Hamlets; von alten Zeiten sprach man, von den Nachbarn, den Engländern und Schotten, und Jürgen sang das Lied von "Des Königs von England Sohn," von dem prächtigen Schiff:
 
-Vergoldet war es von Bord zu Bord,
-und geschrieben darauf stand Gottes Wort.
-Und gemalt es stand, wie der Königssohn
-seine Braut umarmte um Minnelohn.
+Vergoldet war es von Bord zu Bord, und geschrieben darauf stand Gottes Wort. Und gemalt es stand, wie der Königssohn seine Braut umarmte um Minnelohn.
 
 Diesen letzten Vers namentlich sang Jürgen mit inniger Stimme, seine Augen leuchteten dabei, sie waren ja ohnedies schwarz und strahlend von Geburt an. Und so verstrich die Winterzeit bei Lesen und Singen; Wohlstand war da und ein wahres Familienleben bis zu den Haustieren herab, und alles war gut gehalten; die Küche blitzte von Kupfer und Zinn und weißen Tellern, und von der Decke herab hingen Würste, Schinken, Wintervorrat vollauf; ja, das alles ist noch heute zu sehen, drüben in vielen reichen Bauerngehöften der jütländischen Westküste, vollauf Essen und Trinken, geschmückte reine Zimmer, kluge Köpfe, fröhliche Gemüter, Gastfreundschaft ist dort zu Hause wie in dem Zelt des Arabers.
 
@@ -253,8 +246,7 @@ Mit welchem Blick schaute sie ihm ins Auge, als er sich im Namen des Herrn mit i
 
 Was das alte Lied sang:
 
-Und gemalt es stand, wie der Königssohn
-seine Braut umarmt um Minnelohn
+Und gemalt es stand, wie der Königssohn seine Braut umarmt um Minnelohn
 
 das tat Jürgen in der Stunde der Gefahr und Angst; wie nützte es ihm jetzt, ein guter Schwimmer zu sein, er arbeitete sich vorwärts mit den Füßen und einem Arm, den andern hielt er fest um das junge Mädchen geschlungen, er ruhte aus auf dem Wasser, er trat Wasser, er machte all die Bewegungen, die er kannte, damit er Kraft übrig behalte, das Land zu erreichen. Er hörte, wie Clara einen lauten Seufzer ausstieß, spürte, wie ein Zucken sie durchfuhr und er drückte sie fester an sich; dann und wann rollte eine Woge über sie dahin, eine andere Hob sie empor, das Wasser war so tief, so klar, einen Augenblick schien es ihm, als sähe er eine blitzende Makrelenschar dort unten, oder war es Leviathan selber, der sie zu verschlingen drohte? Die Wolken waren Schatten über die Wasserfläche, dann kamen blendende Sonnenstrahlen; schreiende Vögel in großen Scharen zogen über ihn hin, und die wilden Enten, die schwer und schläfrig sich von der Strömung treiben ließen, fuhren erschrocken beim Anblick des Schwimmers auf; aber seine Kräfte nahmen ab, das fühlte er, von Land war er noch ein paar Kabellängen entfernt, doch die Hilfe kam heran, es näherte sich ein Boot - aber unter dem Wasser stand, er sah es deutlich, eine weiße, ihn anstarrende Gestalt - eine Welle hob ihn empor, die Gestalt näherte sich - er fühlte einen Stoß, es ward Nacht, alles verschwamm vor seinen Augen.
 

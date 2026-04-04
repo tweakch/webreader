@@ -3,8 +3,9 @@ title: "Simeliberg"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/simeliberg"
 crawledAt: "2026-04-03T09:14:53.856Z"
-wordCount: 758
+wordCount: 756
 ---
+
 Es waren zwei Brüder, einer war reich, der andere arm. Der Reiche aber gab dem Armen nichts, und er mußte sich vom Kornhandel kümmerlich ernähren; da ging es ihm oft so schlecht, daß er für seine Frau und Kinder kein Brot hatte. Einmal fuhr er mit seinem Karren durch den Wald, da erblickte er zur Seite einen großen, kahlen Berg, und weil er den noch nie gesehen hatte, hielt er still und betrachtete ihn mit Verwunderung. Wie er so stand, sah er zwölf wilde, große Männer daherkommen; weil er nun glaubte, das wären Räuber, schob er seinen Karren ins Gebüsch und stieg auf einen Baum und wartete, was da geschehen würde.
 
 Die zwölf Männer gingen aber vor den Berg und riefen: "Berg Semsi, Berg Semsi, tu dich auf." Alsbald tat sich der kahle Berg in der Mitte voneinander, und die zwölfe gingen hinein, und wie sie drin waren, schloß er sich zu. Über eine kleine Weile aber tat er sich wieder auf, und die Männer kamen heraus und trugen schwere Säcke auf den Rücken, und wie sie alle wieder am Tageslicht waren, sprachen sie: "Berg Semsi, Berg Semsi, tu dich zu." Da fuhr der Berg zusammen, und war kein Eingang mehr an ihm zu sehen, und die zwölfe gingen fort.

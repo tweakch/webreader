@@ -3,8 +3,9 @@ title: "Die sechs Diener"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/die_sechs_diener"
 crawledAt: "2026-04-03T09:14:37.181Z"
-wordCount: 2400
+wordCount: 2396
 ---
+
 Vor Zeiten lebte eine alte Königin, die war eine Zauberin, und ihre Tochter war das schönste Mädchen unter der Sonne. Die Alte dachte aber auf nichts, als wie sie die Menschen ins Verderben locken könnte, und wenn ein Freier kam, so sprach sie, wer ihre Tochter haben wollte, müßte zuvor eine Aufgabe lösen, oder er müßte sterben. Viele waren von der Schönheit der Jungfrau verblendet und wagten es wohl, aber sie konnten nicht vollbringen, was die Alte ihnen auflegte, und dann war keine Gnade, sie mußten niederknien, und das Haupt ward ihnen abgeschlagen.
 
 Ein Königssohn, der hatte auch von der großen Schönheit der Jungfrau gehört und sprach zu seinem Vater: "Laßt mich hinziehen, ich will um sie werben."

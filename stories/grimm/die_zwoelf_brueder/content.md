@@ -3,8 +3,9 @@ title: "Die zwölf Brüder"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/die_zwoelf_brueder"
 crawledAt: "2026-04-03T09:10:14.985Z"
-wordCount: 1836
+wordCount: 1832
 ---
+
 Es war einmal ein König und eine Königin, die lebten in Frieden miteinander und hatten zwölf Kinder, das waren aber lauter Buben. Nun sprach der König zu seiner Frau: "Wenn das dreizehnte Kind, das du zur Welt bringst, ein Mädchen ist, so sollen die zwölf Buben sterben, damit sein Reichtum groß wird und das Königreich ihm allein zufällt." Er ließ auch zwölf Särge machen, die waren schon mit Hobelspänen gefüllt, und in jedem lag das Totenkissen, und ließ sie in eine verschlossene Stube bringen, dann gab er der Königin den Schlüssel und gebot ihr, niemand etwas davon zu sagen.
 
 Die Mutter aber saß nun den ganzen Tag und trauerte, so daß der kleinste Sohn, der immer bei ihr war, und den sie nach der Bibel Benjamin nannte, zu ihr sprach: "Liebe Mutter, warum bist du so traurig?" - "Liebstes Kind," antwortete sie, "ich darf dir's nicht sagen." Er ließ ihr aber keine Ruhe, bis sie ging und die Stube aufschloß und ihm die zwölf mit Hobelspänen schon gefüllten Totenladen zeigte. Darauf sprach sie: "Mein liebster Benjamin, diese Särge hat dein Vater für dich und deine elf Brüder machen lassen, denn wenn ich ein Mädchen zur Welt bringe, so sollt ihr allesamt getötet und darin begraben werden." Und als sie weinte, während sie das sprach, so tröstete sie der Sohn und sagte: "Weine nicht, liebe Mutter, wir wollen uns schon helfen und wollen fortgehen." Sie aber sprach: "Geh mit deinen elf Brüdern hinaus in den Wald, und einer setze sich immer auf den höchsten Baum, der zu finden ist, und halte Wacht und schaue nach dem Turm hier im Schloß. Gebär ich ein Söhnlein, so will ich eine weiße Fahne aufstecken, und dann dürft ihr wiederkommen; gebär ich ein Töchterlein, so will ich eine rote Fahne aufstecken, und dann flieht fort, so schnell ihr könnt, und der liebe Gott behüte euch. Alle Nacht will ich aufstehen und für euch beten, im Winter, daß ihr an einem Feuer euch wärmen könnt, im Sommer, daß ihr nicht in der Hitze schmachtet."

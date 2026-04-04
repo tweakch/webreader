@@ -3,8 +3,9 @@ title: "Von dem Fischer und seiner Frau"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/von_dem_fischer_un_seiner_frau"
 crawledAt: "2026-04-03T09:10:34.360Z"
-wordCount: 3014
+wordCount: 3007
 ---
+
 Es war einmal ein Fischer und seine Frau, die wohnten zusammen in einer kleinen Fischerhütte, dicht an der See, und der Fischer ging alle Tage hin und angelte: und angelte und angelte.
 
 So saß er auch einmal mit seiner Angel und sah immer in das klare Wasser hinein: und so saß er nun und saß.
@@ -15,10 +16,7 @@ Da ging die Angel auf den Grund, tief hinunter, und als er sie heraufhohe, da ho
 
 Als er dorthin kam, war die See ganz grün und gelb und gar nicht mehr so klar. So stellte er sich hin und sagte:
 
-"Männlein, Männlein, Timpe Te,
-Buttje, Buttje in der See,
-Meine Frau, die Ilsebill,
-Will nicht so, wie ich wohl will."
+"Männlein, Männlein, Timpe Te, Buttje, Buttje in der See, Meine Frau, die Ilsebill, Will nicht so, wie ich wohl will."
 
 Da kam der Butt angeschwommen und sagte: "Na, was will sie denn?" - "Ach," sagte der Mann, "ich hatte dich doch gefangen; nun sagt meine Frau, ich hätt mir doch was wünschen sollen. Sie mag nicht mehr in der Hütte wohnen, sie will gern ein Häuschen." - "Geh nur," sagte der Butt, "sie hat es schon."
 
@@ -28,10 +26,7 @@ So ging es wohl nun acht oder vierzehn Tage, da sagte die Frau: "Hör, Mann, das
 
 Als er an die See kam, war das Wasser ganz violett und dunkelblau und grau und dick, und gar nicht mehr so grün und gelb, doch war es noch still. Da stellte er sich hin und sagte:
 
-"Männlein, Männlein, Timpe Te,
-Buttje, Buttje in der See,
-Meine Frau, die Ilsebill,
-Will nicht so, wie ich wohl will."
+"Männlein, Männlein, Timpe Te, Buttje, Buttje in der See, Meine Frau, die Ilsebill, Will nicht so, wie ich wohl will."
 
 "Na, was will sie denn?" sagte der Butt. "Ach," sagte der Mann, halb betrübt, "sie will in einem großen steinernen Schloß wohnen." - "Geh nur hin, sie steht vor der Tür," sagte der Butt.
 
@@ -41,28 +36,19 @@ Am andern Morgen wachte die Frau als erste auf; es war gerade Tag geworden, und 
 
 Und als er an die See kam, war die See ganz schwarzgrau, und das Wasser drängte so von unten herauf und stank auch ganz faul. Da stellte er sich hin und sagte:
 
-"Männlein, Männlein, Timpe Te,
-Buttje, Buttje in der See,
-Meine Frau, die Ilsebill,
-Will nicht so, wie ich wohl will."
+"Männlein, Männlein, Timpe Te, Buttje, Buttje in der See, Meine Frau, die Ilsebill, Will nicht so, wie ich wohl will."
 
 "Na, was will sie denn?" sagte der Butt. "Ach," sagte der Mann, "sie will König werden." - "Geh nur hin, sie ist es schon," sagte der Butt.
 
 Da ging der Mann hin, und als er zu dem Palast kam, war das Schloß viel größer geworden, mit einem großen Turm und herrlichem Zierat daran: und die Schildwache stand vor dem Tor, und da waren so viele Soldaten und Pauken und Trompeten. Und als er in das Haus kam, so war alles von purem Marmor und Gold, und sammtne Decken und große goldene Quasten. Da gingen die Türen von dem Saal auf, wo der ganze Hofstaat war, und seine Frau saß auf einem hohen Thron von Gold und Diamanten und hatte eine große goldene Krone auf und das Zepter in der Hand von purem Gold und Edelstein. Und auf beiden Seiten von ihr standen sechs Jungfrauen in einer Reihe, immer eine einen Kopf kleiner als die andere. Da stellte er sich hin und sagte: "Ach Frau, bist du nun König?" - "Ja," sagte die Frau, "nun bin ich König." Da stand er nun und sah sie an; und als er sie eine Zeitlang so angesehen hatte, sagte er: "Ach Frau, was ist das schön, daß du nun König bist! Nun wollen wir uns auch nichts mehr wünschen." - "Nein, Mann," sagte die Frau, und war ganz unruhig, "mir wird schon Zeit und Weile lang, ich kann das nicht mehr aushalten. Geh hin zum Butt: König bin ich, nun muß ich auch Kaiser werden." - "Ach Frau," sagte der Mann, "warum willst du Kaiser werden?" - "Mann," sagte sie, "geh zum Butt, ich will Kaiser sein!" - "Ach Frau," sagte der Mann, "Kaiser kann er nicht machen, ich mag dem Butt das nicht zu sagen; Kaiser ist nur einmal im Reich: Kaiser kann der Butt nicht machen." - "Was," sagte die Frau, "ich bin König, und du bist doch mein Mann; willst du gleich hingehen? Gleich geh hin! - Kann er Könige machen, so kann er auch Kaiser machen; ich will und will Kaiser sein! Geh gleich hin!" Da mußte er hingehen. Als der Mann aber hinging, war ihm ganz bang; und als er so ging, dachte er bei sich: Das geht und geht nicht gut: Kaiser ist zu unverschämt, der Butt wird's am Ende leid. Inzwischen kam er an die See. Da war die See noch ganz schwarz und dick und fing an, so von unten herauf zu schäumen, daß sie Blasen warf; und es ging so ein Wirbelwind über die See hin, daß sie sich nur so drehte. Und den Mann ergriff ein Grauen. Da stand er nun und sagte:
 
-"Männlein, Männlein, Timpe Te,
-Buttje, Buttje in der See,
-Meine Frau, die Ilsebill,
-Will nicht so, wie ich wohl will."
+"Männlein, Männlein, Timpe Te, Buttje, Buttje in der See, Meine Frau, die Ilsebill, Will nicht so, wie ich wohl will."
 
 "Na, was will sie denn?" sagte der Butt. "Ach, Butt," sagte er, "meine Frau will Kaiser werden." - "Geh nur hin," sagte der Butt, "sie ist es schon."
 
 Da ging der Mann hin, und als er dort ankam, war das ganze Schloß von poliertem Marmor mit Figuren aus Alabaster und goldenen Zieraten. Vor der Tür marschierten die Soldaten, und sie bliesen Trompeten und schlugen Pauken und Trommeln; aber in dem Hause, da gingen die Barone und Grafen und Herzöge herum und taten, als ob sie Diener wären. Die machten ihm die Türen auf, die von lauter Gold waren. Und als er hereinkam, da saß seine Frau auf einem Thron, der war von einem Stück Gold und war wohl zwei Meilen hoch; und sie hatte eine große goldene Krone auf, die war drei Ellen hoch und mit Brillanten und Karfunkelsteinen besetzt. In der einen Hand hatte sie das Zepter und in der andern den Reichsapfel, und auf beiden Seiten neben ihr, da standen die Trabanten so in zwei Reihen, immer einer kleiner als der andere, von dem allergrößten Riesen, der war zwei Meilen hoch, bis zu dem allerwinzigsten Zwerg, der war so groß wie mein kleiner Finger. Und vor ihr standen viele Fürsten und Herzöge. Da trat nun der Mann zwischen sie und sagte: "Frau, bist du nun Kaiser?" - "Ja," sagte sie, "ich bin Kaiser." Da stellte er sich nun hin und besah sie sich recht, und als er sie so eine Zeitlang angesehen hatte, da sagte er: "Ach, Frau, wie steht dir das schön, daß du Kaiser bist." - "Mann," sagte sie, "was stehst du da? Ich bin nun Kaiser, nun will ich auch Papst werden; geh hin zum Butt." - "Ach Frau," sagte der Mann, "was willst du denn nicht alles? Papst kannst du nicht werden, ihn gibt's nur einmal in der Christenheit: das kann er doch nicht machen!" - "Mann," sagte sie, "ich will Papst werden, geh gleich hin, ich muß heute noch Papst werden." - "Nein, Frau," sagte der Mann, "das mag ich ihm nicht sagen, das ist nicht gut, das ist zuviel verlangt, zum Papst kann dich der Butt nicht machen." - "Mann, schwatz kein dummes Zeug!" sagte die Frau. "Kann er Kaiser machen, so kann er auch einen Papst machen. Geh sofort hin; ich bin Kaiser, und du bist doch mein Mann. Willst du wohl hingehen?" Da wurde ihm ganz bang zumute, und er ging hin, aber ihm war ganz flau dabei; er zitterte und bebte, und die Knie und Waden schlotterten ihm. Und da strich so ein Wind über das Land, und die Wolken flogen, und es wurde so düster wie gegen den Abend zu: die Blätter wehten von den Bäumen, und das Wasser ging hoch und brauste so, als ob es kochte, und platschte an das Ufer, und in der Ferne sah er die Schiffe, die gaben Notschüsse ab und tanzten und sprangen auf den Wogen. Doch war der Himmel in der Mitte noch ein bißchen blau, aber an den Seiten, da zog es so recht rot auf wie ein schweres Gewitter. Da ging er ganz verzagt hin und stand da in seiner Angst und sagte:
 
-"Männlein, Männlein, Timpe Te,
-Buttje, Buttje in der See,
-Meine Frau, die Ilsebill,
-Will nicht so, wie ich wohl will."
+"Männlein, Männlein, Timpe Te, Buttje, Buttje in der See, Meine Frau, die Ilsebill, Will nicht so, wie ich wohl will."
 
 "Na, was will sie denn?" sagte der Butt. "Ach"; sagte der Mann, "sie will Papst werden." - "Geh nur hin, sie ist es schon," sagte der Butt.
 
@@ -72,10 +58,7 @@ Der Mann schlief recht gut und fest, er hatte am Tag viel laufen müssen; die Fr
 
 Draußen aber ging der Sturm und brauste, daß er kaum auf den Füßen stehen konnte. Die Häuser und die Bäume wurden umgeweht, und die Berge bebten, und die Felsenstücke rollten in die See, und der Himmel war ganz pechschwarz, und es donnerte und blitzte, und die See ging in so hohen schwarzen Wogen wie Kirchtürme und Berge, und hatten oben alle eine weiße Schaumkrone auf. Da schrie er, und konnte sein eigenes Wort nicht hören:
 
-"Männlein, Männlein, Timpe Te,
-Buttje, Buttje in der See,
-Meine Frau, die Ilsebill,
-Will nicht so, wie ich wohl will."
+"Männlein, Männlein, Timpe Te, Buttje, Buttje in der See, Meine Frau, die Ilsebill, Will nicht so, wie ich wohl will."
 
 "Na, was will sie denn?" sagte der Butt. "Ach," sagte er, "sie will werden wie der liebe Gott." - "Geh nur hin, sie sitzt schon wieder in der Fischerhütte."
 

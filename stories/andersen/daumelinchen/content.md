@@ -3,8 +3,9 @@ title: "Däumelinchen"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/daumelinchen"
 crawledAt: "2026-04-03T11:20:35.787Z"
-wordCount: 3943
+wordCount: 3941
 ---
+
 Es war einmal eine Frau, die sich sehr nach einem kleinen Kinde sehnte, aber sie wußte nicht, woher sie es nehmen sollte. Da ging sie zu einer alten Hexe und sagte zu ihr: "Ich möchte herzlich gern ein kleines Kind haben, willst du mir nicht sagen, woher ich das bekommen kann?"
 
 "Ja, damit wollen wir schon fertig werden!" sagte die Hexe. "Da hast du ein Gerstenkorn; das ist gar nicht von der Art, wie sie auf dem Felde des Landmanns wachsen oder wie sie die Hühner zu fressen bekommen; lege das in einen Blumentopf, so wirst du etwas zu sehen bekommen!"
@@ -33,8 +34,7 @@ Die alte Kröte saß unten im Morast und putzte ihre Stube mit Schilf und gelben
 
 Dann nahmen sie das niedliche, kleine Bett und schwammen damit fort; aber Däumelinchen saß ganz allein und weinte auf dem grünen Blatte, denn sie mochte nicht bei der garstigen Kröte wohnen oder ihren häßlichen Sohn zum Manne haben. Die kleinen Fische, die unten im Wasser schwammen, hatten die Kröte wohl gesehen, und sie hatten auch gehört, was sie gesagt hatte; deshalb streckten sie die Köpfe hervor, sie wollten doch das kleine Mädchen sehen. Sie fanden es sehr niedlich und bedauerten, daß es zur häßlichen Kröte hinunter sollte. Nein, das durfte nie geschehen! Sie versammelten sich unten im Wasser rings um den grünen Stengel, der das Blatt hielt, nagten mit den Zähnen den Stiel ab, und da schwamm das Blatt den Fluß hinab mit Däumelinchen davon, weit weg, wo die Kröte sie nicht erreichen konnte.
 
-Däumelinchen segelte an vielen Städten vorbei, und die kleinen Vögel saßen in den Büschen, sahen sie und sangen: "Welch liebliches, kleines Mädchen!" Das Blatt schwamm mit ihr immer weiter und weiter fort; so reiste Däumelinchen außer Landes.
-images/hcaev005_02.jpg
+Däumelinchen segelte an vielen Städten vorbei, und die kleinen Vögel saßen in den Büschen, sahen sie und sangen: "Welch liebliches, kleines Mädchen!" Das Blatt schwamm mit ihr immer weiter und weiter fort; so reiste Däumelinchen außer Landes. images/hcaev005_02.jpg
 
 Ein niedlicher, weißer Schmetterling umflatterte sie stets und ließ sich zuletzt auf das Blatt nieder, denn Däumelinchen gefiel ihm. Sie war sehr erfreut; denn nun konnte die Kröte sie nicht erreichen, und es war so schön, wo sie fuhr; die Sonne schien aufs Wasser, das wie lauteres Gold glänzte. Sie nahm ihren Gürtel, band das eine Ende um den Schmetterling, das andere Ende des Bandes befestigte sie am Blatte; das glitt nun viel schneller davon und sie mit, denn sie stand ja darauf.
 

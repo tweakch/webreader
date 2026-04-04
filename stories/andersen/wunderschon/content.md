@@ -3,8 +3,9 @@ title: "Wunderschön"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/wunderschon"
 crawledAt: "2026-04-03T11:23:31.801Z"
-wordCount: 2367
+wordCount: 2365
 ---
+
 Der Bildhauer Alfred - du kennst ihn doch! Wir alle kennen ihn, er gewann die große goldene Medaille, bekam ein Reisestipendium ging nach Italien und kehrte wieder zurück in die Heimat; damals war er jung, das ist er zwar noch, aber doch immerhin zehn Jahre älter als zu jener Zeit.
 
 Nach seiner Heimkehr besuche er eine von den kleinen Provinzstädten der Insel Seeland. Das ganze Städtchen wußte, wer der Fremde war; seinetwegen gab eine der reichsten Familien eine Gesellschaft, und dazu war alles, was etwas war oder etwas besaß, eingeladen; das war ein Ereignis, die Stadt wußte darum, ohne daß es ausgetrommelt worden war. Handwerkslehrlinge und Kinder kleiner Leute, ja, ein paar der kleinen Leute selber standen vor dem Hause und schauten zu den herabgelassenen beleuchtete Vorhängen hinauf; der Nachtwächter konnte sich einbilden, er selber gebe eine Gesellschaft, so viele Leute befanden sich auf der Straße, das schien ein wahres Vergnügen zu sein, und drinnen war auch das Vergnügen. Herr Aflred, der Bildhauer, war da. Er sprach, erzählte, und alle hörten ihm mit Freuden, ja mit einer Art Ehrfurcht zu, doch keiner in dem Maße wie die ältere Witwe eines Beamten; sie war allem gegenüber, was Herr Alfred sprach, ein unbeschriebenes Stückchen Löschpapier, das sofort das Gesprochene in sich einsog und nach mehr verlangte, sie war höchst empfänglich, unglaublich unwissend, ein weiblicher Kaspar Hauser.

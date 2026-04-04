@@ -3,8 +3,9 @@ title: "Das Hausgesinde"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/das_hausgesinde"
 crawledAt: "2026-04-03T09:14:49.376Z"
-wordCount: 173
+wordCount: 170
 ---
+
 "Wo willst du hin?" - "Nach Walpe." - "Ich nach Walpe, du nach Walpe; 'samm'n, 'samm'n gehn wir dann."
 
 "Hast du auch einen Mann? Wie heißt dein Mann?" - "Cham." - "Mein Mann Cham, dein Mann Cham: ich nach Walpe, du nach Walpe; 'samm'n, 'samm'n gehn wir dann."

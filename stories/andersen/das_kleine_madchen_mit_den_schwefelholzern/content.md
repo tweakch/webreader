@@ -3,8 +3,9 @@ title: "Das kleine Mädchen mit den Schwefelhölzern"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/das_kleine_madchen_mit_den_schwefelholzern"
 crawledAt: "2026-04-03T11:21:41.096Z"
-wordCount: 924
+wordCount: 917
 ---
+
 Es war entsetzlich kalt; es schneite, und der Abend dunkelte bereits; es war der letzte Abend im Jahre, Silversterabend. In dieser Kälte und in dieser Finsternis ging auf der Straße ein kleines armes Mädchen mit bloßen Kopfe und nackten Füßen. Es hatte wohl freilich Pantoffel angehabt, als es von Hause fortging, aber was konnte das helfen! Es waren sehr große Pantoffeln, sie waren früher von seiner Mutter gebraucht worden, so groß waren sie, und diese hatte die Kleine verloren, als sie über die Straße eilte, während zwei Wagen in rasender Eile vorüberjagten; der eine Pantoffel war nicht wiederaufzufinden und mit dem anderen machte sich ein Knabe aus dem Staube, welcher versprach, ihn als Wiege zu benutzen, wenn er einmal Kinder bekäme.
 
 Da ging nun das kleine Mädchen auf den nackten zierlichen Füßchen, die vor Kälte ganz rot und blau waren. In ihrer alten Schürze trug sie eine Menge Schwefelhölzer und ein Bund hielt sie in der Hand. Während des ganzen Tages hatte ihr niemand etwas abgekauft, niemand ein Almosen gereicht. Hungrig und frostig schleppte sich die arme Kleine weiter und sah schon ganz verzagt und eingeschüchtert aus. Die Schneeflocken fielen auf ihr langes blondes Haar, das schön gelockt über ihren Nacken hinabfloß, aber bei diesem Schmucke weilten ihre Gedanken wahrlich nicht. Aus allen Fenstern strahlte heller Lichterglanz und über alle Straßen verbreitete sich der Geruch von köstlichem Gänsebraten. Es war ja Silvesterabend, und dieser Gedanke erfüllte alle Sinne des kleinen Mädchens.

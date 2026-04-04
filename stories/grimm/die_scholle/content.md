@@ -3,8 +3,9 @@ title: "Die Scholle"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/die_scholle"
 crawledAt: "2026-04-03T09:16:01.001Z"
-wordCount: 217
+wordCount: 214
 ---
+
 Die Fische waren schon lange unzufrieden, daß keine Ordnung in ihrem Reich herrschte. Keiner kehrte sich an den andern, schwamm rechts und links, wie es ihm einfiel, fuhr zwischen denen durch, die zusammenbleiben wollten, oder sperrte ihnen den Weg, und der Stärkere gab dem Schwächeren einen Schlag mit dem Schwanz, daß er weit wegfuhr, oder er verschlang ihn ohne weiteres. 'Wie schön wäre es, wenn wir einen König hätten, der Recht und Gerechtigkeit bei uns übte,' sagten sie und vereinigten sich, den zu ihrem Herrn zu wählen, der am schnellsten die Fluten durchstreichen und dem Schwachen Hilfe bringen könnte.
 
 Sie stellten sich also am Ufer in Reihe und Glied auf, und der Hecht gab mit dem Schwanz ein Zeichen, worauf sie alle zusammen aufbrachen. Wie ein Pfeil schoß der Hecht dahin und mit ihm der Hering, der Gründling, der Barsch, die Karpfe, und wie sie alle heißen. Auch die Scholle schwamm mit und hoffte das Ziel zu erreichen.

@@ -3,9 +3,10 @@ title: "Es bärndütsches Gschichtli"
 source: "Franz Hohler"
 url: "https://www.mittelschulvorbereitung.ch/contentLD/DE/Div21fBerndGschicht.pdf"
 date: "1967"
-wordCount: 555
+wordCount: 533
 ---
-Gäuit, wemer da grad eso schön binanger sitze, hani däicht, chönntech vilicht es bärndütsches Gschichtli erzelle. Es isch zwar es bsungers uganteligs Gschichtli, wo aber no gar nid eso lang im Mittlere Schättegibeleggtäli passiert isch. 
+
+Gäuit, wemer da grad eso schön binanger sitze, hani däicht, chönntech vilicht es bärndütsches Gschichtli erzelle. Es isch zwar es bsungers uganteligs Gschichtli, wo aber no gar nid eso lang im Mittlere Schättegibeleggtäli passiert isch.
 
 Der Schöppelimunggi u der Houderebäseler si einischt schpät am Abe, wo scho der Schibützu durs Gochlimoos pfoderet het, über s Batzmättere Heigisch im Erpfetli zueglüffe u hei nang na gschtigelet u gschigöggelet, das me z Gotts Bäri hätt chönne meine, si sige nanger scheich. «Na ei so schlöözige Blotzbänggu am Fläre, u i verminggle der s Bätzi, dass d Oschterpföteler ghörsch zawanggle!»
 
@@ -15,7 +16,7 @@ U so isch das hin u härgange wie nes Färegschäderli amene Milchgröözi, da s
 
 «Schtill! Was ziberlet dert näbem Tobelöhli z grachtige n uuf u aab?» Schöppelirnunggi het gschläfzet wie ne Gitzeler u hets du o gseh. Es Totemügerli! U nid numen eis, nei, zwöi, drü, vier, füüf, es ganzes Schoossinjong voll si da desumegschläberlet u hei zängpinggerlet u globofzgerlet u gschanghangizigerlifisionööggelet, das es eim richtig agschnäggelet het. Schöppelimunggi u Houderebäseler hei nang nume zuegmutzet u hei ganz hingerbyggelig wöllen abschöberle. Aber chuum hei si der Awang ytröölet, gröözet es Totemügerli:
 
-« Heee, dir zweee! » 
+« Heee, dir zweee! »
 
 U denen ischs i d Chnöde glöötet wie bschüttigs Chrüzimääl dure Chätschäbertrog. Düpfelig u gnütelig si si blybe schtah wie zwöi gripseti Mischtschwibeli, u scho isch das Totemügerli was tschigerlisch was pfigerlisch binene zueche gsi. Äs het se zersch es Rüngli chyblig u gschiferlig aagnöttelet u het se de möögglige gfraget:
 

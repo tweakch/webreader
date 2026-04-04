@@ -3,8 +3,9 @@ title: "Hänsel und Gretel"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/hansel_und_gretel"
 crawledAt: "2026-04-03T09:10:26.547Z"
-wordCount: 2667
+wordCount: 2663
 ---
+
 Vor einem großen Walde wohnte ein armer Holzhacker mit seiner Frau und seinen zwei Kindern; das Bübchen hieß Hänsel und das Mädchen Gretel. Er hatte wenig zu beißen und zu brechen, und einmal, als große Teuerung ins Land kam, konnte er das tägliche Brot nicht mehr schaffen. Wie er sich nun abends im Bette Gedanken machte und sich vor Sorgen herumwälzte, seufzte er und sprach zu seiner Frau: "Was soll aus uns werden? Wie können wir unsere armen Kinder ernähren da wir für uns selbst nichts mehr haben?" - "Weißt du was, Mann," antwortete die Frau, "wir wollen morgen in aller Frühe die Kinder hinaus in den Wald führen, wo er am dicksten ist. Da machen wir ihnen ein Feuer an und geben jedem noch ein Stückchen Brot, dann gehen wir an unsere Arbeit und lassen sie allein. Sie finden den Weg nicht wieder nach Haus, und wir sind sie los." - "Nein, Frau," sagte der Mann, "das tue ich nicht; wie sollt ich's übers Herz bringen, meine Kinder im Walde allein zu lassen! Die wilden Tiere würden bald kommen und sie zerreißen." - "Oh, du Narr," sagte sie, "dann müssen wir alle viere Hungers sterben, du kannst nur die Bretter für die Särge hobeln," und ließ ihm keine Ruhe, bis er einwilligte. "Aber die armen Kinder dauern mich doch," sagte der Mann.
 
 Die zwei Kinder hatten vor Hunger auch nicht einschlafen können und hatten gehört, was die Stiefmutter zum Vater gesagt hatte. Gretel weinte bittere Tränen und sprach zu Hänsel: "Nun ist's um uns geschehen." - "Still, Gretel," sprach Hänsel, "gräme dich nicht, ich will uns schon helfen." Und als die Alten eingeschlafen waren, stand er auf, zog sein Röcklein an, machte die Untertüre auf und schlich sich hinaus. Da schien der Mond ganz hell, und die weißen Kieselsteine, die vor dem Haus lagen, glänzten wie lauter Batzen. Hänsel bückte sich und steckte so viele in sein Rocktäschlein, als nur hinein wollten. Dann ging er wieder zurück, sprach zu Gretel: "Sei getrost, liebes Schwesterchen, und schlaf nur ruhig ein, Gott wird uns nicht verlassen," und legte sich wieder in sein Bett.
@@ -25,13 +26,11 @@ Die Frau führte die Kinder noch tiefer in den Wald, wo sie ihr Lebtag noch nich
 
 Nun war's schon der dritte Morgen, daß sie ihres Vaters Haus verlassen hatten. Sie fingen wieder an zu gehen, aber sie gerieten immer tiefer in den Wald, und wenn nicht bald Hilfe kam, mußten sie verschmachten. Als es Mittag war, sahen sie ein schönes, schneeweißes Vögelein auf einem Ast sitzen, das sang so schön, daß sie stehen blieben und ihm zuhörten. Und als es fertig war, schwang es seine Flügel und flog vor ihnen her, und sie gingen ihm nach, bis sie zu einem Häuschen gelangten, auf dessen Dach es sich setzte, und als sie ganz nahe herankamen, so sahen sie, daß das Häuslein aus Brot gebaut war und mit Kuchen gedeckt; aber die Fenster waren von hellem Zucker. "Da wollen wir uns dranmachen," sprach Hänsel, "und eine gesegnete Mahlzeit halten. Ich will ein Stück vom Dach essen, Gretel, du kannst vom Fenster essen, das schmeckt süß." Hänsel reichte in die Höhe und brach sich ein wenig vom Dach ab, um zu versuchen, wie es schmeckte, und Gretel stellte sich an die Scheiben und knupperte daran. Da rief eine feine Stimme aus der Stube heraus:
 
-"Knupper, knupper, Kneischen,
-Wer knuppert an meinem Häuschen?"
+"Knupper, knupper, Kneischen, Wer knuppert an meinem Häuschen?"
 
 Die Kinder antworteten:
 
-"Der Wind, der Wind,
-Das himmlische Kind,"
+"Der Wind, der Wind, Das himmlische Kind,"
 
 und aßen weiter, ohne sich irre machen zu lassen. Hänsel, dem das Dach sehr gut schmeckte, riß sich ein großes Stück davon herunter, und Gretel stieß eine ganze runde Fensterscheibe heraus, setzte sich nieder und tat sich wohl damit. Da ging auf einmal die Türe auf, und eine steinalte Frau, die sich auf eine Krücke stützte, kam herausgeschlichen. Hänsel und Gretel erschraken so gewaltig, daß sie fallen ließen, was sie in den Händen hielten. Die Alte aber wackelte mit dem Kopfe und sprach: "Ei, ihr lieben Kinder, wer hat euch hierher gebracht? Kommt nur herein und bleibt bei mir, es geschieht euch kein Leid." Sie faßte beide an der Hand und führte sie in ihr Häuschen. Da ward ein gutes Essen aufgetragen, Milch und Pfannkuchen mit Zucker, Äpfel und Nüsse. Hernach wurden zwei schöne Bettlein weiß gedeckt, und Hänsel und Gretel legten sich hinein und meinten, sie wären im Himmel.
 
@@ -45,9 +44,6 @@ Gretel aber lief schnurstracks zum Hänsel, öffnete sein Ställchen und rief: "
 
 Da rief sie:
 
-"Entchen, Entchen,
-Da steht Gretel und Hänsel.
-Kein Steg und keine Brücke,
-Nimm uns auf deinen weißen Rücken."
+"Entchen, Entchen, Da steht Gretel und Hänsel. Kein Steg und keine Brücke, Nimm uns auf deinen weißen Rücken."
 
 Das Entchen kam auch heran, und Hänsel setzte sich auf und bat sein Schwesterchen, sich zu ihm zu setzen. "Nein," antwortete Gretel, "es wird dem Entchen zu schwer, es soll uns nacheinander hinüberbringen." Das tat das gute Tierchen, und als sie glücklich drüben waren und ein Weilchen fortgingen, da kam ihnen der Wald immer bekannter und immer bekannter vor, und endlich erblickten sie von weitem ihres Vaters Haus. Da fingen sie an zu laufen, stürzten in die Stube hinein und fielen ihrem Vater um den Hals. Der Mann hatte keine frohe Stunde gehabt, seitdem er die Kinder im Walde gelassen hatte, die Frau aber war gestorben. Gretel schüttelte sein Schürzchen aus, daß die Perlen und Edelsteine in der Stube herumsprangen, und Hänsel warf eine Handvoll nach der andern aus seiner Tasche dazu. Da hatten alle Sorgen ein Ende, und sie lebten in lauter Freude zusammen. Mein Märchen ist aus, dort lauft eine Maus, wer sie fängt, darf sich eine große Pelzkappe daraus machen.

@@ -3,8 +3,9 @@ title: "Wie's der Alte macht, ist's immer richtig"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/wie_der_alte_macht_ist_immer_richtig"
 crawledAt: "2026-04-03T11:23:47.131Z"
-wordCount: 1863
+wordCount: 1855
 ---
+
 Eine Geschichte werde ich dir erzählen, die ich hörte, als ich noch ein kleiner Knabe war. Jedesmal, wenn ich an die Geschichte dachte, kam es mir vor, als würde sie immer schöner; denn es geht mit Geschichten wie mit vielen Menschen, sie werden mit zunehmendem Alter schöner.
 
 Auf dem Lande warst du doch gewiß schon einmal; du wirst wohl auch so ein recht altes Bauernhaus mit Strohdach gesehen haben. Moos und Kräuter wachsen von selber auf dem Dach; ein Storchennest befindet sich auf dem First desselben, der Storch ist unvermeidlich! Die Wände des Hauses sind schief, die Fenster niedrig, und nur ein einziges Fenster ist so eingerichtet, daß es geöffnet werden kann; der Backofen springt aus der Wand hervor, gerade wie ein kleiner dicker Bauch; der Fliederbaum hängt über den Zaun, und unter seinen Zweigen ist ein Wassertümpel, in dem eine oder mehrere Enten liegen. Ein Kettenhund, der alle und jeden anbellt, ist auch da.

@@ -3,8 +3,9 @@ title: "Fliedermütterchen"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/fliedermutterchen"
 crawledAt: "2026-04-03T11:21:23.783Z"
-wordCount: 2699
+wordCount: 2697
 ---
+
 Es war ein kleiner Knabe, der war erkältet. Er war ausgegangen und hatte nasse Füße bekommen. Niemand konnte begreifen wie, denn es war ganz trockenes Wetter. Nun entkleidete ihn seine Mutter, brachte ihn zu Bett und ließ die Teemaschine hereinbringen, um ihm eine gute Tasse Fliedertee zu bereiten, denn der erwärmt! Zur gleichen Zeit kam auch der alte freundliche Mann zur Türe herein, der ganz oben im Hause wohnte und ganz alleine lebte, denn er hatte weder Frau noch Kinder, hielt aber viel auf alle Kinder und wußte so viele Märchen und Geschichten zu erzählen, daß es eine Lust war.
 
 "Nun trinkst du deinen Tee!" sagte die Mutter, "vielleicht bekommst du dann auch ein Märchen zu hören."

@@ -3,8 +3,9 @@ title: "Die drei Schlangenblätter"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/die_drie_schlangenblatter"
 crawledAt: "2026-04-03T09:10:28.771Z"
-wordCount: 1331
+wordCount: 1327
 ---
+
 Es war einmal ein armer Mann, der konnte seinen einzigen Sohn nicht mehr ernähren. Da sprach der Sohn 'lieber Vater, es geht Euch so kümmerlich, ich falle Euch zur Last, lieber will ich selbst fortgehen und sehen, wie ich mein Brot verdiene.' Da gab ihm der Vater seinen Segen und nahm mit großer Trauer von ihm Abschied. Zu dieser Zeit führte der König eines mächtigen Reichs Krieg, der Jüngling nahm Dienste bei ihm und zog mit ins Feld. Und als er vor den Feind kam, so ward eine Schlacht geliefert, und es war große Gefahr und regnete blaue Bohnen, daß seine Kameraden von allen Seiten niederfielen. Und als auch der Anführer blieb, so wollten die übrigen die Flucht ergreifen, aber der Jüngling trat heraus, sprach ihnen Mut zu und rief 'wir wollen unser Vaterland nicht zugrunde gehen lassen.' Da folgten ihm die andern, und er drang ein und schlug den Feind. Der König, als er hörte, daß er ihm allein den Sieg zu danken habe, erhob ihn über alle andern, gab ihm große Schätze und machte ihn zum Ersten in seinem Reich.
 
 Der König hatte eine Tochter, die war sehr schön, aber sie war auch sehr wunderlich. Sie hatte das Gelübde getan, keinen zum Herrn und Gemahl zu nehmen, der nicht verspräche, wenn sie zuerst stürbe, sich lebendig mit ihr begraben zu lassen. 'Hat er mich von Herzen lieb,' sagte sie, 'wozu dient ihm dann noch das Leben?' Dagegen wollte sie ein Gleiches tun, und wenn er zuerst stürbe, mit ihm in das Grab steigen. Dieses seltsame Gelübde hatte bis jetzt alle Freier abgeschreckt, aber der Jüngling wurde von ihrer Schönheit so eingenommen, daß er auf nichts achtete, sondern bei ihrem Vater um sie anhielt. 'Weißt du auch,' sprach der König, 'was du versprechen mußt?' 'Ich muß mit ihr in das Grab gehen,' antwortete er, 'wenn ich sie überlebe, aber meine Liebe ist so groß, daß ich der Gefahr nicht achte.' Da willigte der König ein, und die Hochzeit ward mit großer Pracht gefeiert.

@@ -3,8 +3,9 @@ title: "Nach Jahrtausenden"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/nach_jahrtausenden"
 crawledAt: "2026-04-03T11:22:09.613Z"
-wordCount: 635
+wordCount: 632
 ---
+
 Ja, nach Jahrtausenden kommen sie auf den Flügeln des Dampfes durch die Luft über das Weltmeer. Amerikas junge Einwohner besuchen das alte Europa. Sie kommen zu den Denkmälern hier und zu unserer versunkenen Pracht, so wie wir heute nach Südasien wandern, um dessen bröckelnde Herrlichkeiten zu sehen.
 
 Nach Jahrtausenden kommen sie.

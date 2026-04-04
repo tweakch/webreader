@@ -3,8 +3,9 @@ title: "Dornröschen"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/dornroschen"
 crawledAt: "2026-04-03T09:11:32.848Z"
-wordCount: 1213
+wordCount: 1211
 ---
+
 Vor Zeiten war ein König und eine Königin, die sprachen jeden Tag: "Ach, wenn wir doch ein Kind hätten!" und kriegten immer keins. Da trug sich zu, als die Königin einmal im Bade sass, dass ein Frosch aus dem Wasser ans Land kroch und zu ihr sprach: "Dein Wunsch wird erfüllt werden, ehe ein Jahr vergeht, wirst du eine Tochter zur Welt bringen."
 
 Was der Frosch gesagt hatte, das geschah, und die Königin gebar ein Mädchen, das war so schön, dass der König vor Freude sich nicht zu lassen wusste und ein grosses Fest anstellte. Er ladete nicht bloss seine Verwandte, Freunde und Bekannte, sondern auch die weisen Frauen dazu ein, damit sie dem Kind hold und gewogen wären. Es waren ihrer dreizehn in seinem Reiche, weil er aber nur zwölf goldene Teller hatte, von welchen sie essen sollten, so musste eine von ihnen daheim bleiben.

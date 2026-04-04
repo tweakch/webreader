@@ -3,8 +3,9 @@ title: "Die Gänsemagd"
 source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/die_gansemagd"
 crawledAt: "2026-04-03T09:13:06.504Z"
-wordCount: 1941
+wordCount: 1938
 ---
+
 Es lebte einmal eine alte Königin, der war ihr Gemahl schon lange Jahre gestorben, und sie hatte eine schöne Tochter. Wie die erwuchs, wurde sie weit über Feld an einen Königssohn versprochen. Als nun die Zeit kam, wo sie vermählt werden sollte und nun das Kind in das fremde Reich abreisen mußte, packte ihr die Alte gar viel köstliches Gerät und Geschmeide ein, Gold und Silber, Becher und Kleinode, kurz alles, was nur zu einem königlichen Brautschatz gehörte, denn sie hatte ihr Kind von Herzen lieb. Auch gab sie ihr eine Kammerjungfer bei, welche mitreiten und die Braut in die Hände des Bräutigams überliefern sollte. Und jede bekam ein Pferd zur Reise, aber das Pferd der Königstochter hieß Falada und konnte sprechen. Wie nun die Abschiedsstunde da war, begab sich die alte Mutter in ihre Schlafkammer, nahm ein Messerlein und schnitt damit in ihre Finger, daß sie bluteten; darauf hielt sie ein weißes Läppchen unter und ließ drei Tropfen Blut hineinfallen, gab sie der Tochter und sprach: "Liebes Kind, verwahre sie wohl, sie werden dir unterwegs not tun."
 
 Also nahmen beide voneinander betrübten Abschied. Das Läppchen steckte die Königstochter in ihren Busen vor sich, setzte sich aufs Pferd und zog nun fort zu ihrem Bräutigam. Da sie eine Stunde geritten waren, empfand sie heißen Durst und sprach zu ihrer Kammerjungfer: "Steig' ab und schöpfe mir mit meinem Becher, den du für mich mitgenommen hast, Wasser aus dem Bache, ich möchte gern einmal trinken." - "Wenn Ihr Durst habt," sprach die Kammerjungfer, "so steigt selber ab, legt Euch ans Wasser und trinkt, ich mag Eure Magd nicht sein." Da stieg die Königstochter vor großem Durst herunter, neigte sich über das Wasser im Bach und trank und durfte nicht aus dem goldenen Becher trinken. Da sprach sie: "Ach Gott!" Da antworteten die drei Blutstropfen: "Wenn das deine Mutter wüßte, das Herz im Leib tät ihr zerspringen." Aber die Königsbraut war demütig, sagte nichts und stieg wieder zu Pferde. So ritten sie etliche Meilen weiter fort, aber der Tag war warm, die Sonne stach, und sie durstete bald von neuem. Da sie nun an einen Wasserfluß kamen, rief sie noch einmal ihrer Kammerjungfer: "Steig' ab und gib mir aus meinem Goldbecher zu trinken," denn sie hatte alle bösen Worte längst vergessen. Die Kammerjungfer sprach aber noch hochmütiger: "Wollt Ihr trinken, so trinkt allein, ich mag nicht Eure Magd sein." Da stieg die Königstochter hernieder vor großem Durst, legte sich über das fließende Wasser, weinte und sprach: "Ach Gott!" und die Blutstropfen antworteten wiederum: "Wenn das deine Mutter wüßte, das Herz im Leibe tät ihr zerspringen." Und wie sie so trank und sich recht überlehnte, fiel ihr das Läppchen, worin die drei Tropfen waren, aus dem Busen und floß mit dem Wasser fort, ohne daß sie es in ihrer großen Angst merkte. Die Kammerjungfer hatte aber zugesehen und freute sich, daß sie Gewalt über die Braut bekäme; denn damit, daß diese die Blutstropfen verloren hatte, war sie schwach und machtlos geworden. Als sie nun wieder auf ihr Pferd steigen wollte, das da hieß Falada, sagte die Kammerfrau: "Auf Falada gehöre ich, und auf meinen Gaul gehörst du;" und das mußte sie sich gefallen lassen. Dann befahl ihr die Kammerfrau mit harten Worten, die königlichen Kleider auszuziehen und ihre schlechten anzulegen, und endlich mußte sie sich unter freiem Himmel verschwören, daß sie am königlichen Hof keinem Menschen etwas davon sprechen wollte; und wenn sie diesen Eid nicht abgelegt hätte, wäre sie auf der Stelle umgebracht worden. Aber Falada sah das alles an und nahm's wohl in acht.
@@ -21,17 +22,11 @@ Des Morgens früh, da sie und Kürdchen unterm Tor hinaustrieben, sprach sie im 
 
 da antwortete der Kopf:
 
-"O du Jungfer Königin, da du gangest,
-wenn das deine Mutter wüßte,
-ihr Herz tät ihr zerspringen."
+"O du Jungfer Königin, da du gangest, wenn das deine Mutter wüßte, ihr Herz tät ihr zerspringen."
 
 Da zog sie still weiter zur Stadt hinaus, und sie trieben die Gänse aufs Feld. Und wenn sie auf der Wiese angekommen war, saß sie nieder und machte ihre Haare auf, die waren eitel Gold, und Kürdchen sah sie und freute sich, wie sie glänzten, und wollte ihr ein paar ausraufen. Da sprach sie:
 
-"Weh, weh, Windchen,
-nimm Kürdchen sein Hütchen,
-und lass'n sich mit jagen,
-bis ich mich geflochten und geschnatzt
-und wieder aufgesatzt."
+"Weh, weh, Windchen, nimm Kürdchen sein Hütchen, und lass'n sich mit jagen, bis ich mich geflochten und geschnatzt und wieder aufgesatzt."
 
 Und da kam ein so starker Wind, daß er dem Kürdchen sein Hütchen weg wehte über alle Land, und es mußte ihm nachlaufen. Bis er wiederkam, war sie mit dem Kämmen und Aufsetzen fertig, und er konnte keine Haare kriegen. Da ward Kürdchen bös und sprach nicht mit ihr; und so hüteten sie die Gänse, bis daß es Abend ward, dann gingen sie nach Haus.
 
@@ -41,17 +36,11 @@ Den andern Morgen, wie sie unter dem finstern Tor hinaustrieben, sprach die Jung
 
 Falada antwortete:
 
-"O du Jungfer Königin, da du gangest,
-wenn das deine Mutter wüßte,
-ihr Herz tät ihr zerspringen."
+"O du Jungfer Königin, da du gangest, wenn das deine Mutter wüßte, ihr Herz tät ihr zerspringen."
 
 Und in dem Feld setzte sie sich wieder auf die Wiese und fing an, ihr Haar auszukämmen, und Kürdchen lief und wollte danach greifen, da sprach sie schnell:
 
-"Weh, weh, Windchen,
-nimm Kürdchen sein Hütchen,
-und lass'n sich mit jagen,
-bis ich mich geflochten und geschnatzt
-und wieder aufgesatzt."
+"Weh, weh, Windchen, nimm Kürdchen sein Hütchen, und lass'n sich mit jagen, bis ich mich geflochten und geschnatzt und wieder aufgesatzt."
 
 Da wehte der Wind und wehte ihm das Hütchen vom Kopf weit weg, daß Kürdchen nachlaufen mußte, und als es wiederkam, hatte sie längst ihr Haar zurecht, und es konnte keins davon erwischen, und so hüteten sie die Gänse, bis es Abend ward.
 
@@ -61,18 +50,12 @@ Abends aber, nachdem sie heimgekommen waren, ging Kürdchen vor den alten König
 
 da antwortet der Kopf:
 
-'O du Königsjungfer, da du gangest,
-wenn das deine Mutter wüßte,
-ihr Herz tät' ihr zerspringen!'"
+'O du Königsjungfer, da du gangest, wenn das deine Mutter wüßte, ihr Herz tät' ihr zerspringen!'"
 
 Und so erzählte Kürdchen weiter, was auf der Gänsewiese geschähe und wie es da dem Hut im Winde nachlaufen müßte.
 
 Der alte König befahl ihm, den nächsten Tag wieder hinauszutreiben, und er selbst, wie es Morgen war, setzte sich hinter das finstere Tor und hörte da, wie sie mit dem Haupt des Falada sprach. Und dann ging er ihr auch nach in das Feld und barg sich in einem Busch auf der Wiese. Da sah er nun bald mit seinen eigenen Augen, wie die Gänsemagd die Herde getrieben brachte und wie nach einer Weile sie sich setzte und ihre Haare losflocht, die strahlten von Glanz. Gleich sprach sie wieder:
 
-"Weh, weh, Windchen,
-faß Kürdchen sein Hütchen,
-und lass'n sich mit jagen,
-bis ich mich geflochten und geschnatzt
-und wieder aufgesatzt."
+"Weh, weh, Windchen, faß Kürdchen sein Hütchen, und lass'n sich mit jagen, bis ich mich geflochten und geschnatzt und wieder aufgesatzt."
 
 Da kam ein Windstoß und fuhr mit Kürdchens Hut weg, daß es weit zu laufen hatte, und die Magd kämmte und flocht ihre Locken still fort, welches der alte König alles beobachtete. Darauf ging er unbemerkt zurück, und als abends die Gänsemagd heimkam, rief er sie beiseite und fragte, warum sie dem allem so täte. "Das darf ich Euch nicht sagen und darf auch keinem Menschen mein Leid klagen, denn so hab' ich mich unter freiem Himmel verschworen, weil ich sonst um mein Leben gekommen wäre." Er drang in sie und ließ ihr keinen Frieden, aber er konnte nichts aus ihr herausbringen. Da sprach er: "Wenn du mir nichts sagen willst, so klag' dem Eisenofen da dein Leid," und ging fort. Da kroch sie in den Eisenofen, fing an zu jammern und zu weinen, schüttete ihr Herz aus und sprach: "Da sitze ich nun von aller Welt verlassen und bin doch eine Königstochter, und eine falsche Kammerjungfer hat mich mit Gewalt dahin gebracht, daß ich meine königlichen Kleider habe ablegen müssen, und hat meinen Platz bei meinem Bräutigam eingenommen, und ich muß als Gänsemagd gemeine Dienste tun. Wenn das meine Mutter wüßte, das Herz im Leib tät' ihr zerspringen." Der alte König stand aber außen an der Ofenröhre, lauerte ihr zu und hörte, was sie sprach. Da kam er wieder herein und ließ sie aus dem Ofen gehen. Da wurden ihr königliche Kleider angetan, und es schien ein Wunder, wie sie so schön war. Der alte König rief seinen Sohn und offenbarte ihm, daß er die falsche Braut hätte: die wäre bloß ein Kammermädchen, die wahre aber stände hier als gewesene Gänsemagd. Der junge König war herzensfroh, als er ihre Schönheit und Tugend erblickte, und ein großes Mahl wurde angestellt, zu dem alle Leute und guten Freunde gebeten wurden. Obenan saß der Bräutigam, die Königstochter zur einen Seite und die Kammerjungfer zur andern, aber die Kammerjungfer war verblendet und erkannte jene nicht mehr in dem glänzenden Schmuck. Als sie nun gegessen und getrunken hatten und guten Muts waren, gab der alte König der Kammerfrau ein Rätsel auf, was eine solche wert wäre, die den Herrn so und so betrogen hätte, erzählte damit den ganzen Verlauf und fragte: "Welchen Urteils ist diese würdig?" Da sprach die falsche Braut: "Die ist nichts Besseres wert, als daß sie splitternackt ausgezogen und in ein Faß gesteckt wird, das inwendig mit spitzen Nägeln beschlagen ist; und zwei weiße Pferde müssen vorgespannt werden, die sie Gasse auf Gasse ab zu Tode schleifen." - "Das bist du," sprach der alte König, "und hast dein eigen Urteil gefunden, und danach soll dir widerfahren." Und als das Urteil vollzogen war, vermählte sich der junge König mit seiner rechten Gemahlin, und beide beherrschten ihr Reich in Frieden und Seligkeit.

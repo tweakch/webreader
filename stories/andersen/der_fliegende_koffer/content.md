@@ -3,8 +3,9 @@ title: "Der fliegende Koffer"
 source: "Andersens Märchen"
 url: "https://www.andersenstories.com/de/andersen_maerchen/der_fliegende_koffer"
 crawledAt: "2026-04-03T11:20:58.608Z"
-wordCount: 1952
+wordCount: 1948
 ---
+
 Es war einmal ein Kaufmann, der war so reich, daß er die ganze Straße und fast noch eine kleine Gasse mit Silbergeld pflastern konnte; aber das tat er nicht, er wußte sein Geld anders anzuwenden, und gab er einen Groschen aus, so bekam er einen Taler wieder, ein so kluger Kaufmann war er – bis er starb.
 
 Der Sohn bekam nun all dieses Geld, und er lebte lustig, ging jeden Tag einem anderen Vergnügen nach, machte Papierdrachen von Talerscheinen und warf in das Wasser mit Goldstücken anstatt mit einem Steine. So konnte das Geld wohl zu Ende gehen. Zuletzt besaß er nicht mehr als vier Groschen und hatte keine anderen Kleider als ein Paar Schuhe und einen alten Schlafrock. Nun kümmerten sich seine Freunde nicht mehr um ihn, da sie ja nicht zusammen auf die Straße gehen konnten; aber einer von ihnen, der gutmütig war, sandte ihm einen alten Koffer mit der Bemerkung: "Packe ein!" Ja, das war nun ganz gut, aber er hatte nichts einzupacken, darum setzte er sich selbst in den Koffer.

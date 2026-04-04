@@ -1,3 +1,4 @@
+import { cn } from './cn';
 import { useTheme } from './ThemeContext';
 
 export const LINE_HEIGHTS  = [1.5, 1.8, 2.2];
@@ -18,8 +19,9 @@ export default function TypographyPanel({
   textWidthIdx,     onTextWidthChange,
   wordSpacingIdx,   onWordSpacingChange,
   fontFamilyIdx,    onFontFamilyChange,
+  className = '',
 }) {
-  const { dark, hc } = useTheme();
+  const { tc } = useTheme();
 
   const rows = [
     {
@@ -71,17 +73,22 @@ export default function TypographyPanel({
   ];
 
   return (
-    <div className={`flex-shrink-0 border-t px-5 py-3 transition-colors ${
-      hc && dark ? 'bg-black border-white/40' :
-      hc         ? 'bg-white border-black/30' :
-      dark       ? 'bg-slate-900/95 border-amber-700/30' :
-                   'bg-white/95 border-amber-200/50'
-    }`}>
+    <div className={cn(
+      'flex-shrink-0 border-t px-5 py-3 transition-colors',
+      tc({
+        light:   'bg-white/95 border-amber-200/50',
+        dark:    'bg-slate-900/95 border-amber-700/30',
+        hcLight: 'bg-white border-black/30',
+        hcDark:  'bg-black border-white/40',
+      }),
+      className
+    )}>
       {rows.map(({ label, options, idx, set }) => (
         <div key={label} className="flex items-center gap-3 py-1">
-          <span className={`text-xs w-24 shrink-0 ${
-            hc && dark ? 'text-white/60' : hc ? 'text-gray-500' : dark ? 'text-amber-500' : 'text-amber-600'
-          }`}>
+          <span className={cn(
+            'text-xs w-24 shrink-0',
+            tc({ light: 'text-amber-600', dark: 'text-amber-500', hcLight: 'text-gray-500', hcDark: 'text-white/60' })
+          )}>
             {label}
           </span>
           <div className="flex gap-1.5">
@@ -89,17 +96,12 @@ export default function TypographyPanel({
               <button
                 key={i}
                 onClick={() => set(i)}
-                className={`w-10 h-8 flex items-center justify-center rounded-lg transition-colors ${
+                className={cn(
+                  'w-10 h-8 flex items-center justify-center rounded-lg transition-colors',
                   idx === i
-                    ? hc && dark ? 'bg-white text-black'
-                    : hc         ? 'bg-black text-white'
-                    : dark       ? 'bg-amber-700 text-white'
-                    :              'bg-amber-200 text-amber-900'
-                    : hc && dark ? 'text-white/60 hover:bg-white/10'
-                    : hc         ? 'text-gray-500 hover:bg-gray-100'
-                    : dark       ? 'text-amber-400 hover:bg-slate-800'
-                    :              'text-amber-700 hover:bg-amber-100'
-                }`}
+                    ? tc({ light: 'bg-amber-200 text-amber-900', dark: 'bg-amber-700 text-white', hcLight: 'bg-black text-white', hcDark: 'bg-white text-black' })
+                    : tc({ light: 'text-amber-700 hover:bg-amber-100', dark: 'text-amber-400 hover:bg-slate-800', hcLight: 'text-gray-500 hover:bg-gray-100', hcDark: 'text-white/60 hover:bg-white/10' })
+                )}
               >
                 {icon}
               </button>

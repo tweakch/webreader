@@ -1,5 +1,6 @@
 import { useRef, useState } from 'react';
 import { Play, Pause, RotateCcw } from 'lucide-react';
+import { cn } from './cn';
 import { useTheme } from './ThemeContext';
 
 /**
@@ -10,7 +11,7 @@ import { useTheme } from './ThemeContext';
  * Use key={story.id} on this component to reset playback when the story changes.
  */
 export default function AudioPlayer({ src }) {
-  const { dark, hc } = useTheme();
+  const { tc } = useTheme();
   const audioRef = useRef(null);
   const [isPlaying, setIsPlaying]     = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
@@ -30,19 +31,24 @@ export default function AudioPlayer({ src }) {
         onLoadedMetadata={() => setDuration(audioRef.current?.duration ?? 0)}
         onEnded={() => setIsPlaying(false)}
       />
-      <div className={`flex-shrink-0 border-t transition-colors ${
-        hc && dark ? 'bg-black border-white/40' :
-        hc         ? 'bg-white border-black/20' :
-        dark       ? 'bg-slate-900/95 border-amber-700/30' :
-                     'bg-white/95 border-amber-200/50'
-      }`}>
-        <div className={`h-0.5 ${
-          hc && dark ? 'bg-white/20' : hc ? 'bg-black/10' : dark ? 'bg-slate-700' : 'bg-amber-100'
-        }`}>
+      <div className={cn(
+        'flex-shrink-0 border-t transition-colors',
+        tc({
+          light:   'bg-white/95 border-amber-200/50',
+          dark:    'bg-slate-900/95 border-amber-700/30',
+          hcLight: 'bg-white border-black/20',
+          hcDark:  'bg-black border-white/40',
+        })
+      )}>
+        <div className={cn(
+          'h-0.5',
+          tc({ light: 'bg-amber-100', dark: 'bg-slate-700', hcLight: 'bg-black/10', hcDark: 'bg-white/20' })
+        )}>
           <div
-            className={`h-full transition-all duration-300 ${
-              hc && dark ? 'bg-white' : hc ? 'bg-black' : dark ? 'bg-amber-500' : 'bg-amber-600'
-            }`}
+            className={cn(
+              'h-full transition-all duration-300',
+              tc({ light: 'bg-amber-600', dark: 'bg-amber-500', hcLight: 'bg-black', hcDark: 'bg-white' })
+            )}
             style={{ width: `${progress}%` }}
           />
         </div>
@@ -54,12 +60,10 @@ export default function AudioPlayer({ src }) {
               setIsPlaying(false);
               setCurrentTime(0);
             }}
-            className={`p-1.5 rounded-lg transition-colors ${
-              hc && dark ? 'text-white hover:bg-white/10' :
-              hc         ? 'text-gray-900 hover:bg-gray-100' :
-              dark       ? 'text-amber-400 hover:bg-slate-800' :
-                           'text-amber-700 hover:bg-amber-100'
-            }`}
+            className={cn(
+              'p-1.5 rounded-lg transition-colors',
+              tc({ light: 'text-amber-700 hover:bg-amber-100', dark: 'text-amber-400 hover:bg-slate-800', hcLight: 'text-gray-900 hover:bg-gray-100', hcDark: 'text-white hover:bg-white/10' })
+            )}
           >
             <RotateCcw size={15} />
           </button>
@@ -73,18 +77,17 @@ export default function AudioPlayer({ src }) {
                 setIsPlaying(true);
               }
             }}
-            className={`p-1.5 rounded-lg transition-colors ${
-              hc && dark ? 'text-white hover:bg-white/10' :
-              hc         ? 'text-gray-900 hover:bg-gray-100' :
-              dark       ? 'text-amber-300 hover:bg-slate-800' :
-                           'text-amber-800 hover:bg-amber-100'
-            }`}
+            className={cn(
+              'p-1.5 rounded-lg transition-colors',
+              tc({ light: 'text-amber-800 hover:bg-amber-100', dark: 'text-amber-300 hover:bg-slate-800', hcLight: 'text-gray-900 hover:bg-gray-100', hcDark: 'text-white hover:bg-white/10' })
+            )}
           >
             {isPlaying ? <Pause size={17} /> : <Play size={17} />}
           </button>
-          <span className={`text-xs tabular-nums ml-1 ${
-            hc && dark ? 'text-white/60' : hc ? 'text-gray-500' : dark ? 'text-amber-600' : 'text-amber-500'
-          }`}>
+          <span className={cn(
+            'text-xs tabular-nums ml-1',
+            tc({ light: 'text-amber-500', dark: 'text-amber-600', hcLight: 'text-gray-500', hcDark: 'text-white/60' })
+          )}>
             {fmtTime(currentTime)}{duration > 0 && ` / ${fmtTime(duration)}`}
           </span>
         </div>

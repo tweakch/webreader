@@ -1,4 +1,5 @@
 import { Heart } from 'lucide-react';
+import { cn } from './cn';
 import { useTheme } from './ThemeContext';
 import StoryBadge from './StoryBadge';
 
@@ -17,6 +18,7 @@ import StoryBadge from './StoryBadge';
  * onClick          — called when the title area is clicked
  * onFavoriteClick  — called when the heart is clicked, receives the click event
  * testId           — forwarded to data-testid on the main button
+ * className        — applied to the outermost wrapper div
  */
 export default function StoryButton({
   story,
@@ -31,8 +33,9 @@ export default function StoryButton({
   onClick,
   onFavoriteClick,
   testId,
+  className = '',
 }) {
-  const { dark, hc } = useTheme();
+  const { tc } = useTheme();
 
   const heartFilled = isFavorite || alwaysFilled;
 
@@ -74,21 +77,26 @@ export default function StoryButton({
   );
 
   return (
-    <div className="flex items-center gap-1">
+    <div className={cn('flex items-center gap-1', className)}>
       <button
         data-testid={testId}
         onClick={onClick}
-        className={`flex-1 min-w-0 text-left px-3 py-2.5 rounded-lg transition-all ${
+        className={cn(
+          'flex-1 min-w-0 text-left px-3 py-2.5 rounded-lg transition-all',
           isActive
-            ? hc && dark ? 'bg-white text-black'
-            : hc         ? 'bg-black text-white'
-            : dark       ? 'bg-amber-700 text-white'
-            :              'bg-amber-200 text-amber-900'
-            : hc && dark ? 'text-white hover:bg-white/10'
-            : hc         ? 'text-gray-900 hover:bg-gray-100'
-            : dark       ? 'text-amber-100 hover:bg-slate-800'
-            :              'text-amber-900 hover:bg-amber-100'
-        }`}
+            ? tc({
+                light:   'bg-amber-200 text-amber-900',
+                dark:    'bg-amber-700 text-white',
+                hcLight: 'bg-black text-white',
+                hcDark:  'bg-white text-black',
+              })
+            : tc({
+                light:   'text-amber-900 hover:bg-amber-100',
+                dark:    'text-amber-100 hover:bg-slate-800',
+                hcLight: 'text-gray-900 hover:bg-gray-100',
+                hcDark:  'text-white hover:bg-white/10',
+              })
+        )}
       >
         <span className={`font-serif text-base${inlineBadges ? ' leading-snug' : ' line-clamp-2 block'}`}>
           {story.title}
@@ -101,17 +109,22 @@ export default function StoryButton({
       {showFavoriteButton && (
         <button
           onClick={onFavoriteClick}
-          className={`flex-shrink-0 p-1.5 rounded-lg transition-colors ${
+          className={cn(
+            'flex-shrink-0 p-1.5 rounded-lg transition-colors',
             heartFilled
-              ? hc && dark ? 'text-white hover:bg-white/10'
-              : hc         ? 'text-gray-800 hover:bg-gray-100'
-              : dark       ? 'text-amber-400 hover:bg-slate-800'
-              :              'text-amber-600 hover:bg-amber-100'
-              : hc && dark ? 'text-white/25 hover:bg-white/10'
-              : hc         ? 'text-gray-300 hover:bg-gray-100'
-              : dark       ? 'text-slate-600 hover:text-amber-400 hover:bg-slate-800'
-              :              'text-amber-300 hover:text-amber-600 hover:bg-amber-100'
-          }`}
+              ? tc({
+                  light:   'text-amber-600 hover:bg-amber-100',
+                  dark:    'text-amber-400 hover:bg-slate-800',
+                  hcLight: 'text-gray-800 hover:bg-gray-100',
+                  hcDark:  'text-white hover:bg-white/10',
+                })
+              : tc({
+                  light:   'text-amber-300 hover:text-amber-600 hover:bg-amber-100',
+                  dark:    'text-slate-600 hover:text-amber-400 hover:bg-slate-800',
+                  hcLight: 'text-gray-300 hover:bg-gray-100',
+                  hcDark:  'text-white/25 hover:bg-white/10',
+                })
+          )}
         >
           <Heart size={14} fill={heartFilled ? 'currentColor' : 'none'} />
         </button>

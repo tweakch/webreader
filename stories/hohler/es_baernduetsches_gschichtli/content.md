@@ -3,9 +3,8 @@ title: "Es bärndütsches Gschichtli"
 source: "Franz Hohler"
 url: "https://www.mittelschulvorbereitung.ch/contentLD/DE/Div21fBerndGschicht.pdf"
 date: "1967"
-wordcount: 555
+wordCount: 555
 ---
-
 Gäuit, wemer da grad eso schön binanger sitze, hani däicht, chönntech vilicht es bärndütsches Gschichtli erzelle. Es isch zwar es bsungers uganteligs Gschichtli, wo aber no gar nid eso lang im Mittlere Schättegibeleggtäli passiert isch. 
 
 Der Schöppelimunggi u der Houderebäseler si einischt schpät am Abe, wo scho der Schibützu durs Gochlimoos pfoderet het, über s Batzmättere Heigisch im Erpfetli zueglüffe u hei nang na gschtigelet u gschigöggelet, das me z Gotts Bäri hätt chönne meine, si sige nanger scheich. «Na ei so schlöözige Blotzbänggu am Fläre, u i verminggle der s Bätzi, dass d Oschterpföteler ghörsch zawanggle!»

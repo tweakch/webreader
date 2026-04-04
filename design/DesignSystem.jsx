@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, createContext, useContext } from 'react';
 import {
   ChevronLeft, ChevronRight, Search, Heart, Menu, Plus, Minus,
   Play, Pause, RotateCcw, X, User,
@@ -8,18 +8,25 @@ import flagConfig from '../flags.json';
 
 // ─── Theme helpers (mirrors grimm-reader logic exactly) ───────────────────────
 
-const THEMES = [
-  { id: 'light',         label: 'Hell' },
-  { id: 'dark',          label: 'Dunkel' },
-  { id: 'high-contrast', label: 'Hochkontrast' },
+const THEMES_NORMAL = [
+  { id: 'light',  label: 'Hell' },
+  { id: 'dark',   label: 'Dunkel' },
+  { id: 'system', label: 'System' },
+];
+
+const THEMES_HC = [
+  { id: 'light-hc', label: 'Hell HC' },
+  { id: 'dark-hc',  label: 'Dunkel HC' },
 ];
 
 /** Returns { dark, hc } booleans for a given themeId */
 const tc = (themeId) => {
-  const hc   = themeId === 'high-contrast';
-  const dark = themeId === 'dark' || hc;
+  const hc   = themeId === 'light-hc' || themeId === 'dark-hc';
+  const dark = themeId === 'dark' || themeId === 'dark-hc';
   return { dark, hc };
 };
+
+const ThemesCtx = createContext(THEMES_NORMAL);
 
 // ─── Initial flag state ───────────────────────────────────────────────────────
 
@@ -41,30 +48,33 @@ const buildInitialFlags = () =>
 // ─── ThemeRow ─────────────────────────────────────────────────────────────────
 
 /**
- * Renders children in all three themes side by side.
+ * Renders children in all active themes side by side.
  * children receives ({ dark, hc }, themeId) and returns JSX.
  */
 function ThemeRow({ children, noPad = false }) {
+  const themes = useContext(ThemesCtx);
   return (
-    <div className="grid grid-cols-3 gap-3">
-      {THEMES.map(({ id, label }) => {
+    <div className="grid gap-3" style={{ gridTemplateColumns: `repeat(${themes.length}, minmax(0, 1fr))` }}>
+      {themes.map(({ id, label }) => {
         const { dark, hc } = tc(id);
         return (
           <div key={id} className="rounded-xl overflow-hidden border border-gray-200 shadow-sm">
             {/* Frame chrome */}
             <div className="px-3 py-1.5 bg-white border-b border-gray-100 flex items-center gap-2">
               <span className={`w-2 h-2 rounded-full flex-shrink-0 ${
-                hc   ? 'bg-zinc-800 ring-1 ring-zinc-300'
-                : dark ? 'bg-slate-500'
-                :        'bg-amber-300'
+                hc && dark ? 'bg-white ring-1 ring-zinc-400'
+                : hc       ? 'bg-zinc-800 ring-1 ring-zinc-300'
+                : dark     ? 'bg-slate-500'
+                :            'bg-amber-300'
               }`} />
               <span className="text-[11px] font-mono text-gray-400 uppercase tracking-wider">{label}</span>
             </div>
             {/* Themed background */}
             <div className={`${noPad ? '' : 'p-4'} ${
-              hc   ? 'bg-black' :
-              dark ? 'bg-gradient-to-br from-amber-950 via-slate-900 to-slate-950' :
-                     'bg-gradient-to-br from-amber-50 via-yellow-50 to-orange-50'
+              hc && dark ? 'bg-black' :
+              hc         ? 'bg-white' :
+              dark       ? 'bg-gradient-to-br from-amber-950 via-slate-900 to-slate-950' :
+                           'bg-gradient-to-br from-amber-50 via-yellow-50 to-orange-50'
             }`}>
               {children({ dark, hc }, id)}
             </div>
@@ -173,31 +183,31 @@ function TypographySection() {
             <div>
               <p className="text-[10px] font-mono text-gray-400 mb-1">text-4xl · font-serif · bold</p>
               <h1 className={`text-4xl font-bold font-serif leading-tight ${
-                hc ? 'text-white' : dark ? 'text-amber-200' : 'text-amber-900'
+                hc && dark ? 'text-white' : hc ? 'text-gray-900' : dark ? 'text-amber-200' : 'text-amber-900'
               }`}>Hänsel und Gretel</h1>
             </div>
             <div>
               <p className="text-[10px] font-mono text-gray-400 mb-1">text-[18px] · font-serif · leading-relaxed</p>
               <p className={`text-[18px] font-serif leading-relaxed ${
-                hc ? 'text-white' : dark ? 'text-amber-50' : 'text-amber-950'
+                hc && dark ? 'text-white' : hc ? 'text-gray-900' : dark ? 'text-amber-50' : 'text-amber-950'
               }`}>Es war einmal in einem großen Walde ein armes Holzhackersmädchen, da wohnten ein Mann und seine zwei Kinder.</p>
             </div>
             <div>
               <p className="text-[10px] font-mono text-gray-400 mb-1">text-sm · font-medium</p>
               <p className={`text-sm font-medium ${
-                hc ? 'text-white' : dark ? 'text-amber-200' : 'text-amber-900'
+                hc && dark ? 'text-white' : hc ? 'text-gray-900' : dark ? 'text-amber-200' : 'text-amber-900'
               }`}>Märchenschatz</p>
             </div>
             <div>
               <p className="text-[10px] font-mono text-gray-400 mb-1">text-xs · secondary</p>
               <p className={`text-xs ${
-                hc ? 'text-white/70' : dark ? 'text-amber-400' : 'text-amber-700'
+                hc && dark ? 'text-white/70' : hc ? 'text-gray-600' : dark ? 'text-amber-400' : 'text-amber-700'
               }`}>2.341 Wörter · ~12 min</p>
             </div>
             <div>
               <p className="text-[10px] font-mono text-gray-400 mb-1">text-sm · italic · Quellenangabe</p>
               <p className={`text-sm italic ${
-                hc ? 'text-white/70' : dark ? 'text-amber-600' : 'text-amber-700'
+                hc && dark ? 'text-white/70' : hc ? 'text-gray-600' : dark ? 'text-amber-600' : 'text-amber-700'
               }`}>— Jacob und Wilhelm Grimm</p>
             </div>
           </div>
@@ -221,13 +231,12 @@ function ButtonsSection({ flags }) {
         <ThemeRow>
           {({ dark, hc }) => (
             <div className="flex gap-2 flex-wrap">
-              {['light', 'dark', 'system', ...(showHighContrast ? ['high-contrast'] : [])].map(t => {
-                const isHC = t === 'high-contrast';
-                const emoji = t === 'light' ? '🌙' : t === 'dark' ? '🖥️' : t === 'system' ? (showHighContrast ? '◑' : '☀️') : '☀️';
+              {(showHighContrast ? ['light-hc', 'dark-hc'] : ['light', 'dark', 'system']).map(t => {
+                const emoji = t === 'light' ? '🌙' : t === 'dark' ? '🖥️' : t === 'system' ? '☀️' : t === 'light-hc' ? '🌙' : '☀️';
                 return (
                   <button key={t} className={`px-4 py-2 rounded-lg font-medium text-sm ${
-                    isHC && hc ? 'bg-white text-black hover:bg-gray-100' :
-                    hc         ? 'bg-white/10 text-white hover:bg-white/20' :
+                    hc && dark ? 'bg-white text-black hover:bg-gray-100' :
+                    hc         ? 'bg-black text-white hover:bg-gray-900' :
                     dark       ? 'bg-amber-200 text-slate-900 hover:bg-amber-300' :
                                  'bg-amber-900 text-white hover:bg-amber-800'
                   }`}>
@@ -246,17 +255,17 @@ function ButtonsSection({ flags }) {
             <div className="flex items-center gap-1">
               {showFontControls && <>
                 <button className={`p-2 rounded-lg ${
-                  hc ? 'text-white hover:bg-white/10' : dark ? 'text-amber-200 hover:bg-slate-800' : 'text-amber-900 hover:bg-amber-100'
+                  hc && dark ? 'text-white hover:bg-white/10' : hc ? 'text-gray-900 hover:bg-gray-100' : dark ? 'text-amber-200 hover:bg-slate-800' : 'text-amber-900 hover:bg-amber-100'
                 }`}><Minus size={18} /></button>
                 <span className={`text-sm font-medium w-10 text-center ${
-                  hc ? 'text-white' : dark ? 'text-amber-200' : 'text-amber-900'
+                  hc && dark ? 'text-white' : hc ? 'text-gray-900' : dark ? 'text-amber-200' : 'text-amber-900'
                 }`}>18</span>
                 <button className={`p-2 rounded-lg ${
-                  hc ? 'text-white hover:bg-white/10' : dark ? 'text-amber-200 hover:bg-slate-800' : 'text-amber-900 hover:bg-amber-100'
+                  hc && dark ? 'text-white hover:bg-white/10' : hc ? 'text-gray-900 hover:bg-gray-100' : dark ? 'text-amber-200 hover:bg-slate-800' : 'text-amber-900 hover:bg-amber-100'
                 }`}><Plus size={18} /></button>
               </>}
               <button className={`p-2 rounded-lg ${
-                hc ? 'text-white hover:bg-white/10' : dark ? 'text-amber-200 hover:bg-slate-800' : 'text-amber-900 hover:bg-amber-100'
+                hc && dark ? 'text-white hover:bg-white/10' : hc ? 'text-gray-900 hover:bg-gray-100' : dark ? 'text-amber-200 hover:bg-slate-800' : 'text-amber-900 hover:bg-amber-100'
               }`}><Menu size={24} /></button>
             </div>
           )}
@@ -268,10 +277,10 @@ function ButtonsSection({ flags }) {
           {({ dark, hc }) => (
             <div className="flex gap-2">
               <button disabled className={`p-1 rounded disabled:opacity-30 ${
-                hc ? 'text-white' : dark ? 'text-amber-300' : 'text-amber-800'
+                hc && dark ? 'text-white' : hc ? 'text-gray-900' : dark ? 'text-amber-300' : 'text-amber-800'
               }`}><ChevronLeft size={20} /></button>
               <button className={`p-1 rounded ${
-                hc ? 'text-white hover:bg-white/10' : dark ? 'text-amber-300 hover:bg-slate-700' : 'text-amber-800 hover:bg-amber-100'
+                hc && dark ? 'text-white hover:bg-white/10' : hc ? 'text-gray-900 hover:bg-gray-100' : dark ? 'text-amber-300 hover:bg-slate-700' : 'text-amber-800 hover:bg-amber-100'
               }`}><ChevronRight size={20} /></button>
             </div>
           )}
@@ -283,20 +292,12 @@ function ButtonsSection({ flags }) {
           {({ dark, hc }) => (
             <div className="flex items-center gap-4">
               <div className="flex flex-col items-center gap-1">
-                <button role="switch" aria-checked={true} className={`relative inline-flex h-5 w-9 items-center rounded-full ${
-                  dark ? 'bg-amber-500' : 'bg-amber-600'
-                }`}>
-                  <span className="inline-block h-3.5 w-3.5 rounded-full bg-white shadow-sm translate-x-[18px]" />
-                </button>
-                <span className={`text-[10px] ${hc ? 'text-white/50' : dark ? 'text-amber-600' : 'text-amber-500'}`}>Ein</span>
+                <Toggle checked={true} />
+                <span className={`text-[10px] ${hc && dark ? 'text-white/50' : hc ? 'text-gray-500' : dark ? 'text-amber-600' : 'text-amber-500'}`}>Ein</span>
               </div>
               <div className="flex flex-col items-center gap-1">
-                <button role="switch" aria-checked={false} className={`relative inline-flex h-5 w-9 items-center rounded-full ${
-                  dark ? 'bg-slate-600' : 'bg-amber-200'
-                }`}>
-                  <span className="inline-block h-3.5 w-3.5 rounded-full bg-white shadow-sm translate-x-[2px]" />
-                </button>
-                <span className={`text-[10px] ${hc ? 'text-white/50' : dark ? 'text-amber-600' : 'text-amber-500'}`}>Aus</span>
+                <Toggle checked={false} />
+                <span className={`text-[10px] ${hc && dark ? 'text-white/50' : hc ? 'text-gray-500' : dark ? 'text-amber-600' : 'text-amber-500'}`}>Aus</span>
               </div>
             </div>
           )}
@@ -308,13 +309,13 @@ function ButtonsSection({ flags }) {
           {({ dark, hc }) => (
             <div className="flex gap-2 flex-wrap">
               <button className={`px-3 py-1 rounded-full text-xs font-medium ${
-                hc ? 'bg-white text-black' : dark ? 'bg-amber-700 text-white' : 'bg-amber-200 text-amber-900'
+                hc && dark ? 'bg-white text-black' : hc ? 'bg-black text-white' : dark ? 'bg-amber-700 text-white' : 'bg-amber-200 text-amber-900'
               }`}>Original</button>
               <button className={`px-3 py-1 rounded-full text-xs font-medium ${
-                hc ? 'text-white hover:bg-white/10' : dark ? 'text-amber-400 hover:bg-slate-800' : 'text-amber-700 hover:bg-amber-100'
+                hc && dark ? 'text-white hover:bg-white/10' : hc ? 'text-gray-900 hover:bg-gray-100' : dark ? 'text-amber-400 hover:bg-slate-800' : 'text-amber-700 hover:bg-amber-100'
               }`}>Kurzfassung</button>
               <button className={`px-3 py-1 rounded-full text-xs font-medium ${
-                hc ? 'text-white hover:bg-white/10' : dark ? 'text-amber-400 hover:bg-slate-800' : 'text-amber-700 hover:bg-amber-100'
+                hc && dark ? 'text-white hover:bg-white/10' : hc ? 'text-gray-900 hover:bg-gray-100' : dark ? 'text-amber-400 hover:bg-slate-800' : 'text-amber-700 hover:bg-amber-100'
               }`}>Kinderfassung</button>
             </div>
           )}
@@ -335,13 +336,13 @@ function FormSection({ flags }) {
         <ThemeRow>
           {({ dark, hc }) => (
             <div className="flex items-center gap-2">
-              <div className={`relative flex-1 ${hc ? 'text-white' : dark ? 'text-amber-200' : 'text-amber-900'}`}>
+              <div className={`relative flex-1 ${hc && dark ? 'text-white' : hc ? 'text-gray-900' : dark ? 'text-amber-200' : 'text-amber-900'}`}>
                 <Search size={18} className="absolute left-3 top-2.5" />
                 <input
                   readOnly
                   placeholder="Märchen suchen..."
                   className={`w-full pl-10 pr-4 py-2 rounded-lg border text-sm ${
-                    hc   ? 'bg-black border-white/40 text-white placeholder-white/30' :
+                    hc && dark ? 'bg-black border-white/40 text-white placeholder-white/30' : hc ? 'bg-white border-black/30 text-gray-900 placeholder-gray-400' :
                     dark ? 'bg-slate-800 border-amber-700/50 text-amber-200 placeholder-amber-600' :
                            'bg-amber-50 border-amber-300 text-amber-900 placeholder-amber-600'
                   } focus:outline-none`}
@@ -377,36 +378,37 @@ function HeaderSection({ flags }) {
       <ThemeRow noPad>
         {({ dark, hc }) => (
           <div className={`h-16 px-4 flex items-center justify-between border-b ${
-            hc ? 'border-white/40' : dark ? 'border-amber-700/30' : 'border-amber-200/50'
+            hc && dark ? 'border-white/40' : hc ? 'border-black/20' : dark ? 'border-amber-700/30' : 'border-amber-200/50'
           }`}>
             <div className="flex items-center gap-3">
               <button className={`p-2 rounded-lg ${
-                hc ? 'text-white hover:bg-white/10' : dark ? 'text-amber-200 hover:bg-slate-800' : 'text-amber-900 hover:bg-amber-100'
+                hc && dark ? 'text-white hover:bg-white/10' : hc ? 'text-gray-900 hover:bg-gray-100' : dark ? 'text-amber-200 hover:bg-slate-800' : 'text-amber-900 hover:bg-amber-100'
               }`}><Menu size={24} /></button>
               <h1 className={`text-2xl font-serif font-bold tracking-wide ${
-                hc ? 'text-white' : dark ? 'text-amber-200' : 'text-amber-900'
+                hc && dark ? 'text-white' : hc ? 'text-gray-900' : dark ? 'text-amber-200' : 'text-amber-900'
               }`}>Märchenschatz</h1>
             </div>
             <div className="flex items-center gap-2">
               {showFontControls && (
                 <>
                   <button className={`p-2 rounded-lg ${
-                    hc ? 'text-white' : dark ? 'text-amber-200' : 'text-amber-900'
+                    hc && dark ? 'text-white' : hc ? 'text-gray-900' : dark ? 'text-amber-200' : 'text-amber-900'
                   }`}><Minus size={18} /></button>
                   <span className={`text-sm font-medium w-10 text-center ${
-                    hc ? 'text-white' : dark ? 'text-amber-200' : 'text-amber-900'
+                    hc && dark ? 'text-white' : hc ? 'text-gray-900' : dark ? 'text-amber-200' : 'text-amber-900'
                   }`}>18</span>
                   <button className={`p-2 rounded-lg ${
-                    hc ? 'text-white' : dark ? 'text-amber-200' : 'text-amber-900'
+                    hc && dark ? 'text-white' : hc ? 'text-gray-900' : dark ? 'text-amber-200' : 'text-amber-900'
                   }`}><Plus size={18} /></button>
                 </>
               )}
               <button className={`px-4 py-2 rounded-lg font-medium text-sm ${
-                hc   ? 'bg-white text-black hover:bg-gray-100' :
-                dark ? 'bg-amber-200 text-slate-900 hover:bg-amber-300' :
-                       'bg-amber-900 text-white hover:bg-amber-800'
+                hc && dark ? 'bg-white text-black hover:bg-gray-100' :
+                hc         ? 'bg-black text-white hover:bg-gray-900' :
+                dark       ? 'bg-amber-200 text-slate-900 hover:bg-amber-300' :
+                             'bg-amber-900 text-white hover:bg-amber-800'
               }`}>
-                {showHighContrast ? '◑' : '🌙'}
+                {hc ? (dark ? '☀️' : '🌙') : '🌙'}
               </button>
             </div>
           </div>
@@ -417,28 +419,28 @@ function HeaderSection({ flags }) {
         <ThemeRow noPad>
           {({ dark, hc }) => (
             <div className={`h-16 px-4 flex items-center justify-between border-b ${
-              hc ? 'border-white/40' : dark ? 'border-amber-700/30' : 'border-amber-200/50'
+              hc && dark ? 'border-white/40' : hc ? 'border-black/20' : dark ? 'border-amber-700/30' : 'border-amber-200/50'
             }`}>
               <div className="flex items-center gap-3">
                 <button className={`p-2 rounded-lg ${
-                  hc ? 'text-white' : dark ? 'text-amber-200' : 'text-amber-900'
+                  hc && dark ? 'text-white' : hc ? 'text-gray-900' : dark ? 'text-amber-200' : 'text-amber-900'
                 }`}><Menu size={24} /></button>
               </div>
               {showFontControls && (
                 <div className="flex items-center gap-2">
                   <button className={`p-2 rounded-lg ${
-                    hc ? 'text-white' : dark ? 'text-amber-200' : 'text-amber-900'
+                    hc && dark ? 'text-white' : hc ? 'text-gray-900' : dark ? 'text-amber-200' : 'text-amber-900'
                   }`}><Minus size={18} /></button>
                   <span className={`text-sm font-medium w-10 text-center ${
-                    hc ? 'text-white' : dark ? 'text-amber-200' : 'text-amber-900'
+                    hc && dark ? 'text-white' : hc ? 'text-gray-900' : dark ? 'text-amber-200' : 'text-amber-900'
                   }`}>18</span>
                   <button className={`p-2 rounded-lg ${
-                    hc ? 'text-white' : dark ? 'text-amber-200' : 'text-amber-900'
+                    hc && dark ? 'text-white' : hc ? 'text-gray-900' : dark ? 'text-amber-200' : 'text-amber-900'
                   }`}><Plus size={18} /></button>
                 </div>
               )}
               <button className={`px-4 py-2 rounded-lg font-medium text-sm ${
-                hc   ? 'bg-white text-black' :
+                hc && dark ? 'bg-white text-black' : hc ? 'bg-black text-white' :
                 dark ? 'bg-amber-200 text-slate-900' :
                        'bg-amber-900 text-white'
               }`}>🌙</button>
@@ -464,7 +466,7 @@ function NavBarSection({ flags }) {
         <ThemeRow noPad>
           {({ dark, hc }) => (
             <div className={`h-12 flex items-center justify-between px-6 border-t ${
-              hc   ? 'bg-black border-white/40 text-white' :
+              hc && dark ? 'bg-black border-white/40 text-white' : hc ? 'bg-white border-black/30 text-gray-900' :
               dark ? 'bg-slate-900/90 border-amber-700/30 text-amber-300' :
                      'bg-white/90 border-amber-200/50 text-amber-800'
             }`}>
@@ -473,7 +475,7 @@ function NavBarSection({ flags }) {
                 hc ? 'hover:bg-white/10' : dark ? 'hover:bg-slate-800' : 'hover:bg-amber-50'
               }`}>
                 <span className={`text-xs font-serif truncate max-w-[120px] ${
-                  hc ? 'text-white/60' : dark ? 'text-amber-500' : 'text-amber-600'
+                  hc && dark ? 'text-white/60' : hc ? 'text-gray-500' : dark ? 'text-amber-500' : 'text-amber-600'
                 }`}>Hänsel und Gretel</span>
                 <span className="text-xs font-medium tabular-nums">3 / 12</span>
               </button>
@@ -488,7 +490,7 @@ function NavBarSection({ flags }) {
           <ThemeRow noPad>
             {({ dark, hc }) => (
               <div className={`border-t px-5 py-3 ${
-                hc   ? 'bg-black border-white/40' :
+                hc && dark ? 'bg-black border-white/40' : hc ? 'bg-white border-black/30' :
                 dark ? 'bg-slate-900/95 border-amber-700/30' :
                        'bg-white/95 border-amber-200/50'
               }`}>
@@ -499,13 +501,13 @@ function NavBarSection({ flags }) {
                 ].map(({ label, active }) => (
                   <div key={label} className="flex items-center gap-3 py-1">
                     <span className={`text-xs w-28 shrink-0 ${
-                      hc ? 'text-white/60' : dark ? 'text-amber-500' : 'text-amber-600'
+                      hc && dark ? 'text-white/60' : hc ? 'text-gray-500' : dark ? 'text-amber-500' : 'text-amber-600'
                     }`}>{label}</span>
                     <div className="flex gap-1.5">
                       {[0, 1, 2].map(i => (
                         <button key={i} className={`w-9 h-7 flex items-center justify-center rounded-lg text-xs ${
                           i === active
-                            ? hc   ? 'bg-white text-black' :
+                            ? hc && dark ? 'bg-white text-black' : hc ? 'bg-black text-white' :
                               dark ? 'bg-amber-700 text-white' : 'bg-amber-200 text-amber-900'
                             : hc   ? 'text-white/60 hover:bg-white/10' :
                               dark ? 'text-amber-400 hover:bg-slate-800' : 'text-amber-700 hover:bg-amber-100'
@@ -555,7 +557,7 @@ function SidebarSection({ flags }) {
                   data-testid="source-button"
                   className={`w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-medium transition-all ${
                     active
-                      ? hc   ? 'bg-white text-black' :
+                      ? hc && dark ? 'bg-white text-black' : hc ? 'bg-black text-white' :
                         dark ? 'bg-amber-700 text-white' : 'bg-amber-200 text-amber-900'
                       : hc   ? 'text-white hover:bg-white/10' :
                         dark ? 'text-amber-100 hover:bg-slate-800' : 'text-amber-900 hover:bg-amber-100'
@@ -564,9 +566,9 @@ function SidebarSection({ flags }) {
                   <span>{label}</span>
                   <span className={`text-xs px-1.5 py-0.5 rounded tabular-nums ${
                     active
-                      ? hc   ? 'bg-black/20' :
+                      ? hc && dark ? 'bg-black/20' : hc ? 'bg-white/20' :
                         dark ? 'bg-amber-600/60 text-amber-100' : 'bg-amber-300/60 text-amber-800'
-                      : hc   ? 'bg-white/10' :
+                      : hc && dark ? 'bg-white/10' : hc ? 'bg-black/10' :
                         dark ? 'bg-slate-700 text-amber-500' : 'bg-amber-100 text-amber-600'
                   }`}>{count}</span>
                 </button>
@@ -586,9 +588,9 @@ function SidebarSection({ flags }) {
                     data-testid="story-button"
                     className={`flex-1 min-w-0 text-left px-3 py-2.5 rounded-lg transition-all ${
                       active
-                        ? hc   ? 'bg-white text-black' :
+                        ? hc && dark ? 'bg-white text-black' : hc ? 'bg-black text-white' :
                           dark ? 'bg-amber-700 text-white' : 'bg-amber-200 text-amber-900'
-                        : hc   ? 'text-white hover:bg-white/10' :
+                        : hc && dark ? 'text-white hover:bg-white/10' : hc ? 'text-gray-900 hover:bg-gray-100' :
                           dark ? 'text-amber-100 hover:bg-slate-800' : 'text-amber-900 hover:bg-amber-100'
                     }`}
                   >
@@ -597,27 +599,27 @@ function SidebarSection({ flags }) {
                       {showWordCount && (
                         <span className={`text-xs px-1.5 py-0.5 rounded tabular-nums ${
                           active
-                            ? hc   ? 'bg-black/20' :
+                            ? hc && dark ? 'bg-black/20' : hc ? 'bg-white/20' :
                               dark ? 'bg-amber-600/60 text-amber-100' : 'bg-amber-300/60 text-amber-800'
-                            : hc   ? 'bg-white/10' :
+                            : hc && dark ? 'bg-white/10' : hc ? 'bg-black/10' :
                               dark ? 'bg-slate-700 text-amber-400' : 'bg-amber-100 text-amber-700'
                         }`}>{wc.toLocaleString('de')} W</span>
                       )}
                       {showDuration && (
                         <span className={`text-xs px-1.5 py-0.5 rounded tabular-nums ${
                           active
-                            ? hc   ? 'bg-black/20' :
+                            ? hc && dark ? 'bg-black/20' : hc ? 'bg-white/20' :
                               dark ? 'bg-amber-600/60 text-amber-100' : 'bg-amber-300/60 text-amber-800'
-                            : hc   ? 'bg-white/10' :
+                            : hc && dark ? 'bg-white/10' : hc ? 'bg-black/10' :
                               dark ? 'bg-slate-700 text-amber-400' : 'bg-amber-100 text-amber-700'
                         }`}>~{Math.ceil(wc / 200)} min</span>
                       )}
                       {done && (
                         <span data-testid="completed-indicator" className={`text-xs px-1.5 py-0.5 rounded ${
                           active
-                            ? hc   ? 'bg-black/20' :
+                            ? hc && dark ? 'bg-black/20' : hc ? 'bg-white/20' :
                               dark ? 'bg-amber-600/60 text-amber-100' : 'bg-amber-300/60 text-amber-800'
-                            : hc   ? 'bg-white/10' :
+                            : hc && dark ? 'bg-white/10' : hc ? 'bg-black/10' :
                               dark ? 'bg-slate-700 text-amber-500' : 'bg-amber-100 text-amber-600'
                         }`}>✓</span>
                       )}
@@ -626,8 +628,8 @@ function SidebarSection({ flags }) {
                   {showFav && (
                     <button className={`flex-shrink-0 p-1.5 rounded-lg ${
                       fav
-                        ? hc ? 'text-white' : dark ? 'text-amber-400' : 'text-amber-600'
-                        : hc ? 'text-white/25' : dark ? 'text-slate-600' : 'text-amber-300'
+                        ? hc && dark ? 'text-white' : hc ? 'text-gray-800' : dark ? 'text-amber-400' : 'text-amber-600'
+                        : hc && dark ? 'text-white/25' : hc ? 'text-gray-300' : dark ? 'text-slate-600' : 'text-amber-300'
                     }`}>
                       <Heart size={14} fill={fav ? 'currentColor' : 'none'} />
                     </button>
@@ -643,14 +645,14 @@ function SidebarSection({ flags }) {
         <ThemeRow>
           {({ dark, hc }) => (
             <div className={`mx-0 rounded-xl px-4 py-3 space-y-1.5 ${
-              hc ? 'bg-white/10' : dark ? 'bg-slate-800' : 'bg-amber-50'
+              hc && dark ? 'bg-white/10' : hc ? 'bg-black/5' : dark ? 'bg-slate-800' : 'bg-amber-50'
             }`}>
               {[
                 showWordCount  && { label: 'Wörter',   val: '2.341' },
                 showDuration   && { label: 'Lesezeit',  val: '~12 min' },
               ].filter(Boolean).map(({ label, val }) => (
                 <div key={label} className={`flex items-center justify-between text-sm ${
-                  hc ? 'text-white' : dark ? 'text-amber-400' : 'text-amber-700'
+                  hc && dark ? 'text-white' : hc ? 'text-gray-700' : dark ? 'text-amber-400' : 'text-amber-700'
                 }`}>
                   <span>{label}</span>
                   <span className="tabular-nums font-medium">{val}</span>
@@ -658,7 +660,7 @@ function SidebarSection({ flags }) {
               ))}
               {!showWordCount && !showDuration && (
                 <p className={`text-xs italic ${
-                  hc ? 'text-white/40' : dark ? 'text-amber-700' : 'text-amber-400'
+                  hc && dark ? 'text-white/40' : hc ? 'text-gray-400' : dark ? 'text-amber-700' : 'text-amber-400'
                 }`}>word-count und reading-duration ausgeschaltet</p>
               )}
             </div>
@@ -681,16 +683,16 @@ function ReaderSection({ flags }) {
       <ThemeRow noPad>
         {({ dark, hc }) => (
           <div className={`p-8 ${
-            hc ? 'bg-black' : dark ? 'bg-slate-800/50' : 'bg-white/70'
+            hc && dark ? 'bg-black' : hc ? 'bg-white' : dark ? 'bg-slate-800/50' : 'bg-white/70'
           }`}>
             <h2 className={`text-3xl font-bold font-serif mb-2 ${
-              hc ? 'text-white' : dark ? 'text-amber-200' : 'text-amber-900'
+              hc && dark ? 'text-white' : hc ? 'text-gray-900' : dark ? 'text-amber-200' : 'text-amber-900'
             }`}>Hänsel und Gretel</h2>
             <div className={`h-1 w-16 rounded-full mb-7 ${
-              hc ? 'bg-white' : dark ? 'bg-amber-700' : 'bg-amber-300'
+              hc && dark ? 'bg-white' : hc ? 'bg-black' : dark ? 'bg-amber-700' : 'bg-amber-300'
             }`} />
             <div className={`text-[17px] font-serif leading-relaxed ${
-              hc ? 'text-white' : dark ? 'text-amber-50' : 'text-amber-950'
+              hc && dark ? 'text-white' : hc ? 'text-gray-900' : dark ? 'text-amber-50' : 'text-amber-950'
             }`}>
               <p className="mb-5">
                 Es war einmal in einem großen Walde ein armes Holzhackersmädchen, da wohnten ein Mann und seine Frau und seine zwei Kinder.
@@ -704,7 +706,7 @@ function ReaderSection({ flags }) {
                 hc ? 'border-white/40' : dark ? 'border-amber-700/30' : 'border-amber-300'
               }`}>
                 <p className={`text-sm italic ${
-                  hc ? 'text-white/70' : dark ? 'text-amber-600' : 'text-amber-700'
+                  hc && dark ? 'text-white/70' : hc ? 'text-gray-600' : dark ? 'text-amber-600' : 'text-amber-700'
                 }`}>— Jacob und Wilhelm Grimm</p>
               </div>
             )}
@@ -726,22 +728,22 @@ function AudioSection({ flags }) {
         <ThemeRow noPad>
           {({ dark, hc }) => (
             <div className={`border-t ${
-              hc ? 'bg-black border-white/40' : dark ? 'bg-slate-900/95 border-amber-700/30' : 'bg-white/95 border-amber-200/50'
+              hc && dark ? 'bg-black border-white/40' : hc ? 'bg-white border-black/20' : dark ? 'bg-slate-900/95 border-amber-700/30' : 'bg-white/95 border-amber-200/50'
             }`}>
               {/* Progress bar */}
-              <div className={`h-0.5 ${hc ? 'bg-white/20' : dark ? 'bg-slate-700' : 'bg-amber-100'}`}>
-                <div className={`h-full ${hc ? 'bg-white' : dark ? 'bg-amber-500' : 'bg-amber-600'}`}
+              <div className={`h-0.5 ${hc && dark ? 'bg-white/20' : hc ? 'bg-black/10' : dark ? 'bg-slate-700' : 'bg-amber-100'}`}>
+                <div className={`h-full ${hc && dark ? 'bg-white' : hc ? 'bg-black' : dark ? 'bg-amber-500' : 'bg-amber-600'}`}
                   style={{ width: '35%' }} />
               </div>
               <div className="flex items-center gap-3 px-5 py-2">
                 <button className={`p-1.5 rounded-lg ${
-                  hc ? 'text-white hover:bg-white/10' : dark ? 'text-amber-400 hover:bg-slate-800' : 'text-amber-700 hover:bg-amber-100'
+                  hc && dark ? 'text-white hover:bg-white/10' : hc ? 'text-gray-900 hover:bg-gray-100' : dark ? 'text-amber-400 hover:bg-slate-800' : 'text-amber-700 hover:bg-amber-100'
                 }`}><RotateCcw size={15} /></button>
                 <button className={`p-1.5 rounded-lg ${
-                  hc ? 'text-white hover:bg-white/10' : dark ? 'text-amber-300 hover:bg-slate-800' : 'text-amber-800 hover:bg-amber-100'
+                  hc && dark ? 'text-white hover:bg-white/10' : hc ? 'text-gray-900 hover:bg-gray-100' : dark ? 'text-amber-300 hover:bg-slate-800' : 'text-amber-800 hover:bg-amber-100'
                 }`}><Play size={17} /></button>
                 <span className={`text-xs tabular-nums ml-1 ${
-                  hc ? 'text-white/60' : dark ? 'text-amber-600' : 'text-amber-500'
+                  hc && dark ? 'text-white/60' : hc ? 'text-gray-500' : dark ? 'text-amber-600' : 'text-amber-500'
                 }`}>1:23 / 4:07</span>
               </div>
             </div>
@@ -781,7 +783,7 @@ function ProfileSection({ flags }) {
                           { label: 'Verfügbare Märchen',    value: '296' },
               ].filter(Boolean).map(({ label, value }) => (
                 <div key={label} className={`flex items-center justify-between px-5 py-3 text-sm ${
-                  hc ? 'text-white' : dark ? 'text-amber-200' : 'text-amber-900'
+                  hc && dark ? 'text-white' : hc ? 'text-gray-900' : dark ? 'text-amber-200' : 'text-amber-900'
                 }`}>
                   <span>{label}</span>
                   <span className="font-medium tabular-nums">{value}</span>
@@ -797,10 +799,10 @@ function ProfileSection({ flags }) {
           <ThemeRow>
             {({ dark, hc }) => (
               <div className={`flex items-start gap-4 ${
-                hc ? 'text-white' : dark ? 'text-amber-200' : 'text-amber-900'
+                hc && dark ? 'text-white' : hc ? 'text-gray-900' : dark ? 'text-amber-200' : 'text-amber-900'
               }`}>
                 <div className={`flex-shrink-0 w-10 h-10 rounded-xl flex items-center justify-center ${
-                  hc   ? 'bg-white/10' :
+                  hc && dark ? 'bg-white/10' : hc ? 'bg-black/10' :
                   dark ? 'bg-amber-700/40 text-amber-300' : 'bg-amber-100 text-amber-700'
                 }`}>
                   <div className="w-5 h-5"><featureForRow.Icon /></div>
@@ -808,14 +810,10 @@ function ProfileSection({ flags }) {
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center justify-between gap-3">
                     <p className="text-sm font-medium">{featureForRow.label}</p>
-                    <button role="switch" aria-checked={true} className={`relative inline-flex h-5 w-9 items-center rounded-full ${
-                      dark ? 'bg-amber-500' : 'bg-amber-600'
-                    }`}>
-                      <span className="inline-block h-3.5 w-3.5 rounded-full bg-white shadow-sm translate-x-[18px]" />
-                    </button>
+                    <Toggle checked={true} />
                   </div>
                   <p className={`text-xs mt-1 leading-relaxed ${
-                    hc ? 'text-white/50' : dark ? 'text-amber-600' : 'text-amber-500'
+                    hc && dark ? 'text-white/50' : hc ? 'text-gray-500' : dark ? 'text-amber-600' : 'text-amber-500'
                   }`}>{featureForRow.description}</p>
                 </div>
               </div>
@@ -835,7 +833,7 @@ function BannerSection() {
       <ThemeRow>
         {({ dark, hc }) => (
           <div className={`flex items-center gap-3 rounded-xl border px-4 py-3 ${
-            hc   ? 'bg-black border-white/40 text-white' :
+            hc && dark ? 'bg-black border-white/40 text-white' : hc ? 'bg-white border-black/30 text-gray-900' :
             dark ? 'bg-amber-900/30 border-amber-700/40 text-amber-200' :
                    'bg-amber-50 border-amber-300 text-amber-900'
           }`}>
@@ -843,20 +841,162 @@ function BannerSection() {
             <div className="flex-1 min-w-0">
               <p className="text-sm font-medium truncate">Weiterlesen</p>
               <p className={`text-xs truncate mt-0.5 ${
-                hc ? 'text-white/60' : dark ? 'text-amber-500' : 'text-amber-600'
+                hc && dark ? 'text-white/60' : hc ? 'text-gray-500' : dark ? 'text-amber-500' : 'text-amber-600'
               }`}>Hänsel und Gretel · Seite 3</p>
             </div>
             <button className={`text-xs px-3 py-1.5 rounded-lg font-medium flex-shrink-0 ${
-              hc   ? 'bg-white text-black hover:bg-gray-100' :
+              hc && dark ? 'bg-white text-black hover:bg-gray-100' : hc ? 'bg-black text-white hover:bg-gray-900' :
               dark ? 'bg-amber-700 text-white hover:bg-amber-600' :
                      'bg-amber-200 text-amber-900 hover:bg-amber-300'
             }`}>Fortsetzen</button>
             <button className={`flex-shrink-0 ${
-              hc ? 'text-white/50' : dark ? 'text-amber-600' : 'text-amber-400'
+              hc && dark ? 'text-white/50' : hc ? 'text-gray-500' : dark ? 'text-amber-600' : 'text-amber-400'
             }`}><X size={16} /></button>
           </div>
         )}
       </ThemeRow>
+    </Section>
+  );
+}
+
+// ─── 12. Speed-reader ────────────────────────────────────────────────────────
+
+function SpeedReaderSection({ flags }) {
+  const SpeedIcon = () => (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
+      <circle cx="12" cy="12" r="10" />
+      <line x1="12" y1="8" x2="12" y2="12" />
+      <line x1="12" y1="12" x2="15" y2="10" />
+      <path d="M5 3.5A9.97 9.97 0 0 1 12 2c2.76 0 5.26 1.12 7.07 2.93" strokeLinecap="round" />
+      <path d="M3.5 5A9.97 9.97 0 0 0 2 12" strokeLinecap="round" />
+    </svg>
+  );
+
+  const MinusIcon = () => (
+    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
+      <line x1="5" y1="12" x2="19" y2="12" />
+    </svg>
+  );
+
+  const PlusIcon = () => (
+    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
+      <line x1="12" y1="5" x2="12" y2="19" />
+      <line x1="5" y1="12" x2="19" y2="12" />
+    </svg>
+  );
+
+  const PauseIcon = () => (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+      <rect x="6" y="4" width="4" height="16" rx="1" />
+      <rect x="14" y="4" width="4" height="16" rx="1" />
+    </svg>
+  );
+
+  const PlayIcon = () => (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+      <polygon points="5,3 19,12 5,21" />
+    </svg>
+  );
+
+  const ReadingView = ({ dark, hc, playing }) => (
+    <div className={`py-8 px-6 flex flex-col items-center gap-6 ${
+      hc && dark ? 'bg-black' : hc ? 'bg-white' : dark ? 'bg-slate-800/50' : 'bg-white/70'
+    }`}>
+      {/* Progress bar */}
+      <div className={`w-full h-0.5 rounded-full ${
+        hc && dark ? 'bg-white/20' : hc ? 'bg-black/10' : dark ? 'bg-slate-700' : 'bg-amber-100'
+      }`}>
+        <div className={`h-full rounded-full ${
+          hc && dark ? 'bg-white' : hc ? 'bg-black' : dark ? 'bg-amber-500' : 'bg-amber-600'
+        }`} style={{ width: '42%' }} />
+      </div>
+      {/* Word */}
+      <span className={`text-5xl font-serif font-bold tracking-wide ${playing ? '' : 'opacity-40'} ${
+        hc && dark ? 'text-white' : hc ? 'text-gray-900' : dark ? 'text-amber-200' : 'text-amber-900'
+      }`}>
+        Wald
+      </span>
+      {/* Controls */}
+      <div className="flex items-center gap-4">
+        {/* Back sentence */}
+        <button className={`p-2 rounded-lg ${
+          hc && dark ? 'text-white/60' : hc ? 'text-gray-500' : dark ? 'text-amber-600' : 'text-amber-400'
+        }`}>
+          <RotateCcw size={16} />
+        </button>
+        {/* Play / Pause */}
+        <div className={`flex items-center justify-center w-10 h-10 rounded-xl ${
+          hc && dark ? 'bg-white text-black' : hc ? 'bg-black text-white' :
+          dark ? 'bg-amber-500/30 text-amber-300' : 'bg-amber-100 text-amber-700'
+        }`}>
+          {playing ? <PauseIcon /> : <PlayIcon />}
+        </div>
+        {/* WpM control */}
+        <div className="flex items-center gap-1.5">
+          <div className={`flex items-center justify-center w-7 h-7 rounded-lg ${
+            hc && dark ? 'text-white/60' : hc ? 'text-gray-500' : dark ? 'bg-slate-700/60 text-amber-600' : 'bg-amber-50 text-amber-500'
+          }`}><MinusIcon /></div>
+          <span className={`text-xs font-mono font-bold tabular-nums text-center ${
+            hc && dark ? 'text-white' : hc ? 'text-gray-900' : dark ? 'text-amber-300' : 'text-amber-800'
+          }`} style={{ minWidth: '3.8rem' }}>400 WpM</span>
+          <div className={`flex items-center justify-center w-7 h-7 rounded-lg ${
+            hc && dark ? 'text-white/60' : hc ? 'text-gray-500' : dark ? 'bg-slate-700/60 text-amber-600' : 'bg-amber-50 text-amber-500'
+          }`}><PlusIcon /></div>
+        </div>
+      </div>
+    </div>
+  );
+
+  return (
+    <Section id="schnellleser" title="Schnellleser"
+      description="RSVP-Leseansicht mit Einzelwort-Anzeige und Geschwindigkeitssteuerung"
+      flagKeys={['speed-reader']}>
+      {flags['speed-reader'] ? (
+        <>
+          <Item label="Modus-Knopf" description="In der Navigationsleiste — aktiv / inaktiv">
+            <ThemeRow>
+              {({ dark, hc }) => (
+                <div className="flex items-center gap-5">
+                  {[false, true].map(active => (
+                    <div key={String(active)} className="flex flex-col items-center gap-1.5">
+                      <div className={`flex items-center justify-center w-9 h-9 rounded-xl ${
+                        active
+                          ? hc && dark ? 'bg-white text-black' : hc ? 'bg-black text-white' :
+                            dark ? 'bg-amber-500/30 text-amber-300' : 'bg-amber-100 text-amber-700'
+                          : hc   ? 'text-white/40' :
+                            dark ? 'bg-slate-700/60 text-amber-700' : 'bg-amber-50/80 text-amber-400'
+                      }`}>
+                        <SpeedIcon />
+                      </div>
+                      <span className={`text-[10px] ${hc && dark ? 'text-white/50' : hc ? 'text-gray-500' : dark ? 'text-amber-600' : 'text-amber-500'}`}>
+                        {active ? 'Aktiv' : 'Inaktiv'}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </ThemeRow>
+          </Item>
+
+          <Item label="Lese-Ansicht" description="Abspielend">
+            <ThemeRow noPad>
+              {({ dark, hc }) => <ReadingView dark={dark} hc={hc} playing={true} />}
+            </ThemeRow>
+          </Item>
+
+          <Item label="Lese-Ansicht" description="Pausiert">
+            <ThemeRow noPad>
+              {({ dark, hc }) => <ReadingView dark={dark} hc={hc} playing={false} />}
+            </ThemeRow>
+          </Item>
+        </>
+      ) : (
+        <div className="flex items-center justify-center h-16 rounded-xl border border-dashed border-gray-200">
+          <p className="text-xs text-gray-400">
+            Flag <code className="font-mono bg-gray-100 px-1 rounded">speed-reader</code> einschalten um die Vorschau zu sehen
+          </p>
+        </div>
+      )}
     </Section>
   );
 }
@@ -867,7 +1007,7 @@ const NAV_GROUPS = [
   { label: 'Tokens',   items: [{ id: 'farben', label: 'Farben' }, { id: 'typografie', label: 'Typografie' }] },
   { label: 'Elemente', items: [{ id: 'schaltflaechen', label: 'Schaltflächen' }, { id: 'formular', label: 'Formularelemente' }] },
   { label: 'Layout',   items: [{ id: 'kopfzeile', label: 'Kopfzeile' }, { id: 'navigationsleiste', label: 'Navigationsleiste' }, { id: 'seitenleiste', label: 'Seitenleiste' }] },
-  { label: 'Inhalte',  items: [{ id: 'lesebereich', label: 'Lesebereich' }, { id: 'audioplayer', label: 'Audio-Player' }, { id: 'profil', label: 'Profil-Panel' }, { id: 'banner', label: 'Banner' }] },
+  { label: 'Inhalte',  items: [{ id: 'lesebereich', label: 'Lesebereich' }, { id: 'audioplayer', label: 'Audio-Player' }, { id: 'schnellleser', label: 'Schnellleser' }, { id: 'profil', label: 'Profil-Panel' }, { id: 'banner', label: 'Banner' }] },
 ];
 
 function LeftNav({ active }) {
@@ -977,6 +1117,8 @@ export default function DesignSystem() {
   const setFlag = (key, value) => setFlags(f => ({ ...f, [key]: value }));
   const resetAll = () => setFlags(buildInitialFlags());
 
+  const activeThemes = flags['high-contrast-theme'] ? THEMES_HC : THEMES_NORMAL;
+
   // Highlight active nav item based on scroll position
   useEffect(() => {
     const obs = new IntersectionObserver(
@@ -994,6 +1136,7 @@ export default function DesignSystem() {
   }, []);
 
   return (
+    <ThemesCtx.Provider value={activeThemes}>
     <div className="flex h-screen overflow-hidden bg-gray-50" style={{ fontFamily: 'system-ui, sans-serif' }}>
 
       {/* ── Left sidebar ── */}
@@ -1008,6 +1151,13 @@ export default function DesignSystem() {
       {/* ── Main content ── */}
       <div className="flex-1 overflow-y-auto">
         <div className="max-w-5xl mx-auto px-8 py-8">
+          {flags['high-contrast-theme'] && (
+            <div className="mb-6 px-4 py-2.5 rounded-lg bg-zinc-900 border border-zinc-700 text-white text-xs flex items-center gap-2">
+              <span className="font-mono text-zinc-400">high-contrast-theme</span>
+              <span className="text-zinc-500">·</span>
+              <span>Hochkontrastmodus aktiv — Themenkreis zeigt Hell-HC ↔ Dunkel-HC</span>
+            </div>
+          )}
           <ColorsSection />
           <TypographySection />
           <ButtonsSection flags={flags} />
@@ -1017,6 +1167,7 @@ export default function DesignSystem() {
           <SidebarSection flags={flags} />
           <ReaderSection flags={flags} />
           <AudioSection flags={flags} />
+          <SpeedReaderSection flags={flags} />
           <ProfileSection flags={flags} />
           <BannerSection />
         </div>
@@ -1039,5 +1190,6 @@ export default function DesignSystem() {
         <FlagPanel flags={flags} onFlag={setFlag} />
       </div>
     </div>
+    </ThemesCtx.Provider>
   );
 }

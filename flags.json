@@ -9,7 +9,7 @@
   "adaption-switcher": { "defaultVariant": "on", "variants": { "on": true, "off": false } },
   "typography-panel":  { "defaultVariant": "on",  "variants": { "on": true, "off": false } },
   "attribution":       { "defaultVariant": "on",  "variants": { "on": true, "off": false } },
-  "theme":             { "defaultVariant": "light", "variants": { "light": "light", "dark": "dark", "system": "system", "high-contrast": "high-contrast" } },
+  "theme":             { "defaultVariant": "light", "variants": { "light": "light", "dark": "dark", "system": "system", "light-hc": "light-hc", "dark-hc": "dark-hc" } },
   "theme-toggle":      { "defaultVariant": "on",  "variants": { "on": true, "off": false } },
   "speed-reader":      { "defaultVariant": "off", "variants": { "on": true, "off": false } },
   "audio-player":      { "defaultVariant": "off", "variants": { "on": true, "off": false } },

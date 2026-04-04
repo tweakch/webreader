@@ -178,29 +178,350 @@ const DOCS = {
   },
 
   'high-contrast-theme': {
-    lead: 'Der Hochkontrastmodus ergänzt den Themenkreis um ein viertes Thema: schwarzer Hintergrund mit weißem Text und weißen Rändern — für maximale Lesbarkeit bei schlechten Lichtverhältnissen oder für Nutzer mit Sehbeeinträchtigungen.',
+    lead: 'Der Hochkontrastmodus ersetzt die normalen Themen durch zwei kontraststarke Varianten: Hell-HC (weißer Hintergrund, schwarzer Text) und Dunkel-HC (schwarzer Hintergrund, weißer Text) — ohne Farbverläufe, ohne Amber-Töne.',
     on: [
-      'Der Themenkreis-Knopf in der Kopfzeile durchläuft beim Antippen vier Stufen: Hell → Dunkel → System → Hochkontrast → Hell.',
-      'Im Hochkontrast-Modus wird der Hintergrund der gesamten App auf reines Schwarz gesetzt.',
-      'Text erscheint in Reinweiß, Akzentfarben (Trennlinien, Schaltflächen, Ränder) in hellem Gelb.',
-      'Das Symbol des Themenkreis-Knopfs zeigt im Systemmodus ein halbgefülltes Kreis-Symbol (◑) an, das auf den bevorstehenden Hochkontrastwechsel hinweist.',
-      'Im Hochkontrast-Modus zeigt der Knopf ☀️ — ein Klick bringt zurück in den Hellmodus.',
+      'Der Themenkreis-Knopf wechselt nur noch zwischen zwei Stufen: Hell-HC ↔ Dunkel-HC.',
+      'Beim Einschalten wird das aktuelle Thema automatisch übertragen: Hell und System werden zu Hell-HC, Dunkel wird zu Dunkel-HC.',
+      'Hell-HC: reinweißer Hintergrund, schwarzer Text, schwarze Ränder — maximaler Kontrast wie ein gedrucktes Dokument.',
+      'Dunkel-HC: reinschwarzer Hintergrund, weißer Text, weiße Ränder — für Dunkelheit und OLED-Displays ohne Amber-Ablenkung.',
+      'Alle anderen Funktionen (Typografie, Schriftgröße usw.) bleiben unverändert aktiv.',
     ],
     off: [
-      'Der Themenkreis behält seinen gewohnten Ablauf: Hell → Dunkel → System → Hell.',
-      'Das halbgefüllte Kreis-Symbol (◑) erscheint nicht — stattdessen erscheint im Systemmodus wie gewohnt ☀️.',
-      'Ist der Hochkontrast-Modus beim Ausschalten noch aktiv, bleibt er optisch erhalten bis zum nächsten Klick auf den Themenkreis-Knopf.',
+      'Der Themenkreis kehrt zum normalen Ablauf zurück: Hell → Dunkel → System → Hell.',
+      'Beim Ausschalten wird das HC-Thema automatisch zurückgeführt: Hell-HC → Hell, Dunkel-HC → Dunkel.',
+      'Die App sieht sofort wieder aus wie gewohnt — kein manuelles Umschalten nötig.',
     ],
-    tip: 'Hochkontrast eignet sich besonders für helle Umgebungen, in denen dunkle Themen zu wenig Abstand vom Display bieten, sowie für E-Ink-Displays ohne Hintergrundbeleuchtung.',
+    tip: 'Hochkontrast eignet sich besonders für E-Ink-Displays, starkes Umgebungslicht oder Nutzer mit Sehbeeinträchtigungen, die eine ablenkungsfreie Schwarz-Weiß-Darstellung bevorzugen.',
   },
 
   'speed-reader': {
     lead: 'Der Schnellleser blendet den normalen Lesebereich aus und zeigt stattdessen Wörter des Märchens einzeln, nacheinander und in hohem Tempo mittig auf dem Bildschirm an — eine Technik aus dem sogenannten RSVP-Lesen (Rapid Serial Visual Presentation).',
+    steps: [
+      {
+        label: 'Einschalten',
+        body: 'Die Funktion ist standardmäßig ausgeschaltet. Aktiviere sie hier im Profil über den Schalter „Schnellleser". Danach erscheint im Lesebereich ein neuer Knopf zum Wechseln in den Schnellleser-Modus.',
+        widget: function SpeedReaderActivateDemo({ darkMode }) {
+          const [on, setOn] = React.useState(false);
+          const [clicking, setClicking] = React.useState(false);
+          React.useEffect(() => {
+            const tids = [];
+            const schedule = () => {
+              tids.push(setTimeout(() => {
+                setClicking(true);
+                tids.push(setTimeout(() => {
+                  setClicking(false);
+                  setOn(true);
+                  tids.push(setTimeout(() => {
+                    setOn(false);
+                    tids.push(setTimeout(schedule, 200));
+                  }, 1200));
+                }, 150));
+              }, 600));
+            };
+            schedule();
+            return () => tids.forEach(clearTimeout);
+          }, []);
+          return (
+            <div className="mt-3 inline-flex items-center gap-2.5 select-none">
+              <span className={`text-xs font-medium ${darkMode ? 'text-amber-600' : 'text-amber-500'}`}>
+                Schnellleser
+              </span>
+              <div className="relative">
+                <div className={`relative inline-flex h-5 w-9 items-center rounded-full transition-colors duration-300 ${
+                  on
+                    ? darkMode ? 'bg-amber-500' : 'bg-amber-600'
+                    : darkMode ? 'bg-slate-600' : 'bg-amber-200'
+                }`}>
+                  <span className={`inline-block h-3.5 w-3.5 rounded-full bg-white shadow-sm transition-transform duration-300 ${
+                    on ? 'translate-x-[18px]' : 'translate-x-[2px]'
+                  }`} />
+                </div>
+                <div
+                  className="absolute pointer-events-none"
+                  style={{
+                    top: '-14px',
+                    left: '18px',
+                    transform: clicking ? 'translateY(3px) scale(0.82)' : 'translateY(0) scale(1)',
+                    transition: 'transform 0.12s ease',
+                  }}
+                >
+                  <svg width="14" height="18" viewBox="0 0 14 18" fill="none">
+                    <path
+                      d="M1 1L1 13.5L4.2 9.8L6.5 15.5L8.2 14.8L5.9 9H10.5Z"
+                      fill={darkMode ? '#fde68a' : '#78350f'}
+                      stroke={darkMode ? '#92400e' : 'white'}
+                      strokeWidth="0.75"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </div>
+              </div>
+            </div>
+          );
+        },
+      },
+      {
+        label: 'In den Schnellleser wechseln',
+        body: 'Öffne ein Märchen und tippe unten auf den Schnellleser-Knopf. Der paginierte Text verschwindet sofort — an seiner Stelle erscheint ein einzelnes großes Wort mittig auf dem Bildschirm, darüber eine schmale Fortschrittsleiste.',
+        widget: function SpeedReaderSwitchDemo({ darkMode }) {
+          const [active, setActive] = React.useState(false);
+          const [clicking, setClicking] = React.useState(false);
+          React.useEffect(() => {
+            const tids = [];
+            const schedule = () => {
+              tids.push(setTimeout(() => {
+                setClicking(true);
+                tids.push(setTimeout(() => {
+                  setClicking(false);
+                  setActive(true);
+                  tids.push(setTimeout(() => {
+                    setActive(false);
+                    tids.push(setTimeout(schedule, 200));
+                  }, 1200));
+                }, 150));
+              }, 600));
+            };
+            schedule();
+            return () => tids.forEach(clearTimeout);
+          }, []);
+          return (
+            <div className="mt-3 inline-flex items-center gap-3 select-none">
+              <div className="relative">
+                <div className={`flex items-center justify-center w-9 h-9 rounded-xl transition-colors duration-300 ${
+                  active
+                    ? darkMode ? 'bg-amber-500/30 text-amber-300' : 'bg-amber-100 text-amber-700'
+                    : darkMode ? 'bg-slate-700/60 text-amber-700' : 'bg-amber-50/80 text-amber-400'
+                }`}>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
+                    <circle cx="12" cy="12" r="10" />
+                    <line x1="12" y1="8" x2="12" y2="12" />
+                    <line x1="12" y1="12" x2="15" y2="10" />
+                    <path d="M5 3.5A9.97 9.97 0 0 1 12 2c2.76 0 5.26 1.12 7.07 2.93" strokeLinecap="round" />
+                    <path d="M3.5 5A9.97 9.97 0 0 0 2 12" strokeLinecap="round" />
+                  </svg>
+                </div>
+                <div
+                  className="absolute pointer-events-none"
+                  style={{
+                    top: '-14px',
+                    left: '18px',
+                    transform: clicking ? 'translateY(3px) scale(0.82)' : 'translateY(0) scale(1)',
+                    transition: 'transform 0.12s ease',
+                  }}
+                >
+                  <svg width="14" height="18" viewBox="0 0 14 18" fill="none">
+                    <path
+                      d="M1 1L1 13.5L4.2 9.8L6.5 15.5L8.2 14.8L5.9 9H10.5Z"
+                      fill={darkMode ? '#fde68a' : '#78350f'}
+                      stroke={darkMode ? '#92400e' : 'white'}
+                      strokeWidth="0.75"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </div>
+              </div>
+              <div className={`transition-opacity duration-300 ${active ? 'opacity-100' : 'opacity-0'}`}>
+                <span className={`font-serif font-bold ${
+                  darkMode ? 'text-amber-200' : 'text-amber-900'
+                }`} style={{ fontSize: '22px' }}>
+                  Wald
+                </span>
+              </div>
+            </div>
+          );
+        },
+      },
+      {
+        label: 'Lesen starten & pausieren',
+        body: 'Tippe auf Abspielen. Die Wörter laufen automatisch durch, eines nach dem anderen. Tippe auf Pause — oder direkt auf das angezeigte Wort — um anzuhalten. Ein erneuter Tipp auf Abspielen setzt an genau derselben Stelle fort. Satzenden werden kurz automatisch pausiert, damit der Sinn nicht verloren geht.',
+        widget: function SpeedReaderPlayDemo({ darkMode }) {
+          const words = ['Im', 'tiefen', 'Wald', 'lebte', 'einst'];
+          const [playing, setPlaying] = React.useState(false);
+          const [clicking, setClicking] = React.useState(false);
+          const [wordIdx, setWordIdx] = React.useState(0);
+          React.useEffect(() => {
+            if (!playing) return;
+            const id = setInterval(() => setWordIdx(i => (i + 1) % words.length), 380);
+            return () => clearInterval(id);
+          }, [playing]);
+          React.useEffect(() => {
+            const tids = [];
+            const schedule = () => {
+              tids.push(setTimeout(() => {
+                setClicking(true);
+                tids.push(setTimeout(() => {
+                  setClicking(false);
+                  setPlaying(true);
+                  tids.push(setTimeout(() => {
+                    setPlaying(false);
+                    tids.push(setTimeout(schedule, 400));
+                  }, 1600));
+                }, 150));
+              }, 700));
+            };
+            schedule();
+            return () => tids.forEach(clearTimeout);
+          }, []);
+          return (
+            <div className="mt-3 inline-flex items-center gap-3 select-none">
+              <div className="relative">
+                <div className={`flex items-center justify-center w-9 h-9 rounded-xl transition-colors duration-200 ${
+                  playing
+                    ? darkMode ? 'bg-amber-500/30 text-amber-300' : 'bg-amber-100 text-amber-700'
+                    : darkMode ? 'bg-slate-700/60 text-amber-700' : 'bg-amber-50/80 text-amber-400'
+                }`}>
+                  {playing ? (
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+                      <rect x="6" y="4" width="4" height="16" rx="1" />
+                      <rect x="14" y="4" width="4" height="16" rx="1" />
+                    </svg>
+                  ) : (
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+                      <polygon points="5,3 19,12 5,21" />
+                    </svg>
+                  )}
+                </div>
+                <div
+                  className="absolute pointer-events-none"
+                  style={{
+                    top: '-14px',
+                    left: '18px',
+                    opacity: playing ? 0 : 1,
+                    transform: clicking ? 'translateY(3px) scale(0.82)' : 'translateY(0) scale(1)',
+                    transition: 'transform 0.12s ease, opacity 0.2s ease',
+                  }}
+                >
+                  <svg width="14" height="18" viewBox="0 0 14 18" fill="none">
+                    <path
+                      d="M1 1L1 13.5L4.2 9.8L6.5 15.5L8.2 14.8L5.9 9H10.5Z"
+                      fill={darkMode ? '#fde68a' : '#78350f'}
+                      stroke={darkMode ? '#92400e' : 'white'}
+                      strokeWidth="0.75"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </div>
+              </div>
+              <span
+                className={`font-serif font-bold transition-colors duration-200 ${
+                  playing
+                    ? darkMode ? 'text-amber-200' : 'text-amber-900'
+                    : darkMode ? 'text-amber-800' : 'text-amber-300'
+                }`}
+                style={{ fontSize: '22px', minWidth: '64px', display: 'inline-block' }}
+              >
+                {words[wordIdx]}
+              </span>
+            </div>
+          );
+        },
+      },
+      {
+        label: 'Geschwindigkeit anpassen',
+        body: 'Unter dem Wort befinden sich zwei Schaltflächen zum Anpassen der Geschwindigkeit — wie die Schriftgröße im Lesebereich. Die Geschwindigkeit lässt sich in Schritten von 10 WpM einstellen, von 10 bis 1000 WpM. Du kannst jederzeit wechseln — auch mitten im Lesen. Die gewählte Geschwindigkeit wird gespeichert und beim nächsten Start vorausgewählt.',
+        widget: function SpeedReaderSpeedDemo({ darkMode }) {
+          const INITIAL = 200;
+          const [wpm, setWpm] = React.useState(INITIAL);
+          const [hovering, setHovering] = React.useState(null);
+          const [pressing, setPressing] = React.useState(false);
+          React.useEffect(() => {
+            const tids = [];
+            const doClick = (btn, cb) => {
+              setHovering(btn);
+              tids.push(setTimeout(() => {
+                setPressing(true);
+                tids.push(setTimeout(() => {
+                  setPressing(false);
+                  setWpm(w => btn === 'plus' ? Math.min(1000, w + 10) : Math.max(10, w - 10));
+                  tids.push(setTimeout(cb, 280));
+                }, 130));
+              }, 250));
+            };
+            const sequence = () => {
+              doClick('plus', () =>
+              doClick('plus', () =>
+              doClick('plus', () => {
+                tids.push(setTimeout(() =>
+                  doClick('minus', () =>
+                  doClick('minus', () =>
+                  doClick('minus', () => {
+                    tids.push(setTimeout(() => {
+                      setHovering(null);
+                      setWpm(INITIAL);
+                      tids.push(setTimeout(sequence, 300));
+                    }, 600));
+                  }))),
+                500));
+              })));
+            };
+            tids.push(setTimeout(sequence, 400));
+            return () => tids.forEach(clearTimeout);
+          }, []);
+          const cursorEl = (
+            <div
+              className="absolute pointer-events-none"
+              style={{
+                top: '-16px', left: '10px',
+                transform: pressing ? 'translateY(3px) scale(0.82)' : 'translateY(0) scale(1)',
+                transition: 'transform 0.12s ease',
+              }}
+            >
+              <svg width="12" height="15" viewBox="0 0 14 18" fill="none">
+                <path d="M1 1L1 13.5L4.2 9.8L6.5 15.5L8.2 14.8L5.9 9H10.5Z"
+                  fill={darkMode ? '#fde68a' : '#78350f'}
+                  stroke={darkMode ? '#92400e' : 'white'}
+                  strokeWidth="0.75" strokeLinejoin="round" />
+              </svg>
+            </div>
+          );
+          return (
+            <div className="mt-3 inline-flex items-center gap-2 select-none">
+              {/* Minus */}
+              <div className="relative">
+                <div className={`flex items-center justify-center w-8 h-8 rounded-lg transition-colors duration-150 ${
+                  hovering === 'minus'
+                    ? darkMode ? 'bg-amber-500/30 text-amber-300' : 'bg-amber-100 text-amber-700'
+                    : darkMode ? 'bg-slate-700/60 text-amber-600' : 'bg-amber-50 text-amber-500'
+                }`}>
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
+                    <line x1="5" y1="12" x2="19" y2="12" />
+                  </svg>
+                </div>
+                {hovering === 'minus' && cursorEl}
+              </div>
+              {/* WpM value */}
+              <span className={`text-sm font-mono font-bold tabular-nums text-center ${
+                darkMode ? 'text-amber-300' : 'text-amber-800'
+              }`} style={{ minWidth: '4.5rem' }}>
+                {wpm} WpM
+              </span>
+              {/* Plus */}
+              <div className="relative">
+                <div className={`flex items-center justify-center w-8 h-8 rounded-lg transition-colors duration-150 ${
+                  hovering === 'plus'
+                    ? darkMode ? 'bg-amber-500/30 text-amber-300' : 'bg-amber-100 text-amber-700'
+                    : darkMode ? 'bg-slate-700/60 text-amber-600' : 'bg-amber-50 text-amber-500'
+                }`}>
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
+                    <line x1="12" y1="5" x2="12" y2="19" /><line x1="5" y1="12" x2="19" y2="12" />
+                  </svg>
+                </div>
+                {hovering === 'plus' && cursorEl}
+              </div>
+            </div>
+          );
+        },
+      },
+      {
+        label: 'Zurück zum Seiten-Leser',
+        body: 'Tippe erneut auf den Schnellleser-Knopf, um in die normale Seitenansicht zurückzukehren. Das Märchen öffnet sich wieder auf Seite 1 — der Schnellleser-Fortschritt wird nicht gespeichert.',
+      },
+    ],
     on: [
       'Im Lesebereich erscheint anstelle des paginierten Textes ein Schnellleser-Modus mit einem einzelnen Wort in großer Schrift mittig auf dem Bildschirm.',
       'Über der Wortanzeige befindet sich eine Fortschrittsleiste, die den Leseverlauf im gesamten Text anzeigt.',
       'Unter der Wortanzeige befinden sich Steuerelemente: Abspielen / Pausieren, Zurückspringen um einen Satz sowie die Einstellung der Lesegeschwindigkeit in Wörtern pro Minute (WpM).',
-      'Drei voreingestellte Geschwindigkeitsstufen stehen zur Wahl: Langsam (200 WpM), Normal (400 WpM) und Schnell (700 WpM). Die gewählte Stufe wird gespeichert.',
+      'Die Geschwindigkeit lässt sich in Schritten von 10 WpM stufenlos zwischen 10 und 1000 WpM einstellen — über zwei Schaltflächen (+ und −) unterhalb der Wortanzeige. Die gewählte Geschwindigkeit wird gespeichert.',
       'Das Lesen kann jederzeit pausiert werden — nach dem Pausieren springt ein erneutes Drücken auf „Abspielen" an der exakt gleichen Stelle weiter.',
       'Satzenden werden kurz mit einer Pause hervorgehoben, damit der Lesefluss natürlich bleibt und keine Sinnzusammenhänge verloren gehen.',
       'Der Schnellleser arbeitet auf dem vollständigen Märchentext — er ist nicht an die seitenbasierte Paginierung des normalen Lesemodus gebunden.',
@@ -363,6 +684,46 @@ const FeatureDocs = ({ darkMode, onBack, initialAnchor, featureState, onToggle }
                 <p className={`text-sm leading-relaxed mb-6 ${
                   darkMode ? 'text-amber-300' : 'text-amber-800'
                 }`}>{doc.lead}</p>
+
+                {/* Step-by-step walkthrough */}
+                {doc.steps && (
+                  <div className="mb-6">
+                    <p className={`text-xs font-semibold uppercase tracking-wider mb-3 ${
+                      darkMode ? 'text-amber-500' : 'text-amber-600'
+                    }`}>So funktioniert es</p>
+                    <ol className="space-y-0">
+                      {doc.steps.map((step, i) => (
+                        <li key={i} className="flex gap-3">
+                          {/* Connector column */}
+                          <div className="flex flex-col items-center flex-shrink-0">
+                            <div className={`w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0 ${
+                              darkMode ? 'bg-amber-700/50 text-amber-300' : 'bg-amber-100 text-amber-700'
+                            }`}>
+                              {i + 1}
+                            </div>
+                            {i < doc.steps.length - 1 && (
+                              <div className={`w-px flex-1 my-1 ${
+                                darkMode ? 'bg-amber-700/30' : 'bg-amber-200'
+                              }`} />
+                            )}
+                          </div>
+                          {/* Content */}
+                          <div className={`pb-4 ${i === doc.steps.length - 1 ? 'pb-0' : ''}`}>
+                            <p className={`text-xs font-semibold mb-0.5 ${
+                              darkMode ? 'text-amber-400' : 'text-amber-700'
+                            }`}>{step.label}</p>
+                            {step.body && (
+                              <p className={`text-sm leading-relaxed ${
+                                darkMode ? 'text-amber-300' : 'text-amber-800'
+                              }`}>{step.body}</p>
+                            )}
+                            {step.widget && <step.widget darkMode={darkMode} />}
+                          </div>
+                        </li>
+                      ))}
+                    </ol>
+                  </div>
+                )}
 
                 {/* On / Off grid */}
                 <div className={`rounded-2xl border overflow-hidden divide-y ${

@@ -3,6 +3,8 @@ import { Menu, X, Plus, Minus, Search, ChevronLeft, ChevronRight, Heart, User, P
 import { useBooleanFlagValue, useStringFlagValue } from '@openfeature/react-sdk';
 import { FEATURES } from './features';
 import FeatureDocs from './FeatureDocs';
+import { ThemeContext } from './ui/ThemeContext';
+import Toggle from './ui/Toggle';
 
 const storyAudioFiles = import.meta.glob('/stories/*/*/audio.mp3', { eager: true, query: '?url', import: 'default' });
 
@@ -392,8 +394,8 @@ const GrimmMarchenApp = () => {
     return () => mq.removeEventListener('change', handler);
   }, []);
 
-  const highContrast = theme === 'high-contrast';
-  const darkMode = theme === 'dark' || (theme === 'system' && systemDark) || highContrast;
+  const highContrast = theme === 'light-hc' || theme === 'dark-hc';
+  const darkMode = theme === 'dark' || (theme === 'system' && systemDark) || theme === 'dark-hc';
 
   const [favorites, setFavorites] = useState(() =>
     new Set(JSON.parse(localStorage.getItem('wr-favorites') ?? '[]'))
@@ -404,6 +406,15 @@ const GrimmMarchenApp = () => {
   }, [favorites]);
 
   useEffect(() => { localStorage.setItem('wr-theme', theme); }, [theme]);
+
+  // When HC flag is toggled, map between normal and HC theme variants
+  useEffect(() => {
+    if (showHighContrastTheme) {
+      setTheme(t => t === 'dark' ? 'dark-hc' : (t === 'light' || t === 'system') ? 'light-hc' : t);
+    } else {
+      setTheme(t => t === 'dark-hc' ? 'dark' : t === 'light-hc' ? 'light' : t);
+    }
+  }, [showHighContrastTheme]); // eslint-disable-line react-hooks/exhaustive-deps
   useEffect(() => { localStorage.setItem('wr-favorites-only', favoritesOnly); }, [favoritesOnly]);
   useEffect(() => { localStorage.setItem('wr-completed', JSON.stringify([...completedStories])); }, [completedStories]);
   useEffect(() => { localStorage.setItem('wr-variant-prefs', JSON.stringify(variantPrefs)); }, [variantPrefs]);
@@ -473,9 +484,10 @@ const GrimmMarchenApp = () => {
   const toggleMenu = () => setMenuOpen(!menuOpen);
 
   return (
+    <ThemeContext.Provider value={{ dark: darkMode, hc: highContrast }}>
     <div className={`fixed inset-0 flex flex-col overflow-hidden transition-colors duration-300 ${
       highContrast
-        ? 'bg-black'
+        ? (darkMode ? 'bg-black' : 'bg-white')
         : darkMode
         ? 'bg-gradient-to-br from-amber-950 via-slate-900 to-slate-950'
         : 'bg-gradient-to-br from-amber-50 via-yellow-50 to-orange-50'
@@ -483,7 +495,7 @@ const GrimmMarchenApp = () => {
       {/* Header */}
       <header className={`flex-shrink-0 backdrop-blur-md transition-colors duration-300 z-40 ${
         highContrast
-          ? 'bg-black border-white/40'
+          ? (darkMode ? 'bg-black border-white/40' : 'bg-white border-black/30')
           : darkMode
           ? 'bg-slate-900/80 border-amber-700/30'
           : 'bg-white/80 border-amber-200/50'
@@ -542,19 +554,24 @@ const GrimmMarchenApp = () => {
 
           <button
             onClick={() => setTheme(t => showHighContrastTheme
-              ? (t === 'light' ? 'dark' : t === 'dark' ? 'system' : t === 'system' ? 'high-contrast' : 'light')
+              ? (t === 'light-hc' ? 'dark-hc' : 'light-hc')
               : (t === 'light' ? 'dark' : t === 'dark' ? 'system' : 'light')
             )}
-            title={theme === 'light' ? 'Switch to dark mode' : theme === 'dark' ? 'Switch to system theme' : theme === 'system' ? 'Switch to high contrast' : 'Switch to light mode'}
+            title={
+              theme === 'light'    ? 'Switch to dark mode' :
+              theme === 'dark'     ? 'Switch to system theme' :
+              theme === 'system'   ? 'Switch to light mode' :
+              theme === 'light-hc' ? 'Switch to dark high contrast' :
+                                     'Switch to light high contrast'
+            }
             className={`px-4 py-2 rounded-lg font-medium transition-all ${
-              highContrast
-                ? 'bg-white text-black hover:bg-gray-100'
-                : darkMode
-                ? 'bg-amber-200 text-slate-900 hover:bg-amber-300'
-                : 'bg-amber-900 text-white hover:bg-amber-800'
+              theme === 'dark-hc'  ? 'bg-white text-black hover:bg-gray-100' :
+              theme === 'light-hc' ? 'bg-black text-white hover:bg-gray-900' :
+              darkMode             ? 'bg-amber-200 text-slate-900 hover:bg-amber-300' :
+                                     'bg-amber-900 text-white hover:bg-amber-800'
             }`}
           >
-            {theme === 'light' ? '🌙' : theme === 'dark' ? '🖥️' : theme === 'system' ? (showHighContrastTheme ? '◑' : '☀️') : '☀️'}
+            {theme === 'light' ? '🌙' : theme === 'dark' ? '🖥️' : theme === 'system' ? '☀️' : theme === 'light-hc' ? '🌙' : '☀️'}
           </button>
         </div>
       </header>
@@ -566,7 +583,7 @@ const GrimmMarchenApp = () => {
           menuOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'
         } ${
           highContrast
-            ? 'bg-black border-white/40'
+            ? (darkMode ? 'bg-black border-white/40' : 'bg-white border-black/30')
             : darkMode
             ? 'bg-slate-950/95 border-amber-700/30'
             : 'bg-white/95 border-amber-200/50'
@@ -966,21 +983,11 @@ const GrimmMarchenApp = () => {
                               <p className={`text-sm font-medium transition-opacity ${
                                 effective ? '' : 'opacity-40'
                               }`}>{label}</p>
-                              <button
-                                role="switch"
-                                aria-checked={effective}
-                                aria-label={label}
-                                onClick={() => setUserFeatureOverrides(prev => ({ ...prev, [key]: !effective }))}
-                                className={`flex-shrink-0 relative inline-flex h-5 w-9 items-center rounded-full transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 ${
-                                  effective
-                                    ? darkMode ? 'bg-amber-500' : 'bg-amber-600'
-                                    : darkMode ? 'bg-slate-600' : 'bg-amber-200'
-                                }`}
-                              >
-                                <span className={`inline-block h-3.5 w-3.5 transform rounded-full bg-white shadow-sm transition-transform ${
-                                  effective ? 'translate-x-[18px]' : 'translate-x-[2px]'
-                                }`} />
-                              </button>
+                              <Toggle
+                                checked={effective}
+                                onChange={() => setUserFeatureOverrides(prev => ({ ...prev, [key]: !effective }))}
+                                label={label}
+                              />
                             </div>
                             <p className={`text-xs mt-1 leading-relaxed ${
                               darkMode ? 'text-amber-600' : 'text-amber-500'
@@ -1013,7 +1020,7 @@ const GrimmMarchenApp = () => {
                 {showEinkFlash && (
                   <div
                     className={`absolute inset-0 z-20 pointer-events-none ${
-                      highContrast ? 'bg-black' : darkMode ? 'bg-slate-800' : 'bg-white'
+                      highContrast ? (darkMode ? 'bg-black' : 'bg-white') : darkMode ? 'bg-slate-800' : 'bg-white'
                     }`}
                     style={{
                       opacity: isFlashing ? 1 : 0,
@@ -1027,7 +1034,7 @@ const GrimmMarchenApp = () => {
                   <div
                     data-testid="page-content"
                     className={`h-full transition-colors duration-300 ${
-                      highContrast ? 'bg-black' : darkMode ? 'bg-slate-800/50' : 'bg-white/70'
+                      highContrast ? (darkMode ? 'bg-black' : 'bg-white') : darkMode ? 'bg-slate-800/50' : 'bg-white/70'
                     }`}
                     style={{ padding: `2rem ${hPadding}px` }}
                   >
@@ -1035,19 +1042,19 @@ const GrimmMarchenApp = () => {
                       {pages[currentPage].hasTitle && (
                         <>
                           <h2 style={{ fontFamily }} className={`text-4xl font-bold mb-2 ${
-                            highContrast ? 'text-white' : darkMode ? 'text-amber-200' : 'text-amber-900'
+                            highContrast ? (darkMode ? 'text-white' : 'text-gray-900') : darkMode ? 'text-amber-200' : 'text-amber-900'
                           }`}>
                             {selectedVariant?.adaptionName ?? selectedStory.title}
                           </h2>
                           <div className={`h-1 w-20 rounded-full mb-8 ${
-                            highContrast ? 'bg-white' : darkMode ? 'bg-amber-700' : 'bg-amber-300'
+                            highContrast ? (darkMode ? 'bg-white' : 'bg-black') : darkMode ? 'bg-amber-700' : 'bg-amber-300'
                           }`} />
                         </>
                       )}
 
                       <div
                         style={{ fontSize: `${fontSize}px`, lineHeight, wordSpacing, fontFamily }}
-                        className={highContrast ? 'text-white' : darkMode ? 'text-amber-50' : 'text-amber-950'}
+                        className={highContrast ? (darkMode ? 'text-white' : 'text-gray-900') : darkMode ? 'text-amber-50' : 'text-amber-950'}
                       >
                         {/* Reconstruct paragraphs from word tokens */}
                         {(() => {
@@ -1291,7 +1298,7 @@ const GrimmMarchenApp = () => {
               {/* Page navigation bar — flex sibling, not overlapping */}
               <div data-testid="nav-bar" className={`flex-shrink-0 h-12 flex items-center justify-between px-6 backdrop-blur-sm border-t transition-colors ${
                 highContrast
-                  ? 'bg-black border-white/40 text-white'
+                  ? (darkMode ? 'bg-black border-white/40 text-white' : 'bg-white border-black/30 text-gray-900')
                   : darkMode
                   ? 'bg-slate-900/90 border-amber-700/30 text-amber-300'
                   : 'bg-white/90 border-amber-200/50 text-amber-800'
@@ -1446,6 +1453,7 @@ const GrimmMarchenApp = () => {
         </main>
       </div>
     </div>
+    </ThemeContext.Provider>
   );
 };
 

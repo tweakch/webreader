@@ -178,7 +178,7 @@ const DOCS = {
   },
 
   'high-contrast-theme': {
-    lead: 'Der Hochkontrastmodus ergänzt den Themenkreis um ein viertes Thema: schwarzer Hintergrund mit weißem Text und gelben Akzenten — für maximale Lesbarkeit bei schlechten Lichtverhältnissen oder für Nutzer mit Sehbeeinträchtigungen.',
+    lead: 'Der Hochkontrastmodus ergänzt den Themenkreis um ein viertes Thema: schwarzer Hintergrund mit weißem Text und weißen Rändern — für maximale Lesbarkeit bei schlechten Lichtverhältnissen oder für Nutzer mit Sehbeeinträchtigungen.',
     on: [
       'Der Themenkreis-Knopf in der Kopfzeile durchläuft beim Antippen vier Stufen: Hell → Dunkel → System → Hochkontrast → Hell.',
       'Im Hochkontrast-Modus wird der Hintergrund der gesamten App auf reines Schwarz gesetzt.',

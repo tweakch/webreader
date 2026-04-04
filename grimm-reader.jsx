@@ -483,7 +483,7 @@ const GrimmMarchenApp = () => {
       {/* Header */}
       <header className={`flex-shrink-0 backdrop-blur-md transition-colors duration-300 z-40 ${
         highContrast
-          ? 'bg-black border-yellow-400/40'
+          ? 'bg-black border-white/40'
           : darkMode
           ? 'bg-slate-900/80 border-amber-700/30'
           : 'bg-white/80 border-amber-200/50'
@@ -548,7 +548,7 @@ const GrimmMarchenApp = () => {
             title={theme === 'light' ? 'Switch to dark mode' : theme === 'dark' ? 'Switch to system theme' : theme === 'system' ? 'Switch to high contrast' : 'Switch to light mode'}
             className={`px-4 py-2 rounded-lg font-medium transition-all ${
               highContrast
-                ? 'bg-yellow-400 text-black hover:bg-yellow-300'
+                ? 'bg-white text-black hover:bg-gray-100'
                 : darkMode
                 ? 'bg-amber-200 text-slate-900 hover:bg-amber-300'
                 : 'bg-amber-900 text-white hover:bg-amber-800'
@@ -566,7 +566,7 @@ const GrimmMarchenApp = () => {
           menuOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'
         } ${
           highContrast
-            ? 'bg-black border-yellow-400/40'
+            ? 'bg-black border-white/40'
             : darkMode
             ? 'bg-slate-950/95 border-amber-700/30'
             : 'bg-white/95 border-amber-200/50'
@@ -1040,7 +1040,7 @@ const GrimmMarchenApp = () => {
                             {selectedVariant?.adaptionName ?? selectedStory.title}
                           </h2>
                           <div className={`h-1 w-20 rounded-full mb-8 ${
-                            highContrast ? 'bg-yellow-400' : darkMode ? 'bg-amber-700' : 'bg-amber-300'
+                            highContrast ? 'bg-white' : darkMode ? 'bg-amber-700' : 'bg-amber-300'
                           }`} />
                         </>
                       )}
@@ -1291,7 +1291,7 @@ const GrimmMarchenApp = () => {
               {/* Page navigation bar — flex sibling, not overlapping */}
               <div data-testid="nav-bar" className={`flex-shrink-0 h-12 flex items-center justify-between px-6 backdrop-blur-sm border-t transition-colors ${
                 highContrast
-                  ? 'bg-black border-yellow-400/40 text-white'
+                  ? 'bg-black border-white/40 text-white'
                   : darkMode
                   ? 'bg-slate-900/90 border-amber-700/30 text-amber-300'
                   : 'bg-white/90 border-amber-200/50 text-amber-800'

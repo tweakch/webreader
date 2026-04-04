@@ -337,6 +337,7 @@ const GrimmMarchenApp = () => {
   const _rawFavorites          = useBooleanFlagValue('favorites', false);
   const _rawFavoritesOnlyToggle = useBooleanFlagValue('favorites-only-toggle', false);
   const _rawAudioPlayer        = useBooleanFlagValue('audio-player', false);
+  const _rawHighContrastTheme  = useBooleanFlagValue('high-contrast-theme', false);
 
   // User feature overrides — stored in localStorage, take precedence over flag defaults
   const [userFeatureOverrides, setUserFeatureOverrides] = useState(
@@ -358,6 +359,7 @@ const GrimmMarchenApp = () => {
   const showFavorites           = _o('favorites',            _rawFavorites);
   const showFavoritesOnlyToggle = _o('favorites-only-toggle', _rawFavoritesOnlyToggle);
   const showAudioPlayer         = _o('audio-player',          _rawAudioPlayer);
+  const showHighContrastTheme   = _o('high-contrast-theme',   _rawHighContrastTheme);
 
   // Raw values keyed by feature key — used in profile feature toggles
   const _rawFlagValues = {
@@ -367,6 +369,7 @@ const GrimmMarchenApp = () => {
     'typography-panel': _rawTypographyPanel, 'attribution': _rawAttribution,
     'favorites': _rawFavorites, 'favorites-only-toggle': _rawFavoritesOnlyToggle,
     'audio-player': _rawAudioPlayer,
+    'high-contrast-theme': _rawHighContrastTheme,
   };
 
   const [favoritesOnly, setFavoritesOnly] = useState(() => localStorage.getItem('wr-favorites-only') === 'true');
@@ -389,7 +392,8 @@ const GrimmMarchenApp = () => {
     return () => mq.removeEventListener('change', handler);
   }, []);
 
-  const darkMode = theme === 'dark' || (theme === 'system' && systemDark);
+  const highContrast = theme === 'high-contrast';
+  const darkMode = theme === 'dark' || (theme === 'system' && systemDark) || highContrast;
 
   const [favorites, setFavorites] = useState(() =>
     new Set(JSON.parse(localStorage.getItem('wr-favorites') ?? '[]'))
@@ -470,13 +474,17 @@ const GrimmMarchenApp = () => {
 
   return (
     <div className={`fixed inset-0 flex flex-col overflow-hidden transition-colors duration-300 ${
-      darkMode
+      highContrast
+        ? 'bg-black'
+        : darkMode
         ? 'bg-gradient-to-br from-amber-950 via-slate-900 to-slate-950'
         : 'bg-gradient-to-br from-amber-50 via-yellow-50 to-orange-50'
     }`}>
       {/* Header */}
       <header className={`flex-shrink-0 backdrop-blur-md transition-colors duration-300 z-40 ${
-        darkMode
+        highContrast
+          ? 'bg-black border-yellow-400/40'
+          : darkMode
           ? 'bg-slate-900/80 border-amber-700/30'
           : 'bg-white/80 border-amber-200/50'
       } border-b`}>
@@ -533,15 +541,20 @@ const GrimmMarchenApp = () => {
           )}
 
           <button
-            onClick={() => setTheme(t => t === 'light' ? 'dark' : t === 'dark' ? 'system' : 'light')}
-            title={theme === 'light' ? 'Switch to dark mode' : theme === 'dark' ? 'Switch to system theme' : 'Switch to light mode'}
+            onClick={() => setTheme(t => showHighContrastTheme
+              ? (t === 'light' ? 'dark' : t === 'dark' ? 'system' : t === 'system' ? 'high-contrast' : 'light')
+              : (t === 'light' ? 'dark' : t === 'dark' ? 'system' : 'light')
+            )}
+            title={theme === 'light' ? 'Switch to dark mode' : theme === 'dark' ? 'Switch to system theme' : theme === 'system' ? 'Switch to high contrast' : 'Switch to light mode'}
             className={`px-4 py-2 rounded-lg font-medium transition-all ${
-              darkMode
+              highContrast
+                ? 'bg-yellow-400 text-black hover:bg-yellow-300'
+                : darkMode
                 ? 'bg-amber-200 text-slate-900 hover:bg-amber-300'
                 : 'bg-amber-900 text-white hover:bg-amber-800'
             }`}
           >
-            {theme === 'light' ? '🌙' : theme === 'dark' ? '🖥️' : '☀️'}
+            {theme === 'light' ? '🌙' : theme === 'dark' ? '🖥️' : theme === 'system' ? (showHighContrastTheme ? '◑' : '☀️') : '☀️'}
           </button>
         </div>
       </header>
@@ -552,7 +565,9 @@ const GrimmMarchenApp = () => {
         <aside className={`fixed lg:static top-16 bottom-0 left-0 w-80 lg:w-72 z-30 transform transition-transform duration-300 flex flex-col ${
           menuOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'
         } ${
-          darkMode
+          highContrast
+            ? 'bg-black border-yellow-400/40'
+            : darkMode
             ? 'bg-slate-950/95 border-amber-700/30'
             : 'bg-white/95 border-amber-200/50'
         } border-r backdrop-blur-sm`}>
@@ -998,7 +1013,7 @@ const GrimmMarchenApp = () => {
                 {showEinkFlash && (
                   <div
                     className={`absolute inset-0 z-20 pointer-events-none ${
-                      darkMode ? 'bg-slate-800' : 'bg-white'
+                      highContrast ? 'bg-black' : darkMode ? 'bg-slate-800' : 'bg-white'
                     }`}
                     style={{
                       opacity: isFlashing ? 1 : 0,
@@ -1012,7 +1027,7 @@ const GrimmMarchenApp = () => {
                   <div
                     data-testid="page-content"
                     className={`h-full transition-colors duration-300 ${
-                      darkMode ? 'bg-slate-800/50' : 'bg-white/70'
+                      highContrast ? 'bg-black' : darkMode ? 'bg-slate-800/50' : 'bg-white/70'
                     }`}
                     style={{ padding: `2rem ${hPadding}px` }}
                   >
@@ -1020,19 +1035,19 @@ const GrimmMarchenApp = () => {
                       {pages[currentPage].hasTitle && (
                         <>
                           <h2 style={{ fontFamily }} className={`text-4xl font-bold mb-2 ${
-                            darkMode ? 'text-amber-200' : 'text-amber-900'
+                            highContrast ? 'text-white' : darkMode ? 'text-amber-200' : 'text-amber-900'
                           }`}>
                             {selectedVariant?.adaptionName ?? selectedStory.title}
                           </h2>
                           <div className={`h-1 w-20 rounded-full mb-8 ${
-                            darkMode ? 'bg-amber-700' : 'bg-amber-300'
+                            highContrast ? 'bg-yellow-400' : darkMode ? 'bg-amber-700' : 'bg-amber-300'
                           }`} />
                         </>
                       )}
 
                       <div
                         style={{ fontSize: `${fontSize}px`, lineHeight, wordSpacing, fontFamily }}
-                        className={darkMode ? 'text-amber-50' : 'text-amber-950'}
+                        className={highContrast ? 'text-white' : darkMode ? 'text-amber-50' : 'text-amber-950'}
                       >
                         {/* Reconstruct paragraphs from word tokens */}
                         {(() => {
@@ -1275,7 +1290,9 @@ const GrimmMarchenApp = () => {
 
               {/* Page navigation bar — flex sibling, not overlapping */}
               <div data-testid="nav-bar" className={`flex-shrink-0 h-12 flex items-center justify-between px-6 backdrop-blur-sm border-t transition-colors ${
-                darkMode
+                highContrast
+                  ? 'bg-black border-yellow-400/40 text-white'
+                  : darkMode
                   ? 'bg-slate-900/90 border-amber-700/30 text-amber-300'
                   : 'bg-white/90 border-amber-200/50 text-amber-800'
               }`}>

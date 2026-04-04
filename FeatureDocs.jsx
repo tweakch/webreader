@@ -177,6 +177,23 @@ const DOCS = {
     tip: 'Audiodateien werden pro Märchen als audio.mp3 im jeweiligen Story-Verzeichnis abgelegt (z. B. stories/hohler/es_baernduetsches_gschichtli/audio.mp3). Der Crawler legt sie nicht an — sie müssen manuell hinzugefügt werden.',
   },
 
+  'high-contrast-theme': {
+    lead: 'Der Hochkontrastmodus ergänzt den Themenkreis um ein viertes Thema: schwarzer Hintergrund mit weißem Text und gelben Akzenten — für maximale Lesbarkeit bei schlechten Lichtverhältnissen oder für Nutzer mit Sehbeeinträchtigungen.',
+    on: [
+      'Der Themenkreis-Knopf in der Kopfzeile durchläuft beim Antippen vier Stufen: Hell → Dunkel → System → Hochkontrast → Hell.',
+      'Im Hochkontrast-Modus wird der Hintergrund der gesamten App auf reines Schwarz gesetzt.',
+      'Text erscheint in Reinweiß, Akzentfarben (Trennlinien, Schaltflächen, Ränder) in hellem Gelb.',
+      'Das Symbol des Themenkreis-Knopfs zeigt im Systemmodus ein halbgefülltes Kreis-Symbol (◑) an, das auf den bevorstehenden Hochkontrastwechsel hinweist.',
+      'Im Hochkontrast-Modus zeigt der Knopf ☀️ — ein Klick bringt zurück in den Hellmodus.',
+    ],
+    off: [
+      'Der Themenkreis behält seinen gewohnten Ablauf: Hell → Dunkel → System → Hell.',
+      'Das halbgefüllte Kreis-Symbol (◑) erscheint nicht — stattdessen erscheint im Systemmodus wie gewohnt ☀️.',
+      'Ist der Hochkontrast-Modus beim Ausschalten noch aktiv, bleibt er optisch erhalten bis zum nächsten Klick auf den Themenkreis-Knopf.',
+    ],
+    tip: 'Hochkontrast eignet sich besonders für helle Umgebungen, in denen dunkle Themen zu wenig Abstand vom Display bieten, sowie für E-Ink-Displays ohne Hintergrundbeleuchtung.',
+  },
+
   'speed-reader': {
     lead: 'Der Schnellleser blendet den normalen Lesebereich aus und zeigt stattdessen Wörter des Märchens einzeln, nacheinander und in hohem Tempo mittig auf dem Bildschirm an — eine Technik aus dem sogenannten RSVP-Lesen (Rapid Serial Visual Presentation).',
     on: [

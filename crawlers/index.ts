@@ -6,10 +6,12 @@ import type { SourceAdapter } from './types.ts';
 // --- Register sources here ---
 import { grimm } from './sources/grimm.ts';
 import { andersen } from './sources/andersen.ts';
+import { swiss } from './sources/sagen.ts';
 
 const ALL_SOURCES: SourceAdapter[] = [
   grimm,
   andersen,
+  swiss
 ];
 // ----------------------------
 

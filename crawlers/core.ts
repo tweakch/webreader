@@ -91,6 +91,38 @@ function nextDelay(requestIndex: number): number {
 }
 
 // ---------------------------------------------------------------------------
+// Body normalisation
+// ---------------------------------------------------------------------------
+
+/**
+ * Collapses soft-wrapped lines within paragraphs into a single line and
+ * ensures the result uses LF-only line endings.
+ *
+ * HTML sources often store paragraph text with mid-paragraph line breaks and
+ * leading whitespace (e.g. the source HTML is indented). This function joins
+ * those continuation lines into a single line per paragraph, leaving blank-
+ * line-separated blocks (headings, paragraphs) intact.
+ */
+export function normalizeBody(text: string): string {
+  // Normalise all line endings to LF
+  const lf = text.replace(/\r\n/g, '\n').replace(/\r/g, '\n');
+
+  // Split on one or more blank lines, collapse soft wraps within each block
+  const blocks = lf.split(/\n{2,}/);
+  const normalized = blocks
+    .map(block =>
+      block
+        .split('\n')
+        .map(line => line.trim())
+        .filter(line => line.length > 0)
+        .join(' '),
+    )
+    .filter(block => block.length > 0);
+
+  return normalized.join('\n\n') + '\n';
+}
+
+// ---------------------------------------------------------------------------
 // File writing
 // ---------------------------------------------------------------------------
 
@@ -112,16 +144,17 @@ export function writeStory(
   sourceLabel: string,
   body: string,
 ): void {
+  const normalizedBody = normalizeBody(body);
   const frontmatter = buildFrontmatter({
     title: story.title,
     source: sourceLabel,
     url: story.url,
     crawledAt: new Date().toISOString(),
-    wordCount: countWords(body),
+    wordCount: countWords(normalizedBody),
   });
   const dir = join(storiesDir, sourceId, story.slug);
   mkdirSync(dir, { recursive: true });
-  writeFileSync(join(dir, 'content.md'), frontmatter + '\n' + body, 'utf-8');
+  writeFileSync(join(dir, 'content.md'), frontmatter + '\n' + normalizedBody, 'utf-8');
 }
 
 function writeSourceIndex(storiesDir: string, adapter: SourceAdapter, stories: Story[]): void {

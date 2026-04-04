@@ -235,4 +235,19 @@ export const FEATURES = [
       </svg>
     ),
   },
+  // status: Umgesetzt
+  {
+    key: 'speedreader-orp',
+    label: 'ORP-Lesemarke',
+    description: 'Hebt den optimalen Erkennungspunkt eines Worts farblich hervor und richtet ihn am Fixationspunkt aus — mit konfigurierbaren Führungslinien.',
+    Icon: () => (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
+        <line x1="4" y1="9" x2="20" y2="9" />
+        <line x1="4" y1="15" x2="20" y2="15" />
+        <line x1="12" y1="6" x2="12" y2="4" strokeWidth="2.5" />
+        <line x1="12" y1="18" x2="12" y2="20" strokeWidth="2.5" />
+        <circle cx="12" cy="12" r="1.5" fill="currentColor" stroke="none" />
+      </svg>
+    ),
+  },
 ];

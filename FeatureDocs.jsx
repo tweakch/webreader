@@ -534,6 +534,126 @@ const DOCS = {
     ],
     tip: 'RSVP-Lesen kann die Lesegeschwindigkeit deutlich steigern, da Augenbewegungen (Sakkaden) entfallen. Es ist jedoch weniger geeignet für Texte, die Reflexion oder Rückblättern erfordern — für Märchen mit linearer Handlung funktioniert es gut.',
   },
+
+  'speedreader-orp': {
+    lead: 'Die ORP-Lesemarke (Optimal Recognition Point) hebt einen bestimmten Buchstaben jedes Worts farblich hervor und richtet ihn an einem festen Bildschirmpunkt aus — optionale Führungslinien helfen dem Auge, den Fixationspunkt zu halten.',
+    steps: [
+      {
+        label: 'Was ist ORP?',
+        body: 'Jedes Wort hat einen optimalen Erkennungspunkt — meist den zweiten Buchstaben. Wird dieser Punkt immer an derselben Stelle auf dem Bildschirm angezeigt, muss das Auge nicht suchen und das Lesen wird schneller und ermüdungsärmer.',
+        widget: function SpeedReaderOrpExplainDemo({ darkMode }) {
+          const examples = [
+            { word: 'Märchen', idx: 1 },
+            { word: 'Wald',    idx: 1 },
+            { word: 'die',     idx: 1 },
+          ];
+          const [i, setI] = React.useState(0);
+          React.useEffect(() => {
+            const id = setInterval(() => setI(n => (n + 1) % examples.length), 900);
+            return () => clearInterval(id);
+          }, []);
+          const { word, idx } = examples[i];
+          const before = word.slice(0, idx);
+          const letter = word[idx];
+          const after  = word.slice(idx + 1);
+          return (
+            <div className="mt-3 inline-flex items-baseline gap-0 select-none text-2xl font-bold" style={{ fontFamily: "'Roboto Mono', monospace" }}>
+              <span className={darkMode ? 'text-amber-200' : 'text-amber-900'}>{before}</span>
+              <span style={{ color: '#ef4444', fontWeight: '700' }}>{letter}</span>
+              <span className={darkMode ? 'text-amber-200' : 'text-amber-900'}>{after}</span>
+            </div>
+          );
+        },
+      },
+      {
+        label: 'ORP-Methode wählen',
+        body: 'Drei Methoden stehen zur Auswahl: „2. Buchstabe" nimmt immer den zweiten Buchstaben, „Mitte" den Mittelbuchstaben des Worts, und „Fester Index" einen frei wählbaren Index. Die Einstellung wird sofort in der Vorschau und im Lesebereich sichtbar.',
+        widget: function SpeedReaderOrpMethodDemo({ darkMode }) {
+          const methods = ['2. Buchstabe', 'Mitte', 'Fester Index'];
+          const idxFor = (word, m) => {
+            if (m === 'Mitte')       return Math.floor((word.length - 1) / 2);
+            if (m === 'Fester Index') return Math.min(2, word.length - 1);
+            return Math.min(1, word.length - 1);
+          };
+          const [m, setM] = React.useState(0);
+          React.useEffect(() => {
+            const id = setInterval(() => setM(n => (n + 1) % methods.length), 1400);
+            return () => clearInterval(id);
+          }, []);
+          const word  = 'Abend';
+          const idx   = idxFor(word, methods[m]);
+          return (
+            <div className="mt-3 flex flex-col gap-2 select-none">
+              <div className="inline-flex gap-1">
+                {methods.map((label, n) => (
+                  <button
+                    key={label}
+                    onClick={() => setM(n)}
+                    className={`px-2 py-0.5 text-xs rounded-lg transition-colors ${
+                      m === n
+                        ? darkMode ? 'bg-amber-600 text-white' : 'bg-amber-200 text-amber-900'
+                        : darkMode ? 'text-amber-500 hover:bg-slate-700' : 'text-amber-600 hover:bg-amber-100'
+                    }`}
+                  >{label}</button>
+                ))}
+              </div>
+              <div className="inline-flex items-baseline gap-0 text-2xl font-bold" style={{ fontFamily: "'Roboto Mono', monospace" }}>
+                <span className={darkMode ? 'text-amber-200' : 'text-amber-900'}>{word.slice(0, idx)}</span>
+                <span style={{ color: '#ef4444', fontWeight: '700' }}>{word[idx]}</span>
+                <span className={darkMode ? 'text-amber-200' : 'text-amber-900'}>{word.slice(idx + 1)}</span>
+              </div>
+            </div>
+          );
+        },
+      },
+      {
+        label: 'Führungslinien & Markierung',
+        body: 'Zwei horizontale Balken oberhalb und unterhalb des Worts sowie eine vertikale Markierung rahmen den Fixationspunkt ein. Farbe, Dicke und Länge sind frei einstellbar. Die Linien können auch einzeln ausgeschaltet werden.',
+        widget: function SpeedReaderOrpGuideDemo({ darkMode }) {
+          const [on, setOn] = React.useState(true);
+          React.useEffect(() => {
+            const id = setInterval(() => setOn(v => !v), 1200);
+            return () => clearInterval(id);
+          }, []);
+          const barColor    = darkMode ? '#475569' : '#94a3b8';
+          const markerColor = '#ef4444';
+          return (
+            <div className="mt-3 relative inline-flex items-center justify-center select-none" style={{ width: '180px', height: '52px' }}>
+              {on && (
+                <>
+                  <div style={{ position: 'absolute', left: '50%', transform: 'translateX(-50%)', top: '6px', width: '140px', height: '2px', backgroundColor: barColor, borderRadius: '9999px' }} />
+                  <div style={{ position: 'absolute', left: '50%', transform: 'translateX(-50%)', bottom: '6px', width: '140px', height: '2px', backgroundColor: barColor, borderRadius: '9999px' }} />
+                  <div style={{ position: 'absolute', left: 'calc(50% - 1px)', top: '50%', transform: 'translateY(-50%)', width: '3px', height: '20px', backgroundColor: markerColor, borderRadius: '1px' }} />
+                </>
+              )}
+              <div className="inline-flex items-baseline gap-0 text-2xl font-bold" style={{ fontFamily: "'Roboto Mono', monospace" }}>
+                <span className={darkMode ? 'text-amber-200' : 'text-amber-900'}>W</span>
+                <span style={{ color: '#ef4444', fontWeight: '700' }}>a</span>
+                <span className={darkMode ? 'text-amber-200' : 'text-amber-900'}>ld</span>
+              </div>
+            </div>
+          );
+        },
+      },
+      {
+        label: 'Einstellungen in Echtzeit anpassen',
+        body: 'Tippe im Schnellleser auf das Zahnrad-Symbol in der Steuerleiste, um das ORP-Einstellungspanel zu öffnen. Jede Änderung — Methode, Farbe, Führungslinien, Fixationspunkt — wird sofort in der Vorschau und im laufenden Schnellleser sichtbar, ohne das Lesen zu unterbrechen.',
+      },
+    ],
+    on: [
+      'Im Schnellleser erscheint in der Steuerleiste ein Zahnrad-Symbol. Ein Tipp darauf öffnet das ORP-Einstellungspanel unterhalb der Wortanzeige.',
+      'Das ORP-Einstellungspanel zeigt oben eine Live-Vorschau des aktuell angezeigten Worts mit den gewählten ORP-Einstellungen.',
+      'Darunter befinden sich Regler und Schalter für: ORP-Methode (2. Buchstabe / Mitte / Fester Index), Hervorhebungsfarbe und -stärke, horizontale Führungslinien (Farbe, Dicke, Länge) sowie die vertikale Markierung.',
+      'Zwei Schieberegler für „Horizontal" (0–100 %) und „Vertikal" (0–100 %) steuern die genaue Position des Fixationspunkts auf dem Bildschirm.',
+      'Alle Einstellungen werden automatisch gespeichert und beim nächsten Öffnen wiederhergestellt.',
+    ],
+    off: [
+      'Das Zahnrad-Symbol und das ORP-Einstellungspanel sind nicht sichtbar.',
+      'Der Schnellleser zeigt Wörter wie bisher ohne ORP-Hervorhebung an — der zweite Buchstabe ist leicht farbig betont (klassisches Verhalten).',
+      'Gespeicherte ORP-Einstellungen bleiben erhalten und werden wiederhergestellt, wenn das Feature wieder eingeschaltet wird.',
+    ],
+    tip: 'ORP-Lesemarke erfordert den aktivierten Schnellleser. Aktiviere zuerst den Schnellleser im Profil und wechsle dann in den Schnellleser-Modus.',
+  },
 };
 
 // ── Component ────────────────────────────────────────────────────────────────

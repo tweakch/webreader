@@ -55,6 +55,9 @@ Used by Playwright tests — don't remove them:
 Speed reader (visible when `speed-reader` flag is on):
 `speed-reader-toggle` (nav-bar button to enter/exit mode), `speed-reader-word` (RSVP word display), `speed-reader-play` (play/pause), `speed-reader-back` (back to sentence start), `speed-reader-wpm-decrease`, `speed-reader-wpm-increase`
 
+ORP speed reader (visible when `speedreader-orp` flag is on and speed reader mode is active):
+`orp-panel-toggle` (gear button in RSVP controls row), `orp-preview` (live preview in panel), `orp-method-second-letter`, `orp-method-center`, `orp-method-fixed-index` (ORP method buttons), `orp-letter-index-input` (fixed index number input), `orp-highlight-toggle`, `orp-color-input` (letter highlight controls), `orp-bars-toggle`, `orp-bar-length` (guide bars controls), `orp-marker-toggle`, `orp-fixation-x`, `orp-fixation-y` (fixation point sliders)
+
 ### Tailwind
 
 Using Tailwind v4 with `@tailwindcss/postcss`. The CSS entry point uses `@import "tailwindcss"` and `@config "./tailwind.config.js"` (required in v4 to load a config file). Dark mode is implemented via conditional class strings — not the `dark:` variant.

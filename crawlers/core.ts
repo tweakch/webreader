@@ -126,9 +126,14 @@ export function normalizeBody(text: string): string {
 // File writing
 // ---------------------------------------------------------------------------
 
+/** Collapse any whitespace sequence (including \r\n) into a single space and trim. */
+export function normalizeInline(text: string): string {
+  return text.replace(/[\r\n\t ]+/g, ' ').trim();
+}
+
 function buildFrontmatter(fields: Record<string, string | number>): string {
   const lines = Object.entries(fields).map(([k, v]) =>
-    typeof v === 'number' ? `${k}: ${v}` : `${k}: ${JSON.stringify(v)}`
+    typeof v === 'number' ? `${k}: ${v}` : `${k}: ${JSON.stringify(normalizeInline(v))}`
   );
   return `---\n${lines.join('\n')}\n---\n`;
 }

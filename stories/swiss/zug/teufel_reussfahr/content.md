@@ -1,0 +1,15 @@
+---
+title: "Der \r\n            Teufel am Reußfahr"
+source: "Schweizer Sagen"
+url: "https://www.sagen.at/texte/sagen/schweiz/zug/teufel_reussfahr.html"
+crawledAt: "2026-04-05T22:28:06.822Z"
+wordCount: 454
+---
+
+# Der Teufel am Reußfahr
+
+Die unterste und letzte Schiffsfähre über die Reuß führte vom Zugerland nach dem Freiämter Dorf Mühlau. Hier fand einst ein Zuger Mädchen seinen frühen Tod, da es aus Verzweiflung in der Mitte der Reuß aus dem Schiffe sprang und im nassen Grab seinen treulosen Geliebten vergessen wollte. Wohl suchte der mutige Fährmann die Zuger Jungfer zu retten, aber alles Bemühen war umsonst. Die Reuß gab nicht einmal mehr die Leiche zurück.
+
+Von dieser Zeit an wurde die Fähre immer und immer wieder durch einen bösen Wassergeist gestört. So oft man in die Flußmitte kam, fing das Wasser an zu toben und wild aufzusieden, und nur die rasche Rückfahrt schützte vor dem drohenden Wassertod. Es kam so weit, daß niemand mehr die Mühlauer Fähre benützen wollte und die Landleute aus der Gegend der Bützen benützten lieber die Fähre bei Sins. Im Volke erzählte man sich, daß die Zugerin wohl ganz große Verbrechen begangen habe, daß sich die Reußwasser so unbändig zeigten, seit das schuldbeladene Mädchen dort Tod und Grab gefunden habe.
+
+Da kamen einmal zwei Väter aus dem Kapuzinerkloster von Zug, welche im Freiamt gepredigt und für ihre armen Mitbrüder gesammelt hatten und forderten vom Fährmann die Überfahrt. Dieser weigerte sich lange und erzählte von dem schlimmen Zugermädchen, das durch seinen Freitod das Unglück über ihn und die Reußfähre gebracht habe. Es brauchte alle Überredungskünste der beiden Väter, bis der Mühlauer Fährmann sie an das Zugerufer zu fahren wagte. Wie sie nun aber in des Wassers Mitte kamen, fingen die Reußwogen an zu toben und wild aufzuspritzen. Der Fährmann hielt erschrocken an und wollte wieder an das schützende Freiämterufer zurück, während die beiden Kapuziner den störenden bösen Geist anriefen, daß er sich zeige. Da sprang plötzlich ein langhaariger schwarzer Hund in das Schiff und die Kapuziner zwangen das Ungeheuer zum Bekenntnis. Es war nicht der unruhige und unglückselige Geist der Zugerin, sondern der Teufel selber trieb hier sein Unwesen und freute sich unbändig, wenn dem Mädchen alle möglichen Verbrechen und böse Untaten nachgesagt wurden, denn so komme er eher zu neuen Gästen in sein Höllenreich der Lügner, Verleumder und Ehrabschneider. Je länger man glaube, der Geist der Zugerin verursache das wilde Wasser, desto größer werde seine schwarze Höllenschar. Auf dieses, durch die Kapuziner erzwungene Bekenntnis bannten die beiden Väter den schwarzen Teufel in eine unwirtliche Gegend und seither wurde die Reußüberfahrt wieder gefahrenfrei und auch das Andenken an das unglückliche Mädchen, das in seiner Liebesnot den frühen Tod gefunden, wurde von den vielen Verleumdungen und Lügen befreit. Bis vor wenigen Jahren fuhr die Fähre noch und erst kürzlich wurde eine feste Brücke über die Reuß gebaut. Vor dem Teufel aber hatte man seit der Begegnung mit den Kapuzinern vollkommen Ruhe.

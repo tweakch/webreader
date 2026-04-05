@@ -12,7 +12,7 @@
 import { readFileSync, readdirSync, statSync, writeFileSync } from 'fs';
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
-import { normalizeBody } from './core.ts';
+import { normalizeBody, normalizeInline } from './core.ts';
 
 const STORIES_DIR = join(dirname(fileURLToPath(import.meta.url)), '..', 'stories');
 
@@ -49,6 +49,21 @@ function updateWordCount(frontmatter: string, wordCount: number): string {
   return frontmatter.replace(/^wordCount: \d+$/m, `wordCount: ${wordCount}`);
 }
 
+/**
+ * Normalizes inline whitespace in all quoted string fields of the frontmatter.
+ * Replaces JSON-encoded strings that contain \r\n or multi-space sequences.
+ */
+function normalizeStringFields(frontmatter: string): string {
+  return frontmatter.replace(/^(\w+): (".*")$/gm, (_, key, quoted) => {
+    try {
+      const value = JSON.parse(quoted) as string;
+      return `${key}: ${JSON.stringify(normalizeInline(value))}`;
+    } catch {
+      return _;
+    }
+  });
+}
+
 const sourceFilter = process.argv[2] ?? null;
 
 const files = findContentFiles(STORIES_DIR).filter(f =>
@@ -62,7 +77,7 @@ for (const filePath of files) {
   const { frontmatter, body } = splitFrontmatter(raw);
 
   const normalizedBody = normalizeBody(body);
-  const updatedFrontmatter = updateWordCount(frontmatter, countWords(normalizedBody));
+  const updatedFrontmatter = normalizeStringFields(updateWordCount(frontmatter, countWords(normalizedBody)));
   const output = updatedFrontmatter + '\n' + normalizedBody;
 
   // Only write if something actually changed (avoids touching unmodified files)

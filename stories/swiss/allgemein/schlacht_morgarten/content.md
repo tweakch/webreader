@@ -1,0 +1,33 @@
+---
+title: "Die Schlacht am Morgarten"
+source: "Schweizer Sagen"
+url: "https://www.sagen.at/texte/sagen/schweiz/allgemein/schlacht_morgarten.html"
+crawledAt: "2026-04-05T22:08:41.518Z"
+wordCount: 994
+---
+
+# Die Schlacht am Morgarten
+
+Als die Eidgenossen von Uri, Schwyz und Unterwalden den Bund im Rütli geschworen und die bösen Landvögte mit Gottes Hilfe vertrieben und vertilgt hatten, ergrimmte der österreichische Herzog Leopold und beschloß, die drei freiheitssüchtigen Länder mit einem großen Heer zu überziehen und sie seiner Herrschaft für ewige Zeiten zu unterwerfen.
+
+Deswegen rüstete er mit Macht, und von allen Seiten zogen ihm die Ritter, Herren und Städte mit ihren Fahnen und Fähnlein zu. Er wollte die drei Talschaften am Waldstättersee von vielen Seiten bedrängen, aber mit dem Hauptheer wollte er durchs Ägerital in das Land Schwyz einfallen.
+
+Damit nun die wachbaren Schwyzer nichts merken sollten, brach er in aller Stille vom Städtchen Zug am Zugersee auf und zog mit seinem großen Ritterheere hinauf an den kleinen, lieblichen Ägerisee.
+
+Unterdessen hatte man in den drei Ländern vom Auszug eines so stolzen und wohlausgerüsteten Heeres wider sie vernommen. Die Sturmglocken wurden geläutet, der Uristier und die Harsthörner von Unterwalden hornten durch die sonst so friedlichen Täler. Voll Bangen erwarteten alle das schreckliche Heer. Die Schwyzer aber schickten die jammernden Frauen und Kinder hinter die Spinnräder und in die Kirchen und zogen mit ihrem blutroten Fähnlein aus, um dem mächtigen, in Eisen starrenden Feind mutig entgegenzutreten. Sie legten sich mit starkem Zuzug aus den verbündeten Ländern Uri und Unterwalden hinter die Letzimauer bei Arth am Zugersee, da sie meinten, das herzogliche Heer werde dort ins Land einbrechen. Hinter der niedern Mauer, die die Talenge absperrte, erwarteten sie den Feind.
+
+Aber ein Freund der Schwyzer, der Ritter von Hünenberg, der wohl wußte, wo der Herzog Leopold ins Land einzudringen vorhatte, sah, wie sie am unrichtigen Orte lagen. Er erbarmte sich der Hirten, die, von der Welt verlassen, ein kampfgeübtes Ritterheer bestehen sollten. Er begab sich heimlich an die Letzimauer und schoß einen Pfeil unter die lagernden Eidgenossen. Da diese nun den Pfeil gewahrten und einen Zettel daran hängen sahen, hoben sie ihn auf und lasen zu ihrem Erstaunen darauf: Hütet euch auf St. Othmars Abend am Morgarten!
+
+Da merkten die Eidgenossen, wo das Milchtanslein rinnt, und da sie in der Schrift die Hand ihres Freundes Hünenberg vermuteten, brachen sie nach kurzem Ratschlag heimlich auf und legten sich in den Waldhängen im Engpaß bei Morgarten ob dem Ägerisee auf die Lauer.
+
+Derweilen zog Herzog Leopold mit seinem Heer in der Dämmerung des werdenden Tages am stillen Ägerisee entlang, und sein Kriegsvolk war so guter Dinge und so siegesgewiß, daß es zu singen anhub. Und waren österreichische Knechte darunter, die lachend lange Stricke schwangen, woran sie das geraubte Vieh aus den drei Ländern mit sich fortzuführen gedachten. Der Herzog aber sah finster vor sich hin, denn er hatte den treuen Hirten fürchterliche Rache geschworen für die Niederwerfung seiner Vögte und ihrer Burgen. Nicht Weib, nicht Kind wollte er schonen. Als sie so dahinritten, fragte er unversehens seinen Hofnarren Kuoni von Stocken, wie ihm sein Plan gefalle, durch die Talenge von Morgarten ins Land Schwyz einzufallen. Da antwortete der Narr: "Vetter, er gefällt - mir nicht recht." - "Warum denn nicht?" fragte verwundert der Herzog. - "Darum", sagte der Narr, "weil du wohl ausgedacht hast, wie du ins Land hinein-, aber nicht, wie du wieder herauskommen willst."
+
+Als nun das Heer in der Morgenfrühe des fünfzehnten im Wintermonat des Jahres 1315 an den gähen Halden ob dem Ägerisee auf Morgarten zurückte, um rasch die Talenge von Sattel zu gewinnen, tosten und donnerten auf einmal gewaltige Steinblöcke und Stämme die Abhänge herunter und fuhren ins voranziehende Reiterheer hinein. Eine heillose Verwirrung brach aus, die Rosse bäumten sich und stürmten dann geängstigt auseinander und ineinander. Die Reiter aber, die umsonst die Ordnung aufrechtzuerhalten suchten, sahen zu ihrem Erstaunen nur ein geringes Häuflein Männer am Waldrande auf der Höhe stehen, die unablässig Steine und Stämme auf sie herabwälzten. Doch als sie sich anschickten, den unerwarteten Überfall an dem Häuflein auf der Höhe schrecklich zu rächen, tauchten auf einmal von einer andern Anhöhe die drei Fähnlein von Schwyz, Uri und Unterwalden aus einem Eichenwald auf, und fürchterlich brüllten die Hörner, und schrecklich widerhallte der Schwyzer Schlachtruf von den Flühen: "Haarus, haarus!"
+
+Wie eine angelassene Lawine fuhren die Hirtenvölker der drei Länder zu Tal auf das überraschte und erschrockene Heer des Herzogs Leopold hinab. Umsonst versuchten die Reiter aus dem argen Wirrsal zu kommen, in das sie durch die herabrollenden Steine und Stämme gebracht wurden. Es ging alles durcheinander und übereinander. Und jetzt fuhren die Eidgenossen als ein lebendiger Keil in das eiserne Gemengsel hinein und fingen an, mit wilder Kampfwut die verknäuelte Reiterei auseinanderzuhauen. Vergeblich stellte sich das nachrückende Fußvolk der Städte. Die aufgepeitschten herzoglichen Reiter selber brachten es auseinander, und auf einmal wandte sich das ganze feindliche Heer zur Flucht.
+
+Aber sie ward ihm nicht leicht. Steil und abschüssig waren auf der Landseite die Halden, und mit unheimlich grünen Augen dräute der See. Reiterei und Fußvolk, all das flüchtige Heer mengte sich zu einem Menschenbrei, den die Eidgenossen mit ihren blitzenden Hellebarden und gezähnten Knütteln gar tüchtig und erbarmungslos rührten, denn nun wollten sie einmal dem Herzog und seinen Heergesellen das Wiederkommen für lange verleiden. Viele Reiter setzten in den See und gingen darin unter. Ganze Haufen aber wurden von den Eidgenossen hineingetrieben. Einem einzigen Reiter soll es fast gelungen sein, ans andere Ufer zu kommen. Aber als sein Pferd schon Fuß faßte, habe er gerufen: "Nun bin ich davongekommen, sei's dem Herrgott lieb oder leid!" Da sei das Pferd ausgeglitten und mit seinem Herrn untergegangen.
+
+In toller, unaufhaltsamer Flucht machte sich das so glänzend ausgerüstete Heer am Ägerisee entlang davon, und auch Herzog Leopold selbst, der mit Not den Hieben der Eidgenossen entkam, ruhte nicht eher, als bis er nach Winterthur gelangte, wo er hinter dem festen Mauerring sich endlich für sicher erachtete.
+
+Die Hirtenvölker der drei Länder von Schwyz, Uri und Unterwalden aber, die Reiter und Rosse so blutig gestrählt und gestriegelt hatten, knieten auf dem Schlachtfeld nieder und dankten Gott mit aufgehobenen Armen für den großen Sieg.

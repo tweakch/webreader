@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect, useLayoutEffect, useCallback } from 'react';
-import { Menu, X, Plus, Minus, ChevronLeft, ChevronRight, Heart, Share2, User } from 'lucide-react';
+import { Menu, X, Plus, Minus } from 'lucide-react';
 import { FEATURES } from './features';
 import { useFeatureFlags } from './hooks/useFeatureFlags';
 import { useTypography } from './hooks/useTypography';
@@ -8,11 +8,10 @@ import FeatureDocs from './FeatureDocs';
 import { ThemeContext } from './ui/ThemeContext';
 import Toggle from './ui/Toggle';
 import IconButton from './ui/IconButton';
-import SearchInput from './ui/SearchInput';
-import StoryButton from './ui/StoryButton';
-import SourceButton from './ui/SourceButton';
 import ProfilePanel from './components/ProfilePanel';
 import HomeView from './components/HomeView';
+import ReaderView from './components/ReaderView';
+import Sidebar from './components/Sidebar';
 import TypographyPanel, { LINE_HEIGHTS, WORD_SPACINGS, FONT_FAMILIES } from './ui/TypographyPanel';
 import AudioPlayer from './ui/AudioPlayer';
 import SpeedReaderView from './ui/SpeedReaderView';
@@ -465,189 +464,33 @@ const GrimmMarchenApp = () => {
       {/* Main Content Area */}
       <div className="flex-1 flex overflow-hidden">
         {/* Sidebar */}
-        <aside className={`fixed lg:static top-16 bottom-0 left-0 w-80 lg:w-72 z-30 transform transition-transform duration-300 flex flex-col ${
-          menuOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'
-        } ${
-          highContrast
-            ? (darkMode ? 'bg-black border-white/40' : 'bg-white border-black/30')
-            : darkMode
-            ? 'bg-slate-950/95 border-amber-700/30'
-            : 'bg-white/95 border-amber-200/50'
-        } border-r backdrop-blur-sm`}>
-          <div className="flex-1 overflow-y-auto">
-
-          {/* Search — always visible */}
-          <div className="p-4">
-            <div className="flex items-center gap-2">
-              <SearchInput
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-                placeholder="Märchen suchen..."
-              />
-              {showFavoritesOnlyToggle && showFavorites && (
-                <button
-                  onClick={() => setFavoritesOnly(v => !v)}
-                  title={favoritesOnly ? 'Alle anzeigen' : 'Nur Favoriten'}
-                  className={`flex-shrink-0 p-2 rounded-lg border transition-colors ${
-                    favoritesOnly
-                      ? darkMode
-                        ? 'bg-amber-700 border-amber-600 text-white'
-                        : 'bg-amber-200 border-amber-300 text-amber-900'
-                      : darkMode
-                        ? 'border-amber-700/50 text-amber-600 hover:text-amber-400 hover:bg-slate-800'
-                        : 'border-amber-300 text-amber-400 hover:text-amber-700 hover:bg-amber-50'
-                  }`}
-                >
-                  <Heart size={16} fill={favoritesOnly ? 'currentColor' : 'none'} />
-                </button>
-              )}
-            </div>
-          </div>
-
-          {selectedStory && (showWordCount || showReadingDuration) && (
-            <div className={`mx-4 mb-2 rounded-xl px-4 py-3 space-y-1.5 ${
-              darkMode ? 'bg-slate-800' : 'bg-amber-50'
-            }`}>
-              {showWordCount && (
-                <div className={`flex items-center justify-between text-sm ${
-                  darkMode ? 'text-amber-400' : 'text-amber-700'
-                }`}>
-                  <span>Wörter</span>
-                  <span className="tabular-nums font-medium">{storyWordCount.toLocaleString('de')}</span>
-                </div>
-              )}
-              {showReadingDuration && (
-                <div className={`flex items-center justify-between text-sm ${
-                  darkMode ? 'text-amber-400' : 'text-amber-700'
-                }`}>
-                  <span>Lesezeit</span>
-                  <span className="tabular-nums font-medium">~{readingMinutes} min</span>
-                </div>
-              )}
-            </div>
-          )}
-
-          {favoritesOnly && showFavorites ? (
-            /* Favorites-only view */
-            <div className="px-3 pb-4 space-y-1">
-              {favoriteStories.length === 0 ? (
-                <p className={`px-2 py-3 text-sm ${darkMode ? 'text-amber-600' : 'text-amber-700'}`}>
-                  Keine Favoriten
-                </p>
-              ) : favoriteStories.map(story => (
-                <StoryButton
-                  key={story.id}
-                  story={story}
-                  isActive={selectedStory?.id === story.id}
-                  isCompleted={completedStories.has(story.id)}
-                  isFavorite={true}
-                  showSourceBadge
-                  showFavoriteButton
-                  alwaysFilled
-                  testId="story-button"
-                  onClick={() => { setSelectedStory(story); setMenuOpen(false); }}
-                  onFavoriteClick={(e) => toggleFavorite(story.id, e)}
-                />
-              ))}
-            </div>
-          ) : searchTerm ? (
-            /* Search results — global, with source badge */
-            <div className="px-3 pb-4 space-y-1">
-              {filteredStories.length === 0 && (
-                <p className={`px-2 py-3 text-sm ${darkMode ? 'text-amber-600' : 'text-amber-700'}`}>
-                  Keine Ergebnisse
-                </p>
-              )}
-              {filteredStories.map(story => (
-                <StoryButton
-                  key={story.id}
-                  story={story}
-                  isActive={selectedStory?.id === story.id}
-                  isCompleted={completedStories.has(story.id)}
-                  isFavorite={favorites.has(story.id)}
-                  showSourceBadge
-                  showWordCount={showWordCount}
-                  showFavoriteButton={showFavorites}
-                  inlineBadges
-                  onClick={() => { setSelectedStory(story); setMenuOpen(false); }}
-                  onFavoriteClick={(e) => toggleFavorite(story.id, e)}
-                />
-              ))}
-            </div>
-          ) : activeSource ? (
-            /* Drilled into a source — back button + story list */
-            <>
-              <div className="px-3 pb-2">
-                <button
-                  data-testid="back-to-sources"
-                  onClick={() => setActiveSource(null)}
-                  className={`flex items-center gap-1.5 w-full px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
-                    darkMode
-                      ? 'text-amber-400 hover:bg-slate-800'
-                      : 'text-amber-700 hover:bg-amber-100'
-                  }`}
-                >
-                  <ChevronLeft size={16} />
-                  <span>{sources.find(s => s.id === activeSource)?.label}</span>
-                  <span className={`ml-auto text-xs px-1.5 py-0.5 rounded ${
-                    darkMode ? 'bg-slate-700 text-amber-500' : 'bg-amber-100 text-amber-600'
-                  }`}>
-                    {storiesBySource[activeSource]?.length}
-                  </span>
-                </button>
-              </div>
-              <div className={`mx-3 mb-3 h-px ${darkMode ? 'bg-amber-800/40' : 'bg-amber-200'}`} />
-              <div className="px-3 pb-4 space-y-1">
-                {(storiesBySource[activeSource] ?? []).map(story => (
-                  <StoryButton
-                    key={story.id}
-                    story={story}
-                    isActive={selectedStory?.id === story.id}
-                    isCompleted={completedStories.has(story.id)}
-                    isFavorite={favorites.has(story.id)}
-                    showWordCount={showWordCount}
-                    showFavoriteButton={showFavorites}
-                    testId="story-button"
-                    onClick={() => { setSelectedStory(story); setMenuOpen(false); }}
-                    onFavoriteClick={(e) => toggleFavorite(story.id, e)}
-                  />
-                ))}
-              </div>
-            </>
-          ) : (
-            /* Source list */
-            <div className="px-3 pb-4 space-y-2">
-              {sources.map(src => (
-                <SourceButton key={src.id} src={src} onClick={() => setActiveSource(src.id)} />
-              ))}
-            </div>
-          )}
-          </div>{/* end scrollable list */}
-
-          {/* Profile drawer — always visible at sidebar bottom */}
-          <div className={`flex-shrink-0 border-t ${
-            darkMode ? 'border-amber-700/30' : 'border-amber-200/50'
-          }`}>
-            <button
-              onClick={() => { setProfileOpen(true); setMenuOpen(false); }}
-              className={`w-full flex items-center gap-3 px-4 py-3.5 transition-colors ${
-                profileOpen
-                  ? darkMode ? 'bg-amber-700/20 text-amber-200' : 'bg-amber-100 text-amber-900'
-                  : darkMode ? 'text-amber-400 hover:bg-slate-800 hover:text-amber-200' : 'text-amber-700 hover:bg-amber-50 hover:text-amber-900'
-              }`}
-            >
-              <div className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center ${
-                darkMode ? 'bg-slate-700' : 'bg-amber-100'
-              }`}>
-                <User size={16} />
-              </div>
-              <div className="flex-1 min-w-0 text-left">
-                <p className="text-sm font-medium truncate">Mein Profil</p>
-              </div>
-              <ChevronRight size={14} className="flex-shrink-0 opacity-50" />
-            </button>
-          </div>
-        </aside>
+        <Sidebar
+          menuOpen={menuOpen}
+          onMenuToggle={() => setMenuOpen(false)}
+          searchTerm={searchTerm}
+          onSearchChange={setSearchTerm}
+          favoritesOnly={favoritesOnly}
+          onToggleFavoritesOnly={() => setFavoritesOnly(v => !v)}
+          showFavoritesOnlyToggle={showFavoritesOnlyToggle}
+          showFavorites={showFavorites}
+          selectedStory={selectedStory}
+          activeSource={activeSource}
+          onSelectSource={setActiveSource}
+          onSelectStory={setSelectedStory}
+          completedStories={completedStories}
+          favorites={favorites}
+          onToggleFavorite={toggleFavorite}
+          showWordCount={showWordCount}
+          showReadingDuration={showReadingDuration}
+          storyWordCount={storyWordCount}
+          readingMinutes={readingMinutes}
+          favoriteStories={favoriteStories}
+          filteredStories={filteredStories}
+          sources={sources}
+          storiesBySource={storiesBySource}
+          onOpenProfile={() => setProfileOpen(true)}
+          profileOpen={profileOpen}
+        />
 
         {/* Hidden measurement container — off-screen, used to calculate paragraph heights */}
         <div
@@ -691,311 +534,53 @@ const GrimmMarchenApp = () => {
               onToggleFeature={(key) => setUserFeatureOverrides(prev => ({ ...prev, [key]: !_o(key, _rawFlagValues[key] ?? false) }))}
             />
           ) : selectedStory ? (
-            <>
-              {/* Reading viewport */}
-              <div
-                ref={readerAreaRef}
-                data-testid="reader-viewport"
-                className="flex-1 overflow-hidden relative"
-              >
-                {speedReaderMode ? (
-                  <SpeedReaderView
-                    key={`${selectedStory?.id ?? ''}-${selectedVariant?.adaptionName ?? ''}`}
-                    srWords={srWords}
-                    darkMode={darkMode}
-                    highContrast={highContrast}
-                    showSpeedreaderOrp={showSpeedreaderOrp}
-                    story={selectedStory}
-                    isFavorite={favorites.has(selectedStory.id)}
-                    onToggleFavorite={() => toggleFavoriteById(selectedStory.id)}
-                    onClose={() => setSelectedStory(null)}
-                    showFavorites={showFavorites}
-                    onShare={() => handleShare(selectedStory)}
-                  />
-                ) : (
-                <>
-                {/* E-ink flash overlay */}
-                {showEinkFlash && (
-                  <div
-                    className={`absolute inset-0 z-20 pointer-events-none ${
-                      highContrast ? (darkMode ? 'bg-black' : 'bg-white') : darkMode ? 'bg-slate-800' : 'bg-white'
-                    }`}
-                    style={{
-                      opacity: isFlashing ? 1 : 0,
-                      transition: isFlashing ? 'none' : 'opacity 0.05s',
-                    }}
-                  />
-                )}
-
-                {/* Current page content — rendered statically, no translateY */}
-                {pages[currentPage] && (
-                  <div
-                    data-testid="page-content"
-                    className={`h-full transition-colors duration-300 ${
-                      highContrast ? (darkMode ? 'bg-black' : 'bg-white') : darkMode ? 'bg-slate-800/50' : 'bg-white/70'
-                    }`}
-                    style={{ padding: `2rem ${hPadding}px` }}
-                  >
-                    <div className="mx-auto w-full" style={{ maxWidth: textWidth + 'px' }}>
-                      {pages[currentPage].hasTitle && (
-                        <>
-                          <h2 style={{ fontFamily }} className={`text-4xl font-bold mb-2 ${
-                            highContrast ? (darkMode ? 'text-white' : 'text-gray-900') : darkMode ? 'text-amber-200' : 'text-amber-900'
-                          }`}>
-                            {selectedVariant?.adaptionName ?? selectedStory.title}
-                          </h2>
-                          <div className={`h-1 w-20 rounded-full mb-8 ${
-                            highContrast ? (darkMode ? 'bg-white' : 'bg-black') : darkMode ? 'bg-amber-700' : 'bg-amber-300'
-                          }`} />
-                        </>
-                      )}
-
-                      <div
-                        style={{ fontSize: `${fontSize}px`, lineHeight, wordSpacing, fontFamily }}
-                        className={highContrast ? (darkMode ? 'text-white' : 'text-gray-900') : darkMode ? 'text-amber-50' : 'text-amber-950'}
-                      >
-                        {/* Reconstruct paragraphs from word tokens */}
-                        {(() => {
-                          const paras = [];
-                          let currentPara = [];
-
-                          pages[currentPage].tokens.forEach((token) => {
-                            currentPara.push(token.word);
-                            if (token.isPara) {
-                              paras.push(currentPara.join(' '));
-                              currentPara = [];
-                            }
-                          });
-
-                          // If there are leftover words (happens when page breaks mid-paragraph)
-                          if (currentPara.length > 0) {
-                            paras.push(currentPara.join(' '));
-                          }
-
-                          return paras.map((text, idx) => (
-                            <p key={idx} className="mb-6 first-letter:font-bold">
-                              {text}
-                            </p>
-                          ));
-                        })()}
-                      </div>
-
-                      {showAttribution && currentPage === totalPages - 1 && (
-                        <div className={`mt-8 pt-6 border-t ${
-                          darkMode ? 'border-amber-700/30' : 'border-amber-300'
-                        }`}>
-                          <p className={`text-sm italic ${
-                            darkMode ? 'text-amber-600' : 'text-amber-700'
-                          }`}>
-                            — Jacob und Wilhelm Grimm
-                          </p>
-                        </div>
-                      )}
-
-                      {currentPage === totalPages - 1 && (
-                        <div className={`mt-8 pt-6 flex items-center justify-center gap-3 ${showAttribution ? '' : `border-t ${darkMode ? 'border-amber-700/30' : 'border-amber-300'}`}`}>
-                          <button
-                            onClick={() => handleShare(selectedStory)}
-                            title="Teilen"
-                            className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium transition-colors ${
-                              highContrast
-                                ? (darkMode ? 'border border-white/40 text-white hover:bg-white/10' : 'border border-black/30 text-gray-900 hover:bg-black/5')
-                                : darkMode ? 'bg-slate-700/60 text-amber-300 hover:bg-slate-700' : 'bg-amber-50 text-amber-700 hover:bg-amber-100'
-                            }`}
-                          >
-                            <Share2 size={15} />
-                            Teilen
-                          </button>
-                          {showFavorites && (
-                            <button
-                              onClick={() => toggleFavoriteById(selectedStory.id)}
-                              title={favorites.has(selectedStory.id) ? 'Aus Favoriten entfernen' : 'Zu Favoriten hinzufügen'}
-                              className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium transition-colors ${
-                                favorites.has(selectedStory.id)
-                                  ? highContrast
-                                    ? (darkMode ? 'border border-white text-white' : 'border border-black text-gray-900')
-                                    : darkMode ? 'bg-amber-700/40 text-amber-300' : 'bg-amber-200 text-amber-900'
-                                  : highContrast
-                                    ? (darkMode ? 'border border-white/40 text-white hover:bg-white/10' : 'border border-black/30 text-gray-900 hover:bg-black/5')
-                                    : darkMode ? 'bg-slate-700/60 text-amber-600 hover:bg-slate-700' : 'bg-amber-50 text-amber-700 hover:bg-amber-100'
-                              }`}
-                            >
-                              <Heart size={15} fill={favorites.has(selectedStory.id) ? 'currentColor' : 'none'} />
-                              Favorit
-                            </button>
-                          )}
-                          <button
-                            onClick={() => setSelectedStory(null)}
-                            title="Zur Übersicht"
-                            data-testid="story-close"
-                            className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium transition-colors ${
-                              highContrast
-                                ? (darkMode ? 'bg-white text-black hover:bg-gray-100' : 'bg-black text-white hover:bg-gray-900')
-                                : darkMode ? 'bg-amber-500/20 text-amber-200 hover:bg-amber-500/30' : 'bg-amber-900/10 text-amber-900 hover:bg-amber-900/20'
-                            }`}
-                          >
-                            <X size={15} />
-                            Schließen
-                          </button>
-                        </div>
-                      )}
-                    </div>
-                  </div>
-                )}
-
-                {/* Left tap zone — previous page */}
-                {showTapZones && (
-                  <div
-                    data-testid="tap-zone-left"
-                    className="absolute left-0 top-0 bottom-0 z-10 cursor-pointer"
-                    style={{ width: '30%' }}
-                    onClick={() => goToPage(currentPage - 1)}
-                  />
-                )}
-
-                {/* Right tap zone — next page */}
-                {showTapZones && (
-                  <div
-                    data-testid="tap-zone-right"
-                    className="absolute right-0 top-0 bottom-0 z-10 cursor-pointer"
-                    style={{ width: '30%' }}
-                    onClick={() => goToPage(currentPage + 1)}
-                  />
-                )}
-                </>
-                )}
-              </div>
-
-              {/* Variant switcher — shown only when adaptions exist */}
-              {showAdaptionSwitcher && (adaptionsByParent[selectedStory.id] ?? []).length > 0 && (
-                <div className={`flex-shrink-0 flex items-center gap-2 px-4 py-1.5 border-t ${
-                  darkMode ? 'bg-slate-900/90 border-amber-700/30' : 'bg-white/90 border-amber-200/50'
-                }`}>
-                  <button
-                    onClick={() => selectVariant(null)}
-                    className={`px-3 py-1 rounded-full text-xs font-medium transition-colors ${
-                      selectedVariant === null
-                        ? darkMode ? 'bg-amber-700 text-white' : 'bg-amber-200 text-amber-900'
-                        : darkMode ? 'text-amber-400 hover:bg-slate-800' : 'text-amber-700 hover:bg-amber-100'
-                    }`}
-                  >
-                    Original
-                  </button>
-                  {(adaptionsByParent[selectedStory.id] ?? []).map((a, i) => (
-                    <button
-                      key={i}
-                      onClick={() => selectVariant(a)}
-                      className={`px-3 py-1 rounded-full text-xs font-medium transition-colors ${
-                        selectedVariant === a
-                          ? darkMode ? 'bg-amber-700 text-white' : 'bg-amber-200 text-amber-900'
-                          : darkMode ? 'text-amber-400 hover:bg-slate-800' : 'text-amber-700 hover:bg-amber-100'
-                      }`}
-                    >
-                      {a.adaptionName}
-                    </button>
-                  ))}
-                </div>
-              )}
-
-              {/* Typography panel — slides open above nav bar */}
-              {showTypographyPanel && typoPanelOpen && (
-                <TypographyPanel
-                  lineHeightIdx={lineHeightIdx}   onLineHeightChange={setLineHeightIdx}
-                  textWidthIdx={textWidthIdx}     onTextWidthChange={setTextWidthIdx}
-                  wordSpacingIdx={wordSpacingIdx} onWordSpacingChange={setWordSpacingIdx}
-                  fontFamilyIdx={fontFamilyIdx}   onFontFamilyChange={setFontFamilyIdx}
-                />
-              )}
-
-              {/* Audio player — only when flag is on and the story has an audio file */}
-              {showAudioPlayer && (
-                <AudioPlayer
-                  key={selectedStory?.id}
-                  src={storyAudioFiles[`/stories/${selectedStory?.id}/audio.mp3`] ?? null}
-                />
-              )}
-
-              {/* Page navigation bar — flex sibling, not overlapping */}
-              <div data-testid="nav-bar" className={`flex-shrink-0 h-12 flex items-center justify-between px-6 backdrop-blur-sm border-t transition-colors ${
-                highContrast
-                  ? (darkMode ? 'bg-black border-white/40 text-white' : 'bg-white border-black/30 text-gray-900')
-                  : darkMode
-                  ? 'bg-slate-900/90 border-amber-700/30 text-amber-300'
-                  : 'bg-white/90 border-amber-200/50 text-amber-800'
-              }`}>
-                <button
-                  data-testid="prev-page"
-                  onClick={() => goToPage(currentPage - 1)}
-                  disabled={currentPage === 0 || speedReaderMode}
-                  className={`p-1 rounded transition-colors disabled:opacity-30 ${
-                    darkMode ? 'hover:bg-slate-700' : 'hover:bg-amber-100'
-                  }`}
-                >
-                  <ChevronLeft size={20} />
-                </button>
-
-                <button
-                  onClick={() => !speedReaderMode && showTypographyPanel && setTypoPanelOpen(v => !v)}
-                  className={`flex flex-col items-center gap-0.5 min-w-0 overflow-hidden px-3 py-1 rounded-lg transition-colors ${
-                    typoPanelOpen
-                      ? darkMode ? 'bg-slate-700' : 'bg-amber-100'
-                      : darkMode ? 'hover:bg-slate-800' : 'hover:bg-amber-50'
-                  }`}
-                >
-                  <span className={`text-xs font-serif truncate max-w-full ${
-                    darkMode ? 'text-amber-500' : 'text-amber-600'
-                  }`}>
-                    {selectedStory.title}
-                  </span>
-                  {speedReaderMode ? (
-                    <span className="text-xs font-medium tabular-nums">
-                      {srWords.length} Wörter
-                    </span>
-                  ) : (
-                    <span data-testid="page-counter" className="text-xs font-medium tabular-nums">
-                      {currentPage + 1} / {totalPages}
-                    </span>
-                  )}
-                </button>
-
-                <div className="flex items-center gap-1">
-                  {showSpeedReader && (
-                    <button
-                      data-testid="speed-reader-toggle"
-                      onClick={() => setSpeedReaderMode(v => !v)}
-                      title={speedReaderMode ? 'Normaler Lesebereich' : 'Schnellleser'}
-                      className={`flex items-center justify-center w-9 h-9 rounded-xl transition-colors ${
-                        speedReaderMode
-                          ? highContrast
-                            ? (darkMode ? 'bg-white text-black' : 'bg-black text-white')
-                            : darkMode ? 'bg-amber-500/30 text-amber-300' : 'bg-amber-100 text-amber-700'
-                          : highContrast
-                            ? (darkMode ? 'text-white/60' : 'text-gray-500')
-                            : darkMode ? 'bg-slate-700/60 text-amber-700' : 'bg-amber-50/80 text-amber-400'
-                      }`}
-                    >
-                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
-                        <circle cx="12" cy="12" r="10" />
-                        <line x1="12" y1="8" x2="12" y2="12" />
-                        <line x1="12" y1="12" x2="15" y2="10" />
-                        <path d="M5 3.5A9.97 9.97 0 0 1 12 2c2.76 0 5.26 1.12 7.07 2.93" strokeLinecap="round" />
-                        <path d="M3.5 5A9.97 9.97 0 0 0 2 12" strokeLinecap="round" />
-                      </svg>
-                    </button>
-                  )}
-                  <button
-                    data-testid="next-page"
-                    onClick={() => goToPage(currentPage + 1)}
-                    disabled={currentPage >= totalPages - 1 || speedReaderMode}
-                    className={`p-1 rounded transition-colors disabled:opacity-30 ${
-                      darkMode ? 'hover:bg-slate-700' : 'hover:bg-amber-100'
-                    }`}
-                  >
-                    <ChevronRight size={20} />
-                  </button>
-                </div>
-              </div>
-            </>
+            <ReaderView
+              readerAreaRef={readerAreaRef}
+              selectedStory={selectedStory}
+              selectedVariant={selectedVariant}
+              pages={pages}
+              currentPage={currentPage}
+              totalPages={totalPages}
+              isFlashing={isFlashing}
+              srWords={srWords}
+              speedReaderMode={speedReaderMode}
+              onSetSpeedReaderMode={setSpeedReaderMode}
+              onGoToPage={goToPage}
+              showEinkFlash={showEinkFlash}
+              showTapZones={showTapZones}
+              showAdaptionSwitcher={showAdaptionSwitcher}
+              adaptionsByParent={adaptionsByParent}
+              onSelectVariant={selectVariant}
+              showTypographyPanel={showTypographyPanel}
+              typoPanelOpen={typoPanelOpen}
+              onToggleTypoPanel={() => !speedReaderMode && showTypographyPanel && setTypoPanelOpen(v => !v)}
+              lineHeightIdx={lineHeightIdx}
+              onLineHeightChange={setLineHeightIdx}
+              textWidthIdx={textWidthIdx}
+              onTextWidthChange={setTextWidthIdx}
+              wordSpacingIdx={wordSpacingIdx}
+              onWordSpacingChange={setWordSpacingIdx}
+              fontFamilyIdx={fontFamilyIdx}
+              onFontFamilyChange={setFontFamilyIdx}
+              showAudioPlayer={showAudioPlayer}
+              storyAudioFiles={storyAudioFiles}
+              showSpeedReader={showSpeedReader}
+              showSpeedreaderOrp={showSpeedreaderOrp}
+              darkMode={darkMode}
+              highContrast={highContrast}
+              fontSize={fontSize}
+              lineHeight={lineHeight}
+              wordSpacing={wordSpacing}
+              fontFamily={fontFamily}
+              textWidth={textWidth}
+              hPadding={hPadding}
+              showAttribution={showAttribution}
+              showFavorites={showFavorites}
+              favorites={favorites}
+              onShare={() => handleShare(selectedStory)}
+              onToggleFavorite={() => toggleFavoriteById(selectedStory.id)}
+              onClose={() => setSelectedStory(null)}
+            />
           ) : (
             <HomeView
               resumeSession={resumeSession}

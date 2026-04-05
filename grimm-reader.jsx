@@ -3,6 +3,7 @@ import { Menu, X, Plus, Minus, ChevronLeft, ChevronRight, Heart, Share2, User } 
 import { FEATURES } from './features';
 import { useFeatureFlags } from './hooks/useFeatureFlags';
 import { useTypography } from './hooks/useTypography';
+import { usePersistence } from './hooks/usePersistence';
 import FeatureDocs from './FeatureDocs';
 import { ThemeContext } from './ui/ThemeContext';
 import Toggle from './ui/Toggle';
@@ -34,26 +35,13 @@ const GrimmMarchenApp = () => {
   const [totalPages, setTotalPages] = useState(1);
   const [pages, setPages] = useState([]); // [{paragraphs: string[], hasTitle: bool}]
   const [isFlashing, setIsFlashing] = useState(false);
-  const [selectedVariant, setSelectedVariant] = useState(null);
   const [typoPanelOpen, setTypoPanelOpen] = useState(false);
   const [profileOpen, setProfileOpen] = useState(false);
   const [docsOpen, setDocsOpen] = useState(false);
   const [docsAnchor, setDocsAnchor] = useState(null);
-  const [completedStories, setCompletedStories] = useState(() =>
-    new Set(JSON.parse(localStorage.getItem('wr-completed') ?? '[]'))
-  );
-  const [resumeSession, setResumeSession] = useState(null); // { story, page }
   const [speedReaderMode, setSpeedReaderMode] = useState(false);
-  const [variantPrefs, setVariantPrefs] = useState(() =>
-    JSON.parse(localStorage.getItem('wr-variant-prefs') ?? '{}')
-  );
-  const [blacklist, setBlacklist] = useState(() =>
-    new Set(JSON.parse(localStorage.getItem('wr-blacklist') ?? '[]'))
-  );
-  const [blacklistInput, setBlacklistInput] = useState('');
-  const pendingResumePageRef = useRef(null);
+  const [activeSource, setActiveSource] = useState(() => localStorage.getItem('wr-last-source') || null);
   const lastResetStoryRef = useRef(null);
-  const initialResumeApplied = useRef(false);
 
 
   const readerAreaRef = useRef(null);
@@ -111,7 +99,23 @@ const GrimmMarchenApp = () => {
     return map;
   }, []);
 
-  const [activeSource, setActiveSource] = useState(() => localStorage.getItem('wr-last-source') || null);
+  // Persistence
+  const persist = usePersistence({
+    stories,
+    adaptionsByParent,
+    selectedStory,
+    activeSource,
+    currentPage,
+    totalPages,
+  });
+  const {
+    completedStories, resumeSession, setResumeSession,
+    variantPrefs, setVariantPrefs, selectedVariant, setSelectedVariant,
+    blacklist, blacklistInput, setBlacklistInput,
+    favorites, setFavorites, favoritesOnly, setFavoritesOnly,
+    selectVariant, toggleFavorite, toggleFavoriteById,
+    addBlacklistWord, removeBlacklistWord, pendingResumePageRef,
+  } = persist;
 
   const visibleStories = React.useMemo(() => {
     if (blacklist.size === 0) return stories;
@@ -141,16 +145,6 @@ const GrimmMarchenApp = () => {
   const filteredStories = searchTerm
     ? visibleStories.filter(s => s.title.toLowerCase().includes(searchTerm.toLowerCase()))
     : [];
-
-
-  // Reset variant when a new story is selected; restore persisted preference if available
-  useEffect(() => {
-    if (!selectedStory) { setSelectedVariant(null); return; }
-    const prefName = variantPrefs[selectedStory.id] ?? null;
-    if (!prefName) { setSelectedVariant(null); return; }
-    const adaptions = adaptionsByParent[selectedStory.id] ?? [];
-    setSelectedVariant(adaptions.find(a => a.adaptionName === prefName) ?? null);
-  }, [selectedStory]); // variantPrefs intentionally omitted — only re-run on story change
 
 
   const buildPages = useCallback(() => {
@@ -328,9 +322,6 @@ const GrimmMarchenApp = () => {
     flagTheme, bigFontsVariant,
   } = flags;
 
-  const [favoritesOnly, setFavoritesOnly] = useState(() => localStorage.getItem('wr-favorites-only') === 'true');
-
-
   const [theme, setTheme] = useState(() => localStorage.getItem('wr-theme') ?? flagTheme); // 'light' | 'dark' | 'system'
   const [systemDark, setSystemDark] = useState(
     () => window.matchMedia('(prefers-color-scheme: dark)').matches
@@ -346,14 +337,6 @@ const GrimmMarchenApp = () => {
   const highContrast = theme === 'light-hc' || theme === 'dark-hc';
   const darkMode = theme === 'dark' || (theme === 'system' && systemDark) || theme === 'dark-hc';
 
-  const [favorites, setFavorites] = useState(() =>
-    new Set(JSON.parse(localStorage.getItem('wr-favorites') ?? '[]'))
-  );
-
-  useEffect(() => {
-    localStorage.setItem('wr-favorites', JSON.stringify([...favorites]));
-  }, [favorites]);
-
   useEffect(() => { localStorage.setItem('wr-theme', theme); }, [theme]);
 
   // When HC flag is toggled, map between normal and HC theme variants
@@ -364,78 +347,6 @@ const GrimmMarchenApp = () => {
       setTheme(t => t === 'dark-hc' ? 'dark' : t === 'light-hc' ? 'light' : t);
     }
   }, [showHighContrastTheme]); // eslint-disable-line react-hooks/exhaustive-deps
-  useEffect(() => { localStorage.setItem('wr-favorites-only', favoritesOnly); }, [favoritesOnly]);
-  useEffect(() => { localStorage.setItem('wr-completed', JSON.stringify([...completedStories])); }, [completedStories]);
-  useEffect(() => { localStorage.setItem('wr-variant-prefs', JSON.stringify(variantPrefs)); }, [variantPrefs]);
-  useEffect(() => { localStorage.setItem('wr-blacklist', JSON.stringify([...blacklist])); }, [blacklist]);
-  useEffect(() => { localStorage.setItem('wr-last-source', activeSource ?? ''); }, [activeSource]);
-  useEffect(() => {
-    if (!selectedStory) return;
-    localStorage.setItem('wr-last-story', selectedStory.id);
-    localStorage.setItem('wr-last-page', String(currentPage));
-  }, [selectedStory, currentPage]);
-
-  // Bootstrap resume session once after stories load
-  useEffect(() => {
-    if (initialResumeApplied.current || stories.length === 0) return;
-    initialResumeApplied.current = true;
-    const lastStoryId = localStorage.getItem('wr-last-story');
-    const lastPage = parseInt(localStorage.getItem('wr-last-page') ?? '0', 10);
-    if (!lastStoryId) return;
-    const story = stories.find(s => s.id === lastStoryId);
-    if (story) setResumeSession({ story, page: lastPage });
-  }, [stories]);
-
-  // Clear resume banner once a story is open
-  useEffect(() => {
-    if (selectedStory) setResumeSession(null);
-  }, [selectedStory]);
-
-  // Mark story as completed when reaching the last page
-  useEffect(() => {
-    if (!selectedStory || totalPages <= 1 || currentPage !== totalPages - 1) return;
-    setCompletedStories(prev => {
-      if (prev.has(selectedStory.id)) return prev;
-      const next = new Set(prev);
-      next.add(selectedStory.id);
-      return next;
-    });
-  }, [selectedStory, currentPage, totalPages]);
-
-  const selectVariant = useCallback((variant) => {
-    setSelectedVariant(variant);
-    if (selectedStory) {
-      setVariantPrefs(prev => ({ ...prev, [selectedStory.id]: variant?.adaptionName ?? null }));
-    }
-  }, [selectedStory]);
-
-  const toggleFavorite = useCallback((storyId, e) => {
-    e.stopPropagation();
-    setFavorites(prev => {
-      const next = new Set(prev);
-      if (next.has(storyId)) next.delete(storyId); else next.add(storyId);
-      return next;
-    });
-  }, []);
-
-  const toggleFavoriteById = useCallback((storyId) => {
-    setFavorites(prev => {
-      const next = new Set(prev);
-      if (next.has(storyId)) next.delete(storyId); else next.add(storyId);
-      return next;
-    });
-  }, []);
-
-  const addBlacklistWord = useCallback(() => {
-    const word = blacklistInput.trim().toLowerCase();
-    if (!word) return;
-    setBlacklist(prev => new Set([...prev, word]));
-    setBlacklistInput('');
-  }, [blacklistInput]);
-
-  const removeBlacklistWord = useCallback((word) => {
-    setBlacklist(prev => { const next = new Set(prev); next.delete(word); return next; });
-  }, []);
 
   const handleShare = useCallback((story) => {
     const text = `„${story.title}"`;

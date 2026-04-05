@@ -1,13 +1,15 @@
 import React, { useState, useRef, useEffect, useLayoutEffect, useCallback } from 'react';
 import { Menu, X, Plus, Minus, ChevronLeft, ChevronRight, Heart, Share2, User } from 'lucide-react';
-import { useBooleanFlagValue, useStringFlagValue } from '@openfeature/react-sdk';
 import { FEATURES } from './features';
+import { useFeatureFlags } from './hooks/useFeatureFlags';
+import { useTypography } from './hooks/useTypography';
 import FeatureDocs from './FeatureDocs';
 import { ThemeContext } from './ui/ThemeContext';
 import Toggle from './ui/Toggle';
 import IconButton from './ui/IconButton';
 import SearchInput from './ui/SearchInput';
 import StoryButton from './ui/StoryButton';
+import SourceButton from './ui/SourceButton';
 import TypographyPanel, { LINE_HEIGHTS, WORD_SPACINGS, FONT_FAMILIES } from './ui/TypographyPanel';
 import AudioPlayer from './ui/AudioPlayer';
 import SpeedReaderView from './ui/SpeedReaderView';
@@ -17,7 +19,14 @@ const storyAudioFiles = import.meta.glob('/stories/*/*/audio.mp3', { eager: true
 const GrimmMarchenApp = () => {
   const [selectedStory, setSelectedStory] = useState(null);
   const [menuOpen, setMenuOpen] = useState(false);
-  const [fontSize, setFontSize] = useState(() => parseInt(localStorage.getItem('wr-fs') ?? '18'));
+  // Feature flags
+  const flags = useFeatureFlags();
+  const { maxFontSize } = flags;
+
+  // Typography
+  const typo = useTypography({ maxFontSize });
+  const { fontSize, setFontSize, lineHeightIdx, setLineHeightIdx, textWidthIdx, setTextWidthIdx, wordSpacingIdx, setWordSpacingIdx, fontFamilyIdx, setFontFamilyIdx, lineHeight, textWidth, hPadding, wordSpacing, fontFamily } = typo;
+
   const [searchTerm, setSearchTerm] = useState('');
   const [currentPage, setCurrentPage] = useState(0);
   const [totalPages, setTotalPages] = useState(1);
@@ -28,10 +37,6 @@ const GrimmMarchenApp = () => {
   const [profileOpen, setProfileOpen] = useState(false);
   const [docsOpen, setDocsOpen] = useState(false);
   const [docsAnchor, setDocsAnchor] = useState(null);
-  const [lineHeightIdx, setLineHeightIdx] = useState(() => parseInt(localStorage.getItem('wr-lh') ?? '1'));
-  const [textWidthIdx, setTextWidthIdx] = useState(() => parseInt(localStorage.getItem('wr-tw') ?? '1'));
-  const [wordSpacingIdx, setWordSpacingIdx] = useState(() => parseInt(localStorage.getItem('wr-ws') ?? '0'));
-  const [fontFamilyIdx, setFontFamilyIdx] = useState(() => parseInt(localStorage.getItem('wr-ff') ?? '0'));
   const [completedStories, setCompletedStories] = useState(() =>
     new Set(JSON.parse(localStorage.getItem('wr-completed') ?? '[]'))
   );
@@ -48,14 +53,6 @@ const GrimmMarchenApp = () => {
   const lastResetStoryRef = useRef(null);
   const initialResumeApplied = useRef(false);
 
-  const TEXT_WIDTHS = [560, 768, 1200];   // max column width cap (desktop)
-  const H_PADDINGS  = [56,  32,  12];    // horizontal padding px (narrow→wide)
-
-  const lineHeight = LINE_HEIGHTS[lineHeightIdx];
-  const textWidth  = TEXT_WIDTHS[textWidthIdx];
-  const hPadding   = H_PADDINGS[textWidthIdx];
-  const wordSpacing = WORD_SPACINGS[wordSpacingIdx];
-  const fontFamily  = FONT_FAMILIES[fontFamilyIdx].css;
 
   const readerAreaRef = useRef(null);
   const measureRef = useRef(null);
@@ -143,12 +140,6 @@ const GrimmMarchenApp = () => {
     ? visibleStories.filter(s => s.title.toLowerCase().includes(searchTerm.toLowerCase()))
     : [];
 
-  // Persist typography settings
-  useEffect(() => { localStorage.setItem('wr-lh', lineHeightIdx); }, [lineHeightIdx]);
-  useEffect(() => { localStorage.setItem('wr-tw', textWidthIdx); }, [textWidthIdx]);
-  useEffect(() => { localStorage.setItem('wr-ws', wordSpacingIdx); }, [wordSpacingIdx]);
-  useEffect(() => { localStorage.setItem('wr-ff', fontFamilyIdx); }, [fontFamilyIdx]);
-  useEffect(() => { localStorage.setItem('wr-fs', fontSize); }, [fontSize]);
 
   // Reset variant when a new story is selected; restore persisted preference if available
   useEffect(() => {
@@ -326,68 +317,17 @@ const GrimmMarchenApp = () => {
     return () => window.removeEventListener('keydown', handler);
   }, [selectedStory, currentPage, goToPage]);
 
-  const _rawWordCount          = useBooleanFlagValue('word-count', false);
-  const _rawReadingDuration    = useBooleanFlagValue('reading-duration', false);
-  const _rawFontSizeControls   = useBooleanFlagValue('font-size-controls', true);
-  const _rawEinkFlash          = useBooleanFlagValue('eink-flash', true);
-  const _rawTapZones           = useBooleanFlagValue('tap-zones', true);
-  const _rawAdaptionSwitcher   = useBooleanFlagValue('adaption-switcher', true);
-  const _rawTypographyPanel    = useBooleanFlagValue('typography-panel', true);
-  const _rawAttribution        = useBooleanFlagValue('attribution', true);
-  const _rawFavorites          = useBooleanFlagValue('favorites', false);
-  const _rawFavoritesOnlyToggle = useBooleanFlagValue('favorites-only-toggle', false);
-  const _rawAudioPlayer        = useBooleanFlagValue('audio-player', false);
-  const _rawHighContrastTheme  = useBooleanFlagValue('high-contrast-theme', false);
-  const _rawSpeedReader        = useBooleanFlagValue('speed-reader', false);
-  const _rawSpeedreaderOrp     = useBooleanFlagValue('speedreader-orp', false);
-  const _rawWordBlacklist      = useBooleanFlagValue('word-blacklist', false);
-
-  // User feature overrides — stored in localStorage, take precedence over flag defaults
-  const [userFeatureOverrides, setUserFeatureOverrides] = useState(
-    () => JSON.parse(localStorage.getItem('wr-feature-overrides') ?? '{}')
-  );
-  useEffect(() => {
-    localStorage.setItem('wr-feature-overrides', JSON.stringify(userFeatureOverrides));
-  }, [userFeatureOverrides]);
-
-  const _o = (key, raw) => Object.hasOwn(userFeatureOverrides, key) ? userFeatureOverrides[key] : raw;
-  const showWordCount           = _o('word-count',           _rawWordCount);
-  const showReadingDuration     = _o('reading-duration',     _rawReadingDuration);
-  const showFontSizeControls    = _o('font-size-controls',   _rawFontSizeControls);
-  const showEinkFlash           = _o('eink-flash',           _rawEinkFlash);
-  const showTapZones            = _o('tap-zones',            _rawTapZones);
-  const showAdaptionSwitcher    = _o('adaption-switcher',    _rawAdaptionSwitcher);
-  const showTypographyPanel     = _o('typography-panel',     _rawTypographyPanel);
-  const showAttribution         = _o('attribution',          _rawAttribution);
-  const showFavorites           = _o('favorites',            _rawFavorites);
-  const showFavoritesOnlyToggle = _o('favorites-only-toggle', _rawFavoritesOnlyToggle);
-  const showAudioPlayer         = _o('audio-player',          _rawAudioPlayer);
-  const showHighContrastTheme   = _o('high-contrast-theme',   _rawHighContrastTheme);
-  const showSpeedReader         = _o('speed-reader',          _rawSpeedReader);
-  const showSpeedreaderOrp      = _o('speedreader-orp',        _rawSpeedreaderOrp);
-  const showWordBlacklist       = _o('word-blacklist',          _rawWordBlacklist);
-
-  // Raw values keyed by feature key — used in profile feature toggles
-  const _rawFlagValues = {
-    'word-count': _rawWordCount, 'reading-duration': _rawReadingDuration,
-    'font-size-controls': _rawFontSizeControls, 'eink-flash': _rawEinkFlash,
-    'tap-zones': _rawTapZones, 'adaption-switcher': _rawAdaptionSwitcher,
-    'typography-panel': _rawTypographyPanel, 'attribution': _rawAttribution,
-    'favorites': _rawFavorites, 'favorites-only-toggle': _rawFavoritesOnlyToggle,
-    'audio-player': _rawAudioPlayer,
-    'high-contrast-theme': _rawHighContrastTheme,
-    'speed-reader': _rawSpeedReader,
-    'speedreader-orp': _rawSpeedreaderOrp,
-    'word-blacklist': _rawWordBlacklist,
-  };
+  const {
+    showWordCount, showReadingDuration, showFontSizeControls, showEinkFlash,
+    showTapZones, showAdaptionSwitcher, showTypographyPanel, showAttribution,
+    showFavorites, showFavoritesOnlyToggle, showAudioPlayer, showHighContrastTheme,
+    showSpeedReader, showSpeedreaderOrp, showWordBlacklist, _rawFlagValues,
+    userFeatureOverrides, setUserFeatureOverrides, _o,
+    flagTheme, bigFontsVariant,
+  } = flags;
 
   const [favoritesOnly, setFavoritesOnly] = useState(() => localStorage.getItem('wr-favorites-only') === 'true');
-  const flagTheme = useStringFlagValue('theme', 'light');
-  const bigFontsVariant = useStringFlagValue('big-fonts', 'off');
-  const maxFontSize = { off: 28, big: 28, bigger: 34, biggest: 40 }[bigFontsVariant] ?? 28;
 
-  // Clamp stored font size when the flag variant reduces the ceiling
-  useEffect(() => { setFontSize(f => Math.min(f, maxFontSize)); }, [maxFontSize]);
 
   const [theme, setTheme] = useState(() => localStorage.getItem('wr-theme') ?? flagTheme); // 'light' | 'dark' | 'system'
   const [systemDark, setSystemDark] = useState(
@@ -765,24 +705,7 @@ const GrimmMarchenApp = () => {
             /* Source list */
             <div className="px-3 pb-4 space-y-2">
               {sources.map(src => (
-                <button
-                  key={src.id}
-                  data-testid="source-button"
-                  onClick={() => setActiveSource(src.id)}
-                  className={`w-full flex items-center justify-between px-4 py-3.5 rounded-xl transition-all ${
-                    darkMode
-                      ? 'bg-slate-800 hover:bg-slate-700 text-amber-100'
-                      : 'bg-amber-50 hover:bg-amber-100 text-amber-900'
-                  }`}
-                >
-                  <span className="font-serif text-base font-medium">{src.label}</span>
-                  <div className="flex items-center gap-2">
-                    <span className={`text-sm tabular-nums ${darkMode ? 'text-amber-500' : 'text-amber-600'}`}>
-                      {src.count}
-                    </span>
-                    <ChevronRight size={16} className={darkMode ? 'text-amber-600' : 'text-amber-400'} />
-                  </div>
-                </button>
+                <SourceButton key={src.id} src={src} onClick={() => setActiveSource(src.id)} />
               ))}
             </div>
           )}

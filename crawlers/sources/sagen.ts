@@ -55,7 +55,7 @@ export const swiss: SourceAdapter = {
         const title = a.text.trim();
         if (!title || title.length < 3) continue;
 
-        const slug = `${canton}_${storyHref.replace(/\.(html|htm)$/, '')}`;
+        const slug = `${canton}/${storyHref.replace(/\.(html|htm)$/, '')}`;
         if (seen.has(slug)) continue;
         seen.add(slug);
 

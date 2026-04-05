@@ -552,6 +552,22 @@ const DOCS = {
     tip: 'Die Filterung prüft den gesamten Märchentext, nicht nur den Titel. Ein Wort wie „Blut" blendet also auch Märchen aus, in denen das Wort nur einmal vorkommt.',
   },
 
+  'story-directories': {
+    lead: 'Die Verzeichnisstruktur gliedert Geschichten in der Seitenleiste nach ihrer Ordnerhierarchie — nützlich für Quellen wie „Schweizer Sagen", die nach Kanton oder Region unterteilt sind.',
+    on: [
+      'Bei Quellen mit Unterordnern erscheint nach dem Antippen des Quellennamens zuerst eine Ordnerliste statt direkt die Geschichtenliste.',
+      'Jeder Ordner zeigt seinen Namen und die Anzahl der enthaltenen Geschichten an.',
+      'Ein Antippen des Ordners öffnet die Geschichtenliste für genau diesen Ordner.',
+      'In der Geschichtenliste erscheint oben ein Zurück-Button, der zur Ordnerliste führt.',
+      'Quellen ohne Unterordner (z. B. Grimm, Andersen) zeigen weiterhin direkt die Geschichtenliste.',
+    ],
+    off: [
+      'Alle Geschichten einer Quelle werden auf einer Ebene angezeigt, unabhängig davon, ob sie in Unterordnern gespeichert sind.',
+      'Die Navigation bleibt zweistufig: Quellenauswahl → Geschichtenliste.',
+    ],
+    tip: 'Die Ordnerstruktur entspricht der Verzeichnishierarchie auf dem Server. Der Crawler muss mit der entsprechenden Unterstützung laufen, damit Unterordner angelegt werden.',
+  },
+
   'speedreader-orp': {
     lead: 'Die ORP-Lesemarke (Optimal Recognition Point) hebt einen bestimmten Buchstaben jedes Worts farblich hervor und richtet ihn an einem festen Bildschirmpunkt aus — optionale Führungslinien helfen dem Auge, den Fixationspunkt zu halten.',
     steps: [

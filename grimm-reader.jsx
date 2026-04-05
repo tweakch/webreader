@@ -29,7 +29,7 @@ const GrimmMarchenApp = () => {
     showWordCount, showReadingDuration, showFontSizeControls, showEinkFlash,
     showTapZones, showAdaptionSwitcher, showTypographyPanel, showAttribution,
     showFavorites, showFavoritesOnlyToggle, showAudioPlayer, showHighContrastTheme,
-    showSpeedReader, showSpeedreaderOrp, showWordBlacklist, _rawFlagValues,
+    showSpeedReader, showSpeedreaderOrp, showWordBlacklist, showStoryDirectories, _rawFlagValues,
     userFeatureOverrides, setUserFeatureOverrides, _o,
     flagTheme, bigFontsVariant,
   } = flags;
@@ -44,18 +44,40 @@ const GrimmMarchenApp = () => {
   const [docsOpen, setDocsOpen] = useState(false);
   const [docsAnchor, setDocsAnchor] = useState(null);
   const [activeSource, setActiveSource] = useState(() => localStorage.getItem('wr-last-source') || null);
+  const [activeDirectory, setActiveDirectory] = useState(null);
+
+  const handleSelectSource = React.useCallback((sourceId) => {
+    setActiveSource(sourceId);
+    setActiveDirectory(null);
+  }, []);
 
 
   const readerAreaRef = useRef(null);
   const measureRef = useRef(null);
   const stories = React.useMemo(() => {
-    const modules = import.meta.glob('/stories/*/*/content.md', { eager: true, query: '?raw', import: 'default' });
-    return Object.entries(modules)
+    // 2-level: /stories/{source}/{slug}/content.md
+    const modules2 = import.meta.glob('/stories/*/*/content.md', { eager: true, query: '?raw', import: 'default' });
+    // 3-level: /stories/{source}/{directory}/{slug}/content.md
+    const modules3 = import.meta.glob('/stories/*/*/*/content.md', { eager: true, query: '?raw', import: 'default' });
+    const allModules = { ...modules2, ...modules3 };
+
+    return Object.entries(allModules)
       .map(([path, raw]) => {
-        // Extract source and slug from path: /stories/{source}/{slug}/content.md
+        // Extract source, optional directory, and slug from path
         const parts = path.split('/');
-        const slug = parts[parts.length - 2];
-        const source = parts[parts.length - 3];
+        // parts[0] = '', parts[1] = 'stories', then source, [dir,] slug, 'content.md'
+        let source, directory, slug;
+        if (parts.length === 6) {
+          // /stories/{source}/{directory}/{slug}/content.md
+          source = parts[2];
+          directory = parts[3];
+          slug = parts[4];
+        } else {
+          // /stories/{source}/{slug}/content.md
+          source = parts[2];
+          directory = null;
+          slug = parts[3];
+        }
 
         // Parse YAML frontmatter
         const fmMatch = raw.match(/^---\n([\s\S]*?)\n---\n/);
@@ -71,7 +93,8 @@ const GrimmMarchenApp = () => {
         const afterFm = fmMatch ? raw.slice(fmMatch[0].length) : raw;
         const content = afterFm.replace(/^#[^\n]*\n\n/, '').trimEnd();
 
-        return { id: `${source}/${slug}`, title, content, source, sourceLabel, wordCount };
+        const id = directory ? `${source}/${directory}/${slug}` : `${source}/${slug}`;
+        return { id, title, content, source, directory, sourceLabel, wordCount };
       })
       .sort((a, b) => a.title.localeCompare(b.title, 'de'));
   }, []);
@@ -142,6 +165,21 @@ const GrimmMarchenApp = () => {
       count: list.length,
     }))
   , [storiesBySource]);
+
+  const directoriesBySource = React.useMemo(() => {
+    const map = {};
+    for (const story of visibleStories) {
+      if (!story.directory) continue;
+      if (!map[story.source]) map[story.source] = {};
+      if (!map[story.source][story.directory]) {
+        map[story.source][story.directory] = { id: story.directory, label: story.directory, count: 0 };
+      }
+      map[story.source][story.directory].count++;
+    }
+    return Object.fromEntries(
+      Object.entries(map).map(([src, dirs]) => [src, Object.values(dirs)])
+    );
+  }, [visibleStories]);
 
   const filteredStories = searchTerm
     ? visibleStories.filter(s => s.title.toLowerCase().includes(searchTerm.toLowerCase()))
@@ -320,7 +358,11 @@ const GrimmMarchenApp = () => {
           showFavorites={showFavorites}
           selectedStory={selectedStory}
           activeSource={activeSource}
-          onSelectSource={setActiveSource}
+          onSelectSource={handleSelectSource}
+          activeDirectory={activeDirectory}
+          onSelectDirectory={setActiveDirectory}
+          showStoryDirectories={showStoryDirectories}
+          directoriesBySource={directoriesBySource}
           onSelectStory={setSelectedStory}
           completedStories={completedStories}
           favorites={favorites}

@@ -16,5 +16,6 @@
   "audio-player":      { "defaultVariant": "off", "variants": { "on": true, "off": false } },
   "big-fonts":         { "defaultVariant": "off", "variants": { "off": "off", "big": "big", "bigger": "bigger", "biggest": "biggest" } },
   "high-contrast-theme": { "defaultVariant": "off", "variants": { "on": true, "off": false } },
-  "word-blacklist":      { "defaultVariant": "off", "variants": { "on": true, "off": false } }
+  "word-blacklist":      { "defaultVariant": "off", "variants": { "on": true, "off": false } },
+  "story-directories":   { "defaultVariant": "off", "variants": { "on": true, "off": false } }
 }

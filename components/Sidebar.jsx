@@ -20,6 +20,10 @@ export default function Sidebar({
   selectedStory,
   activeSource,
   onSelectSource,
+  activeDirectory,
+  onSelectDirectory,
+  showStoryDirectories,
+  directoriesBySource,
   onSelectStory,
   completedStories,
   favorites,
@@ -147,6 +151,94 @@ export default function Sidebar({
               />
             ))}
           </div>
+        ) : activeSource && showStoryDirectories && activeDirectory ? (
+          /* Drilled into a directory — back to directory list + story list */
+          <>
+            <div className="px-3 pb-2">
+              <button
+                data-testid="back-to-directories"
+                onClick={() => onSelectDirectory(null)}
+                className={`flex items-center gap-1.5 w-full px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
+                  darkMode
+                    ? 'text-amber-400 hover:bg-slate-800'
+                    : 'text-amber-700 hover:bg-amber-100'
+                }`}
+              >
+                <ChevronLeft size={16} />
+                <span>{activeDirectory}</span>
+                <span className={`ml-auto text-xs px-1.5 py-0.5 rounded ${
+                  darkMode ? 'bg-slate-700 text-amber-500' : 'bg-amber-100 text-amber-600'
+                }`}>
+                  {(storiesBySource[activeSource] ?? []).filter(s => s.directory === activeDirectory).length}
+                </span>
+              </button>
+            </div>
+            <div className={`mx-3 mb-3 h-px ${darkMode ? 'bg-amber-800/40' : 'bg-amber-200'}`} />
+            <div className="px-3 pb-4 space-y-1">
+              {(storiesBySource[activeSource] ?? [])
+                .filter(s => s.directory === activeDirectory)
+                .map(story => (
+                  <StoryButton
+                    key={story.id}
+                    story={story}
+                    isActive={selectedStory?.id === story.id}
+                    isCompleted={completedStories.has(story.id)}
+                    isFavorite={favorites.has(story.id)}
+                    showWordCount={showWordCount}
+                    showFavoriteButton={showFavorites}
+                    testId="story-button"
+                    onClick={() => { onSelectStory(story); onMenuToggle(); }}
+                    onFavoriteClick={(e) => onToggleFavorite(story.id, e)}
+                  />
+                ))}
+            </div>
+          </>
+        ) : activeSource && showStoryDirectories && directoriesBySource[activeSource]?.length ? (
+          /* Drilled into a source with directories — show directory list */
+          <>
+            <div className="px-3 pb-2">
+              <button
+                data-testid="back-to-sources"
+                onClick={() => onSelectSource(null)}
+                className={`flex items-center gap-1.5 w-full px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
+                  darkMode
+                    ? 'text-amber-400 hover:bg-slate-800'
+                    : 'text-amber-700 hover:bg-amber-100'
+                }`}
+              >
+                <ChevronLeft size={16} />
+                <span>{sources.find(s => s.id === activeSource)?.label}</span>
+                <span className={`ml-auto text-xs px-1.5 py-0.5 rounded ${
+                  darkMode ? 'bg-slate-700 text-amber-500' : 'bg-amber-100 text-amber-600'
+                }`}>
+                  {storiesBySource[activeSource]?.length}
+                </span>
+              </button>
+            </div>
+            <div className={`mx-3 mb-3 h-px ${darkMode ? 'bg-amber-800/40' : 'bg-amber-200'}`} />
+            <div className="px-3 pb-4 space-y-2">
+              {(directoriesBySource[activeSource] ?? []).map(dir => (
+                <button
+                  key={dir.id}
+                  data-testid="directory-button"
+                  onClick={() => onSelectDirectory(dir.id)}
+                  className={`w-full flex items-center justify-between px-3 py-2.5 rounded-lg transition-all ${
+                    darkMode
+                      ? 'text-amber-100 hover:bg-slate-800'
+                      : 'text-amber-900 hover:bg-amber-100'
+                  }`}
+                >
+                  <span className="font-serif text-base">{dir.label}</span>
+                  <span className={`text-xs tabular-nums mr-1 ${
+                    darkMode ? 'text-amber-400' : 'text-amber-700'
+                  }`}>
+                    {dir.count}
+                  </span>
+                  <ChevronRight size={16} />
+                </button>
+              ))}
+            </div>
+          </>
         ) : activeSource ? (
           /* Drilled into a source — back button + story list */
           <>

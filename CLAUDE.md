@@ -23,10 +23,11 @@ npx playwright test -g "dead space"
 
 ### Story pipeline
 
-Content is **not hardcoded** — it lives in `stories/{source}/{slug}/content.md` files with YAML frontmatter. The app loads them at build time via Vite's `import.meta.glob`:
+Content is **not hardcoded** — it lives in `stories/{source}/{slug}/content.md` files (2-level) or `stories/{source}/{directory}/{slug}/content.md` files (3-level) with YAML frontmatter. The app loads both depths at build time via two Vite `import.meta.glob` calls:
 
 ```js
-import.meta.glob('/stories/*/*/content.md', { eager: true, query: '?raw', import: 'default' })
+import.meta.glob('/stories/*/*/content.md', ...)    // 2-level (Grimm, Andersen)
+import.meta.glob('/stories/*/*/*/content.md', ...)  // 3-level (Swiss cantons)
 ```
 
 The crawler (`npm run crawl`) populates this directory. To add a new source, implement the `SourceAdapter` interface in `crawlers/sources/` and register it in `crawlers/index.ts`. The core fetch/write utilities are in `crawlers/core.ts`.
@@ -45,12 +46,23 @@ The reading viewport (`readerAreaRef`) and the nav bar are **flex siblings** —
 
 ### Sidebar navigation
 
-The sidebar has two levels: source list → story list. State: `activeSource` (null = source list, string = drilled into that source). Global search (`searchTerm`) bypasses the drill-down and shows all matching stories with a source badge.
+The sidebar has up to three levels: source list → (directory list) → story list. State: `activeSource` (null = source list, string = drilled into that source), `activeDirectory` (null = source/directory level, string = drilled into that directory). When the `story-directories` flag is off, directories are ignored and the sidebar stays two-level. Global search (`searchTerm`) bypasses the drill-down and shows all matching stories with a source badge.
+
+### Story directory structure
+
+Sources can store stories at two depths:
+- 2-level: `stories/{source}/{slug}/content.md` — Grimm, Andersen
+- 3-level: `stories/{source}/{directory}/{slug}/content.md` — Swiss (canton as directory)
+
+The app loads both with two `import.meta.glob` calls and detects depth from path length. Story ids are `{source}/{slug}` (2-level) or `{source}/{directory}/{slug}` (3-level).
 
 ### Key `data-testid` attributes
 
 Used by Playwright tests — don't remove them:
 `reader-viewport`, `page-content`, `nav-bar`, `page-counter`, `prev-page`, `next-page`, `font-increase`, `font-decrease`, `menu-toggle`, `source-button`, `story-button`
+
+Story-directories flag (visible when `story-directories` flag is on):
+`directory-button` (directory list items), `back-to-directories` (back button from story list to directory list)
 
 Speed reader (visible when `speed-reader` flag is on):
 `speed-reader-toggle` (nav-bar button to enter/exit mode), `speed-reader-word` (RSVP word display), `speed-reader-play` (play/pause), `speed-reader-back` (back to sentence start), `speed-reader-wpm-decrease`, `speed-reader-wpm-increase`

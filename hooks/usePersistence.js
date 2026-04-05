@@ -4,15 +4,18 @@ import { useState, useRef, useEffect } from 'react';
  * Persistence hook for favorites, completed stories, variants, blacklist, and resume session.
  * Manages localStorage sync and related effects.
  *
- * @param {Object} deps - { stories, adaptionsByParent, selectedStory, activeSource, currentPage, totalPages }
+ * Note: marking-as-completed and saving the current page number depend on
+ * currentPage/totalPages from useReader, which in turn depends on selectedVariant
+ * from this hook.  To break that circular dependency those two effects live in
+ * the parent component (GrimmMarchenApp) instead of here.
+ *
+ * @param {Object} deps - { stories, adaptionsByParent, selectedStory, activeSource }
  */
 export function usePersistence({
   stories = [],
   adaptionsByParent = {},
   selectedStory = null,
   activeSource = null,
-  currentPage = 0,
-  totalPages = 1,
 } = {}) {
   // Completed stories
   const [completedStories, setCompletedStories] = useState(() =>
@@ -92,24 +95,6 @@ export function usePersistence({
     if (selectedStory) setResumeSession(null);
   }, [selectedStory]);
 
-  // Mark story as completed when reaching last page
-  useEffect(() => {
-    if (!selectedStory || totalPages <= 1 || currentPage !== totalPages - 1) return;
-    setCompletedStories(prev => {
-      if (prev.has(selectedStory.id)) return prev;
-      const next = new Set(prev);
-      next.add(selectedStory.id);
-      return next;
-    });
-  }, [selectedStory, currentPage, totalPages]);
-
-  // Persist last viewed story/page
-  useEffect(() => {
-    if (!selectedStory) return;
-    localStorage.setItem('wr-last-story', selectedStory.id);
-    localStorage.setItem('wr-last-page', currentPage);
-  }, [selectedStory, currentPage]);
-
   // Reset variant when a new story is selected; restore persisted preference if available
   useEffect(() => {
     if (!selectedStory) { setSelectedVariant(null); return; }
@@ -174,6 +159,15 @@ export function usePersistence({
     });
   };
 
+  const markCompleted = (storyId) => {
+    setCompletedStories(prev => {
+      if (prev.has(storyId)) return prev;
+      const next = new Set(prev);
+      next.add(storyId);
+      return next;
+    });
+  };
+
   return {
     completedStories,
     resumeSession,
@@ -194,6 +188,7 @@ export function usePersistence({
     toggleFavoriteById,
     addBlacklistWord,
     removeBlacklistWord,
+    markCompleted,
     pendingResumePageRef,
   };
 }

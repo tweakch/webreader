@@ -8,13 +8,18 @@
   "devDependencies": {
     "@playwright/test": "^1.59.1",
     "@tailwindcss/postcss": "4.2.2",
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.2",
+    "@testing-library/user-event": "^14.6.1",
     "@vitejs/plugin-react": "6.0.1",
     "autoprefixer": "10.4.27",
+    "jsdom": "^29.0.1",
     "node-html-parser": "^7.0.0",
     "postcss": "8.5.8",
     "tailwindcss": "4.2.2",
     "tsx": "^4.19.4",
-    "vite": "8.0.3"
+    "vite": "8.0.3",
+    "vitest": "^4.1.2"
   },
   "scripts": {
     "dev": "vite",
@@ -23,6 +28,8 @@
     "normalize": "tsx crawlers/normalize.ts",
     "test": "playwright test",
     "test:ui": "playwright test --ui",
+    "test:unit": "vitest run",
+    "test:unit:watch": "vitest",
     "design": "vite --config vite.design.config.js"
   }
 }

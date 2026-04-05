@@ -1162,6 +1162,7 @@ const GrimmMarchenApp = () => {
                 {/* Left tap zone — previous page */}
                 {showTapZones && (
                   <div
+                    data-testid="tap-zone-left"
                     className="absolute left-0 top-0 bottom-0 z-10 cursor-pointer"
                     style={{ width: '30%' }}
                     onClick={() => goToPage(currentPage - 1)}
@@ -1171,6 +1172,7 @@ const GrimmMarchenApp = () => {
                 {/* Right tap zone — next page */}
                 {showTapZones && (
                   <div
+                    data-testid="tap-zone-right"
                     className="absolute right-0 top-0 bottom-0 z-10 cursor-pointer"
                     style={{ width: '30%' }}
                     onClick={() => goToPage(currentPage + 1)}

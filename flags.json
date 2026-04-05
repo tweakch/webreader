@@ -1,7 +1,7 @@
 {
   "favorites":              { "defaultVariant": "on",  "variants": { "on": true, "off": false } },
   "favorites-only-toggle":  { "defaultVariant": "on",  "variants": { "on": true, "off": false } },
-  "word-count":        { "defaultVariant": "on",  "variants": { "on": true, "off": false } },
+  "word-count":        { "defaultVariant": "off", "variants": { "on": true, "off": false } },
   "reading-duration":  { "defaultVariant": "on",  "variants": { "on": true, "off": false } },
   "font-size-controls":{ "defaultVariant": "on",  "variants": { "on": true, "off": false } },
   "eink-flash":        { "defaultVariant": "on",  "variants": { "on": true, "off": false } },

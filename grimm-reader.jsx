@@ -1143,6 +1143,7 @@ const GrimmMarchenApp = () => {
                           <button
                             onClick={() => setSelectedStory(null)}
                             title="Zur Übersicht"
+                            data-testid="story-close"
                             className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium transition-colors ${
                               highContrast
                                 ? (darkMode ? 'bg-white text-black hover:bg-gray-100' : 'bg-black text-white hover:bg-gray-900')

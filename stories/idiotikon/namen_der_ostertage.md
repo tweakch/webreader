@@ -1,7 +1,7 @@
 ---
-title:"Namen der Ostertage"
-source:"Schweizer Idiotikon"
-wordCount:"1234"
+title: "Namen der Ostertage"
+source: "Schweizer Idiotikon"
+wordCount: "1234"
 ---
 Unser Wortschatz wandelt sich. Ein konkretes Bewusstsein dafür haben jeweils diejenigen Generationen, die eine bestimmte Veränderung direkt erleben, doch bald schon herrscht das Gefühl, man habe ja «schon immer» so gesagt. Ein Beispiel sind die Wörter für die Feiertage rund um Ostern: Während das Wort für das Hauptfest – Ooschtere «Ostern» – tatsächlich unverrückbar ist, haben die Bezeichnungen für die vorangehenden und den folgenden Tag in Tat und Wahrheit eine wechselvollere Geschichte.
 

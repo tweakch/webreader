@@ -259,6 +259,18 @@ export const FEATURES = [
       </svg>
     ),
   },
+  {
+    key: 'debug-badges',
+    label: 'Debug-Badges',
+    description: 'Zeigt auf jeder Komponente ein Badge mit dem technischen Namen an — für Tester, damit sie immer den richtigen data-testid-Namen kennen.',
+    Icon: () => (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M12 2L2 7l10 5 10-5-10-5z" />
+        <path d="M2 17l10 5 10-5" />
+        <path d="M2 12l10 5 10-5" />
+      </svg>
+    ),
+  },
   // status: Umgesetzt
   {
     key: 'speedreader-orp',

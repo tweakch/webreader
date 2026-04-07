@@ -6,6 +6,7 @@ import { useTypography } from './hooks/useTypography';
 import { usePersistence } from './hooks/usePersistence';
 import { useReader } from './hooks/useReader';
 import FeatureDocs from './FeatureDocs';
+import { useRole } from './hooks/useRole';
 import { ThemeContext } from './ui/ThemeContext';
 import Toggle from './ui/Toggle';
 import IconButton from './ui/IconButton';
@@ -16,6 +17,7 @@ import Sidebar from './components/Sidebar';
 import TypographyPanel, { LINE_HEIGHTS, WORD_SPACINGS, FONT_FAMILIES } from './ui/TypographyPanel';
 import AudioPlayer from './ui/AudioPlayer';
 import SpeedReaderView from './ui/SpeedReaderView';
+import DebugOverlay from './components/DebugOverlay';
 
 const storyAudioFiles = import.meta.glob('/stories/*/*/audio.mp3', { eager: true, query: '?url', import: 'default' });
 
@@ -29,10 +31,16 @@ const GrimmMarchenApp = () => {
     showWordCount, showReadingDuration, showFontSizeControls, showEinkFlash,
     showTapZones, showAdaptionSwitcher, showTypographyPanel, showAttribution,
     showFavorites, showFavoritesOnlyToggle, showAudioPlayer, showHighContrastTheme,
-    showSpeedReader, showSpeedreaderOrp, showWordBlacklist, showStoryDirectories, _rawFlagValues,
+    showSpeedReader, showSpeedreaderOrp, showWordBlacklist, showStoryDirectories, showDebugBadges,
+    _rawFlagValues,
     userFeatureOverrides, setUserFeatureOverrides, _o,
     flagTheme, bigFontsVariant,
   } = flags;
+
+  // Role management
+  const {
+    role, setRole, isAdmin, visibleFeatureKeys, isFeatureAssignedToRole, toggleFeatureForRole,
+  } = useRole();
 
   // Typography
   const typo = useTypography({ maxFontSize });
@@ -419,6 +427,12 @@ const GrimmMarchenApp = () => {
               _rawFlagValues={_rawFlagValues}
               userFeatureOverrides={userFeatureOverrides}
               onToggleFeature={(key) => setUserFeatureOverrides(prev => ({ ...prev, [key]: !_o(key, _rawFlagValues[key] ?? false) }))}
+              role={role}
+              setRole={setRole}
+              isAdmin={isAdmin}
+              visibleFeatureKeys={visibleFeatureKeys}
+              isFeatureAssignedToRole={isFeatureAssignedToRole}
+              toggleFeatureForRole={toggleFeatureForRole}
             />
           ) : selectedStory ? (
             <ReaderView
@@ -488,6 +502,8 @@ const GrimmMarchenApp = () => {
         </main>
       </div>
     </div>
+
+    {showDebugBadges && <DebugOverlay />}
     </ThemeContext.Provider>
   );
 };

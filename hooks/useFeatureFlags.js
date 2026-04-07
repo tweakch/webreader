@@ -23,6 +23,7 @@ export function useFeatureFlags() {
   const _rawSpeedreaderOrp = useBooleanFlagValue('speedreader-orp', false);
   const _rawWordBlacklist = useBooleanFlagValue('word-blacklist', false);
   const _rawStoryDirectories = useBooleanFlagValue('story-directories', false);
+  const _rawDebugBadges = useBooleanFlagValue('debug-badges', false);
 
   // User feature overrides — stored in localStorage, take precedence over flag defaults
   const [userFeatureOverrides, setUserFeatureOverrides] = useState(() =>
@@ -53,6 +54,7 @@ export function useFeatureFlags() {
   const showSpeedreaderOrp = _o('speedreader-orp', _rawSpeedreaderOrp);
   const showWordBlacklist = _o('word-blacklist', _rawWordBlacklist);
   const showStoryDirectories = _o('story-directories', _rawStoryDirectories);
+  const showDebugBadges = _o('debug-badges', _rawDebugBadges);
 
   // Raw values keyed by feature key — used in profile feature toggles
   const _rawFlagValues = {
@@ -72,6 +74,7 @@ export function useFeatureFlags() {
     'speedreader-orp': _rawSpeedreaderOrp,
     'word-blacklist': _rawWordBlacklist,
     'story-directories': _rawStoryDirectories,
+    'debug-badges': _rawDebugBadges,
   };
 
   // String flags
@@ -96,6 +99,7 @@ export function useFeatureFlags() {
     showSpeedreaderOrp,
     showWordBlacklist,
     showStoryDirectories,
+    showDebugBadges,
     _rawFlagValues,
     userFeatureOverrides,
     setUserFeatureOverrides,

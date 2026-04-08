@@ -1,10 +1,10 @@
 import { useTheme } from '../ui/ThemeContext';
 
 /**
- * E-ink flash overlay — absolute-positioned div that flashes white on page turn.
+ * E-ink flash overlay - absolute-positioned div that flashes white on page turn.
  * Only rendered when eink-flash flag is on.
  *
- * isFlashing — whether currently in flash state
+ * isFlashing - whether currently in flash state
  */
 export default function EInkFlashOverlay({ isFlashing }) {
   const { dark, hc } = useTheme();

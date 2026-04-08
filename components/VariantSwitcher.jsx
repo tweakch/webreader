@@ -2,13 +2,13 @@ import { cn } from '../ui/cn';
 import { useTheme } from '../ui/ThemeContext';
 
 /**
- * Adaption variant switcher — pill row for selecting story variants.
+ * Adaption variant switcher - pill row for selecting story variants.
  * Shows "Original" + any adaptions in a horizontal scrolling row.
  * Only rendered when adaption-switcher flag is on and adaptions exist.
  *
- * adaptions — array of variant objects
- * selectedVariant — current selected variant (or null for original)
- * onSelect — called with variant object or null when "Original" is clicked
+ * adaptions - array of variant objects
+ * selectedVariant - current selected variant (or null for original)
+ * onSelect - called with variant object or null when "Original" is clicked
  */
 export default function VariantSwitcher({ adaptions = [], selectedVariant, onSelect }) {
   const { tc } = useTheme();

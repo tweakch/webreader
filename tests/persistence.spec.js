@@ -48,7 +48,7 @@ async function getSourceId(page) {
   await page.goto('/app');
   const hamburger = page.locator('[data-testid="menu-toggle"]');
   if (await hamburger.isVisible()) await hamburger.click();
-  // Click the first source to drill in — grab the source ID from the URL or DOM
+  // Click the first source to drill in - grab the source ID from the URL or DOM
   // We use the data-testid="source-button" text label to identify it
   return page.locator('[data-testid="source-button"]').first().textContent();
 }
@@ -278,7 +278,7 @@ test.describe('resume last story + page', () => {
     // Banner should appear on home
     await expect(page.locator('[data-testid="resume-banner"]')).toBeVisible();
 
-    // Click resume — now reading the story
+    // Click resume - now reading the story
     await page.locator('[data-testid="resume-confirm"]').click();
     await page.waitForSelector('[data-testid="page-content"] p');
 
@@ -409,7 +409,7 @@ test.describe('variant preference per story', () => {
     // Actually variant buttons are siblings of reader-viewport in the flex col
     const allVariantBtns = page.locator('button').filter({ hasText: /^(?!Original)/ });
 
-    // Get the adaption switcher area — it's in the flex column between reader and nav
+    // Get the adaption switcher area - it's in the flex column between reader and nav
     // Use the nav-bar's sibling approach
     const adaptionBar = page.locator('[data-testid="nav-bar"]').locator('..').locator('div').first();
     const nonOriginal = adaptionBar.locator('button').nth(1); // first non-Original
@@ -442,7 +442,7 @@ test.describe('variant preference per story', () => {
     await variantBtn.click();
     await page.waitForTimeout(100);
 
-    // Reload — the same story should reopen on page 1 with the variant still active
+    // Reload - the same story should reopen on page 1 with the variant still active
     await page.reload();
     const hamburger = page.locator('[data-testid="menu-toggle"]');
     if (await hamburger.isVisible()) await hamburger.click();

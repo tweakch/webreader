@@ -59,4 +59,4 @@ for (const source of readdirSync(STORIES_DIR, { withFileTypes: true })) {
   }
 }
 
-console.log(`Done — ${updated} files updated, ${skipped} already had wordCount.`);
+console.log(`Done - ${updated} files updated, ${skipped} already had wordCount.`);

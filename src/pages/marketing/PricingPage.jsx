@@ -69,7 +69,7 @@ export default function PricingPage() {
           </ul>
         </div>
 
-        {/* Pro plan — coming soon */}
+        {/* Pro plan - coming soon */}
         <div className="bg-amber-900 rounded-2xl border border-amber-700 shadow-lg p-8 text-amber-50 relative overflow-hidden">
           <div className="absolute top-4 right-4 px-2 py-0.5 text-xs font-semibold bg-amber-700 text-amber-200 rounded-full">
             {t('pricing.coming_soon')}

@@ -58,13 +58,28 @@ export default function MarketingNav() {
   return (
     <header className="sticky top-0 z-40 bg-amber-50/90 backdrop-blur border-b border-amber-200">
       <nav className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-        {/* Logo */}
-        <Link to="/" className="font-serif text-xl font-bold text-amber-900 tracking-tight">
-          Märchenschatz
-        </Link>
+        {/* Left cluster: mobile menu + logo */}
+        <div className="flex items-center gap-2">
+          <button
+            className="lg:hidden p-2 text-amber-900"
+            onClick={() => setMobileOpen(v => !v)}
+            aria-label="Toggle menu"
+          >
+            <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              {mobileOpen
+                ? <><line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" /></>
+                : <><line x1="3" y1="6" x2="21" y2="6" /><line x1="3" y1="12" x2="21" y2="12" /><line x1="3" y1="18" x2="21" y2="18" /></>
+              }
+            </svg>
+          </button>
+
+          <Link to="/" className="font-serif text-xl font-bold text-amber-900 tracking-tight">
+            Märchenschatz
+          </Link>
+        </div>
 
         {/* Desktop nav */}
-        <div className="hidden md:flex items-center gap-6">
+        <div className="hidden lg:flex items-center gap-6">
           <DropdownMenu
             label={t('nav.product')}
             links={productLinks}
@@ -89,34 +104,30 @@ export default function MarketingNav() {
         </div>
 
         {/* CTA and Language switcher */}
-        <div className="hidden md:flex items-center gap-3">
+        <div className="hidden lg:flex items-center gap-3">
           <LanguageSwitcher />
           <Link
             to="/app"
-            className="px-4 py-2 text-sm font-semibold bg-amber-800 text-amber-50 rounded-lg hover:bg-amber-700 transition-colors"
+            className="px-4 py-2 text-sm font-semibold whitespace-nowrap shrink-0 bg-amber-800 text-amber-50 rounded-lg hover:bg-amber-700 transition-colors"
           >
             {t('nav.open_app')}
           </Link>
         </div>
 
-        {/* Mobile hamburger */}
-        <button
-          className="md:hidden p-2 text-amber-900"
-          onClick={() => setMobileOpen(v => !v)}
-          aria-label="Toggle menu"
-        >
-          <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-            {mobileOpen
-              ? <><line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" /></>
-              : <><line x1="3" y1="6" x2="21" y2="6" /><line x1="3" y1="12" x2="21" y2="12" /><line x1="3" y1="18" x2="21" y2="18" /></>
-            }
-          </svg>
-        </button>
+        {/* Mobile / tablet CTA */}
+        <div className="lg:hidden flex items-center">
+          <Link
+            to="/app"
+            className="px-3 py-1.5 text-sm font-semibold whitespace-nowrap shrink-0 bg-amber-800 text-amber-50 rounded-lg hover:bg-amber-700 transition-colors"
+          >
+            {t('nav.open_app')}
+          </Link>
+        </div>
       </nav>
 
       {/* Mobile menu */}
       {mobileOpen && (
-        <div className="md:hidden border-t border-amber-200 bg-amber-50 px-6 py-4 flex flex-col gap-4">
+        <div className="lg:hidden border-t border-amber-200 bg-amber-50 px-6 py-4 flex flex-col gap-4">
           <p className="text-xs font-semibold uppercase tracking-widest text-amber-500">{t('nav.product')}</p>
           {productLinks.map(({ to, label }) => (
             <Link key={to} to={to} onClick={() => setMobileOpen(false)} className="text-sm text-amber-900">{label}</Link>
@@ -131,9 +142,6 @@ export default function MarketingNav() {
           <Link to="/about" onClick={() => setMobileOpen(false)} className="text-sm text-amber-900">{t('nav.about')}</Link>
           <div className="flex items-center gap-3 mt-3 pt-3 border-t border-amber-200">
             <LanguageSwitcher />
-            <Link to="/app" onClick={() => setMobileOpen(false)} className="flex-1 text-center px-4 py-2 text-sm font-semibold bg-amber-800 text-amber-50 rounded-lg">
-              {t('nav.open_app')}
-            </Link>
           </div>
         </div>
       )}

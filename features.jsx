@@ -57,9 +57,15 @@ export const FEATURES = [
     Icon: () => <Type size={20} strokeWidth={1.75} />,
   },
   {
+    key: 'pinch-font-size',
+    label: 'Pinch-Zoom Schriftgröße',
+    description: 'Passt die Schriftgröße per Zwei-Finger-Pinch-Geste im Lesebereich an.',
+    Icon: () => <Type size={20} strokeWidth={1.75} />,
+  },
+  {
     key: 'eink-flash',
     label: 'Seitenumblättern-Effekt',
-    description: 'Kurzer Aufblitz beim Blättern — nachempfunden dem Bildschirm eines E-Ink-Lesegeräts.',
+    description: 'Kurzer Aufblitz beim Blättern - nachempfunden dem Bildschirm eines E-Ink-Lesegeräts.',
     Icon: () => <Zap size={20} strokeWidth={1.75} />,
   },
   {
@@ -96,7 +102,7 @@ export const FEATURES = [
   {
     key: 'read-along',
     label: 'Vorlesen mit Markierung',
-    description: 'Liest den Text vor und markiert dabei das aktuelle Wort — ideal für Kinder beim Lesenlernen.',
+    description: 'Liest den Text vor und markiert dabei das aktuelle Wort - ideal für Kinder beim Lesenlernen.',
     Icon: () => <BookOpen size={20} strokeWidth={1.75} />,
   },
   {
@@ -114,59 +120,59 @@ export const FEATURES = [
   {
     key: 'story-quiz',
     label: 'Geschichten-Quiz',
-    description: 'Einfache Verständnisfragen am Ende eines Märchens — macht das Lesen interaktiv für Kinder.',
+    description: 'Einfache Verständnisfragen am Ende eines Märchens - macht das Lesen interaktiv für Kinder.',
     Icon: () => <CircleHelp size={20} strokeWidth={1.75} />,
   },
   // Boomers
   {
     key: 'text-to-speech',
     label: 'Text-zu-Sprache',
-    description: 'Liest den Märchentext mit synthetischer Stimme vor — unabhängig von einer aufgenommenen Audiodatei.',
+    description: 'Liest den Märchentext mit synthetischer Stimme vor - unabhängig von einer aufgenommenen Audiodatei.',
     Icon: () => <Mic size={20} strokeWidth={1.75} />,
   },
   {
     key: 'word-blacklist',
     label: 'Wort-Blacklist',
-    description: 'Wörter eintragen, die du nicht lesen möchtest — Märchen mit diesen Wörtern werden in der Seitenleiste ausgeblendet.',
+    description: 'Wörter eintragen, die du nicht lesen möchtest - Märchen mit diesen Wörtern werden in der Seitenleiste ausgeblendet.',
     Icon: () => <Ban size={20} strokeWidth={1.75} />,
   },
   // status: Umgesetzt
   {
     key: 'story-directories',
     label: 'Verzeichnisstruktur',
-    description: 'Zeigt Geschichten in ihrer Ordnerstruktur an — für Quellen mit regionalen oder thematischen Unterordnern.',
+    description: 'Zeigt Geschichten in ihrer Ordnerstruktur an - für Quellen mit regionalen oder thematischen Unterordnern.',
     Icon: () => <Folder size={20} strokeWidth={1.75} />,
   },
   {
     key: 'simplified-ui',
     label: 'Vereinfachte Ansicht',
-    description: 'Blendet erweiterte Einstellungen aus und vergrößert Schaltflächen — für eine übersichtlichere, zugänglichere Bedienung.',
+    description: 'Blendet erweiterte Einstellungen aus und vergrößert Schaltflächen - für eine übersichtlichere, zugänglichere Bedienung.',
     Icon: () => <LayoutGrid size={20} strokeWidth={1.75} />,
   },
   // status: Umgesetzt
   {
     key: 'high-contrast-theme',
     label: 'Hochkontrast-Thema',
-    description: 'Fügt dem Themenkreis einen Hochkontrastmodus hinzu — schwarzer Hintergrund mit weißem Text und weißen Rändern für maximale Lesbarkeit.',
+    description: 'Fügt dem Themenkreis einen Hochkontrastmodus hinzu - schwarzer Hintergrund mit weißem Text und weißen Rändern für maximale Lesbarkeit.',
     Icon: () => <Contrast size={20} strokeWidth={1.75} />,
   },
   {
     key: 'speed-reader',
     label: 'Schnellleser',
-    description: 'Zeigt Wörter einzeln nacheinander in hoher Geschwindigkeit an — zum Training oder für schnelles Erfassen langer Texte.',
+    description: 'Zeigt Wörter einzeln nacheinander in hoher Geschwindigkeit an - zum Training oder für schnelles Erfassen langer Texte.',
     Icon: () => <ClockFading size={20} strokeWidth={1.75} />,
   },
   {
     key: 'debug-badges',
     label: 'Debug-Badges',
-    description: 'Zeigt auf jeder Komponente ein Badge mit dem technischen Namen an — für Tester, damit sie immer den richtigen data-testid-Namen kennen.',
+    description: 'Zeigt auf jeder Komponente ein Badge mit dem technischen Namen an - für Tester, damit sie immer den richtigen data-testid-Namen kennen.',
     Icon: () => <Bug size={20} strokeWidth={1.75} />,
   },
   // status: Umgesetzt
   {
     key: 'speedreader-orp',
     label: 'ORP-Lesemarke',
-    description: 'Hebt den optimalen Erkennungspunkt eines Worts farblich hervor und richtet ihn am Fixationspunkt aus — mit konfigurierbaren Führungslinien.',
+    description: 'Hebt den optimalen Erkennungspunkt eines Worts farblich hervor und richtet ihn am Fixationspunkt aus - mit konfigurierbaren Führungslinien.',
     Icon: () => <Crosshair size={20} strokeWidth={1.75} />,
   },
 ];

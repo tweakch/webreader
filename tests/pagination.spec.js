@@ -100,7 +100,7 @@ async function assertNoParagraphBehindHeader(page) {
 /**
  * Assert that the dead space between the last paragraph and the nav bar
  * is no more than one line of text (fontSize * lineHeight).
- * Only checked on non-last pages — the final page of a story can legitimately
+ * Only checked on non-last pages - the final page of a story can legitimately
  * end early.
  */
 async function assertDeadSpaceWithinOneLine(page, isLastPage) {
@@ -246,7 +246,7 @@ test.describe('edge cases', () => {
     await page.goto('/app');
     await openFirstStory(page);
 
-    // Min font size — more text fits per page
+    // Min font size - more text fits per page
     await setFontSize(page, 14);
     await assertAllPages(page);
   });

@@ -4,7 +4,7 @@ import Toggle from '../ui/Toggle';
 import { ROLES, ROLE_LABELS } from '../hooks/useRole';
 
 /**
- * Profile panel — user stats, word blacklist, feature toggles, and admin tools.
+ * Profile panel - user stats, word blacklist, feature toggles, and admin tools.
  * In admin mode shows all features (including unreleased) and role-assignment UI.
  */
 export default function ProfilePanel({
@@ -190,7 +190,7 @@ export default function ProfilePanel({
               Funktionen
               {isAdmin && (
                 <span className={`ml-2 normal-case font-normal ${dark ? 'text-violet-400' : 'text-violet-600'}`}>
-                  — alle sichtbar (Admin)
+                  - alle sichtbar (Admin)
                 </span>
               )}
             </h2>

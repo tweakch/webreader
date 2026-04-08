@@ -23,6 +23,12 @@ const storyAudioModules = import.meta.glob('/stories/*/*/audio.mp3', { query: '?
 const storyModules2 = import.meta.glob('/stories/*/*/content.md', { query: '?raw', import: 'default' });
 const storyModules3 = import.meta.glob('/stories/*/*/*/content.md', { query: '?raw', import: 'default' });
 const adaptionModules = import.meta.glob('/stories/*/*/adaptions/*/content.md', { query: '?raw', import: 'default' });
+const SPEED_READER_FONT_SIZE = {
+  min: 40,
+  max: 60,
+  step: 5,
+  defaultValue: 50,
+};
 
 const GrimmMarchenApp = () => {
   const [selectedStory, setSelectedStory] = useState(null);
@@ -31,7 +37,7 @@ const GrimmMarchenApp = () => {
   const flags = useFeatureFlags();
   const {
     maxFontSize,
-    showWordCount, showReadingDuration, showFontSizeControls, showEinkFlash,
+    showWordCount, showReadingDuration, showFontSizeControls, showPinchFontSize, showEinkFlash,
     showTapZones, showAdaptionSwitcher, showTypographyPanel, showAttribution,
     showFavorites, showFavoritesOnlyToggle, showAudioPlayer, showHighContrastTheme,
     showSpeedReader, showSpeedreaderOrp, showWordBlacklist, showStoryDirectories, showDebugBadges,
@@ -165,7 +171,7 @@ const GrimmMarchenApp = () => {
     };
   }, []);
 
-  // Persistence — must come before visibleStories (needs blacklist) and
+  // Persistence - must come before visibleStories (needs blacklist) and
   // before useReader (needs selectedVariant + pendingResumePageRef).
   const persist = usePersistence({
     stories,
@@ -266,6 +272,12 @@ const GrimmMarchenApp = () => {
   const [systemDark, setSystemDark] = useState(
     () => window.matchMedia('(prefers-color-scheme: dark)').matches
   );
+  const pinchGestureRef = useRef({ active: false, startDistance: 0, startFontSize: 18 });
+  const fontSizeRef = useRef(fontSize);
+
+  useEffect(() => {
+    fontSizeRef.current = fontSize;
+  }, [fontSize]);
 
   useEffect(() => {
     const mq = window.matchMedia('(prefers-color-scheme: dark)');
@@ -278,6 +290,59 @@ const GrimmMarchenApp = () => {
   const darkMode = theme === 'dark' || (theme === 'system' && systemDark) || theme === 'dark-hc';
 
   useEffect(() => { localStorage.setItem('wr-theme', theme); }, [theme]);
+
+  useEffect(() => {
+    if (!showPinchFontSize || !selectedStory || speedReaderMode) return undefined;
+
+    const viewport = readerAreaRef.current;
+    if (!viewport) return undefined;
+
+    const distance = (touches) => {
+      const dx = touches[0].clientX - touches[1].clientX;
+      const dy = touches[0].clientY - touches[1].clientY;
+      return Math.hypot(dx, dy);
+    };
+
+    const onTouchStart = (event) => {
+      if (event.touches.length !== 2) return;
+      pinchGestureRef.current = {
+        active: true,
+        startDistance: distance(event.touches),
+        startFontSize: fontSizeRef.current,
+      };
+    };
+
+    const onTouchMove = (event) => {
+      if (!pinchGestureRef.current.active || event.touches.length !== 2) return;
+      event.preventDefault();
+      const currentDistance = distance(event.touches);
+      if (pinchGestureRef.current.startDistance <= 0) return;
+
+      const scale = currentDistance / pinchGestureRef.current.startDistance;
+      const scaledFontSize = pinchGestureRef.current.startFontSize * scale;
+      const nextFontSize = Math.round(scaledFontSize / 2) * 2;
+      const clampedFontSize = Math.max(14, Math.min(maxFontSize, nextFontSize));
+      setFontSize(clampedFontSize);
+    };
+
+    const onTouchEnd = (event) => {
+      if (event.touches.length < 2) {
+        pinchGestureRef.current.active = false;
+      }
+    };
+
+    viewport.addEventListener('touchstart', onTouchStart, { passive: true });
+    viewport.addEventListener('touchmove', onTouchMove, { passive: false });
+    viewport.addEventListener('touchend', onTouchEnd, { passive: true });
+    viewport.addEventListener('touchcancel', onTouchEnd, { passive: true });
+
+    return () => {
+      viewport.removeEventListener('touchstart', onTouchStart);
+      viewport.removeEventListener('touchmove', onTouchMove);
+      viewport.removeEventListener('touchend', onTouchEnd);
+      viewport.removeEventListener('touchcancel', onTouchEnd);
+    };
+  }, [showPinchFontSize, selectedStory, speedReaderMode, maxFontSize, setFontSize]);
 
   // When HC flag is toggled, map between normal and HC theme variants
   useEffect(() => {
@@ -305,6 +370,9 @@ const GrimmMarchenApp = () => {
   const readingMinutes = Math.ceil(storyWordCount / 200);
 
   const toggleMenu = () => setMenuOpen(!menuOpen);
+  const handleCloseApp = useCallback(() => {
+    window.location.assign('/');
+  }, []);
 
   return (
     <ThemeContext.Provider value={{ dark: darkMode, hc: highContrast }}>
@@ -418,9 +486,10 @@ const GrimmMarchenApp = () => {
           storiesBySource={storiesBySource}
           onOpenProfile={() => setProfileOpen(true)}
           profileOpen={profileOpen}
+          onCloseApp={handleCloseApp}
         />
 
-        {/* Hidden measurement container — off-screen, used to calculate paragraph heights */}
+        {/* Hidden measurement container - off-screen, used to calculate paragraph heights */}
         <div
           ref={measureRef}
           aria-hidden="true"
@@ -514,6 +583,10 @@ const GrimmMarchenApp = () => {
               onShare={() => handleShare(selectedStory)}
               onToggleFavorite={() => toggleFavoriteById(selectedStory.id)}
               onClose={() => setSelectedStory(null)}
+              srFontSizeMin={SPEED_READER_FONT_SIZE.min}
+              srFontSizeMax={SPEED_READER_FONT_SIZE.max}
+              srFontSizeStep={SPEED_READER_FONT_SIZE.step}
+              srFontSizeDefault={SPEED_READER_FONT_SIZE.defaultValue}
             />
           ) : isLibraryLoading ? (
             <div className={`h-full w-full grid place-items-center ${darkMode ? 'text-amber-200' : 'text-amber-900'}`}>

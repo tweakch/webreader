@@ -25,10 +25,10 @@
 - None detected - all connections are within the same source files.
 
 ## Hyperedges (group relationships)
-- **Two-depth story loading via Vite import.meta.glob** — claudemd_vite_glob, claudemd_story_directory_structure, claudemd_stories_dir [EXTRACTED 1.00]
-- **Feature Flags Set (story-directories, speed-reader, speedreader-orp)** — claudemd_feature_flag_story_directories, claudemd_feature_flag_speed_reader, claudemd_feature_flag_speedreader_orp, claudemd_openfeature [INFERRED 0.80]
-- **Pagination Algorithm Components (buildPages, measureRef, readerAreaRef)** — claudemd_buildpages, claudemd_measureref, claudemd_readerarearef, claudemd_grimm_reader [EXTRACTED 1.00]
-- **Crawler Pipeline Components** — claudemd_source_adapter, claudemd_crawlers_core, claudemd_crawlers_index, claudemd_stories_dir [EXTRACTED 1.00]
+- **Two-depth story loading via Vite import.meta.glob** - claudemd_vite_glob, claudemd_story_directory_structure, claudemd_stories_dir [EXTRACTED 1.00]
+- **Feature Flags Set (story-directories, speed-reader, speedreader-orp)** - claudemd_feature_flag_story_directories, claudemd_feature_flag_speed_reader, claudemd_feature_flag_speedreader_orp, claudemd_openfeature [INFERRED 0.80]
+- **Pagination Algorithm Components (buildPages, measureRef, readerAreaRef)** - claudemd_buildpages, claudemd_measureref, claudemd_readerarearef, claudemd_grimm_reader [EXTRACTED 1.00]
+- **Crawler Pipeline Components** - claudemd_source_adapter, claudemd_crawlers_core, claudemd_crawlers_index, claudemd_stories_dir [EXTRACTED 1.00]
 
 ## Communities
 

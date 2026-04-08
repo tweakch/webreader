@@ -1,11 +1,11 @@
-import { ChevronLeft, ChevronRight, Heart, User } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Heart, User, LogOut } from 'lucide-react';
 import { useTheme } from '../ui/ThemeContext';
 import SearchInput from '../ui/SearchInput';
 import StoryButton from '../ui/StoryButton';
 import SourceButton from '../ui/SourceButton';
 
 /**
- * Sidebar navigation — two-level source/story list with search and profile.
+ * Sidebar navigation - two-level source/story list with search and profile.
  * Shows either source list, drilled story list, or search results.
  */
 export default function Sidebar({
@@ -38,6 +38,7 @@ export default function Sidebar({
   storiesBySource,
   onOpenProfile,
   profileOpen,
+  onCloseApp,
 }) {
   const { dark: darkMode } = useTheme();
 
@@ -51,7 +52,7 @@ export default function Sidebar({
     } border-r backdrop-blur-sm`}>
       <div className="flex-1 overflow-y-auto">
 
-        {/* Search — always visible */}
+        {/* Search - always visible */}
         <div className="p-4">
           <div className="flex items-center gap-2">
             <SearchInput
@@ -103,7 +104,7 @@ export default function Sidebar({
           </div>
         )}
 
-        {/* Story list — conditional views */}
+        {/* Story list - conditional views */}
         {favoritesOnly && showFavorites ? (
           /* Favorites-only view */
           <div className="px-3 pb-4 space-y-1">
@@ -128,7 +129,7 @@ export default function Sidebar({
             ))}
           </div>
         ) : searchTerm ? (
-          /* Search results — global, with source badge */
+          /* Search results - global, with source badge */
           <div className="px-3 pb-4 space-y-1">
             {filteredStories.length === 0 && (
               <p className={`px-2 py-3 text-sm ${darkMode ? 'text-amber-600' : 'text-amber-700'}`}>
@@ -152,7 +153,7 @@ export default function Sidebar({
             ))}
           </div>
         ) : activeSource && showStoryDirectories && activeDirectory ? (
-          /* Drilled into a directory — back to directory list + story list */
+          /* Drilled into a directory - back to directory list + story list */
           <>
             <div className="px-3 pb-2">
               <button
@@ -194,7 +195,7 @@ export default function Sidebar({
             </div>
           </>
         ) : activeSource && showStoryDirectories && directoriesBySource[activeSource]?.length ? (
-          /* Drilled into a source with directories — show directory list */
+          /* Drilled into a source with directories - show directory list */
           <>
             <div className="px-3 pb-2">
               <button
@@ -240,7 +241,7 @@ export default function Sidebar({
             </div>
           </>
         ) : activeSource ? (
-          /* Drilled into a source — back button + story list */
+          /* Drilled into a source - back button + story list */
           <>
             <div className="px-3 pb-2">
               <button
@@ -289,7 +290,7 @@ export default function Sidebar({
         )}
       </div>
 
-      {/* Profile button — always visible at sidebar bottom */}
+      {/* Bottom actions - always visible at sidebar bottom */}
       <div className={`flex-shrink-0 border-t ${
         darkMode ? 'border-amber-700/30' : 'border-amber-200/50'
       }`}>
@@ -310,6 +311,18 @@ export default function Sidebar({
             <p className="text-sm font-medium truncate">Mein Profil</p>
           </div>
           <ChevronRight size={14} className="flex-shrink-0 opacity-50" />
+        </button>
+        <button
+          data-testid="close-app-button"
+          onClick={onCloseApp}
+          className={`w-full flex items-center justify-center gap-2 px-4 py-3.5 border-t transition-colors ${
+            darkMode
+              ? 'border-amber-700/30 text-amber-500 hover:bg-slate-800 hover:text-amber-300'
+              : 'border-amber-200/50 text-amber-700 hover:bg-amber-50 hover:text-amber-900'
+          }`}
+        >
+          <LogOut size={16} />
+          <span className="text-sm font-medium">App schließen</span>
         </button>
       </div>
     </aside>

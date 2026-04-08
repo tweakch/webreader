@@ -5,9 +5,7 @@ import SpeedReaderOrpPanel from './SpeedReaderOrpPanel';
 const SR_FONT = { fontFamily: "'Roboto Mono', 'Courier New', monospace" };
 
 const CTX_OPACITY = [0, 0.35, 0.20, 0.12];
-const CTX_SIZE    = ['', 'text-3xl', 'text-2xl', 'text-xl'];
 const ctxOpacity  = d => CTX_OPACITY[d] ?? 0.12;
-const ctxSizeCls  = d => CTX_SIZE[d]    ?? 'text-xl';
 
 const DEFAULT_ORP_CONFIG = {
   orp_method: 'second_letter',
@@ -23,22 +21,42 @@ const DEFAULT_ORP_CONFIG = {
 };
 
 /**
- * SpeedReaderView — RSVP speed-reader panel.
+ * SpeedReaderView - RSVP speed-reader panel.
  *
  * Owns all playback state (word index, play/pause, WPM, preview, ORP config)
  * so that the parent component is not re-rendered on every word tick.
  *
  * Props:
- *   srWords          string[]   — word list for the current story/variant
+ *   srWords          string[]   - word list for the current story/variant
  *   darkMode         boolean
  *   highContrast     boolean
  *   showSpeedreaderOrp boolean
  */
-const SpeedReaderView = ({ srWords, darkMode, highContrast, showSpeedreaderOrp, story, isFavorite, onToggleFavorite, onClose, showFavorites, onShare }) => {
+const SpeedReaderView = ({
+  srWords,
+  darkMode,
+  highContrast,
+  showSpeedreaderOrp,
+  story,
+  isFavorite,
+  onToggleFavorite,
+  onClose,
+  showFavorites,
+  onShare,
+  srFontSizeMin = 40,
+  srFontSizeMax = 60,
+  srFontSizeStep = 5,
+  srFontSizeDefault = 50,
+}) => {
   const [srPlaying,      setSrPlaying]      = useState(false);
   const [srWordIdx,      setSrWordIdx]      = useState(0);
   const [srWpm,          setSrWpm]          = useState(() => parseInt(localStorage.getItem('wr-sr-wpm')     ?? '200'));
   const [srPreviewWords, setSrPreviewWords] = useState(() => parseInt(localStorage.getItem('wr-sr-preview') ?? '0'));
+  const [srFontSize,     setSrFontSize]     = useState(() => {
+    const raw = parseInt(localStorage.getItem('wr-sr-font-size') ?? `${srFontSizeDefault}`);
+    if (Number.isNaN(raw)) return srFontSizeDefault;
+    return Math.max(srFontSizeMin, Math.min(srFontSizeMax, raw));
+  });
   const [orpConfig,      setOrpConfig]      = useState(() => {
     try { return { ...DEFAULT_ORP_CONFIG, ...JSON.parse(localStorage.getItem('wr-sr-orp-config') ?? '{}') }; }
     catch { return DEFAULT_ORP_CONFIG; }
@@ -46,7 +64,7 @@ const SpeedReaderView = ({ srWords, darkMode, highContrast, showSpeedreaderOrp, 
   const [orpPanelOpen, setOrpPanelOpen] = useState(false);
   const [finished, setFinished] = useState(false);
 
-  // Refs that the scheduler reads — always current, no stale closures
+  // Refs that the scheduler reads - always current, no stale closures
   const srWordIdxRef = useRef(srWordIdx);
   const srWpmRef     = useRef(srWpm);
   const srWordsRef   = useRef(srWords);
@@ -59,14 +77,18 @@ const SpeedReaderView = ({ srWords, darkMode, highContrast, showSpeedreaderOrp, 
   // Persist settings
   useEffect(() => { localStorage.setItem('wr-sr-wpm',       srWpm); },          [srWpm]);
   useEffect(() => { localStorage.setItem('wr-sr-preview',   srPreviewWords); }, [srPreviewWords]);
+  useEffect(() => { localStorage.setItem('wr-sr-font-size', srFontSize); },      [srFontSize]);
   useEffect(() => { localStorage.setItem('wr-sr-orp-config', JSON.stringify(orpConfig)); }, [orpConfig]);
+  useEffect(() => {
+    setSrFontSize(s => Math.max(srFontSizeMin, Math.min(srFontSizeMax, s)));
+  }, [srFontSizeMin, srFontSizeMax]);
 
   // Close ORP panel when the ORP flag is turned off
   useEffect(() => {
     if (!showSpeedreaderOrp) setOrpPanelOpen(false);
   }, [showSpeedreaderOrp]);
 
-  // Wall-clock anchored scheduler — drift-free at any WPM.
+  // Wall-clock anchored scheduler - drift-free at any WPM.
   //
   // Each tick receives the time it was *supposed* to fire (scheduledTime).
   // The next delay is computed as (scheduledTime + interval) - now, so late
@@ -98,7 +120,7 @@ const SpeedReaderView = ({ srWords, darkMode, highContrast, showSpeedreaderOrp, 
       scheduleNext(nextTime);
       setSrWordIdx(next);
     }, delay);
-  }, []); // no deps — reads everything from refs
+  }, []); // no deps - reads everything from refs
 
   // Start/stop the scheduler when play state changes
   useEffect(() => {
@@ -157,17 +179,18 @@ const SpeedReaderView = ({ srWords, darkMode, highContrast, showSpeedreaderOrp, 
 
   const renderOrpRow = (w, dist, isCurrent) => {
     const i = getOrpIndex(w);
-    const sizeCls = isCurrent ? 'text-5xl' : ctxSizeCls(dist);
+    const previewSize = Math.max(20, srFontSize - dist * 8);
     return (
       <div
         key={`${isCurrent ? 'cur' : dist > 0 ? 'a' : 'b'}${dist}`}
-        className={`w-full font-normal tracking-wide ${sizeCls} ${wordColorCls}`}
+        className={`w-full font-normal tracking-wide ${wordColorCls}`}
         style={{
           ...SR_FONT,
           display: 'grid',
           gridTemplateColumns: `${fp.x}% auto 1fr`,
           alignItems: 'center',
           opacity: isCurrent ? (srPlaying ? 1 : 0.4) : ctxOpacity(dist),
+          fontSize: isCurrent ? `${srFontSize}px` : `${previewSize}px`,
           pointerEvents: 'none',
         }}
       >
@@ -276,7 +299,7 @@ const SpeedReaderView = ({ srWords, darkMode, highContrast, showSpeedreaderOrp, 
         >
           {previewBefore.map(({ word: pw, dist }) => renderOrpRow(pw, dist, false))}
 
-          {/* Current word — wrapped for guide bars */}
+          {/* Current word - wrapped for guide bars */}
           <div className="relative w-full" style={{ height: '80px' }}>
             {orpConfig.show_horizontal_bars && (
               <>
@@ -291,8 +314,8 @@ const SpeedReaderView = ({ srWords, darkMode, highContrast, showSpeedreaderOrp, 
               const oi = getOrpIndex(word);
               return (
                 <div
-                  className={`absolute inset-0 flex items-center text-5xl font-normal tracking-wide ${wordColorCls}`}
-                  style={{ ...SR_FONT, display: 'grid', gridTemplateColumns: `${fp.x}% auto 1fr`, alignItems: 'center', opacity: srPlaying ? 1 : 0.4 }}
+                  className={`absolute inset-0 flex items-center font-normal tracking-wide ${wordColorCls}`}
+                  style={{ ...SR_FONT, display: 'grid', gridTemplateColumns: `${fp.x}% auto 1fr`, alignItems: 'center', opacity: srPlaying ? 1 : 0.4, fontSize: `${srFontSize}px` }}
                 >
                   <span style={{ textAlign: 'right', overflow: 'visible', whiteSpace: 'nowrap' }}>{word.slice(0, oi)}</span>
                   <span style={orpConfig.highlight_orp ? { color: orpConfig.orp_color, fontWeight: orpConfig.orp_font_weight } : {}}>
@@ -307,13 +330,13 @@ const SpeedReaderView = ({ srWords, darkMode, highContrast, showSpeedreaderOrp, 
           {previewAfter.map(({ word: pw, dist }) => renderOrpRow(pw, dist, false))}
         </div>
       ) : (
-        /* Classic layout — flex pivot */
+        /* Classic layout - flex pivot */
         (() => {
           const before   = word.length > 1 ? word[0] : '';
           const pivot    = word.length > 1 ? word[1] : word;
           const after    = word.length > 2 ? word.slice(2) : '';
           const pivotCls = highContrast ? wordColorCls : darkMode ? 'text-amber-400' : 'text-amber-600';
-          const mainCls  = `text-5xl font-bold tracking-wide ${wordColorCls} transition-opacity duration-150 ${srPlaying ? '' : 'opacity-40'}`;
+          const mainCls  = `font-bold tracking-wide ${wordColorCls} transition-opacity duration-150 ${srPlaying ? '' : 'opacity-40'}`;
           return (
             <div
               data-testid="speed-reader-word"
@@ -321,19 +344,19 @@ const SpeedReaderView = ({ srWords, darkMode, highContrast, showSpeedreaderOrp, 
               className="flex flex-col items-center gap-0.5 w-full cursor-pointer select-none"
             >
               {previewBefore.map(({ word: pw, dist }) => (
-                <div key={`b${dist}`} className={`font-bold tracking-wide ${ctxSizeCls(dist)} ${wordColorCls}`}
-                  style={{ ...SR_FONT, opacity: ctxOpacity(dist) }}>
+                <div key={`b${dist}`} className={`font-bold tracking-wide ${wordColorCls}`}
+                  style={{ ...SR_FONT, opacity: ctxOpacity(dist), fontSize: `${Math.max(20, srFontSize - dist * 8)}px` }}>
                   {pw}
                 </div>
               ))}
-              <div className={`flex items-center w-full ${mainCls}`} style={SR_FONT}>
+              <div className={`flex items-center w-full ${mainCls}`} style={{ ...SR_FONT, fontSize: `${srFontSize}px` }}>
                 <div className="flex-1 flex justify-end">{before}</div>
                 <span className={pivotCls}>{pivot}</span>
                 <div className="flex-1 flex justify-start">{after}</div>
               </div>
               {previewAfter.map(({ word: pw, dist }) => (
-                <div key={`a${dist}`} className={`font-bold tracking-wide ${ctxSizeCls(dist)} ${wordColorCls}`}
-                  style={{ ...SR_FONT, opacity: ctxOpacity(dist) }}>
+                <div key={`a${dist}`} className={`font-bold tracking-wide ${wordColorCls}`}
+                  style={{ ...SR_FONT, opacity: ctxOpacity(dist), fontSize: `${Math.max(20, srFontSize - dist * 8)}px` }}>
                   {pw}
                 </div>
               ))}
@@ -351,72 +374,91 @@ const SpeedReaderView = ({ srWords, darkMode, highContrast, showSpeedreaderOrp, 
         />
       )}
 
-      {/* Controls row */}
-      <div className="flex items-center gap-4">
-        {/* Back sentence */}
-        <button
-          data-testid="speed-reader-back"
-          onClick={srBackSentence}
-          title="Zum Satzanfang"
-          className={`p-2 rounded-lg transition-colors ${
-            highContrast ? (darkMode ? 'text-white/60 hover:bg-white/10' : 'text-gray-500 hover:bg-black/5') : darkMode ? 'text-amber-600 hover:bg-slate-700' : 'text-amber-400 hover:bg-amber-50'
-          }`}
-        >
-          <RotateCcw size={16} />
-        </button>
-
-        {/* Play / Pause */}
-        <button
-          data-testid="speed-reader-play"
-          onClick={() => setSrPlaying(v => !v)}
-          className={`flex items-center justify-center w-10 h-10 rounded-xl transition-colors ${
-            highContrast
-              ? (darkMode ? 'bg-white text-black hover:bg-gray-100' : 'bg-black text-white hover:bg-gray-900')
-              : darkMode ? 'bg-amber-500/30 text-amber-300 hover:bg-amber-500/40' : 'bg-amber-100 text-amber-700 hover:bg-amber-200'
-          }`}
-        >
-          {srPlaying ? <Pause size={15} /> : <Play size={15} />}
-        </button>
-
-        {/* WpM controls */}
-        <div className="flex items-center gap-1.5">
-          <button data-testid="speed-reader-wpm-decrease" onClick={() => setSrWpm(w => Math.max(10, w - 10))} className={btnSm}>
-            <Minus size={11} />
-          </button>
-          <span className={labelCls} style={{ minWidth: '3.8rem' }}>{srWpm} WpM</span>
-          <button data-testid="speed-reader-wpm-increase" onClick={() => setSrWpm(w => Math.min(1000, w + 10))} className={btnSm}>
-            <Plus size={11} />
-          </button>
-        </div>
-
-        {/* Preview words controls */}
-        <div className="flex items-center gap-1.5">
-          <button data-testid="speed-reader-preview-decrease" onClick={() => setSrPreviewWords(w => Math.max(0, w - 1))} disabled={srPreviewWords === 0} className={`${btnSm} disabled:opacity-30`}>
-            <Minus size={11} />
-          </button>
-          <span className={labelCls} style={{ minWidth: '2rem' }}>
-            {srPreviewWords === 0 ? '—' : `±${srPreviewWords}`}
-          </span>
-          <button data-testid="speed-reader-preview-increase" onClick={() => setSrPreviewWords(w => Math.min(3, w + 1))} disabled={srPreviewWords >= 3} className={`${btnSm} disabled:opacity-30`}>
-            <Plus size={11} />
-          </button>
-        </div>
-
-        {/* ORP settings toggle */}
-        {showSpeedreaderOrp && (
+      {/* Controls rows */}
+      <div className="w-full flex flex-col items-center gap-2.5">
+        {/* Row 1: navigation + playback + ORP */}
+        <div className="w-full flex items-center justify-center gap-4">
           <button
-            data-testid="orp-panel-toggle"
-            onClick={() => setOrpPanelOpen(v => !v)}
-            title="ORP-Einstellungen"
-            className={`flex items-center justify-center w-7 h-7 rounded-lg transition-colors ${
-              orpPanelOpen
-                ? highContrast ? (darkMode ? 'bg-white text-black' : 'bg-black text-white') : darkMode ? 'bg-amber-500/30 text-amber-300' : 'bg-amber-100 text-amber-700'
-                : highContrast ? (darkMode ? 'text-white/60' : 'text-gray-500') : darkMode ? 'bg-slate-700/60 text-amber-600 hover:bg-slate-600' : 'bg-amber-50 text-amber-500 hover:bg-amber-100'
+            data-testid="speed-reader-back"
+            onClick={srBackSentence}
+            title="Zum Satzanfang"
+            className={`p-2 rounded-lg transition-colors ${
+              highContrast ? (darkMode ? 'text-white/60 hover:bg-white/10' : 'text-gray-500 hover:bg-black/5') : darkMode ? 'text-amber-600 hover:bg-slate-700' : 'text-amber-400 hover:bg-amber-50'
             }`}
           >
-            <Settings size={13} />
+            <RotateCcw size={16} />
           </button>
-        )}
+
+          <button
+            data-testid="speed-reader-play"
+            onClick={() => setSrPlaying(v => !v)}
+            className={`flex items-center justify-center w-10 h-10 rounded-xl transition-colors ${
+              highContrast
+                ? (darkMode ? 'bg-white text-black hover:bg-gray-100' : 'bg-black text-white hover:bg-gray-900')
+                : darkMode ? 'bg-amber-500/30 text-amber-300 hover:bg-amber-500/40' : 'bg-amber-100 text-amber-700 hover:bg-amber-200'
+            }`}
+          >
+            {srPlaying ? <Pause size={15} /> : <Play size={15} />}
+          </button>
+
+          {showSpeedreaderOrp && (
+            <button
+              data-testid="orp-panel-toggle"
+              onClick={() => setOrpPanelOpen(v => !v)}
+              title="ORP-Einstellungen"
+              className={`flex items-center justify-center w-7 h-7 rounded-lg transition-colors ${
+                orpPanelOpen
+                  ? highContrast ? (darkMode ? 'bg-white text-black' : 'bg-black text-white') : darkMode ? 'bg-amber-500/30 text-amber-300' : 'bg-amber-100 text-amber-700'
+                  : highContrast ? (darkMode ? 'text-white/60' : 'text-gray-500') : darkMode ? 'bg-slate-700/60 text-amber-600 hover:bg-slate-600' : 'bg-amber-50 text-amber-500 hover:bg-amber-100'
+              }`}
+            >
+              <Settings size={13} />
+            </button>
+          )}
+        </div>
+
+        {/* Row 2: value controls */}
+        <div className="w-full flex flex-wrap items-center justify-center gap-x-4 gap-y-2">
+          <div className="flex items-center gap-1.5">
+            <button data-testid="speed-reader-wpm-decrease" onClick={() => setSrWpm(w => Math.max(10, w - 10))} className={btnSm}>
+              <Minus size={11} />
+            </button>
+            <span className={labelCls} style={{ minWidth: '3.8rem' }}>{srWpm} WpM</span>
+            <button data-testid="speed-reader-wpm-increase" onClick={() => setSrWpm(w => Math.min(1000, w + 10))} className={btnSm}>
+              <Plus size={11} />
+            </button>
+          </div>
+
+          <div className="flex items-center gap-1.5">
+            <button
+              data-testid="speed-reader-font-decrease"
+              onClick={() => setSrFontSize(s => Math.max(srFontSizeMin, s - srFontSizeStep))}
+              className={btnSm}
+            >
+              <Minus size={11} />
+            </button>
+            <span className={labelCls} style={{ minWidth: '3rem' }}>{srFontSize}px</span>
+            <button
+              data-testid="speed-reader-font-increase"
+              onClick={() => setSrFontSize(s => Math.min(srFontSizeMax, s + srFontSizeStep))}
+              className={btnSm}
+            >
+              <Plus size={11} />
+            </button>
+          </div>
+
+          <div className="flex items-center gap-1.5">
+            <button data-testid="speed-reader-preview-decrease" onClick={() => setSrPreviewWords(w => Math.max(0, w - 1))} disabled={srPreviewWords === 0} className={`${btnSm} disabled:opacity-30`}>
+              <Minus size={11} />
+            </button>
+            <span className={labelCls} style={{ minWidth: '2rem' }}>
+              {srPreviewWords === 0 ? '-' : `±${srPreviewWords}`}
+            </span>
+            <button data-testid="speed-reader-preview-increase" onClick={() => setSrPreviewWords(w => Math.min(3, w + 1))} disabled={srPreviewWords >= 3} className={`${btnSm} disabled:opacity-30`}>
+              <Plus size={11} />
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   );

@@ -10,6 +10,7 @@ export function useFeatureFlags() {
   const _rawWordCount = useBooleanFlagValue('word-count', false);
   const _rawReadingDuration = useBooleanFlagValue('reading-duration', false);
   const _rawFontSizeControls = useBooleanFlagValue('font-size-controls', true);
+  const _rawPinchFontSize = useBooleanFlagValue('pinch-font-size', false);
   const _rawEinkFlash = useBooleanFlagValue('eink-flash', true);
   const _rawTapZones = useBooleanFlagValue('tap-zones', true);
   const _rawAdaptionSwitcher = useBooleanFlagValue('adaption-switcher', true);
@@ -25,7 +26,7 @@ export function useFeatureFlags() {
   const _rawStoryDirectories = useBooleanFlagValue('story-directories', false);
   const _rawDebugBadges = useBooleanFlagValue('debug-badges', false);
 
-  // User feature overrides — stored in localStorage, take precedence over flag defaults
+  // User feature overrides - stored in localStorage, take precedence over flag defaults
   const [userFeatureOverrides, setUserFeatureOverrides] = useState(() =>
     JSON.parse(localStorage.getItem('wr-feature-overrides') ?? '{}')
   );
@@ -41,6 +42,7 @@ export function useFeatureFlags() {
   const showWordCount = _o('word-count', _rawWordCount);
   const showReadingDuration = _o('reading-duration', _rawReadingDuration);
   const showFontSizeControls = _o('font-size-controls', _rawFontSizeControls);
+  const showPinchFontSize = _o('pinch-font-size', _rawPinchFontSize);
   const showEinkFlash = _o('eink-flash', _rawEinkFlash);
   const showTapZones = _o('tap-zones', _rawTapZones);
   const showAdaptionSwitcher = _o('adaption-switcher', _rawAdaptionSwitcher);
@@ -56,11 +58,12 @@ export function useFeatureFlags() {
   const showStoryDirectories = _o('story-directories', _rawStoryDirectories);
   const showDebugBadges = _o('debug-badges', _rawDebugBadges);
 
-  // Raw values keyed by feature key — used in profile feature toggles
+  // Raw values keyed by feature key - used in profile feature toggles
   const _rawFlagValues = {
     'word-count': _rawWordCount,
     'reading-duration': _rawReadingDuration,
     'font-size-controls': _rawFontSizeControls,
+    'pinch-font-size': _rawPinchFontSize,
     'eink-flash': _rawEinkFlash,
     'tap-zones': _rawTapZones,
     'adaption-switcher': _rawAdaptionSwitcher,
@@ -86,6 +89,7 @@ export function useFeatureFlags() {
     showWordCount,
     showReadingDuration,
     showFontSizeControls,
+    showPinchFontSize,
     showEinkFlash,
     showTapZones,
     showAdaptionSwitcher,

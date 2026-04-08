@@ -2,7 +2,7 @@ import React, { useEffect, useState, useCallback, useRef } from 'react';
 import { X } from 'lucide-react';
 
 /**
- * DebugOverlay — scans the DOM for elements with data-testid and renders
+ * DebugOverlay - scans the DOM for elements with data-testid and renders
  * a floating badge on each one. Clicking a badge opens a modal with technical
  * information about the element.
  *

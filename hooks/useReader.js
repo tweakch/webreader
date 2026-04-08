@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect, useLayoutEffect, useCallback, useMemo } from 'react';
 
 /**
- * useReader — encapsulates page pagination, navigation, and speed reader logic.
+ * useReader - encapsulates page pagination, navigation, and speed reader logic.
  *
  * Dependencies:
  * - readerAreaRef: ref to the reading viewport
@@ -120,12 +120,12 @@ export function useReader({
         currentPara.style.marginBottom = '1.5rem';
 
         if (overflows) {
-          // Word doesn't fit — remove it and end page
+          // Word doesn't fit - remove it and end page
           currentPara.textContent = currentPara.textContent.slice(0, -word.length);
           break;
         }
 
-        // Word fits — consume it
+        // Word fits - consume it
         tokens.shift();
         pageTokens.push(token);
 
@@ -151,7 +151,7 @@ export function useReader({
 
     // Only reset/restore the page on the first build for a given story.
     // Subsequent calls from the ResizeObserver on the same story should not
-    // touch currentPage — the existing clamping effect handles out-of-bounds.
+    // touch currentPage - the existing clamping effect handles out-of-bounds.
     const currentStoryId = selectedStory?.id ?? null;
     if (lastResetStoryRef.current !== currentStoryId) {
       lastResetStoryRef.current = currentStoryId;

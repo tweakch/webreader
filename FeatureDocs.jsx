@@ -9,7 +9,7 @@ const DOCS = {
     lead: 'Die Favoriten-Funktion ermöglicht es, Märchen mit einem Herzklick als persönliche Favoriten zu markieren und dauerhaft zu speichern.',
     on: [
       'Neben jedem Märchentitel in der Seitenleiste erscheint ein Herz-Symbol.',
-      'Ein Klick oder Tipp auf das Herz speichert das Märchen als Favorit — das Herz färbt sich und bleibt markiert.',
+      'Ein Klick oder Tipp auf das Herz speichert das Märchen als Favorit - das Herz färbt sich und bleibt markiert.',
       'Favoriten werden im Browser gespeichert (localStorage) und stehen auch nach dem Schließen und erneuten Öffnen der App zur Verfügung.',
       'Im Profil wird die Gesamtanzahl der gespeicherten Favoriten angezeigt.',
       'Favorisierte Märchen lassen sich optional über die Funktion „Nur Favoriten anzeigen" gefiltert aufrufen.',
@@ -17,7 +17,7 @@ const DOCS = {
     off: [
       'Das Herz-Symbol wird in der Seitenleiste vollständig ausgeblendet.',
       'Es ist nicht möglich, neue Favoriten hinzuzufügen oder bestehende zu entfernen.',
-      'Bereits gespeicherte Favoriten bleiben im Hintergrund erhalten — sie gehen nicht verloren.',
+      'Bereits gespeicherte Favoriten bleiben im Hintergrund erhalten - sie gehen nicht verloren.',
       'Wird die Funktion wieder eingeschaltet, sind alle vorherigen Favoriten sofort wieder sichtbar und aktiv.',
     ],
   },
@@ -28,7 +28,7 @@ const DOCS = {
       'In der Suchleiste der Seitenleiste erscheint ein Herz-Schaltknopf.',
       'Ist der Schalter aktiv (Herz ausgefüllt), zeigt die Seitenleiste ausschließlich als Favorit markierte Märchen.',
       'Ist der Schalter inaktiv, werden wie gewohnt alle Märchen angezeigt.',
-      'Der Filterzustand wird beim Wechseln von Quellen oder beim Schließen der App nicht gespeichert — er beginnt immer im inaktiven Zustand.',
+      'Der Filterzustand wird beim Wechseln von Quellen oder beim Schließen der App nicht gespeichert - er beginnt immer im inaktiven Zustand.',
     ],
     off: [
       'Der Herz-Schaltknopf in der Suchleiste ist nicht sichtbar.',
@@ -38,30 +38,30 @@ const DOCS = {
   },
 
   'word-count': {
-    lead: 'Die Wörteranzahl zeigt direkt in der Seitenleiste an, wie viele Wörter ein Märchen enthält — noch bevor man es aufschlägt.',
+    lead: 'Die Wörteranzahl zeigt direkt in der Seitenleiste an, wie viele Wörter ein Märchen enthält - noch bevor man es aufschlägt.',
     on: [
       'Unterhalb jedes Märchentitels in der Seitenleiste erscheint die Wörteranzahl als kompakte Zahl (z. B. „2.341 Wörter").',
       'Die Zahl wird aus dem gecrawlten Textinhalt berechnet und im Frontmatter der Story-Datei gespeichert.',
       'Ist für ein Märchen keine Wörteranzahl bekannt (z. B. bei älteren Einträgen ohne Metadaten), wird kein Wert angezeigt.',
-      'Die Anzeige ist rein informativ — sie hat keinen Einfluss auf die Sortierung oder Filterung.',
+      'Die Anzeige ist rein informativ - sie hat keinen Einfluss auf die Sortierung oder Filterung.',
     ],
     off: [
       'Die Wörteranzahl wird in der Seitenleiste nicht angezeigt.',
-      'Die gespeicherten Metadaten bleiben unverändert erhalten — die Information ist nur ausgeblendet.',
+      'Die gespeicherten Metadaten bleiben unverändert erhalten - die Information ist nur ausgeblendet.',
     ],
   },
 
   'reading-duration': {
-    lead: 'Die Lesezeit gibt eine Schätzung aus, wie lange das Lesen eines Märchens dauert — praktisch zum Einschätzen, ob es für einen kurzen Lesemoment oder einen längeren Leseabend geeignet ist.',
+    lead: 'Die Lesezeit gibt eine Schätzung aus, wie lange das Lesen eines Märchens dauert - praktisch zum Einschätzen, ob es für einen kurzen Lesemoment oder einen längeren Leseabend geeignet ist.',
     on: [
       'Neben dem Märchentitel in der Seitenleiste erscheint die geschätzte Lesezeit (z. B. „~12 min").',
-      'Die Berechnung basiert auf einem Durchschnittswert von 200 Wörtern pro Minute — einem realistischen Wert für entspanntes, genussorientiertes Lesen.',
+      'Die Berechnung basiert auf einem Durchschnittswert von 200 Wörtern pro Minute - einem realistischen Wert für entspanntes, genussorientiertes Lesen.',
       'Die Lesezeit wird immer auf volle Minuten aufgerundet (Math.ceil), sodass auch sehr kurze Märchen mindestens „~1 min" anzeigen.',
       'Ist keine Wörteranzahl für ein Märchen bekannt, wird auch keine Lesezeit angezeigt.',
     ],
     off: [
       'Die Lesezeit-Anzeige ist in der Seitenleiste nicht sichtbar.',
-      'Die zugrunde liegende Wörteranzahl bleibt gespeichert — nur die Darstellung ist deaktiviert.',
+      'Die zugrunde liegende Wörteranzahl bleibt gespeichert - nur die Darstellung ist deaktiviert.',
     ],
     tip: 'Wörteranzahl und Lesezeit können unabhängig voneinander aktiviert werden. Wer nur die Lesezeit sehen möchte, muss die Wörteranzahl nicht separat einschalten.',
   },
@@ -70,59 +70,74 @@ const DOCS = {
     lead: 'Die Schriftgrößen-Steuerung fügt zwei Schaltflächen in die Kopfzeile ein, mit denen die Textgröße im Lesebereich jederzeit angepasst werden kann.',
     on: [
       'In der Kopfzeile erscheinen zwei Schaltknöpfe: „+" zum Vergrößern und „−" zum Verkleinern der Schrift.',
-      'Die Schriftgröße lässt sich in Schritten von 2 Punkt anpassen — von 14 px (sehr kompakt) bis 28 px (groß und augenschonend).',
+      'Die Schriftgröße lässt sich in Schritten von 2 Punkt anpassen - von 14 px (sehr kompakt) bis 28 px (groß und augenschonend).',
       'Die gewählte Einstellung wird im Browser gespeichert und beim nächsten Besuch automatisch wiederhergestellt.',
       'Schriftgröße und Typografie-Panel (Zeilenhöhe, Textbreite usw.) ergänzen sich und können gleichzeitig aktiv sein.',
     ],
     off: [
       'Die Plus- und Minus-Schaltflächen werden aus der Kopfzeile entfernt.',
-      'Die zuletzt gewählte Schriftgröße bleibt weiterhin aktiv — sie kann nur nicht mehr über die App verändert werden.',
+      'Die zuletzt gewählte Schriftgröße bleibt weiterhin aktiv - sie kann nur nicht mehr über die App verändert werden.',
       'Der gespeicherte Wert bleibt erhalten; wird die Funktion erneut eingeschaltet, ist die zuletzt eingestellte Größe sofort wieder verfügbar.',
     ],
   },
 
+  'pinch-font-size': {
+    lead: 'Mit der Pinch-Zoom Schriftgrößen-Funktion kannst du im Lesebereich mit zwei Fingern die Textgröße direkt vergrößern oder verkleinern.',
+    on: [
+      'Im geöffneten Märchen erkennt der Lesebereich eine Zwei-Finger-Pinch-Geste (auseinanderziehen = größer, zusammenziehen = kleiner).',
+      'Die Schriftgröße wird live angepasst und bleibt zwischen 14 px und dem aktuell erlaubten Maximum begrenzt.',
+      'Die eingestellte Größe wird wie bei den Plus/Minus-Knöpfen gespeichert und beim nächsten Öffnen wiederhergestellt.',
+      'Die Funktion wirkt nur im normalen Seitenmodus des Lesers und ist standardmäßig ausgeschaltet (Feature-Flag).',
+    ],
+    off: [
+      'Pinch-Gesten verändern die Schriftgröße im Lesebereich nicht.',
+      'Die Textgröße lässt sich weiterhin über die Plus/Minus-Schaltflächen oder bestehende Typografie-Einstellungen steuern.',
+    ],
+    tip: 'Diese Funktion eignet sich besonders für Touch-Geräte wie Tablets und 2-in-1-Laptops.',
+  },
+
   'eink-flash': {
-    lead: 'Der Seitenumblättern-Effekt lässt den Bildschirm beim Blättern kurz aufleuchten — eine bewusste Anlehnung an das charakteristische Blinken eines E-Ink-Lesegeräts.',
+    lead: 'Der Seitenumblättern-Effekt lässt den Bildschirm beim Blättern kurz aufleuchten - eine bewusste Anlehnung an das charakteristische Blinken eines E-Ink-Lesegeräts.',
     on: [
       'Beim Wechsel zur nächsten oder vorherigen Seite erscheint für ca. 80 Millisekunden ein kurzer heller (hell) bzw. dunkler (dunkel) Aufblitz über dem gesamten Lesebereich.',
-      'Der Effekt dauert so kurz, dass er nicht störend wirkt — er gibt dem Seitenwechsel aber ein spürbares, vertrautes Feedback.',
+      'Der Effekt dauert so kurz, dass er nicht störend wirkt - er gibt dem Seitenwechsel aber ein spürbares, vertrautes Feedback.',
       'Im Dunkelmodus ist der Aufblitz dunkel (Slate-Ton), im Hellmodus weiß, damit er zur jeweiligen Oberfläche passt.',
       'Der Effekt verhindert, dass während des Aufblitzens die nächste Seite vorzeitig bedient werden kann (kurze Eingabesperre).',
     ],
     off: [
-      'Beim Blättern gibt es keinerlei visuellen Übergang — die neue Seite erscheint sofort und ohne Effekt.',
+      'Beim Blättern gibt es keinerlei visuellen Übergang - die neue Seite erscheint sofort und ohne Effekt.',
       'Für schnelles, ablenkungsfreies Lesen ohne jede Animation ist diese Einstellung empfehlenswert.',
     ],
   },
 
   'tap-zones': {
-    lead: 'Tipp-Zonen verwandeln den gesamten Lesebereich in eine unsichtbare Blätter-Schnittstelle — passend für Touchscreens und Einhand-Bedienung.',
+    lead: 'Tipp-Zonen verwandeln den gesamten Lesebereich in eine unsichtbare Blätter-Schnittstelle - passend für Touchscreens und Einhand-Bedienung.',
     on: [
       'Der Lesebereich ist horizontal in drei unsichtbare Zonen unterteilt: links (30 %), Mitte (40 %), rechts (30 %).',
       'Ein Klick oder Tipp in die linke Zone blättert zur vorherigen Seite.',
       'Ein Klick oder Tipp in die rechte Zone blättert zur nächsten Seite.',
-      'Die mittlere Zone ist bewusst inaktiv — dort lässt sich Text markieren oder eine Pause einlegen, ohne versehentlich zu blättern.',
+      'Die mittlere Zone ist bewusst inaktiv - dort lässt sich Text markieren oder eine Pause einlegen, ohne versehentlich zu blättern.',
       'Die Zonen sind vollständig unsichtbar und verändern das Layout oder Aussehen des Lesebereichs nicht.',
     ],
     off: [
       'Die unsichtbaren Tipp-Zonen werden entfernt.',
       'Blättern ist dann ausschließlich über die Navigationspfeile in der unteren Leiste oder die Tastatur möglich (← → Pfeiltasten oder Leertaste für vorwärts).',
     ],
-    tip: 'Auf Desktops mit Maus ist diese Funktion weniger relevant — wer hauptsächlich die Tastatur nutzt, kann sie ausschalten, ohne etwas zu verlieren.',
+    tip: 'Auf Desktops mit Maus ist diese Funktion weniger relevant - wer hauptsächlich die Tastatur nutzt, kann sie ausschalten, ohne etwas zu verlieren.',
   },
 
   'adaption-switcher': {
-    lead: 'Der Varianten-Schalter ermöglicht es, zwischen verschiedenen Fassungen desselben Märchens zu wechseln — zum Beispiel zwischen dem Original und einer humorvollen Parodie.',
+    lead: 'Der Varianten-Schalter ermöglicht es, zwischen verschiedenen Fassungen desselben Märchens zu wechseln - zum Beispiel zwischen dem Original und einer humorvollen Parodie.',
     on: [
       'Wenn für ein geöffnetes Märchen alternative Fassungen vorliegen, erscheint über der unteren Navigationsleiste ein Auswahlmenü.',
       'Das Menü listet die verfügbaren Varianten mit ihrem jeweiligen Namen auf (z. B. „Original", „Parodie – Bruderchen und Schwesterchen").',
-      'Beim Wechsel zu einer anderen Variante wird der Lesefortschritt zurückgesetzt — die neue Fassung beginnt auf Seite 1.',
-      'Märchen ohne alternative Fassungen zeigen das Auswahlmenü nicht an — der Schalter bleibt in diesem Fall ohne sichtbare Wirkung.',
+      'Beim Wechsel zu einer anderen Variante wird der Lesefortschritt zurückgesetzt - die neue Fassung beginnt auf Seite 1.',
+      'Märchen ohne alternative Fassungen zeigen das Auswahlmenü nicht an - der Schalter bleibt in diesem Fall ohne sichtbare Wirkung.',
     ],
     off: [
       'Das Auswahlmenü wird vollständig ausgeblendet.',
       'Märchen werden immer in ihrer Standardfassung (der zuerst gecrawlten Version) angezeigt.',
-      'Die Inhalte der alternativen Fassungen sind weiterhin vorhanden — nur der Zugang über die Oberfläche ist deaktiviert.',
+      'Die Inhalte der alternativen Fassungen sind weiterhin vorhanden - nur der Zugang über die Oberfläche ist deaktiviert.',
     ],
   },
 
@@ -131,71 +146,71 @@ const DOCS = {
     on: [
       'Über der unteren Navigationsleiste erscheint eine Schaltfläche zum Ein- und Ausklappen des Typografie-Panels.',
       'Das Panel enthält vier Einstellgruppen, jeweils mit drei wählbaren Stufen:',
-      'Zeilenhöhe: Eng (1,5×), Normal (1,8×), Weit (2,2×) — beeinflusst den Abstand zwischen den Zeilen und damit die Lesbarkeit bei unterschiedlichen Sehgewohnheiten.',
-      'Textbreite: Schmal (max. 560 px), Mittel (max. 768 px), Breit (max. 1.200 px) — bestimmt, wie weit der Fließtext die Seitenbreite ausfüllt.',
-      'Zeichenabstand: Normal, Locker (0,06 em), Weit (0,15 em) — vergrößert den Abstand zwischen Wörtern, was für manche Leser die Erkennbarkeit verbessert.',
-      'Schriftart: Serif (Georgia), Sans-Serif (Systemschrift) oder Comic Sans — für persönliche Vorlieben oder verbesserte Lesbarkeit bei Legasthenie.',
+      'Zeilenhöhe: Eng (1,5×), Normal (1,8×), Weit (2,2×) - beeinflusst den Abstand zwischen den Zeilen und damit die Lesbarkeit bei unterschiedlichen Sehgewohnheiten.',
+      'Textbreite: Schmal (max. 560 px), Mittel (max. 768 px), Breit (max. 1.200 px) - bestimmt, wie weit der Fließtext die Seitenbreite ausfüllt.',
+      'Zeichenabstand: Normal, Locker (0,06 em), Weit (0,15 em) - vergrößert den Abstand zwischen Wörtern, was für manche Leser die Erkennbarkeit verbessert.',
+      'Schriftart: Serif (Georgia), Sans-Serif (Systemschrift) oder Comic Sans - für persönliche Vorlieben oder verbesserte Lesbarkeit bei Legasthenie.',
       'Alle Einstellungen werden im Browser gespeichert und bei jedem Besuch automatisch wiederhergestellt.',
     ],
     off: [
       'Die Schaltfläche zum Öffnen des Panels und das Panel selbst werden ausgeblendet.',
-      'Bereits vorgenommene Einstellungen (Zeilenhöhe, Textbreite usw.) bleiben weiterhin aktiv und gespeichert — nur die Möglichkeit zur Änderung ist verborgen.',
+      'Bereits vorgenommene Einstellungen (Zeilenhöhe, Textbreite usw.) bleiben weiterhin aktiv und gespeichert - nur die Möglichkeit zur Änderung ist verborgen.',
       'Die Einstellungen können erst wieder verändert werden, wenn das Panel erneut eingeschaltet wird.',
     ],
     tip: 'Comic Sans ist keine Spielerei: Für Menschen mit Legasthenie kann diese Schriftart die Lesbarkeit deutlich verbessern, da die Buchstaben weniger symmetrisch und dadurch leichter unterscheidbar sind.',
   },
 
   'attribution': {
-    lead: 'Die Quellenangabe zeigt auf der letzten Seite eines Märchens kursiv den Namen der Autoren — als stilles Dankeschön an die Erzähler, die die Geschichten gesammelt und aufgeschrieben haben.',
+    lead: 'Die Quellenangabe zeigt auf der letzten Seite eines Märchens kursiv den Namen der Autoren - als stilles Dankeschön an die Erzähler, die die Geschichten gesammelt und aufgeschrieben haben.',
     on: [
       'Auf der allerletzten Seite eines Märchens erscheint unterhalb des letzten Absatzes eine kursive Quellenangabe.',
-      'Bei Grimm-Märchen lautet sie: „— Jacob und Wilhelm Grimm".',
-      'Bei Andersen-Märchen erscheint: „— Hans Christian Andersen".',
-      'Die Quellenangabe wird nur auf der letzten Seite eingeblendet — auf allen anderen Seiten bleibt sie verborgen.',
+      'Bei Grimm-Märchen lautet sie: „- Jacob und Wilhelm Grimm".',
+      'Bei Andersen-Märchen erscheint: „- Hans Christian Andersen".',
+      'Die Quellenangabe wird nur auf der letzten Seite eingeblendet - auf allen anderen Seiten bleibt sie verborgen.',
       'Sie ist Teil des paginierten Textflusses und beeinflusst die Seitenaufteilung (sie kann also dazu führen, dass der letzte Absatz auf eine neue Seite rutscht).',
     ],
     off: [
-      'Keine Quellenangabe wird angezeigt — das Märchen endet mit dem letzten Satz des Textes.',
+      'Keine Quellenangabe wird angezeigt - das Märchen endet mit dem letzten Satz des Textes.',
       'Die Seitenaufteilung wird nicht durch die Quellenangabe beeinflusst.',
     ],
   },
 
   'audio-player': {
-    lead: 'Der Audio-Player blendet oberhalb der Navigationsleiste eine kompakte Abspielleiste ein, wenn zum geöffneten Märchen eine Audiodatei hinterlegt ist — etwa eine Vorlesung oder eine Vertonung.',
+    lead: 'Der Audio-Player blendet oberhalb der Navigationsleiste eine kompakte Abspielleiste ein, wenn zum geöffneten Märchen eine Audiodatei hinterlegt ist - etwa eine Vorlesung oder eine Vertonung.',
     on: [
       'Ist für das aktuell geöffnete Märchen eine Audiodatei vorhanden, erscheint über der Navigationsleiste ein schmaler Player-Streifen.',
       'Der Streifen enthält einen Fortschrittsbalken, der den aktuellen Abspielstand im Verhältnis zur Gesamtlänge anzeigt.',
       'Zwei Schaltflächen stehen zur Verfügung: Abspielen/Pausieren sowie Zurücksetzen (springt an den Anfang und hält an).',
-      'Neben den Schaltflächen wird die verstrichene Zeit und — sobald die Metadaten geladen sind — die Gesamtdauer angezeigt.',
+      'Neben den Schaltflächen wird die verstrichene Zeit und - sobald die Metadaten geladen sind - die Gesamtdauer angezeigt.',
       'Beim Wechsel zu einem anderen Märchen wird der Player automatisch gestoppt und zurückgesetzt.',
-      'Hat ein Märchen keine zugehörige Audiodatei, bleibt der Player-Streifen vollständig ausgeblendet — die Funktion ist eingeschaltet, aber unauffällig.',
+      'Hat ein Märchen keine zugehörige Audiodatei, bleibt der Player-Streifen vollständig ausgeblendet - die Funktion ist eingeschaltet, aber unauffällig.',
     ],
     off: [
       'Der Player-Streifen wird nicht angezeigt, auch wenn für ein Märchen eine Audiodatei vorhanden ist.',
       'Die Audiodatei ist weiterhin im Build enthalten, wird aber nicht geladen oder abgespielt.',
     ],
-    tip: 'Audiodateien werden pro Märchen als audio.mp3 im jeweiligen Story-Verzeichnis abgelegt (z. B. stories/hohler/es_baernduetsches_gschichtli/audio.mp3). Der Crawler legt sie nicht an — sie müssen manuell hinzugefügt werden.',
+    tip: 'Audiodateien werden pro Märchen als audio.mp3 im jeweiligen Story-Verzeichnis abgelegt (z. B. stories/hohler/es_baernduetsches_gschichtli/audio.mp3). Der Crawler legt sie nicht an - sie müssen manuell hinzugefügt werden.',
   },
 
   'high-contrast-theme': {
-    lead: 'Der Hochkontrastmodus ersetzt die normalen Themen durch zwei kontraststarke Varianten: Hell-HC (weißer Hintergrund, schwarzer Text) und Dunkel-HC (schwarzer Hintergrund, weißer Text) — ohne Farbverläufe, ohne Amber-Töne.',
+    lead: 'Der Hochkontrastmodus ersetzt die normalen Themen durch zwei kontraststarke Varianten: Hell-HC (weißer Hintergrund, schwarzer Text) und Dunkel-HC (schwarzer Hintergrund, weißer Text) - ohne Farbverläufe, ohne Amber-Töne.',
     on: [
       'Der Themenkreis-Knopf wechselt nur noch zwischen zwei Stufen: Hell-HC ↔ Dunkel-HC.',
       'Beim Einschalten wird das aktuelle Thema automatisch übertragen: Hell und System werden zu Hell-HC, Dunkel wird zu Dunkel-HC.',
-      'Hell-HC: reinweißer Hintergrund, schwarzer Text, schwarze Ränder — maximaler Kontrast wie ein gedrucktes Dokument.',
-      'Dunkel-HC: reinschwarzer Hintergrund, weißer Text, weiße Ränder — für Dunkelheit und OLED-Displays ohne Amber-Ablenkung.',
+      'Hell-HC: reinweißer Hintergrund, schwarzer Text, schwarze Ränder - maximaler Kontrast wie ein gedrucktes Dokument.',
+      'Dunkel-HC: reinschwarzer Hintergrund, weißer Text, weiße Ränder - für Dunkelheit und OLED-Displays ohne Amber-Ablenkung.',
       'Alle anderen Funktionen (Typografie, Schriftgröße usw.) bleiben unverändert aktiv.',
     ],
     off: [
       'Der Themenkreis kehrt zum normalen Ablauf zurück: Hell → Dunkel → System → Hell.',
       'Beim Ausschalten wird das HC-Thema automatisch zurückgeführt: Hell-HC → Hell, Dunkel-HC → Dunkel.',
-      'Die App sieht sofort wieder aus wie gewohnt — kein manuelles Umschalten nötig.',
+      'Die App sieht sofort wieder aus wie gewohnt - kein manuelles Umschalten nötig.',
     ],
     tip: 'Hochkontrast eignet sich besonders für E-Ink-Displays, starkes Umgebungslicht oder Nutzer mit Sehbeeinträchtigungen, die eine ablenkungsfreie Schwarz-Weiß-Darstellung bevorzugen.',
   },
 
   'speed-reader': {
-    lead: 'Der Schnellleser blendet den normalen Lesebereich aus und zeigt stattdessen Wörter des Märchens einzeln, nacheinander und in hohem Tempo mittig auf dem Bildschirm an — eine Technik aus dem sogenannten RSVP-Lesen (Rapid Serial Visual Presentation).',
+    lead: 'Der Schnellleser blendet den normalen Lesebereich aus und zeigt stattdessen Wörter des Märchens einzeln, nacheinander und in hohem Tempo mittig auf dem Bildschirm an - eine Technik aus dem sogenannten RSVP-Lesen (Rapid Serial Visual Presentation).',
     steps: [
       {
         label: 'Einschalten',
@@ -262,7 +277,7 @@ const DOCS = {
       },
       {
         label: 'In den Schnellleser wechseln',
-        body: 'Öffne ein Märchen und tippe unten auf den Schnellleser-Knopf. Der paginierte Text verschwindet sofort — an seiner Stelle erscheint ein einzelnes großes Wort mittig auf dem Bildschirm, darüber eine schmale Fortschrittsleiste.',
+        body: 'Öffne ein Märchen und tippe unten auf den Schnellleser-Knopf. Der paginierte Text verschwindet sofort - an seiner Stelle erscheint ein einzelnes großes Wort mittig auf dem Bildschirm, darüber eine schmale Fortschrittsleiste.',
         widget: function SpeedReaderSwitchDemo({ darkMode }) {
           const [active, setActive] = React.useState(false);
           const [clicking, setClicking] = React.useState(false);
@@ -333,7 +348,7 @@ const DOCS = {
       },
       {
         label: 'Lesen starten & pausieren',
-        body: 'Tippe auf Abspielen. Die Wörter laufen automatisch durch, eines nach dem anderen. Tippe auf Pause — oder direkt auf das angezeigte Wort — um anzuhalten. Ein erneuter Tipp auf Abspielen setzt an genau derselben Stelle fort. Satzenden werden kurz automatisch pausiert, damit der Sinn nicht verloren geht.',
+        body: 'Tippe auf Abspielen. Die Wörter laufen automatisch durch, eines nach dem anderen. Tippe auf Pause - oder direkt auf das angezeigte Wort - um anzuhalten. Ein erneuter Tipp auf Abspielen setzt an genau derselben Stelle fort. Satzenden werden kurz automatisch pausiert, damit der Sinn nicht verloren geht.',
         widget: function SpeedReaderPlayDemo({ darkMode }) {
           const words = ['Im', 'tiefen', 'Wald', 'lebte', 'einst'];
           const [playing, setPlaying] = React.useState(false);
@@ -418,7 +433,7 @@ const DOCS = {
       },
       {
         label: 'Geschwindigkeit anpassen',
-        body: 'Unter dem Wort befinden sich zwei Schaltflächen zum Anpassen der Geschwindigkeit — wie die Schriftgröße im Lesebereich. Die Geschwindigkeit lässt sich in Schritten von 10 WpM einstellen, von 10 bis 1000 WpM. Du kannst jederzeit wechseln — auch mitten im Lesen. Die gewählte Geschwindigkeit wird gespeichert und beim nächsten Start vorausgewählt.',
+        body: 'Unter dem Wort befinden sich zwei Schaltflächen zum Anpassen der Geschwindigkeit - wie die Schriftgröße im Lesebereich. Die Geschwindigkeit lässt sich in Schritten von 10 WpM einstellen, von 10 bis 1000 WpM. Du kannst jederzeit wechseln - auch mitten im Lesen. Die gewählte Geschwindigkeit wird gespeichert und beim nächsten Start vorausgewählt.',
         widget: function SpeedReaderSpeedDemo({ darkMode }) {
           const INITIAL = 200;
           const [wpm, setWpm] = React.useState(INITIAL);
@@ -514,17 +529,17 @@ const DOCS = {
       },
       {
         label: 'Zurück zum Seiten-Leser',
-        body: 'Tippe erneut auf den Schnellleser-Knopf, um in die normale Seitenansicht zurückzukehren. Das Märchen öffnet sich wieder auf Seite 1 — der Schnellleser-Fortschritt wird nicht gespeichert.',
+        body: 'Tippe erneut auf den Schnellleser-Knopf, um in die normale Seitenansicht zurückzukehren. Das Märchen öffnet sich wieder auf Seite 1 - der Schnellleser-Fortschritt wird nicht gespeichert.',
       },
     ],
     on: [
       'Im Lesebereich erscheint anstelle des paginierten Textes ein Schnellleser-Modus mit einem einzelnen Wort in großer Schrift mittig auf dem Bildschirm.',
       'Über der Wortanzeige befindet sich eine Fortschrittsleiste, die den Leseverlauf im gesamten Text anzeigt.',
       'Unter der Wortanzeige befinden sich Steuerelemente: Abspielen / Pausieren, Zurückspringen um einen Satz sowie die Einstellung der Lesegeschwindigkeit in Wörtern pro Minute (WpM).',
-      'Die Geschwindigkeit lässt sich in Schritten von 10 WpM stufenlos zwischen 10 und 1000 WpM einstellen — über zwei Schaltflächen (+ und −) unterhalb der Wortanzeige. Die gewählte Geschwindigkeit wird gespeichert.',
-      'Das Lesen kann jederzeit pausiert werden — nach dem Pausieren springt ein erneutes Drücken auf „Abspielen" an der exakt gleichen Stelle weiter.',
+      'Die Geschwindigkeit lässt sich in Schritten von 10 WpM stufenlos zwischen 10 und 1000 WpM einstellen - über zwei Schaltflächen (+ und −) unterhalb der Wortanzeige. Die gewählte Geschwindigkeit wird gespeichert.',
+      'Das Lesen kann jederzeit pausiert werden - nach dem Pausieren springt ein erneutes Drücken auf „Abspielen" an der exakt gleichen Stelle weiter.',
       'Satzenden werden kurz mit einer Pause hervorgehoben, damit der Lesefluss natürlich bleibt und keine Sinnzusammenhänge verloren gehen.',
-      'Der Schnellleser arbeitet auf dem vollständigen Märchentext — er ist nicht an die seitenbasierte Paginierung des normalen Lesemodus gebunden.',
+      'Der Schnellleser arbeitet auf dem vollständigen Märchentext - er ist nicht an die seitenbasierte Paginierung des normalen Lesemodus gebunden.',
       'Der Fortschritt im Schnellleser wird beim Wechseln des Märchens oder Schließen der App nicht gespeichert.',
     ],
     off: [
@@ -532,16 +547,16 @@ const DOCS = {
       'Märchen werden wie gewohnt paginiert im normalen Lesebereich angezeigt.',
       'Alle anderen Lese- und Typografieeinstellungen bleiben unberührt.',
     ],
-    tip: 'RSVP-Lesen kann die Lesegeschwindigkeit deutlich steigern, da Augenbewegungen (Sakkaden) entfallen. Es ist jedoch weniger geeignet für Texte, die Reflexion oder Rückblättern erfordern — für Märchen mit linearer Handlung funktioniert es gut.',
+    tip: 'RSVP-Lesen kann die Lesegeschwindigkeit deutlich steigern, da Augenbewegungen (Sakkaden) entfallen. Es ist jedoch weniger geeignet für Texte, die Reflexion oder Rückblättern erfordern - für Märchen mit linearer Handlung funktioniert es gut.',
   },
 
   'word-blacklist': {
-    lead: 'Die Wort-Blacklist blendet Märchen, die bestimmte Wörter enthalten, automatisch aus der Seitenleiste aus — nützlich, wenn du bestimmte Themen oder Begriffe vermeiden möchtest.',
+    lead: 'Die Wort-Blacklist blendet Märchen, die bestimmte Wörter enthalten, automatisch aus der Seitenleiste aus - nützlich, wenn du bestimmte Themen oder Begriffe vermeiden möchtest.',
     on: [
       'Im Profil erscheint ein neuer Bereich „Wort-Blacklist" mit einem Eingabefeld.',
-      'Trage ein Wort ein und bestätige mit „Hinzufügen" oder der Eingabetaste — das Wort wird sofort gespeichert.',
+      'Trage ein Wort ein und bestätige mit „Hinzufügen" oder der Eingabetaste - das Wort wird sofort gespeichert.',
       'Märchen, deren Titel oder Inhalt dieses Wort enthält (Groß-/Kleinschreibung egal), verschwinden aus der Seitenleiste.',
-      'Die gefilterten Märchen sind nicht gelöscht — sie werden nur ausgeblendet. Entferne das Wort aus der Liste, um sie wieder zu sehen.',
+      'Die gefilterten Märchen sind nicht gelöscht - sie werden nur ausgeblendet. Entferne das Wort aus der Liste, um sie wieder zu sehen.',
       'Alle eingetragenen Wörter werden im Browser gespeichert und bleiben beim nächsten Besuch aktiv.',
     ],
     off: [
@@ -553,7 +568,7 @@ const DOCS = {
   },
 
   'story-directories': {
-    lead: 'Die Verzeichnisstruktur gliedert Geschichten in der Seitenleiste nach ihrer Ordnerhierarchie — nützlich für Quellen wie „Schweizer Sagen", die nach Kanton oder Region unterteilt sind.',
+    lead: 'Die Verzeichnisstruktur gliedert Geschichten in der Seitenleiste nach ihrer Ordnerhierarchie - nützlich für Quellen wie „Schweizer Sagen", die nach Kanton oder Region unterteilt sind.',
     on: [
       'Bei Quellen mit Unterordnern erscheint nach dem Antippen des Quellennamens zuerst eine Ordnerliste statt direkt die Geschichtenliste.',
       'Jeder Ordner zeigt seinen Namen und die Anzahl der enthaltenen Geschichten an.',
@@ -569,11 +584,11 @@ const DOCS = {
   },
 
   'speedreader-orp': {
-    lead: 'Die ORP-Lesemarke (Optimal Recognition Point) hebt einen bestimmten Buchstaben jedes Worts farblich hervor und richtet ihn an einem festen Bildschirmpunkt aus — optionale Führungslinien helfen dem Auge, den Fixationspunkt zu halten.',
+    lead: 'Die ORP-Lesemarke (Optimal Recognition Point) hebt einen bestimmten Buchstaben jedes Worts farblich hervor und richtet ihn an einem festen Bildschirmpunkt aus - optionale Führungslinien helfen dem Auge, den Fixationspunkt zu halten.',
     steps: [
       {
         label: 'Was ist ORP?',
-        body: 'Jedes Wort hat einen optimalen Erkennungspunkt — meist den zweiten Buchstaben. Wird dieser Punkt immer an derselben Stelle auf dem Bildschirm angezeigt, muss das Auge nicht suchen und das Lesen wird schneller und ermüdungsärmer.',
+        body: 'Jedes Wort hat einen optimalen Erkennungspunkt - meist den zweiten Buchstaben. Wird dieser Punkt immer an derselben Stelle auf dem Bildschirm angezeigt, muss das Auge nicht suchen und das Lesen wird schneller und ermüdungsärmer.',
         widget: function SpeedReaderOrpExplainDemo({ darkMode }) {
           const examples = [
             { word: 'Märchen', idx: 1 },
@@ -670,7 +685,7 @@ const DOCS = {
       },
       {
         label: 'Einstellungen in Echtzeit anpassen',
-        body: 'Tippe im Schnellleser auf das Zahnrad-Symbol in der Steuerleiste, um das ORP-Einstellungspanel zu öffnen. Jede Änderung — Methode, Farbe, Führungslinien, Fixationspunkt — wird sofort in der Vorschau und im laufenden Schnellleser sichtbar, ohne das Lesen zu unterbrechen.',
+        body: 'Tippe im Schnellleser auf das Zahnrad-Symbol in der Steuerleiste, um das ORP-Einstellungspanel zu öffnen. Jede Änderung - Methode, Farbe, Führungslinien, Fixationspunkt - wird sofort in der Vorschau und im laufenden Schnellleser sichtbar, ohne das Lesen zu unterbrechen.',
       },
     ],
     on: [
@@ -682,7 +697,7 @@ const DOCS = {
     ],
     off: [
       'Das Zahnrad-Symbol und das ORP-Einstellungspanel sind nicht sichtbar.',
-      'Der Schnellleser zeigt Wörter wie bisher ohne ORP-Hervorhebung an — der zweite Buchstabe ist leicht farbig betont (klassisches Verhalten).',
+      'Der Schnellleser zeigt Wörter wie bisher ohne ORP-Hervorhebung an - der zweite Buchstabe ist leicht farbig betont (klassisches Verhalten).',
       'Gespeicherte ORP-Einstellungen bleiben erhalten und werden wiederhergestellt, wenn das Feature wieder eingeschaltet wird.',
     ],
     tip: 'ORP-Lesemarke erfordert den aktivierten Schnellleser. Aktiviere zuerst den Schnellleser im Profil und wechsle dann in den Schnellleser-Modus.',
@@ -755,7 +770,7 @@ const FeatureDocs = ({ darkMode, onBack, initialAnchor, featureState, onToggle }
               Funktionen
             </h1>
             <p className={`text-sm mt-1 ${darkMode ? 'text-amber-500' : 'text-amber-600'}`}>
-              Alle optionalen Funktionen erklärt — was sie tun, was du erwartest, und wann du sie einschalten solltest.
+              Alle optionalen Funktionen erklärt - was sie tun, was du erwartest, und wann du sie einschalten solltest.
             </p>
           </div>
         </div>

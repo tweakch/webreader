@@ -91,7 +91,7 @@ export default function PageContent({
             <p className={`text-sm italic ${
               darkMode ? 'text-amber-600' : 'text-amber-700'
             }`}>
-              — Jacob und Wilhelm Grimm
+              - Jacob und Wilhelm Grimm
             </p>
           </div>
         )}

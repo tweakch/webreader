@@ -21,7 +21,7 @@ const USER_AGENTS = [
   'Mozilla/5.0 (Macintosh; Intel Mac OS X 14_4_1) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.4.1 Safari/605.1.15',
 ];
 
-// Keep one UA per crawl run — a real user doesn't change browsers mid-session
+// Keep one UA per crawl run - a real user doesn't change browsers mid-session
 const SESSION_UA = USER_AGENTS[Math.floor(Math.random() * USER_AGENTS.length)];
 
 export interface FetchOptions {

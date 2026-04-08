@@ -2,7 +2,7 @@ import { cn } from './cn';
 import { useTheme } from './ThemeContext';
 
 /**
- * Themed icon button — standard amber palette + hover bg.
+ * Themed icon button - standard amber palette + hover bg.
  * Covers the common header/toolbar case. For non-standard colors (audio,
  * nav arrows, favorites) pass overrides via className.
  */

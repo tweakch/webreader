@@ -54,7 +54,7 @@ describe('usePersistence', () => {
       expect(result.current.completedStories.has(STORY.id)).toBe(true);
     });
 
-    it('is idempotent — calling twice does not duplicate', () => {
+    it('is idempotent - calling twice does not duplicate', () => {
       const { result } = renderPersistence();
       act(() => result.current.markCompleted(STORY.id));
       act(() => result.current.markCompleted(STORY.id));

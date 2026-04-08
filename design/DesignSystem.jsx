@@ -146,7 +146,7 @@ function ColorsSection() {
 
   return (
     <Section id="farben" title="Farben" description="Vollständige Farbpalette der App">
-      <Item label="Amber — Markenfarbe">
+      <Item label="Amber - Markenfarbe">
         <div className="flex gap-2 flex-wrap">
           {amber.map(([cls, lbl]) => (
             <div key={lbl} className="flex flex-col items-center gap-1">
@@ -156,7 +156,7 @@ function ColorsSection() {
           ))}
         </div>
       </Item>
-      <Item label="Slate — Dunkelmodus">
+      <Item label="Slate - Dunkelmodus">
         <div className="flex gap-2">
           {slate.map(([cls, lbl]) => (
             <div key={lbl} className="flex flex-col items-center gap-1">
@@ -216,7 +216,7 @@ function TypographySection() {
               <p className="text-[10px] font-mono text-gray-400 mb-1">text-sm · italic · Quellenangabe</p>
               <p className={`text-sm italic ${
                 hc && dark ? 'text-white/70' : hc ? 'text-gray-600' : dark ? 'text-amber-600' : 'text-amber-700'
-              }`}>— Jacob und Wilhelm Grimm</p>
+              }`}>- Jacob und Wilhelm Grimm</p>
             </div>
           </div>
         )}
@@ -235,7 +235,7 @@ function ButtonsSection({ flags }) {
     <Section id="schaltflaechen" title="Schaltflächen"
       flagKeys={['font-size-controls', 'high-contrast-theme']}>
 
-      <Item label="Primär — Themen-Toggle" description="zeigt nächste Aktion als Emoji">
+      <Item label="Primär - Themen-Toggle" description="zeigt nächste Aktion als Emoji">
         <ThemeRow>
           {({ dark, hc }) => (
             <div className="flex gap-2 flex-wrap">
@@ -257,7 +257,7 @@ function ButtonsSection({ flags }) {
         </ThemeRow>
       </Item>
 
-      <Item label="Icon-Buttons — Kopfzeile" description="Schriftgröße + Hamburger">
+      <Item label="Icon-Buttons - Kopfzeile" description="Schriftgröße + Hamburger">
         <ThemeRow>
           {({ dark, hc }) => (
             <div className="flex items-center gap-1">
@@ -399,8 +399,8 @@ function HeaderSection({ flags }) {
           </div>
         )}
       </ThemeRow>
-      {/* Header during reading — with story-specific controls */}
-      <Item label="Beim Lesen — Seiten-Kontext">
+      {/* Header during reading - with story-specific controls */}
+      <Item label="Beim Lesen - Seiten-Kontext">
         <ThemeRow noPad>
           {({ dark, hc }) => (
             <div className={`h-16 px-4 flex items-center justify-between border-b ${
@@ -622,7 +622,7 @@ function ReaderSection({ flags }) {
               }`}>
                 <p className={`text-sm italic ${
                   hc && dark ? 'text-white/70' : hc ? 'text-gray-600' : dark ? 'text-amber-600' : 'text-amber-700'
-                }`}>— Jacob und Wilhelm Grimm</p>
+                }`}>- Jacob und Wilhelm Grimm</p>
               </div>
             )}
           </div>
@@ -832,7 +832,7 @@ function SpeedReaderSection({ flags }) {
       flagKeys={['speed-reader']}>
       {flags['speed-reader'] ? (
         <>
-          <Item label="Modus-Knopf" description="In der Navigationsleiste — aktiv / inaktiv">
+          <Item label="Modus-Knopf" description="In der Navigationsleiste - aktiv / inaktiv">
             <ThemeRow>
               {({ dark, hc }) => (
                 <div className="flex items-center gap-5">
@@ -1034,7 +1034,7 @@ export default function DesignSystem() {
             <div className="mb-6 px-4 py-2.5 rounded-lg bg-zinc-900 border border-zinc-700 text-white text-xs flex items-center gap-2">
               <span className="font-mono text-zinc-400">high-contrast-theme</span>
               <span className="text-zinc-500">·</span>
-              <span>Hochkontrastmodus aktiv — Themenkreis zeigt Hell-HC ↔ Dunkel-HC</span>
+              <span>Hochkontrastmodus aktiv - Themenkreis zeigt Hell-HC ↔ Dunkel-HC</span>
             </div>
           )}
           <ColorsSection />

@@ -10,9 +10,9 @@ export const FONT_FAMILIES = [
 ];
 
 /**
- * Typography settings panel — line height, text width, word spacing, font family.
+ * Typography settings panel - line height, text width, word spacing, font family.
  * Includes its own themed outer container (border-t, bg, padding).
- * Uses ThemeContext — must be inside ThemeContext.Provider.
+ * Uses ThemeContext - must be inside ThemeContext.Provider.
  */
 export default function TypographyPanel({
   lineHeightIdx,    onLineHeightChange,

@@ -14,7 +14,7 @@ export interface CrawledStory {
 }
 
 export interface SourceAdapter {
-  /** Machine-readable id — used as the subdirectory name under stories/ */
+  /** Machine-readable id - used as the subdirectory name under stories/ */
   id: string;
   /** Human-readable label for READMEs */
   label: string;

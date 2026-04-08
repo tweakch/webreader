@@ -36,27 +36,27 @@ async function goToLastPage(page) {
 test.describe('default flag values (no overrides)', () => {
   test.use({ viewport: { width: 1440, height: 900 } });
 
-  test('word-count is off by default — stat panel is not shown', async ({ page }) => {
+  test('word-count is off by default - stat panel is not shown', async ({ page }) => {
     await page.goto('/app');
     await openFirstStory(page);
     await expect(page.getByText('Wörter')).not.toBeVisible();
   });
 
-  test('font-size-controls is on by default — +/- buttons are visible', async ({ page }) => {
+  test('font-size-controls is on by default - +/- buttons are visible', async ({ page }) => {
     await page.goto('/app');
     await openFirstStory(page);
     await expect(page.locator('[data-testid="font-increase"]')).toBeVisible();
     await expect(page.locator('[data-testid="font-decrease"]')).toBeVisible();
   });
 
-  test('attribution is on by default — byline appears on last page', async ({ page }) => {
+  test('attribution is on by default - byline appears on last page', async ({ page }) => {
     await page.goto('/app');
     await openFirstStory(page);
     await goToLastPage(page);
     await expect(page.getByText('Jacob und Wilhelm Grimm')).toBeVisible();
   });
 
-  test('typography-panel is on by default — clicking page counter opens panel', async ({ page }) => {
+  test('typography-panel is on by default - clicking page counter opens panel', async ({ page }) => {
     await page.goto('/app');
     await openFirstStory(page);
     const counter = page.locator('[data-testid="page-counter"]');
@@ -126,13 +126,158 @@ test.describe('disabling flags via override', () => {
   });
 });
 
+// ─── Pinch-to-font-size flag behavior ────────────────────────────────────────
+
+test.describe('pinch-font-size gesture flag', () => {
+  test.use({
+    viewport: { width: 820, height: 1180 },
+    hasTouch: true,
+    isMobile: true,
+  });
+
+  test('pinch-font-size: override on → pinch gesture increases font size', async ({ page }) => {
+    await gotoWithFlags(page, { 'pinch-font-size': 'on' });
+    await openFirstStory(page);
+
+    const value = page.locator('header [data-testid="font-increase"]').locator('xpath=following-sibling::span[1]');
+    const beforeText = await value.textContent();
+    const before = parseInt((beforeText ?? '').trim(), 10);
+
+    const viewport = page.locator('[data-testid="reader-viewport"]');
+    await viewport.dispatchEvent('touchstart', {
+      touches: [
+        { identifier: 1, clientX: 260, clientY: 520 },
+        { identifier: 2, clientX: 340, clientY: 520 },
+      ],
+      changedTouches: [
+        { identifier: 1, clientX: 260, clientY: 520 },
+        { identifier: 2, clientX: 340, clientY: 520 },
+      ],
+    });
+
+    await viewport.dispatchEvent('touchmove', {
+      touches: [
+        { identifier: 1, clientX: 220, clientY: 520 },
+        { identifier: 2, clientX: 380, clientY: 520 },
+      ],
+      changedTouches: [
+        { identifier: 1, clientX: 220, clientY: 520 },
+        { identifier: 2, clientX: 380, clientY: 520 },
+      ],
+    });
+
+    await viewport.dispatchEvent('touchend', {
+      touches: [],
+      changedTouches: [
+        { identifier: 1, clientX: 220, clientY: 520 },
+        { identifier: 2, clientX: 380, clientY: 520 },
+      ],
+    });
+
+    await expect.poll(async () => {
+      const text = await value.textContent();
+      return parseInt((text ?? '').trim(), 10);
+    }).toBeGreaterThan(before);
+  });
+
+  test('pinch-font-size: override off → pinch gesture does not change font size', async ({ page }) => {
+    await gotoWithFlags(page, { 'pinch-font-size': 'off' });
+    await openFirstStory(page);
+
+    const value = page.locator('header [data-testid="font-increase"]').locator('xpath=following-sibling::span[1]');
+    const beforeText = await value.textContent();
+    const before = parseInt((beforeText ?? '').trim(), 10);
+
+    const viewport = page.locator('[data-testid="reader-viewport"]');
+    await viewport.dispatchEvent('touchstart', {
+      touches: [
+        { identifier: 1, clientX: 260, clientY: 520 },
+        { identifier: 2, clientX: 340, clientY: 520 },
+      ],
+      changedTouches: [
+        { identifier: 1, clientX: 260, clientY: 520 },
+        { identifier: 2, clientX: 340, clientY: 520 },
+      ],
+    });
+
+    await viewport.dispatchEvent('touchmove', {
+      touches: [
+        { identifier: 1, clientX: 220, clientY: 520 },
+        { identifier: 2, clientX: 380, clientY: 520 },
+      ],
+      changedTouches: [
+        { identifier: 1, clientX: 220, clientY: 520 },
+        { identifier: 2, clientX: 380, clientY: 520 },
+      ],
+    });
+
+    await viewport.dispatchEvent('touchend', {
+      touches: [],
+      changedTouches: [
+        { identifier: 1, clientX: 220, clientY: 520 },
+        { identifier: 2, clientX: 380, clientY: 520 },
+      ],
+    });
+
+    await expect.poll(async () => {
+      const text = await value.textContent();
+      return parseInt((text ?? '').trim(), 10);
+    }).toBe(before);
+  });
+
+  test('pinch-font-size: override on → pinch-in gesture decreases font size', async ({ page }) => {
+    await gotoWithFlags(page, { 'pinch-font-size': 'on' });
+    await openFirstStory(page);
+
+    const value = page.locator('header [data-testid="font-increase"]').locator('xpath=following-sibling::span[1]');
+    const beforeText = await value.textContent();
+    const before = parseInt((beforeText ?? '').trim(), 10);
+
+    const viewport = page.locator('[data-testid="reader-viewport"]');
+    await viewport.dispatchEvent('touchstart', {
+      touches: [
+        { identifier: 1, clientX: 220, clientY: 520 },
+        { identifier: 2, clientX: 380, clientY: 520 },
+      ],
+      changedTouches: [
+        { identifier: 1, clientX: 220, clientY: 520 },
+        { identifier: 2, clientX: 380, clientY: 520 },
+      ],
+    });
+
+    await viewport.dispatchEvent('touchmove', {
+      touches: [
+        { identifier: 1, clientX: 260, clientY: 520 },
+        { identifier: 2, clientX: 340, clientY: 520 },
+      ],
+      changedTouches: [
+        { identifier: 1, clientX: 260, clientY: 520 },
+        { identifier: 2, clientX: 340, clientY: 520 },
+      ],
+    });
+
+    await viewport.dispatchEvent('touchend', {
+      touches: [],
+      changedTouches: [
+        { identifier: 1, clientX: 260, clientY: 520 },
+        { identifier: 2, clientX: 340, clientY: 520 },
+      ],
+    });
+
+    await expect.poll(async () => {
+      const text = await value.textContent();
+      return parseInt((text ?? '').trim(), 10);
+    }).toBeLessThan(before);
+  });
+});
+
 // ─── Overrides are isolated between tests ───────────────────────────────────
 
 test.describe('override isolation', () => {
   test.use({ viewport: { width: 1440, height: 900 } });
 
   test('flags return to defaults when no override is set', async ({ page }) => {
-    // No addInitScript call — localStorage is clean for this context
+    // No addInitScript call - localStorage is clean for this context
     await page.goto('/app');
     await openFirstStory(page);
     // word-count is off by default

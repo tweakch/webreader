@@ -3,7 +3,7 @@ import { useTheme } from './ThemeContext';
 
 /**
  * Themed on/off toggle switch.
- * Reads { dark } from ThemeContext — wrap with ThemeContext.Provider to theme it.
+ * Reads { dark } from ThemeContext - wrap with ThemeContext.Provider to theme it.
  */
 export default function Toggle({ checked, onChange, label, className = '' }) {
   const { tc } = useTheme();

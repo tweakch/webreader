@@ -6,8 +6,8 @@ import { useTheme } from './ThemeContext';
  * Source list item button.
  * Displays a source name with story count and chevron icon.
  *
- * src  — { id, label, count }
- * onClick — called when clicked
+ * src  - { id, label, count }
+ * onClick - called when clicked
  */
 export default function SourceButton({ src, onClick }) {
   const { tc } = useTheme();

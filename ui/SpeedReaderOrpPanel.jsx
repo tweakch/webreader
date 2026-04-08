@@ -116,13 +116,13 @@ function SectionLabel({ children, tc }) {
 /**
  * ORP configuration panel for the speed reader.
  *
- * Fully controlled — no internal state. All settings live in grimm-reader.jsx
+ * Fully controlled - no internal state. All settings live in grimm-reader.jsx
  * (orpConfig / setOrpConfig). Changes arrive via onChange(partialPatch).
  *
  * Props:
- *   config       — current ORP config object
- *   onChange(p)  — called with partial patch; caller merges: prev => ({ ...prev, ...p })
- *   previewWord  — the word currently shown in the RSVP view (live preview)
+ *   config       - current ORP config object
+ *   onChange(p)  - called with partial patch; caller merges: prev => ({ ...prev, ...p })
+ *   previewWord  - the word currently shown in the RSVP view (live preview)
  */
 export default function SpeedReaderOrpPanel({ config, onChange, previewWord }) {
   const { tc } = useTheme();

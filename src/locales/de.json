@@ -23,14 +23,14 @@
   "home": {
     "tagline": "Kostenlos · Offen · Wunderschön",
     "hero_title": "Die schönsten Märchen,<br />perfekt formatiert.",
-    "hero_desc": "Märchenschatz erweckt Märchen von Grimm, Andersen und Schweizer Volkstales zum Leben — mit einer fokussierten Leseerfahrung: paginiert, zugänglich und ablenkungsfrei.",
-    "start_reading": "Jetzt lesen — kostenlos",
+    "hero_desc": "Märchenschatz erweckt Märchen von Grimm, Andersen und Schweizer Volkstales zum Leben - mit einer fokussierten Leseerfahrung: paginiert, zugänglich und ablenkungsfrei.",
+    "start_reading": "Jetzt lesen - kostenlos",
     "see_how": "Funktionsweise ansehen",
     "no_account": "Kein Konto erforderlich. Funktioniert offline nach dem ersten Besuch.",
     "features_title": "Für echte Leser gebaut",
-    "features_desc": "Jedes Feature existiert, um nicht im Weg zu stehen und dir beim Lesen zu helfen — in deinem Tempo, nach deinen Vorstellungen.",
+    "features_desc": "Jedes Feature existiert, um nicht im Weg zu stehen und dir beim Lesen zu helfen - in deinem Tempo, nach deinen Vorstellungen.",
     "cta_title": "Bereit, etwas Zeitloses zu lesen?",
-    "cta_desc": "Tauchen Sie ein in eine Welt von Märchen — jetzt, kostenlos.",
+    "cta_desc": "Tauchen Sie ein in eine Welt von Märchen - jetzt, kostenlos.",
     "open_reader": "Reader öffnen →"
   },
   "product": {
@@ -39,7 +39,7 @@
     "features": "Features",
     "features_short": "Alles, was der Reader kann.",
     "how_it_works": "Funktionsweise",
-    "how_it_works_short": "Hinter den Kulissen — die Technologie hinter dem Erlebnis.",
+    "how_it_works_short": "Hinter den Kulissen - die Technologie hinter dem Erlebnis.",
     "integrations": "Integrationen",
     "integrations_short": "Funktioniert mit Ihren Tools und Geräten."
   },
@@ -51,19 +51,19 @@
     "title": "Funktionsweise",
     "desc": "Eine fokussierte Leseerfahrung in vier Schritten.",
     "step_1_title": "Wählen Sie ein Märchen",
-    "step_1_body": "Durchsuchen Sie nach Quelle — Grimm, Andersen oder Schweizer Volksmärchen — und wählen Sie eine Geschichte aus der Seitenleiste.",
+    "step_1_body": "Durchsuchen Sie nach Quelle - Grimm, Andersen oder Schweizer Volksmärchen - und wählen Sie eine Geschichte aus der Seitenleiste.",
     "step_2_title": "Der Reader paginiert es",
     "step_2_body": "Der Inhalt wird mit einem DOM-Mess-Algorithmus in perfekt große Seiten aufgeteilt, die sich an Ihre Schriftgröße und Bildschirmgröße anpasst.",
     "step_3_title": "Lesen Sie in Ihrem Tempo",
     "step_3_body": "Blättern Sie durch Wischen, Tipp-Zonen, Pfeiltasten oder die Navigationsleiste. Passen Sie die Typografie jederzeit nach Ihren Vorstellungen an.",
     "step_4_title": "Der Fortschritt wird automatisch gespeichert",
-    "step_4_body": "Ihre Position, Favoriten und Einstellungen werden lokal gespeichert — kein Konto erforderlich."
+    "step_4_body": "Ihre Position, Favoriten und Einstellungen werden lokal gespeichert - kein Konto erforderlich."
   },
   "product_integrations": {
     "title": "Integrationen",
-    "desc": "Märchenschatz ist eine Progressive Web App — sie können sie auf jedem Gerät installieren und offline nutzen.",
+    "desc": "Märchenschatz ist eine Progressive Web App - sie können sie auf jedem Gerät installieren und offline nutzen.",
     "pwa": "PWA",
-    "pwa_desc": "Installieren Sie es auf iOS, Android oder dem Desktop direkt vom Browser aus — kein App Store erforderlich.",
+    "pwa_desc": "Installieren Sie es auf iOS, Android oder dem Desktop direkt vom Browser aus - kein App Store erforderlich.",
     "offline": "Offline-Unterstützung",
     "offline_desc": "Ein Service Worker speichert Inhalte zwischen, damit Sie ohne Internetverbindung lesen können.",
     "screen_size": "Jede Bildschirmgröße",
@@ -73,7 +73,7 @@
   },
   "use_cases": {
     "title": "Anwendungsfälle",
-    "desc": "Märchenschatz ist für alle gebaut, die gerne lesen — erkunden Sie, wie verschiedene Menschen es nutzen.",
+    "desc": "Märchenschatz ist für alle gebaut, die gerne lesen - erkunden Sie, wie verschiedene Menschen es nutzen.",
     "students": "Schüler",
     "students_desc": "Leseverständnis, Sprachenlernen und Literaturanalyse.",
     "professionals": "Berufstätige",
@@ -85,7 +85,7 @@
   },
   "use_case_students": {
     "title": "Für Schüler",
-    "desc": "Egal ob du Deutsch studierst, Märchenstrukturen analysierst oder deine Lesefähigkeit trainierst — Märchenschatz bietet dir saubere, unbelastete Texte.",
+    "desc": "Egal ob du Deutsch studierst, Märchenstrukturen analysierst oder deine Lesefähigkeit trainierst - Märchenschatz bietet dir saubere, unbelastete Texte.",
     "features_1": "Original deutsche Texte von Grimm und Andersen",
     "features_2": "Wort- und Lesezeitangaben",
     "features_3": "Einstellbare Schriftgröße und Zeilenhöhe",
@@ -94,27 +94,27 @@
   },
   "use_case_professionals": {
     "title": "Für Berufstätige",
-    "desc": "Wenig Zeit, aber trotzdem lesen möchten? Märchenschatz passt in Pendelfahrten, Mittagspausen und Entspannungspausen — ohne Kapiteltracking oder Druck.",
+    "desc": "Wenig Zeit, aber trotzdem lesen möchten? Märchenschatz passt in Pendelfahrten, Mittagspausen und Entspannungspausen - ohne Kapiteltracking oder Druck.",
     "features_1": "Geschichten dauern zwischen 5 und 30 Minuten zu lesen",
     "features_2": "Setzen Sie sich genau dort fort, wo Sie aufgehört haben",
     "features_3": "Funktioniert offline auf Mobilgeräten",
-    "features_4": "E-Ink-Stil — schonend für die Augen",
+    "features_4": "E-Ink-Stil - schonend für die Augen",
     "features_5": "Tipp-Zonen für einhändiges Blättern"
   },
   "use_case_researchers": {
     "title": "Für Forscher",
-    "desc": "Zugriff auf digitalisierte Primärquellen mit sauberer Formatierung und Quellenangabe — ideal für Folkloristik, Vergleichende Literaturwissenschaft und ethnographische Forschung.",
+    "desc": "Zugriff auf digitalisierte Primärquellen mit sauberer Formatierung und Quellenangabe - ideal für Folkloristik, Vergleichende Literaturwissenschaft und ethnographische Forschung.",
     "features_1": "Quellenangabe auf der letzten Seite jedes Märchens",
     "features_2": "Mehrere Varianten derselben Geschichte, wo vorhanden",
     "features_3": "Schweizer Kantonssammlung, organisiert nach Region",
-    "features_4": "Markdown-Quelldateien — zitierbar und versionskontrolliert",
+    "features_4": "Markdown-Quelldateien - zitierbar und versionskontrolliert",
     "features_5": "Keine Paywalls oder Registrierung"
   },
   "use_case_creators": {
     "title": "Für Kreative",
-    "desc": "Schriftsteller, Illustratoren, Spieledesigner und Filmemacher — Märchen sind eine reiche Quelle für Archetypen, Motive und Erzählstrukturen. Lesen Sie sie in ihrer ursprünglichen Form.",
+    "desc": "Schriftsteller, Illustratoren, Spieledesigner und Filmemacher - Märchen sind eine reiche Quelle für Archetypen, Motive und Erzählstrukturen. Lesen Sie sie in ihrer ursprünglichen Form.",
     "features_1": "400+ Märchen aus mehreren Traditionen",
-    "features_2": "Original-Texte — nicht bereinigte Nacherzählungen",
+    "features_2": "Original-Texte - nicht bereinigte Nacherzählungen",
     "features_3": "Mehrere Varianten zeigen, wie sich Geschichten entwickeln",
     "features_4": "Ablenkungsfreies Lesen für tiefe Absorption",
     "features_5": "Kostenlos zu nutzen für persönliche und Forschungszwecke"
@@ -122,17 +122,17 @@
   "blog": {
     "title": "Blog",
     "desc": "Geschichten über Geschichten. Kommt bald.",
-    "no_posts": "Noch keine Beiträge — schauen Sie bald wieder vorbei."
+    "no_posts": "Noch keine Beiträge - schauen Sie bald wieder vorbei."
   },
   "about": {
     "title": "Über uns",
-    "p1": "Märchenschatz ist ein Liebhaberprojekt — ein Reader, gebaut aus Liebe zu Märchen und guter Typografie.",
+    "p1": "Märchenschatz ist ein Liebhaberprojekt - ein Reader, gebaut aus Liebe zu Märchen und guter Typografie.",
     "p2": "Klassische Märchen wie die der Gebrüder Grimm und Hans Christian Andersen gehören jedem. Diese App macht sie kostenlos zugänglich in einem wunderschönen, ablenkungsfreien Format, das auf jedem Gerät funktioniert.",
     "p3": "Das Projekt ist Open Source. Inhalte stammen aus gemeindfreien Sammlungen und sind in Markdown formatiert. Neue Quellen können durch Implementierung eines einfachen Crawler-Adapters hinzugefügt werden."
   },
   "pricing": {
     "title": "Einfache, ehrliche Preisgestaltung",
-    "desc": "Märchenschatz ist kostenlos — immer. Eine Pro-Version kommt bald für Leser, die mehr möchten.",
+    "desc": "Märchenschatz ist kostenlos - immer. Eine Pro-Version kommt bald für Leser, die mehr möchten.",
     "free": "Kostenlos",
     "free_price": "€0",
     "free_period": "/für immer",

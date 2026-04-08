@@ -4,10 +4,10 @@ import { useTheme } from './ThemeContext';
 /**
  * Themed pill badge for story metadata (source label, word count, ✓).
  * In HC mode the background is semi-transparent so the badge inherits the
- * parent button's text colour — no explicit text class needed.
+ * parent button's text colour - no explicit text class needed.
  *
- * isActive — the parent story row is currently selected
- * dim      — slightly dimmer inactive text (source label vs meta badge)
+ * isActive - the parent story row is currently selected
+ * dim      - slightly dimmer inactive text (source label vs meta badge)
  */
 export default function StoryBadge({ children, isActive = false, dim = false, testId, className = '' }) {
   const { tc } = useTheme();

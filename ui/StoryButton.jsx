@@ -6,19 +6,19 @@ import StoryBadge from './StoryBadge';
 /**
  * Story list item: title row + optional badges + optional favourite button.
  *
- * story            — { title, sourceLabel, wordCount }
- * isActive         — row is the currently-selected story
- * isCompleted      — story has been read to the last page
- * isFavorite       — story is in the favourites set
- * showSourceBadge  — show story.sourceLabel as a badge
- * showWordCount    — show story.wordCount (skipped when null)
- * showFavoriteButton — render the heart toggle
- * alwaysFilled     — heart is always filled (use in the favourites-only list)
- * inlineBadges     — badges sit on the same line as the title (search results layout)
- * onClick          — called when the title area is clicked
- * onFavoriteClick  — called when the heart is clicked, receives the click event
- * testId           — forwarded to data-testid on the main button
- * className        — applied to the outermost wrapper div
+ * story            - { title, sourceLabel, wordCount }
+ * isActive         - row is the currently-selected story
+ * isCompleted      - story has been read to the last page
+ * isFavorite       - story is in the favourites set
+ * showSourceBadge  - show story.sourceLabel as a badge
+ * showWordCount    - show story.wordCount (skipped when null)
+ * showFavoriteButton - render the heart toggle
+ * alwaysFilled     - heart is always filled (use in the favourites-only list)
+ * inlineBadges     - badges sit on the same line as the title (search results layout)
+ * onClick          - called when the title area is clicked
+ * onFavoriteClick  - called when the heart is clicked, receives the click event
+ * testId           - forwarded to data-testid on the main button
+ * className        - applied to the outermost wrapper div
  */
 export default function StoryButton({
   story,

@@ -2,7 +2,7 @@ import { Heart } from 'lucide-react';
 import { useTheme } from '../ui/ThemeContext';
 
 /**
- * Home view — resume banner and favorites grid.
+ * Home view - resume banner and favorites grid.
  * Shown when no story is selected.
  */
 export default function HomeView({

@@ -9,7 +9,7 @@ import TypographyPanel from '../ui/TypographyPanel';
 import AudioPlayer from '../ui/AudioPlayer';
 
 /**
- * Reader view compositor — manages the entire reading interface.
+ * Reader view compositor - manages the entire reading interface.
  * Conditionally renders speed reader mode or normal page view with all controls.
  */
 export default function ReaderView({
@@ -58,6 +58,10 @@ export default function ReaderView({
   onShare,
   onToggleFavorite,
   onClose,
+  srFontSizeMin,
+  srFontSizeMax,
+  srFontSizeStep,
+  srFontSizeDefault,
 }) {
   return (
     <>
@@ -80,6 +84,10 @@ export default function ReaderView({
             onClose={onClose}
             showFavorites={showFavorites}
             onShare={onShare}
+            srFontSizeMin={srFontSizeMin}
+            srFontSizeMax={srFontSizeMax}
+            srFontSizeStep={srFontSizeStep}
+            srFontSizeDefault={srFontSizeDefault}
           />
         ) : (
           <>
@@ -118,7 +126,7 @@ export default function ReaderView({
         )}
       </div>
 
-      {/* Variant switcher — shown only when adaptions exist */}
+      {/* Variant switcher - shown only when adaptions exist */}
       {showAdaptionSwitcher && (adaptionsByParent[selectedStory.id] ?? []).length > 0 && (
         <VariantSwitcher
           adaptions={adaptionsByParent[selectedStory.id]}
@@ -127,7 +135,7 @@ export default function ReaderView({
         />
       )}
 
-      {/* Typography panel — slides open above nav bar */}
+      {/* Typography panel - slides open above nav bar */}
       {showTypographyPanel && typoPanelOpen && (
         <TypographyPanel
           lineHeightIdx={lineHeightIdx}
@@ -141,7 +149,7 @@ export default function ReaderView({
         />
       )}
 
-      {/* Audio player — only when flag is on and the story has an audio file */}
+      {/* Audio player - only when flag is on and the story has an audio file */}
       {showAudioPlayer && (
         <AudioPlayer
           key={selectedStory?.id}
@@ -149,7 +157,7 @@ export default function ReaderView({
         />
       )}
 
-      {/* Page navigation bar — flex sibling, not overlapping */}
+      {/* Page navigation bar - flex sibling, not overlapping */}
       <NavBar
         currentPage={currentPage}
         totalPages={totalPages}

@@ -1,4 +1,3 @@
-import { beforeEach, describe, expect, it, vi } from 'vitest';
 import type { Story } from '../../crawlers/types';
 
 vi.mock('../../crawlers/core.ts', () => ({

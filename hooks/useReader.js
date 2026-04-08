@@ -122,6 +122,13 @@ export function useReader({
         if (overflows) {
           // Word doesn't fit - remove it and end page
           currentPara.textContent = currentPara.textContent.slice(0, -word.length);
+          // On very small viewports (or long titles), the first word may not fit
+          // after adding the title block. Force one token to avoid empty pages.
+          if (pageTokens.length === 0) {
+            currentPara.textContent = word;
+            tokens.shift();
+            pageTokens.push(token);
+          }
           break;
         }
 

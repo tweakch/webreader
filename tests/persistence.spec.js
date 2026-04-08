@@ -59,6 +59,7 @@ test.describe('font size persistence', () => {
   test.use({ viewport: { width: 1440, height: 900 } });
 
   test('font size is restored on reload', async ({ page }) => {
+    await page.evaluate(() => localStorage.clear());
     await page.goto('/app');
     await openFirstStory(page);
 
@@ -66,13 +67,12 @@ test.describe('font size persistence', () => {
     await page.locator('[data-testid="font-increase"]').click();
     await page.locator('[data-testid="font-increase"]').click();
 
-    const fontSpan = page.locator('header span.w-12');
-    await expect(fontSpan).toHaveText('22');
+    await expect(page.locator('header span.w-12')).toHaveText('22');
 
     // Reload and verify font size is preserved
     await page.reload();
     await openFirstStory(page);
-    await expect(fontSpan).toHaveText('22');
+    await expect(page.locator('header span.w-12')).toHaveText('22');
   });
 
   test('font size change is written to wr-fs in localStorage', async ({ page }) => {

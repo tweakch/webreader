@@ -12,7 +12,11 @@ async function openFirstStory(page) {
   if (await hamburger.isVisible()) {
     await hamburger.click();
   }
-  await page.locator('[data-testid="source-button"]').first().click();
+  // If already drilled into a source from persisted state, source buttons are hidden.
+  const sourceBtn = page.locator('[data-testid="source-button"]').first();
+  if (await sourceBtn.isVisible({ timeout: 1000 }).catch(() => false)) {
+    await sourceBtn.click();
+  }
   await page.locator('[data-testid="story-button"]').first().click();
   // Wait until page-content is rendered and at least one paragraph exists
   await page.waitForSelector('[data-testid="page-content"] p');

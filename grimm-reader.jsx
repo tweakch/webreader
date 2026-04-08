@@ -136,7 +136,7 @@ const GrimmMarchenApp = () => {
     } finally {
       setIsStoryLoading(false);
     }
-  }, [mergeStoryMetadata]);
+  }, []);
 
   useEffect(() => {
     if (!activeSource) return;
@@ -146,7 +146,7 @@ const GrimmMarchenApp = () => {
         .then((metadata) => mergeStoryMetadata(metadata))
         .catch(() => {});
     });
-  }, [activeSource, stories, mergeStoryMetadata]);
+  }, [activeSource, stories]);
 
   useEffect(() => {
     if (!selectedStory) return;

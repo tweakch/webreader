@@ -121,9 +121,9 @@ export default function ReaderView({
             {/* Tap zones */}
             {showTapZones && (
               <TapZones
-                onPrev={() => onGoToPage(currentPage - 1)}
+                onPrev={() => currentPage > 0 && onGoToPage(currentPage - 1)}
                 onClick={() => showTapMiddleToggle && onToggleControls(v => !v)}
-                onNext={() => onGoToPage(currentPage + 1)}
+                onNext={() => currentPage < totalPages - 1 && onGoToPage(currentPage + 1)}
               />
             )}
           </>

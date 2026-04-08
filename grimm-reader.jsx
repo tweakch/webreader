@@ -65,6 +65,7 @@ const GrimmMarchenApp = () => {
   const [storyAudioFiles, setStoryAudioFiles] = useState({});
   const [isLibraryLoading, setIsLibraryLoading] = useState(true);
   const [isStoryLoading, setIsStoryLoading] = useState(false);
+  const [loadedMetadataIds, setLoadedMetadataIds] = useState(new Set());
 
   // Allow deep-linking from marketing pages directly into FeatureDocs.
   useEffect(() => {
@@ -140,14 +141,23 @@ const GrimmMarchenApp = () => {
   }, []);
 
   useEffect(() => {
-    if (!activeSource) return;
+    if (!activeSource || stories.length === 0) return;
     const sourceStories = stories.filter((story) => story.source === activeSource);
-    sourceStories.forEach((story) => {
+    const storiesToLoad = sourceStories.filter((story) => !loadedMetadataIds.has(story.id));
+
+    if (storiesToLoad.length === 0) return;
+
+    storiesToLoad.forEach((story) => {
       loadStoryMetadataById(story.id)
-        .then((metadata) => mergeStoryMetadata(metadata))
-        .catch(() => {});
+        .then((metadata) => {
+          mergeStoryMetadata(metadata);
+          setLoadedMetadataIds((prev) => new Set([...prev, story.id]));
+        })
+        .catch(() => {
+          setLoadedMetadataIds((prev) => new Set([...prev, story.id]));
+        });
     });
-  }, [activeSource, stories]);
+  }, [activeSource, stories.length, loadedMetadataIds, mergeStoryMetadata]);
 
   useEffect(() => {
     if (!selectedStory) return;

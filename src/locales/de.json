@@ -23,6 +23,18 @@
   "home": {
     "tagline": "Kostenlos · Offen · Wunderschön",
     "hero_title": "Die schönsten Märchen,<br />perfekt formatiert.",
+    "cycles": [
+      "Märchen sind <mark>zum Erzählen</mark> da.",
+      "Märchen sind <mark>zum Träumen</mark> da.",
+      "Märchen sind <mark>zum Lernen</mark> da.",
+      "Märchen sind <mark>zum Weitergeben</mark> da.",
+      "Märchen <mark>verbinden</mark> uns über die Zeit.",
+      "Märchen <mark>bringen Magie</mark> zum Leben.",
+      "Märchen <mark>lehren</mark> ohne zu predigen.",
+      "Märchen <mark>beruhigen</mark> die Seele.",
+      "Märchen haben <mark>eine Stimme</mark>.",
+      "Märchen <mark>leben hier</mark>."
+    ],
     "hero_desc": "Märchen der Gebrüder Grimm, H.C. Andersen und viele Schweizer Sagen in einer fokussierten Leseerfahrung: paginiert, zugänglich und ablenkungsfrei.",
     "start_reading": "Jetzt lesen - kostenlos",
     "see_how": "Funktionsweise ansehen",

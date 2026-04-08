@@ -23,6 +23,18 @@
   "home": {
     "tagline": "Free · Open · Beautiful",
     "hero_title": "The world's fairy tales,<br />perfectly formatted.",
+    "cycles": [
+      "Fairy tales are <mark>made to be told</mark>.",
+      "Fairy tales are <mark>meant to be dreamed</mark>.",
+      "Fairy tales are <mark>crafted to be learned</mark>.",
+      "Fairy tales are <mark>meant to be shared</mark>.",
+      "Fairy tales <mark>connect us</mark> across time.",
+      "Fairy tales <mark>bring magic</mark> to life.",
+      "Fairy tales <mark>teach</mark> without preaching.",
+      "Fairy tales <mark>soothe</mark> the soul.",
+      "Fairy tales have <mark>a voice</mark>.",
+      "Fairy tales <mark>live here</mark>."
+    ],
     "hero_desc": "Märchenschatz brings Grimm, Andersen, and Swiss folk tales to life with a focused reading experience - paginated, accessible, and distraction-free.",
     "start_reading": "Start reading - it's free",
     "see_how": "See how it works",

@@ -66,7 +66,7 @@ export const swiss: SourceAdapter = {
     return stories;
   },
 
-  async crawlStory(story: Story): Promise<string> {
+  async crawlStory(story: Story) {
     const html = await fetchHtml(story.url, { referer: LIST_URL });
     const root = parse(html);
 
@@ -79,6 +79,15 @@ export const swiss: SourceAdapter = {
         && !text.includes('Quelle:')
         && !text.includes('korrekturgelesen'));
 
-    return `# ${title}\n\n${paragraphs.join('\n\n')}\n`;
+    const canton = story.slug.split('/')[0] ?? '';
+
+    return {
+      body: `# ${title}\n\n${paragraphs.join('\n\n')}\n`,
+      frontmatter: canton
+        ? {
+            region: canton,
+          }
+        : undefined,
+    };
   },
 };

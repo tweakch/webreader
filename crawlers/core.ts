@@ -1,6 +1,6 @@
 import { writeFileSync, mkdirSync } from 'fs';
 import { join } from 'path';
-import type { SourceAdapter, Story } from './types.ts';
+import type { CrawledStory, FrontmatterValue, SourceAdapter, Story } from './types.ts';
 
 // ---------------------------------------------------------------------------
 // Browser impersonation
@@ -131,7 +131,7 @@ export function normalizeInline(text: string): string {
   return text.replace(/[\r\n\t ]+/g, ' ').trim();
 }
 
-function buildFrontmatter(fields: Record<string, string | number>): string {
+function buildFrontmatter(fields: Record<string, FrontmatterValue>): string {
   const lines = Object.entries(fields).map(([k, v]) =>
     typeof v === 'number' ? `${k}: ${v}` : `${k}: ${JSON.stringify(normalizeInline(v))}`
   );
@@ -148,18 +148,28 @@ export function writeStory(
   story: Story,
   sourceLabel: string,
   body: string,
+  extraFrontmatter: Record<string, FrontmatterValue> = {},
 ): void {
   const normalizedBody = normalizeBody(body);
-  const frontmatter = buildFrontmatter({
+  const frontmatterFields: Record<string, FrontmatterValue> = {
     title: story.title,
     source: sourceLabel,
     url: story.url,
     crawledAt: new Date().toISOString(),
     wordCount: countWords(normalizedBody),
-  });
+    ...extraFrontmatter,
+  };
+  const frontmatter = buildFrontmatter(frontmatterFields);
   const dir = join(storiesDir, sourceId, story.slug);
   mkdirSync(dir, { recursive: true });
   writeFileSync(join(dir, 'content.md'), frontmatter + '\n' + normalizedBody, 'utf-8');
+}
+
+function toCrawledStory(crawled: string | CrawledStory): CrawledStory {
+  if (typeof crawled === 'string') {
+    return { body: crawled };
+  }
+  return crawled;
 }
 
 function writeSourceIndex(storiesDir: string, adapter: SourceAdapter, stories: Story[]): void {
@@ -181,6 +191,7 @@ function writeSourceIndex(storiesDir: string, adapter: SourceAdapter, stories: S
 
 export interface RunOptions {
   storiesDir: string;
+  limit?: number;
 }
 
 export interface RunResult {
@@ -194,8 +205,13 @@ export async function runSource(adapter: SourceAdapter, options: RunOptions): Pr
   const failed: Array<{ story: Story; error: unknown }> = [];
 
   console.log(`\n[${adapter.id}] Fetching story list from ${adapter.listUrl} ...`);
-  const stories = await adapter.getStoryList();
-  console.log(`[${adapter.id}] Found ${stories.length} stories  (UA: ${SESSION_UA.slice(0, 60)}...)\n`);
+  const allStories = await adapter.getStoryList();
+  const stories = typeof options.limit === 'number'
+    ? allStories.slice(0, options.limit)
+    : allStories;
+  console.log(
+    `[${adapter.id}] Found ${allStories.length} stories, crawling ${stories.length}  (UA: ${SESSION_UA.slice(0, 60)}...)\n`,
+  );
 
   for (let i = 0; i < stories.length; i++) {
     const story = stories[i];
@@ -203,8 +219,8 @@ export async function runSource(adapter: SourceAdapter, options: RunOptions): Pr
     process.stdout.write(`${prefix} ${story.slug} ... `);
 
     try {
-      const body = await adapter.crawlStory(story);
-      writeStory(options.storiesDir, adapter.id, story, adapter.label, body);
+      const crawled = toCrawledStory(await adapter.crawlStory(story));
+      writeStory(options.storiesDir, adapter.id, story, adapter.label, crawled.body, crawled.frontmatter);
       succeeded.push(story);
       console.log('ok');
     } catch (e) {

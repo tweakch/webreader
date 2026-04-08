@@ -31,7 +31,7 @@ export const andersen: SourceAdapter = {
     return stories;
   },
 
-  async crawlStory(story: Story): Promise<string> {
+  async crawlStory(story: Story) {
     const html = await fetchHtml(story.url, { referer: LIST_URL });
     const root = parse(html);
 
@@ -41,6 +41,11 @@ export const andersen: SourceAdapter = {
       .map(d => d.text.trim())
       .filter(Boolean) ?? [];
 
-    return `# ${title}\n\n${paragraphs.join('\n\n')}\n`;
+    return {
+      body: `# ${title}\n\n${paragraphs.join('\n\n')}\n`,
+      frontmatter: {
+        author: 'Hans Christian Andersen',
+      },
+    };
   },
 };

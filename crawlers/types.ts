@@ -4,6 +4,15 @@ export interface Story {
   url: string;
 }
 
+export type FrontmatterValue = string | number;
+
+export interface CrawledStory {
+  /** Story markdown body (without frontmatter). */
+  body: string;
+  /** Optional adapter-specific frontmatter fields to merge. */
+  frontmatter?: Record<string, FrontmatterValue>;
+}
+
 export interface SourceAdapter {
   /** Machine-readable id — used as the subdirectory name under stories/ */
   id: string;
@@ -13,6 +22,9 @@ export interface SourceAdapter {
   listUrl: string;
   /** Fetch and return all stories available from this source */
   getStoryList(): Promise<Story[]>;
-  /** Fetch a single story and return its markdown body (no frontmatter) */
-  crawlStory(story: Story): Promise<string>;
+  /**
+   * Fetch a single story.
+   * Returning a string is supported for backwards compatibility.
+   */
+  crawlStory(story: Story): Promise<string | CrawledStory>;
 }

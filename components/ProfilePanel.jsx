@@ -1,10 +1,11 @@
-import { ChevronLeft, X, User } from 'lucide-react';
+import { ChevronLeft, X, User, Shield } from 'lucide-react';
 import { useTheme } from '../ui/ThemeContext';
 import Toggle from '../ui/Toggle';
+import { ROLES, ROLE_LABELS } from '../hooks/useRole';
 
 /**
- * Profile panel — user stats, word blacklist, and feature toggles.
- * Displayed as a full-screen scrollable overlay.
+ * Profile panel — user stats, word blacklist, feature toggles, and admin tools.
+ * In admin mode shows all features (including unreleased) and role-assignment UI.
  */
 export default function ProfilePanel({
   onBack,
@@ -22,10 +23,24 @@ export default function ProfilePanel({
   _rawFlagValues,
   userFeatureOverrides,
   onToggleFeature,
+  // Role props
+  role,
+  setRole,
+  isAdmin,
+  visibleFeatureKeys,
+  isFeatureAssignedToRole,
+  toggleFeatureForRole,
 }) {
   const { dark, hc, tc } = useTheme();
 
   const _o = (key, raw) => Object.hasOwn(userFeatureOverrides, key) ? userFeatureOverrides[key] : raw;
+
+  // Admin sees all features; others see only role-assigned features
+  const visibleFeatures = isAdmin
+    ? features
+    : features.filter((f) => visibleFeatureKeys.has(f.key));
+
+  const nonAdminRoles = ROLES.filter((r) => r !== 'admin');
 
   return (
     <div className="flex-1 overflow-y-auto">
@@ -44,17 +59,48 @@ export default function ProfilePanel({
         {/* Avatar */}
         <div className="flex flex-col items-center gap-4 mb-10">
           <div className={`w-20 h-20 rounded-full flex items-center justify-center ${
-            dark ? 'bg-slate-700 text-amber-300' : 'bg-amber-100 text-amber-700'
+            isAdmin
+              ? dark ? 'bg-violet-800 text-violet-200' : 'bg-violet-100 text-violet-700'
+              : dark ? 'bg-slate-700 text-amber-300' : 'bg-amber-100 text-amber-700'
           }`}>
-            <User size={36} />
+            {isAdmin ? <Shield size={36} /> : <User size={36} />}
           </div>
           <div className="text-center">
             <p className={`text-xl font-serif font-bold ${dark ? 'text-amber-200' : 'text-amber-900'}`}>
-              Leser
+              {ROLE_LABELS[role] ?? role}
             </p>
             <p className={`text-sm mt-0.5 ${dark ? 'text-amber-600' : 'text-amber-600'}`}>
-              Gast-Konto
+              {isAdmin ? 'Administrator' : 'Gast-Konto'}
             </p>
+          </div>
+        </div>
+
+        {/* Role selector */}
+        <div className="mb-8">
+          <h2 className={`text-xs font-semibold uppercase tracking-wider mb-3 px-1 ${
+            dark ? 'text-amber-500' : 'text-amber-600'
+          }`}>
+            Rolle
+          </h2>
+          <div className={`flex rounded-2xl border overflow-hidden ${
+            dark ? 'border-amber-700/30' : 'border-amber-200'
+          }`}>
+            {ROLES.map((r) => (
+              <button
+                key={r}
+                data-testid={`role-button-${r}`}
+                onClick={() => setRole(r)}
+                className={`flex-1 py-2.5 text-sm font-medium transition-colors ${
+                  role === r
+                    ? isAdmin && r === 'admin'
+                      ? dark ? 'bg-violet-700 text-white' : 'bg-violet-600 text-white'
+                      : dark ? 'bg-amber-700/50 text-amber-100' : 'bg-amber-100 text-amber-900'
+                    : dark ? 'text-amber-600 hover:text-amber-400' : 'text-amber-500 hover:text-amber-800'
+                }`}
+              >
+                {ROLE_LABELS[r]}
+              </button>
+            ))}
           </div>
         </div>
 
@@ -142,6 +188,11 @@ export default function ProfilePanel({
               dark ? 'text-amber-500' : 'text-amber-600'
             }`}>
               Funktionen
+              {isAdmin && (
+                <span className={`ml-2 normal-case font-normal ${dark ? 'text-violet-400' : 'text-violet-600'}`}>
+                  — alle sichtbar (Admin)
+                </span>
+              )}
             </h2>
             <button
               onClick={onOpenDocs}
@@ -152,11 +203,20 @@ export default function ProfilePanel({
               Alle Funktionen erklärt →
             </button>
           </div>
+
+          {visibleFeatures.length === 0 && (
+            <p className={`px-1 text-sm ${dark ? 'text-amber-700' : 'text-amber-500'}`}>
+              Keine Funktionen für diese Rolle freigeschaltet.
+            </p>
+          )}
+
           <div className={`rounded-2xl border divide-y ${
             dark ? 'border-amber-700/30 divide-amber-700/30' : 'border-amber-200 divide-amber-200'
           }`}>
-            {features.map(({ key, label, description, Icon }) => {
+            {visibleFeatures.map(({ key, label, description, Icon }) => {
               const effective = _o(key, _rawFlagValues[key] ?? false);
+              const isUnreleased = !Object.hasOwn(_rawFlagValues, key);
+
               return (
                 <div key={key} className={`px-5 py-4 flex items-start gap-4 ${
                   dark ? 'text-amber-200' : 'text-amber-900'
@@ -170,9 +230,18 @@ export default function ProfilePanel({
                   </div>
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center justify-between gap-3">
-                      <p className={`text-sm font-medium transition-opacity ${
-                        effective ? '' : 'opacity-40'
-                      }`}>{label}</p>
+                      <div className="flex items-center gap-2 min-w-0">
+                        <p className={`text-sm font-medium transition-opacity ${
+                          effective ? '' : 'opacity-40'
+                        }`}>{label}</p>
+                        {isUnreleased && (
+                          <span className={`flex-shrink-0 text-[10px] font-semibold px-1.5 py-0.5 rounded-full ${
+                            dark ? 'bg-violet-900/60 text-violet-300' : 'bg-violet-100 text-violet-700'
+                          }`}>
+                            unveröffentlicht
+                          </span>
+                        )}
+                      </div>
                       <Toggle
                         checked={effective}
                         onChange={() => onToggleFeature(key)}
@@ -190,6 +259,36 @@ export default function ProfilePanel({
                     >
                       Mehr erfahren →
                     </button>
+
+                    {/* Admin: role-assignment row */}
+                    {isAdmin && (
+                      <div className="flex items-center gap-3 mt-2">
+                        <span className={`text-[10px] uppercase tracking-wider ${
+                          dark ? 'text-amber-700' : 'text-amber-400'
+                        }`}>Rollen:</span>
+                        {nonAdminRoles.map((r) => {
+                          const assigned = isFeatureAssignedToRole(key, r);
+                          return (
+                            <button
+                              key={r}
+                              data-testid={`role-assign-${key}-${r}`}
+                              onClick={() => toggleFeatureForRole(key, r)}
+                              className={`text-[10px] font-medium px-2 py-0.5 rounded-full border transition-colors ${
+                                assigned
+                                  ? dark
+                                    ? 'bg-violet-700/60 border-violet-500 text-violet-200'
+                                    : 'bg-violet-100 border-violet-400 text-violet-800'
+                                  : dark
+                                    ? 'border-amber-800/50 text-amber-800 hover:text-amber-600'
+                                    : 'border-amber-300 text-amber-400 hover:text-amber-600'
+                              }`}
+                            >
+                              {ROLE_LABELS[r]}
+                            </button>
+                          );
+                        })}
+                      </div>
+                    )}
                   </div>
                 </div>
               );

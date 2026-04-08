@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PageContent from './PageContent';
 import EInkFlashOverlay from './EInkFlashOverlay';
 import TapZones from './TapZones';
@@ -27,6 +27,8 @@ export default function ReaderView({
   showEinkFlash,
   showTapZones,
   showTapMiddleToggle,
+  controlsVisible,
+  onToggleControls,
   showAdaptionSwitcher,
   adaptionsByParent,
   onSelectVariant,
@@ -64,7 +66,6 @@ export default function ReaderView({
   srFontSizeStep,
   srFontSizeDefault,
 }) {
-  const [controlsVisible, setControlsVisible] = useState(true);
   return (
     <>
       {/* Reading viewport */}
@@ -121,7 +122,7 @@ export default function ReaderView({
             {showTapZones && (
               <TapZones
                 onPrev={() => onGoToPage(currentPage - 1)}
-                onClick={() => showTapMiddleToggle && setControlsVisible(v => !v)}
+                onClick={() => showTapMiddleToggle && onToggleControls(v => !v)}
                 onNext={() => onGoToPage(currentPage + 1)}
               />
             )}

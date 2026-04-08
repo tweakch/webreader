@@ -30,6 +30,7 @@ const SPEED_READER_FONT_SIZE = {
 const GrimmMarchenApp = () => {
   const [selectedStory, setSelectedStory] = useState(null);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [controlsVisible, setControlsVisible] = useState(true);
   // Feature flags
   const flags = useFeatureFlags();
   const {
@@ -427,6 +428,7 @@ const GrimmMarchenApp = () => {
       )}
 
       {/* Header */}
+      {controlsVisible && (
       <header className={`flex-shrink-0 backdrop-blur-md transition-colors duration-300 z-40 ${
         highContrast
           ? (darkMode ? 'bg-black border-white/40' : 'bg-white border-black/30')
@@ -495,6 +497,7 @@ const GrimmMarchenApp = () => {
           </button>
         </div>
       </header>
+      )}
 
       {/* Main Content Area */}
       <div className="flex-1 flex overflow-hidden">
@@ -596,6 +599,8 @@ const GrimmMarchenApp = () => {
               showEinkFlash={showEinkFlash}
               showTapZones={showTapZones}
               showTapMiddleToggle={showTapMiddleToggle}
+              controlsVisible={controlsVisible}
+              onToggleControls={setControlsVisible}
               showAdaptionSwitcher={showAdaptionSwitcher}
               adaptionsByParent={adaptionsByParent}
               onSelectVariant={selectVariant}

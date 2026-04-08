@@ -5,10 +5,10 @@
     "product_how_it_works": "How it works",
     "product_integrations": "Integrations",
     "use_cases": "Use Cases",
-    "use_cases_students": "Students",
-    "use_cases_professionals": "Professionals",
+    "use_cases_students": "Learners",
+    "use_cases_professionals": "Adults",
     "use_cases_researchers": "Researchers",
-    "use_cases_creators": "Creators",
+    "use_cases_creators": "Narrators",
     "pricing": "Pricing",
     "blog": "Blog",
     "about": "About",
@@ -73,33 +73,33 @@
   },
   "use_cases": {
     "title": "Use Cases",
-    "desc": "Märchenschatz is built for anyone who loves reading - explore how different people use it.",
-    "students": "Students",
+    "desc": "Märchenschatz is built for anyone who loves reading and listening - explore how different people use it.",
+    "students": "Learners",
     "students_desc": "Reading comprehension, language learning, and literary analysis.",
-    "professionals": "Professionals",
-    "professionals_desc": "Unwind with timeless stories during commutes and breaks.",
+    "professionals": "Adults",
+    "professionals_desc": "Unwind with timeless stories during commutes and breaks - read or listen.",
     "researchers": "Researchers",
     "researchers_desc": "Study original texts with clean formatting and source attribution.",
-    "creators": "Creators",
-    "creators_desc": "Find inspiration in classic storytelling structures and motifs."
+    "creators": "Narrators",
+    "creators_desc": "Share classic tales through audio production, performances, and professional narration."
   },
   "use_case_students": {
-    "title": "For Students",
-    "desc": "Whether you're studying German, analyzing fairy tale structures, or building reading stamina - Märchenschatz gives you clean, uncluttered texts to work with.",
+    "title": "For Learners",
+    "desc": "Whether you're studying German, analyzing fairy tale structures, or building reading stamina - Märchenschatz gives you clean, uncluttered texts for active learning.",
     "features_1": "Original German texts from Grimm and Andersen",
-    "features_2": "Word count and reading time estimates",
-    "features_3": "Adjustable font size and line spacing",
-    "features_4": "Speed reader for vocabulary drills",
-    "features_5": "No ads or distractions"
+    "features_2": "Word count and reading time estimates for analysis",
+    "features_3": "Adjustable font size and line spacing for all learning styles",
+    "features_4": "Speed reader for vocabulary drills and comprehension",
+    "features_5": "No ads, no distractions - just the text"
   },
   "use_case_professionals": {
-    "title": "For Professionals",
-    "desc": "Short on time but still want to read? Märchenschatz fits into commutes, lunch breaks, and wind-down routines - no chapter tracking, no pressure.",
-    "features_1": "Stories range from 5 to 30 minutes of reading",
-    "features_2": "Resume exactly where you left off",
-    "features_3": "Works offline on mobile",
-    "features_4": "E-ink style - easy on the eyes",
-    "features_5": "Tap zones for one-handed page turns"
+    "title": "For Adults",
+    "desc": "Short on time but still want to unwind? Märchenschatz fits into commutes, lunch breaks, and wind-down routines - read or listen, whatever works for you.",
+    "features_1": "Stories from 5-30 minutes - perfect for breaks",
+    "features_2": "Automatic saving - pick up exactly where you paused",
+    "features_3": "Read or listen - audio narration for on-the-go",
+    "features_4": "E-ink style - easy on the eyes, even on long commutes",
+    "features_5": "Offline mode - works everywhere, no internet needed"
   },
   "use_case_researchers": {
     "title": "For Researchers",
@@ -111,13 +111,13 @@
     "features_5": "No paywalls or registration"
   },
   "use_case_creators": {
-    "title": "For Creators",
-    "desc": "Writers, illustrators, game designers, and filmmakers - fairy tales are a deep well of archetypes, motifs, and narrative structures. Read them in their original form.",
-    "features_1": "400+ tales across multiple traditions",
-    "features_2": "Original texts - not sanitized retellings",
-    "features_3": "Multiple variants highlight how stories evolve",
-    "features_4": "Distraction-free reading for deep absorption",
-    "features_5": "Free to use for personal and research purposes"
+    "title": "For Narrators & Audio Producers",
+    "desc": "Podcasters, streaming artists, speakers - use our fairy tales as the foundation for audio productions, performances, and professional narration with complete preparation tools.",
+    "features_1": "400+ tales - varied lengths, traditions, and styles",
+    "features_2": "Original texts with full source attribution",
+    "features_3": "Multiple variants - see how stories evolve across time",
+    "features_4": "Focused reader - perfect for rehearsing and preparing texts",
+    "features_5": "Free to use for personal and professional purposes"
   },
   "blog": {
     "title": "Blog",

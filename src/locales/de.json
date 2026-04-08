@@ -5,10 +5,10 @@
     "product_how_it_works": "Funktionsweise",
     "product_integrations": "Integrationen",
     "use_cases": "Anwendungsfälle",
-    "use_cases_students": "Schüler",
-    "use_cases_professionals": "Berufstätige",
+    "use_cases_students": "Lernende",
+    "use_cases_professionals": "Erwachsene",
     "use_cases_researchers": "Forscher",
-    "use_cases_creators": "Kreative",
+    "use_cases_creators": "Vorleser",
     "pricing": "Preise",
     "blog": "Blog",
     "about": "Über uns",
@@ -73,33 +73,33 @@
   },
   "use_cases": {
     "title": "Anwendungsfälle",
-    "desc": "Märchenschatz ist für alle gebaut, die gerne lesen - erkunden Sie, wie verschiedene Menschen es nutzen.",
-    "students": "Schüler",
+    "desc": "Märchenschatz ist für alle gebaut, die gerne lesen und hören - erkunden Sie, wie verschiedene Menschen es nutzen.",
+    "students": "Lernende",
     "students_desc": "Leseverständnis, Sprachenlernen und Literaturanalyse.",
-    "professionals": "Berufstätige",
+    "professionals": "Erwachsene",
     "professionals_desc": "Entspannen Sie sich mit zeitlosen Geschichten während Ihrer Pendelfahrt und Pausen.",
     "researchers": "Forscher",
     "researchers_desc": "Studieren Sie Originaltexte mit sauberer Formatierung und Quellenangabe.",
-    "creators": "Kreative",
-    "creators_desc": "Finden Sie Inspiration in klassischen Erzählstrukturen und Motiven."
+    "creators": "Vorleser",
+    "creators_desc": "Teilen Sie klassische Märchen mit Audio-Erzählung und professioneller Vortragsgestaltung."
   },
   "use_case_students": {
-    "title": "Für Schüler",
-    "desc": "Egal ob du Deutsch studierst, Märchenstrukturen analysierst oder deine Lesefähigkeit trainierst - Märchenschatz bietet dir saubere, unbelastete Texte.",
+    "title": "Für Lernende",
+    "desc": "Egal ob du Deutsch studierst, Märchenstrukturen analysierst oder deine Lesefähigkeit trainierst - Märchenschatz bietet dir saubere, unbelastete Texte zum aktiven Lernen.",
     "features_1": "Original deutsche Texte von Grimm und Andersen",
-    "features_2": "Wort- und Lesezeitangaben",
-    "features_3": "Einstellbare Schriftgrösse und Zeilenhöhe",
-    "features_4": "Schnellleser für Vokabeltraining",
-    "features_5": "Keine Werbung oder Ablenkungen"
+    "features_2": "Wort- und Lesezeitangaben für Analyse",
+    "features_3": "Einstellbare Schriftgrösse und Zeilenhöhe für alle Lerntypen",
+    "features_4": "Schnellleser für Vokabeltraining und Leseverständnis",
+    "features_5": "Keine Werbung, keine Ablenkungen - nur Text"
   },
   "use_case_professionals": {
-    "title": "Für Berufstätige",
-    "desc": "Wenig Zeit, aber trotzdem lesen möchten? Märchenschatz passt in Pendelfahrten, Mittagspausen und Entspannungspausen - ohne Kapiteltracking oder Druck.",
-    "features_1": "Geschichten dauern zwischen 5 und 30 Minuten zu lesen",
-    "features_2": "Setzen Sie sich genau dort fort, wo Sie aufgehört haben",
-    "features_3": "Funktioniert offline auf Mobilgeräten",
-    "features_4": "E-Ink-Stil - schonend für die Augen",
-    "features_5": "Tipp-Zonen für einhändiges Blättern"
+    "title": "Für Erwachsene",
+    "desc": "Wenig Zeit, aber trotzdem etwas Ruhe möchten? Märchenschatz passt in Pendelfahrten, Mittagspausen und Entspannungspausen - lesen oder hören, ganz wie es Ihnen passt.",
+    "features_1": "Geschichten von 5-30 Minuten - perfekt für Pausen",
+    "features_2": "Automatisches Speichern - genau dort fortsetzen, wo Sie pausiert haben",
+    "features_3": "Lesen oder Hören - Audio-Erzählung für unterwegs",
+    "features_4": "E-Ink-Stil - angenehm für die Augen, auch bei langen Fahrten",
+    "features_5": "Offline-Modus - funktioniert überall, ohne Netzwerk"
   },
   "use_case_researchers": {
     "title": "Für Forscher",
@@ -111,13 +111,13 @@
     "features_5": "Keine Paywalls oder Registrierung"
   },
   "use_case_creators": {
-    "title": "Für Kreative",
-    "desc": "Schriftsteller, Illustratoren, Spieledesigner und Filmemacher - Märchen sind eine reiche Quelle für Archetypen, Motive und Erzählstrukturen. Lesen Sie sie in ihrer ursprünglichen Form.",
-    "features_1": "400+ Märchen aus mehreren Traditionen",
-    "features_2": "Original-Texte - nicht bereinigte Nacherzählungen",
-    "features_3": "Mehrere Varianten zeigen, wie sich Geschichten entwickeln",
-    "features_4": "Ablenkungsfreies Lesen für tiefe Absorption",
-    "features_5": "Kostenlos zu nutzen für persönliche und Forschungszwecke"
+    "title": "Für Vorleser & Audiomacher",
+    "desc": "Podcaster, Streaming-Künstler, Vortragsredner - nutzen Sie unsere Märchen als Grundlage für Audio-Produktionen, Performances und Vorträge mit professioneller Vorbereitung.",
+    "features_1": "400+ Märchen - unterschiedliche Längen, Traditionen und Stile",
+    "features_2": "Original-Texte mit vollständiger Quellenangabe",
+    "features_3": "Mehrere Varianten - zeigen, wie Geschichten sich über die Zeit entwickeln",
+    "features_4": "Fokussierter Reader - perfekt zum Einstudieren von Texten",
+    "features_5": "Kostenlos für private und professionelle Nutzung"
   },
   "blog": {
     "title": "Blog",

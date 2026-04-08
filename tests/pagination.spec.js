@@ -185,14 +185,14 @@ for (const vp of VIEWPORTS) {
     test.use({ viewport: { width: vp.width, height: vp.height } });
 
     test('paragraphs are visible at default font size', async ({ page }) => {
-      await page.goto('/');
+      await page.goto('/app');
       await openFirstStory(page);
       await assertAllPages(page);
     });
 
     for (const fs of FONT_SIZES) {
       test(`paragraphs are visible at font size ${fs}px`, async ({ page }) => {
-        await page.goto('/');
+        await page.goto('/app');
         await openFirstStory(page);
         await setFontSize(page, fs);
         await assertAllPages(page);
@@ -206,7 +206,7 @@ for (const vp of VIEWPORTS) {
 test.describe('edge cases', () => {
   test('switching stories resets to page 1', async ({ page }) => {
     await page.setViewportSize({ width: 1440, height: 900 });
-    await page.goto('/');
+    await page.goto('/app');
     await openFirstStory(page);
 
     // Navigate forward a couple of pages
@@ -233,7 +233,7 @@ test.describe('edge cases', () => {
 
   test('increasing font size does not push text behind nav bar', async ({ page }) => {
     await page.setViewportSize({ width: 1440, height: 900 });
-    await page.goto('/');
+    await page.goto('/app');
     await openFirstStory(page);
 
     // Max out the font size
@@ -243,7 +243,7 @@ test.describe('edge cases', () => {
 
   test('decreasing font size does not push text behind nav bar', async ({ page }) => {
     await page.setViewportSize({ width: 390, height: 844 });
-    await page.goto('/');
+    await page.goto('/app');
     await openFirstStory(page);
 
     // Min font size — more text fits per page
@@ -253,7 +253,7 @@ test.describe('edge cases', () => {
 
   test('prev/next page buttons are disabled at boundaries', async ({ page }) => {
     await page.setViewportSize({ width: 1440, height: 900 });
-    await page.goto('/');
+    await page.goto('/app');
     await openFirstStory(page);
 
     // First page: prev must be disabled

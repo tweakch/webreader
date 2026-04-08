@@ -41,7 +41,7 @@ async function navigateToLastPage(page) {
 
 test.describe('Schließen (Close) Button', () => {
   test('close button appears only on the last page', async ({ page }) => {
-    await page.goto('/');
+    await page.goto('/app');
     await openFirstStory(page);
 
     const counterText = await page.locator('[data-testid="page-counter"]').textContent();
@@ -71,7 +71,7 @@ test.describe('Schließen (Close) Button', () => {
   });
 
   test('close button is clickable on last page', async ({ page }) => {
-    await page.goto('/');
+    await page.goto('/app');
     await openFirstStory(page);
     await navigateToLastPage(page);
 
@@ -83,7 +83,7 @@ test.describe('Schließen (Close) Button', () => {
   });
 
   test('clicking close button returns to story list', async ({ page }) => {
-    await page.goto('/');
+    await page.goto('/app');
     await openFirstStory(page);
 
     // Verify story is open
@@ -108,7 +108,7 @@ test.describe('Schließen (Close) Button', () => {
   });
 
   test('close button has X icon', async ({ page }) => {
-    await page.goto('/');
+    await page.goto('/app');
     await openFirstStory(page);
     await navigateToLastPage(page);
 
@@ -120,7 +120,7 @@ test.describe('Schließen (Close) Button', () => {
   });
 
   test('close button has correct title attribute', async ({ page }) => {
-    await page.goto('/');
+    await page.goto('/app');
     await openFirstStory(page);
     await navigateToLastPage(page);
 
@@ -129,7 +129,7 @@ test.describe('Schließen (Close) Button', () => {
   });
 
   test('close button styling in light mode', async ({ page }) => {
-    await page.goto('/');
+    await page.goto('/app');
     await openFirstStory(page);
     await navigateToLastPage(page);
 
@@ -143,7 +143,7 @@ test.describe('Schließen (Close) Button', () => {
   });
 
   test('close button is keyboard accessible', async ({ page }) => {
-    await page.goto('/');
+    await page.goto('/app');
     await openFirstStory(page);
     await navigateToLastPage(page);
 
@@ -165,7 +165,7 @@ test.describe('Schließen (Close) Button', () => {
 
   test('close button is visible on mobile viewport', async ({ page }) => {
     await page.setViewportSize({ width: 390, height: 844 });
-    await page.goto('/');
+    await page.goto('/app');
     await openFirstStory(page);
     await navigateToLastPage(page);
 
@@ -177,7 +177,7 @@ test.describe('Schließen (Close) Button', () => {
 
   test('close button is visible on desktop viewport', async ({ page }) => {
     await page.setViewportSize({ width: 1440, height: 900 });
-    await page.goto('/');
+    await page.goto('/app');
     await openFirstStory(page);
     await navigateToLastPage(page);
 
@@ -189,7 +189,7 @@ test.describe('Schließen (Close) Button', () => {
 
   test('close button closes story even after reaching end via prev/next navigation', async ({ page }) => {
     await page.setViewportSize({ width: 1440, height: 900 });
-    await page.goto('/');
+    await page.goto('/app');
     await openFirstStory(page);
 
     // Get total pages

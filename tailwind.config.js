@@ -7,6 +7,7 @@ export default {
     "./features.jsx",
     "./FeatureDocs.jsx",
     "./design/**/*.{jsx,js}",
+    "./src/**/*.{jsx,js}",
   ],
   theme: {
     extend: {

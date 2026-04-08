@@ -10,7 +10,7 @@ async function gotoWithStorage(page, items = {}) {
       localStorage.setItem(key, value);
     }
   }, items);
-  await page.goto('/');
+  await page.goto('/app');
 }
 
 async function openFirstStory(page) {
@@ -45,7 +45,7 @@ async function goToLastPage(page) {
 }
 
 async function getSourceId(page) {
-  await page.goto('/');
+  await page.goto('/app');
   const hamburger = page.locator('[data-testid="menu-toggle"]');
   if (await hamburger.isVisible()) await hamburger.click();
   // Click the first source to drill in — grab the source ID from the URL or DOM
@@ -59,7 +59,7 @@ test.describe('font size persistence', () => {
   test.use({ viewport: { width: 1440, height: 900 } });
 
   test('font size is restored on reload', async ({ page }) => {
-    await page.goto('/');
+    await page.goto('/app');
     await openFirstStory(page);
 
     // Increase font size twice (18 → 20 → 22)
@@ -76,7 +76,7 @@ test.describe('font size persistence', () => {
   });
 
   test('font size change is written to wr-fs in localStorage', async ({ page }) => {
-    await page.goto('/');
+    await page.goto('/app');
     await openFirstStory(page);
 
     await page.locator('[data-testid="font-decrease"]').click(); // 18 → 16
@@ -97,7 +97,7 @@ test.describe('theme persistence', () => {
   test.use({ viewport: { width: 1440, height: 900 } });
 
   test('dark mode survives a reload', async ({ page }) => {
-    await page.goto('/');
+    await page.goto('/app');
 
     // Toggle to dark (light → dark)
     await page.locator('header button[title*="dark"]').click();
@@ -109,7 +109,7 @@ test.describe('theme persistence', () => {
   });
 
   test('theme is written to wr-theme in localStorage', async ({ page }) => {
-    await page.goto('/');
+    await page.goto('/app');
     await page.locator('header button[title*="dark"]').click();
     const stored = await page.evaluate(() => localStorage.getItem('wr-theme'));
     expect(stored).toBe('dark');
@@ -127,7 +127,7 @@ test.describe('last browsed source persistence', () => {
   test.use({ viewport: { width: 1440, height: 900 } });
 
   test('drilling into a source persists across reload', async ({ page }) => {
-    await page.goto('/');
+    await page.goto('/app');
     await page.locator('[data-testid="source-button"]').first().click();
     // Story buttons should now be visible (drilled in)
     await expect(page.locator('[data-testid="story-button"]').first()).toBeVisible();
@@ -138,7 +138,7 @@ test.describe('last browsed source persistence', () => {
   });
 
   test('source written to wr-last-source in localStorage', async ({ page }) => {
-    await page.goto('/');
+    await page.goto('/app');
     await page.locator('[data-testid="source-button"]').first().click();
     const stored = await page.evaluate(() => localStorage.getItem('wr-last-source'));
     expect(stored).not.toBeNull();
@@ -146,7 +146,7 @@ test.describe('last browsed source persistence', () => {
   });
 
   test('navigating back to source list clears wr-last-source', async ({ page }) => {
-    await page.goto('/');
+    await page.goto('/app');
     await page.locator('[data-testid="source-button"]').first().click();
     // Click the back button (has data-testid="back-to-sources")
     await page.locator('[data-testid="back-to-sources"]').click();
@@ -197,7 +197,7 @@ test.describe('resume last story + page', () => {
   test.use({ viewport: { width: 1440, height: 900 } });
 
   test('resume banner appears after returning to app mid-story', async ({ page }) => {
-    await page.goto('/');
+    await page.goto('/app');
     await openFirstStory(page);
 
     // Navigate forward a page if possible
@@ -209,12 +209,12 @@ test.describe('resume last story + page', () => {
     }
 
     // Go back to home (no story selected) by reloading
-    await page.goto('/');
+    await page.goto('/app');
     await expect(page.locator('[data-testid="resume-banner"]')).toBeVisible();
   });
 
   test('resume banner shows story title and page number', async ({ page }) => {
-    await page.goto('/');
+    await page.goto('/app');
     await openFirstStory(page);
 
     // Navigate to page 2 if possible
@@ -225,7 +225,7 @@ test.describe('resume last story + page', () => {
       await page.waitForTimeout(200);
     }
 
-    await page.goto('/');
+    await page.goto('/app');
     const banner = page.locator('[data-testid="resume-banner"]');
     await expect(banner).toBeVisible();
     // Banner must mention "Weiterlesen" and a page number
@@ -235,7 +235,7 @@ test.describe('resume last story + page', () => {
 
   test('clicking resume confirm opens story at the stored page', async ({ page }) => {
     // Seed storage with a known story at page 2
-    await page.goto('/');
+    await page.goto('/app');
     await openFirstStory(page);
 
     // Advance to page 2 if possible
@@ -249,7 +249,7 @@ test.describe('resume last story + page', () => {
       targetPage = 0;
     }
 
-    await page.goto('/');
+    await page.goto('/app');
     await page.locator('[data-testid="resume-confirm"]').click();
     await page.waitForSelector('[data-testid="page-content"] p');
 
@@ -260,9 +260,9 @@ test.describe('resume last story + page', () => {
   });
 
   test('dismiss button removes the resume banner', async ({ page }) => {
-    await page.goto('/');
+    await page.goto('/app');
     await openFirstStory(page);
-    await page.goto('/');
+    await page.goto('/app');
 
     const banner = page.locator('[data-testid="resume-banner"]');
     await expect(banner).toBeVisible();
@@ -271,9 +271,9 @@ test.describe('resume last story + page', () => {
   });
 
   test('banner is not shown while actively reading a story', async ({ page }) => {
-    await page.goto('/');
+    await page.goto('/app');
     await openFirstStory(page);
-    await page.goto('/');
+    await page.goto('/app');
 
     // Banner should appear on home
     await expect(page.locator('[data-testid="resume-banner"]')).toBeVisible();
@@ -287,7 +287,7 @@ test.describe('resume last story + page', () => {
   });
 
   test('no resume banner on first ever visit', async ({ page }) => {
-    await page.goto('/');
+    await page.goto('/app');
     await expect(page.locator('[data-testid="resume-banner"]')).not.toBeVisible();
   });
 });
@@ -298,7 +298,7 @@ test.describe('stories read completion tracking', () => {
   test.use({ viewport: { width: 1440, height: 900 } });
 
   test('completed indicator appears after reading to last page', async ({ page }) => {
-    await page.goto('/');
+    await page.goto('/app');
     await openFirstStory(page);
     await goToLastPage(page);
 
@@ -311,7 +311,7 @@ test.describe('stories read completion tracking', () => {
   });
 
   test('completion is persisted in wr-completed', async ({ page }) => {
-    await page.goto('/');
+    await page.goto('/app');
     await openFirstStory(page);
     await goToLastPage(page);
 
@@ -323,7 +323,7 @@ test.describe('stories read completion tracking', () => {
   });
 
   test('completion survives a reload', async ({ page }) => {
-    await page.goto('/');
+    await page.goto('/app');
     await openFirstStory(page);
     await goToLastPage(page);
 
@@ -337,7 +337,7 @@ test.describe('stories read completion tracking', () => {
 
   test('completed indicator loads from wr-completed seed', async ({ page }) => {
     // Read a story to completion to capture the wr-completed value
-    await page.goto('/');
+    await page.goto('/app');
     await openFirstStory(page);
     await goToLastPage(page);
     const stored = await page.evaluate(() => localStorage.getItem('wr-completed'));
@@ -353,7 +353,7 @@ test.describe('stories read completion tracking', () => {
   });
 
   test('profile stats show completed count', async ({ page }) => {
-    await page.goto('/');
+    await page.goto('/app');
     await openFirstStory(page);
     await goToLastPage(page);
 
@@ -372,7 +372,7 @@ test.describe('variant preference per story', () => {
 
   /** Find a story that has adaptions and open it. Returns false if none found. */
   async function openStoryWithAdaptions(page) {
-    await page.goto('/');
+    await page.goto('/app');
     const hamburger = page.locator('[data-testid="menu-toggle"]');
     if (await hamburger.isVisible()) await hamburger.click();
     const sources = page.locator('[data-testid="source-button"]');

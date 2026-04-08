@@ -8,7 +8,7 @@ async function gotoWithFlags(page, overrides = {}) {
   await page.addInitScript((o) => {
     localStorage.setItem('__openfeature_overrides__', JSON.stringify(o));
   }, overrides);
-  await page.goto('/');
+  await page.goto('/app');
 }
 
 /** Open the first story in the sidebar. */
@@ -37,27 +37,27 @@ test.describe('default flag values (no overrides)', () => {
   test.use({ viewport: { width: 1440, height: 900 } });
 
   test('word-count is off by default — stat panel is not shown', async ({ page }) => {
-    await page.goto('/');
+    await page.goto('/app');
     await openFirstStory(page);
     await expect(page.getByText('Wörter')).not.toBeVisible();
   });
 
   test('font-size-controls is on by default — +/- buttons are visible', async ({ page }) => {
-    await page.goto('/');
+    await page.goto('/app');
     await openFirstStory(page);
     await expect(page.locator('[data-testid="font-increase"]')).toBeVisible();
     await expect(page.locator('[data-testid="font-decrease"]')).toBeVisible();
   });
 
   test('attribution is on by default — byline appears on last page', async ({ page }) => {
-    await page.goto('/');
+    await page.goto('/app');
     await openFirstStory(page);
     await goToLastPage(page);
     await expect(page.getByText('Jacob und Wilhelm Grimm')).toBeVisible();
   });
 
   test('typography-panel is on by default — clicking page counter opens panel', async ({ page }) => {
-    await page.goto('/');
+    await page.goto('/app');
     await openFirstStory(page);
     const counter = page.locator('[data-testid="page-counter"]');
     await counter.click();
@@ -133,7 +133,7 @@ test.describe('override isolation', () => {
 
   test('flags return to defaults when no override is set', async ({ page }) => {
     // No addInitScript call — localStorage is clean for this context
-    await page.goto('/');
+    await page.goto('/app');
     await openFirstStory(page);
     // word-count is off by default
     await expect(page.getByText('Wörter')).not.toBeVisible();

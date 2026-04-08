@@ -76,6 +76,12 @@ export const FEATURES = [
     Icon: () => <Hand size={20} strokeWidth={1.75} />,
   },
   {
+    key: 'tap-middle-toggle',
+    label: 'Mittige Tipp-Zone zum Ausblenden',
+    description: 'Tippen auf die Mitte der Seite blendet die Kopf- und Fußzeile aus (setzt „Tipp-Zonen" voraus).',
+    Icon: () => <Hand size={20} strokeWidth={1.75} />,
+  },
+  {
     key: 'adaption-switcher',
     label: 'Varianten',
     description: 'Dropdown zum Wechseln zwischen der Originalfassung und alternativen Versionen eines Märchens.',

@@ -26,6 +26,7 @@ export default function ReaderView({
   onGoToPage,
   showEinkFlash,
   showTapZones,
+  showTapMiddleToggle,
   showAdaptionSwitcher,
   adaptionsByParent,
   onSelectVariant,
@@ -120,7 +121,7 @@ export default function ReaderView({
             {showTapZones && (
               <TapZones
                 onPrev={() => onGoToPage(currentPage - 1)}
-                onClick={() => setControlsVisible(v => !v)}
+                onClick={() => showTapMiddleToggle && setControlsVisible(v => !v)}
                 onNext={() => onGoToPage(currentPage + 1)}
               />
             )}

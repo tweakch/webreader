@@ -7,6 +7,7 @@
   "pinch-font-size":   { "defaultVariant": "off", "variants": { "on": true, "off": false } },
   "eink-flash":        { "defaultVariant": "on",  "variants": { "on": true, "off": false } },
   "tap-zones":         { "defaultVariant": "on",  "variants": { "on": true, "off": false } },
+  "tap-middle-toggle": { "defaultVariant": "on",  "variants": { "on": true, "off": false } },
   "adaption-switcher": { "defaultVariant": "on", "variants": { "on": true, "off": false } },
   "typography-panel":  { "defaultVariant": "on",  "variants": { "on": true, "off": false } },
   "attribution":       { "defaultVariant": "on",  "variants": { "on": true, "off": false } },

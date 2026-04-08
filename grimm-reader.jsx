@@ -35,7 +35,7 @@ const GrimmMarchenApp = () => {
   const {
     maxFontSize,
     showWordCount, showReadingDuration, showFontSizeControls, showPinchFontSize, showEinkFlash,
-    showTapZones, showAdaptionSwitcher, showTypographyPanel, showAttribution,
+    showTapZones, showTapMiddleToggle, showAdaptionSwitcher, showTypographyPanel, showAttribution,
     showFavorites, showFavoritesOnlyToggle, showAudioPlayer, showHighContrastTheme,
     showSpeedReader, showSpeedreaderOrp, showWordBlacklist, showDeepSearch, showStoryDirectories, showDebugBadges,
     _rawFlagValues,
@@ -588,6 +588,7 @@ const GrimmMarchenApp = () => {
               onGoToPage={goToPage}
               showEinkFlash={showEinkFlash}
               showTapZones={showTapZones}
+              showTapMiddleToggle={showTapMiddleToggle}
               showAdaptionSwitcher={showAdaptionSwitcher}
               adaptionsByParent={adaptionsByParent}
               onSelectVariant={selectVariant}

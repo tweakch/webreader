@@ -13,6 +13,7 @@ export function useFeatureFlags() {
   const _rawPinchFontSize = useBooleanFlagValue('pinch-font-size', false);
   const _rawEinkFlash = useBooleanFlagValue('eink-flash', true);
   const _rawTapZones = useBooleanFlagValue('tap-zones', true);
+  const _rawTapMiddleToggle = useBooleanFlagValue('tap-middle-toggle', true);
   const _rawAdaptionSwitcher = useBooleanFlagValue('adaption-switcher', true);
   const _rawTypographyPanel = useBooleanFlagValue('typography-panel', true);
   const _rawAttribution = useBooleanFlagValue('attribution', true);
@@ -46,6 +47,7 @@ export function useFeatureFlags() {
   const showPinchFontSize = _o('pinch-font-size', _rawPinchFontSize);
   const showEinkFlash = _o('eink-flash', _rawEinkFlash);
   const showTapZones = _o('tap-zones', _rawTapZones);
+  const showTapMiddleToggle = _o('tap-middle-toggle', _rawTapMiddleToggle);
   const showAdaptionSwitcher = _o('adaption-switcher', _rawAdaptionSwitcher);
   const showTypographyPanel = _o('typography-panel', _rawTypographyPanel);
   const showAttribution = _o('attribution', _rawAttribution);
@@ -68,6 +70,7 @@ export function useFeatureFlags() {
     'pinch-font-size': _rawPinchFontSize,
     'eink-flash': _rawEinkFlash,
     'tap-zones': _rawTapZones,
+    'tap-middle-toggle': _rawTapMiddleToggle,
     'adaption-switcher': _rawAdaptionSwitcher,
     'typography-panel': _rawTypographyPanel,
     'attribution': _rawAttribution,
@@ -95,6 +98,7 @@ export function useFeatureFlags() {
     showPinchFontSize,
     showEinkFlash,
     showTapZones,
+    showTapMiddleToggle,
     showAdaptionSwitcher,
     showTypographyPanel,
     showAttribution,

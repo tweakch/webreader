@@ -18,11 +18,8 @@ import TypographyPanel, { LINE_HEIGHTS, WORD_SPACINGS, FONT_FAMILIES } from './u
 import AudioPlayer from './ui/AudioPlayer';
 import SpeedReaderView from './ui/SpeedReaderView';
 import DebugOverlay from './components/DebugOverlay';
+import { getStoryIndex, loadStoryById, loadStoryMetadataById, loadAdaptionsByStoryId, loadStoryAudioMap } from './src/lib/storyLibrary';
 
-const storyAudioModules = import.meta.glob('/stories/*/*/audio.mp3', { query: '?url', import: 'default' });
-const storyModules2 = import.meta.glob('/stories/*/*/content.md', { query: '?raw', import: 'default' });
-const storyModules3 = import.meta.glob('/stories/*/*/*/content.md', { query: '?raw', import: 'default' });
-const adaptionModules = import.meta.glob('/stories/*/*/adaptions/*/content.md', { query: '?raw', import: 'default' });
 const SPEED_READER_FONT_SIZE = {
   min: 40,
   max: 60,
@@ -40,7 +37,7 @@ const GrimmMarchenApp = () => {
     showWordCount, showReadingDuration, showFontSizeControls, showPinchFontSize, showEinkFlash,
     showTapZones, showAdaptionSwitcher, showTypographyPanel, showAttribution,
     showFavorites, showFavoritesOnlyToggle, showAudioPlayer, showHighContrastTheme,
-    showSpeedReader, showSpeedreaderOrp, showWordBlacklist, showStoryDirectories, showDebugBadges,
+    showSpeedReader, showSpeedreaderOrp, showWordBlacklist, showDeepSearch, showStoryDirectories, showDebugBadges,
     _rawFlagValues,
     userFeatureOverrides, setUserFeatureOverrides, _o,
     flagTheme, bigFontsVariant,
@@ -66,6 +63,7 @@ const GrimmMarchenApp = () => {
   const [adaptionsByParent, setAdaptionsByParent] = useState({});
   const [storyAudioFiles, setStoryAudioFiles] = useState({});
   const [isLibraryLoading, setIsLibraryLoading] = useState(true);
+  const [isStoryLoading, setIsStoryLoading] = useState(false);
 
   // Allow deep-linking from marketing pages directly into FeatureDocs.
   useEffect(() => {
@@ -89,72 +87,12 @@ const GrimmMarchenApp = () => {
     let mounted = true;
 
     async function loadLibrary() {
-      const loadedAudio = Object.fromEntries(
-        await Promise.all(
-          Object.entries(storyAudioModules).map(async ([path, loader]) => [path, await loader()])
-        ),
-      );
-
-      const loadedStories = Object.entries({ ...storyModules2, ...storyModules3 });
-      const storyPairs = await Promise.all(
-        loadedStories.map(async ([path, loader]) => [path, await loader()]),
-      );
-
-      const parsedStories = storyPairs
-        .map(([path, raw]) => {
-          const parts = path.split('/');
-          let source, directory, slug;
-          if (parts.length === 6) {
-            source = parts[2];
-            directory = parts[3];
-            slug = parts[4];
-          } else {
-            source = parts[2];
-            directory = null;
-            slug = parts[3];
-          }
-
-          const fmMatch = raw.match(/^---\n([\s\S]*?)\n---\n/);
-          const fmBlock = fmMatch ? fmMatch[1] : '';
-          const titleMatch = fmBlock.match(/^title:\s*"(.+)"$/m);
-          const title = titleMatch ? titleMatch[1] : slug;
-          const sourceLabelMatch = fmBlock.match(/^source:\s*"(.+)"$/m);
-          const sourceLabel = sourceLabelMatch ? sourceLabelMatch[1] : source;
-          const wordCountMatch = fmBlock.match(/^wordCount:\s*(\d+)$/m);
-          const wordCount = wordCountMatch ? parseInt(wordCountMatch[1], 10) : null;
-          const afterFm = fmMatch ? raw.slice(fmMatch[0].length) : raw;
-          const content = afterFm.replace(/^#[^\n]*\n\n/, '').trimEnd();
-
-          const id = directory ? `${source}/${directory}/${slug}` : `${source}/${slug}`;
-          return { id, title, content, source, directory, sourceLabel, wordCount };
-        })
-        .sort((a, b) => a.title.localeCompare(b.title, 'de'));
-
-      const adaptionPairs = await Promise.all(
-        Object.entries(adaptionModules).map(async ([path, loader]) => [path, await loader()]),
-      );
-      const loadedAdaptions = {};
-      adaptionPairs.forEach(([path, raw]) => {
-        const parts = path.split('/');
-        const source = parts[parts.length - 5];
-        const parentSlug = parts[parts.length - 4];
-        const parentId = `${source}/${parentSlug}`;
-
-        const fmMatch = raw.match(/^---\n([\s\S]*?)\n---\n/);
-        const fmBlock = fmMatch ? fmMatch[1] : '';
-        const adaptionNameMatch = fmBlock.match(/^adaption:\s*"(.+)"$/m);
-        const adaptionName = adaptionNameMatch ? adaptionNameMatch[1] : parts[parts.length - 2];
-        const afterFm = fmMatch ? raw.slice(fmMatch[0].length) : raw;
-        const content = afterFm.replace(/^\*\*[^\n]*\*\*\n\n/, '').trimEnd();
-
-        if (!loadedAdaptions[parentId]) loadedAdaptions[parentId] = [];
-        loadedAdaptions[parentId].push({ adaptionName, content });
-      });
+      const loadedAudio = await loadStoryAudioMap();
+      const indexedStories = getStoryIndex();
 
       if (!mounted) return;
       setStoryAudioFiles(loadedAudio);
-      setStories(parsedStories);
-      setAdaptionsByParent(loadedAdaptions);
+      setStories(indexedStories);
       setIsLibraryLoading(false);
     }
 
@@ -170,6 +108,58 @@ const GrimmMarchenApp = () => {
       mounted = false;
     };
   }, []);
+
+  const mergeStoryMetadata = useCallback((metadata) => {
+    if (!metadata) return;
+    setStories((prev) => prev.map((story) => (
+      story.id === metadata.id ? { ...story, ...metadata } : story
+    )));
+  }, []);
+
+  const handleSelectStory = useCallback(async (story) => {
+    if (!story) return;
+    setSelectedStory(null);
+    setMenuOpen(false);
+    setIsStoryLoading(true);
+    try {
+      const loadedStory = await loadStoryById(story.id);
+      if (!loadedStory) return;
+      setSelectedStory(loadedStory);
+      mergeStoryMetadata({
+        id: loadedStory.id,
+        title: loadedStory.title,
+        source: loadedStory.source,
+        directory: loadedStory.directory,
+        sourceLabel: loadedStory.sourceLabel,
+        wordCount: loadedStory.wordCount,
+      });
+    } finally {
+      setIsStoryLoading(false);
+    }
+  }, [mergeStoryMetadata]);
+
+  useEffect(() => {
+    if (!activeSource) return;
+    const sourceStories = stories.filter((story) => story.source === activeSource);
+    sourceStories.forEach((story) => {
+      loadStoryMetadataById(story.id)
+        .then((metadata) => mergeStoryMetadata(metadata))
+        .catch(() => {});
+    });
+  }, [activeSource, stories, mergeStoryMetadata]);
+
+  useEffect(() => {
+    if (!selectedStory) return;
+    if (adaptionsByParent[selectedStory.id]) return;
+
+    loadAdaptionsByStoryId(selectedStory.id)
+      .then((loaded) => {
+        setAdaptionsByParent((prev) => ({ ...prev, [selectedStory.id]: loaded }));
+      })
+      .catch(() => {
+        setAdaptionsByParent((prev) => ({ ...prev, [selectedStory.id]: [] }));
+      });
+  }, [selectedStory, adaptionsByParent]);
 
   // Persistence - must come before visibleStories (needs blacklist) and
   // before useReader (needs selectedVariant + pendingResumePageRef).
@@ -192,9 +182,54 @@ const GrimmMarchenApp = () => {
     if (blacklist.size === 0) return stories;
     const words = [...blacklist].map(w => w.toLowerCase());
     return stories.filter(s =>
-      !words.some(w => s.title.toLowerCase().includes(w) || s.content.toLowerCase().includes(w))
+      !words.some(w => s.title.toLowerCase().includes(w))
     );
   }, [stories, blacklist]);
+
+  const normalizedSearchTerm = searchTerm.trim().toLowerCase();
+
+  const titleMatchedStoryIds = React.useMemo(() => {
+    if (!normalizedSearchTerm) return new Set();
+    return new Set(
+      visibleStories
+        .filter((story) => story.title.toLowerCase().includes(normalizedSearchTerm))
+        .map((story) => story.id),
+    );
+  }, [visibleStories, normalizedSearchTerm]);
+
+  const [deepMatchedStoryIds, setDeepMatchedStoryIds] = useState(() => new Set());
+
+  useEffect(() => {
+    let cancelled = false;
+
+    async function runDeepSearch() {
+      if (!showDeepSearch || !normalizedSearchTerm) {
+        setDeepMatchedStoryIds(new Set());
+        return;
+      }
+
+      const candidates = visibleStories.filter((story) => !titleMatchedStoryIds.has(story.id));
+      const matches = await Promise.all(
+        candidates.map(async (story) => {
+          const loaded = await loadStoryById(story.id);
+          if (!loaded) return null;
+          return loaded.content.toLowerCase().includes(normalizedSearchTerm) ? story.id : null;
+        }),
+      );
+
+      if (cancelled) return;
+      setDeepMatchedStoryIds(new Set(matches.filter(Boolean)));
+    }
+
+    runDeepSearch().catch(() => {
+      if (cancelled) return;
+      setDeepMatchedStoryIds(new Set());
+    });
+
+    return () => {
+      cancelled = true;
+    };
+  }, [showDeepSearch, normalizedSearchTerm, visibleStories, titleMatchedStoryIds]);
 
   const storiesBySource = React.useMemo(() => {
     const map = {};
@@ -228,8 +263,9 @@ const GrimmMarchenApp = () => {
     );
   }, [visibleStories]);
 
-  const filteredStories = searchTerm
-    ? visibleStories.filter(s => s.title.toLowerCase().includes(searchTerm.toLowerCase()))
+  const filteredStories = normalizedSearchTerm
+    ? visibleStories.filter((story) =>
+      titleMatchedStoryIds.has(story.id) || (showDeepSearch && deepMatchedStoryIds.has(story.id)))
     : [];
 
 
@@ -461,6 +497,7 @@ const GrimmMarchenApp = () => {
           onMenuToggle={() => setMenuOpen(false)}
           searchTerm={searchTerm}
           onSearchChange={setSearchTerm}
+          showDeepSearch={showDeepSearch}
           favoritesOnly={favoritesOnly}
           onToggleFavoritesOnly={() => setFavoritesOnly(v => !v)}
           showFavoritesOnlyToggle={showFavoritesOnlyToggle}
@@ -472,7 +509,7 @@ const GrimmMarchenApp = () => {
           onSelectDirectory={setActiveDirectory}
           showStoryDirectories={showStoryDirectories}
           directoriesBySource={directoriesBySource}
-          onSelectStory={setSelectedStory}
+          onSelectStory={handleSelectStory}
           completedStories={completedStories}
           favorites={favorites}
           onToggleFavorite={toggleFavorite}
@@ -588,6 +625,10 @@ const GrimmMarchenApp = () => {
               srFontSizeStep={SPEED_READER_FONT_SIZE.step}
               srFontSizeDefault={SPEED_READER_FONT_SIZE.defaultValue}
             />
+          ) : isStoryLoading ? (
+            <div className={`h-full w-full grid place-items-center ${darkMode ? 'text-amber-200' : 'text-amber-900'}`}>
+              Loading story...
+            </div>
           ) : isLibraryLoading ? (
             <div className={`h-full w-full grid place-items-center ${darkMode ? 'text-amber-200' : 'text-amber-900'}`}>
               Loading library...
@@ -597,15 +638,14 @@ const GrimmMarchenApp = () => {
               resumeSession={resumeSession}
               onResume={(story, page) => {
                 pendingResumePageRef.current = page;
-                setSelectedStory(story);
-                setMenuOpen(false);
+                handleSelectStory(story);
               }}
               onDismissResume={() => setResumeSession(null)}
               favoriteStories={favoriteStories}
               completedStories={completedStories}
               showFavorites={showFavorites}
               showWordCount={showWordCount}
-              onSelectStory={setSelectedStory}
+              onSelectStory={handleSelectStory}
               onToggleFavorite={toggleFavorite}
             />
           )}

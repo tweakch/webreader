@@ -567,6 +567,20 @@ const DOCS = {
     tip: 'Die Filterung prüft den gesamten Märchentext, nicht nur den Titel. Ein Wort wie „Blut" blendet also auch Märchen aus, in denen das Wort nur einmal vorkommt.',
   },
 
+  'deep-search': {
+    lead: 'Die Tiefensuche erweitert die normale Suche (Titel) um eine Volltextsuche im kompletten Märcheninhalt.',
+    on: [
+      'Bei aktiver Suche werden zusätzlich zu Titeltreffern auch Treffer im gesamten Märchentext angezeigt.',
+      'Der Trefferabgleich läuft asynchron im Hintergrund und kann bei großen Bibliotheken etwas dauern.',
+      'Sobald die Suche abgeschlossen ist, erscheinen weitere passende Märchen automatisch in der Trefferliste.',
+    ],
+    off: [
+      'Die Suche bleibt schnell und prüft nur Märchentitel.',
+      'Treffer, die ausschließlich im Inhalt vorkommen, werden nicht angezeigt.',
+    ],
+    tip: 'Für maximale Geschwindigkeit bleibt die Tiefensuche standardmäßig ausgeschaltet und kann bei Bedarf gezielt aktiviert werden.',
+  },
+
   'story-directories': {
     lead: 'Die Verzeichnisstruktur gliedert Geschichten in der Seitenleiste nach ihrer Ordnerhierarchie - nützlich für Quellen wie „Schweizer Sagen", die nach Kanton oder Region unterteilt sind.',
     on: [

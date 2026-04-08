@@ -53,11 +53,11 @@
     "step_1_title": "Choose a tale",
     "step_1_body": "Browse by source - Grimm, Andersen, or Swiss folk tales - and pick any story from the sidebar.",
     "step_2_title": "The reader paginates it",
-    "step_2_body": "Content is split into perfectly sized pages using a DOM-measurement algorithm that adapts to your font size and screen.",
+    "step_2_body": "Content is split into perfectly sized pages that adapt to your font size and screen.",
     "step_3_title": "Read at your pace",
     "step_3_body": "Flip pages with swipe, tap zones, keyboard arrows, or the nav bar. Adjust typography to your preference at any time.",
     "step_4_title": "Progress is saved automatically",
-    "step_4_body": "Your place, favorites, and settings are persisted locally - no account needed."
+    "step_4_body": "Your place, favorites, and settings are persisted on your device locally - no account needed."
   },
   "product_integrations": {
     "title": "Integrations",

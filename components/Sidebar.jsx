@@ -13,6 +13,7 @@ export default function Sidebar({
   onMenuToggle,
   searchTerm,
   onSearchChange,
+  showDeepSearch,
   favoritesOnly,
   onToggleFavoritesOnly,
   showFavoritesOnlyToggle,
@@ -78,6 +79,11 @@ export default function Sidebar({
               </button>
             )}
           </div>
+          {showDeepSearch && (
+            <p className={`mt-2 px-1 text-xs ${darkMode ? 'text-amber-600' : 'text-amber-700'}`}>
+              Tiefensuche aktiv: Treffer im Inhalt werden nachgeladen.
+            </p>
+          )}
         </div>
 
         {/* Word count/reading duration stats */}

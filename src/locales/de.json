@@ -1,7 +1,7 @@
 {
   "nav": {
     "product": "Produkt",
-    "product_features": "Features",
+    "product_features": "Funktionen",
     "product_how_it_works": "Funktionsweise",
     "product_integrations": "Integrationen",
     "use_cases": "Anwendungsfälle",
@@ -23,12 +23,12 @@
   "home": {
     "tagline": "Kostenlos · Offen · Wunderschön",
     "hero_title": "Die schönsten Märchen,<br />perfekt formatiert.",
-    "hero_desc": "Märchenschatz erweckt Märchen von Grimm, Andersen und Schweizer Volkstales zum Leben - mit einer fokussierten Leseerfahrung: paginiert, zugänglich und ablenkungsfrei.",
+    "hero_desc": "Märchen der Gebrüder Grimm, H.C. Andersen und viele Schweizer Sagen in einer fokussierten Leseerfahrung: paginiert, zugänglich und ablenkungsfrei.",
     "start_reading": "Jetzt lesen - kostenlos",
     "see_how": "Funktionsweise ansehen",
     "no_account": "Kein Konto erforderlich. Funktioniert offline nach dem ersten Besuch.",
     "features_title": "Für echte Leser gebaut",
-    "features_desc": "Jedes Feature existiert, um nicht im Weg zu stehen und dir beim Lesen zu helfen - in deinem Tempo, nach deinen Vorstellungen.",
+    "features_desc": "Jede Funktion existiert, um nicht im Weg zu stehen und dir beim Lesen zu helfen - in deinem Tempo, nach deinen Vorstellungen.",
     "cta_title": "Bereit, etwas Zeitloses zu lesen?",
     "cta_desc": "Tauchen Sie ein in eine Welt von Märchen - jetzt, kostenlos.",
     "open_reader": "Reader öffnen →"
@@ -36,7 +36,7 @@
   "product": {
     "title": "Produkt",
     "desc": "Entdecken Sie, was Märchenschatz zur besten Möglichkeit macht, klassische Märchen zu lesen.",
-    "features": "Features",
+    "features": "Funktionen",
     "features_short": "Alles, was der Reader kann.",
     "how_it_works": "Funktionsweise",
     "how_it_works_short": "Hinter den Kulissen - die Technologie hinter dem Erlebnis.",
@@ -44,7 +44,7 @@
     "integrations_short": "Funktioniert mit Ihren Tools und Geräten."
   },
   "product_features": {
-    "title": "Features",
+    "title": "Funktionen",
     "desc": "Ein umfassender Überblick über alle im Reader verfügbaren Funktionen."
   },
   "product_how_it_works": {
@@ -53,11 +53,11 @@
     "step_1_title": "Wählen Sie ein Märchen",
     "step_1_body": "Durchsuchen Sie nach Quelle - Grimm, Andersen oder Schweizer Volksmärchen - und wählen Sie eine Geschichte aus der Seitenleiste.",
     "step_2_title": "Der Reader paginiert es",
-    "step_2_body": "Der Inhalt wird mit einem DOM-Mess-Algorithmus in perfekt große Seiten aufgeteilt, die sich an Ihre Schriftgröße und Bildschirmgröße anpasst.",
+    "step_2_body": "Der Inhalt wird automatisch in Seiten aufgeteilt, die sich an Ihre Schriftgrösse und Bildschirmgrösse anpasst.",
     "step_3_title": "Lesen Sie in Ihrem Tempo",
     "step_3_body": "Blättern Sie durch Wischen, Tipp-Zonen, Pfeiltasten oder die Navigationsleiste. Passen Sie die Typografie jederzeit nach Ihren Vorstellungen an.",
     "step_4_title": "Der Fortschritt wird automatisch gespeichert",
-    "step_4_body": "Ihre Position, Favoriten und Einstellungen werden lokal gespeichert - kein Konto erforderlich."
+    "step_4_body": "Ihre Position, Favoriten und Einstellungen werden lokal auf ihrem Gerät gespeichert - kein Konto erforderlich."
   },
   "product_integrations": {
     "title": "Integrationen",
@@ -66,8 +66,8 @@
     "pwa_desc": "Installieren Sie es auf iOS, Android oder dem Desktop direkt vom Browser aus - kein App Store erforderlich.",
     "offline": "Offline-Unterstützung",
     "offline_desc": "Ein Service Worker speichert Inhalte zwischen, damit Sie ohne Internetverbindung lesen können.",
-    "screen_size": "Jede Bildschirmgröße",
-    "screen_size_desc": "Der Reader passt sich automatisch an Mobilgeräte, Tablets und große Monitore an.",
+    "screen_size": "Jede Bildschirmgrösse",
+    "screen_size_desc": "Der Reader passt sich automatisch an Mobilgeräte, Tablets und grosse Monitore an.",
     "keyboard": "Tastaturnavigation",
     "keyboard_desc": "Pfeiltasten, Leertaste und Custom Shortcuts funktionieren direkt."
   },
@@ -88,7 +88,7 @@
     "desc": "Egal ob du Deutsch studierst, Märchenstrukturen analysierst oder deine Lesefähigkeit trainierst - Märchenschatz bietet dir saubere, unbelastete Texte.",
     "features_1": "Original deutsche Texte von Grimm und Andersen",
     "features_2": "Wort- und Lesezeitangaben",
-    "features_3": "Einstellbare Schriftgröße und Zeilenhöhe",
+    "features_3": "Einstellbare Schriftgrösse und Zeilenhöhe",
     "features_4": "Schnellleser für Vokabeltraining",
     "features_5": "Keine Werbung oder Ablenkungen"
   },
@@ -140,7 +140,7 @@
     "start_reading_now": "Jetzt lesen →",
     "full_access": "Vollständiger Zugriff auf alle Märchen",
     "grimm_andersen": "Märchen von Grimm, Andersen & Schweizer Volkstales",
-    "paginated_reader": "Paginierter Reader mit Schriftgrößensteuerung",
+    "paginated_reader": "Paginierter Reader mit Schriftgrössensteuerung",
     "typography": "Typografie-Anpassungspanel",
     "favorites": "Favoriten & Leseprogress lokal gespeichert",
     "speed_reader": "Schnellleser (RSVP) Modus",
@@ -157,7 +157,7 @@
     "cloud_sync": "Cloud-Synchronisierung über Geräte",
     "curated": "Exklusive kuratierte Sammlungen",
     "ad_free": "Werbefrei für immer",
-    "early_access": "Früher Zugriff auf neue Features"
+    "early_access": "Früher Zugriff auf neue Funktionen"
   },
   "not_found": {
     "title": "Seite nicht gefunden",

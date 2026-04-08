@@ -8,6 +8,11 @@ import SpeedReaderView from '../ui/SpeedReaderView';
 import TypographyPanel from '../ui/TypographyPanel';
 import AudioPlayer from '../ui/AudioPlayer';
 
+const controlsVisible = true;
+function onToggleControls() {
+  controlsVisible = !controlsVisible;
+}
+
 /**
  * Reader view compositor - manages the entire reading interface.
  * Conditionally renders speed reader mode or normal page view with all controls.
@@ -119,6 +124,7 @@ export default function ReaderView({
             {showTapZones && (
               <TapZones
                 onPrev={() => onGoToPage(currentPage - 1)}
+                onClick={() => onToggleControls()}
                 onNext={() => onGoToPage(currentPage + 1)}
               />
             )}

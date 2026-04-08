@@ -17,6 +17,7 @@ import {
   CircleHelp,
   Mic,
   Ban,
+  Search,
   Folder,
   LayoutGrid,
   Contrast,
@@ -135,6 +136,12 @@ export const FEATURES = [
     label: 'Wort-Blacklist',
     description: 'Wörter eintragen, die du nicht lesen möchtest - Märchen mit diesen Wörtern werden in der Seitenleiste ausgeblendet.',
     Icon: () => <Ban size={20} strokeWidth={1.75} />,
+  },
+  {
+    key: 'deep-search',
+    label: 'Tiefensuche',
+    description: 'Erweitert die Suche von Titeln auf den vollständigen Märchentext (langsamer bei großen Bibliotheken).',
+    Icon: () => <Search size={20} strokeWidth={1.75} />,
   },
   // status: Umgesetzt
   {

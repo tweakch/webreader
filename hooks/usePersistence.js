@@ -102,7 +102,7 @@ export function usePersistence({
     if (!prefName) { setSelectedVariant(null); return; }
     const adaptions = adaptionsByParent[selectedStory.id] ?? [];
     setSelectedVariant(adaptions.find(a => a.adaptionName === prefName) ?? null);
-  }, [selectedStory]); // variantPrefs intentionally omitted - only re-run on story change
+  }, [selectedStory, adaptionsByParent, variantPrefs]);
 
   // Handlers
   const selectVariant = (variant) => {

@@ -3,7 +3,7 @@ import { useBooleanFlagValue, useStringFlagValue } from '@openfeature/react-sdk'
 
 /**
  * Feature flag management hook.
- * Owns all 15 boolean flags, 2 string flags, the user override layer, and the override function.
+ * Owns all boolean flags, 2 string flags, the user override layer, and the override function.
  */
 export function useFeatureFlags() {
   // Raw flag reads from OpenFeature
@@ -23,6 +23,7 @@ export function useFeatureFlags() {
   const _rawSpeedReader = useBooleanFlagValue('speed-reader', false);
   const _rawSpeedreaderOrp = useBooleanFlagValue('speedreader-orp', false);
   const _rawWordBlacklist = useBooleanFlagValue('word-blacklist', false);
+  const _rawDeepSearch = useBooleanFlagValue('deep-search', false);
   const _rawStoryDirectories = useBooleanFlagValue('story-directories', false);
   const _rawDebugBadges = useBooleanFlagValue('debug-badges', false);
 
@@ -55,6 +56,7 @@ export function useFeatureFlags() {
   const showSpeedReader = _o('speed-reader', _rawSpeedReader);
   const showSpeedreaderOrp = _o('speedreader-orp', _rawSpeedreaderOrp);
   const showWordBlacklist = _o('word-blacklist', _rawWordBlacklist);
+  const showDeepSearch = _o('deep-search', _rawDeepSearch);
   const showStoryDirectories = _o('story-directories', _rawStoryDirectories);
   const showDebugBadges = _o('debug-badges', _rawDebugBadges);
 
@@ -76,6 +78,7 @@ export function useFeatureFlags() {
     'speed-reader': _rawSpeedReader,
     'speedreader-orp': _rawSpeedreaderOrp,
     'word-blacklist': _rawWordBlacklist,
+    'deep-search': _rawDeepSearch,
     'story-directories': _rawStoryDirectories,
     'debug-badges': _rawDebugBadges,
   };
@@ -102,6 +105,7 @@ export function useFeatureFlags() {
     showSpeedReader,
     showSpeedreaderOrp,
     showWordBlacklist,
+    showDeepSearch,
     showStoryDirectories,
     showDebugBadges,
     _rawFlagValues,

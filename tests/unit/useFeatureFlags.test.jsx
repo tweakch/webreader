@@ -27,6 +27,7 @@ const boolDefaults = {
   'speed-reader': false,
   'speedreader-orp': false,
   'word-blacklist': false,
+  'deep-search': false,
   'story-directories': false,
   'debug-badges': false,
 };

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PageContent from './PageContent';
 import EInkFlashOverlay from './EInkFlashOverlay';
 import TapZones from './TapZones';
@@ -7,11 +7,6 @@ import NavBar from './NavBar';
 import SpeedReaderView from '../ui/SpeedReaderView';
 import TypographyPanel from '../ui/TypographyPanel';
 import AudioPlayer from '../ui/AudioPlayer';
-
-const controlsVisible = true;
-function onToggleControls() {
-  controlsVisible = !controlsVisible;
-}
 
 /**
  * Reader view compositor - manages the entire reading interface.
@@ -68,6 +63,7 @@ export default function ReaderView({
   srFontSizeStep,
   srFontSizeDefault,
 }) {
+  const [controlsVisible, setControlsVisible] = useState(true);
   return (
     <>
       {/* Reading viewport */}
@@ -124,7 +120,7 @@ export default function ReaderView({
             {showTapZones && (
               <TapZones
                 onPrev={() => onGoToPage(currentPage - 1)}
-                onClick={() => onToggleControls()}
+                onClick={() => setControlsVisible(v => !v)}
                 onNext={() => onGoToPage(currentPage + 1)}
               />
             )}
@@ -164,20 +160,22 @@ export default function ReaderView({
       )}
 
       {/* Page navigation bar - flex sibling, not overlapping */}
-      <NavBar
-        currentPage={currentPage}
-        totalPages={totalPages}
-        storyTitle={selectedStory.title}
-        onPrev={() => onGoToPage(currentPage - 1)}
-        onNext={() => onGoToPage(currentPage + 1)}
-        showSpeedReader={showSpeedReader}
-        speedReaderMode={speedReaderMode}
-        onToggleSpeedReader={() => onSetSpeedReaderMode(v => !v)}
-        showTypographyPanel={showTypographyPanel}
-        typoPanelOpen={typoPanelOpen}
-        onToggleTypoPanel={onToggleTypoPanel}
-        srWordCount={srWords.length}
-      />
+      {controlsVisible && (
+        <NavBar
+          currentPage={currentPage}
+          totalPages={totalPages}
+          storyTitle={selectedStory.title}
+          onPrev={() => onGoToPage(currentPage - 1)}
+          onNext={() => onGoToPage(currentPage + 1)}
+          showSpeedReader={showSpeedReader}
+          speedReaderMode={speedReaderMode}
+          onToggleSpeedReader={() => onSetSpeedReaderMode(v => !v)}
+          showTypographyPanel={showTypographyPanel}
+          typoPanelOpen={typoPanelOpen}
+          onToggleTypoPanel={onToggleTypoPanel}
+          srWordCount={srWords.length}
+        />
+      )}
     </>
   );
 }

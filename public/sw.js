@@ -22,10 +22,12 @@ self.addEventListener('fetch', event => {
   event.respondWith(
     caches.open(CACHE).then(cache =>
       cache.match(request).then(cached => {
-        const network = fetch(request).then(response => {
-          if (response.ok) cache.put(request, response.clone());
-          return response;
-        });
+        const network = fetch(request)
+          .then(response => {
+            if (response.ok) cache.put(request, response.clone());
+            return response;
+          })
+          .catch(() => cached);
         // Stale-while-revalidate: serve cache instantly, refresh in background
         return cached ?? network;
       })

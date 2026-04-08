@@ -159,7 +159,7 @@ const GrimmMarchenApp = () => {
       .catch(() => {
         setAdaptionsByParent((prev) => ({ ...prev, [selectedStory.id]: [] }));
       });
-  }, [selectedStory, adaptionsByParent]);
+  }, [selectedStory]);
 
   // Persistence - must come before visibleStories (needs blacklist) and
   // before useReader (needs selectedVariant + pendingResumePageRef).

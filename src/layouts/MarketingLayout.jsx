@@ -8,7 +8,9 @@ export default function MarketingLayout() {
     <div className="min-h-screen flex flex-col bg-amber-50 text-amber-950">
       <MarketingNav />
       <main className="flex-1">
-        <Outlet />
+        <React.Suspense fallback={<div className="mx-auto max-w-6xl px-6 py-10 text-amber-700">Loading...</div>}>
+          <Outlet />
+        </React.Suspense>
       </main>
       <MarketingFooter />
     </div>

@@ -1,4 +1,4 @@
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { ChevronLeft, ChevronRight, ClockFading } from 'lucide-react';
 import { useTheme } from '../ui/ThemeContext';
 
 /**
@@ -81,13 +81,7 @@ export default function NavBar({
                   : darkMode ? 'bg-slate-700/60 text-amber-700' : 'bg-amber-50/80 text-amber-400'
             }`}
           >
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
-              <circle cx="12" cy="12" r="10" />
-              <line x1="12" y1="8" x2="12" y2="12" />
-              <line x1="12" y1="12" x2="15" y2="10" />
-              <path d="M5 3.5A9.97 9.97 0 0 1 12 2c2.76 0 5.26 1.12 7.07 2.93" strokeLinecap="round" />
-              <path d="M3.5 5A9.97 9.97 0 0 0 2 12" strokeLinecap="round" />
-            </svg>
+            <ClockFading size={18} />
           </button>
         )}
         <button

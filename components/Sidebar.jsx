@@ -165,7 +165,7 @@ export default function Sidebar({
                 }`}
               >
                 <ChevronLeft size={16} />
-                <span>{activeDirectory}</span>
+                <span className="min-w-0 truncate">{activeDirectory}</span>
                 <span className={`ml-auto text-xs px-1.5 py-0.5 rounded ${
                   darkMode ? 'bg-slate-700 text-amber-500' : 'bg-amber-100 text-amber-600'
                 }`}>
@@ -207,7 +207,7 @@ export default function Sidebar({
                 }`}
               >
                 <ChevronLeft size={16} />
-                <span>{sources.find(s => s.id === activeSource)?.label}</span>
+                <span className="min-w-0 truncate">{sources.find(s => s.id === activeSource)?.label}</span>
                 <span className={`ml-auto text-xs px-1.5 py-0.5 rounded ${
                   darkMode ? 'bg-slate-700 text-amber-500' : 'bg-amber-100 text-amber-600'
                 }`}>
@@ -253,7 +253,7 @@ export default function Sidebar({
                 }`}
               >
                 <ChevronLeft size={16} />
-                <span>{sources.find(s => s.id === activeSource)?.label}</span>
+                <span className="min-w-0 truncate">{sources.find(s => s.id === activeSource)?.label}</span>
                 <span className={`ml-auto text-xs px-1.5 py-0.5 rounded ${
                   darkMode ? 'bg-slate-700 text-amber-500' : 'bg-amber-100 text-amber-600'
                 }`}>

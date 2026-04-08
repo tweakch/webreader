@@ -1,7 +1,7 @@
 import React, { useState, useEffect, createContext, useContext } from 'react';
 import {
   ChevronLeft, ChevronRight, Heart, Menu, Plus, Minus,
-  Play, Pause, RotateCcw, X, User,
+  Play, Pause, RotateCcw, X, User, ClockFading,
 } from 'lucide-react';
 import { FEATURES } from '../features.jsx';
 import flagConfig from '../flags.json';
@@ -777,42 +777,6 @@ function BannerSection() {
 // ─── 12. Speed-reader ────────────────────────────────────────────────────────
 
 function SpeedReaderSection({ flags }) {
-  const SpeedIcon = () => (
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
-      <circle cx="12" cy="12" r="10" />
-      <line x1="12" y1="8" x2="12" y2="12" />
-      <line x1="12" y1="12" x2="15" y2="10" />
-      <path d="M5 3.5A9.97 9.97 0 0 1 12 2c2.76 0 5.26 1.12 7.07 2.93" strokeLinecap="round" />
-      <path d="M3.5 5A9.97 9.97 0 0 0 2 12" strokeLinecap="round" />
-    </svg>
-  );
-
-  const MinusIcon = () => (
-    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
-      <line x1="5" y1="12" x2="19" y2="12" />
-    </svg>
-  );
-
-  const PlusIcon = () => (
-    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
-      <line x1="12" y1="5" x2="12" y2="19" />
-      <line x1="5" y1="12" x2="19" y2="12" />
-    </svg>
-  );
-
-  const PauseIcon = () => (
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-      <rect x="6" y="4" width="4" height="16" rx="1" />
-      <rect x="14" y="4" width="4" height="16" rx="1" />
-    </svg>
-  );
-
-  const PlayIcon = () => (
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-      <polygon points="5,3 19,12 5,21" />
-    </svg>
-  );
-
   const ReadingView = ({ dark, hc, playing }) => (
     <div className={`py-8 px-6 flex flex-col items-center gap-6 ${
       hc && dark ? 'bg-black' : hc ? 'bg-white' : dark ? 'bg-slate-800/50' : 'bg-white/70'
@@ -844,19 +808,19 @@ function SpeedReaderSection({ flags }) {
           hc && dark ? 'bg-white text-black' : hc ? 'bg-black text-white' :
           dark ? 'bg-amber-500/30 text-amber-300' : 'bg-amber-100 text-amber-700'
         }`}>
-          {playing ? <PauseIcon /> : <PlayIcon />}
+          {playing ? <Pause size={16} /> : <Play size={16} />}
         </div>
         {/* WpM control */}
         <div className="flex items-center gap-1.5">
           <div className={`flex items-center justify-center w-7 h-7 rounded-lg ${
             hc && dark ? 'text-white/60' : hc ? 'text-gray-500' : dark ? 'bg-slate-700/60 text-amber-600' : 'bg-amber-50 text-amber-500'
-          }`}><MinusIcon /></div>
+          }`}><Minus size={11} /></div>
           <span className={`text-xs font-mono font-bold tabular-nums text-center ${
             hc && dark ? 'text-white' : hc ? 'text-gray-900' : dark ? 'text-amber-300' : 'text-amber-800'
           }`} style={{ minWidth: '3.8rem' }}>400 WpM</span>
           <div className={`flex items-center justify-center w-7 h-7 rounded-lg ${
             hc && dark ? 'text-white/60' : hc ? 'text-gray-500' : dark ? 'bg-slate-700/60 text-amber-600' : 'bg-amber-50 text-amber-500'
-          }`}><PlusIcon /></div>
+          }`}><Plus size={11} /></div>
         </div>
       </div>
     </div>
@@ -881,7 +845,7 @@ function SpeedReaderSection({ flags }) {
                           : hc   ? 'text-white/40' :
                             dark ? 'bg-slate-700/60 text-amber-700' : 'bg-amber-50/80 text-amber-400'
                       }`}>
-                        <SpeedIcon />
+                        <ClockFading size={18} />
                       </div>
                       <span className={`text-[10px] ${hc && dark ? 'text-white/50' : hc ? 'text-gray-500' : dark ? 'text-amber-600' : 'text-amber-500'}`}>
                         {active ? 'Aktiv' : 'Inaktiv'}

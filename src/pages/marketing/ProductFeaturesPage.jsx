@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { FEATURES } from '../../../features';
 
@@ -14,11 +15,19 @@ export default function ProductFeaturesPage() {
       <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {FEATURES.map(({ key, label, description, Icon }) => (
           <div key={key} className="bg-white rounded-2xl border border-amber-100 p-6">
-            <div className="w-9 h-9 text-amber-700 mb-3">
-              <Icon />
+            <div className="flex items-center gap-3 mb-3">
+              <div className="w-9 h-9 text-amber-700 flex-shrink-0 flex items-center justify-center">
+                <Icon />
+              </div>
+              <h2 className="font-semibold text-amber-900 leading-none">{label}</h2>
             </div>
-            <h2 className="font-semibold text-amber-900">{label}</h2>
             <p className="mt-1 text-sm text-amber-600 leading-relaxed">{description}</p>
+            <Link
+              to={`/app?docs=${encodeURIComponent(key)}`}
+              className="mt-3 inline-block text-sm font-medium text-amber-800 hover:text-amber-900 underline underline-offset-2"
+            >
+              Details in Feature Docs
+            </Link>
           </div>
         ))}
       </div>

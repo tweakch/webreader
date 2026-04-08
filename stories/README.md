@@ -1,6 +1,6 @@
 # Story Library
 
-## [Schweizer Sagen](./swiss/README.md)
+## [Schweizer Märchen (Märchenstiftung)](./maerchenstiftung/README.md)
 
-- Source: https://www.sagen.at/texte/sagen/schweiz/sagen_schweiz.htm
-- Stories: 620 ok, 0 failed
+- Source: https://www.maerchenstiftung.ch/sitemap.xml
+- Stories: 20 ok, 0 failed

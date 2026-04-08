@@ -26,19 +26,21 @@ export default function SourceButton({ src, onClick }) {
         })
       )}
     >
-      <span className="font-serif text-base">{src.label}</span>
-      <span className={cn(
-        'text-xs tabular-nums',
-        tc({
-          light: 'text-amber-700',
-          dark: 'text-amber-400',
-          hcLight: 'text-gray-600',
-          hcDark: 'text-white/60',
-        })
-      )}>
-        {src.count}
+      <span className="font-serif text-base truncate min-w-0 flex-1 text-left pr-3">{src.label}</span>
+      <span className="flex-shrink-0 flex items-center gap-2">
+        <span className={cn(
+          'text-xs tabular-nums',
+          tc({
+            light: 'text-amber-700',
+            dark: 'text-amber-400',
+            hcLight: 'text-gray-600',
+            hcDark: 'text-white/60',
+          })
+        )}>
+          {src.count}
+        </span>
+        <ChevronRight size={16} />
       </span>
-      <ChevronRight size={16} />
     </button>
   );
 }

@@ -19,7 +19,10 @@ import AudioPlayer from './ui/AudioPlayer';
 import SpeedReaderView from './ui/SpeedReaderView';
 import DebugOverlay from './components/DebugOverlay';
 
-const storyAudioFiles = import.meta.glob('/stories/*/*/audio.mp3', { eager: true, query: '?url', import: 'default' });
+const storyAudioModules = import.meta.glob('/stories/*/*/audio.mp3', { query: '?url', import: 'default' });
+const storyModules2 = import.meta.glob('/stories/*/*/content.md', { query: '?raw', import: 'default' });
+const storyModules3 = import.meta.glob('/stories/*/*/*/content.md', { query: '?raw', import: 'default' });
+const adaptionModules = import.meta.glob('/stories/*/*/adaptions/*/content.md', { query: '?raw', import: 'default' });
 
 const GrimmMarchenApp = () => {
   const [selectedStory, setSelectedStory] = useState(null);
@@ -53,6 +56,19 @@ const GrimmMarchenApp = () => {
   const [docsAnchor, setDocsAnchor] = useState(null);
   const [activeSource, setActiveSource] = useState(() => localStorage.getItem('wr-last-source') || null);
   const [activeDirectory, setActiveDirectory] = useState(null);
+  const [stories, setStories] = useState([]);
+  const [adaptionsByParent, setAdaptionsByParent] = useState({});
+  const [storyAudioFiles, setStoryAudioFiles] = useState({});
+  const [isLibraryLoading, setIsLibraryLoading] = useState(true);
+
+  // Allow deep-linking from marketing pages directly into FeatureDocs.
+  useEffect(() => {
+    const docs = new URLSearchParams(window.location.search).get('docs');
+    if (!docs) return;
+    setDocsOpen(true);
+    setDocsAnchor(docs);
+    setProfileOpen(false);
+  }, []);
 
   const handleSelectSource = React.useCallback((sourceId) => {
     setActiveSource(sourceId);
@@ -62,74 +78,91 @@ const GrimmMarchenApp = () => {
 
   const readerAreaRef = useRef(null);
   const measureRef = useRef(null);
-  const stories = React.useMemo(() => {
-    // 2-level: /stories/{source}/{slug}/content.md
-    const modules2 = import.meta.glob('/stories/*/*/content.md', { eager: true, query: '?raw', import: 'default' });
-    // 3-level: /stories/{source}/{directory}/{slug}/content.md
-    const modules3 = import.meta.glob('/stories/*/*/*/content.md', { eager: true, query: '?raw', import: 'default' });
-    const allModules = { ...modules2, ...modules3 };
 
-    return Object.entries(allModules)
-      .map(([path, raw]) => {
-        // Extract source, optional directory, and slug from path
+  useEffect(() => {
+    let mounted = true;
+
+    async function loadLibrary() {
+      const loadedAudio = Object.fromEntries(
+        await Promise.all(
+          Object.entries(storyAudioModules).map(async ([path, loader]) => [path, await loader()])
+        ),
+      );
+
+      const loadedStories = Object.entries({ ...storyModules2, ...storyModules3 });
+      const storyPairs = await Promise.all(
+        loadedStories.map(async ([path, loader]) => [path, await loader()]),
+      );
+
+      const parsedStories = storyPairs
+        .map(([path, raw]) => {
+          const parts = path.split('/');
+          let source, directory, slug;
+          if (parts.length === 6) {
+            source = parts[2];
+            directory = parts[3];
+            slug = parts[4];
+          } else {
+            source = parts[2];
+            directory = null;
+            slug = parts[3];
+          }
+
+          const fmMatch = raw.match(/^---\n([\s\S]*?)\n---\n/);
+          const fmBlock = fmMatch ? fmMatch[1] : '';
+          const titleMatch = fmBlock.match(/^title:\s*"(.+)"$/m);
+          const title = titleMatch ? titleMatch[1] : slug;
+          const sourceLabelMatch = fmBlock.match(/^source:\s*"(.+)"$/m);
+          const sourceLabel = sourceLabelMatch ? sourceLabelMatch[1] : source;
+          const wordCountMatch = fmBlock.match(/^wordCount:\s*(\d+)$/m);
+          const wordCount = wordCountMatch ? parseInt(wordCountMatch[1], 10) : null;
+          const afterFm = fmMatch ? raw.slice(fmMatch[0].length) : raw;
+          const content = afterFm.replace(/^#[^\n]*\n\n/, '').trimEnd();
+
+          const id = directory ? `${source}/${directory}/${slug}` : `${source}/${slug}`;
+          return { id, title, content, source, directory, sourceLabel, wordCount };
+        })
+        .sort((a, b) => a.title.localeCompare(b.title, 'de'));
+
+      const adaptionPairs = await Promise.all(
+        Object.entries(adaptionModules).map(async ([path, loader]) => [path, await loader()]),
+      );
+      const loadedAdaptions = {};
+      adaptionPairs.forEach(([path, raw]) => {
         const parts = path.split('/');
-        // parts[0] = '', parts[1] = 'stories', then source, [dir,] slug, 'content.md'
-        let source, directory, slug;
-        if (parts.length === 6) {
-          // /stories/{source}/{directory}/{slug}/content.md
-          source = parts[2];
-          directory = parts[3];
-          slug = parts[4];
-        } else {
-          // /stories/{source}/{slug}/content.md
-          source = parts[2];
-          directory = null;
-          slug = parts[3];
-        }
+        const source = parts[parts.length - 5];
+        const parentSlug = parts[parts.length - 4];
+        const parentId = `${source}/${parentSlug}`;
 
-        // Parse YAML frontmatter
         const fmMatch = raw.match(/^---\n([\s\S]*?)\n---\n/);
         const fmBlock = fmMatch ? fmMatch[1] : '';
-        const titleMatch = fmBlock.match(/^title:\s*"(.+)"$/m);
-        const title = titleMatch ? titleMatch[1] : slug;
-        const sourceLabelMatch = fmBlock.match(/^source:\s*"(.+)"$/m);
-        const sourceLabel = sourceLabelMatch ? sourceLabelMatch[1] : source;
-        const wordCountMatch = fmBlock.match(/^wordCount:\s*(\d+)$/m);
-        const wordCount = wordCountMatch ? parseInt(wordCountMatch[1], 10) : null;
-
-        // Strip frontmatter and the # heading line, leaving only paragraphs
+        const adaptionNameMatch = fmBlock.match(/^adaption:\s*"(.+)"$/m);
+        const adaptionName = adaptionNameMatch ? adaptionNameMatch[1] : parts[parts.length - 2];
         const afterFm = fmMatch ? raw.slice(fmMatch[0].length) : raw;
-        const content = afterFm.replace(/^#[^\n]*\n\n/, '').trimEnd();
+        const content = afterFm.replace(/^\*\*[^\n]*\*\*\n\n/, '').trimEnd();
 
-        const id = directory ? `${source}/${directory}/${slug}` : `${source}/${slug}`;
-        return { id, title, content, source, directory, sourceLabel, wordCount };
-      })
-      .sort((a, b) => a.title.localeCompare(b.title, 'de'));
-  }, []);
+        if (!loadedAdaptions[parentId]) loadedAdaptions[parentId] = [];
+        loadedAdaptions[parentId].push({ adaptionName, content });
+      });
 
-  const adaptionsByParent = React.useMemo(() => {
-    const modules = import.meta.glob('/stories/*/*/adaptions/*/content.md', { eager: true, query: '?raw', import: 'default' });
-    const map = {};
-    Object.entries(modules).forEach(([path, raw]) => {
-      // /stories/{source}/{parentSlug}/adaptions/{adaptionSlug}/content.md
-      const parts = path.split('/');
-      const source = parts[parts.length - 5];
-      const parentSlug = parts[parts.length - 4];
-      const parentId = `${source}/${parentSlug}`;
+      if (!mounted) return;
+      setStoryAudioFiles(loadedAudio);
+      setStories(parsedStories);
+      setAdaptionsByParent(loadedAdaptions);
+      setIsLibraryLoading(false);
+    }
 
-      const fmMatch = raw.match(/^---\n([\s\S]*?)\n---\n/);
-      const fmBlock = fmMatch ? fmMatch[1] : '';
-      const adaptionNameMatch = fmBlock.match(/^adaption:\s*"(.+)"$/m);
-      const adaptionName = adaptionNameMatch ? adaptionNameMatch[1] : parts[parts.length - 2];
-
-      const afterFm = fmMatch ? raw.slice(fmMatch[0].length) : raw;
-      // Strip bold title line (e.g. **Title**\n\n) that adaptions embed in content
-      const content = afterFm.replace(/^\*\*[^\n]*\*\*\n\n/, '').trimEnd();
-
-      if (!map[parentId]) map[parentId] = [];
-      map[parentId].push({ adaptionName, content });
+    loadLibrary().catch(() => {
+      if (!mounted) return;
+      setStoryAudioFiles({});
+      setStories([]);
+      setAdaptionsByParent({});
+      setIsLibraryLoading(false);
     });
-    return map;
+
+    return () => {
+      mounted = false;
+    };
   }, []);
 
   // Persistence — must come before visibleStories (needs blacklist) and
@@ -482,6 +515,10 @@ const GrimmMarchenApp = () => {
               onToggleFavorite={() => toggleFavoriteById(selectedStory.id)}
               onClose={() => setSelectedStory(null)}
             />
+          ) : isLibraryLoading ? (
+            <div className={`h-full w-full grid place-items-center ${darkMode ? 'text-amber-200' : 'text-amber-900'}`}>
+              Loading library...
+            </div>
           ) : (
             <HomeView
               resumeSession={resumeSession}

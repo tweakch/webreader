@@ -4,20 +4,20 @@ import { createBrowserRouter } from 'react-router-dom';
 import MarketingLayout from './layouts/MarketingLayout';
 import AppLayout from './layouts/AppLayout';
 
-import HomePage from './pages/marketing/HomePage';
-import ProductPage from './pages/marketing/ProductPage';
-import ProductFeaturesPage from './pages/marketing/ProductFeaturesPage';
-import ProductHowItWorksPage from './pages/marketing/ProductHowItWorksPage';
-import ProductIntegrationsPage from './pages/marketing/ProductIntegrationsPage';
-import UseCasesPage from './pages/marketing/UseCasesPage';
-import UseCasesStudentsPage from './pages/marketing/UseCasesStudentsPage';
-import UseCasesProfessionalsPage from './pages/marketing/UseCasesProfessionalsPage';
-import UseCasesResearchersPage from './pages/marketing/UseCasesResearchersPage';
-import UseCasesCreatorsPage from './pages/marketing/UseCasesCreatorsPage';
-import PricingPage from './pages/marketing/PricingPage';
-import BlogPage from './pages/marketing/BlogPage';
-import AboutPage from './pages/marketing/AboutPage';
-import NotFoundPage from './pages/NotFoundPage';
+const HomePage = React.lazy(() => import('./pages/marketing/HomePage'));
+const ProductPage = React.lazy(() => import('./pages/marketing/ProductPage'));
+const ProductFeaturesPage = React.lazy(() => import('./pages/marketing/ProductFeaturesPage'));
+const ProductHowItWorksPage = React.lazy(() => import('./pages/marketing/ProductHowItWorksPage'));
+const ProductIntegrationsPage = React.lazy(() => import('./pages/marketing/ProductIntegrationsPage'));
+const UseCasesPage = React.lazy(() => import('./pages/marketing/UseCasesPage'));
+const UseCasesStudentsPage = React.lazy(() => import('./pages/marketing/UseCasesStudentsPage'));
+const UseCasesProfessionalsPage = React.lazy(() => import('./pages/marketing/UseCasesProfessionalsPage'));
+const UseCasesResearchersPage = React.lazy(() => import('./pages/marketing/UseCasesResearchersPage'));
+const UseCasesCreatorsPage = React.lazy(() => import('./pages/marketing/UseCasesCreatorsPage'));
+const PricingPage = React.lazy(() => import('./pages/marketing/PricingPage'));
+const BlogPage = React.lazy(() => import('./pages/marketing/BlogPage'));
+const AboutPage = React.lazy(() => import('./pages/marketing/AboutPage'));
+const NotFoundPage = React.lazy(() => import('./pages/NotFoundPage'));
 
 export const router = createBrowserRouter([
   {

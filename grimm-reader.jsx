@@ -419,6 +419,13 @@ const GrimmMarchenApp = () => {
         ? 'bg-gradient-to-br from-amber-950 via-slate-900 to-slate-950'
         : 'bg-gradient-to-br from-amber-50 via-yellow-50 to-orange-50'
     }`}>
+      {/* Dev Mode Indicator */}
+      {import.meta.env.DEV && (
+        <div className="flex-shrink-0 px-4 py-2 bg-red-500 text-white text-sm font-medium text-center">
+          🔴 DEVELOPMENT MODE
+        </div>
+      )}
+
       {/* Header */}
       <header className={`flex-shrink-0 backdrop-blur-md transition-colors duration-300 z-40 ${
         highContrast

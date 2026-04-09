@@ -52,7 +52,7 @@ export default function Sidebar({
         ? 'bg-slate-950/95 border-amber-700/30'
         : 'bg-white/95 border-amber-200/50'
     } border-r backdrop-blur-sm`}>
-      <div className="flex-1 overflow-y-auto">
+      <div className="flex-1 min-h-0 overflow-y-auto">
 
         {/* Search - always visible */}
         <div className="p-4">

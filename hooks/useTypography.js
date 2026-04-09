@@ -13,7 +13,7 @@ const MAX_BASIC_FONT_IDX = 2;
  * @param {number} maxFontSize - maximum allowed font size (from feature flags)
  * @param {boolean} subscriberFonts - when false, clamp fontFamilyIdx to basic fonts only (0-2)
  */
-export function useTypography({ maxFontSize = 28, subscriberFonts = false } = {}) {
+export function useTypography({ maxFontSize = 40, subscriberFonts = false } = {}) {
   const [fontSize, setFontSize] = useState(() => parseInt(localStorage.getItem('wr-fs') ?? '18'));
   const [lineHeightIdx, setLineHeightIdx] = useState(() => parseInt(localStorage.getItem('wr-lh') ?? '1'));
   const [textWidthIdx, setTextWidthIdx] = useState(() => parseInt(localStorage.getItem('wr-tw') ?? '1'));

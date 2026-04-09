@@ -149,6 +149,11 @@ export const featureRegistry = {
     category: 'debug',
     description: 'Show data-testid badges on UI elements',
   },
+  'error-page-simulator': {
+    status: 'EXPERIMENT',
+    category: 'debug',
+    description: 'Show error simulation controls in the profile panel to trigger 404 and 500 error pages',
+  },
 
   // Marketing & Landing Pages
   'hero-tagline': {

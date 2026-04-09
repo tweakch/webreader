@@ -1,4 +1,5 @@
 import React, { useState, useEffect, createContext, useContext } from 'react';
+import ErrorPage, { ERROR_TYPES } from '../components/ErrorPage';
 import {
   ChevronLeft, ChevronRight, Heart, Menu, Plus, Minus,
   Play, Pause, RotateCcw, X, User, ClockFading,
@@ -880,13 +881,97 @@ function SpeedReaderSection({ flags }) {
   );
 }
 
+// ─── 12. Error pages ─────────────────────────────────────────────────────────
+
+/**
+ * Local error boundary used only for the throw-and-catch simulation inside the
+ * design system. Resets via key so you can re-trigger without a page reload.
+ */
+class LocalErrorBoundary extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { caught: false, error: null };
+  }
+  static getDerivedStateFromError(error) {
+    return { caught: true, error };
+  }
+  render() {
+    if (this.state.caught) {
+      return (
+        <div className="h-[550px] rounded-xl overflow-hidden border border-amber-200">
+          <ErrorPage type="unexpected" error={this.state.error} />
+        </div>
+      );
+    }
+    return this.props.children;
+  }
+}
+
+function ThrowOnMount() {
+  throw new Error('Simulated 500 error thrown from ErrorPagesSection demo');
+}
+
+function ErrorPagesSection() {
+  // Key increments to remount the LocalErrorBoundary, resetting its caught state
+  const [throwKey, setThrowKey] = useState(0);
+  const [throwing, setThrowing] = useState(false);
+
+  function triggerThrow() {
+    setThrowing(false);
+    // Flush to clear any previous throw, then set on next tick
+    setTimeout(() => { setThrowing(true); }, 0);
+  }
+
+  return (
+    <Section id="fehlerseiten" title="Fehlerseiten"
+      description="Alle registrierten Fehlertypen aus ERROR_TYPES — erweiterbar durch neue Einträge im Registry-Objekt in ErrorPage.jsx">
+
+      {/* Static previews for each registered error type */}
+      {Object.entries(ERROR_TYPES).map(([type, config]) => (
+        <Item key={type} label={`${config.code} – ${config.title}`} description={`type="${type}"`}>
+          <div className="h-[550px] rounded-xl overflow-hidden border border-gray-200">
+            <ErrorPage type={type} />
+          </div>
+        </Item>
+      ))}
+
+      {/* Live throw simulation */}
+      <Item label="500 – Live throw" description="Wirft eine echte Exception, die von einer lokalen ErrorBoundary abgefangen wird">
+        {throwing ? (
+          <LocalErrorBoundary key={throwKey}>
+            <ThrowOnMount />
+          </LocalErrorBoundary>
+        ) : (
+          <div className="flex flex-col items-center justify-center h-32 gap-3 rounded-xl border border-dashed border-gray-200">
+            <p className="text-xs text-gray-400">Noch keine Exception ausgelöst</p>
+            <button
+              onClick={() => { setThrowKey(k => k + 1); triggerThrow(); }}
+              className="text-xs font-medium px-3 py-1.5 bg-orange-100 text-orange-800 rounded-lg hover:bg-orange-200 transition-colors"
+            >
+              Exception auslösen →
+            </button>
+          </div>
+        )}
+        {throwing && (
+          <button
+            onClick={() => { setThrowing(false); setThrowKey(k => k + 1); }}
+            className="mt-2 text-xs text-gray-400 hover:text-gray-600 transition-colors"
+          >
+            ↺ Zurücksetzen
+          </button>
+        )}
+      </Item>
+    </Section>
+  );
+}
+
 // ─── Left navigation ──────────────────────────────────────────────────────────
 
 const NAV_GROUPS = [
   { label: 'Tokens',   items: [{ id: 'farben', label: 'Farben' }, { id: 'typografie', label: 'Typografie' }] },
   { label: 'Elemente', items: [{ id: 'schaltflaechen', label: 'Schaltflächen' }, { id: 'formular', label: 'Formularelemente' }] },
   { label: 'Layout',   items: [{ id: 'kopfzeile', label: 'Kopfzeile' }, { id: 'navigationsleiste', label: 'Navigationsleiste' }, { id: 'seitenleiste', label: 'Seitenleiste' }] },
-  { label: 'Inhalte',  items: [{ id: 'lesebereich', label: 'Lesebereich' }, { id: 'audioplayer', label: 'Audio-Player' }, { id: 'schnellleser', label: 'Schnellleser' }, { id: 'profil', label: 'Profil-Panel' }, { id: 'banner', label: 'Banner' }] },
+  { label: 'Inhalte',  items: [{ id: 'lesebereich', label: 'Lesebereich' }, { id: 'audioplayer', label: 'Audio-Player' }, { id: 'schnellleser', label: 'Schnellleser' }, { id: 'profil', label: 'Profil-Panel' }, { id: 'banner', label: 'Banner' }, { id: 'fehlerseiten', label: 'Fehlerseiten' }] },
 ];
 
 function LeftNav({ active }) {
@@ -1049,6 +1134,7 @@ export default function DesignSystem() {
           <SpeedReaderSection flags={flags} />
           <ProfileSection flags={flags} />
           <BannerSection />
+          <ErrorPagesSection />
         </div>
       </div>
 

@@ -1,4 +1,4 @@
-import { ChevronLeft, X, User, Shield } from 'lucide-react';
+import { ChevronLeft, X, User, Shield, FlameKindling } from 'lucide-react';
 import { useTheme } from '../ui/ThemeContext';
 import Toggle from '../ui/Toggle';
 import { ROLES, ROLE_LABELS } from '../hooks/useRole';
@@ -30,6 +30,9 @@ export default function ProfilePanel({
   visibleFeatureKeys,
   isFeatureAssignedToRole,
   toggleFeatureForRole,
+  // Error page simulator
+  showErrorPageSimulator,
+  onSimulateError,
 }) {
   const { dark, hc, tc } = useTheme();
 
@@ -178,6 +181,45 @@ export default function ProfilePanel({
             <p className={`mt-2 px-1 text-xs ${dark ? 'text-amber-700' : 'text-amber-500'}`}>
               Märchen, die eines dieser Wörter enthalten, werden in der Seitenleiste ausgeblendet.
             </p>
+          </div>
+        )}
+
+        {/* Error page simulator */}
+        {showErrorPageSimulator && (
+          <div className="mt-8">
+            <h2 className={`text-xs font-semibold uppercase tracking-wider mb-3 px-1 flex items-center gap-1.5 ${
+              dark ? 'text-amber-500' : 'text-amber-600'
+            }`}>
+              <FlameKindling size={12} />
+              Fehlerseiten-Simulator
+            </h2>
+            <div className={`rounded-2xl border divide-y ${
+              dark ? 'border-amber-700/30 divide-amber-700/30' : 'border-amber-200 divide-amber-200'
+            }`}>
+              {[
+                { type: 'not-found', label: '404 – Seite nicht gefunden', desc: 'Navigiert zu einer nicht vorhandenen URL.' },
+                { type: 'unexpected', label: '500 – Unerwarteter Fehler', desc: 'Wirft eine Exception und löst die Error Boundary aus.' },
+              ].map(({ type, label, desc }) => (
+                <div key={type} className={`px-5 py-3.5 flex items-center justify-between gap-4 ${
+                  dark ? 'text-amber-200' : 'text-amber-900'
+                }`}>
+                  <div>
+                    <p className="text-sm font-medium">{label}</p>
+                    <p className={`text-xs mt-0.5 ${dark ? 'text-amber-600' : 'text-amber-500'}`}>{desc}</p>
+                  </div>
+                  <button
+                    onClick={() => onSimulateError(type)}
+                    className={`flex-shrink-0 text-xs font-medium px-3 py-1.5 rounded-lg transition-colors ${
+                      dark
+                        ? 'bg-amber-700/30 text-amber-300 hover:bg-amber-700/50'
+                        : 'bg-amber-100 text-amber-800 hover:bg-amber-200'
+                    }`}
+                  >
+                    Auslösen
+                  </button>
+                </div>
+              ))}
+            </div>
           </div>
         )}
 

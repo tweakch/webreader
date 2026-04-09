@@ -75,6 +75,7 @@ function defaultRoleFeatures() {
       'debug-badges',
       'speedreader-orp',
       'subscriber-fonts',
+      'error-page-simulator',
     ],
   };
 }

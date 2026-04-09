@@ -24,6 +24,7 @@ import {
   ClockFading,
   Bug,
   Crosshair,
+  FlameKindling,
 } from 'lucide-react';
 
 export const FEATURES = [
@@ -186,6 +187,12 @@ export const FEATURES = [
     label: 'Debug-Badges',
     description: 'Zeigt auf jeder Komponente ein Badge mit dem technischen Namen an - für Tester, damit sie immer den richtigen data-testid-Namen kennen.',
     Icon: () => <Bug size={20} strokeWidth={1.75} />,
+  },
+  {
+    key: 'error-page-simulator',
+    label: 'Fehlerseiten-Simulator',
+    description: 'Zeigt im Profil-Panel Schaltflächen zum absichtlichen Auslösen von 404- und 500-Fehlerseiten.',
+    Icon: () => <FlameKindling size={20} strokeWidth={1.75} />,
   },
   // status: Umgesetzt
   {

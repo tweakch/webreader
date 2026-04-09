@@ -38,7 +38,7 @@ const GrimmMarchenApp = () => {
     showWordCount, showReadingDuration, showFontSizeControls, showPinchFontSize, showEinkFlash,
     showTapZones, showTapMiddleToggle, showAdaptionSwitcher, showTypographyPanel, showAttribution,
     showFavorites, showFavoritesOnlyToggle, showAudioPlayer, showHighContrastTheme,
-    showSpeedReader, showSpeedreaderOrp, showWordBlacklist, showDeepSearch, showStoryDirectories, showDebugBadges, showSubscriberFonts,
+    showSpeedReader, showSpeedreaderOrp, showWordBlacklist, showDeepSearch, showStoryDirectories, showDebugBadges, showSubscriberFonts, showErrorPageSimulator,
     _rawFlagValues,
     userFeatureOverrides, setUserFeatureOverrides, _o,
     flagTheme, bigFontsVariant,
@@ -66,6 +66,7 @@ const GrimmMarchenApp = () => {
   const [isLibraryLoading, setIsLibraryLoading] = useState(true);
   const [isStoryLoading, setIsStoryLoading] = useState(false);
   const [loadedMetadataIds, setLoadedMetadataIds] = useState(new Set());
+  const [simulatedErrorType, setSimulatedErrorType] = useState(null);
 
   // Allow deep-linking from marketing pages directly into FeatureDocs.
   useEffect(() => {
@@ -421,6 +422,12 @@ const GrimmMarchenApp = () => {
     window.location.assign('/');
   }, []);
 
+  // Throwing inside the render body is caught by the nearest ErrorBoundary.
+  // The error-page-simulator uses this to preview the 500 page.
+  if (simulatedErrorType === 'unexpected') {
+    throw new Error('Simulated 500 error (error-page-simulator)');
+  }
+
   return (
     <ThemeContext.Provider value={{ dark: darkMode, hc: highContrast }}>
     <div className={`fixed inset-0 flex flex-col overflow-hidden transition-colors duration-300 ${
@@ -593,6 +600,14 @@ const GrimmMarchenApp = () => {
               visibleFeatureKeys={visibleFeatureKeys}
               isFeatureAssignedToRole={isFeatureAssignedToRole}
               toggleFeatureForRole={toggleFeatureForRole}
+              showErrorPageSimulator={showErrorPageSimulator}
+              onSimulateError={(type) => {
+                if (type === 'not-found') {
+                  window.location.assign('/does-not-exist');
+                } else {
+                  setSimulatedErrorType(type);
+                }
+              }}
             />
           ) : selectedStory ? (
             <ReaderView

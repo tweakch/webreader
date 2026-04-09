@@ -17,6 +17,37 @@ body {
 #root {
   width: 100%;
   height: 100vh;
+  overflow: hidden;
+}
+
+@keyframes appSlideUp {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes appSlideDown {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+}
+
+.app-enter {
+  animation: appSlideUp 0.65s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.app-exit {
+  animation: appSlideDown 0.45s cubic-bezier(0.55, 0, 0.45, 1) forwards;
 }
 
 @keyframes twinkle {
@@ -109,7 +140,9 @@ body {
   .hero-title mark,
   .hero-title-small,
   .hero-tagline,
-  .hero-tagline-dot {
+  .hero-tagline-dot,
+  .app-enter,
+  .app-exit {
     animation: none;
     opacity: 1;
     transform: none;

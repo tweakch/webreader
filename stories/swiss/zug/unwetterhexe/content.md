@@ -1,5 +1,5 @@
 ---
-title: "Die \r\n            Unwetterhexe"
+title: "Die Unwetterhexe"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/zug/unwetterhexe.html"
 crawledAt: "2026-04-05T22:28:29.323Z"

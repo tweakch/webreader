@@ -1,5 +1,5 @@
 ---
-title: "Hexenmeister \r\n            von Ägeri"
+title: "Hexenmeister von Ägeri"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/zug/hexenmeister.html"
 crawledAt: "2026-04-05T22:28:22.014Z"

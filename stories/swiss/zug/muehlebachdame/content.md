@@ -1,5 +1,5 @@
 ---
-title: "Die \r\n            Mühlebachdame"
+title: "Die Mühlebachdame"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/zug/muehlebachdame.html"
 crawledAt: "2026-04-05T22:27:30.151Z"

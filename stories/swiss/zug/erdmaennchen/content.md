@@ -1,5 +1,5 @@
 ---
-title: "Die \r\n            Erdmännchen"
+title: "Die Erdmännchen"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/zug/erdmaennchen.html"
 crawledAt: "2026-04-05T22:28:40.937Z"

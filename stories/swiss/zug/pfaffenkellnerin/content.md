@@ -1,5 +1,5 @@
 ---
-title: "Die \r\n            Pfaffenkellerin"
+title: "Die Pfaffenkellerin"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/zug/pfaffenkellnerin.html"
 crawledAt: "2026-04-05T22:27:33.545Z"

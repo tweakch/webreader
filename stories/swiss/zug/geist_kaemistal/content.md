@@ -1,5 +1,5 @@
 ---
-title: "Der \r\n            Geist im Kämistal"
+title: "Der Geist im Kämistal"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/zug/geist_kaemistal.html"
 crawledAt: "2026-04-05T22:27:35.244Z"

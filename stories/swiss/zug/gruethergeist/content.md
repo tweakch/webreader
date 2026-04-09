@@ -1,5 +1,5 @@
 ---
-title: "Der \r\n            Grüthergeist"
+title: "Der Grüthergeist"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/zug/gruethergeist.html"
 crawledAt: "2026-04-05T22:27:31.053Z"

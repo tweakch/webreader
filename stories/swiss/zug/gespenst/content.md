@@ -1,5 +1,5 @@
 ---
-title: "Ein \r\n            musikalisches Gespenst"
+title: "Ein musikalisches Gespenst"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/zug/gespenst.html"
 crawledAt: "2026-04-05T22:27:42.297Z"

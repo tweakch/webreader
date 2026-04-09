@@ -1,5 +1,5 @@
 ---
-title: "Der \r\n            Jungfernstein"
+title: "Der Jungfernstein"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/zug/jungfernstein.html"
 crawledAt: "2026-04-05T22:28:03.244Z"

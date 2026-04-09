@@ -1,5 +1,5 @@
 ---
-title: "Tanzende \r\n            Katzen"
+title: "Tanzende Katzen"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/zug/katzen.html"
 crawledAt: "2026-04-05T22:28:24.350Z"

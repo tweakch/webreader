@@ -1,5 +1,5 @@
 ---
-title: "Gespenst \r\n            und Teufel auf der Allmend"
+title: "Gespenst und Teufel auf der Allmend"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/zug/gespenst_allmend.html"
 crawledAt: "2026-04-05T22:28:38.794Z"

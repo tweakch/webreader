@@ -1,5 +1,5 @@
 ---
-title: "Der \r\n            verbannte Spieler"
+title: "Der verbannte Spieler"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/zug/spieler.html"
 crawledAt: "2026-04-05T22:27:25.964Z"

@@ -1,5 +1,5 @@
 ---
-title: "Sprechende \r\n            Kühe"
+title: "Sprechende Kühe"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/zug/sprechende_kuehe.html"
 crawledAt: "2026-04-05T22:27:37.889Z"

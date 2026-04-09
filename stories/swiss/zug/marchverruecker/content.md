@@ -1,5 +1,5 @@
 ---
-title: "Der \r\n            Marchverrücker"
+title: "Der Marchverrücker"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/zug/marchverruecker.html"
 crawledAt: "2026-04-05T22:27:23.140Z"

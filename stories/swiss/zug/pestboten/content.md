@@ -1,5 +1,5 @@
 ---
-title: "Die \r\n            schwarzen Pestboten"
+title: "Die schwarzen Pestboten"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/zug/pestboten.html"
 crawledAt: "2026-04-05T22:27:49.372Z"

@@ -1,5 +1,5 @@
 ---
-title: "Das \r\n            heiratslustige Erdmännchen"
+title: "Das heiratslustige Erdmännchen"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/zug/heiratslustig.html"
 crawledAt: "2026-04-05T22:28:47.943Z"

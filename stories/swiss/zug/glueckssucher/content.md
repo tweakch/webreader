@@ -1,5 +1,5 @@
 ---
-title: "Menzinger \r\n            Glückssucher"
+title: "Menzinger Glückssucher"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/zug/glueckssucher.html"
 crawledAt: "2026-04-05T22:28:20.304Z"

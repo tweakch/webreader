@@ -1,5 +1,5 @@
 ---
-title: "Die \r\n            Menzinger Hexe"
+title: "Die Menzinger Hexe"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/zug/menzinger_hexe.html"
 crawledAt: "2026-04-05T22:28:27.279Z"

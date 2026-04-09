@@ -1,5 +1,5 @@
 ---
-title: "Der \r\n            Seemuggi"
+title: "Der Seemuggi"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/zug/seemuggi.html"
 crawledAt: "2026-04-05T22:28:17.422Z"

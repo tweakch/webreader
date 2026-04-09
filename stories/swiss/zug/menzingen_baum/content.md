@@ -1,5 +1,5 @@
 ---
-title: "Der \r\n            hohle Baum in Menzingen"
+title: "Der hohle Baum in Menzingen"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/zug/menzingen_baum.html"
 crawledAt: "2026-04-05T22:28:45.632Z"

@@ -1,5 +1,5 @@
 ---
-title: "Der \r\n            Straßenhund"
+title: "Der Straßenhund"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/zug/strassenhund.html"
 crawledAt: "2026-04-05T22:28:07.995Z"

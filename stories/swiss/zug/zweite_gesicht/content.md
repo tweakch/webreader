@@ -1,5 +1,5 @@
 ---
-title: "Das \r\n            zweite Gesicht"
+title: "Das zweite Gesicht"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/zug/zweite_gesicht.html"
 crawledAt: "2026-04-05T22:27:52.616Z"

@@ -1,5 +1,5 @@
 ---
-title: "Der \r\n            Dreifingerstein"
+title: "Der Dreifingerstein"
 source: "Schweizer Sagen"
 url: "https://www.sagen.at/texte/sagen/schweiz/zug/dreifingerstein.html"
 crawledAt: "2026-04-05T22:27:16.810Z"

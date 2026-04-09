@@ -1,4 +1,4 @@
-import { ChevronLeft, X, User, Shield, FlameKindling } from 'lucide-react';
+import { ChevronLeft, X, User, Shield, FlameKindling, Users } from 'lucide-react';
 import { useTheme } from '../ui/ThemeContext';
 import Toggle from '../ui/Toggle';
 import { ROLES, ROLE_LABELS } from '../hooks/useRole';
@@ -10,6 +10,7 @@ import { ROLES, ROLE_LABELS } from '../hooks/useRole';
 export default function ProfilePanel({
   onBack,
   onOpenDocs,
+  onOpenPersonasDocs,
   favorites,
   completedStories,
   totalStories,
@@ -124,6 +125,26 @@ export default function ProfilePanel({
             </div>
           ))}
         </div>
+
+        {/* Product Vision link */}
+        {onOpenPersonasDocs && (
+          <button
+            onClick={onOpenPersonasDocs}
+            className={`mt-6 w-full flex items-center justify-between px-5 py-3.5 rounded-2xl border transition-colors ${
+              dark
+                ? 'border-amber-700/30 text-amber-300 hover:bg-amber-900/20'
+                : 'border-amber-200 text-amber-800 hover:bg-amber-50'
+            }`}
+          >
+            <div className="flex items-center gap-3">
+              <Users size={16} className={dark ? 'text-amber-500' : 'text-amber-600'} />
+              <span className="text-sm font-medium">Product Vision</span>
+            </div>
+            <span className={`text-xs ${dark ? 'text-amber-600' : 'text-amber-500'}`}>
+              Personas & Feature Map →
+            </span>
+          </button>
+        )}
 
         {/* Word Blacklist */}
         {showWordBlacklist && (

@@ -2,169 +2,48 @@
 
 > Beyond classic roles: behavior patterns, context, and jobs-to-be-done.
 
----
+## Personas
 
-## 1. Pre-Readers / Young Children
-
-**Job-to-be-done:** "I want to experience stories before I can read."
-
-| Use Case | Description |
-|---|---|
-| Audio + Word Highlighting | Synchronized text highlighting while audio plays |
-| Interactive Tales | Tap elements → trigger reactions, animations |
-| AI Character Voices | Distinct AI-generated voices per story character |
-| Language Development | Vocabulary aids, slow narration mode |
-
-**Opportunity:** Family onboarding entry point → long-term user retention across life stages.
-
----
-
-## 2. Parents / Family Orchestrators
-
-**Job-to-be-done:** "I want high-quality shared time — without effort."
-
-| Use Case | Description |
-|---|---|
-| Curated Bedtime Rituals | 5 / 10 / 15 min story sessions |
-| Age-Appropriate Filters | Content filtering by child age range |
-| "Tell Me Something" Button | One-tap random story discovery |
-| Family Library | Shared reading lists and progress across devices |
-
-**Opportunity:** Subscription model + emotional lock-in via shared family memories.
+| # | Persona | Job-to-be-done |
+|---|---|---|
+| 👶 | [Pre-Readers](personas/01-pre-readers.md) | "I want to experience stories before I can read." |
+| 👨‍👩‍👧 | [Parents](personas/02-parents.md) | "I want high-quality shared time — without effort." |
+| 🧑‍🏫 | [Teachers](personas/03-teachers.md) | "I want to use fairy tales didactically." |
+| 🌍 | [Culture Explorers](personas/04-culture-explorers.md) | "I want to understand culture through stories." |
+| 🧘 | [Therapeutic](personas/05-therapeutic.md) | "I want to understand myself better." |
+| 🎭 | [Creatives](personas/06-creatives.md) | "I want to create new stories." |
+| 🎧 | [Passive Consumers](personas/07-passive-consumers.md) | "I want to consume stories alongside other activities." |
+| 🧑‍💻 | [Developers](personas/08-developers.md) | "I want to use fairy tales programmatically." |
+| 🧓 | [Seniors](personas/09-seniors.md) | "I want to relive memories." |
+| 🧩 | [Gamified Explorers](personas/10-gamified-explorers.md) | "I want to discover stories like a game." |
 
 ---
 
-## 3. Teachers / Educators
+## Feature Matrix
 
-**Job-to-be-done:** "I want to use fairy tales didactically."
+Each cell links to the feature file. Column headers link to the persona file.
 
-| Use Case | Description |
-|---|---|
-| Interpretation Guides | Structured literary analysis per story |
-| Cross-Cultural Variants | Compare Grimm vs. Andersen vs. regional variants |
-| Worksheet Generation | AI-generated printable exercises |
-| Discussion Questions | AI-generated Socratic prompts per story |
-
-**Opportunity:** B2B channel — schools, libraries, literacy programs.
-
----
-
-## 4. Culture Explorers / Language Learners
-
-**Job-to-be-done:** "I want to understand culture through stories."
-
-| Use Case | Description |
-|---|---|
-| Parallel Texts | Side-by-side DE / EN / FR / etc. |
-| Local Story Discovery | Browse stories by region/canton/country |
-| Original-Language Audio | Native pronunciation narration |
-| Cultural Annotations | Inline notes on idioms, customs, history |
-
-**Opportunity:** Global differentiation vs. Kindle — stories as cultural artifacts, not just text.
+| Feature | [👶](personas/01-pre-readers.md) | [👨‍👩‍👧](personas/02-parents.md) | [🧑‍🏫](personas/03-teachers.md) | [🌍](personas/04-culture-explorers.md) | [🧘](personas/05-therapeutic.md) | [🎭](personas/06-creatives.md) | [🎧](personas/07-passive-consumers.md) | [🧑‍💻](personas/08-developers.md) | [🧓](personas/09-seniors.md) | [🧩](personas/10-gamified-explorers.md) |
+|---|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+| [Word Highlighting](features/word-highlighting.md) | ✓ | | | | | | | | | |
+| [Audio Narration](features/audio-narration.md) | ✓ | ✓ | | ✓ | | | ✓ | | ✓ | |
+| [Bedtime Mode](features/bedtime-mode.md) | | ✓ | | | | | ✓ | | | |
+| [Age Filter](features/age-filter.md) | ✓ | ✓ | | | | | | | | |
+| [Discussion Questions](features/discussion-questions.md) | | | ✓ | | ✓ | | | | | |
+| [Parallel Texts](features/parallel-texts.md) | | | ✓ | ✓ | | | | | | |
+| [Cultural Annotations](features/cultural-annotations.md) | | | ✓ | ✓ | | | | | | |
+| [Symbol Analysis](features/symbol-analysis.md) | | | ✓ | | ✓ | ✓ | | | | |
+| [Journaling Prompts](features/journaling-prompts.md) | | | | | ✓ | | | | | |
+| [Mood Recommendations](features/mood-recommendations.md) | | | | | ✓ | | | | | |
+| [Story Remix](features/story-remix.md) | | | | | | ✓ | | ✓ | | |
+| [Sleep Timer](features/sleep-timer.md) | | ✓ | | | | | ✓ | | ✓ | |
+| [Story API](features/story-api.md) | | | | | | | | ✓ | | |
+| [Story Map](features/story-map.md) | | | | ✓ | | | | | | ✓ |
+| [Achievements](features/achievements.md) | | | | | | | | | | ✓ |
+| [Choice Narratives](features/choice-narratives.md) | ✓ | | | | | ✓ | | | | ✓ |
 
 ---
 
-## 5. Therapeutic Users / Self-Reflection
+## Related
 
-**Job-to-be-done:** "I want to understand myself better."
-
-| Use Case | Description |
-|---|---|
-| Symbol Analysis | Jungian archetype mapping per story |
-| Journaling Prompts | Post-reading reflection questions |
-| Mood-Based Recommendations | Story suggestions based on current emotional state |
-| Personal Meaning Layer | "What does this story mean for me?" AI dialogue |
-
-**Opportunity:** High-value AI feature — differentiated from any existing reader product.
-
----
-
-## 6. Creatives / Storytellers / Writers
-
-**Job-to-be-done:** "I want to create new stories."
-
-| Use Case | Description |
-|---|---|
-| Story Remixing | AI-assisted retellings and mashups |
-| Style Transfer | Grimm → Sci-Fi, Modern, Horror, etc. |
-| Plot Generator | Motif-based story scaffolding |
-| Worldbuilding | Extract and extend fairy-tale world logic |
-
-**Opportunity:** Creator economy — users as contributors, not just consumers.
-
----
-
-## 7. Passive Consumers / Second-Screen Users
-
-**Job-to-be-done:** "I want to consume stories alongside other activities."
-
-| Use Case | Description |
-|---|---|
-| Audio-First UI | Minimal tap-to-play interface |
-| Background Mode | Continues playing when screen is off |
-| Sleep Timer | Auto-stop after N minutes |
-| Episodic Series | Multi-part stories with cliffhangers |
-
-**Opportunity:** Competes with podcasts and Audible on content depth and cultural richness.
-
----
-
-## 8. Developers / API Users
-
-**Job-to-be-done:** "I want to use fairy tales programmatically."
-
-| Use Case | Description |
-|---|---|
-| Story API | REST/GraphQL access to story content and metadata |
-| Embeddable Reader | Drop-in `<story-reader>` web component |
-| Story Knowledge Graph | Semantic relationships between motifs, characters, tales |
-| Prompt-Ready Datasets | Structured story content for LLM fine-tuning |
-
-**Opportunity:** Platform play — the project's existing `graphify-out/` knowledge graph is a direct head start here.
-
----
-
-## 9. Seniors / Nostalgia Users
-
-**Job-to-be-done:** "I want to relive memories."
-
-| Use Case | Description |
-|---|---|
-| Large Typography | Accessible font sizes, high contrast |
-| Classic Versions | Original unedited Grimm/Andersen texts |
-| Slow-Paced Audio | Deliberate narration with natural pauses |
-| Memory Mode | Revisit previously read stories with notes |
-
-**Opportunity:** Underserved segment in digital reading — high loyalty once onboarded.
-
----
-
-## 10. Gamified Explorers
-
-**Job-to-be-done:** "I want to discover stories like a game."
-
-| Use Case | Description |
-|---|---|
-| Story Map | Visual geographic/thematic discovery map |
-| Achievements | Badges for reading streaks, genres, regions |
-| Choice-Based Tales | Branching narratives with decisions |
-| Variant Unlocks | Complete one story → unlock related variants |
-
-**Opportunity:** Massive engagement driver — turns passive reading into active exploration.
-
----
-
-## Persona × Feature Matrix
-
-|  | Read | Listen | Analyze | Create | Social |
-|---|---|---|---|---|---|
-| Pre-Readers | ✓ | ✓ | | | |
-| Parents | ✓ | ✓ | | | ✓ |
-| Teachers | ✓ | | ✓ | | ✓ |
-| Culture Explorers | ✓ | ✓ | ✓ | | |
-| Therapeutic | ✓ | ✓ | ✓ | | |
-| Creatives | ✓ | | ✓ | ✓ | |
-| Passive Consumers | | ✓ | | | |
-| Developers | | | ✓ | ✓ | |
-| Seniors | ✓ | ✓ | | | |
-| Gamified | ✓ | | | | ✓ |
+- [Product Strategy](product-strategy.md) — four-axis framework, MVP vs. vision slicing

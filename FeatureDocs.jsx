@@ -160,6 +160,24 @@ const DOCS = {
     tip: 'Comic Sans ist keine Spielerei: Für Menschen mit Legasthenie kann diese Schriftart die Lesbarkeit deutlich verbessern, da die Buchstaben weniger symmetrisch und dadurch leichter unterscheidbar sind.',
   },
 
+  'subscriber-fonts': {
+    lead: 'Erweiterte Schriftarten schalten im Typografie-Panel eine größere Auswahl frei: pro Schriftfamilie stehen mehrere hochwertige Varianten zur Verfügung, und eine vierte Familie - Monospace - kommt dazu.',
+    on: [
+      'Im Typografie-Panel ersetzt eine gruppierte Übersicht die bisherige einzelne Schriftart-Zeile.',
+      'Serif: Georgia (Standard), Merriweather, EB Garamond, Playfair Display - von klassisch bis elegant.',
+      'Sans-Serif: System UI (Standard), Inter, Roboto, Open Sans, Lato, Poppins - von neutral bis verspielt.',
+      'Kursiv: Comic Sans (Standard), Lexend, Atkinson Hyperlegible - inklusive Schriften, die speziell für maximale Lesbarkeit entwickelt wurden.',
+      'Mono: JetBrains Mono, Source Code Pro, IBM Plex Mono - klare, gleichmäßig laufweite Schriften für technischen oder ruhigen Lesestil.',
+      'Alle Schriften werden über Google Fonts nachgeladen und stehen sofort zur Verfügung.',
+    ],
+    off: [
+      'Das Typografie-Panel zeigt wie gewohnt nur drei Schriftart-Knöpfe: Serif (Georgia), Sans (System UI) und Kursiv (Comic Sans).',
+      'Eine zuvor gewählte erweiterte Schriftart wird automatisch auf Georgia (Serif) zurückgesetzt.',
+      'Die Schriftpräferenz bleibt gespeichert - wird die Funktion wieder eingeschaltet, ist die Auswahl innerhalb der Grundschriften (Index 0-2) sofort wieder aktiv.',
+    ],
+    tip: 'Lexend und Atkinson Hyperlegible wurden gezielt für Menschen mit Legasthenie oder Sehbeeinträchtigungen entwickelt. Wer Comic Sans bisher aus Lesbarkeitsgründen gewählt hat, sollte diese Alternativen ausprobieren.',
+  },
+
   'attribution': {
     lead: 'Die Quellenangabe zeigt auf der letzten Seite eines Märchens kursiv den Namen der Autoren - als stilles Dankeschön an die Erzähler, die die Geschichten gesammelt und aufgeschrieben haben.',
     on: [

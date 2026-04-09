@@ -1,0 +1,10 @@
+---
+title: "Der goldene Schlüssel"
+source: "Grimms Märchen"
+url: "https://www.grimmstories.com/de/grimm_maerchen/der_goldene_schluessel"
+adaption: "Schweizer Fassung"
+crawledAt: "2026-04-09T08:57:44.853Z"
+wordCount: 163
+---
+
+Zur Winterszeit, als einmal ein tiefer Schnee lag, musste ein armer Junge hinausgehen und Holz auf einem Schlitten holen. Wie er es nun zusammengesucht und aufgeladen hatte, wollte er, weil er so erfroren war, noch nicht nach Haus gehen, sondern erst Feuer anmachen und sich ein bisschen wärmen. Da scharrte er den Schnee weg, und wie er so den Erdboden aufräumte, fand er einen kleinen goldenen Schlüssel. Nun glaubte er, wo der Schlüssel wäre, müsste auch das Schloss dazu sein, grub in der Erde und fand ein eisernes Kästchen. "Wenn der Schlüssel nur passt!" dachte er, "es sind gewiss kostbare Sachen in dem Kästchen." Er suchte, aber es war kein Schlüsselloch da, endlich entdeckte er eins, aber so klein, dass man es kaum sehen konnte. Er probierte und der Schlüssel passte glücklich. Da drehte er einmal herum, und nun müssen wir warten, bis er vollends aufgeschlossen und den Deckel aufgemacht hat, dann werden wir erfahren, was für wunderbare Sachen in dem Kästchen lagen.

@@ -39,9 +39,14 @@ describe('PageContent', () => {
     expect(screen.queryByText('Aschenputtel')).not.toBeInTheDocument();
   });
 
-  it('uses variant name as title when a variant is selected', () => {
+  it('uses variant title when a variant with a title is selected', () => {
+    render({ selectedVariant: { adaptionName: 'Kurze Fassung', title: 'Aschenputtel (kurz)', content: 'Kurztext' } });
+    expect(screen.getByText('Aschenputtel (kurz)')).toBeInTheDocument();
+  });
+
+  it('falls back to story title when variant has no title', () => {
     render({ selectedVariant: { adaptionName: 'Kurze Fassung', content: 'Kurztext' } });
-    expect(screen.getByText('Kurze Fassung')).toBeInTheDocument();
+    expect(screen.getByText('Aschenputtel')).toBeInTheDocument();
   });
 
   it('reconstructs paragraph text from tokens', () => {

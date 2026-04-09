@@ -27,6 +27,7 @@ export function useFeatureFlags() {
   const _rawDeepSearch = useBooleanFlagValue('deep-search', false);
   const _rawStoryDirectories = useBooleanFlagValue('story-directories', false);
   const _rawDebugBadges = useBooleanFlagValue('debug-badges', false);
+  const _rawSubscriberFonts = useBooleanFlagValue('subscriber-fonts', false);
 
   // User feature overrides - stored in localStorage, take precedence over flag defaults
   const [userFeatureOverrides, setUserFeatureOverrides] = useState(() =>
@@ -61,6 +62,7 @@ export function useFeatureFlags() {
   const showDeepSearch = _o('deep-search', _rawDeepSearch);
   const showStoryDirectories = _o('story-directories', _rawStoryDirectories);
   const showDebugBadges = _o('debug-badges', _rawDebugBadges);
+  const showSubscriberFonts = _o('subscriber-fonts', _rawSubscriberFonts);
 
   // Raw values keyed by feature key - used in profile feature toggles
   const _rawFlagValues = {
@@ -84,6 +86,7 @@ export function useFeatureFlags() {
     'deep-search': _rawDeepSearch,
     'story-directories': _rawStoryDirectories,
     'debug-badges': _rawDebugBadges,
+    'subscriber-fonts': _rawSubscriberFonts,
   };
 
   // String flags
@@ -112,6 +115,7 @@ export function useFeatureFlags() {
     showDeepSearch,
     showStoryDirectories,
     showDebugBadges,
+    showSubscriberFonts,
     _rawFlagValues,
     userFeatureOverrides,
     setUserFeatureOverrides,

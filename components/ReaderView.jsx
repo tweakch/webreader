@@ -2,6 +2,7 @@ import React from 'react';
 import PageContent from './PageContent';
 import EInkFlashOverlay from './EInkFlashOverlay';
 import TapZones from './TapZones';
+import EndOfStoryButtons from './EndOfStoryButtons';
 import VariantSwitcher from './VariantSwitcher';
 import NavBar from './NavBar';
 import SpeedReaderView from '../ui/SpeedReaderView';
@@ -43,6 +44,7 @@ export default function ReaderView({
   onWordSpacingChange,
   fontFamilyIdx,
   onFontFamilyChange,
+  subscriberFonts,
   showAudioPlayer,
   storyAudioFiles,
   showSpeedReader,
@@ -66,6 +68,8 @@ export default function ReaderView({
   srFontSizeStep,
   srFontSizeDefault,
 }) {
+  const isLastPage = currentPage === totalPages - 1;
+
   return (
     <>
       {/* Reading viewport */}
@@ -126,6 +130,20 @@ export default function ReaderView({
                 onNext={() => currentPage < totalPages - 1 && onGoToPage(currentPage + 1)}
               />
             )}
+
+            {/* End-of-story buttons - rendered above tap zones so they're clickable */}
+            <EndOfStoryButtons
+              isVisible={isLastPage}
+              selectedStory={selectedStory}
+              isFavorite={favorites.has(selectedStory.id)}
+              showFavorites={showFavorites}
+              highContrast={highContrast}
+              darkMode={darkMode}
+              showAttribution={showAttribution}
+              onShare={onShare}
+              onToggleFavorite={onToggleFavorite}
+              onClose={onClose}
+            />
           </>
         )}
       </div>
@@ -150,6 +168,7 @@ export default function ReaderView({
           onWordSpacingChange={onWordSpacingChange}
           fontFamilyIdx={fontFamilyIdx}
           onFontFamilyChange={onFontFamilyChange}
+          subscriberFonts={subscriberFonts}
         />
       )}
 

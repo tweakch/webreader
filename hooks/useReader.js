@@ -57,7 +57,7 @@ export function useReader({
     m.style.padding = '0';
 
     const activeContent = selectedVariant?.content ?? selectedStory.content;
-    const activeTitle = selectedVariant?.adaptionName ?? selectedStory.title;
+    const activeTitle = selectedVariant?.title ?? selectedStory.title;
 
     // Split content into tokens: words and paragraph markers
     const paragraphs = activeContent.split('\n\n');

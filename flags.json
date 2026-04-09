@@ -21,5 +21,7 @@
   "word-blacklist":      { "defaultVariant": "off", "variants": { "on": true, "off": false } },
   "deep-search":         { "defaultVariant": "off", "variants": { "on": true, "off": false } },
   "story-directories":   { "defaultVariant": "off", "variants": { "on": true, "off": false } },
-  "debug-badges":        { "defaultVariant": "off", "variants": { "on": true, "off": false } }
+  "debug-badges":        { "defaultVariant": "off", "variants": { "on": true, "off": false } },
+  "hero-tagline":        { "defaultVariant": "off", "variants": { "on": true, "off": false } },
+  "subscriber-fonts":    { "defaultVariant": "off", "variants": { "on": true, "off": false } }
 }

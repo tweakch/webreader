@@ -127,9 +127,11 @@ export async function loadAdaptionsByStoryId(storyId) {
         const fmBlock = fmMatch ? fmMatch[1] : '';
         const adaptionNameMatch = fmBlock.match(/^adaption:\s*"(.+)"$/m);
         const adaptionName = adaptionNameMatch ? adaptionNameMatch[1] : parts[parts.length - 2];
+        const titleMatch = fmBlock.match(/^title:\s*"(.+)"$/m);
+        const title = titleMatch ? titleMatch[1] : null;
         const afterFm = fmMatch ? raw.slice(fmMatch[0].length) : raw;
         const content = afterFm.replace(/^\*\*[^\n]*\*\*\n\n/, '').trimEnd();
-        return { adaptionName, content };
+        return { adaptionName, title, content };
       }),
   );
 

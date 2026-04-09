@@ -38,7 +38,7 @@ const GrimmMarchenApp = () => {
     showWordCount, showReadingDuration, showFontSizeControls, showPinchFontSize, showEinkFlash,
     showTapZones, showTapMiddleToggle, showAdaptionSwitcher, showTypographyPanel, showAttribution,
     showFavorites, showFavoritesOnlyToggle, showAudioPlayer, showHighContrastTheme,
-    showSpeedReader, showSpeedreaderOrp, showWordBlacklist, showDeepSearch, showStoryDirectories, showDebugBadges,
+    showSpeedReader, showSpeedreaderOrp, showWordBlacklist, showDeepSearch, showStoryDirectories, showDebugBadges, showSubscriberFonts,
     _rawFlagValues,
     userFeatureOverrides, setUserFeatureOverrides, _o,
     flagTheme, bigFontsVariant,
@@ -50,7 +50,7 @@ const GrimmMarchenApp = () => {
   } = useRole();
 
   // Typography
-  const typo = useTypography({ maxFontSize });
+  const typo = useTypography({ maxFontSize, subscriberFonts: showSubscriberFonts });
   const { fontSize, setFontSize, lineHeightIdx, setLineHeightIdx, textWidthIdx, setTextWidthIdx, wordSpacingIdx, setWordSpacingIdx, fontFamilyIdx, setFontFamilyIdx, lineHeight, textWidth, hPadding, wordSpacing, fontFamily } = typo;
 
   const [searchTerm, setSearchTerm] = useState('');
@@ -543,6 +543,7 @@ const GrimmMarchenApp = () => {
           storiesBySource={storiesBySource}
           onOpenProfile={() => setProfileOpen(true)}
           profileOpen={profileOpen}
+          onCloseProfile={() => setProfileOpen(false)}
           onCloseApp={handleCloseApp}
         />
 
@@ -625,6 +626,7 @@ const GrimmMarchenApp = () => {
               onWordSpacingChange={setWordSpacingIdx}
               fontFamilyIdx={fontFamilyIdx}
               onFontFamilyChange={setFontFamilyIdx}
+              subscriberFonts={showSubscriberFonts}
               showAudioPlayer={showAudioPlayer}
               storyAudioFiles={storyAudioFiles}
               showSpeedReader={showSpeedReader}

@@ -94,6 +94,12 @@ export const FEATURES = [
     Icon: () => <SlidersHorizontal size={20} strokeWidth={1.75} />,
   },
   {
+    key: 'subscriber-fonts',
+    label: 'Erweiterte Schriftarten',
+    description: 'Erweitert das Typografie-Panel mit mehr Schriften pro Familie (Serif, Sans, Kursiv) und fügt eine neue Mono-Familie hinzu.',
+    Icon: () => <Type size={20} strokeWidth={1.75} />,
+  },
+  {
     key: 'attribution',
     label: 'Quellenangabe',
     description: 'Zeigt auf der letzten Seite eines Märchens den Autorennamen als Quellenangabe.',

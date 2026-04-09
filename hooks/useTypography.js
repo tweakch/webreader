@@ -4,13 +4,16 @@ import { LINE_HEIGHTS, WORD_SPACINGS, FONT_FAMILIES } from '../ui/TypographyPane
 const TEXT_WIDTHS = [560, 768, 1200];   // max column width cap (desktop)
 const H_PADDINGS  = [56,  32,  12];    // horizontal padding px (narrow→wide)
 
+const MAX_BASIC_FONT_IDX = 2;
+
 /**
  * Typography state and derived values hook.
  * Owns font size, typography indices, localStorage persistence, and derived values.
  *
  * @param {number} maxFontSize - maximum allowed font size (from feature flags)
+ * @param {boolean} subscriberFonts - when false, clamp fontFamilyIdx to basic fonts only (0-2)
  */
-export function useTypography({ maxFontSize = 28 } = {}) {
+export function useTypography({ maxFontSize = 28, subscriberFonts = false } = {}) {
   const [fontSize, setFontSize] = useState(() => parseInt(localStorage.getItem('wr-fs') ?? '18'));
   const [lineHeightIdx, setLineHeightIdx] = useState(() => parseInt(localStorage.getItem('wr-lh') ?? '1'));
   const [textWidthIdx, setTextWidthIdx] = useState(() => parseInt(localStorage.getItem('wr-tw') ?? '1'));
@@ -29,12 +32,20 @@ export function useTypography({ maxFontSize = 28 } = {}) {
     setFontSize(f => Math.min(f, maxFontSize));
   }, [maxFontSize]);
 
+  // Clamp font family index when subscriber-fonts is disabled
+  useEffect(() => {
+    if (!subscriberFonts) {
+      setFontFamilyIdx(i => Math.min(i, MAX_BASIC_FONT_IDX));
+    }
+  }, [subscriberFonts]);
+
   // Derive values from indices
+  const safeIdx = subscriberFonts ? fontFamilyIdx : Math.min(fontFamilyIdx, MAX_BASIC_FONT_IDX);
   const lineHeight = LINE_HEIGHTS[lineHeightIdx];
   const textWidth = TEXT_WIDTHS[textWidthIdx];
   const hPadding = H_PADDINGS[textWidthIdx];
   const wordSpacing = WORD_SPACINGS[wordSpacingIdx];
-  const fontFamily = FONT_FAMILIES[fontFamilyIdx].css;
+  const fontFamily = FONT_FAMILIES[safeIdx].css;
 
   return {
     fontSize,

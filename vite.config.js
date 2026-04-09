@@ -3,6 +3,9 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [react()],
+  resolve: {
+    dedupe: ['react', 'react-dom'],
+  },
   build: {
     // Current app bundle is intentionally larger than Vite's default warning threshold.
     chunkSizeWarningLimit: 6500,

@@ -39,6 +39,7 @@ export default function Sidebar({
   storiesBySource,
   onOpenProfile,
   profileOpen,
+  onCloseProfile,
   onCloseApp,
 }) {
   const { dark: darkMode } = useTheme();
@@ -129,7 +130,7 @@ export default function Sidebar({
                 showFavoriteButton
                 alwaysFilled
                 testId="story-button"
-                onClick={() => { onSelectStory(story); onMenuToggle(); }}
+                onClick={() => { onSelectStory(story); onMenuToggle(); if (profileOpen) onCloseProfile(); }}
                 onFavoriteClick={(e) => onToggleFavorite(story.id, e)}
               />
             ))}
@@ -153,7 +154,7 @@ export default function Sidebar({
                 showWordCount={showWordCount}
                 showFavoriteButton={showFavorites}
                 inlineBadges
-                onClick={() => { onSelectStory(story); onMenuToggle(); }}
+                onClick={() => { onSelectStory(story); onMenuToggle(); if (profileOpen) onCloseProfile(); }}
                 onFavoriteClick={(e) => onToggleFavorite(story.id, e)}
               />
             ))}
@@ -194,7 +195,7 @@ export default function Sidebar({
                     showWordCount={showWordCount}
                     showFavoriteButton={showFavorites}
                     testId="story-button"
-                    onClick={() => { onSelectStory(story); onMenuToggle(); }}
+                    onClick={() => { onSelectStory(story); onMenuToggle(); if (profileOpen) onCloseProfile(); }}
                     onFavoriteClick={(e) => onToggleFavorite(story.id, e)}
                   />
                 ))}
@@ -280,7 +281,7 @@ export default function Sidebar({
                   showWordCount={showWordCount}
                   showFavoriteButton={showFavorites}
                   testId="story-button"
-                  onClick={() => { onSelectStory(story); onMenuToggle(); }}
+                  onClick={() => { onSelectStory(story); onMenuToggle(); if (profileOpen) onCloseProfile(); }}
                   onFavoriteClick={(e) => onToggleFavorite(story.id, e)}
                 />
               ))}

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { useFlag } from '@openfeature/react-sdk';
 
 function parseMarkdown(html) {
   const parts = [];
@@ -22,6 +23,7 @@ export default function HeroSection() {
   const { t } = useTranslation();
   const [index, setIndex] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
+  const showHeroTagline = useFlag('hero-tagline', false);
   const cycles = t('home.cycles', { returnObjects: true });
 
   const handleNav = (direction) => {
@@ -52,14 +54,16 @@ export default function HeroSection() {
 
       <div className="relative max-w-4xl mx-auto px-6 py-28">
         <h1 className="hero-title font-serif text-5xl md:text-6xl font-bold leading-tight tracking-tight">
-          <span className="hero-tagline">
-            {t('home.tagline').split(' · ').map((word, i) => (
-              <React.Fragment key={i}>
-                {i > 0 && <span className="hero-tagline-dot">·</span>}
-                {word}
-              </React.Fragment>
-            ))}
-          </span>
+          {showHeroTagline && (
+            <span className="hero-tagline block md:hidden lg:block">
+              {t('home.tagline').split(' · ').map((word, i) => (
+                <React.Fragment key={i}>
+                  {i > 0 && <span className="hero-tagline-dot">·</span>}
+                  {word}
+                </React.Fragment>
+              ))}
+            </span>
+          )}
 
           <div className="relative mt-6 min-h-[2.8em] flex items-start group">
             {/* Left 50% tap zone */}

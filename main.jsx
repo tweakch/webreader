@@ -15,9 +15,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <OpenFeatureProvider>
       <ErrorBoundary>
         <I18nextProvider i18n={i18n}>
-          <AppAnimationWrapper>
-            <RouterProvider router={router} />
-          </AppAnimationWrapper>
+          <RouterProvider router={router} />
         </I18nextProvider>
       </ErrorBoundary>
     </OpenFeatureProvider>

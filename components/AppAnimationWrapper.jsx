@@ -18,13 +18,15 @@ export default function AppAnimationWrapper({ children }) {
     window.addEventListener('beforeunload', handleExit);
 
     return () => {
+      // Trigger exit animation when component unmounts (navigating away)
+      handleExit();
       window.removeEventListener('pagehide', handleExit);
       window.removeEventListener('beforeunload', handleExit);
     };
   }, []);
 
   return (
-    <div ref={wrapperRef} className="app-enter" style={{ width: '100%', height: '100%' }}>
+    <div ref={wrapperRef} className="app-enter" style={{ width: '100%' }}>
       {children}
     </div>
   );

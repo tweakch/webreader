@@ -1,6 +1,23 @@
+---
+id: "age-filter"
+name: "Age Filter"
+type: "strategic"
+status: "mvp"
+category: "accessibility"
+personas:
+  - "01-pre-readers"
+  - "02-parents"
+related_features:
+  - "bedtime-mode"
+  - "child-profile"
+  - "adaption-switcher"
+parent: null
+children: []
+---
+
 # Age Filter
 
-**Status:** MVP  
+**Status:** MVP
 **Personas:** [Pre-Readers](../personas/01-pre-readers.md) · [Parents](../personas/02-parents.md)
 
 Surface only age-appropriate stories by filtering on a configured child age range.
@@ -16,3 +33,5 @@ Surface only age-appropriate stories by filtering on a configured child age rang
 
 - [Back to Feature Matrix](../personas.md)
 - [Bedtime Mode](bedtime-mode.md)
+- [Child Profile](child-profile.md) — existing app flag
+- [Adaption Switcher](adaption-switcher.md) — existing app flag

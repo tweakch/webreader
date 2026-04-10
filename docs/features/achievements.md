@@ -1,6 +1,23 @@
+---
+id: "achievements"
+name: "Achievements"
+type: "strategic"
+status: "near-term"
+category: "gamification"
+personas:
+  - "10-gamified-explorers"
+related_features:
+  - "story-map"
+  - "favorites"
+  - "reading-duration"
+  - "word-count"
+parent: "story-map"
+children: []
+---
+
 # Achievements
 
-**Status:** Near-term  
+**Status:** Near-term
 **Personas:** [Gamified Explorers](../personas/10-gamified-explorers.md)
 
 Badges and milestones awarded for reading activity, breadth, and discovery.
@@ -25,4 +42,6 @@ Badges and milestones awarded for reading activity, breadth, and discovery.
 ## Links
 
 - [Back to Feature Matrix](../personas.md)
-- [Story Map](story-map.md)
+- [Story Map](story-map.md) — parent feature
+- [Favorites](favorites.md) — existing app flag
+- [Reading Duration](reading-duration.md) — existing app flag

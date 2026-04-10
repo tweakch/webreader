@@ -1,6 +1,24 @@
+---
+id: "discussion-questions"
+name: "Discussion Questions"
+type: "strategic"
+status: "near-term"
+category: "education"
+personas:
+  - "03-teachers"
+  - "05-therapeutic"
+related_features:
+  - "symbol-analysis"
+  - "journaling-prompts"
+  - "story-quiz"
+parent: null
+children:
+  - "journaling-prompts"
+---
+
 # Discussion Questions
 
-**Status:** Near-term  
+**Status:** Near-term
 **Personas:** [Teachers](../personas/03-teachers.md) · [Therapeutic](../personas/05-therapeutic.md)
 
 AI-generated Socratic discussion prompts and guided inquiry questions per story.
@@ -25,3 +43,4 @@ AI-generated Socratic discussion prompts and guided inquiry questions per story.
 - [Back to Feature Matrix](../personas.md)
 - [Symbol Analysis](symbol-analysis.md)
 - [Journaling Prompts](journaling-prompts.md)
+- [Story Quiz](story-quiz.md) — existing app flag (simpler variant)

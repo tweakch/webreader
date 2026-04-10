@@ -1,6 +1,22 @@
+---
+id: "journaling-prompts"
+name: "Journaling Prompts"
+type: "strategic"
+status: "near-term"
+category: "wellness"
+personas:
+  - "05-therapeutic"
+related_features:
+  - "mood-recommendations"
+  - "symbol-analysis"
+  - "discussion-questions"
+parent: "discussion-questions"
+children: []
+---
+
 # Journaling Prompts
 
-**Status:** Near-term  
+**Status:** Near-term
 **Personas:** [Therapeutic](../personas/05-therapeutic.md)
 
 Post-reading reflection questions designed for personal journaling and self-inquiry.
@@ -24,3 +40,4 @@ Post-reading reflection questions designed for personal journaling and self-inqu
 - [Back to Feature Matrix](../personas.md)
 - [Mood Recommendations](mood-recommendations.md)
 - [Symbol Analysis](symbol-analysis.md)
+- [Discussion Questions](discussion-questions.md) — parent feature

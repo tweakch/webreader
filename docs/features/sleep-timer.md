@@ -1,6 +1,24 @@
+---
+id: "sleep-timer"
+name: "Sleep Timer"
+type: "strategic"
+status: "mvp"
+category: "audio"
+personas:
+  - "02-parents"
+  - "07-passive-consumers"
+  - "09-seniors"
+related_features:
+  - "bedtime-mode"
+  - "audio-narration"
+  - "audio-player"
+parent: "bedtime-mode"
+children: []
+---
+
 # Sleep Timer
 
-**Status:** MVP  
+**Status:** MVP
 **Personas:** [Parents](../personas/02-parents.md) · [Passive Consumers](../personas/07-passive-consumers.md) · [Seniors](../personas/09-seniors.md)
 
 Auto-stop audio playback after a configurable duration.
@@ -20,5 +38,6 @@ Auto-stop audio playback after a configurable duration.
 ## Links
 
 - [Back to Feature Matrix](../personas.md)
-- [Bedtime Mode](bedtime-mode.md)
+- [Bedtime Mode](bedtime-mode.md) — parent feature
 - [Audio Narration](audio-narration.md)
+- [Audio Player](audio-player.md) — existing app flag

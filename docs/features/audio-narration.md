@@ -1,6 +1,30 @@
+---
+id: "audio-narration"
+name: "Audio Narration"
+type: "strategic"
+status: "near-term"
+category: "audio"
+personas:
+  - "01-pre-readers"
+  - "02-parents"
+  - "04-culture-explorers"
+  - "07-passive-consumers"
+  - "09-seniors"
+related_features:
+  - "word-highlighting"
+  - "sleep-timer"
+  - "audio-player"
+  - "text-to-speech"
+  - "read-along"
+parent: null
+children:
+  - "word-highlighting"
+  - "sleep-timer"
+---
+
 # Audio Narration
 
-**Status:** Near-term  
+**Status:** Near-term
 **Personas:** [Pre-Readers](../personas/01-pre-readers.md) · [Parents](../personas/02-parents.md) · [Culture Explorers](../personas/04-culture-explorers.md) · [Passive Consumers](../personas/07-passive-consumers.md) · [Seniors](../personas/09-seniors.md)
 
 Full-story audio narration with optional AI character voices.
@@ -25,3 +49,5 @@ Full-story audio narration with optional AI character voices.
 - [Back to Feature Matrix](../personas.md)
 - [Word Highlighting](word-highlighting.md) — pairs with narration
 - [Sleep Timer](sleep-timer.md) — companion feature
+- [Audio Player](audio-player.md) — existing app flag
+- [Text-to-Speech](text-to-speech.md) — existing app flag

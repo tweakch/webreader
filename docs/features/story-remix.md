@@ -1,6 +1,24 @@
+---
+id: "story-remix"
+name: "Story Remix"
+type: "strategic"
+status: "vision"
+category: "creative"
+personas:
+  - "06-creatives"
+  - "08-developers"
+related_features:
+  - "story-api"
+  - "adaption-switcher"
+  - "choice-narratives"
+  - "symbol-analysis"
+parent: null
+children: []
+---
+
 # Story Remix
 
-**Status:** Vision  
+**Status:** Vision
 **Personas:** [Creatives](../personas/06-creatives.md) · [Developers](../personas/08-developers.md)
 
 AI-assisted story transformation: retelling, style transfer, genre shift, and mashup.
@@ -26,3 +44,4 @@ AI-assisted story transformation: retelling, style transfer, genre shift, and ma
 
 - [Back to Feature Matrix](../personas.md)
 - [Story API](story-api.md)
+- [Adaption Switcher](adaption-switcher.md) — existing app flag (surface for output)

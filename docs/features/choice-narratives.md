@@ -1,6 +1,24 @@
+---
+id: "choice-narratives"
+name: "Choice Narratives"
+type: "strategic"
+status: "vision"
+category: "interactive"
+personas:
+  - "01-pre-readers"
+  - "06-creatives"
+  - "10-gamified-explorers"
+related_features:
+  - "story-remix"
+  - "adaption-switcher"
+  - "achievements"
+parent: null
+children: []
+---
+
 # Choice Narratives
 
-**Status:** Vision  
+**Status:** Vision
 **Personas:** [Pre-Readers](../personas/01-pre-readers.md) · [Creatives](../personas/06-creatives.md) · [Gamified Explorers](../personas/10-gamified-explorers.md)
 
 Branching story experiences where reader decisions shape the narrative path.
@@ -24,3 +42,4 @@ Stories are authored as a decision graph:
 
 - [Back to Feature Matrix](../personas.md)
 - [Story Remix](story-remix.md) — AI can generate branch options from a linear story
+- [Adaption Switcher](adaption-switcher.md) — existing app flag (variant infrastructure)

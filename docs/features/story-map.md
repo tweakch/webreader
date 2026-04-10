@@ -1,6 +1,25 @@
+---
+id: "story-map"
+name: "Story Map"
+type: "strategic"
+status: "vision"
+category: "discovery"
+personas:
+  - "04-culture-explorers"
+  - "10-gamified-explorers"
+related_features:
+  - "achievements"
+  - "cultural-annotations"
+  - "story-directories"
+  - "symbol-analysis"
+parent: null
+children:
+  - "achievements"
+---
+
 # Story Map
 
-**Status:** Vision  
+**Status:** Vision
 **Personas:** [Culture Explorers](../personas/04-culture-explorers.md) · [Gamified Explorers](../personas/10-gamified-explorers.md)
 
 A visual geographic and thematic map for discovering stories by origin, motif, or region.
@@ -26,3 +45,4 @@ A visual geographic and thematic map for discovering stories by origin, motif, o
 - [Back to Feature Matrix](../personas.md)
 - [Achievements](achievements.md)
 - [Cultural Annotations](cultural-annotations.md)
+- [Story Directories](story-directories.md) — existing app flag (geographic foundation)

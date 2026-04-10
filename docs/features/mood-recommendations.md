@@ -1,6 +1,22 @@
+---
+id: "mood-recommendations"
+name: "Mood Recommendations"
+type: "strategic"
+status: "vision"
+category: "wellness"
+personas:
+  - "05-therapeutic"
+related_features:
+  - "journaling-prompts"
+  - "symbol-analysis"
+  - "favorites"
+parent: null
+children: []
+---
+
 # Mood Recommendations
 
-**Status:** Vision  
+**Status:** Vision
 **Personas:** [Therapeutic](../personas/05-therapeutic.md)
 
 Story suggestions driven by the user's current emotional state.
@@ -26,3 +42,4 @@ Story suggestions driven by the user's current emotional state.
 
 - [Back to Feature Matrix](../personas.md)
 - [Journaling Prompts](journaling-prompts.md)
+- [Symbol Analysis](symbol-analysis.md)

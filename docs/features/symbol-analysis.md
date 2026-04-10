@@ -1,6 +1,27 @@
+---
+id: "symbol-analysis"
+name: "Symbol Analysis"
+type: "strategic"
+status: "vision"
+category: "analysis"
+personas:
+  - "03-teachers"
+  - "05-therapeutic"
+  - "06-creatives"
+related_features:
+  - "discussion-questions"
+  - "journaling-prompts"
+  - "story-remix"
+  - "story-map"
+parent: null
+children:
+  - "discussion-questions"
+  - "journaling-prompts"
+---
+
 # Symbol Analysis
 
-**Status:** Vision  
+**Status:** Vision
 **Personas:** [Teachers](../personas/03-teachers.md) · [Therapeutic](../personas/05-therapeutic.md) · [Creatives](../personas/06-creatives.md)
 
 Jungian archetype mapping, motif identification, and structural literary analysis per story.
@@ -26,3 +47,4 @@ Jungian archetype mapping, motif identification, and structural literary analysi
 - [Back to Feature Matrix](../personas.md)
 - [Discussion Questions](discussion-questions.md)
 - [Journaling Prompts](journaling-prompts.md)
+- [Story Map](story-map.md) — motif graph view

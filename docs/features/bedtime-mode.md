@@ -1,6 +1,25 @@
+---
+id: "bedtime-mode"
+name: "Bedtime Mode"
+type: "strategic"
+status: "mvp"
+category: "ritual"
+personas:
+  - "02-parents"
+  - "07-passive-consumers"
+related_features:
+  - "sleep-timer"
+  - "age-filter"
+  - "audio-narration"
+  - "reading-duration"
+parent: null
+children:
+  - "sleep-timer"
+---
+
 # Bedtime Mode
 
-**Status:** MVP  
+**Status:** MVP
 **Personas:** [Parents](../personas/02-parents.md) · [Passive Consumers](../personas/07-passive-consumers.md)
 
 One-tap ritual mode: curated story queue, fixed session length, screen-dimming, and auto-stop.
@@ -23,3 +42,4 @@ One-tap ritual mode: curated story queue, fixed session length, screen-dimming, 
 - [Back to Feature Matrix](../personas.md)
 - [Sleep Timer](sleep-timer.md)
 - [Age Filter](age-filter.md)
+- [Reading Duration](reading-duration.md) — existing app flag

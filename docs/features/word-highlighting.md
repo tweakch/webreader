@@ -1,6 +1,21 @@
+---
+id: "word-highlighting"
+name: "Word Highlighting"
+type: "strategic"
+status: "vision"
+category: "reading-experience"
+personas:
+  - "01-pre-readers"
+related_features:
+  - "audio-narration"
+  - "read-along"
+parent: null
+children: []
+---
+
 # Word Highlighting
 
-**Status:** Vision  
+**Status:** Vision
 **Personas:** [Pre-Readers](../personas/01-pre-readers.md)
 
 Synchronized word-by-word text highlighting driven by audio playback position.
@@ -19,3 +34,4 @@ As audio plays, each word is highlighted in the rendered page in real time. The 
 
 - [Back to Feature Matrix](../personas.md)
 - [Audio Narration](audio-narration.md) — prerequisite feature
+- [Read-Along](read-along.md) — app flag implementing this concept

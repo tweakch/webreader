@@ -1,6 +1,22 @@
+---
+id: "parallel-texts"
+name: "Parallel Texts"
+type: "strategic"
+status: "near-term"
+category: "culture"
+personas:
+  - "03-teachers"
+  - "04-culture-explorers"
+related_features:
+  - "cultural-annotations"
+  - "adaption-switcher"
+parent: null
+children: []
+---
+
 # Parallel Texts
 
-**Status:** Near-term  
+**Status:** Near-term
 **Personas:** [Teachers](../personas/03-teachers.md) · [Culture Explorers](../personas/04-culture-explorers.md)
 
 Side-by-side reading of the same story in two languages or across cultural variants.
@@ -22,3 +38,4 @@ Side-by-side reading of the same story in two languages or across cultural varia
 
 - [Back to Feature Matrix](../personas.md)
 - [Cultural Annotations](cultural-annotations.md)
+- [Adaption Switcher](adaption-switcher.md) — existing app flag (foundation)

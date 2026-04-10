@@ -1,6 +1,23 @@
+---
+id: "cultural-annotations"
+name: "Cultural Annotations"
+type: "strategic"
+status: "near-term"
+category: "culture"
+personas:
+  - "03-teachers"
+  - "04-culture-explorers"
+related_features:
+  - "parallel-texts"
+  - "attribution"
+  - "symbol-analysis"
+parent: null
+children: []
+---
+
 # Cultural Annotations
 
-**Status:** Near-term  
+**Status:** Near-term
 **Personas:** [Teachers](../personas/03-teachers.md) · [Culture Explorers](../personas/04-culture-explorers.md)
 
 Inline contextual notes about idioms, customs, historical context, and regional significance.
@@ -24,3 +41,4 @@ Inline contextual notes about idioms, customs, historical context, and regional 
 
 - [Back to Feature Matrix](../personas.md)
 - [Parallel Texts](parallel-texts.md)
+- [Attribution](attribution.md) — existing app flag

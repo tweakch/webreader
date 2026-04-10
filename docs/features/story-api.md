@@ -1,6 +1,24 @@
+---
+id: "story-api"
+name: "Story API"
+type: "strategic"
+status: "vision"
+category: "platform"
+personas:
+  - "08-developers"
+related_features:
+  - "story-remix"
+  - "story-map"
+  - "story-directories"
+  - "deep-search"
+parent: null
+children:
+  - "story-remix"
+---
+
 # Story API
 
-**Status:** Vision  
+**Status:** Vision
 **Personas:** [Developers](../personas/08-developers.md)
 
 Public REST/GraphQL API exposing story content, metadata, and semantic graph data.
@@ -31,3 +49,5 @@ A `<story-reader src="story-id">` web component that developers can drop into an
 
 - [Back to Feature Matrix](../personas.md)
 - [Story Remix](story-remix.md)
+- [Story Directories](story-directories.md) — existing app flag (structural foundation)
+- [Deep Search](deep-search.md) — existing app flag (search layer)

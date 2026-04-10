@@ -25,6 +25,7 @@ import {
   Bug,
   Crosshair,
   FlameKindling,
+  Lock,
 } from 'lucide-react';
 
 export const FEATURES = [
@@ -200,5 +201,11 @@ export const FEATURES = [
     label: 'ORP-Lesemarke',
     description: 'Hebt den optimalen Erkennungspunkt eines Worts farblich hervor und richtet ihn am Fixationspunkt aus - mit konfigurierbaren Führungslinien.',
     Icon: () => <Crosshair size={20} strokeWidth={1.75} />,
+  },
+  {
+    key: 'app-animation',
+    label: 'App-Animation',
+    description: 'Einführungs- und Abschluss-Animation mit „Swipe to Unlock" und „Swipe to Close".',
+    Icon: () => <Lock size={20} strokeWidth={1.75} />,
   },
 ];

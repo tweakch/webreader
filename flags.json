@@ -24,5 +24,6 @@
   "debug-badges":        { "defaultVariant": "off", "variants": { "on": true, "off": false } },
   "hero-tagline":        { "defaultVariant": "off", "variants": { "on": true, "off": false } },
   "subscriber-fonts":       { "defaultVariant": "off", "variants": { "on": true, "off": false } },
-  "error-page-simulator":   { "defaultVariant": "off", "variants": { "on": true, "off": false } }
+  "error-page-simulator":   { "defaultVariant": "off", "variants": { "on": true, "off": false } },
+  "app-animation":          { "defaultVariant": "off", "variants": { "on": true, "off": false } }
 }

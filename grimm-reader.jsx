@@ -421,8 +421,12 @@ const GrimmMarchenApp = () => {
 
   const toggleMenu = () => setMenuOpen(!menuOpen);
   const handleCloseApp = useCallback(() => {
-    window.dispatchEvent(new CustomEvent('app:request-close'));
-  }, []);
+    if (showAppAnimation) {
+      window.dispatchEvent(new CustomEvent('app:request-close'));
+    } else {
+      window.location.assign('/');
+    }
+  }, [showAppAnimation]);
 
   // Throwing inside the render body is caught by the nearest ErrorBoundary.
   // The error-page-simulator uses this to preview the 500 page.

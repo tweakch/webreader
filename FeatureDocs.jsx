@@ -734,6 +734,23 @@ const DOCS = {
     ],
     tip: 'ORP-Lesemarke erfordert den aktivierten Schnellleser. Aktiviere zuerst den Schnellleser im Profil und wechsle dann in den Schnellleser-Modus.',
   },
+
+  'app-animation': {
+    lead: 'Die App-Animation fügt dem Start und Ende der Anwendung einen „Sperrbildschirm" hinzu, der eine bewusste Interaktion erfordert - wie das Aufschlagen oder Zuklappen eines echten Buchs.',
+    on: [
+      'Beim Öffnen der App (unter /app) erscheint ein halbtransparenter Sperrbildschirm mit einem Aufwärts-Pfeil.',
+      'Die Anwendung ist erst zugänglich, nachdem du mit dem Finger oder der Maus nach oben gewischt hast („Swipe up to unlock").',
+      'Beim Beenden der App über die Schaltfläche „App schließen" erscheint erneut ein Sperrbildschirm, diesmal mit einem Abwärts-Pfeil.',
+      'Ein Wisch nach unten („Swipe down to close") schließt die Anwendung endgültig und führt zurück zur Startseite.',
+      'Die Animationen nutzen weiche Übergänge und Unschärfe-Effekte, um das Eintauchen in die Märchenwelt zu betonen.',
+    ],
+    off: [
+      'Die App ist beim Laden sofort ohne Sperrbildschirm und ohne Wisch-Geste zugänglich.',
+      'Das Schließen der App führt ohne zusätzliche Bestätigungs-Animation direkt zurück zur Startseite.',
+      'Ideal für Nutzer, die einen möglichst schnellen und direkten Zugriff auf die Bibliothek bevorzugen.',
+    ],
+    tip: 'Diese Funktion ist besonders auf Mobilgeräten reizvoll, da sie das Gefühl einer eigenständigen App verstärkt und versehentliches Schließen verhindert.',
+  },
 };
 
 // ── Component ────────────────────────────────────────────────────────────────

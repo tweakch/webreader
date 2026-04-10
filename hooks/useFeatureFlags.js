@@ -29,6 +29,7 @@ export function useFeatureFlags() {
   const _rawDebugBadges = useBooleanFlagValue('debug-badges', false);
   const _rawSubscriberFonts = useBooleanFlagValue('subscriber-fonts', false);
   const _rawErrorPageSimulator = useBooleanFlagValue('error-page-simulator', false);
+  const _rawAppAnimation = useBooleanFlagValue('app-animation', false);
 
   // User feature overrides - stored in localStorage, take precedence over flag defaults
   const [userFeatureOverrides, setUserFeatureOverrides] = useState(() =>
@@ -65,6 +66,7 @@ export function useFeatureFlags() {
   const showDebugBadges = _o('debug-badges', _rawDebugBadges);
   const showSubscriberFonts = _o('subscriber-fonts', _rawSubscriberFonts);
   const showErrorPageSimulator = _o('error-page-simulator', _rawErrorPageSimulator);
+  const showAppAnimation = _o('app-animation', _rawAppAnimation);
 
   // Raw values keyed by feature key - used in profile feature toggles
   const _rawFlagValues = {
@@ -90,6 +92,7 @@ export function useFeatureFlags() {
     'debug-badges': _rawDebugBadges,
     'subscriber-fonts': _rawSubscriberFonts,
     'error-page-simulator': _rawErrorPageSimulator,
+    'app-animation': _rawAppAnimation,
   };
 
   // String flags
@@ -120,6 +123,7 @@ export function useFeatureFlags() {
     showDebugBadges,
     showSubscriberFonts,
     showErrorPageSimulator,
+    showAppAnimation,
     _rawFlagValues,
     userFeatureOverrides,
     setUserFeatureOverrides,

@@ -94,6 +94,41 @@ export default function PageContent({
             </p>
           </div>
         )}
+
+        {isLastPage && (
+          <div className="mt-8 flex gap-3 justify-center">
+            <button
+              data-testid="story-close"
+              title="Schließen"
+              onClick={onClose}
+              className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
+                darkMode ? 'bg-amber-700 text-amber-100 hover:bg-amber-600' : 'bg-amber-200 text-amber-900 hover:bg-amber-300'
+              }`}
+            >
+              Schließen
+            </button>
+            <button
+              title="Teilen"
+              onClick={onShare}
+              className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
+                darkMode ? 'bg-slate-700 text-slate-200 hover:bg-slate-600' : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
+              }`}
+            >
+              Teilen
+            </button>
+            {showFavorites && (
+              <button
+                title={isFavorite ? 'Aus Favoriten entfernen' : 'Zu Favoriten hinzufügen'}
+                onClick={onToggleFavorite}
+                className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
+                  darkMode ? 'bg-slate-700 text-slate-200 hover:bg-slate-600' : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
+                }`}
+              >
+                {isFavorite ? '♥' : '♡'}
+              </button>
+            )}
+          </div>
+        )}
       </div>
     </div>
   );

@@ -25,12 +25,12 @@ describe('useRole', () => {
 
   it('can toggle role feature assignments and query assignment status', () => {
     const { result } = renderHook(() => useRole());
-    expect(result.current.isFeatureAssignedToRole('favorites', 'guest')).toBe(false);
+    expect(result.current.isFeatureAssignedToRole('speed-reader', 'guest')).toBe(false);
 
-    act(() => result.current.toggleFeatureForRole('favorites', 'guest'));
-    expect(result.current.isFeatureAssignedToRole('favorites', 'guest')).toBe(true);
+    act(() => result.current.toggleFeatureForRole('speed-reader', 'guest'));
+    expect(result.current.isFeatureAssignedToRole('speed-reader', 'guest')).toBe(true);
 
-    act(() => result.current.toggleFeatureForRole('favorites', 'guest'));
-    expect(result.current.isFeatureAssignedToRole('favorites', 'guest')).toBe(false);
+    act(() => result.current.toggleFeatureForRole('speed-reader', 'guest'));
+    expect(result.current.isFeatureAssignedToRole('speed-reader', 'guest')).toBe(false);
   });
 });

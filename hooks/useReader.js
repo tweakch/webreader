@@ -156,15 +156,16 @@ export function useReader({
     setPages(pages);
     setTotalPages(pages.length);
 
-    // Only reset/restore the page on the first build for a given story.
-    // Subsequent calls from the ResizeObserver on the same story should not
-    // touch currentPage - the existing clamping effect handles out-of-bounds.
     const currentStoryId = selectedStory?.id ?? null;
     if (lastResetStoryRef.current !== currentStoryId) {
+      // First build for this story: restore resume page or go to first page.
       lastResetStoryRef.current = currentStoryId;
       const resumePage = pendingResumePageRef.current;
       pendingResumePageRef.current = null;
       setCurrentPage(resumePage !== null ? Math.min(resumePage, pages.length - 1) : 0);
+    } else {
+      // Subsequent builds (resize, font change): clamp to valid range.
+      setCurrentPage(p => Math.min(p, pages.length - 1));
     }
   }, [selectedStory, selectedVariant, fontSize, lineHeight, textWidth, hPadding, wordSpacing, fontFamily]);
 
@@ -181,11 +182,6 @@ export function useReader({
     observer.observe(readerAreaRef.current);
     return () => observer.disconnect();
   }, [selectedStory, buildPages]);
-
-  // Clamp page when totalPages shrinks
-  useEffect(() => {
-    setCurrentPage(p => Math.min(p, Math.max(0, totalPages - 1)));
-  }, [totalPages]);
 
   // Navigate to page with flash animation
   const goToPage = useCallback((newPage) => {

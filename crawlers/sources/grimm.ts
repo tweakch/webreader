@@ -22,8 +22,10 @@ export const grimm: SourceAdapter = {
       if (!href.includes('/de/grimm_maerchen/')) continue;
       const slug = href.split('/').pop() ?? '';
       if (!slug || EXCLUDED.has(slug) || slug.includes('?') || slug.includes('.') || seen.has(slug)) continue;
-      const title = a.text.trim().replace(/\s*Brüder Grimm\s*→?\s*$/, '').trim();
-      if (!title || title.includes('→')) continue;
+      const rawText = a.text.trim();
+      if (!rawText || rawText.includes('→')) continue;
+      const title = rawText.replace(/\s*Brüder Grimm\s*$/, '').trim();
+      if (!title) continue;
       seen.add(slug);
       stories.push({ slug, title, url: `${BASE_URL}/de/grimm_maerchen/${slug}` });
     }

@@ -98,4 +98,5 @@ Column headers link to persona files. Feature names link to feature files.
 
 ## Related
 
+- [Role Matrix](roles.md) — Guest, Subscriber, Tester, and Admin roles.
 - [Product Strategy](product-strategy.md) — four-axis framework, MVP vs. vision slicing

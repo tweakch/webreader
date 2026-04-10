@@ -5,9 +5,10 @@
     "product_how_it_works": "Funktionsweise",
     "product_integrations": "Integrationen",
     "use_cases": "Anwendungsfälle",
+    "use_cases_educators": "Lehrpersonen",
     "use_cases_students": "Lernende",
     "use_cases_professionals": "Erwachsene",
-    "use_cases_researchers": "Forscher",
+    "use_cases_researchers": "Wissenschaftler",
     "use_cases_creators": "Vorleser",
     "pricing": "Preise",
     "blog": "Blog",
@@ -107,22 +108,33 @@
     "title": "Anwendungsfälle",
     "desc": "Märchenschatz ist für alle gebaut, die gerne lesen und hören - erkunden Sie, wie verschiedene Menschen es nutzen.",
     "students": "Lernende",
-    "students_desc": "Leseverständnis, Sprachenlernen und Literaturanalyse.",
+    "students_desc": "Märchenwissen aufbauen, Leseverständnis und Sprachanalyse (Zyklus 2 & 3).",
+    "educators": "Lehrpersonen",
+    "educators_desc": "Märchen didaktisch nutzen mit digitalen IdeenSets und Erzählkultur.",
     "professionals": "Erwachsene",
     "professionals_desc": "Entspannen Sie sich mit zeitlosen Geschichten während Ihrer Pendelfahrt und Pausen.",
-    "researchers": "Forscher",
-    "researchers_desc": "Studieren Sie Originaltexte mit sauberer Formatierung und Quellenangabe.",
+    "researchers": "Wissenschaftler",
+    "researchers_desc": "Vergleichende Erzählforschung mit Primärquellen und Märchentypen.",
     "creators": "Vorleser",
     "creators_desc": "Teilen Sie klassische Märchen mit Audio-Erzählung und professioneller Vortragsgestaltung."
   },
   "use_case_students": {
     "title": "Für Lernende",
-    "desc": "Egal ob du Deutsch studierst, Märchenstrukturen analysierst oder deine Lesefähigkeit trainierst - Märchenschatz bietet dir saubere, unbelastete Texte zum aktiven Lernen.",
-    "features_1": "Original deutsche Texte von Grimm und Andersen",
-    "features_2": "Wort- und Lesezeitangaben für Analyse",
-    "features_3": "Einstellbare Schriftgrösse und Zeilenhöhe für alle Lerntypen",
-    "features_4": "Schnellleser für Vokabeltraining und Leseverständnis",
-    "features_5": "Keine Werbung, keine Ablenkungen - nur Text"
+    "desc": "Baue dein Märchenwissen auf und trainiere dein Leseverständnis. Märchenschatz bietet dir einen ablenkungsfreien Zugang zur Welt der Literatur - ideal für den Deutschunterricht und das eigenständige Entdecken.",
+    "features_1": "Originaltexte für präzise Literaturanalyse",
+    "features_2": "Wort- und Lesezeitangaben für die Unterrichtsplanung",
+    "features_3": "Einstellbare Typografie für unterschiedliche Lesebedürfnisse",
+    "features_4": "Schnellleser zur Förderung der Konzentration",
+    "features_5": "Fokus auf den Text - ohne Werbung oder Ablenkung"
+  },
+  "use_case_educators": {
+    "title": "Für Lehrpersonen",
+    "desc": "Integrieren Sie Märchen in Ihren Unterricht mit einem modernen, digitalen IdeenSet. Märchenschatz unterstützt Sie dabei, die Erzählkultur in der Schule zu fördern und Kompetenzen im Bereich Hören, Lesen und 'Literatur im Fokus' (LP21) zu vermitteln.",
+    "features_1": "Märchen unter der Lupe: Varianten vergleichen und analysieren",
+    "features_2": "Förderung der Hörkompetenz durch hochwertige Audio-Erzählungen",
+    "features_3": "Didaktisches Material: Hintergrundwissen zu Quellen und Regionen",
+    "features_4": "Einfacher Zugriff auf Schweizer Sagen für den Heimatkunde-Unterricht",
+    "features_5": "Keine Registrierung notwendig - sofortiger Einsatz im Klassenzimmer"
   },
   "use_case_professionals": {
     "title": "Für Erwachsene",
@@ -134,13 +146,13 @@
     "features_5": "Offline-Modus - funktioniert überall, ohne Netzwerk"
   },
   "use_case_researchers": {
-    "title": "Für Forscher",
-    "desc": "Zugriff auf digitalisierte Primärquellen mit sauberer Formatierung und Quellenangabe - ideal für Folkloristik, Vergleichende Literaturwissenschaft und ethnographische Forschung.",
-    "features_1": "Quellenangabe auf der letzten Seite jedes Märchens",
-    "features_2": "Mehrere Varianten derselben Geschichte, wo vorhanden",
-    "features_3": "Schweizer Kantonssammlung, organisiert nach Region",
-    "features_4": "Markdown-Quelldateien - zitierbar und versionskontrolliert",
-    "features_5": "Keine Paywalls oder Registrierung"
+    "title": "Für Wissenschaftler",
+    "desc": "Ein Werkzeug für die vergleichende Erzählforschung und Folkloristik. Greifen Sie auf digitalisierte Primärquellen zu, die nach Regionen und Märchentypen (Aarne-Thompson-Uther) strukturiert sind.",
+    "features_1": "Wissenschaftlich fundierte Quellenangaben für jedes Werk",
+    "features_2": "Synchronisierter Vergleich von Varianten und Adaptionen",
+    "features_3": "Digitale Repräsentation historischer Schweizer Kantonssammlungen",
+    "features_4": "Saubere Markdown-Struktur - ideal für Text-Mining und Korpusanalyse",
+    "features_5": "Freier Zugang zu kulturellem Erbe ohne Paywalls"
   },
   "use_case_creators": {
     "title": "Für Vorleser & Audiomacher",

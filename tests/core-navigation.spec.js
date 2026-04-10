@@ -1,5 +1,6 @@
 // @ts-check
 import { test, expect } from '@playwright/test';
+import { disableAppAnimation } from './test-utils';
 
 /**
  * Core navigation flow test:
@@ -10,6 +11,10 @@ import { test, expect } from '@playwright/test';
  * 5. Prev page twice - should stay on page 1
  */
 test.describe('Core Navigation Flow', () => {
+  test.beforeEach(async ({ page }) => {
+    await disableAppAnimation(page);
+  });
+
   test('navigate: first story -> full screen -> next -> prev twice (stays on page 1)', async ({ page }) => {
     // 1. Start the app
     await page.goto('/app');

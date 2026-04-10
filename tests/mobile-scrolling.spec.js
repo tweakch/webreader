@@ -1,5 +1,6 @@
 // @ts-check
 import { test, expect } from '@playwright/test';
+import { disableAppAnimation } from './test-utils';
 
 /**
  * Mobile scrolling tests.
@@ -56,6 +57,7 @@ async function drillToStories(page) {
 test.describe('Mobile scrolling', () => {
   test.beforeEach(async ({ page }) => {
     await page.setViewportSize(MOBILE);
+    await disableAppAnimation(page);
   });
 
   test('sidebar scroll container is taller than its visible area when story list is long', async ({ page }) => {

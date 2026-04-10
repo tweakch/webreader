@@ -1,8 +1,14 @@
 // @ts-check
 import { test, expect } from '@playwright/test';
+import { enableAppAnimation } from './test-utils';
 
 test.describe('App Swipe to Unlock & Close', () => {
   
+  test.beforeEach(async ({ page }) => {
+    // Enable the feature flag via localStorage override
+    await enableAppAnimation(page);
+  });
+
   test('should show lock screen on load and unlock on swipe up', async ({ page }) => {
     await page.goto('/app');
     await page.waitForLoadState('networkidle');

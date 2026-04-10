@@ -11,6 +11,7 @@ const ProductHowItWorksPage = React.lazy(() => import('./pages/marketing/Product
 const ProductIntegrationsPage = React.lazy(() => import('./pages/marketing/ProductIntegrationsPage'));
 const UseCasesPage = React.lazy(() => import('./pages/marketing/UseCasesPage'));
 const UseCasesStudentsPage = React.lazy(() => import('./pages/marketing/UseCasesStudentsPage'));
+const UseCasesEducatorsPage = React.lazy(() => import('./pages/marketing/UseCasesEducatorsPage'));
 const UseCasesProfessionalsPage = React.lazy(() => import('./pages/marketing/UseCasesProfessionalsPage'));
 const UseCasesResearchersPage = React.lazy(() => import('./pages/marketing/UseCasesResearchersPage'));
 const UseCasesCreatorsPage = React.lazy(() => import('./pages/marketing/UseCasesCreatorsPage'));
@@ -35,6 +36,7 @@ export const router = createBrowserRouter([
       { path: 'product/integrations', element: <ProductIntegrationsPage /> },
       { path: 'use-cases', element: <UseCasesPage /> },
       { path: 'use-cases/students', element: <UseCasesStudentsPage /> },
+      { path: 'use-cases/educators', element: <UseCasesEducatorsPage /> },
       { path: 'use-cases/professionals', element: <UseCasesProfessionalsPage /> },
       { path: 'use-cases/researchers', element: <UseCasesResearchersPage /> },
       { path: 'use-cases/creators', element: <UseCasesCreatorsPage /> },

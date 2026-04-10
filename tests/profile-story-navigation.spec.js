@@ -1,5 +1,6 @@
 // @ts-check
 import { test, expect } from '@playwright/test';
+import { disableAppAnimation } from './test-utils';
 
 /**
  * Profile story navigation test:
@@ -9,6 +10,10 @@ import { test, expect } from '@playwright/test';
  * 4. Verify profile closes and story displays
  */
 test.describe('Profile Story Navigation', () => {
+  test.beforeEach(async ({ page }) => {
+    await disableAppAnimation(page);
+  });
+
   test('clicking story in profile closes profile and shows story', async ({ page }) => {
     // 1. Open app
     await page.goto('/app');

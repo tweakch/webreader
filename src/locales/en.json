@@ -5,9 +5,10 @@
     "product_how_it_works": "How it works",
     "product_integrations": "Integrations",
     "use_cases": "Use Cases",
+    "use_cases_educators": "Educators",
     "use_cases_students": "Learners",
     "use_cases_professionals": "Adults",
-    "use_cases_researchers": "Researchers",
+    "use_cases_researchers": "Scholars",
     "use_cases_creators": "Narrators",
     "pricing": "Pricing",
     "blog": "Blog",
@@ -107,22 +108,33 @@
     "title": "Use Cases",
     "desc": "Märchenschatz is built for anyone who loves reading and listening - explore how different people use it.",
     "students": "Learners",
-    "students_desc": "Reading comprehension, language learning, and literary analysis.",
+    "students_desc": "Build fairy tale literacy, reading comprehension, and literary analysis.",
+    "educators": "Educators",
+    "educators_desc": "Use fairy tales didactically with digital resources and storytelling culture.",
     "professionals": "Adults",
     "professionals_desc": "Unwind with timeless stories during commutes and breaks - read or listen.",
-    "researchers": "Researchers",
-    "researchers_desc": "Study original texts with clean formatting and source attribution.",
+    "researchers": "Scholars",
+    "researchers_desc": "Comparative narrative research with primary sources and folk motifs.",
     "creators": "Narrators",
     "creators_desc": "Share classic tales through audio production, performances, and professional narration."
   },
   "use_case_students": {
     "title": "For Learners",
-    "desc": "Whether you're studying German, analyzing fairy tale structures, or building reading stamina - Märchenschatz gives you clean, uncluttered texts for active learning.",
-    "features_1": "Original German texts from Grimm and Andersen",
-    "features_2": "Word count and reading time estimates for analysis",
-    "features_3": "Adjustable font size and line spacing for all learning styles",
-    "features_4": "Speed reader for vocabulary drills and comprehension",
-    "features_5": "No ads, no distractions - just the text"
+    "desc": "Build your fairy tale literacy and train your reading comprehension. Märchenschatz provides distraction-free access to the world of literature - ideal for language arts and independent discovery.",
+    "features_1": "Original texts for precise literary analysis",
+    "features_2": "Word count and reading time estimates for lesson planning",
+    "features_3": "Adjustable typography for diverse reading needs",
+    "features_4": "Speed reader mode to foster concentration",
+    "features_5": "Focused on the text - no ads or distractions"
+  },
+  "use_case_educators": {
+    "title": "For Educators",
+    "desc": "Integrate fairy tales into your curriculum with a modern digital resource. Märchenschatz helps you promote storytelling culture in schools and develop competencies in listening, reading, and 'focus on literature'.",
+    "features_1": "Fairy tales under the lens: Compare and analyze variants",
+    "features_2": "Enhance listening skills through high-quality audio narrations",
+    "features_3": "Educational context: Background on sources and regional variants",
+    "features_4": "Easy access to local folk tales for cultural heritage lessons",
+    "features_5": "No registration required - immediate classroom deployment"
   },
   "use_case_professionals": {
     "title": "For Adults",
@@ -134,13 +146,13 @@
     "features_5": "Offline mode - works everywhere, no internet needed"
   },
   "use_case_researchers": {
-    "title": "For Researchers",
-    "desc": "Access digitized primary sources with clean formatting and source attribution - ideal for folklore studies, comparative literature, and ethnographic research.",
-    "features_1": "Source attribution on the final page of each tale",
-    "features_2": "Multiple variants of the same story where available",
-    "features_3": "Swiss canton collection organized by region",
-    "features_4": "Markdown source files - citable and version-controlled",
-    "features_5": "No paywalls or registration"
+    "title": "For Scholars",
+    "desc": "A tool for comparative narrative research and folkloristics. Access digitized primary sources structured by region and Aarne-Thompson-Uther folk motifs.",
+    "features_1": "Academic-grade source attribution for every work",
+    "features_2": "Synchronized comparison of variants and adaptations",
+    "features_3": "Digital representation of historic regional folk collections",
+    "features_4": "Clean Markdown structure - ideal for text mining and corpus analysis",
+    "features_5": "Open access to cultural heritage without paywalls"
   },
   "use_case_creators": {
     "title": "For Narrators & Audio Producers",

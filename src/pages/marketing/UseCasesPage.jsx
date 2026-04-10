@@ -7,6 +7,7 @@ export default function UseCasesPage() {
 
   const cases = [
     { to: '/use-cases/students', title: t('use_cases.students'), desc: t('use_cases.students_desc') },
+    { to: '/use-cases/educators', title: t('use_cases.educators'), desc: t('use_cases.educators_desc') },
     { to: '/use-cases/professionals', title: t('use_cases.professionals'), desc: t('use_cases.professionals_desc') },
     { to: '/use-cases/researchers', title: t('use_cases.researchers'), desc: t('use_cases.researchers_desc') },
     { to: '/use-cases/creators', title: t('use_cases.creators'), desc: t('use_cases.creators_desc') },

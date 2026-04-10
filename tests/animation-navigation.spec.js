@@ -1,5 +1,6 @@
 // @ts-check
 import { test, expect } from '@playwright/test';
+import { disableAppAnimation } from './test-utils';
 
 /**
  * Animation & Navigation Flow Tests
@@ -73,10 +74,13 @@ async function drillIntoSourceWithDirectories(page) {
   return false;
 }
 
+import { enableAppAnimation } from './test-utils';
+
 // ─── A. App onload animation ─────────────────────────────────────────────────
 
 test.describe('A – App onload animation', () => {
   test('wrapper has .app-enter on first paint', async ({ page }) => {
+    await enableAppAnimation(page);
     await page.goto('/app');
     // Check class before networkidle so we catch it at the earliest possible moment
     await page.waitForLoadState('domcontentloaded');
@@ -84,12 +88,14 @@ test.describe('A – App onload animation', () => {
   });
 
   test('.app-exit is absent on load', async ({ page }) => {
+    await enableAppAnimation(page);
     await page.goto('/app');
     await page.waitForLoadState('domcontentloaded');
     await expect(page.locator('.app-exit')).not.toBeAttached();
   });
 
   test('wrapper rendered with width:100% height:100% inline styles', async ({ page }) => {
+    await enableAppAnimation(page);
     await page.goto('/app');
     await page.waitForLoadState('networkidle');
     const styles = await page.locator('.app-enter').first().evaluate(el => ({
@@ -104,6 +110,10 @@ test.describe('A – App onload animation', () => {
 // ─── B. App onClose animation ────────────────────────────────────────────────
 
 test.describe('B – App onClose animation', () => {
+  test.beforeEach(async ({ page }) => {
+    await disableAppAnimation(page);
+  });
+
   test('pagehide swaps .app-enter → .app-exit', async ({ page }) => {
     await page.goto('/app');
     await page.waitForLoadState('networkidle');
@@ -147,6 +157,10 @@ test.describe('B – App onClose animation', () => {
 // ─── C. Sidebar open/close animation ─────────────────────────────────────────
 
 test.describe('C – Sidebar open/close animation', () => {
+  test.beforeEach(async ({ page }) => {
+    await disableAppAnimation(page);
+  });
+
   test('sidebar carries transition-transform duration-300 classes', async ({ page }) => {
     await page.setViewportSize({ width: 375, height: 812 });
     await page.goto('/app');
@@ -224,6 +238,10 @@ test.describe('C – Sidebar open/close animation', () => {
 // ─── D1. 2-level navigation (source → story) ─────────────────────────────────
 
 test.describe('D1 – 2-level navigation (source → story)', () => {
+  test.beforeEach(async ({ page }) => {
+    await disableAppAnimation(page);
+  });
+
   test('source list is visible on load; story list is not', async ({ page }) => {
     await page.goto('/app');
     await page.waitForLoadState('networkidle');
@@ -316,6 +334,7 @@ test.describe('D1 – 2-level navigation (source → story)', () => {
 
 test.describe('D2 – 3-level navigation (source → directory → story)', () => {
   test.beforeEach(async ({ page }) => {
+    await disableAppAnimation(page);
     await enableDirectoriesFlag(page);
   });
 

@@ -16,6 +16,7 @@ export default function MarketingNav() {
 
   const useCaseLinks = [
     { to: '/use-cases/students', label: t('nav.use_cases_students') },
+    { to: '/use-cases/educators', label: t('nav.use_cases_educators') },
     { to: '/use-cases/professionals', label: t('nav.use_cases_professionals') },
     { to: '/use-cases/researchers', label: t('nav.use_cases_researchers') },
     { to: '/use-cases/creators', label: t('nav.use_cases_creators') },

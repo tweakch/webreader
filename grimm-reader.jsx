@@ -421,7 +421,7 @@ const GrimmMarchenApp = () => {
 
   const toggleMenu = () => setMenuOpen(!menuOpen);
   const handleCloseApp = useCallback(() => {
-    window.location.assign('/');
+    window.dispatchEvent(new CustomEvent('app:request-close'));
   }, []);
 
   // Throwing inside the render body is caught by the nearest ErrorBoundary.

@@ -11,6 +11,7 @@ import { ThemeContext } from './ui/ThemeContext';
 import Toggle from './ui/Toggle';
 import IconButton from './ui/IconButton';
 import ProfilePanel from './components/ProfilePanel';
+import PersonasDocsView from './components/PersonasDocsView';
 import HomeView from './components/HomeView';
 import ReaderView from './components/ReaderView';
 import Sidebar from './components/Sidebar';
@@ -58,6 +59,7 @@ const GrimmMarchenApp = () => {
   const [profileOpen, setProfileOpen] = useState(false);
   const [docsOpen, setDocsOpen] = useState(false);
   const [docsAnchor, setDocsAnchor] = useState(null);
+  const [personasDocsOpen, setPersonasDocsOpen] = useState(false);
   const [activeSource, setActiveSource] = useState(() => localStorage.getItem('wr-last-source') || null);
   const [activeDirectory, setActiveDirectory] = useState(null);
   const [stories, setStories] = useState([]);
@@ -569,7 +571,11 @@ const GrimmMarchenApp = () => {
 
         {/* Reader Area */}
         <main className="flex-1 flex flex-col overflow-hidden w-full">
-          {docsOpen ? (
+          {personasDocsOpen ? (
+            <PersonasDocsView
+              onBack={() => { setPersonasDocsOpen(false); setProfileOpen(true); }}
+            />
+          ) : docsOpen ? (
             <FeatureDocs
               darkMode={darkMode}
               initialAnchor={docsAnchor}
@@ -581,6 +587,7 @@ const GrimmMarchenApp = () => {
             <ProfilePanel
               onBack={() => setProfileOpen(false)}
               onOpenDocs={(anchor) => { setDocsOpen(true); setDocsAnchor(anchor); setProfileOpen(false); }}
+              onOpenPersonasDocs={() => { setPersonasDocsOpen(true); setProfileOpen(false); }}
               favorites={favorites}
               completedStories={completedStories}
               totalStories={stories.length}

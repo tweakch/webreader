@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect, useCallback } from 'react';
 import { Menu, X, Plus, Minus, User } from 'lucide-react';
 import { FEATURES } from './features';
 import { useFeatureFlags } from './hooks/useFeatureFlags';
+import { useAppAnimation } from './hooks/useAppAnimation';
 import { useTypography } from './hooks/useTypography';
 import { usePersistence } from './hooks/usePersistence';
 import { useReader } from './hooks/useReader';
@@ -41,6 +42,7 @@ const GrimmMarchenApp = () => {
   const [controlsVisible, setControlsVisible] = useState(true);
   // Feature flags
   const flags = useFeatureFlags();
+  const { variant: appAnimationVariant, setVariant: setAppAnimationVariant } = useAppAnimation();
   const {
     maxFontSize,
     showWordCount, showReadingDuration, showFontSizeControls, showPinchFontSize, showEinkFlash,
@@ -473,7 +475,10 @@ const GrimmMarchenApp = () => {
   const highContrast = theme === 'light-hc' || theme === 'dark-hc';
   const darkMode = theme === 'dark' || (theme === 'system' && systemDark) || theme === 'dark-hc';
 
-  useEffect(() => { localStorage.setItem('wr-theme', theme); }, [theme]);
+  useEffect(() => {
+    localStorage.setItem('wr-theme', theme);
+    window.dispatchEvent(new Event('wr:theme-change'));
+  }, [theme]);
 
   useEffect(() => {
     if (!showPinchFontSize || !selectedStory || speedReaderMode) return undefined;
@@ -825,6 +830,8 @@ const GrimmMarchenApp = () => {
               showAbTestingAdmin={showAbTestingAdmin}
               ab={ab}
               simplifiedUi={showSimplifiedUi}
+              appAnimationVariant={appAnimationVariant}
+              onSetAppAnimationVariant={setAppAnimationVariant}
               onSimulateError={(type) => {
                 if (type === 'not-found') {
                   window.location.assign('/does-not-exist');

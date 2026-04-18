@@ -1,8 +1,16 @@
 import { ChevronLeft, X, User, Shield, FlameKindling, Users } from 'lucide-react';
 import { useTheme } from '../ui/ThemeContext';
 import Toggle from '../ui/Toggle';
+import VariantPicker from '../ui/VariantPicker';
 import { ROLES, ROLE_LABELS } from '../hooks/useRole';
 import ABTestingPanel from './ABTestingPanel';
+
+const APP_ANIMATION_OPTIONS = [
+  { value: 'seal',    label: 'Portal',   testId: 'app-animation-variant-seal' },
+  { value: 'fade',    label: 'Minimal',  testId: 'app-animation-variant-fade' },
+  { value: 'sparkle', label: 'Funken',   testId: 'app-animation-variant-sparkle' },
+  { value: 'ink',     label: 'Tinte',    testId: 'app-animation-variant-ink' },
+];
 
 /**
  * Profile panel - user stats, word blacklist, feature toggles, and admin tools.
@@ -40,6 +48,9 @@ export default function ProfilePanel({
   showAbTestingAdmin,
   ab,
   simplifiedUi = false,
+  // App-animation variant picker (rendered inline under the app-animation toggle when on)
+  appAnimationVariant = 'seal',
+  onSetAppAnimationVariant,
 }) {
   // In simplified-ui mode, hide experimental/debug features from the toggle list
   // to keep the profile uncluttered for seniors. `simplified-ui` itself always
@@ -350,6 +361,18 @@ export default function ProfilePanel({
                     >
                       Mehr erfahren →
                     </button>
+
+                    {/* App-animation variant picker — inline under the toggle */}
+                    {key === 'app-animation' && effective && onSetAppAnimationVariant && (
+                      <div className="mt-3" data-testid="app-animation-variant-picker">
+                        <VariantPicker
+                          ariaLabel="App-Animation Variante"
+                          options={APP_ANIMATION_OPTIONS}
+                          value={appAnimationVariant}
+                          onChange={onSetAppAnimationVariant}
+                        />
+                      </div>
+                    )}
 
                     {/* Admin: role-assignment row */}
                     {isAdmin && (

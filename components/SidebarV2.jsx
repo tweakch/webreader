@@ -209,7 +209,6 @@ export default function SidebarV2({
         if (story) {
           onSelectStory(story);
           onMenuToggle();
-          if (profileOpen) onCloseProfile();
         }
       } else if (e.key === '[') {
         e.preventDefault();
@@ -221,7 +220,7 @@ export default function SidebarV2({
     };
     window.addEventListener('keydown', onKey);
     return () => window.removeEventListener('keydown', onKey);
-  }, [visibleStoriesFlat, focusIdx, onSelectStory, onMenuToggle, profileOpen, onCloseProfile, searchTerm, onSearchChange, collapseAll, expandAll]);
+  }, [visibleStoriesFlat, focusIdx, onSelectStory, onMenuToggle, searchTerm, onSearchChange, collapseAll, expandAll]);
 
   // Reset keyboard focus when the visible set changes substantially.
   useEffect(() => { setFocusIdx(-1); }, [searchTerm, favoritesOnly, expandedSources]);
@@ -241,7 +240,7 @@ export default function SidebarV2({
         inlineBadges={opts.inlineBadges}
         testId="story-button"
         className={focusIdx === idx ? (darkMode ? 'ring-2 ring-amber-400 rounded-lg' : 'ring-2 ring-amber-500 rounded-lg') : ''}
-        onClick={() => { onSelectStory(story); onMenuToggle(); if (profileOpen) onCloseProfile(); }}
+        onClick={() => { onSelectStory(story); onMenuToggle(); }}
         onFavoriteClick={(e) => onToggleFavorite(story.id, e)}
       />
     </div>
@@ -460,7 +459,7 @@ export default function SidebarV2({
                       inlineBadges
                       showFavoriteButton={showFavorites}
                       testId="story-button"
-                      onClick={() => { onSelectStory(s); onMenuToggle(); if (profileOpen) onCloseProfile(); }}
+                      onClick={() => { onSelectStory(s); onMenuToggle(); }}
                       onFavoriteClick={(e) => onToggleFavorite(s.id, e)}
                     />
                   </div>

@@ -14,6 +14,7 @@ import { ThemeContext } from './ui/ThemeContext';
 import Toggle from './ui/Toggle';
 import IconButton from './ui/IconButton';
 import ProfilePanel from './components/ProfilePanel';
+import ProfilePanelGrouped from './components/ProfilePanelGrouped';
 import PersonasDocsView from './components/PersonasDocsView';
 import HomeView from './components/HomeView';
 import ReaderView from './components/ReaderView';
@@ -60,6 +61,7 @@ const GrimmMarchenApp = () => {
   // A/B testing
   const ab = useABTesting({ role, isAdmin });
   const sidebarVariant = ab.getVariant('sidebar');
+  const profileLayoutVariant = ab.getVariant('profile-layout');
 
   // Typography
   const typo = useTypography({ maxFontSize, subscriberFonts: showSubscriberFonts });
@@ -745,7 +747,13 @@ const GrimmMarchenApp = () => {
               onToggle={(key) => setUserFeatureOverrides(prev => ({ ...prev, [key]: !_o(key, _rawFlagValues[key] ?? false) }))}
             />
           ) : profileOpen ? (
-            <ProfilePanel
+            (() => {
+              const ProfileComponent = (profileLayoutVariant === 'grouped' || profileLayoutVariant === 'role-opt')
+                ? ProfilePanelGrouped
+                : ProfilePanel;
+              return (
+            <ProfileComponent
+              variant={profileLayoutVariant}
               onBack={goBack}
               onOpenDocs={handleOpenDocs}
               onOpenPersonasDocs={handleOpenPersonasDocs}
@@ -781,6 +789,8 @@ const GrimmMarchenApp = () => {
                 }
               }}
             />
+              );
+            })()
           ) : selectedStory ? (
             <ReaderView
               readerAreaRef={readerAreaRef}

@@ -473,7 +473,10 @@ const GrimmMarchenApp = () => {
   const highContrast = theme === 'light-hc' || theme === 'dark-hc';
   const darkMode = theme === 'dark' || (theme === 'system' && systemDark) || theme === 'dark-hc';
 
-  useEffect(() => { localStorage.setItem('wr-theme', theme); }, [theme]);
+  useEffect(() => {
+    localStorage.setItem('wr-theme', theme);
+    window.dispatchEvent(new Event('wr:theme-change'));
+  }, [theme]);
 
   useEffect(() => {
     if (!showPinchFontSize || !selectedStory || speedReaderMode) return undefined;

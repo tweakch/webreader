@@ -1,8 +1,16 @@
 import { useEffect, useRef, useState, useCallback } from 'react';
+import { useAppAnimation } from '../hooks/useAppAnimation';
 
 /**
  * Wraps the app with entry/exit animations and an optional swipe-to-unlock
  * lock screen.
+ *
+ * The .app-enter / .app-exit classes are the stable test contract (see
+ * tests/animation-navigation.spec.js). On top of them we layer:
+ *
+ *   • `app-anim-<variant>`  — selects the motion style (seal, fade, sparkle, ink)
+ *   • `app-theme-<theme>`   — scopes CSS variables so the animation palette
+ *                             matches the user's selected theme
  *
  * enableLockScreen: when false, the lock screen never renders and the app is
  * unlocked from first paint. The pagehide/beforeunload → app-exit animation
@@ -13,7 +21,9 @@ export default function AppAnimationWrapper({ children, enableLockScreen = true 
   const [isLocked, setIsLocked] = useState(enableLockScreen);
   const [isClosing, setIsClosing] = useState(false);
   const touchStartRef = useRef(null);
-  const threshold = 50; // pixels
+  const threshold = 50;
+
+  const { variantClass, themeClass, theme } = useAppAnimation();
 
   const handleExit = useCallback(() => {
     const el = wrapperRef.current;
@@ -23,9 +33,7 @@ export default function AppAnimationWrapper({ children, enableLockScreen = true 
   }, []);
 
   useEffect(() => {
-    // pagehide fires on tab close, window close, back navigation, and mobile app switching
     window.addEventListener('pagehide', handleExit);
-    // beforeunload as a fallback for browsers that fire it before pagehide
     window.addEventListener('beforeunload', handleExit);
 
     const onRequestClose = () => {
@@ -61,29 +69,36 @@ export default function AppAnimationWrapper({ children, enableLockScreen = true 
     const deltaY = y - touchStartRef.current;
 
     if (isLocked && !isClosing) {
-      // Swipe UP to unlock (deltaY is negative)
-      if (deltaY < -threshold) {
-        setIsLocked(false);
-      }
+      if (deltaY < -threshold) setIsLocked(false);
     } else if (isLocked && isClosing) {
-      // Swipe DOWN to close (deltaY is positive)
       if (deltaY > threshold) {
         handleExit();
-        // Delay navigation slightly to let exit animation start
-        setTimeout(() => {
-          window.location.assign('/');
-        }, 100);
+        setTimeout(() => { window.location.assign('/'); }, 100);
       }
     }
     touchStartRef.current = null;
   };
 
   const showLock = isLocked && enableLockScreen;
+  const isHighContrast = theme === 'light-hc' || theme === 'dark-hc';
+  const isDark = theme === 'dark' || theme === 'dark-hc';
+
+  // Lock screen palette — matches the resolved app theme so the unlock surface
+  // never clashes with the visible app underneath.
+  const lockBg = isHighContrast
+    ? (isDark ? 'bg-black' : 'bg-white')
+    : (isDark ? 'bg-slate-950/75' : 'bg-amber-950/55');
+  const lockText = isHighContrast
+    ? (isDark ? 'text-white' : 'text-black')
+    : (isDark ? 'text-amber-100' : 'text-amber-50');
+  const lockRing = isHighContrast
+    ? (isDark ? 'border-white' : 'border-black')
+    : 'border-white/80';
 
   return (
     <div
       ref={wrapperRef}
-      className="app-enter fixed inset-0 overflow-hidden"
+      className={`app-enter ${variantClass} ${themeClass} fixed inset-0 overflow-hidden`}
       style={{ width: '100%', height: '100%' }}
       onTouchStart={(e) => onStart(e.touches[0].clientY)}
       onTouchEnd={(e) => onEnd(e.changedTouches[0].clientY)}
@@ -97,24 +112,18 @@ export default function AppAnimationWrapper({ children, enableLockScreen = true 
       {showLock && (
         <div
           data-testid="lock-screen"
-          className="absolute inset-0 z-[100] flex flex-col items-center justify-center bg-black/60 backdrop-blur-md text-white transition-opacity duration-300"
+          className={`app-lock-fade absolute inset-0 z-[100] flex flex-col items-center justify-center backdrop-blur-md ${lockBg} ${lockText}`}
         >
-          <div className="flex flex-col items-center gap-6 animate-bounce">
-            {isClosing ? (
-              <>
-                <div className="w-12 h-12 rounded-full border-2 border-white flex items-center justify-center">
-                  <span className="text-2xl">↓</span>
-                </div>
-                <p className="text-lg font-medium tracking-wide">Swipe down to close</p>
-              </>
-            ) : (
-              <>
-                <div className="w-12 h-12 rounded-full border-2 border-white flex items-center justify-center">
-                  <span className="text-2xl">↑</span>
-                </div>
-                <p className="text-lg font-medium tracking-wide">Swipe up to unlock</p>
-              </>
-            )}
+          <div className="flex flex-col items-center gap-6">
+            <div
+              className={`w-14 h-14 rounded-full border-2 ${lockRing} flex items-center justify-center ${isClosing ? 'app-lock-hint-down' : 'app-lock-hint'}`}
+              aria-hidden="true"
+            >
+              <span className="text-2xl leading-none">{isClosing ? '↓' : '↑'}</span>
+            </div>
+            <p className="text-lg font-medium tracking-wide">
+              {isClosing ? 'Swipe down to close' : 'Swipe up to unlock'}
+            </p>
           </div>
         </div>
       )}

@@ -1,4 +1,7 @@
 {
+  "name": "webreader",
+  "version": "0.1.1",
+  "private": true,
   "dependencies": {
     "@openfeature/react-sdk": "^1.2.1",
     "i18next": "^26.0.4",
@@ -34,6 +37,9 @@
     "test:ui": "playwright test --ui",
     "test:unit": "vitest run",
     "test:unit:watch": "vitest",
-    "design": "vite --config vite.design.config.js"
+    "design": "vite --config vite.design.config.js",
+    "release": "node scripts/release.mjs patch",
+    "release:minor": "node scripts/release.mjs minor",
+    "release:major": "node scripts/release.mjs major"
   }
 }

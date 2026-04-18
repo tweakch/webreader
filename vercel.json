@@ -1,5 +1,6 @@
 {
   "rewrites": [
-    { "source": "/(.*)", "destination": "/" }
+    { "source": "/.well-known/vercel/flags", "destination": "/api/.well-known/vercel/flags" },
+    { "source": "/((?!api/|.well-known/).*)", "destination": "/" }
   ]
 }

@@ -704,7 +704,7 @@ const GrimmMarchenApp = () => {
       </div>
     </div>
 
-    {showDebugBadges && <DebugOverlay />}
+    {showDebugBadges && <DebugOverlay flagValues={_rawFlagValues} />}
     </ThemeContext.Provider>
   );
 };

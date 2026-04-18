@@ -98,7 +98,7 @@ export function useFeatureFlags() {
   // String flags
   const flagTheme = useStringFlagValue('theme', 'light');
   const bigFontsVariant = useStringFlagValue('big-fonts', 'off');
-  const maxFontSize = { off: 40, big: 40, bigger: 50, biggest: 60 }[bigFontsVariant] ?? 40;
+  const maxFontSize = { off: 28, big: 28, bigger: 34, biggest: 40 }[bigFontsVariant] ?? 28;
 
   return {
     showWordCount,

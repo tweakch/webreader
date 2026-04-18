@@ -131,7 +131,7 @@ export default function Sidebar({
                 showFavoriteButton
                 alwaysFilled
                 testId="story-button"
-                onClick={() => { onSelectStory(story); onMenuToggle(); if (profileOpen) onCloseProfile(); }}
+                onClick={() => { onSelectStory(story); onMenuToggle(); }}
                 onFavoriteClick={(e) => onToggleFavorite(story.id, e)}
                 simplifiedUi={simplifiedUi}
               />
@@ -156,7 +156,7 @@ export default function Sidebar({
                 showWordCount={showWordCount}
                 showFavoriteButton={showFavorites}
                 inlineBadges
-                onClick={() => { onSelectStory(story); onMenuToggle(); if (profileOpen) onCloseProfile(); }}
+                onClick={() => { onSelectStory(story); onMenuToggle(); }}
                 onFavoriteClick={(e) => onToggleFavorite(story.id, e)}
                 simplifiedUi={simplifiedUi}
               />
@@ -198,7 +198,7 @@ export default function Sidebar({
                     showWordCount={showWordCount}
                     showFavoriteButton={showFavorites}
                     testId="story-button"
-                    onClick={() => { onSelectStory(story); onMenuToggle(); if (profileOpen) onCloseProfile(); }}
+                    onClick={() => { onSelectStory(story); onMenuToggle(); }}
                     onFavoriteClick={(e) => onToggleFavorite(story.id, e)}
                     simplifiedUi={simplifiedUi}
                   />
@@ -285,7 +285,7 @@ export default function Sidebar({
                   showWordCount={showWordCount}
                   showFavoriteButton={showFavorites}
                   testId="story-button"
-                  onClick={() => { onSelectStory(story); onMenuToggle(); if (profileOpen) onCloseProfile(); }}
+                  onClick={() => { onSelectStory(story); onMenuToggle(); }}
                   onFavoriteClick={(e) => onToggleFavorite(story.id, e)}
                   simplifiedUi={simplifiedUi}
                 />

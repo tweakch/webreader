@@ -9,6 +9,7 @@ import FeatureDocs from './FeatureDocs';
 import { useRole } from './hooks/useRole';
 import { useABTesting } from './hooks/useABTesting';
 import { useTextToSpeech } from './hooks/useTextToSpeech';
+import { useBreadcrumbNavigation } from './hooks/useBreadcrumbNavigation';
 import { ThemeContext } from './ui/ThemeContext';
 import Toggle from './ui/Toggle';
 import IconButton from './ui/IconButton';
@@ -18,6 +19,7 @@ import HomeView from './components/HomeView';
 import ReaderView from './components/ReaderView';
 import Sidebar from './components/Sidebar';
 import SidebarV2 from './components/SidebarV2';
+import LeaveAppDialog from './components/LeaveAppDialog';
 import TypographyPanel, { LINE_HEIGHTS, WORD_SPACINGS, FONT_FAMILIES } from './ui/TypographyPanel';
 import AudioPlayer from './ui/AudioPlayer';
 import SpeedReaderView from './ui/SpeedReaderView';
@@ -88,10 +90,40 @@ const GrimmMarchenApp = () => {
     setProfileOpen(false);
   }, []);
 
+  // Device-back support: each forward nav registers an undo via
+  // pushBreadcrumb; popstate walks back through them. When the stack is empty
+  // the hook opens a "leave app?" dialog instead of exiting /app.
+  const { pushBreadcrumb, goBack, leavePromptOpen, confirmLeave, cancelLeave } =
+    useBreadcrumbNavigation({
+      onLeaveApp: () => {
+        if (showAppAnimation) {
+          window.dispatchEvent(new CustomEvent('app:request-close'));
+        } else {
+          window.location.assign('/');
+        }
+      },
+    });
+
   const handleSelectSource = React.useCallback((sourceId) => {
+    if (sourceId !== activeSource || activeDirectory !== null) {
+      const prevSource = activeSource;
+      const prevDirectory = activeDirectory;
+      pushBreadcrumb(() => {
+        setActiveSource(prevSource);
+        setActiveDirectory(prevDirectory);
+      });
+    }
     setActiveSource(sourceId);
     setActiveDirectory(null);
-  }, []);
+  }, [activeSource, activeDirectory, pushBreadcrumb]);
+
+  const handleSelectDirectory = React.useCallback((dirId) => {
+    if (dirId !== activeDirectory) {
+      const prevDirectory = activeDirectory;
+      pushBreadcrumb(() => setActiveDirectory(prevDirectory));
+    }
+    setActiveDirectory(dirId);
+  }, [activeDirectory, pushBreadcrumb]);
 
 
   const readerAreaRef = useRef(null);
@@ -132,8 +164,25 @@ const GrimmMarchenApp = () => {
 
   const handleSelectStory = useCallback(async (story) => {
     if (!story) return;
+    const prevStory = selectedStory;
+    const wasProfileOpen = profileOpen;
+    const wasDocsOpen = docsOpen;
+    const prevDocsAnchor = docsAnchor;
+    const wasPersonasOpen = personasDocsOpen;
+    const isSameStory = prevStory && prevStory.id === story.id;
+    if (!isSameStory) {
+      pushBreadcrumb(() => {
+        setSelectedStory(prevStory);
+        if (wasProfileOpen) setProfileOpen(true);
+        if (wasDocsOpen) { setDocsOpen(true); setDocsAnchor(prevDocsAnchor); }
+        if (wasPersonasOpen) setPersonasDocsOpen(true);
+      });
+    }
     setSelectedStory(null);
     setMenuOpen(false);
+    if (wasProfileOpen) setProfileOpen(false);
+    if (wasDocsOpen) { setDocsOpen(false); setDocsAnchor(null); }
+    if (wasPersonasOpen) setPersonasDocsOpen(false);
     setIsStoryLoading(true);
     try {
       const loadedStory = await loadStoryById(story.id);
@@ -150,7 +199,7 @@ const GrimmMarchenApp = () => {
     } finally {
       setIsStoryLoading(false);
     }
-  }, []);
+  }, [selectedStory, profileOpen, docsOpen, docsAnchor, personasDocsOpen, pushBreadcrumb]);
 
   useEffect(() => {
     if (!activeSource || stories.length === 0) return;
@@ -502,6 +551,34 @@ const GrimmMarchenApp = () => {
     }
   }, [showAppAnimation]);
 
+  // Forward nav helpers: register an undo before opening an overlay so device
+  // back reverts to the prior view instead of leaving /app.
+  const handleOpenProfile = useCallback(() => {
+    if (profileOpen) return;
+    pushBreadcrumb(() => setProfileOpen(false));
+    setProfileOpen(true);
+  }, [profileOpen, pushBreadcrumb]);
+
+  const handleOpenDocs = useCallback((anchor) => {
+    pushBreadcrumb(() => {
+      setDocsOpen(false);
+      setDocsAnchor(null);
+      setProfileOpen(true);
+    });
+    setDocsOpen(true);
+    setDocsAnchor(anchor);
+    setProfileOpen(false);
+  }, [pushBreadcrumb]);
+
+  const handleOpenPersonasDocs = useCallback(() => {
+    pushBreadcrumb(() => {
+      setPersonasDocsOpen(false);
+      setProfileOpen(true);
+    });
+    setPersonasDocsOpen(true);
+    setProfileOpen(false);
+  }, [pushBreadcrumb]);
+
   // Throwing inside the render body is caught by the nearest ErrorBoundary.
   // The error-page-simulator uses this to preview the 500 page.
   if (simulatedErrorType === 'unexpected') {
@@ -616,7 +693,7 @@ const GrimmMarchenApp = () => {
           activeSource={activeSource}
           onSelectSource={handleSelectSource}
           activeDirectory={activeDirectory}
-          onSelectDirectory={setActiveDirectory}
+          onSelectDirectory={handleSelectDirectory}
           showStoryDirectories={showStoryDirectories}
           directoriesBySource={directoriesBySource}
           onSelectStory={handleSelectStory}
@@ -631,9 +708,9 @@ const GrimmMarchenApp = () => {
           filteredStories={filteredStories}
           sources={sources}
           storiesBySource={storiesBySource}
-          onOpenProfile={() => setProfileOpen(true)}
+          onOpenProfile={handleOpenProfile}
           profileOpen={profileOpen}
-          onCloseProfile={() => setProfileOpen(false)}
+          onCloseProfile={goBack}
           onCloseApp={handleCloseApp}
           simplifiedUi={showSimplifiedUi}
         />
@@ -657,21 +734,21 @@ const GrimmMarchenApp = () => {
         <main className="flex-1 flex flex-col overflow-hidden w-full">
           {personasDocsOpen ? (
             <PersonasDocsView
-              onBack={() => { setPersonasDocsOpen(false); setProfileOpen(true); }}
+              onBack={goBack}
             />
           ) : docsOpen ? (
             <FeatureDocs
               darkMode={darkMode}
               initialAnchor={docsAnchor}
-              onBack={() => { setDocsOpen(false); setProfileOpen(true); }}
+              onBack={goBack}
               featureState={Object.fromEntries(FEATURES.map(({ key }) => [key, _o(key, _rawFlagValues[key] ?? false)]))}
               onToggle={(key) => setUserFeatureOverrides(prev => ({ ...prev, [key]: !_o(key, _rawFlagValues[key] ?? false) }))}
             />
           ) : profileOpen ? (
             <ProfilePanel
-              onBack={() => setProfileOpen(false)}
-              onOpenDocs={(anchor) => { setDocsOpen(true); setDocsAnchor(anchor); setProfileOpen(false); }}
-              onOpenPersonasDocs={() => { setPersonasDocsOpen(true); setProfileOpen(false); }}
+              onBack={goBack}
+              onOpenDocs={handleOpenDocs}
+              onOpenPersonasDocs={handleOpenPersonasDocs}
               favorites={favorites}
               completedStories={completedStories}
               totalStories={stories.length}
@@ -715,7 +792,16 @@ const GrimmMarchenApp = () => {
               isFlashing={isFlashing}
               srWords={srWords}
               speedReaderMode={speedReaderMode}
-              onSetSpeedReaderMode={setSpeedReaderMode}
+              onSetSpeedReaderMode={(update) => {
+                const next = typeof update === 'function' ? update(speedReaderMode) : update;
+                if (next === speedReaderMode) return;
+                if (next) {
+                  pushBreadcrumb(() => setSpeedReaderMode(false));
+                  setSpeedReaderMode(true);
+                } else {
+                  goBack();
+                }
+              }}
               onGoToPage={goToPage}
               showEinkFlash={showEinkFlash}
               showTapZones={showTapZones}
@@ -754,7 +840,7 @@ const GrimmMarchenApp = () => {
               favorites={favorites}
               onShare={() => handleShare(selectedStory)}
               onToggleFavorite={() => toggleFavoriteById(selectedStory.id)}
-              onClose={() => setSelectedStory(null)}
+              onClose={goBack}
               srFontSizeMin={SPEED_READER_FONT_SIZE.min}
               srFontSizeMax={SPEED_READER_FONT_SIZE.max}
               srFontSizeStep={SPEED_READER_FONT_SIZE.step}
@@ -803,7 +889,7 @@ const GrimmMarchenApp = () => {
           overlay is open so the reader view isn't cluttered. */}
       {!profileOpen && !docsOpen && !personasDocsOpen && !menuOpen && (
         <button
-          onClick={() => setProfileOpen(true)}
+          onClick={handleOpenProfile}
           data-testid="profile-fab"
           aria-label="Mein Profil"
           className={`lg:hidden fixed bottom-5 right-5 z-20 w-14 h-14 rounded-full shadow-lg flex items-center justify-center transition-all active:scale-95 ${
@@ -817,6 +903,11 @@ const GrimmMarchenApp = () => {
       )}
     </div>
 
+    <LeaveAppDialog
+      open={leavePromptOpen}
+      onConfirm={confirmLeave}
+      onCancel={cancelLeave}
+    />
     {showDebugBadges && <DebugOverlay flagValues={_rawFlagValues} />}
     </ThemeContext.Provider>
   );

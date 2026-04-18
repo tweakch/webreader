@@ -1,4 +1,4 @@
-import { ChevronLeft, ChevronRight, ClockFading } from 'lucide-react';
+import { ChevronLeft, ChevronRight, ClockFading, Play, Pause, Square } from 'lucide-react';
 import { useTheme } from '../ui/ThemeContext';
 
 /**
@@ -18,11 +18,22 @@ export default function NavBar({
   typoPanelOpen,
   onToggleTypoPanel,
   srWordCount,
+  showTextToSpeech,
+  ttsSupported,
+  ttsPlaying,
+  ttsPaused,
+  onToggleTts,
+  onStopTts,
+  simplifiedUi,
 }) {
   const { dark: darkMode, hc: highContrast } = useTheme();
 
+  const navHeight = simplifiedUi ? 'h-16' : 'h-12';
+  const btnIconSize = simplifiedUi ? 24 : 18;
+  const ttsBtnBase = simplifiedUi ? 'w-12 h-12' : 'w-9 h-9';
+
   return (
-    <div data-testid="nav-bar" className={`flex-shrink-0 h-12 flex items-center justify-between px-6 backdrop-blur-sm border-t transition-colors ${
+    <div data-testid="nav-bar" className={`flex-shrink-0 ${navHeight} flex items-center justify-between px-6 backdrop-blur-sm border-t transition-colors ${
       highContrast
         ? (darkMode ? 'bg-black border-white/40 text-white' : 'bg-white border-black/30 text-gray-900')
         : darkMode
@@ -33,11 +44,11 @@ export default function NavBar({
         data-testid="prev-page"
         onClick={onPrev}
         disabled={currentPage === 0 || speedReaderMode}
-        className={`p-1 rounded transition-colors disabled:opacity-30 ${
+        className={`${simplifiedUi ? 'p-2.5' : 'p-1'} rounded transition-colors disabled:opacity-30 ${
           darkMode ? 'hover:bg-slate-700' : 'hover:bg-amber-100'
         }`}
       >
-        <ChevronLeft size={20} />
+        <ChevronLeft size={simplifiedUi ? 28 : 20} />
       </button>
 
       <button
@@ -66,12 +77,47 @@ export default function NavBar({
       </button>
 
       <div className="flex items-center gap-1">
+        {showTextToSpeech && ttsSupported && (
+          <>
+            <button
+              data-testid="tts-toggle"
+              onClick={onToggleTts}
+              disabled={speedReaderMode}
+              title={ttsPlaying && !ttsPaused ? 'Pause' : 'Vorlesen'}
+              className={`flex items-center justify-center ${ttsBtnBase} rounded-xl transition-colors disabled:opacity-30 ${
+                ttsPlaying && !ttsPaused
+                  ? highContrast
+                    ? (darkMode ? 'bg-white text-black' : 'bg-black text-white')
+                    : darkMode ? 'bg-amber-500/30 text-amber-300' : 'bg-amber-100 text-amber-700'
+                  : highContrast
+                    ? (darkMode ? 'text-white/60' : 'text-gray-500')
+                    : darkMode ? 'bg-slate-700/60 text-amber-700' : 'bg-amber-50/80 text-amber-400'
+              }`}
+            >
+              {ttsPlaying && !ttsPaused ? <Pause size={btnIconSize} /> : <Play size={btnIconSize} />}
+            </button>
+            {ttsPlaying && (
+              <button
+                data-testid="tts-stop"
+                onClick={onStopTts}
+                title="Vorlesen stoppen"
+                className={`flex items-center justify-center ${ttsBtnBase} rounded-xl transition-colors ${
+                  highContrast
+                    ? (darkMode ? 'text-white/60' : 'text-gray-500')
+                    : darkMode ? 'bg-slate-700/60 text-amber-700' : 'bg-amber-50/80 text-amber-400'
+                }`}
+              >
+                <Square size={btnIconSize - 4} />
+              </button>
+            )}
+          </>
+        )}
         {showSpeedReader && (
           <button
             data-testid="speed-reader-toggle"
             onClick={onToggleSpeedReader}
             title={speedReaderMode ? 'Normaler Lesebereich' : 'Schnellleser'}
-            className={`flex items-center justify-center w-9 h-9 rounded-xl transition-colors ${
+            className={`flex items-center justify-center ${ttsBtnBase} rounded-xl transition-colors ${
               speedReaderMode
                 ? highContrast
                   ? (darkMode ? 'bg-white text-black' : 'bg-black text-white')
@@ -81,18 +127,18 @@ export default function NavBar({
                   : darkMode ? 'bg-slate-700/60 text-amber-700' : 'bg-amber-50/80 text-amber-400'
             }`}
           >
-            <ClockFading size={18} />
+            <ClockFading size={btnIconSize} />
           </button>
         )}
         <button
           data-testid="next-page"
           onClick={onNext}
           disabled={currentPage >= totalPages - 1 || speedReaderMode}
-          className={`p-1 rounded transition-colors disabled:opacity-30 ${
+          className={`${simplifiedUi ? 'p-2.5' : 'p-1'} rounded transition-colors disabled:opacity-30 ${
             darkMode ? 'hover:bg-slate-700' : 'hover:bg-amber-100'
           }`}
         >
-          <ChevronRight size={20} />
+          <ChevronRight size={simplifiedUi ? 28 : 20} />
         </button>
       </div>
     </div>

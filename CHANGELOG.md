@@ -10,6 +10,22 @@ Release populated from the matching section below.
 
 ## [Unreleased]
 
+### Added
+- **Senior-targeted features**: two new feature flags, both default `off`.
+  - `text-to-speech`: Web Speech API narration for any story. Adds
+    play/pause/stop buttons to the NavBar, auto-advances pages when a page
+    finishes speaking, and exposes rate (0.7×–1.5×) and voice pickers in the
+    typography panel. New `useTextToSpeech` hook persists voice + rate to
+    `localStorage` (`wr-tts-voice`, `wr-tts-rate`).
+  - `simplified-ui`: enlarges tap targets in the NavBar, sidebar, story list,
+    source list, directory list, and the profile shortcut button; hides
+    experimental/debug toggles in the profile panel so seniors see only
+    relevant features.
+- `data-testid` hooks for the new controls: `tts-toggle`, `tts-stop`,
+  `tts-rate-*`, `tts-voice-select`.
+- Unit tests: `useTextToSpeech.test.jsx` and new cases in
+  `useFeatureFlags.test.jsx` covering the two senior flags.
+
 ## [0.1.1] - 2026-04-18
 ### Fixed
 - `useFeatureFlags`: restore `maxFontSize` mapping to `{off:28, big:28,

@@ -39,15 +39,28 @@ export default function ProfilePanel({
   showAbTesting,
   showAbTestingAdmin,
   ab,
+  simplifiedUi = false,
 }) {
+  // In simplified-ui mode, hide experimental/debug features from the toggle list
+  // to keep the profile uncluttered for seniors. `simplified-ui` itself always
+  // remains visible so it can be turned back off.
+  const SIMPLIFIED_HIDDEN = new Set([
+    'debug-badges', 'error-page-simulator', 'ab-testing', 'ab-testing-admin',
+    'app-animation', 'word-blacklist', 'speed-reader', 'speedreader-orp',
+    'subscriber-fonts', 'story-directories', 'deep-search', 'pinch-font-size',
+    'read-along', 'illustrations', 'child-profile', 'story-quiz',
+  ]);
   const { dark, hc, tc } = useTheme();
 
   const _o = (key, raw) => Object.hasOwn(userFeatureOverrides, key) ? userFeatureOverrides[key] : raw;
 
   // Admin sees all features; others see only role-assigned features
-  const visibleFeatures = isAdmin
+  let visibleFeatures = isAdmin
     ? features
     : features.filter((f) => visibleFeatureKeys.has(f.key));
+  if (simplifiedUi && !isAdmin) {
+    visibleFeatures = visibleFeatures.filter((f) => !SIMPLIFIED_HIDDEN.has(f.key));
+  }
 
   const nonAdminRoles = ROLES.filter((r) => r !== 'admin');
 

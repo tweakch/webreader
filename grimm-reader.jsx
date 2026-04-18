@@ -8,6 +8,7 @@ import { useReader } from './hooks/useReader';
 import FeatureDocs from './FeatureDocs';
 import { useRole } from './hooks/useRole';
 import { useABTesting } from './hooks/useABTesting';
+import { useTextToSpeech } from './hooks/useTextToSpeech';
 import { ThemeContext } from './ui/ThemeContext';
 import Toggle from './ui/Toggle';
 import IconButton from './ui/IconButton';
@@ -41,6 +42,7 @@ const GrimmMarchenApp = () => {
     showWordCount, showReadingDuration, showFontSizeControls, showPinchFontSize, showEinkFlash,
     showTapZones, showTapMiddleToggle, showAdaptionSwitcher, showTypographyPanel, showAttribution,
     showFavorites, showFavoritesOnlyToggle, showAudioPlayer, showHighContrastTheme,
+    showSimplifiedUi, showTextToSpeech,
     showSpeedReader, showSpeedreaderOrp, showWordBlacklist, showDeepSearch, showStoryDirectories, showDebugBadges, showSubscriberFonts, showErrorPageSimulator, showAppAnimation,
     showAbTesting, showAbTestingAdmin,
     _rawFlagValues,
@@ -312,6 +314,71 @@ const GrimmMarchenApp = () => {
     pendingResumePageRef,
   });
 
+  // Text-to-speech - reads the current page aloud and auto-advances.
+  const tts = useTextToSpeech({ enabled: showTextToSpeech });
+  const {
+    supported: ttsSupported, voices: ttsVoices, voiceURI: ttsVoiceURI, setVoiceURI: setTtsVoiceURI,
+    rateIdx: ttsRateIdx, setRateIdx: setTtsRateIdx,
+    playing: ttsPlaying, paused: ttsPaused,
+    speak: ttsSpeak, pause: ttsPause, resume: ttsResume, stop: ttsStop,
+  } = tts;
+
+  const pageText = React.useMemo(() => {
+    const page = pages[currentPage];
+    if (!page) return '';
+    const text = page.tokens.map(t => t.word).join(' ');
+    if (page.hasTitle && selectedStory) {
+      const title = selectedVariant?.title ?? selectedStory.title;
+      return `${title}. ${text}`;
+    }
+    return text;
+  }, [pages, currentPage, selectedStory, selectedVariant]);
+
+  // Continuous read-session flag: true while the user wants TTS to keep
+  // auto-advancing page by page. Cleared on pause, stop, or last-page finish.
+  const ttsSessionRef = useRef(false);
+
+  const speakCurrentPage = useCallback(() => {
+    if (!pageText) return;
+    const isLast = currentPage >= totalPages - 1;
+    ttsSpeak(pageText, {
+      onFinish: () => {
+        if (!ttsSessionRef.current) return;
+        if (isLast) { ttsSessionRef.current = false; return; }
+        goToPage(currentPage + 1);
+      },
+    });
+  }, [pageText, currentPage, totalPages, ttsSpeak, goToPage]);
+
+  const handleToggleTts = useCallback(() => {
+    if (!ttsSupported) return;
+    if (ttsPlaying && !ttsPaused) { ttsSessionRef.current = false; ttsPause(); return; }
+    if (ttsPlaying && ttsPaused) { ttsSessionRef.current = true; ttsResume(); return; }
+    ttsSessionRef.current = true;
+    speakCurrentPage();
+  }, [ttsSupported, ttsPlaying, ttsPaused, ttsPause, ttsResume, speakCurrentPage]);
+
+  const handleStopTts = useCallback(() => {
+    ttsSessionRef.current = false;
+    ttsStop();
+  }, [ttsStop]);
+
+  // When the page changes during an active read-session (auto-advance), speak the new page.
+  const prevPageRef = useRef(currentPage);
+  useEffect(() => {
+    if (prevPageRef.current === currentPage) return;
+    prevPageRef.current = currentPage;
+    if (ttsSessionRef.current) speakCurrentPage();
+  }, [currentPage, speakCurrentPage]);
+
+  // Stop TTS when leaving the story or entering speed-reader mode.
+  useEffect(() => {
+    if (!selectedStory || speedReaderMode) {
+      ttsSessionRef.current = false;
+      ttsStop();
+    }
+  }, [selectedStory, speedReaderMode, ttsStop]);
+
   // Effects extracted from usePersistence that depend on reader state
   // (currentPage/totalPages come from useReader above, so they must live here).
   useEffect(() => {
@@ -568,6 +635,7 @@ const GrimmMarchenApp = () => {
           profileOpen={profileOpen}
           onCloseProfile={() => setProfileOpen(false)}
           onCloseApp={handleCloseApp}
+          simplifiedUi={showSimplifiedUi}
         />
           );
         })()}
@@ -627,6 +695,7 @@ const GrimmMarchenApp = () => {
               showAbTesting={showAbTesting}
               showAbTestingAdmin={showAbTestingAdmin}
               ab={ab}
+              simplifiedUi={showSimplifiedUi}
               onSimulateError={(type) => {
                 if (type === 'not-found') {
                   window.location.assign('/does-not-exist');
@@ -690,6 +759,18 @@ const GrimmMarchenApp = () => {
               srFontSizeMax={SPEED_READER_FONT_SIZE.max}
               srFontSizeStep={SPEED_READER_FONT_SIZE.step}
               srFontSizeDefault={SPEED_READER_FONT_SIZE.defaultValue}
+              showTextToSpeech={showTextToSpeech}
+              ttsSupported={ttsSupported}
+              ttsPlaying={ttsPlaying}
+              ttsPaused={ttsPaused}
+              ttsVoices={ttsVoices}
+              ttsVoiceURI={ttsVoiceURI}
+              onTtsVoiceChange={setTtsVoiceURI}
+              ttsRateIdx={ttsRateIdx}
+              onTtsRateChange={setTtsRateIdx}
+              onToggleTts={handleToggleTts}
+              onStopTts={handleStopTts}
+              simplifiedUi={showSimplifiedUi}
             />
           ) : isStoryLoading ? (
             <div className={`h-full w-full grid place-items-center ${darkMode ? 'text-amber-200' : 'text-amber-900'}`}>

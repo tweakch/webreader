@@ -70,6 +70,9 @@ Speed reader (visible when `speed-reader` flag is on):
 ORP speed reader (visible when `speedreader-orp` flag is on and speed reader mode is active):
 `orp-panel-toggle` (gear button in RSVP controls row), `orp-preview` (live preview in panel), `orp-method-second-letter`, `orp-method-center`, `orp-method-fixed-index` (ORP method buttons), `orp-letter-index-input` (fixed index number input), `orp-highlight-toggle`, `orp-color-input` (letter highlight controls), `orp-bars-toggle`, `orp-bar-length` (guide bars controls), `orp-marker-toggle`, `orp-fixation-x`, `orp-fixation-y` (fixation point sliders)
 
+Text-to-speech (visible when `text-to-speech` flag is on):
+`tts-toggle` (nav-bar play/pause), `tts-stop` (shown only while playing), `tts-rate-*` (rate buttons in typography panel, 0-based index), `tts-voice-select` (voice dropdown in typography panel)
+
 ### Tailwind
 
 Using Tailwind v4 with `@tailwindcss/postcss`. The CSS entry point uses `@import "tailwindcss"` and `@config "./tailwind.config.js"` (required in v4 to load a config file). Dark mode is implemented via conditional class strings — not the `dark:` variant.

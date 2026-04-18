@@ -1,5 +1,6 @@
 import { cn } from './cn';
 import { useTheme } from './ThemeContext';
+import { TTS_RATES } from '../hooks/useTextToSpeech';
 
 export const LINE_HEIGHTS  = [1.5, 1.8, 2.2];
 export const WORD_SPACINGS = ['normal', '0.06em', '0.15em'];
@@ -50,6 +51,13 @@ export default function TypographyPanel({
   wordSpacingIdx,   onWordSpacingChange,
   fontFamilyIdx,    onFontFamilyChange,
   subscriberFonts = false,
+  showTextToSpeech = false,
+  ttsSupported = false,
+  ttsVoices = [],
+  ttsVoiceURI = '',
+  onTtsVoiceChange,
+  ttsRateIdx = 2,
+  onTtsRateChange,
   className = '',
 }) {
   const { tc } = useTheme();
@@ -174,6 +182,50 @@ export default function TypographyPanel({
             ))}
           </div>
         </div>
+      )}
+
+      {showTextToSpeech && ttsSupported && (
+        <>
+          <div className="flex items-center gap-3 py-1">
+            <span className={labelCls}>Lesetempo</span>
+            <div className="flex gap-1.5">
+              {TTS_RATES.map((r, i) => (
+                <button
+                  key={i}
+                  data-testid={`tts-rate-${i}`}
+                  onClick={() => onTtsRateChange?.(i)}
+                  className={cn('w-10 h-8 flex items-center justify-center rounded-lg transition-colors text-xs tabular-nums', ttsRateIdx === i ? activeBtnCls : inactiveBtnCls)}
+                >
+                  {r.toFixed(r === 1 ? 0 : 2).replace(/\.?0+$/, '')}×
+                </button>
+              ))}
+            </div>
+          </div>
+          {ttsVoices.length > 0 && (
+            <div className="flex items-center gap-3 py-1">
+              <span className={labelCls}>Stimme</span>
+              <select
+                data-testid="tts-voice-select"
+                value={ttsVoiceURI}
+                onChange={(e) => onTtsVoiceChange?.(e.target.value)}
+                className={cn(
+                  'flex-1 min-w-0 text-sm rounded-lg px-2 py-1 border transition-colors',
+                  tc({
+                    light:   'bg-white border-amber-200 text-amber-900',
+                    dark:    'bg-slate-800 border-amber-700/40 text-amber-100',
+                    hcLight: 'bg-white border-black/40 text-gray-900',
+                    hcDark:  'bg-black border-white/40 text-white',
+                  })
+                )}
+              >
+                <option value="">Standard</option>
+                {ttsVoices.map(v => (
+                  <option key={v.voiceURI} value={v.voiceURI}>{v.name} ({v.lang})</option>
+                ))}
+              </select>
+            </div>
+          )}
+        </>
       )}
     </div>
   );

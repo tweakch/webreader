@@ -41,6 +41,7 @@ export default function Sidebar({
   profileOpen,
   onCloseProfile,
   onCloseApp,
+  simplifiedUi = false,
 }) {
   const { dark: darkMode } = useTheme();
 
@@ -132,6 +133,7 @@ export default function Sidebar({
                 testId="story-button"
                 onClick={() => { onSelectStory(story); onMenuToggle(); if (profileOpen) onCloseProfile(); }}
                 onFavoriteClick={(e) => onToggleFavorite(story.id, e)}
+                simplifiedUi={simplifiedUi}
               />
             ))}
           </div>
@@ -156,6 +158,7 @@ export default function Sidebar({
                 inlineBadges
                 onClick={() => { onSelectStory(story); onMenuToggle(); if (profileOpen) onCloseProfile(); }}
                 onFavoriteClick={(e) => onToggleFavorite(story.id, e)}
+                simplifiedUi={simplifiedUi}
               />
             ))}
           </div>
@@ -197,6 +200,7 @@ export default function Sidebar({
                     testId="story-button"
                     onClick={() => { onSelectStory(story); onMenuToggle(); if (profileOpen) onCloseProfile(); }}
                     onFavoriteClick={(e) => onToggleFavorite(story.id, e)}
+                    simplifiedUi={simplifiedUi}
                   />
                 ))}
             </div>
@@ -230,13 +234,13 @@ export default function Sidebar({
                   key={dir.id}
                   data-testid="directory-button"
                   onClick={() => onSelectDirectory(dir.id)}
-                  className={`w-full flex items-center justify-between px-3 py-2.5 rounded-lg transition-all ${
+                  className={`w-full flex items-center justify-between ${simplifiedUi ? 'px-4 py-4' : 'px-3 py-2.5'} rounded-lg transition-all ${
                     darkMode
                       ? 'text-amber-100 hover:bg-slate-800'
                       : 'text-amber-900 hover:bg-amber-100'
                   }`}
                 >
-                  <span className="font-serif text-base">{dir.label}</span>
+                  <span className={`font-serif ${simplifiedUi ? 'text-lg' : 'text-base'}`}>{dir.label}</span>
                   <span className={`text-xs tabular-nums mr-1 ${
                     darkMode ? 'text-amber-400' : 'text-amber-700'
                   }`}>
@@ -283,6 +287,7 @@ export default function Sidebar({
                   testId="story-button"
                   onClick={() => { onSelectStory(story); onMenuToggle(); if (profileOpen) onCloseProfile(); }}
                   onFavoriteClick={(e) => onToggleFavorite(story.id, e)}
+                  simplifiedUi={simplifiedUi}
                 />
               ))}
             </div>
@@ -291,7 +296,7 @@ export default function Sidebar({
           /* Source list */
           <div className="px-3 pb-4 space-y-2">
             {sources.map(src => (
-              <SourceButton key={src.id} src={src} onClick={() => onSelectSource(src.id)} />
+              <SourceButton key={src.id} src={src} onClick={() => onSelectSource(src.id)} simplifiedUi={simplifiedUi} />
             ))}
           </div>
         )}
@@ -303,21 +308,21 @@ export default function Sidebar({
       }`}>
         <button
           onClick={() => { onOpenProfile(); onMenuToggle(); }}
-          className={`w-full flex items-center gap-3 px-4 py-3.5 transition-colors ${
+          className={`w-full flex items-center gap-3 ${simplifiedUi ? 'px-5 py-5' : 'px-4 py-3.5'} transition-colors ${
             profileOpen
               ? darkMode ? 'bg-amber-700/20 text-amber-200' : 'bg-amber-100 text-amber-900'
               : darkMode ? 'text-amber-400 hover:bg-slate-800 hover:text-amber-200' : 'text-amber-700 hover:bg-amber-50 hover:text-amber-900'
           }`}
         >
-          <div className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center ${
+          <div className={`flex-shrink-0 ${simplifiedUi ? 'w-10 h-10' : 'w-8 h-8'} rounded-full flex items-center justify-center ${
             darkMode ? 'bg-slate-700' : 'bg-amber-100'
           }`}>
-            <User size={16} />
+            <User size={simplifiedUi ? 20 : 16} />
           </div>
           <div className="flex-1 min-w-0 text-left">
-            <p className="text-sm font-medium truncate">Mein Profil</p>
+            <p className={`font-medium truncate ${simplifiedUi ? 'text-base' : 'text-sm'}`}>Mein Profil</p>
           </div>
-          <ChevronRight size={14} className="flex-shrink-0 opacity-50" />
+          <ChevronRight size={simplifiedUi ? 18 : 14} className="flex-shrink-0 opacity-50" />
         </button>
         <button
           data-testid="close-app-button"

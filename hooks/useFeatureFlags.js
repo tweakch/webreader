@@ -21,6 +21,8 @@ export function useFeatureFlags() {
   const _rawFavoritesOnlyToggle = useBooleanFlagValue('favorites-only-toggle', false);
   const _rawAudioPlayer = useBooleanFlagValue('audio-player', false);
   const _rawHighContrastTheme = useBooleanFlagValue('high-contrast-theme', false);
+  const _rawSimplifiedUi = useBooleanFlagValue('simplified-ui', false);
+  const _rawTextToSpeech = useBooleanFlagValue('text-to-speech', false);
   const _rawSpeedReader = useBooleanFlagValue('speed-reader', false);
   const _rawSpeedreaderOrp = useBooleanFlagValue('speedreader-orp', false);
   const _rawWordBlacklist = useBooleanFlagValue('word-blacklist', false);
@@ -60,6 +62,8 @@ export function useFeatureFlags() {
   const showFavoritesOnlyToggle = _o('favorites-only-toggle', _rawFavoritesOnlyToggle);
   const showAudioPlayer = _o('audio-player', _rawAudioPlayer);
   const showHighContrastTheme = _o('high-contrast-theme', _rawHighContrastTheme);
+  const showSimplifiedUi = _o('simplified-ui', _rawSimplifiedUi);
+  const showTextToSpeech = _o('text-to-speech', _rawTextToSpeech);
   const showSpeedReader = _o('speed-reader', _rawSpeedReader);
   const showSpeedreaderOrp = _o('speedreader-orp', _rawSpeedreaderOrp);
   const showWordBlacklist = _o('word-blacklist', _rawWordBlacklist);
@@ -88,6 +92,8 @@ export function useFeatureFlags() {
     'favorites-only-toggle': _rawFavoritesOnlyToggle,
     'audio-player': _rawAudioPlayer,
     'high-contrast-theme': _rawHighContrastTheme,
+    'simplified-ui': _rawSimplifiedUi,
+    'text-to-speech': _rawTextToSpeech,
     'speed-reader': _rawSpeedReader,
     'speedreader-orp': _rawSpeedreaderOrp,
     'word-blacklist': _rawWordBlacklist,
@@ -121,6 +127,8 @@ export function useFeatureFlags() {
     showFavoritesOnlyToggle,
     showAudioPlayer,
     showHighContrastTheme,
+    showSimplifiedUi,
+    showTextToSpeech,
     showSpeedReader,
     showSpeedreaderOrp,
     showWordBlacklist,

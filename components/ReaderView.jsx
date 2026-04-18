@@ -67,6 +67,18 @@ export default function ReaderView({
   srFontSizeMax,
   srFontSizeStep,
   srFontSizeDefault,
+  showTextToSpeech,
+  ttsSupported,
+  ttsPlaying,
+  ttsPaused,
+  ttsVoiceURI,
+  onTtsVoiceChange,
+  ttsVoices,
+  ttsRateIdx,
+  onTtsRateChange,
+  onToggleTts,
+  onStopTts,
+  simplifiedUi,
 }) {
   const isLastPage = currentPage === totalPages - 1;
 
@@ -169,6 +181,13 @@ export default function ReaderView({
           fontFamilyIdx={fontFamilyIdx}
           onFontFamilyChange={onFontFamilyChange}
           subscriberFonts={subscriberFonts}
+          showTextToSpeech={showTextToSpeech}
+          ttsSupported={ttsSupported}
+          ttsVoices={ttsVoices}
+          ttsVoiceURI={ttsVoiceURI}
+          onTtsVoiceChange={onTtsVoiceChange}
+          ttsRateIdx={ttsRateIdx}
+          onTtsRateChange={onTtsRateChange}
         />
       )}
 
@@ -195,6 +214,13 @@ export default function ReaderView({
           typoPanelOpen={typoPanelOpen}
           onToggleTypoPanel={onToggleTypoPanel}
           srWordCount={srWords.length}
+          showTextToSpeech={showTextToSpeech}
+          ttsSupported={ttsSupported}
+          ttsPlaying={ttsPlaying}
+          ttsPaused={ttsPaused}
+          onToggleTts={onToggleTts}
+          onStopTts={onStopTts}
+          simplifiedUi={simplifiedUi}
         />
       )}
     </>

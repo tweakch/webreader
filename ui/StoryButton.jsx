@@ -34,6 +34,7 @@ export default function StoryButton({
   onFavoriteClick,
   testId,
   className = '',
+  simplifiedUi = false,
 }) {
   const { tc } = useTheme();
 
@@ -82,7 +83,8 @@ export default function StoryButton({
         data-testid={testId}
         onClick={onClick}
         className={cn(
-          'flex-1 min-w-0 text-left px-3 py-2.5 rounded-lg transition-all',
+          'flex-1 min-w-0 text-left rounded-lg transition-all',
+          simplifiedUi ? 'px-4 py-4' : 'px-3 py-2.5',
           isActive
             ? tc({
                 light:   'bg-amber-200 text-amber-900',
@@ -98,7 +100,7 @@ export default function StoryButton({
               })
         )}
       >
-        <span className={`font-serif text-base${inlineBadges ? ' leading-snug' : ' line-clamp-2 block'}`}>
+        <span className={`font-serif ${simplifiedUi ? 'text-lg' : 'text-base'}${inlineBadges ? ' leading-snug' : ' line-clamp-2 block'}`}>
           {story.title}
         </span>
         {inlineBadges ? badges : hasBadgeRow && (
@@ -110,7 +112,8 @@ export default function StoryButton({
         <button
           onClick={onFavoriteClick}
           className={cn(
-            'flex-shrink-0 p-1.5 rounded-lg transition-colors',
+            'flex-shrink-0 rounded-lg transition-colors',
+            simplifiedUi ? 'p-3' : 'p-1.5',
             heartFilled
               ? tc({
                   light:   'text-amber-600 hover:bg-amber-100',
@@ -126,7 +129,7 @@ export default function StoryButton({
                 })
           )}
         >
-          <Heart size={14} fill={heartFilled ? 'currentColor' : 'none'} />
+          <Heart size={simplifiedUi ? 20 : 14} fill={heartFilled ? 'currentColor' : 'none'} />
         </button>
       )}
     </div>

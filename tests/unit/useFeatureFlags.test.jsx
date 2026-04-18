@@ -30,6 +30,8 @@ const boolDefaults = {
   'deep-search': false,
   'story-directories': false,
   'debug-badges': false,
+  'simplified-ui': false,
+  'text-to-speech': false,
 };
 
 describe('useFeatureFlags', () => {
@@ -46,6 +48,22 @@ describe('useFeatureFlags', () => {
     const { result } = renderHook(() => useFeatureFlags());
     expect(result.current.showFontSizeControls).toBe(true);
     expect(result.current.showFavorites).toBe(false);
+  });
+
+  it('exposes senior-targeted flags (simplified-ui, text-to-speech)', () => {
+    const { result } = renderHook(() => useFeatureFlags());
+    expect(result.current.showSimplifiedUi).toBe(false);
+    expect(result.current.showTextToSpeech).toBe(false);
+  });
+
+  it('honours overrides for senior-targeted flags', () => {
+    localStorage.setItem('wr-feature-overrides', JSON.stringify({
+      'simplified-ui': true,
+      'text-to-speech': true,
+    }));
+    const { result } = renderHook(() => useFeatureFlags());
+    expect(result.current.showSimplifiedUi).toBe(true);
+    expect(result.current.showTextToSpeech).toBe(true);
   });
 
   it('applies user overrides over raw flag values', () => {

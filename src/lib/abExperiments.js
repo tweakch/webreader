@@ -74,6 +74,17 @@ export const AB_EXPERIMENTS = [
     ],
   },
   {
+    id: 'profile-layout',
+    label: 'Profil-Layout',
+    description: 'Gruppierte, ausklappbare Sektionen im Profil vs. heutige flache Liste.',
+    defaultVariant: 'flat',
+    variants: [
+      { id: 'flat',     label: 'Heute (flach)',       description: 'Alle Bloecke untereinander, keine Ausklappen.' },
+      { id: 'grouped',  label: 'Gruppiert',           description: 'Abschnitte sind ausklappbar und standardmaessig offen.' },
+      { id: 'role-opt', label: 'Rollen-optimiert',    description: 'Abschnitte sind ausklappbar, pro Rolle sind andere Abschnitte standardmaessig offen.' },
+    ],
+  },
+  {
     id: 'hero-pitch',
     label: 'Hero-Pitch',
     description: 'Welche Positionierung spricht welche Persona am staerksten an?',
@@ -111,6 +122,10 @@ export const AB_DEFAULT_CONFIG = {
   'hero-pitch': {
     active: false,
     allowedRoles: ['sales', 'tester', 'admin'],
+  },
+  'profile-layout': {
+    active: true,
+    allowedRoles: ['guest', 'subscriber', 'tester', 'sales', 'admin'],
   },
 };
 

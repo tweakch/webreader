@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect, useCallback } from 'react';
-import { Menu, X, Plus, Minus } from 'lucide-react';
+import { Menu, X, Plus, Minus, User } from 'lucide-react';
 import { FEATURES } from './features';
 import { useFeatureFlags } from './hooks/useFeatureFlags';
 import { useTypography } from './hooks/useTypography';
@@ -717,6 +717,23 @@ const GrimmMarchenApp = () => {
           )}
         </main>
       </div>
+
+      {/* Thumb-reachable profile FAB — mobile/tablet only, hidden while any
+          overlay is open so the reader view isn't cluttered. */}
+      {!profileOpen && !docsOpen && !personasDocsOpen && !menuOpen && (
+        <button
+          onClick={() => setProfileOpen(true)}
+          data-testid="profile-fab"
+          aria-label="Mein Profil"
+          className={`lg:hidden fixed bottom-5 right-5 z-20 w-14 h-14 rounded-full shadow-lg flex items-center justify-center transition-all active:scale-95 ${
+            darkMode
+              ? 'bg-amber-700 text-white hover:bg-amber-600'
+              : 'bg-amber-900 text-white hover:bg-amber-800'
+          }`}
+        >
+          <User size={22} />
+        </button>
+      )}
     </div>
 
     {showDebugBadges && <DebugOverlay />}

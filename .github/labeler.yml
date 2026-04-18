@@ -1,0 +1,57 @@
+# Path → label mapping for actions/labeler.
+# Labels must exist in the repo before the action can apply them.
+
+"area:ui":
+  - changed-files:
+      - any-glob-to-any-file:
+          - components/**
+          - ui/**
+          - "*.jsx"
+          - "*.css"
+
+"area:hooks":
+  - changed-files:
+      - any-glob-to-any-file:
+          - hooks/**
+
+"area:flags":
+  - changed-files:
+      - any-glob-to-any-file:
+          - flags.json
+          - features.jsx
+          - hooks/useFeatureFlags.js
+          - src/lib/initFeatureFlags.js
+
+"area:crawler":
+  - changed-files:
+      - any-glob-to-any-file:
+          - crawlers/**
+
+"area:tests":
+  - changed-files:
+      - any-glob-to-any-file:
+          - tests/**
+          - "**/*.spec.js"
+          - playwright.config.*
+
+"area:ci":
+  - changed-files:
+      - any-glob-to-any-file:
+          - .github/**
+
+"area:docs":
+  - changed-files:
+      - any-glob-to-any-file:
+          - docs/**
+          - "*.md"
+
+"content":
+  - changed-files:
+      - any-glob-to-any-file:
+          - stories/**
+
+"deps":
+  - changed-files:
+      - any-glob-to-any-file:
+          - package.json
+          - package-lock.json

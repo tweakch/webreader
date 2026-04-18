@@ -10,6 +10,12 @@ Release populated from the matching section below.
 
 ## [Unreleased]
 
+## [0.1.1] - 2026-04-18
+### Fixed
+- `useFeatureFlags`: restore `maxFontSize` mapping to `{off:28, big:28,
+  bigger:34, biggest:40}` so the unit-test contract for the `big-fonts`
+  string flag holds ([7092b17](https://github.com/tweakch/webreader/commit/7092b17)).
+
 ## [0.1.0] - 2026-04-18
 
 ### Added
@@ -37,5 +43,6 @@ Release populated from the matching section below.
 - `DebugOverlay` now reads feature flag values and build metadata and persists
   its sub-feature preferences to `localStorage` under `wr-debug-subfeatures`.
 
-[Unreleased]: https://github.com/tweakch/webreader/compare/v0.1.0...HEAD
+[Unreleased]: https://github.com/tweakch/webreader/compare/v0.1.1...HEAD
+[0.1.1]: https://github.com/tweakch/webreader/releases/tag/v0.1.1
 [0.1.0]: https://github.com/tweakch/webreader/releases/tag/v0.1.0

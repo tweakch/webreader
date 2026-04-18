@@ -91,6 +91,22 @@ Expose story content as a platform, not just a product:
 
 ---
 
+## Monetization
+
+Subscription tiers stack on top of the [role matrix](roles.md). See [Subscription Tiers](sales/tiers.md) for the full feature-by-tier breakdown and [User Stories](sales/user-stories.md) for persona × tier conversion stories.
+
+| Tier | Price Anchor | Wedge |
+|---|---|---|
+| **Free** | €0 | Accessibility + canonical reading — ungated. |
+| **Plus** | €2.99 / mo | Stats, variants, directories — "I enjoy this". |
+| **Pro** | €59 / yr | Speed-reader, ORP, deep-search, TTS — "I live in this". |
+| **Family** | €9.99 / mo | Child-profile + Gen-Alpha bundle (up to 5 seats). |
+| **Edu** | €149 / yr / seat | Discussion-questions, parallel-texts, symbol-analysis — B2B wedge. |
+
+Pricing is placeholder — the `pricing-page-layout`, `trial-length`, `paywall-style`, `upgrade-cta-copy`, and `hero-pitch` A/B experiments allow each lever to vary per cohort. The **Sales** role gates demo tooling (`sales-mode`, `conversion-analytics`, `promo-code` generation) so the growth team can demo tiers live without admin risk.
+
+---
+
 ## Competitive Positioning
 
 | Product | Strength | Our Gap |

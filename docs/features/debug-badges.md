@@ -1,6 +1,6 @@
 ---
 id: "debug-badges"
-name: "Debug Badges"
+name: "Debug Overlay"
 type: "app"
 flag_key: "debug-badges"
 lifecycle: "EXPERIMENT"
@@ -14,19 +14,39 @@ parent: null
 children: []
 ---
 
-# Debug Badges
+# Debug Overlay
 
 **Flag:** `debug-badges` · **Lifecycle:** EXPERIMENT · **Default:** off
 **Personas:** [Developers](../personas/08-developers.md)
 
-Overlays each UI element with a badge showing its `data-testid` attribute value.
+Flips on a floating debug console with a set of individually toggleable
+sub-features. The flag gates the whole console; each sub-feature can be
+turned on/off independently and the choices persist in `localStorage` under
+`wr-debug-subfeatures`.
+
+## Sub-features
+
+| Sub-feature | Purpose |
+| --- | --- |
+| Badges | Label every element with a `data-testid` — quick Playwright selector lookup. |
+| FPS | Live requestAnimationFrame-driven FPS meter. |
+| Viewport | Current viewport size and `devicePixelRatio`. |
+| Grid | 8 px baseline grid overlay for layout sanity-checks. |
+| Flags | Live dump of the resolved feature-flag values. |
+| Build | `package.json` version + short git SHA + build timestamp. |
+
+The control panel is opened from the bug icon in the bottom-right corner
+(`debug-panel-toggle`). Clicking a badge still opens the modal with
+`data-testid`, element tag, size, `aria-label`, and `role`.
 
 ## Behavior
 
-- `DebugOverlay` component wraps the app when enabled
-- Every element with a `data-testid` gets a small visible label
-- Helps testers identify the correct selector without inspecting the DOM
-- Useful during Playwright test authoring
+- `DebugOverlay` is rendered once at the root when the flag is on.
+- It reads the same `_rawFlagValues` map the profile uses, so the Flags
+  panel matches what OpenFeature resolved at runtime.
+- Version/commit/build-time come from `__APP_VERSION__`, `__APP_COMMIT__`,
+  `__APP_BUILD_TIME__` injected by Vite at build time. On Vercel the commit
+  SHA comes from `VERCEL_GIT_COMMIT_SHA`.
 
 ## Links
 

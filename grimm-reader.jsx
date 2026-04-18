@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect, useCallback } from 'react';
 import { Menu, X, Plus, Minus, User } from 'lucide-react';
 import { FEATURES } from './features';
 import { useFeatureFlags } from './hooks/useFeatureFlags';
+import { useAppAnimation } from './hooks/useAppAnimation';
 import { useTypography } from './hooks/useTypography';
 import { usePersistence } from './hooks/usePersistence';
 import { useReader } from './hooks/useReader';
@@ -41,6 +42,7 @@ const GrimmMarchenApp = () => {
   const [controlsVisible, setControlsVisible] = useState(true);
   // Feature flags
   const flags = useFeatureFlags();
+  const { variant: appAnimationVariant, setVariant: setAppAnimationVariant } = useAppAnimation();
   const {
     maxFontSize,
     showWordCount, showReadingDuration, showFontSizeControls, showPinchFontSize, showEinkFlash,
@@ -828,6 +830,8 @@ const GrimmMarchenApp = () => {
               showAbTestingAdmin={showAbTestingAdmin}
               ab={ab}
               simplifiedUi={showSimplifiedUi}
+              appAnimationVariant={appAnimationVariant}
+              onSetAppAnimationVariant={setAppAnimationVariant}
               onSimulateError={(type) => {
                 if (type === 'not-found') {
                   window.location.assign('/does-not-exist');

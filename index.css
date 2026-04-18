@@ -21,15 +21,21 @@ body {
 /* ──────────────────────────────────────────────────────────────────────────
    App animation system
    ──────────────────────────────────────────────────────────────────────────
-   Design goals:
-     • 60fps on low-end devices → prefer transform/opacity; avoid clip-path
-       and heavy filters in hot paths.
-     • Snappy by default: enter ≤ 550ms, exit ≤ 350ms, single expressive ease.
-     • Theme-aware: palettes bound to CSS variables resolved per theme class.
-     • Variant system: one `.app-anim-*` class picks the motion style without
-       changing markup or test selectors.
-     • Graceful fallback: prefers-reduced-motion collapses every variant to
-       an instant, non-animated reveal.
+   Every variant expresses the same gesture: a world opening (enter) and a
+   world closing (exit). Shared DNA:
+
+     • Content scales from contained → full on enter, full → contained on exit
+       (opacity + transform only; no layout work).
+     • A variant-specific "reveal layer" (::before pseudo) expands outward on
+       enter and contracts/drops on exit — the boundary between worlds.
+     • Shared enter ease (emphasized decelerate) and exit ease (soft accelerate)
+       so all four variants breathe at the same tempo.
+
+   Variants differ in the character of the reveal layer:
+     seal    → iris / sun portal (vibrant warmth)
+     fade    → rising curtain     (minimal, snappy)
+     sparkle → magic burst        (playful, kids)
+     ink     → ink wash lifting   (relaxing, reading)
 
    Test contract (do not break):
      • `.app-enter` present on mount.
@@ -38,27 +44,20 @@ body {
    ────────────────────────────────────────────────────────────────────────── */
 
 :root {
-  /* Palette (light theme defaults). Themes override these below. */
   --anim-accent:      #fcd34d;   /* amber-300 */
   --anim-accent-hot:  #f59e0b;   /* amber-500 */
   --anim-accent-soft: #fde68a;   /* amber-200 */
   --anim-surface:     #fffbeb;   /* amber-50  */
   --anim-ink:         #78350f;   /* amber-900 */
 
-  /* Motion tokens */
-  --anim-dur-enter:    540ms;
-  --anim-dur-exit:     340ms;
-  --anim-dur-micro:    180ms;
-  /* Snappy emphasized-decelerate curve (Material 3 emphasized) */
-  --anim-ease-out:     cubic-bezier(0.22, 1, 0.36, 1);
-  /* Smooth accelerate-in curve for exit motion */
-  --anim-ease-in:      cubic-bezier(0.4, 0, 1, 1);
-  /* Playful spring-ish overshoot for sparkle variant */
+  /* World-gesture timing: enter blooms, exit folds. */
+  --anim-dur-enter:    560ms;
+  --anim-dur-exit:     360ms;
+  --anim-ease-out:     cubic-bezier(0.22, 1, 0.36, 1);  /* emphasized decelerate */
+  --anim-ease-in:      cubic-bezier(0.4, 0, 1, 1);       /* soft accelerate */
   --anim-ease-spring:  cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-/* Theme-scoped palettes. AppAnimationWrapper sets one of these classes based
-   on the resolved theme (light / dark / light-hc / dark-hc). */
 .app-theme-light {
   --anim-accent:      #fcd34d;
   --anim-accent-hot:  #f59e0b;
@@ -88,161 +87,179 @@ body {
   --anim-ink:         #ffffff;
 }
 
-/* ── Enter/exit base ────────────────────────────────────────────────────── */
+/* ── Shared: content motion ─────────────────────────────────────────────── */
+/* Every variant uses the same content transform curve (opacity + scale) so
+   the gesture reads as one language. Variants override only the reveal
+   layer via ::before/::after. */
 
-/* Hint the compositor without locking it in forever (avoid memory cost). */
 .app-enter,
 .app-exit {
   transform-origin: 50% 50%;
 }
 
-/* Neutral base — each variant defines the actual animation. */
-.app-enter { animation: appEnterBase var(--anim-dur-enter) var(--anim-ease-out) both; }
-.app-exit  { animation: appExitBase  var(--anim-dur-exit)  var(--anim-ease-in)  forwards; }
+.app-enter {
+  animation: appWorldOpen  var(--anim-dur-enter) var(--anim-ease-out) both;
+}
+.app-exit {
+  animation: appWorldClose var(--anim-dur-exit)  var(--anim-ease-in)  forwards;
+}
 
-@keyframes appEnterBase {
-  from { opacity: 0; transform: scale(0.98); }
+/* World opens: contained → full. A little scale + opacity is all we need
+   on the content root; the variant-specific overlay carries the character. */
+@keyframes appWorldOpen {
+  from { opacity: 0; transform: scale(0.94); }
   to   { opacity: 1; transform: scale(1); }
 }
-@keyframes appExitBase {
+@keyframes appWorldClose {
   from { opacity: 1; transform: scale(1); }
-  to   { opacity: 0; transform: scale(0.985); }
+  to   { opacity: 0; transform: scale(0.96); }
 }
 
-/* ── Variant: seal (default) ────────────────────────────────────────────── */
-/* A warm iris-like reveal. Uses a single radial-gradient overlay layered via
-   ::before so the app content itself is not filtered (avoids the big paint
-   cost of animating clip-path on the whole tree). */
-
-.app-anim-seal.app-enter { animation: appSealEnter var(--anim-dur-enter) var(--anim-ease-out) both; }
-.app-anim-seal.app-exit  { animation: appSealExit  var(--anim-dur-exit)  var(--anim-ease-in)  forwards; }
-
-.app-anim-seal.app-enter::before,
-.app-anim-seal.app-exit::before {
+/* Base reveal-layer position shared by all variants. */
+.app-enter::before,
+.app-exit::before {
   content: "";
   position: absolute;
   inset: 0;
   pointer-events: none;
   z-index: 9999;
+  will-change: opacity, transform;
+}
+
+/* ── Variant: seal — iris / sun portal ──────────────────────────────────── */
+
+.app-anim-seal.app-enter::before {
   background: radial-gradient(
     circle at 50% 50%,
-    var(--anim-accent) 0%,
-    var(--anim-accent-hot) 40%,
-    transparent 70%
+    var(--anim-accent)     0%,
+    var(--anim-accent-hot) 38%,
+    transparent            70%
   );
-  will-change: opacity, transform;
+  animation: appSealOpen var(--anim-dur-enter) var(--anim-ease-out) forwards;
 }
-.app-anim-seal.app-enter::before { animation: appSealOverlayOut var(--anim-dur-enter) var(--anim-ease-out) forwards; }
-.app-anim-seal.app-exit::before  { animation: appSealOverlayIn  var(--anim-dur-exit)  var(--anim-ease-in)  forwards; }
-
-@keyframes appSealEnter {
-  from { opacity: 0; transform: scale(1.03); }
-  to   { opacity: 1; transform: scale(1); }
+.app-anim-seal.app-exit::before {
+  background: radial-gradient(
+    circle at 50% 50%,
+    var(--anim-accent)     0%,
+    var(--anim-accent-hot) 38%,
+    transparent            70%
+  );
+  animation: appSealClose var(--anim-dur-exit) var(--anim-ease-in) forwards;
 }
-@keyframes appSealExit {
-  from { opacity: 1; transform: scale(1); }
-  to   { opacity: 0; transform: scale(0.985); }
-}
-@keyframes appSealOverlayOut {
-  0%   { opacity: 1;   transform: scale(0.6); }
-  60%  { opacity: 0.6; transform: scale(1.4); }
+@keyframes appSealOpen {
+  0%   { opacity: 1;   transform: scale(0.5); }
+  60%  { opacity: 0.5; transform: scale(1.4); }
   100% { opacity: 0;   transform: scale(2.2); }
 }
-@keyframes appSealOverlayIn {
+@keyframes appSealClose {
   0%   { opacity: 0;   transform: scale(2.2); }
-  100% { opacity: 0.9; transform: scale(0.6); }
+  100% { opacity: 1;   transform: scale(0.5); }
 }
 
-/* ── Variant: fade (minimal) ────────────────────────────────────────────── */
-/* Pure opacity + subtle lift. Cheapest possible animation. */
+/* ── Variant: fade — rising curtain ─────────────────────────────────────── */
 
-.app-anim-fade.app-enter { animation: appFadeEnter 380ms var(--anim-ease-out) both; }
-.app-anim-fade.app-exit  { animation: appFadeExit  260ms var(--anim-ease-in)  forwards; }
-
-@keyframes appFadeEnter {
-  from { opacity: 0; transform: translateY(6px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-@keyframes appFadeExit {
-  from { opacity: 1; transform: translateY(0); }
-  to   { opacity: 0; transform: translateY(4px); }
-}
-
-/* ── Variant: sparkle (playful, vibrant — great for kids) ───────────────── */
-/* Spring-ease scale-up with a short radial flash. Sparkles are pseudo-elements
-   on ::before/::after to avoid spawning DOM nodes for every render. */
-
-.app-anim-sparkle.app-enter { animation: appSparkleEnter 620ms var(--anim-ease-spring) both; }
-.app-anim-sparkle.app-exit  { animation: appSparkleExit  300ms var(--anim-ease-in)     forwards; }
-
-.app-anim-sparkle.app-enter::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  z-index: 9999;
-  background:
-    radial-gradient(circle at 20% 30%, var(--anim-accent) 0 2px, transparent 3px),
-    radial-gradient(circle at 80% 20%, var(--anim-accent-hot) 0 3px, transparent 4px),
-    radial-gradient(circle at 75% 75%, var(--anim-accent) 0 2px, transparent 3px),
-    radial-gradient(circle at 25% 80%, var(--anim-accent-soft) 0 2px, transparent 3px),
-    radial-gradient(circle at 50% 50%, var(--anim-accent-hot), transparent 55%);
-  animation: appSparkleFlash 620ms var(--anim-ease-out) forwards;
-  will-change: opacity, transform;
-}
-
-@keyframes appSparkleEnter {
-  0%   { opacity: 0; transform: scale(0.86); }
-  60%  { opacity: 1; transform: scale(1.015); }
-  100% { opacity: 1; transform: scale(1); }
-}
-@keyframes appSparkleExit {
-  from { opacity: 1; transform: scale(1); }
-  to   { opacity: 0; transform: scale(0.92); }
-}
-@keyframes appSparkleFlash {
-  0%   { opacity: 0;   transform: scale(0.4) rotate(-6deg); }
-  25%  { opacity: 0.9; transform: scale(1)   rotate(0deg); }
-  100% { opacity: 0;   transform: scale(1.6) rotate(4deg); }
-}
-
-/* ── Variant: ink (relaxing, quiet) ─────────────────────────────────────── */
-/* Slow, soft top-down reveal with a gentle blur-less ink wash. */
-
-.app-anim-ink.app-enter { animation: appInkEnter 620ms var(--anim-ease-out) both; }
-.app-anim-ink.app-exit  { animation: appInkExit  360ms var(--anim-ease-in)  forwards; }
-
-.app-anim-ink.app-enter::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  z-index: 9999;
+.app-anim-fade.app-enter::before {
   background: linear-gradient(
     180deg,
-    color-mix(in oklab, var(--anim-surface) 85%, transparent) 0%,
-    color-mix(in oklab, var(--anim-surface) 60%, transparent) 60%,
-    transparent 100%
+    var(--anim-accent-soft) 0%,
+    var(--anim-surface)     55%,
+    var(--anim-surface)     100%
   );
-  animation: appInkWash 620ms var(--anim-ease-out) forwards;
-  will-change: opacity, transform;
+  animation: appFadeOpen var(--anim-dur-enter) var(--anim-ease-out) forwards;
 }
-
-@keyframes appInkEnter {
-  from { opacity: 0; transform: translateY(8px) scale(0.995); }
-  to   { opacity: 1; transform: translateY(0)  scale(1); }
+.app-anim-fade.app-exit::before {
+  background: linear-gradient(
+    180deg,
+    var(--anim-accent-soft) 0%,
+    var(--anim-surface)     55%,
+    var(--anim-surface)     100%
+  );
+  animation: appFadeClose var(--anim-dur-exit) var(--anim-ease-in) forwards;
 }
-@keyframes appInkExit {
-  from { opacity: 1; transform: translateY(0); }
-  to   { opacity: 0; transform: translateY(6px); }
-}
-@keyframes appInkWash {
+/* Curtain lifts up off the world (enter) / drops down over it (exit). */
+@keyframes appFadeOpen {
   0%   { opacity: 1; transform: translateY(0); }
   100% { opacity: 0; transform: translateY(-100%); }
 }
+@keyframes appFadeClose {
+  0%   { opacity: 0; transform: translateY(-100%); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Variant: sparkle — magic portal ────────────────────────────────────── */
+
+.app-anim-sparkle.app-enter {
+  animation: appWorldOpenSpring var(--anim-dur-enter) var(--anim-ease-spring) both;
+}
+.app-anim-sparkle.app-exit {
+  animation: appWorldClose var(--anim-dur-exit) var(--anim-ease-in) forwards;
+}
+@keyframes appWorldOpenSpring {
+  0%   { opacity: 0; transform: scale(0.88); }
+  60%  { opacity: 1; transform: scale(1.015); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+.app-anim-sparkle.app-enter::before {
+  background:
+    radial-gradient(circle at 20% 30%, var(--anim-accent)      0 2px, transparent 3px),
+    radial-gradient(circle at 80% 25%, var(--anim-accent-hot)  0 3px, transparent 4px),
+    radial-gradient(circle at 75% 78%, var(--anim-accent)      0 2px, transparent 3px),
+    radial-gradient(circle at 22% 82%, var(--anim-accent-soft) 0 2px, transparent 3px),
+    radial-gradient(circle at 50% 50%, var(--anim-accent-hot), transparent 55%);
+  animation: appSparkleOpen var(--anim-dur-enter) var(--anim-ease-out) forwards;
+}
+.app-anim-sparkle.app-exit::before {
+  background:
+    radial-gradient(circle at 20% 30%, var(--anim-accent)      0 2px, transparent 3px),
+    radial-gradient(circle at 80% 25%, var(--anim-accent-hot)  0 3px, transparent 4px),
+    radial-gradient(circle at 75% 78%, var(--anim-accent)      0 2px, transparent 3px),
+    radial-gradient(circle at 22% 82%, var(--anim-accent-soft) 0 2px, transparent 3px),
+    radial-gradient(circle at 50% 50%, var(--anim-accent-hot), transparent 55%);
+  animation: appSparkleClose var(--anim-dur-exit) var(--anim-ease-in) forwards;
+}
+@keyframes appSparkleOpen {
+  0%   { opacity: 0;   transform: scale(0.4)  rotate(-6deg); }
+  30%  { opacity: 0.95;transform: scale(1)    rotate(0deg); }
+  100% { opacity: 0;   transform: scale(1.7)  rotate(4deg); }
+}
+@keyframes appSparkleClose {
+  0%   { opacity: 0;   transform: scale(1.7) rotate(4deg); }
+  60%  { opacity: 0.85;transform: scale(1)   rotate(0deg); }
+  100% { opacity: 1;   transform: scale(0.4) rotate(-6deg); }
+}
+
+/* ── Variant: ink — ink wash / horizon lift ─────────────────────────────── */
+
+.app-anim-ink.app-enter::before {
+  background: linear-gradient(
+    180deg,
+    color-mix(in oklab, var(--anim-surface) 92%, transparent) 0%,
+    color-mix(in oklab, var(--anim-surface) 70%, transparent) 55%,
+    color-mix(in oklab, var(--anim-surface) 0%,  transparent) 100%
+  );
+  animation: appInkOpen var(--anim-dur-enter) var(--anim-ease-out) forwards;
+}
+.app-anim-ink.app-exit::before {
+  background: linear-gradient(
+    180deg,
+    color-mix(in oklab, var(--anim-surface) 92%, transparent) 0%,
+    color-mix(in oklab, var(--anim-surface) 70%, transparent) 55%,
+    color-mix(in oklab, var(--anim-surface) 0%,  transparent) 100%
+  );
+  animation: appInkClose var(--anim-dur-exit) var(--anim-ease-in) forwards;
+}
+/* Ink pools the world (exit) or drains upward off it (enter). */
+@keyframes appInkOpen {
+  0%   { opacity: 1; transform: translateY(0)     scaleY(1); }
+  100% { opacity: 0; transform: translateY(-100%) scaleY(1); }
+}
+@keyframes appInkClose {
+  0%   { opacity: 0; transform: translateY(-100%) scaleY(1); }
+  100% { opacity: 1; transform: translateY(0)     scaleY(1); }
+}
 
 /* ── Lock-screen micro-animations ───────────────────────────────────────── */
-/* GPU-only (transform/opacity) so they stay smooth under the blurred app. */
 
 @keyframes appLockHint {
   0%, 100% { opacity: 0.85; transform: translateY(0); }
@@ -261,10 +278,10 @@ body {
 }
 .app-lock-fade { animation: appLockFade 220ms var(--anim-ease-out) both; }
 
-/* ── Hero page effects (used by marketing layout) ───────────────────────── */
+/* ── Hero page effects (marketing layout) ───────────────────────────────── */
 
 @keyframes twinkle {
-  0%, 100% { opacity: 0.8; transform: scale(1); }
+  0%, 100% { opacity: 0.8;  transform: scale(1); }
   50%      { opacity: 0.15; transform: scale(1.4); }
 }
 
@@ -339,4 +356,6 @@ body {
     transform: none;
   }
   .app-exit { opacity: 0; }
+  .app-enter::before,
+  .app-exit::before { display: none; }
 }

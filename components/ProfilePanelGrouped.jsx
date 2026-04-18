@@ -5,8 +5,16 @@ import {
 } from 'lucide-react';
 import { useTheme } from '../ui/ThemeContext';
 import Toggle from '../ui/Toggle';
+import VariantPicker from '../ui/VariantPicker';
 import { ROLES, ROLE_LABELS } from '../hooks/useRole';
 import ABTestingPanel from './ABTestingPanel';
+
+const APP_ANIMATION_OPTIONS = [
+  { value: 'seal',    label: 'Portal',  testId: 'app-animation-variant-seal' },
+  { value: 'fade',    label: 'Minimal', testId: 'app-animation-variant-fade' },
+  { value: 'sparkle', label: 'Funken',  testId: 'app-animation-variant-sparkle' },
+  { value: 'ink',     label: 'Tinte',   testId: 'app-animation-variant-ink' },
+];
 
 /**
  * Grouped profile panel (A/B variants: 'grouped', 'role-opt').
@@ -106,6 +114,8 @@ export default function ProfilePanelGrouped({
   ab,
   simplifiedUi = false,
   variant = 'grouped',
+  appAnimationVariant = 'seal',
+  onSetAppAnimationVariant,
 }) {
   const { dark } = useTheme();
 
@@ -184,6 +194,16 @@ export default function ProfilePanelGrouped({
           >
             Mehr erfahren →
           </button>
+          {key === 'app-animation' && effective && onSetAppAnimationVariant && (
+            <div className="mt-3" data-testid="app-animation-variant-picker">
+              <VariantPicker
+                ariaLabel="App-Animation Variante"
+                options={APP_ANIMATION_OPTIONS}
+                value={appAnimationVariant}
+                onChange={onSetAppAnimationVariant}
+              />
+            </div>
+          )}
           {isAdmin && (
             <div className="flex items-center gap-3 mt-2">
               <span className={`text-[10px] uppercase tracking-wider ${dark ? 'text-amber-700' : 'text-amber-400'}`}>Rollen:</span>

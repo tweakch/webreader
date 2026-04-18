@@ -7,6 +7,7 @@ import { usePersistence } from './hooks/usePersistence';
 import { useReader } from './hooks/useReader';
 import FeatureDocs from './FeatureDocs';
 import { useRole } from './hooks/useRole';
+import { useABTesting } from './hooks/useABTesting';
 import { ThemeContext } from './ui/ThemeContext';
 import Toggle from './ui/Toggle';
 import IconButton from './ui/IconButton';
@@ -15,6 +16,7 @@ import PersonasDocsView from './components/PersonasDocsView';
 import HomeView from './components/HomeView';
 import ReaderView from './components/ReaderView';
 import Sidebar from './components/Sidebar';
+import SidebarV2 from './components/SidebarV2';
 import TypographyPanel, { LINE_HEIGHTS, WORD_SPACINGS, FONT_FAMILIES } from './ui/TypographyPanel';
 import AudioPlayer from './ui/AudioPlayer';
 import SpeedReaderView from './ui/SpeedReaderView';
@@ -40,6 +42,7 @@ const GrimmMarchenApp = () => {
     showTapZones, showTapMiddleToggle, showAdaptionSwitcher, showTypographyPanel, showAttribution,
     showFavorites, showFavoritesOnlyToggle, showAudioPlayer, showHighContrastTheme,
     showSpeedReader, showSpeedreaderOrp, showWordBlacklist, showDeepSearch, showStoryDirectories, showDebugBadges, showSubscriberFonts, showErrorPageSimulator, showAppAnimation,
+    showAbTesting, showAbTestingAdmin,
     _rawFlagValues,
     userFeatureOverrides, setUserFeatureOverrides, _o,
     flagTheme, bigFontsVariant,
@@ -49,6 +52,10 @@ const GrimmMarchenApp = () => {
   const {
     role, setRole, isAdmin, visibleFeatureKeys, isFeatureAssignedToRole, toggleFeatureForRole,
   } = useRole();
+
+  // A/B testing
+  const ab = useABTesting({ role, isAdmin });
+  const sidebarVariant = ab.getVariant('sidebar');
 
   // Typography
   const typo = useTypography({ maxFontSize, subscriberFonts: showSubscriberFonts });
@@ -524,8 +531,11 @@ const GrimmMarchenApp = () => {
 
       {/* Main Content Area */}
       <div className="flex-1 flex overflow-hidden">
-        {/* Sidebar */}
-        <Sidebar
+        {/* Sidebar (A/B variant selection via useABTesting) */}
+        {(() => {
+          const SidebarComponent = sidebarVariant === 'v2' ? SidebarV2 : Sidebar;
+          return (
+        <SidebarComponent
           menuOpen={menuOpen}
           onMenuToggle={() => setMenuOpen(false)}
           searchTerm={searchTerm}
@@ -559,6 +569,8 @@ const GrimmMarchenApp = () => {
           onCloseProfile={() => setProfileOpen(false)}
           onCloseApp={handleCloseApp}
         />
+          );
+        })()}
 
         {/* Hidden measurement container - off-screen, used to calculate paragraph heights */}
         <div
@@ -612,6 +624,9 @@ const GrimmMarchenApp = () => {
               isFeatureAssignedToRole={isFeatureAssignedToRole}
               toggleFeatureForRole={toggleFeatureForRole}
               showErrorPageSimulator={showErrorPageSimulator}
+              showAbTesting={showAbTesting}
+              showAbTestingAdmin={showAbTestingAdmin}
+              ab={ab}
               onSimulateError={(type) => {
                 if (type === 'not-found') {
                   window.location.assign('/does-not-exist');

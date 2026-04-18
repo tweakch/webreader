@@ -46,6 +46,7 @@ function defaultRoleFeatures() {
       'speed-reader',
       'speedreader-orp',
       'subscriber-fonts',
+      'ab-testing',
     ],
     tester: [
       'favorites',
@@ -76,6 +77,7 @@ function defaultRoleFeatures() {
       'speedreader-orp',
       'subscriber-fonts',
       'error-page-simulator',
+      'ab-testing',
     ],
   };
 }

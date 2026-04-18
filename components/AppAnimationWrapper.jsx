@@ -83,7 +83,7 @@ export default function AppAnimationWrapper({ children, enableLockScreen = true 
   return (
     <div
       ref={wrapperRef}
-      className="app-enter relative h-full w-full overflow-hidden"
+      className="app-enter fixed inset-0 overflow-hidden"
       style={{ width: '100%', height: '100%' }}
       onTouchStart={(e) => onStart(e.touches[0].clientY)}
       onTouchEnd={(e) => onEnd(e.changedTouches[0].clientY)}

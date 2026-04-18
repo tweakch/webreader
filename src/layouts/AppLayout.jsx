@@ -13,7 +13,7 @@ export default function AppLayout() {
   // The flag only gates the lock-screen + swipe-to-unlock behaviour.
   return (
     <AppAnimationWrapper enableLockScreen={showAppAnimation}>
-      <div className="h-screen overflow-hidden">
+      <div className="h-full w-full overflow-hidden">
         <ErrorBoundary>
           <React.Suspense fallback={<div className="mx-auto max-w-6xl px-6 py-10 text-amber-700">Loading reader...</div>}>
             <GrimmMarchenApp />

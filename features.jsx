@@ -28,6 +28,16 @@ import {
   Lock,
   FlaskConical,
   Beaker,
+  BadgeCheck,
+  DoorClosed,
+  Sparkles,
+  BellRing,
+  Tag,
+  Ticket,
+  Gift,
+  Megaphone,
+  LineChart,
+  CreditCard,
 } from 'lucide-react';
 
 export const FEATURES = [
@@ -221,5 +231,66 @@ export const FEATURES = [
     label: 'A/B-Verwaltung',
     description: 'Admin-Werkzeug zum Aktivieren, Deaktivieren und Zuteilen von UI-Varianten an Rollen.',
     Icon: () => <FlaskConical size={20} strokeWidth={1.75} />,
+  },
+  // Commerce / Sales
+  {
+    key: 'tier-badge',
+    label: 'Tarif-Abzeichen',
+    description: 'Zeigt das aktuelle Abo (Free, Plus, Pro, Family, Edu) im Profil-Panel an.',
+    Icon: () => <BadgeCheck size={20} strokeWidth={1.75} />,
+  },
+  {
+    key: 'paywall',
+    label: 'Zahlschranke',
+    description: 'Zeigt eine Zahlschranke vor kostenpflichtigen Features - Varianten: Hard-Gate, Soft-Gate, Teaser.',
+    Icon: () => <DoorClosed size={20} strokeWidth={1.75} />,
+  },
+  {
+    key: 'upgrade-cta',
+    label: 'Upgrade-Hinweis',
+    description: 'Kontextabhängiger Hinweis zum Upgrade auf den nächsthöheren Tarif.',
+    Icon: () => <Sparkles size={20} strokeWidth={1.75} />,
+  },
+  {
+    key: 'trial-banner',
+    label: 'Testzeitraum-Banner',
+    description: 'Banner, der einen 7-, 14- oder 30-tägigen Testzeitraum startet und den verbleibenden Zeitraum anzeigt.',
+    Icon: () => <BellRing size={20} strokeWidth={1.75} />,
+  },
+  {
+    key: 'pricing-page',
+    label: 'Preisseite',
+    description: 'Dedizierte Preisseite mit Tarif-Vergleich - Layout-Varianten: 3-Tarife, 4-Tarife, interaktiver Slider.',
+    Icon: () => <Tag size={20} strokeWidth={1.75} />,
+  },
+  {
+    key: 'promo-code',
+    label: 'Promo-Code',
+    description: 'Promo-Code-Eingabe fuer Endnutzer; Sales und Admin koennen Codes erzeugen.',
+    Icon: () => <Ticket size={20} strokeWidth={1.75} />,
+  },
+  {
+    key: 'referral-program',
+    label: 'Empfehlungsprogramm',
+    description: 'Persoenlicher Empfehlungslink - Freund erhaelt 30 Tage gratis, Empfehler einen Gratismonat.',
+    Icon: () => <Gift size={20} strokeWidth={1.75} />,
+  },
+  {
+    key: 'sales-mode',
+    label: 'Vertriebs-Modus',
+    description: 'Demo-Overlay fuer die Sales-Rolle - schaltet simulierte Tarife fuer Live-Praesentationen um.',
+    Icon: () => <Megaphone size={20} strokeWidth={1.75} />,
+  },
+  {
+    key: 'conversion-analytics',
+    label: 'Conversion-Analyse',
+    description: 'Einblendung des aktuellen Funnel-Schritts, der Paywall-Variante und des A/B-Variant-Zustands.',
+    Icon: () => <LineChart size={20} strokeWidth={1.75} />,
+  },
+  {
+    key: 'billing-portal-stub',
+    label: 'Abrechnungs-Portal (Mock)',
+    description: 'Gemocktes Abrechnungs-Portal fuer Demos - keine echte Zahlungsabwicklung.',
+    Icon: () => <CreditCard size={20} strokeWidth={1.75} />,
   },
 ];

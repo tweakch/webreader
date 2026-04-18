@@ -27,5 +27,15 @@
   "error-page-simulator":   { "defaultVariant": "off", "variants": { "on": true, "off": false } },
   "app-animation":          { "defaultVariant": "off", "variants": { "on": true, "off": false } },
   "ab-testing":             { "defaultVariant": "off", "variants": { "on": true, "off": false } },
-  "ab-testing-admin":       { "defaultVariant": "off", "variants": { "on": true, "off": false } }
+  "ab-testing-admin":       { "defaultVariant": "off", "variants": { "on": true, "off": false } },
+  "tier-badge":             { "defaultVariant": "off", "variants": { "on": true, "off": false } },
+  "paywall":                { "defaultVariant": "off", "variants": { "on": true, "off": false } },
+  "upgrade-cta":            { "defaultVariant": "off", "variants": { "on": true, "off": false } },
+  "trial-banner":           { "defaultVariant": "off", "variants": { "on": true, "off": false } },
+  "pricing-page":           { "defaultVariant": "off", "variants": { "on": true, "off": false } },
+  "promo-code":             { "defaultVariant": "off", "variants": { "on": true, "off": false } },
+  "referral-program":       { "defaultVariant": "off", "variants": { "on": true, "off": false } },
+  "sales-mode":             { "defaultVariant": "off", "variants": { "on": true, "off": false } },
+  "conversion-analytics":   { "defaultVariant": "off", "variants": { "on": true, "off": false } },
+  "billing-portal-stub":    { "defaultVariant": "off", "variants": { "on": true, "off": false } }
 }

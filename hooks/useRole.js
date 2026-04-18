@@ -1,12 +1,13 @@
 import { useState, useEffect } from 'react';
 import { FEATURES } from '../features';
 
-export const ROLES = ['guest', 'subscriber', 'tester', 'admin'];
+export const ROLES = ['guest', 'subscriber', 'tester', 'sales', 'admin'];
 
 export const ROLE_LABELS = {
   guest: 'Gast',
   subscriber: 'Abonnent',
   tester: 'Tester',
+  sales: 'Vertrieb',
   admin: 'Admin',
 };
 
@@ -77,6 +78,35 @@ function defaultRoleFeatures() {
       'speedreader-orp',
       'subscriber-fonts',
       'error-page-simulator',
+      'ab-testing',
+    ],
+    sales: [
+      'favorites',
+      'favorites-only-toggle',
+      'word-count',
+      'reading-duration',
+      'font-size-controls',
+      'pinch-font-size',
+      'eink-flash',
+      'tap-zones',
+      'tap-middle-toggle',
+      'adaption-switcher',
+      'typography-panel',
+      'attribution',
+      'audio-player',
+      'story-directories',
+      'high-contrast-theme',
+      'subscriber-fonts',
+      'tier-badge',
+      'paywall',
+      'upgrade-cta',
+      'trial-banner',
+      'pricing-page',
+      'promo-code',
+      'referral-program',
+      'sales-mode',
+      'conversion-analytics',
+      'billing-portal-stub',
       'ab-testing',
     ],
   };

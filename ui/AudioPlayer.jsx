@@ -3,6 +3,14 @@ import { Play, Pause, RotateCcw } from 'lucide-react';
 import { cn } from './cn';
 import { useTheme } from './ThemeContext';
 
+// CTC: Wire `sleep-timer` here — see docs/features/sleep-timer.md
+//   Accept a `sleepAfterMs` prop (or read from a sleep-timer hook). When set,
+//   start a countdown; in the final 60 s tween `audioRef.current.volume`
+//   from 1 → 0 via requestAnimationFrame; on expiry call `pause()`. Surface
+//   timer chips (15 / 30 / 45 min · end of story) in the controls row.
+// TODO(CTC): remove this comment once sleep-timer drives playback here and
+//   the FEATURES gap entry is removed.
+
 /**
  * Self-contained audio player bar with progress, reset, play/pause, and time display.
  * Manages its own audio element and playback state.

@@ -358,6 +358,13 @@ const GrimmMarchenApp = () => {
     setSpeedReaderMode,
     storyWordCount,
   } = useReader({
+    // CTC: Add `bedtimeMode` alongside `speedReaderMode` — see docs/features/bedtime-mode.md
+    //   When the `bedtime-mode` flag is on, expose a nav-bar toggle that:
+    //   (1) dims the screen after 30s idle, (2) auto-picks an age-appropriate
+    //   story queue, (3) starts narration, (4) at session end (or sleep-timer
+    //   expiry) fades audio and locks the app.
+    // TODO(CTC): remove this comment once bedtimeMode state and toggle exist
+    //   here and the FEATURES gap entry is removed.
     readerAreaRef,
     measureRef,
     selectedStory,

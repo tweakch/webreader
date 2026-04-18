@@ -9,6 +9,17 @@ import SpeedReaderView from '../ui/SpeedReaderView';
 import TypographyPanel from '../ui/TypographyPanel';
 import AudioPlayer from '../ui/AudioPlayer';
 
+// CTC: Wire post-story content slot — see:
+//   - docs/features/discussion-questions.md (Socratic prompts)
+//   - docs/features/journaling-prompts.md (reflection prompts + textarea)
+//   - docs/features/cultural-annotations.md (inline footnotes during reading)
+//   - docs/features/parallel-texts.md (two-column language reading)
+// All four read story-side data (questions.json, annotation spans, content.<lang>.md)
+// and render either inline (annotations, parallel) or after the last page
+// (discussion, journaling) via this compositor.
+// TODO(CTC): remove this comment once the four features are wired and their
+//   FEATURES gap entries are removed.
+
 /**
  * Reader view compositor - manages the entire reading interface.
  * Conditionally renders speed reader mode or normal page view with all controls.

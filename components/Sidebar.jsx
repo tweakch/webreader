@@ -4,6 +4,13 @@ import SearchInput from '../ui/SearchInput';
 import StoryButton from '../ui/StoryButton';
 import SourceButton from '../ui/SourceButton';
 
+// CTC: Wire `age-filter` here — see docs/features/age-filter.md
+//   When the flag is on, read `ageMin`/`ageMax` from each story's frontmatter
+//   and hide stories outside the configured child age range. The age range
+//   itself comes from localStorage (set in the profile panel).
+// TODO(CTC): remove this comment once age-filter filtering runs in this file
+//   and the FEATURES gap entry is removed.
+
 /**
  * Sidebar navigation - two-level source/story list with search and profile.
  * Shows either source list, drilled story list, or search results.

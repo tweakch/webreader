@@ -16,6 +16,7 @@ import Toggle from './ui/Toggle';
 import IconButton from './ui/IconButton';
 import ProfilePanel from './components/ProfilePanel';
 import ProfilePanelGrouped from './components/ProfilePanelGrouped';
+import ProfilePanelTabbed from './components/ProfilePanelTabbed';
 import PersonasDocsView from './components/PersonasDocsView';
 import HomeView from './components/HomeView';
 import ReaderView from './components/ReaderView';
@@ -792,9 +793,10 @@ const GrimmMarchenApp = () => {
             />
           ) : profileOpen ? (
             (() => {
-              const ProfileComponent = (profileLayoutVariant === 'grouped' || profileLayoutVariant === 'role-opt')
-                ? ProfilePanelGrouped
-                : ProfilePanel;
+              const ProfileComponent =
+                profileLayoutVariant === 'tabbed' ? ProfilePanelTabbed :
+                (profileLayoutVariant === 'grouped' || profileLayoutVariant === 'role-opt') ? ProfilePanelGrouped :
+                ProfilePanel;
               return (
             <ProfileComponent
               variant={profileLayoutVariant}

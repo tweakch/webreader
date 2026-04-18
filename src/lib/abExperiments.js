@@ -82,6 +82,7 @@ export const AB_EXPERIMENTS = [
       { id: 'flat',     label: 'Heute (flach)',       description: 'Alle Bloecke untereinander, keine Ausklappen.' },
       { id: 'grouped',  label: 'Gruppiert',           description: 'Abschnitte sind ausklappbar und standardmaessig offen.' },
       { id: 'role-opt', label: 'Rollen-optimiert',    description: 'Abschnitte sind ausklappbar, pro Rolle sind andere Abschnitte standardmaessig offen.' },
+      { id: 'tabbed',   label: 'Tabs',                description: 'Linke Seitennavigation mit Tabs: Profil / Lesen / Einstellungen / Abo / Entwicklung.' },
     ],
   },
   {

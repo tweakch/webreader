@@ -52,12 +52,15 @@ export default function ProfilePanel({
   const nonAdminRoles = ROLES.filter((r) => r !== 'admin');
 
   return (
-    <div className="flex-1 overflow-y-auto">
-      <div className="max-w-lg mx-auto px-6 py-12">
-        {/* Back button */}
+    <div className="flex-1 flex flex-col min-h-0">
+      {/* Scrollable content. pb leaves room for the sticky bottom bar on mobile/tablet. */}
+      <div className="flex-1 overflow-y-auto">
+        <div className="max-w-lg mx-auto px-6 pt-12 pb-28 lg:pb-12">
+        {/* Back button — desktop only; mobile/tablet uses the sticky bottom bar */}
         <button
           onClick={onBack}
-          className={`flex items-center gap-2 mb-8 text-sm font-medium transition-colors ${
+          data-testid="profile-back-top"
+          className={`hidden lg:flex items-center gap-2 mb-8 text-sm font-medium transition-colors ${
             dark ? 'text-amber-400 hover:text-amber-200' : 'text-amber-700 hover:text-amber-900'
           }`}
         >
@@ -380,6 +383,23 @@ export default function ProfilePanel({
             selectVariant={ab.selectVariant}
           />
         )}
+        </div>
+      </div>
+
+      {/* Sticky bottom bar — thumb-reachable Zurück on mobile/tablet */}
+      <div className={`flex-shrink-0 lg:hidden border-t backdrop-blur-sm ${
+        dark ? 'border-amber-700/30 bg-slate-950/90' : 'border-amber-200 bg-white/90'
+      }`}>
+        <button
+          onClick={onBack}
+          data-testid="profile-back-bottom"
+          className={`w-full flex items-center justify-center gap-2 px-6 py-4 text-base font-medium transition-colors ${
+            dark ? 'text-amber-300 hover:bg-slate-800 active:bg-slate-800' : 'text-amber-800 hover:bg-amber-50 active:bg-amber-100'
+          }`}
+        >
+          <ChevronLeft size={20} />
+          Zurück
+        </button>
       </div>
     </div>
   );

@@ -2,6 +2,7 @@ import { ChevronLeft, X, User, Shield, FlameKindling, Users } from 'lucide-react
 import { useTheme } from '../ui/ThemeContext';
 import Toggle from '../ui/Toggle';
 import { ROLES, ROLE_LABELS } from '../hooks/useRole';
+import ABTestingPanel from './ABTestingPanel';
 
 /**
  * Profile panel - user stats, word blacklist, feature toggles, and admin tools.
@@ -34,6 +35,10 @@ export default function ProfilePanel({
   // Error page simulator
   showErrorPageSimulator,
   onSimulateError,
+  // A/B testing
+  showAbTesting,
+  showAbTestingAdmin,
+  ab,
 }) {
   const { dark, hc, tc } = useTheme();
 
@@ -358,6 +363,23 @@ export default function ProfilePanel({
             })}
           </div>
         </div>
+
+        {/* A/B testing panel */}
+        {ab && (
+          <ABTestingPanel
+            showAbTesting={showAbTesting}
+            showAbTestingAdmin={showAbTestingAdmin}
+            isAdmin={isAdmin}
+            experiments={ab.experiments}
+            accessibleExperiments={ab.accessibleExperiments}
+            getExperimentConfig={ab.getExperimentConfig}
+            getVariant={ab.getVariant}
+            setExperimentActive={ab.setExperimentActive}
+            toggleRoleAccess={ab.toggleRoleAccess}
+            revokeExperiment={ab.revokeExperiment}
+            selectVariant={ab.selectVariant}
+          />
+        )}
       </div>
     </div>
   );

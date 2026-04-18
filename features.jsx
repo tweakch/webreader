@@ -26,6 +26,8 @@ import {
   Crosshair,
   FlameKindling,
   Lock,
+  FlaskConical,
+  Beaker,
 } from 'lucide-react';
 
 export const FEATURES = [
@@ -207,5 +209,17 @@ export const FEATURES = [
     label: 'App-Animation',
     description: 'Einführungs- und Abschluss-Animation mit „Swipe to Unlock" und „Swipe to Close".',
     Icon: () => <Lock size={20} strokeWidth={1.75} />,
+  },
+  {
+    key: 'ab-testing',
+    label: 'UI-Varianten (A/B)',
+    description: 'Ermöglicht das Wechseln zwischen Original- und Testvarianten der Oberfläche im Profil.',
+    Icon: () => <Beaker size={20} strokeWidth={1.75} />,
+  },
+  {
+    key: 'ab-testing-admin',
+    label: 'A/B-Verwaltung',
+    description: 'Admin-Werkzeug zum Aktivieren, Deaktivieren und Zuteilen von UI-Varianten an Rollen.',
+    Icon: () => <FlaskConical size={20} strokeWidth={1.75} />,
   },
 ];

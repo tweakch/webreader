@@ -1,3 +1,4 @@
+import { forwardRef } from 'react';
 import { Search } from 'lucide-react';
 import { cn } from './cn';
 import { useTheme } from './ThemeContext';
@@ -5,8 +6,12 @@ import { useTheme } from './ThemeContext';
 /**
  * Themed search input with leading search icon.
  * className is applied to the wrapper div (which owns flex-1 and text colour).
+ * Forwarded refs point at the underlying <input>.
  */
-export default function SearchInput({ value, onChange, placeholder, className = '', ...props }) {
+const SearchInput = forwardRef(function SearchInput(
+  { value, onChange, placeholder, className = '', ...props },
+  ref,
+) {
   const { tc } = useTheme();
   return (
     <div className={cn(
@@ -21,6 +26,7 @@ export default function SearchInput({ value, onChange, placeholder, className = 
     )}>
       <Search size={18} className="absolute left-3 top-2.5" />
       <input
+        ref={ref}
         type="text"
         value={value}
         onChange={onChange}
@@ -38,4 +44,6 @@ export default function SearchInput({ value, onChange, placeholder, className = 
       />
     </div>
   );
-}
+});
+
+export default SearchInput;

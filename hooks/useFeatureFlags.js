@@ -109,6 +109,12 @@ export function useFeatureFlags() {
 
   // String flags
   const flagTheme = useStringFlagValue('theme', 'light');
+  // CTC: Register `big-fonts` in features.jsx — see docs/features/big-fonts.md
+  //   This flag is read here and drives `maxFontSize`, but the variant is not
+  //   listed in FEATURES, so users cannot toggle it from the profile panel.
+  //   Add a FEATURES entry that surfaces the four variants (off/big/bigger/
+  //   biggest) — likely as a small variant picker rather than a boolean.
+  // TODO(CTC): remove this comment once `big-fonts` is registered in FEATURES.
   const bigFontsVariant = useStringFlagValue('big-fonts', 'off');
   const maxFontSize = { off: 28, big: 28, bigger: 34, biggest: 40 }[bigFontsVariant] ?? 28;
 

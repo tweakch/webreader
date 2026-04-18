@@ -129,6 +129,13 @@ export default function ProfilePanel({
           </div>
         </div>
 
+        {/* CTC: Wire `achievements` here — see docs/features/achievements.md
+              Render a badges grid below this stats block when the
+              `achievements` flag is on: streaks, breadth, depth, discovery,
+              completion. Source data from `completedStories` plus per-source
+              aggregates.
+            TODO(CTC): remove this comment once the achievements grid is
+              rendered and the FEATURES gap entry is removed. */}
         {/* Stats */}
         <div className={`rounded-2xl border divide-y ${
           dark ? 'border-amber-700/30 divide-amber-700/30' : 'border-amber-200 divide-amber-200'

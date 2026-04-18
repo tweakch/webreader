@@ -294,3 +294,83 @@ export const FEATURES = [
     Icon: () => <CreditCard size={20} strokeWidth={1.75} />,
   },
 ];
+
+// =============================================================================
+// FEATURE GAPS — registry audit
+// =============================================================================
+// The features below are documented in docs/features/ but NOT yet registered
+// here. Each CTC describes what to add to ship the feature end-to-end.
+//
+// CTC convention:
+//   - "CTC:" marks a Call-To-Claude action item.
+//   - Once the feature is implemented (FEATURES entry + flag in flags.json +
+//     wiring at the listed anchor file), DELETE the corresponding CTC block.
+//   - The matching anchor-site CTC comments in the integration files must be
+//     removed in the same change. Search for "CTC:" across the repo.
+//
+// Sorted by implementation readiness (MVP first, then near-term).
+//
+// --- MVP -------------------------------------------------------------------
+//
+// CTC: Implement `age-filter` — see docs/features/age-filter.md
+//   Add a FEATURES entry (Icon: Filter or BabyIcon), add a `age-filter` flag
+//   to flags.json, store age range in localStorage, and filter the story
+//   index in grimm-reader.jsx (anchor CTC in components/Sidebar.jsx).
+// TODO(CTC): remove this block once `age-filter` is registered above.
+//
+// CTC: Implement `bedtime-mode` — see docs/features/bedtime-mode.md
+//   Add a FEATURES entry (Icon: Moon), add a `bedtime-mode` flag, expose a
+//   nav-bar toggle that dims the screen, picks a curated story queue, and
+//   stops audio at session end. Pairs with sleep-timer.
+// TODO(CTC): remove this block once `bedtime-mode` is registered above.
+//
+// CTC: Implement `sleep-timer` — see docs/features/sleep-timer.md
+//   Add a FEATURES entry (Icon: TimerOff), add a `sleep-timer` flag. Anchor
+//   CTC lives in ui/AudioPlayer.jsx where the fade-out hook into the audio
+//   element belongs.
+// TODO(CTC): remove this block once `sleep-timer` is registered above.
+//
+// --- Near-term -------------------------------------------------------------
+//
+// CTC: Implement `audio-narration` — see docs/features/audio-narration.md
+//   Distinct from `audio-player` (which plays pre-recorded files): this is
+//   full-story narration with optional AI character voices. Add FEATURES
+//   entry (Icon: AudioLines), flag `audio-narration`, and a narration source
+//   field on stories.
+// TODO(CTC): remove this block once `audio-narration` is registered above.
+//
+// CTC: Implement `achievements` — see docs/features/achievements.md
+//   Streaks, breadth, depth, discovery, completion badges. Add FEATURES
+//   entry (Icon: Trophy), flag `achievements`, and a stats slot in the
+//   profile panel (anchor CTC in components/ProfilePanel.jsx near the stats
+//   block).
+// TODO(CTC): remove this block once `achievements` is registered above.
+//
+// CTC: Implement `cultural-annotations` — see docs/features/cultural-annotations.md
+//   Inline footnotes for idioms, history, regional context. Add FEATURES
+//   entry (Icon: Languages), flag `cultural-annotations`, render annotation
+//   spans in components/ReaderView.jsx.
+// TODO(CTC): remove this block once `cultural-annotations` is registered above.
+//
+// CTC: Implement `discussion-questions` — see docs/features/discussion-questions.md
+//   Socratic prompts after the last page. Add FEATURES entry (Icon:
+//   MessageCircleQuestion), flag `discussion-questions`, store prompts in a
+//   `questions.json` per story; render after the attribution slot.
+// TODO(CTC): remove this block once `discussion-questions` is registered above.
+//
+// CTC: Implement `journaling-prompts` — see docs/features/journaling-prompts.md
+//   Personal reflection prompts. Reuse the discussion-questions storage
+//   (type: journal) and add an in-app text area persisted in localStorage.
+//   Add FEATURES entry (Icon: NotebookPen), flag `journaling-prompts`.
+// TODO(CTC): remove this block once `journaling-prompts` is registered above.
+//
+// CTC: Implement `parallel-texts` — see docs/features/parallel-texts.md
+//   Two-column source/target reading. Add FEATURES entry (Icon: Columns2),
+//   flag `parallel-texts`, requires `content.<lang>.md` files. Reader must
+//   call `buildPages` per column with shared height constraints.
+// TODO(CTC): remove this block once `parallel-texts` is registered above.
+//
+// --- Vision (do not implement yet — listed for awareness) -----------------
+// choice-narratives, mood-recommendations, story-map, story-remix,
+// symbol-analysis, word-highlighting, story-api — see docs/features/.
+// =============================================================================

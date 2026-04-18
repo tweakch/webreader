@@ -157,6 +157,43 @@ export const FEATURES = [
     description: 'Liest den Märchentext mit synthetischer Stimme vor - unabhängig von einer aufgenommenen Audiodatei.',
     Icon: () => <Mic size={20} strokeWidth={1.75} />,
   },
+  // Voice control epic
+  {
+    key: 'voice-control',
+    label: 'Sprachsteuerung',
+    description: 'Grundlage für alle Sprachbefehle - Mikrofon-Knopf, Push-to-talk und Transkript-Anzeige.',
+    Icon: () => <Mic size={20} strokeWidth={1.75} />,
+  },
+  {
+    key: 'voice-resume',
+    label: 'Sprachbefehl: Weiterlesen',
+    description: 'Öffnet per Sprachbefehl („Weiterlesen", „Continue") das zuletzt gelesene Märchen auf der zuletzt gelesenen Seite.',
+    Icon: () => <Mic size={20} strokeWidth={1.75} />,
+  },
+  {
+    key: 'voice-navigation',
+    label: 'Sprachbefehl: Navigation',
+    description: 'Öffnet Geschichten nach Titel, blättert Seiten vor und zurück und kehrt zur Übersicht zurück - alles per Sprache.',
+    Icon: () => <Mic size={20} strokeWidth={1.75} />,
+  },
+  {
+    key: 'voice-reading-control',
+    label: 'Sprachbefehl: Vorlesen',
+    description: 'Startet, pausiert und beschleunigt das Vorlesen per Sprache (benötigt Text-zu-Sprache).',
+    Icon: () => <Mic size={20} strokeWidth={1.75} />,
+  },
+  {
+    key: 'voice-discovery',
+    label: 'Sprachbefehl: Entdecken',
+    description: 'Findet Geschichten nach Schlagwort oder wählt eine Überraschung per Sprachbefehl.',
+    Icon: () => <Mic size={20} strokeWidth={1.75} />,
+  },
+  {
+    key: 'voice-hands-free',
+    label: 'Sprachbefehl: Hände frei',
+    description: 'Durchgehendes Zuhören statt Push-to-talk - für Barrierefreiheit und Vorlesen ohne Eingreifen.',
+    Icon: () => <Mic size={20} strokeWidth={1.75} />,
+  },
   {
     key: 'word-blacklist',
     label: 'Wort-Blacklist',

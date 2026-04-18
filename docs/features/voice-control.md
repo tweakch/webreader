@@ -3,7 +3,7 @@ id: "voice-control"
 name: "Voice Control"
 type: "epic"
 flag_key: "voice-control"
-lifecycle: "DISCOVERY"
+lifecycle: "EXPERIMENT"
 flag_default: "off"
 category: "advanced-reading"
 personas:
@@ -28,7 +28,7 @@ children:
 
 # Voice Control
 
-**Flag:** `voice-control` · **Lifecycle:** DISCOVERY · **Default:** off
+**Flag:** `voice-control` · **Lifecycle:** EXPERIMENT · **Default:** off
 **Personas:** [Seniors](../personas/09-seniors.md) · [Pre-Readers](../personas/01-pre-readers.md) · [Passive Consumers](../personas/07-passive-consumers.md) · [Parents](../personas/02-parents.md)
 
 Epic for talking to the app instead of tapping. The motivating story — *"as a user I want to talk to the app so it opens my book where I left off"* — drives a broader opportunity: hands-free reading for users who can't (pre-readers), shouldn't (driving / cooking / bedtime with a child on the lap), or struggle to (seniors, motor-impairment) operate the UI.

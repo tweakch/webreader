@@ -8,7 +8,8 @@ import { useReader } from './hooks/useReader';
 import FeatureDocs from './FeatureDocs';
 import { useRole } from './hooks/useRole';
 import { useABTesting } from './hooks/useABTesting';
-import { useTextToSpeech } from './hooks/useTextToSpeech';
+import { useTextToSpeech, TTS_RATES } from './hooks/useTextToSpeech';
+import VoiceControl from './components/VoiceControl';
 import { useBreadcrumbNavigation } from './hooks/useBreadcrumbNavigation';
 import { ThemeContext } from './ui/ThemeContext';
 import Toggle from './ui/Toggle';
@@ -47,6 +48,7 @@ const GrimmMarchenApp = () => {
     showSimplifiedUi, showTextToSpeech,
     showSpeedReader, showSpeedreaderOrp, showWordBlacklist, showDeepSearch, showStoryDirectories, showDebugBadges, showSubscriberFonts, showErrorPageSimulator, showAppAnimation,
     showAbTesting, showAbTestingAdmin,
+    showVoiceControl, showVoiceResume, showVoiceNavigation, showVoiceReadingControl, showVoiceDiscovery, showVoiceHandsFree,
     _rawFlagValues,
     userFeatureOverrides, setUserFeatureOverrides, _o,
     flagTheme, bigFontsVariant,
@@ -648,27 +650,62 @@ const GrimmMarchenApp = () => {
             </div>
           )}
 
-          <button
-            onClick={() => setTheme(t => showHighContrastTheme
-              ? (t === 'light-hc' ? 'dark-hc' : 'light-hc')
-              : (t === 'light' ? 'dark' : t === 'dark' ? 'system' : 'light')
+          <div className="flex items-center gap-2">
+            {showVoiceControl && (
+              <VoiceControl
+                showVoiceControl={showVoiceControl}
+                showVoiceResume={showVoiceResume}
+                showVoiceNavigation={showVoiceNavigation}
+                showVoiceReadingControl={showVoiceReadingControl}
+                showVoiceDiscovery={showVoiceDiscovery}
+                showVoiceHandsFree={showVoiceHandsFree}
+                showTextToSpeech={showTextToSpeech}
+                ttsSupported={ttsSupported}
+                stories={visibleStories}
+                selectedStory={selectedStory}
+                currentPage={currentPage}
+                totalPages={totalPages}
+                resumeSession={resumeSession}
+                favorites={favorites}
+                completedStories={completedStories}
+                onSelectStory={handleSelectStory}
+                onResume={(story, page) => {
+                  pendingResumePageRef.current = page;
+                  handleSelectStory(story);
+                }}
+                onGoToPage={goToPage}
+                onGoHome={goBack}
+                onShowFavorites={() => setFavoritesOnly(true)}
+                onSearch={(q) => setSearchTerm(q)}
+                onToggleTts={handleToggleTts}
+                onStopTts={handleStopTts}
+                ttsRateIdx={ttsRateIdx}
+                onSetTtsRateIdx={setTtsRateIdx}
+                ttsRatesLength={TTS_RATES.length}
+              />
             )}
-            title={
-              theme === 'light'    ? 'Switch to dark mode' :
-              theme === 'dark'     ? 'Switch to system theme' :
-              theme === 'system'   ? 'Switch to light mode' :
-              theme === 'light-hc' ? 'Switch to dark high contrast' :
-                                     'Switch to light high contrast'
-            }
-            className={`px-4 py-2 rounded-lg font-medium transition-all ${
-              theme === 'dark-hc'  ? 'bg-white text-black hover:bg-gray-100' :
-              theme === 'light-hc' ? 'bg-black text-white hover:bg-gray-900' :
-              darkMode             ? 'bg-amber-200 text-slate-900 hover:bg-amber-300' :
-                                     'bg-amber-900 text-white hover:bg-amber-800'
-            }`}
-          >
-            {theme === 'light' ? '🌙' : theme === 'dark' ? '🖥️' : theme === 'system' ? '☀️' : theme === 'light-hc' ? '🌙' : '☀️'}
-          </button>
+            <button
+              onClick={() => setTheme(t => showHighContrastTheme
+                ? (t === 'light-hc' ? 'dark-hc' : 'light-hc')
+                : (t === 'light' ? 'dark' : t === 'dark' ? 'system' : 'light')
+              )}
+              title={
+                theme === 'light'    ? 'Switch to dark mode' :
+                theme === 'dark'     ? 'Switch to system theme' :
+                theme === 'system'   ? 'Switch to light mode' :
+                theme === 'light-hc' ? 'Switch to dark high contrast' :
+                                       'Switch to light high contrast'
+              }
+              className={`px-4 py-2 rounded-lg font-medium transition-all ${
+                theme === 'dark-hc'  ? 'bg-white text-black hover:bg-gray-100' :
+                theme === 'light-hc' ? 'bg-black text-white hover:bg-gray-900' :
+                darkMode             ? 'bg-amber-200 text-slate-900 hover:bg-amber-300' :
+                                       'bg-amber-900 text-white hover:bg-amber-800'
+              }`}
+            >
+              {theme === 'light' ? '🌙' : theme === 'dark' ? '🖥️' : theme === 'system' ? '☀️' : theme === 'light-hc' ? '🌙' : '☀️'}
+            </button>
+          </div>
         </div>
       </header>
       )}

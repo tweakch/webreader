@@ -23,6 +23,12 @@ export function useFeatureFlags() {
   const _rawHighContrastTheme = useBooleanFlagValue('high-contrast-theme', false);
   const _rawSimplifiedUi = useBooleanFlagValue('simplified-ui', false);
   const _rawTextToSpeech = useBooleanFlagValue('text-to-speech', false);
+  const _rawVoiceControl = useBooleanFlagValue('voice-control', false);
+  const _rawVoiceResume = useBooleanFlagValue('voice-resume', false);
+  const _rawVoiceNavigation = useBooleanFlagValue('voice-navigation', false);
+  const _rawVoiceReadingControl = useBooleanFlagValue('voice-reading-control', false);
+  const _rawVoiceDiscovery = useBooleanFlagValue('voice-discovery', false);
+  const _rawVoiceHandsFree = useBooleanFlagValue('voice-hands-free', false);
   const _rawSpeedReader = useBooleanFlagValue('speed-reader', false);
   const _rawSpeedreaderOrp = useBooleanFlagValue('speedreader-orp', false);
   const _rawWordBlacklist = useBooleanFlagValue('word-blacklist', false);
@@ -64,6 +70,12 @@ export function useFeatureFlags() {
   const showHighContrastTheme = _o('high-contrast-theme', _rawHighContrastTheme);
   const showSimplifiedUi = _o('simplified-ui', _rawSimplifiedUi);
   const showTextToSpeech = _o('text-to-speech', _rawTextToSpeech);
+  const showVoiceControl = _o('voice-control', _rawVoiceControl);
+  const showVoiceResume = _o('voice-resume', _rawVoiceResume);
+  const showVoiceNavigation = _o('voice-navigation', _rawVoiceNavigation);
+  const showVoiceReadingControl = _o('voice-reading-control', _rawVoiceReadingControl);
+  const showVoiceDiscovery = _o('voice-discovery', _rawVoiceDiscovery);
+  const showVoiceHandsFree = _o('voice-hands-free', _rawVoiceHandsFree);
   const showSpeedReader = _o('speed-reader', _rawSpeedReader);
   const showSpeedreaderOrp = _o('speedreader-orp', _rawSpeedreaderOrp);
   const showWordBlacklist = _o('word-blacklist', _rawWordBlacklist);
@@ -94,6 +106,12 @@ export function useFeatureFlags() {
     'high-contrast-theme': _rawHighContrastTheme,
     'simplified-ui': _rawSimplifiedUi,
     'text-to-speech': _rawTextToSpeech,
+    'voice-control': _rawVoiceControl,
+    'voice-resume': _rawVoiceResume,
+    'voice-navigation': _rawVoiceNavigation,
+    'voice-reading-control': _rawVoiceReadingControl,
+    'voice-discovery': _rawVoiceDiscovery,
+    'voice-hands-free': _rawVoiceHandsFree,
     'speed-reader': _rawSpeedReader,
     'speedreader-orp': _rawSpeedreaderOrp,
     'word-blacklist': _rawWordBlacklist,
@@ -129,6 +147,12 @@ export function useFeatureFlags() {
     showHighContrastTheme,
     showSimplifiedUi,
     showTextToSpeech,
+    showVoiceControl,
+    showVoiceResume,
+    showVoiceNavigation,
+    showVoiceReadingControl,
+    showVoiceDiscovery,
+    showVoiceHandsFree,
     showSpeedReader,
     showSpeedreaderOrp,
     showWordBlacklist,

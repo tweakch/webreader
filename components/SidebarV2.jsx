@@ -49,8 +49,10 @@ export default function SidebarV2({
   profileOpen,
   onCloseProfile,
   onCloseApp,
+  profileAccessVariant = 'fab',
 }) {
   const { dark: darkMode } = useTheme();
+  const showProfileAtTop = profileAccessVariant === 'sidebar-top';
 
   const EXPANDED_KEY = 'wr-sidebar-v2-expanded';
   const EXPANDED_DIRS_KEY = 'wr-sidebar-v2-expanded-dirs';
@@ -305,6 +307,29 @@ export default function SidebarV2({
           : 'bg-white/95 border-amber-200/50'
       } border-r backdrop-blur-sm`}
     >
+      {/* A/B variant `sidebar-top`: profile button above sticky chrome. */}
+      {showProfileAtTop && (
+        <button
+          data-testid="profile-sidebar-top"
+          onClick={() => { onOpenProfile(); onMenuToggle(); }}
+          className={`flex-shrink-0 w-full flex items-center gap-3 px-4 py-4 border-b transition-colors ${
+            profileOpen
+              ? darkMode ? 'bg-amber-700/20 text-amber-200 border-amber-700/30' : 'bg-amber-100 text-amber-900 border-amber-200'
+              : darkMode ? 'text-amber-300 hover:bg-slate-800 border-amber-700/30' : 'text-amber-800 hover:bg-amber-50 border-amber-200'
+          }`}
+        >
+          <div className={`flex-shrink-0 w-9 h-9 rounded-full flex items-center justify-center ${
+            darkMode ? 'bg-amber-700 text-white' : 'bg-amber-900 text-white'
+          }`}>
+            <User size={18} />
+          </div>
+          <div className="flex-1 min-w-0 text-left">
+            <p className="text-sm font-medium truncate">Mein Profil</p>
+          </div>
+          <ChevronRight size={16} className="flex-shrink-0 opacity-50" />
+        </button>
+      )}
+
       {/* Sticky chrome: badge + search + toolbar. Does not scroll. */}
       <div className={`flex-shrink-0 border-b ${
         darkMode ? 'border-amber-700/30 bg-slate-950/80' : 'border-amber-200/50 bg-white/90'
@@ -538,22 +563,24 @@ export default function SidebarV2({
 
       {/* Bottom actions */}
       <div className={`flex-shrink-0 border-t ${darkMode ? 'border-amber-700/30' : 'border-amber-200/50'}`}>
-        <button
-          onClick={() => { onOpenProfile(); onMenuToggle(); }}
-          className={`w-full flex items-center gap-3 px-4 py-3.5 transition-colors ${
-            profileOpen
-              ? darkMode ? 'bg-amber-700/20 text-amber-200' : 'bg-amber-100 text-amber-900'
-              : darkMode ? 'text-amber-400 hover:bg-slate-800 hover:text-amber-200' : 'text-amber-700 hover:bg-amber-50 hover:text-amber-900'
-          }`}
-        >
-          <div className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center ${darkMode ? 'bg-slate-700' : 'bg-amber-100'}`}>
-            <User size={16} />
-          </div>
-          <div className="flex-1 min-w-0 text-left">
-            <p className="text-sm font-medium truncate">Mein Profil</p>
-          </div>
-          <ChevronRight size={14} className="flex-shrink-0 opacity-50" />
-        </button>
+        {!showProfileAtTop && (
+          <button
+            onClick={() => { onOpenProfile(); onMenuToggle(); }}
+            className={`w-full flex items-center gap-3 px-4 py-3.5 transition-colors ${
+              profileOpen
+                ? darkMode ? 'bg-amber-700/20 text-amber-200' : 'bg-amber-100 text-amber-900'
+                : darkMode ? 'text-amber-400 hover:bg-slate-800 hover:text-amber-200' : 'text-amber-700 hover:bg-amber-50 hover:text-amber-900'
+            }`}
+          >
+            <div className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center ${darkMode ? 'bg-slate-700' : 'bg-amber-100'}`}>
+              <User size={16} />
+            </div>
+            <div className="flex-1 min-w-0 text-left">
+              <p className="text-sm font-medium truncate">Mein Profil</p>
+            </div>
+            <ChevronRight size={14} className="flex-shrink-0 opacity-50" />
+          </button>
+        )}
         <button
           data-testid="close-app-button"
           onClick={onCloseApp}

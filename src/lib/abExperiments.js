@@ -28,10 +28,24 @@ export const AB_EXPERIMENTS = [
       { id: 'v2',      label: 'Baum v2',  description: 'Alles auf einer Ebene, Quellen ein- und ausklappbar, Tastatur-Navigation.' },
     ],
   },
+  {
+    id: 'profile-access',
+    label: 'Profil-Zugang',
+    description: 'Wo der Zugang zum Profil auf Mobilgeräten platziert ist.',
+    defaultVariant: 'fab',
+    variants: [
+      { id: 'fab',         label: 'FAB-Button',    description: 'Floating-Button unten rechts auf Mobile/Tablet (bisheriges Verhalten).' },
+      { id: 'sidebar-top', label: 'Seitenleiste oben', description: 'Profil-Schaltfläche oben in der Seitenleiste, ohne FAB.' },
+    ],
+  },
 ];
 
 export const AB_DEFAULT_CONFIG = {
   sidebar: {
+    active: true,
+    allowedRoles: ['tester', 'admin'],
+  },
+  'profile-access': {
     active: true,
     allowedRoles: ['tester', 'admin'],
   },

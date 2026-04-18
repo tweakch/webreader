@@ -58,6 +58,7 @@ const GrimmMarchenApp = () => {
   // A/B testing
   const ab = useABTesting({ role, isAdmin });
   const sidebarVariant = ab.getVariant('sidebar');
+  const profileAccessVariant = ab.getVariant('profile-access');
 
   // Typography
   const typo = useTypography({ maxFontSize, subscriberFonts: showSubscriberFonts });
@@ -636,6 +637,7 @@ const GrimmMarchenApp = () => {
           onCloseProfile={() => setProfileOpen(false)}
           onCloseApp={handleCloseApp}
           simplifiedUi={showSimplifiedUi}
+          profileAccessVariant={profileAccessVariant}
         />
           );
         })()}
@@ -800,8 +802,10 @@ const GrimmMarchenApp = () => {
       </div>
 
       {/* Thumb-reachable profile FAB — mobile/tablet only, hidden while any
-          overlay is open so the reader view isn't cluttered. */}
-      {!profileOpen && !docsOpen && !personasDocsOpen && !menuOpen && (
+          overlay is open so the reader view isn't cluttered.
+          A/B: `profile-access=fab` keeps the FAB; `sidebar-top` hides it and
+          surfaces profile access at the top of the sidebar instead. */}
+      {profileAccessVariant === 'fab' && !profileOpen && !docsOpen && !personasDocsOpen && !menuOpen && (
         <button
           onClick={() => setProfileOpen(true)}
           data-testid="profile-fab"

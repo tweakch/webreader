@@ -25,6 +25,11 @@ Release populated from the matching section below.
   `tts-rate-*`, `tts-voice-select`.
 - Unit tests: `useTextToSpeech.test.jsx` and new cases in
   `useFeatureFlags.test.jsx` covering the two senior flags.
+- A/B experiment `profile-access` with two variants (`fab` default,
+  `sidebar-top`). `fab` keeps the mobile/tablet floating profile button;
+  `sidebar-top` hides the FAB and surfaces a prominent profile button at
+  the top of the sidebar (both `Sidebar` and `SidebarV2`). Seeded active
+  for `tester` and `admin` roles. New `data-testid`: `profile-sidebar-top`.
 
 ## [0.1.1] - 2026-04-18
 ### Fixed

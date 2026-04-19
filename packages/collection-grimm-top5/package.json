@@ -1,7 +1,7 @@
 {
   "name": "@tweakch/collection-grimm-top5",
-  "version": "0.1.0",
-  "description": "Top 5 Grimm fairy tales curated as a webreader collection.",
+  "version": "0.2.0",
+  "description": "Top 5 Grimm fairy tales curated as a webreader collection — enriched with KHM numbers, ATU tale types, themes, synopses, cover art, and dialect variants.",
   "type": "module",
   "main": "./index.js",
   "exports": {
@@ -12,6 +12,7 @@
     "index.js",
     "collection.json",
     "stories/**/content.md",
+    "stories/**/cover.svg",
     "README.md"
   ],
   "keywords": [

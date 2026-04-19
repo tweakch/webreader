@@ -1,9 +1,24 @@
 ---
 title: "Aschenputtel"
 source: "Grimms Märchen"
+author: "Brüder Grimm"
 url: "https://www.grimmstories.com/de/grimm_maerchen/aschenputtel"
 crawledAt: "2026-04-03T09:10:38.925Z"
 wordCount: 2412
+readingTimeMinutes: 12
+khmNumber: 21
+atuType: "510A"
+firstPublished: 1812
+themes: ["stepfamily", "magic", "transformation", "royalty", "justice"]
+characters: ["Aschenputtel", "Stiefmutter", "Stiefschwestern", "Vater", "Königssohn", "Haseltaube"]
+synopsis: "Nach dem Tod ihrer Mutter wird Aschenputtel von Stiefmutter und Stiefschwestern als Magd gehalten. Mit der Hilfe eines Haselbaums auf dem Grab der Mutter und weisser Tauben gelangt sie zum königlichen Fest und heiratet schliesslich den Königssohn — erkannt an dem verlorenen goldenen Schuh."
+moral: "Fromm und gut bleiben wird belohnt; Neid und Falschheit werden bestraft."
+coverImage: "cover.svg"
+illustrations:
+  - illustrator: "Alexander Zick"
+    work: "Aschenputtel (Gemälde, um 1890)"
+    source: "Wikimedia Commons"
+    license: "Public Domain"
 ---
 
 Einem reichen Manne, dem wurde seine Frau krank, und als sie fühlte, daß ihr Ende herankam, rief sie ihr einziges Töchterlein zu sich ans Bett und sprach: "Liebes Kind, bleibe fromm und gut, so wird dir der liebe Gott immer beistehen, und ich will vom Himmel auf dich herabblicken, und will um dich sein." Darauf tat sie die Augen zu und verschied. Das Mädchen ging jeden Tag hinaus zu dem Grabe der Mutter und weinte, und blieb fromm und gut. Als der Winter kam, deckte der Schnee ein weißes Tüchlein auf das Grab, und als die Sonne im Frühjahr es wieder herabgezogen hatte, nahm sich der Mann eine andere Frau.

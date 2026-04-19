@@ -1,0 +1,32 @@
+{
+  "name": "@tweakch/collection-grimm-klassiker",
+  "version": "0.1.0",
+  "description": "Fifteen canonical Brothers Grimm fairy tales — the household classics beyond the Top 5.",
+  "type": "module",
+  "main": "./index.js",
+  "exports": {
+    ".": "./index.js",
+    "./collection.json": "./collection.json"
+  },
+  "files": [
+    "index.js",
+    "collection.json",
+    "stories/**/content.md",
+    "README.md"
+  ],
+  "keywords": [
+    "webreader",
+    "webreader-collection",
+    "grimm",
+    "fairy-tales"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tweakch/webreader.git",
+    "directory": "packages/collection-grimm-klassiker"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
+  "license": "MIT"
+}

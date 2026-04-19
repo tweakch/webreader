@@ -1,9 +1,24 @@
 ---
 title: "Hänsel und Gretel"
 source: "Grimms Märchen"
+author: "Brüder Grimm"
 url: "https://www.grimmstories.com/de/grimm_maerchen/hansel_und_gretel"
 crawledAt: "2026-04-03T09:10:26.547Z"
 wordCount: 2663
+readingTimeMinutes: 13
+khmNumber: 15
+atuType: "327A"
+firstPublished: 1812
+themes: ["siblings", "hunger", "witchcraft", "cleverness", "forest"]
+characters: ["Hänsel", "Gretel", "Vater", "Stiefmutter", "Hexe"]
+synopsis: "In Hungersnot führen Vater und Stiefmutter die Geschwister Hänsel und Gretel in den Wald. Sie finden ein Haus aus Lebkuchen, das einer menschenfressenden Hexe gehört. Durch Gretels List wird die Hexe im Ofen verbrannt, und die Kinder kehren mit ihren Schätzen heim."
+moral: "Mut und Klugheit überwinden selbst das Böseste."
+coverImage: "cover.svg"
+illustrations:
+  - illustrator: "Arthur Rackham"
+    work: "Hansel and Gretel (1909)"
+    source: "Wikimedia Commons"
+    license: "Public Domain"
 ---
 
 Vor einem großen Walde wohnte ein armer Holzhacker mit seiner Frau und seinen zwei Kindern; das Bübchen hieß Hänsel und das Mädchen Gretel. Er hatte wenig zu beißen und zu brechen, und einmal, als große Teuerung ins Land kam, konnte er das tägliche Brot nicht mehr schaffen. Wie er sich nun abends im Bette Gedanken machte und sich vor Sorgen herumwälzte, seufzte er und sprach zu seiner Frau: "Was soll aus uns werden? Wie können wir unsere armen Kinder ernähren da wir für uns selbst nichts mehr haben?" - "Weißt du was, Mann," antwortete die Frau, "wir wollen morgen in aller Frühe die Kinder hinaus in den Wald führen, wo er am dicksten ist. Da machen wir ihnen ein Feuer an und geben jedem noch ein Stückchen Brot, dann gehen wir an unsere Arbeit und lassen sie allein. Sie finden den Weg nicht wieder nach Haus, und wir sind sie los." - "Nein, Frau," sagte der Mann, "das tue ich nicht; wie sollt ich's übers Herz bringen, meine Kinder im Walde allein zu lassen! Die wilden Tiere würden bald kommen und sie zerreißen." - "Oh, du Narr," sagte sie, "dann müssen wir alle viere Hungers sterben, du kannst nur die Bretter für die Särge hobeln," und ließ ihm keine Ruhe, bis er einwilligte. "Aber die armen Kinder dauern mich doch," sagte der Mann.

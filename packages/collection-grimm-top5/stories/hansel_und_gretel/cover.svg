@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 600" role="img" aria-labelledby="t d">
+  <title id="t">Hänsel und Gretel</title>
+  <desc id="d">Cover illustration: gingerbread house in dark forest.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1e3a1e"/>
+      <stop offset="1" stop-color="#0a1a0a"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="600" fill="url(#bg)"/>
+  <rect x="16" y="16" width="368" height="568" fill="none" stroke="#c8a060" stroke-width="2"/>
+  <g fill="#123312" stroke="#0a1a0a" stroke-width="1">
+    <polygon points="60,470 90,360 120,470"/>
+    <polygon points="100,470 130,330 160,470"/>
+    <polygon points="280,470 310,350 340,470"/>
+    <polygon points="320,470 350,370 380,470"/>
+  </g>
+  <g transform="translate(200 420)">
+    <rect x="-50" y="-40" width="100" height="60" fill="#8b5a2b" stroke="#5a3820" stroke-width="1.5"/>
+    <polygon points="-55,-40 0,-80 55,-40" fill="#d4a574" stroke="#5a3820" stroke-width="1.5"/>
+    <rect x="-10" y="-15" width="20" height="35" fill="#5a3820"/>
+    <circle cx="-30" cy="-20" r="4" fill="#ffb3b3"/>
+    <circle cx="-20" cy="-20" r="4" fill="#b3e0b3"/>
+    <circle cx="30" cy="-20" r="4" fill="#ffb3b3"/>
+    <circle cx="20" cy="-20" r="4" fill="#b3e0b3"/>
+    <circle cx="-40" cy="-60" r="3" fill="#f0d080"/>
+    <circle cx="40" cy="-60" r="3" fill="#f0d080"/>
+  </g>
+  <text x="200" y="150" text-anchor="middle" font-family="Georgia, serif" font-size="32" fill="#f0d4a8" font-style="italic">Hänsel und Gretel</text>
+  <text x="200" y="185" text-anchor="middle" font-family="Georgia, serif" font-size="14" fill="#a88b5c" letter-spacing="4">KHM 15</text>
+  <text x="200" y="555" text-anchor="middle" font-family="Georgia, serif" font-size="13" fill="#a88b5c">Brüder Grimm · 1812</text>
+</svg>

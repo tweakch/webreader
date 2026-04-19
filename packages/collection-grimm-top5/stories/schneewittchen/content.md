@@ -1,9 +1,24 @@
 ---
 title: "Schneewittchen"
 source: "Grimms Märchen"
+author: "Brüder Grimm"
 url: "https://www.grimmstories.com/de/grimm_maerchen/schneewittchen"
 crawledAt: "2026-04-03T09:11:38.429Z"
 wordCount: 2836
+readingTimeMinutes: 14
+khmNumber: 53
+atuType: "709"
+firstPublished: 1812
+themes: ["envy", "beauty", "poison", "resurrection", "dwarfs"]
+characters: ["Schneewittchen", "Königin", "Sprechender Spiegel", "Sieben Zwerge", "Jäger", "Königssohn"]
+synopsis: "Die eitle Stiefkönigin lässt Schneewittchen töten, weil der sprechende Spiegel das Mädchen schöner nennt als sie. Schneewittchen findet Zuflucht bei sieben Zwergen, doch die Königin vergiftet sie dreimal. Im gläsernen Sarg erweckt sie ein Königssohn, indem das vergiftete Apfelstück sich löst."
+moral: "Eitelkeit und Neid führen ins Verderben; das Reine und Aufrichtige triumphiert."
+coverImage: "cover.svg"
+illustrations:
+  - illustrator: "Franz Jüttner"
+    work: "Sneewittchen (1905)"
+    source: "Wikimedia Commons"
+    license: "Public Domain"
 ---
 
 Es war einmal mitten im Winter, und die Schneeflocken fielen wie Federn vom Himmel herab. Da saß eine Königin an einem Fenster, das einen Rahmen von schwarzem Ebenholz hatte, und nähte. Und wie sie so nähte und nach dem Schnee aufblickte, stach sie sich mit der Nadel in den Finger, und es fielen drei Tropfen Blut in den Schnee. Und weil das Rote im weißen Schnee so schön aussah, dachte sie bei sich: Hätt' ich ein Kind, so weiß wie Schnee, so rot wie Blut und so schwarz wie das Holz an dem Rahmen! Bald darauf bekam sie ein Töchterlein, das war so weiß wie Schnee, so rot wie Blut und so schwarzhaarig wie Ebenholz und ward darum Schneewittchen (Schneeweißchen) genannt. Und wie das Kind geboren war, starb die Königin. Über ein Jahr nahm sich der König eine andere Gemahlin. Es war eine schöne Frau, aber sie war stolz und übermütig und konnte nicht leiden, daß sie an Schönheit von jemand sollte übertroffen werden. Sie hatte einen wunderbaren Spiegel wenn sie vor den trat und sich darin beschaute, sprach sie:

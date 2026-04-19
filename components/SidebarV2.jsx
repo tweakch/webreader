@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef, useMemo, useCallback } from 'react';
-import { ChevronDown, ChevronRight, Heart, User, LogOut, Sparkles, X, ListCollapse, ListTree, Keyboard, BookmarkCheck } from 'lucide-react';
+import { ChevronDown, ChevronRight, Heart, User, LogOut, Sparkles, X, ListCollapse, ListTree, Keyboard, BookmarkCheck, BadgeCheck, BookOpen, SlidersHorizontal, CreditCard, Bug } from 'lucide-react';
 import { useTheme } from '../ui/ThemeContext';
 import SearchInput from '../ui/SearchInput';
 import StoryButton from '../ui/StoryButton';
@@ -47,14 +47,22 @@ export default function SidebarV2({
   storiesBySource,
   onOpenProfile,
   profileOpen,
+  profileActiveTab,
   onCloseProfile,
   onCloseApp,
+  isAdmin,
+  role,
+  showErrorPageSimulator,
+  showAbTesting,
+  showAbTestingAdmin,
+  ab,
 }) {
   const { dark: darkMode } = useTheme();
 
   const EXPANDED_KEY = 'wr-sidebar-v2-expanded';
   const EXPANDED_DIRS_KEY = 'wr-sidebar-v2-expanded-dirs';
   const FAVSHELF_KEY = 'wr-sidebar-v2-favshelf-open';
+  const PROFILE_GROUP_KEY = 'wr-sidebar-v2-profile-open';
 
   const [expandedSources, setExpandedSources] = useState(() => {
     const stored = localStorage.getItem(EXPANDED_KEY);
@@ -71,6 +79,7 @@ export default function SidebarV2({
     return new Set();
   });
   const [favShelfOpen, setFavShelfOpen] = useState(() => localStorage.getItem(FAVSHELF_KEY) !== '0');
+  const [profileGroupOpen, setProfileGroupOpen] = useState(() => localStorage.getItem(PROFILE_GROUP_KEY) !== '0');
   const [showShortcuts, setShowShortcuts] = useState(false);
 
   useEffect(() => {
@@ -84,6 +93,16 @@ export default function SidebarV2({
   useEffect(() => {
     localStorage.setItem(FAVSHELF_KEY, favShelfOpen ? '1' : '0');
   }, [favShelfOpen]);
+
+  useEffect(() => {
+    localStorage.setItem(PROFILE_GROUP_KEY, profileGroupOpen ? '1' : '0');
+  }, [profileGroupOpen]);
+
+  // Auto-open the profile group when the profile panel is open, so the active
+  // tab indicator is visible in the sidebar.
+  useEffect(() => {
+    if (profileOpen && !profileGroupOpen) setProfileGroupOpen(true);
+  }, [profileOpen]); // eslint-disable-line react-hooks/exhaustive-deps
 
   // Auto-open the source (and directory) that holds the active story.
   useEffect(() => {
@@ -535,11 +554,31 @@ export default function SidebarV2({
         </div>
       </div>
 
-      {/* Bottom actions */}
+      {/* Bottom actions: collapsible profile group with admin tab links + close app */}
+      {(() => {
+        const hasDevAccess =
+          isAdmin ||
+          role === 'tester' ||
+          showErrorPageSimulator ||
+          (ab && (showAbTesting || showAbTestingAdmin));
+
+        const profileTabs = [
+          { id: 'profile',      label: 'Profil',        Icon: BadgeCheck,        visible: true },
+          { id: 'reading',      label: 'Lesen',         Icon: BookOpen,          visible: true },
+          { id: 'settings',     label: 'Einstellungen', Icon: SlidersHorizontal, visible: true },
+          { id: 'subscription', label: 'Abo',           Icon: CreditCard,        visible: true },
+          { id: 'developer',    label: 'Entwicklung',   Icon: Bug,               visible: hasDevAccess },
+        ].filter((t) => t.visible);
+
+        const openTab = (tabId) => { onOpenProfile(tabId); onMenuToggle(); };
+
+        return (
       <div className={`flex-shrink-0 border-t ${darkMode ? 'border-amber-700/30' : 'border-amber-200/50'}`}>
         <button
-          onClick={() => { onOpenProfile(); onMenuToggle(); }}
-          className={`w-full flex items-center gap-3 px-4 py-3.5 transition-colors ${
+          data-testid="sidebar-v2-profile-group"
+          onClick={() => setProfileGroupOpen((v) => !v)}
+          aria-expanded={profileGroupOpen}
+          className={`w-full flex items-center gap-3 px-4 py-3 transition-colors ${
             profileOpen
               ? darkMode ? 'bg-amber-700/20 text-amber-200' : 'bg-amber-100 text-amber-900'
               : darkMode ? 'text-amber-400 hover:bg-slate-800 hover:text-amber-200' : 'text-amber-700 hover:bg-amber-50 hover:text-amber-900'
@@ -551,8 +590,38 @@ export default function SidebarV2({
           <div className="flex-1 min-w-0 text-left">
             <p className="text-sm font-medium truncate">Mein Profil</p>
           </div>
-          <ChevronRight size={14} className="flex-shrink-0 opacity-50" />
+          {profileGroupOpen
+            ? <ChevronDown size={14} className="flex-shrink-0 opacity-60" />
+            : <ChevronRight size={14} className="flex-shrink-0 opacity-50" />}
         </button>
+
+        {profileGroupOpen && (
+          <div
+            data-testid="sidebar-v2-profile-tabs"
+            className={`pb-2 ${darkMode ? 'bg-slate-950/40' : 'bg-amber-50/40'}`}
+          >
+            {profileTabs.map(({ id, label, Icon }) => {
+              const active = profileOpen && profileActiveTab === id;
+              return (
+                <button
+                  key={id}
+                  data-testid={`sidebar-v2-profile-tab-${id}`}
+                  onClick={() => openTab(id)}
+                  aria-current={active ? 'page' : undefined}
+                  className={`w-full flex items-center gap-3 pl-12 pr-4 py-2 text-sm transition-colors ${
+                    active
+                      ? darkMode ? 'bg-amber-700/30 text-amber-100' : 'bg-amber-200/70 text-amber-900'
+                      : darkMode ? 'text-amber-400 hover:bg-slate-800 hover:text-amber-200' : 'text-amber-700 hover:bg-amber-100 hover:text-amber-900'
+                  }`}
+                >
+                  <Icon size={14} className="flex-shrink-0" />
+                  <span className="truncate flex-1 text-left">{label}</span>
+                </button>
+              );
+            })}
+          </div>
+        )}
+
         <button
           data-testid="close-app-button"
           onClick={onCloseApp}
@@ -566,6 +635,8 @@ export default function SidebarV2({
           <span className="text-sm font-medium">App schließen</span>
         </button>
       </div>
+        );
+      })()}
     </aside>
   );
 }

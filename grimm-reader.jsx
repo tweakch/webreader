@@ -28,7 +28,8 @@ import TypographyPanel, { LINE_HEIGHTS, WORD_SPACINGS, FONT_FAMILIES } from './u
 import AudioPlayer from './ui/AudioPlayer';
 import SpeedReaderView from './ui/SpeedReaderView';
 import DebugOverlay from './components/DebugOverlay';
-import GestureLayer from './components/GestureLayer';
+import GestureDrawerViewport from './components/GestureDrawerViewport';
+import { GestureDrawerProvider } from './components/GestureDrawerContext';
 import { getStoryIndex, getCollectionIndex, loadStoryById, loadStoryMetadataById, loadAdaptionsByStoryId, loadStoryAudioMap } from './src/lib/storyLibrary';
 
 const SPEED_READER_FONT_SIZE = {
@@ -158,6 +159,14 @@ const GrimmMarchenApp = () => {
 
   const readerAreaRef = useRef(null);
   const measureRef = useRef(null);
+  const mainRef = useRef(null);
+  // Dynamic target ref for gestures: prefers the inner reader viewport when
+  // a story is open (so bottom-edge detection lines up with the reading
+  // surface, not the nav bar), otherwise falls back to the main content area
+  // so home-page swipes also register.
+  const gestureTargetRef = React.useMemo(() => ({
+    get current() { return readerAreaRef.current || mainRef.current; },
+  }), []);
 
   useEffect(() => {
     let mounted = true;
@@ -648,8 +657,26 @@ const GrimmMarchenApp = () => {
     throw new Error('Simulated 500 error (error-page-simulator)');
   }
 
+  const recentStoryObjs = React.useMemo(() => {
+    const ids = [...completedStories];
+    const byId = new Map(stories.map((s) => [s.id, s]));
+    return ids.map((id) => byId.get(id)).filter(Boolean);
+  }, [completedStories, stories]);
+
+  const handleResumeFromSession = useCallback((story, page) => {
+    pendingResumePageRef.current = page;
+    handleSelectStory(story);
+  }, [handleSelectStory, pendingResumePageRef]);
+  const handleFocusSearch = useCallback(() => setMenuOpen(true), []);
+  const handleToggleFavoritesOnly = useCallback(() => setFavoritesOnly((v) => !v), [setFavoritesOnly]);
+  const handleOpenTypographyPanel = useCallback(
+    () => { if (showTypographyPanel) setTypoPanelOpen(true); },
+    [showTypographyPanel],
+  );
+
   return (
     <ThemeContext.Provider value={{ dark: darkMode, hc: highContrast }}>
+    <GestureDrawerProvider>
     <div className={`fixed inset-0 flex flex-col overflow-hidden transition-colors duration-300 ${
       highContrast
         ? (darkMode ? 'bg-black' : 'bg-white')
@@ -845,7 +872,7 @@ const GrimmMarchenApp = () => {
         />
 
         {/* Reader Area */}
-        <main className="flex-1 flex flex-col overflow-hidden w-full">
+        <main ref={mainRef} className="flex-1 flex flex-col overflow-hidden w-full">
           {personasDocsOpen ? (
             <PersonasDocsView
               onBack={goBack}
@@ -985,6 +1012,12 @@ const GrimmMarchenApp = () => {
               onStopTts={handleStopTts}
               simplifiedUi={showSimplifiedUi}
               showIllustrations={showIllustrations}
+              showEnhancedGestures={showEnhancedGestures}
+              onOpenProfile={handleOpenProfile}
+              onOpenTypography={handleOpenTypographyPanel}
+              onSetFontSize={setFontSize}
+              maxFontSize={maxFontSize}
+              showFontSizeControls={showFontSizeControls}
             />
           ) : isStoryLoading ? (
             <div className={`h-full w-full grid place-items-center ${darkMode ? 'text-amber-200' : 'text-amber-900'}`}>
@@ -1010,6 +1043,11 @@ const GrimmMarchenApp = () => {
               storyIndex={stories}
               onSelectStory={handleSelectStory}
               onToggleFavorite={toggleFavorite}
+              showEnhancedGestures={showEnhancedGestures}
+              onFocusSearch={handleFocusSearch}
+              onToggleFavoritesOnly={handleToggleFavoritesOnly}
+              favoritesOnly={favoritesOnly}
+              recentStories={recentStoryObjs}
             />
           )}
         </main>
@@ -1034,12 +1072,15 @@ const GrimmMarchenApp = () => {
     </div>
 
     {showEnhancedGestures && (
-      <GestureLayer enabled={!!selectedStory && !speedReaderMode && !profileOpen && !docsOpen && !personasDocsOpen}
-        readerAreaRef={readerAreaRef} pages={pages} currentPage={currentPage} totalPages={totalPages} onGoToPage={goToPage}
-        selectedStory={selectedStory} pageText={pageText} menuOpen={menuOpen} onMenuOpenChange={setMenuOpen}
-        sidebarExpanded={sidebarExpanded} onSidebarExpandedChange={setSidebarExpanded}
+      <GestureDrawerViewport
+        enabled={!speedReaderMode && !profileOpen && !docsOpen && !personasDocsOpen}
+        readerAreaRef={gestureTargetRef}
+        menuOpen={menuOpen}
+        onMenuOpenChange={setMenuOpen}
+        sidebarExpanded={sidebarExpanded}
+        onSidebarExpandedChange={setSidebarExpanded}
         onSidebarDragOffsetChange={setSidebarDragProgress}
-        onOpenTypography={() => showTypographyPanel && setTypoPanelOpen(true)} />
+      />
     )}
 
     <LeaveAppDialog
@@ -1048,6 +1089,7 @@ const GrimmMarchenApp = () => {
       onCancel={cancelLeave}
     />
     {showDebugBadges && <DebugOverlay flagValues={_rawFlagValues} />}
+    </GestureDrawerProvider>
     </ThemeContext.Provider>
   );
 };

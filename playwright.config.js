@@ -1,24 +1,37 @@
 import { defineConfig, devices } from '@playwright/test';
 
+// When BASE_URL is set (CI against a Vercel preview), skip spinning the local
+// dev server and run against the real deployed artifact. Locally and in the
+// default CI flow, fall back to starting `npm run dev`.
+const baseURL = process.env.BASE_URL || 'http://localhost:5173';
+const usingRemote = Boolean(process.env.BASE_URL);
+
 export default defineConfig({
   testDir: './tests',
   testMatch: ['**/*.spec.js'],
   testIgnore: ['**/unit/**'],
-  fullyParallel: false,
-  retries: 0,
-  reporter: 'list',
+  fullyParallel: true,
+  workers: process.env.CI ? 2 : undefined,
+  retries: process.env.CI ? 1 : 0,
+  reporter: process.env.CI
+    ? [['list'], ['html', { open: 'never', outputFolder: 'playwright-report' }], ['json', { outputFile: 'test-results/results.json' }]]
+    : 'list',
   use: {
-    baseURL: 'http://localhost:5173',
-    // No animations during tests for reliable measurements
+    baseURL,
     reducedMotion: 'reduce',
+    trace: 'retain-on-failure',
+    video: 'retain-on-failure',
+    screenshot: 'only-on-failure',
   },
   projects: [
     { name: 'chromium', use: { ...devices['Desktop Chrome'] } },
   ],
-  webServer: {
-    command: 'npm run dev',
-    url: 'http://localhost:5173',
-    reuseExistingServer: true,
-    timeout: 15000,
-  },
+  webServer: usingRemote
+    ? undefined
+    : {
+        command: 'npm run dev',
+        url: 'http://localhost:5173',
+        reuseExistingServer: true,
+        timeout: 15000,
+      },
 });

@@ -28,7 +28,7 @@ import TypographyPanel, { LINE_HEIGHTS, WORD_SPACINGS, FONT_FAMILIES } from './u
 import AudioPlayer from './ui/AudioPlayer';
 import SpeedReaderView from './ui/SpeedReaderView';
 import DebugOverlay from './components/DebugOverlay';
-import { getStoryIndex, loadStoryById, loadStoryMetadataById, loadAdaptionsByStoryId, loadStoryAudioMap } from './src/lib/storyLibrary';
+import { getStoryIndex, getCollectionIndex, loadStoryById, loadStoryMetadataById, loadAdaptionsByStoryId, loadStoryAudioMap } from './src/lib/storyLibrary';
 
 const SPEED_READER_FONT_SIZE = {
   min: 40,
@@ -59,7 +59,7 @@ const GrimmMarchenApp = () => {
     showTapZones, showTapMiddleToggle, showAdaptionSwitcher, showTypographyPanel, showAttribution,
     showFavorites, showFavoritesOnlyToggle, showAudioPlayer, showHighContrastTheme,
     showSimplifiedUi, showTextToSpeech,
-    showSpeedReader, showSpeedreaderOrp, showWordBlacklist, showDeepSearch, showStoryDirectories, showDebugBadges, showSubscriberFonts, showErrorPageSimulator, showAppAnimation,
+    showSpeedReader, showSpeedreaderOrp, showWordBlacklist, showDeepSearch, showStoryDirectories, showCollections, showDebugBadges, showSubscriberFonts, showErrorPageSimulator, showAppAnimation,
     showAbTesting, showAbTestingAdmin,
     showVoiceControl, showVoiceResume, showVoiceNavigation, showVoiceReadingControl, showVoiceDiscovery, showVoiceHandsFree,
     _rawFlagValues,
@@ -331,6 +331,15 @@ const GrimmMarchenApp = () => {
       count: list.length,
     }))
   , [storiesBySource]);
+
+  const collectionSourceIds = React.useMemo(() => {
+    return new Set(getCollectionIndex().map((c) => c.id));
+  }, []);
+
+  const collectionSources = React.useMemo(
+    () => sources.filter((s) => collectionSourceIds.has(s.id)),
+    [sources, collectionSourceIds],
+  );
 
   const directoriesBySource = React.useMemo(() => {
     const map = {};
@@ -740,6 +749,7 @@ const GrimmMarchenApp = () => {
         <SidebarComponent
           menuOpen={menuOpen}
           onMenuToggle={() => setMenuOpen(false)}
+          onMenuOpenChange={setMenuOpen}
           searchTerm={searchTerm}
           onSearchChange={setSearchTerm}
           showDeepSearch={showDeepSearch}
@@ -766,6 +776,8 @@ const GrimmMarchenApp = () => {
           filteredStories={filteredStories}
           sources={sources}
           storiesBySource={storiesBySource}
+          showCollections={showCollections}
+          collectionSources={collectionSources}
           onOpenProfile={handleOpenProfile}
           profileOpen={profileOpen}
           profileActiveTab={profileActiveTab}

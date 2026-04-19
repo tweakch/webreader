@@ -79,6 +79,66 @@ const ALL_USERS = ['guest', 'subscriber', 'tester', 'sales'];
 export const RELEASE_STATUSES = ['released', 'beta', 'experimental'];
 export const TOGGLEABLE_KINDS = ['boolean', 'variant'];
 
+/**
+ * Ordered logical groups used to render features as collapsible sections
+ * with a master toggle in the profile panel. Every registry entry declares
+ * a `group` that maps to one of these ids.
+ *
+ * Shape: { id, label, description, Icon }
+ */
+export const FEATURE_GROUPS = [
+  {
+    id: 'reading',
+    label: 'Lesen & Favoriten',
+    description: 'Lesezeit, Wörteranzahl, Favoriten und Quellenangaben.',
+    Icon: () => <Heart size={16} strokeWidth={1.75} />,
+  },
+  {
+    id: 'typography',
+    label: 'Schrift & Darstellung',
+    description: 'Schriftgröße, Typografie, Themen und Darstellung.',
+    Icon: () => <Type size={16} strokeWidth={1.75} />,
+  },
+  {
+    id: 'navigation',
+    label: 'Seitensteuerung',
+    description: 'Tipp-Zonen, Gesten und Seitenumblättern.',
+    Icon: () => <Hand size={16} strokeWidth={1.75} />,
+  },
+  {
+    id: 'content',
+    label: 'Geschichten & Inhalte',
+    description: 'Quellenstruktur, Sammlungen, Filter und Suche.',
+    Icon: () => <Folder size={16} strokeWidth={1.75} />,
+  },
+  {
+    id: 'speed',
+    label: 'Schnellleser',
+    description: 'RSVP-Modus und ORP-Lesemarke.',
+    Icon: () => <ClockFading size={16} strokeWidth={1.75} />,
+  },
+  {
+    id: 'voice',
+    label: 'Audio & Sprache',
+    description: 'Audio-Player, Text-zu-Sprache und Sprachbefehle.',
+    Icon: () => <Mic size={16} strokeWidth={1.75} />,
+  },
+  {
+    id: 'commerce',
+    label: 'Tarife & Verkauf',
+    description: 'Paywalls, Promo-Codes und Abrechnung.',
+    Icon: () => <CreditCard size={16} strokeWidth={1.75} />,
+  },
+  {
+    id: 'dev',
+    label: 'Entwicklung & Tests',
+    description: 'Debug-Werkzeuge, A/B-Tests und experimentelle Varianten.',
+    Icon: () => <Bug size={16} strokeWidth={1.75} />,
+  },
+];
+
+export const FEATURE_GROUP_IDS = new Set(FEATURE_GROUPS.map((g) => g.id));
+
 export const FEATURE_REGISTRY = [
   // -------- Released foundations --------
   {
@@ -91,6 +151,7 @@ export const FEATURE_REGISTRY = [
     status: 'released',
     retireBy: '2026-12-31',
     roles: ALL_USERS,
+    group: 'reading',
   },
   {
     key: 'favorites-only-toggle',
@@ -102,6 +163,7 @@ export const FEATURE_REGISTRY = [
     status: 'released',
     retireBy: '2026-12-31',
     roles: ALL_USERS,
+    group: 'reading',
   },
   {
     key: 'word-count',
@@ -113,6 +175,7 @@ export const FEATURE_REGISTRY = [
     status: 'released',
     retireBy: '2026-12-31',
     roles: ['subscriber', 'tester', 'sales'],
+    group: 'reading',
   },
   {
     key: 'reading-duration',
@@ -124,6 +187,7 @@ export const FEATURE_REGISTRY = [
     status: 'released',
     retireBy: '2026-12-31',
     roles: ['subscriber', 'tester', 'sales'],
+    group: 'reading',
   },
   {
     key: 'font-size-controls',
@@ -135,6 +199,7 @@ export const FEATURE_REGISTRY = [
     status: 'released',
     retireBy: '2026-12-31',
     roles: ALL_USERS,
+    group: 'typography',
   },
   {
     key: 'pinch-font-size',
@@ -146,6 +211,7 @@ export const FEATURE_REGISTRY = [
     status: 'released',
     retireBy: '2026-12-31',
     roles: ALL_USERS,
+    group: 'typography',
   },
   {
     key: 'eink-flash',
@@ -157,6 +223,7 @@ export const FEATURE_REGISTRY = [
     status: 'released',
     retireBy: '2026-12-31',
     roles: ALL_USERS,
+    group: 'navigation',
   },
   {
     key: 'tap-zones',
@@ -168,6 +235,7 @@ export const FEATURE_REGISTRY = [
     status: 'released',
     retireBy: '2026-12-31',
     roles: ALL_USERS,
+    group: 'navigation',
   },
   {
     key: 'tap-middle-toggle',
@@ -179,6 +247,7 @@ export const FEATURE_REGISTRY = [
     status: 'released',
     retireBy: '2026-12-31',
     roles: ALL_USERS,
+    group: 'navigation',
   },
   {
     key: 'adaption-switcher',
@@ -190,6 +259,7 @@ export const FEATURE_REGISTRY = [
     status: 'released',
     retireBy: '2026-12-31',
     roles: ['subscriber', 'tester', 'sales'],
+    group: 'content',
   },
   {
     key: 'typography-panel',
@@ -201,6 +271,7 @@ export const FEATURE_REGISTRY = [
     status: 'released',
     retireBy: '2026-12-31',
     roles: ALL_USERS,
+    group: 'typography',
   },
   {
     key: 'subscriber-fonts',
@@ -212,6 +283,7 @@ export const FEATURE_REGISTRY = [
     status: 'released',
     retireBy: '2026-12-31',
     roles: ['subscriber', 'tester', 'sales'],
+    group: 'typography',
   },
   {
     key: 'attribution',
@@ -223,6 +295,7 @@ export const FEATURE_REGISTRY = [
     status: 'released',
     retireBy: '2026-12-31',
     roles: ALL_USERS,
+    group: 'reading',
   },
   {
     key: 'audio-player',
@@ -234,6 +307,7 @@ export const FEATURE_REGISTRY = [
     status: 'released',
     retireBy: '2026-12-31',
     roles: ALL_USERS,
+    group: 'voice',
   },
   {
     key: 'high-contrast-theme',
@@ -245,6 +319,7 @@ export const FEATURE_REGISTRY = [
     status: 'released',
     retireBy: '2026-12-31',
     roles: ALL_USERS,
+    group: 'typography',
   },
   {
     key: 'story-directories',
@@ -256,6 +331,7 @@ export const FEATURE_REGISTRY = [
     status: 'released',
     retireBy: '2026-12-31',
     roles: ['subscriber', 'tester', 'sales'],
+    group: 'content',
   },
   {
     key: 'age-filter',
@@ -266,6 +342,7 @@ export const FEATURE_REGISTRY = [
     flag: bool('off'),
     status: 'beta',
     roles: ALL_USERS,
+    group: 'content',
   },
   {
     key: 'collections',
@@ -277,6 +354,7 @@ export const FEATURE_REGISTRY = [
     status: 'released',
     retireBy: '2026-12-31',
     roles: ALL_USERS,
+    group: 'content',
   },
 
   // -------- Released but hidden (variant / infra flags) --------
@@ -294,6 +372,7 @@ export const FEATURE_REGISTRY = [
     retireBy: '2027-06-30',
     roles: ALL_USERS,
     hidden: true,
+    group: 'typography',
   },
   {
     key: 'theme-toggle',
@@ -306,6 +385,7 @@ export const FEATURE_REGISTRY = [
     retireBy: '2027-06-30',
     roles: ALL_USERS,
     hidden: true,
+    group: 'typography',
   },
 
   // -------- Beta: works, opt-in --------
@@ -318,6 +398,7 @@ export const FEATURE_REGISTRY = [
     flag: bool('off'),
     status: 'beta',
     roles: ['subscriber', 'tester'],
+    group: 'speed',
   },
   {
     key: 'speedreader-orp',
@@ -328,6 +409,7 @@ export const FEATURE_REGISTRY = [
     flag: bool('off'),
     status: 'beta',
     roles: ['subscriber', 'tester'],
+    group: 'speed',
   },
   {
     key: 'word-blacklist',
@@ -338,6 +420,7 @@ export const FEATURE_REGISTRY = [
     flag: bool('off'),
     status: 'beta',
     roles: ['subscriber', 'tester'],
+    group: 'content',
   },
   {
     key: 'deep-search',
@@ -348,6 +431,7 @@ export const FEATURE_REGISTRY = [
     flag: bool('off'),
     status: 'beta',
     roles: ['subscriber', 'tester'],
+    group: 'content',
   },
   {
     key: 'simplified-ui',
@@ -358,6 +442,7 @@ export const FEATURE_REGISTRY = [
     flag: bool('off'),
     status: 'beta',
     roles: ['tester'],
+    group: 'typography',
   },
   {
     key: 'enhanced-gestures',
@@ -368,6 +453,7 @@ export const FEATURE_REGISTRY = [
     flag: bool('off'),
     status: 'beta',
     roles: ['subscriber', 'tester'],
+    group: 'navigation',
   },
   {
     key: 'text-to-speech',
@@ -378,6 +464,7 @@ export const FEATURE_REGISTRY = [
     flag: bool('off'),
     status: 'beta',
     roles: ['tester'],
+    group: 'voice',
   },
   {
     key: 'big-fonts',
@@ -392,6 +479,7 @@ export const FEATURE_REGISTRY = [
     status: 'beta',
     roles: ALL_USERS,
     hidden: true,
+    group: 'typography',
   },
   {
     key: 'app-animation',
@@ -402,6 +490,7 @@ export const FEATURE_REGISTRY = [
     flag: bool('off'),
     status: 'beta',
     roles: [],
+    group: 'dev',
   },
   {
     key: 'ab-testing',
@@ -412,6 +501,7 @@ export const FEATURE_REGISTRY = [
     flag: bool('off'),
     status: 'beta',
     roles: ['subscriber', 'tester', 'sales'],
+    group: 'dev',
   },
 
   // -------- Beta: commerce / sales --------
@@ -424,6 +514,7 @@ export const FEATURE_REGISTRY = [
     flag: bool('off'),
     status: 'beta',
     roles: ['sales'],
+    group: 'commerce',
   },
   {
     key: 'paywall',
@@ -434,6 +525,7 @@ export const FEATURE_REGISTRY = [
     flag: bool('off'),
     status: 'beta',
     roles: ['sales'],
+    group: 'commerce',
   },
   {
     key: 'upgrade-cta',
@@ -444,6 +536,7 @@ export const FEATURE_REGISTRY = [
     flag: bool('off'),
     status: 'beta',
     roles: ['sales'],
+    group: 'commerce',
   },
   {
     key: 'trial-banner',
@@ -454,6 +547,7 @@ export const FEATURE_REGISTRY = [
     flag: bool('off'),
     status: 'beta',
     roles: ['sales'],
+    group: 'commerce',
   },
   {
     key: 'pricing-page',
@@ -464,6 +558,7 @@ export const FEATURE_REGISTRY = [
     flag: bool('off'),
     status: 'beta',
     roles: ['sales'],
+    group: 'commerce',
   },
   {
     key: 'promo-code',
@@ -474,6 +569,7 @@ export const FEATURE_REGISTRY = [
     flag: bool('off'),
     status: 'beta',
     roles: ['sales'],
+    group: 'commerce',
   },
   {
     key: 'referral-program',
@@ -484,6 +580,7 @@ export const FEATURE_REGISTRY = [
     flag: bool('off'),
     status: 'beta',
     roles: ['sales'],
+    group: 'commerce',
   },
   {
     key: 'sales-mode',
@@ -494,6 +591,7 @@ export const FEATURE_REGISTRY = [
     flag: bool('off'),
     status: 'beta',
     roles: ['sales'],
+    group: 'commerce',
   },
   {
     key: 'conversion-analytics',
@@ -504,6 +602,7 @@ export const FEATURE_REGISTRY = [
     flag: bool('off'),
     status: 'beta',
     roles: ['sales'],
+    group: 'commerce',
   },
   {
     key: 'billing-portal-stub',
@@ -514,6 +613,7 @@ export const FEATURE_REGISTRY = [
     flag: bool('off'),
     status: 'beta',
     roles: ['sales'],
+    group: 'commerce',
   },
 
   // -------- Experimental: admin / tester only --------
@@ -526,6 +626,7 @@ export const FEATURE_REGISTRY = [
     flag: bool('off'),
     status: 'experimental',
     roles: ['tester'],
+    group: 'voice',
   },
   {
     key: 'illustrations',
@@ -536,6 +637,7 @@ export const FEATURE_REGISTRY = [
     flag: bool('off'),
     status: 'beta',
     roles: ALL_USERS,
+    group: 'content',
   },
   {
     key: 'child-profile',
@@ -546,6 +648,7 @@ export const FEATURE_REGISTRY = [
     flag: bool('off'),
     status: 'beta',
     roles: ALL_USERS,
+    group: 'content',
   },
   {
     key: 'story-quiz',
@@ -556,6 +659,7 @@ export const FEATURE_REGISTRY = [
     flag: bool('off'),
     status: 'experimental',
     roles: ['tester'],
+    group: 'content',
   },
   {
     key: 'voice-control',
@@ -566,6 +670,7 @@ export const FEATURE_REGISTRY = [
     flag: bool('off'),
     status: 'experimental',
     roles: [],
+    group: 'voice',
   },
   {
     key: 'voice-resume',
@@ -576,6 +681,7 @@ export const FEATURE_REGISTRY = [
     flag: bool('off'),
     status: 'experimental',
     roles: [],
+    group: 'voice',
   },
   {
     key: 'voice-navigation',
@@ -586,6 +692,7 @@ export const FEATURE_REGISTRY = [
     flag: bool('off'),
     status: 'experimental',
     roles: [],
+    group: 'voice',
   },
   {
     key: 'voice-reading-control',
@@ -596,6 +703,7 @@ export const FEATURE_REGISTRY = [
     flag: bool('off'),
     status: 'experimental',
     roles: [],
+    group: 'voice',
   },
   {
     key: 'voice-discovery',
@@ -606,6 +714,7 @@ export const FEATURE_REGISTRY = [
     flag: bool('off'),
     status: 'experimental',
     roles: [],
+    group: 'voice',
   },
   {
     key: 'voice-hands-free',
@@ -616,6 +725,7 @@ export const FEATURE_REGISTRY = [
     flag: bool('off'),
     status: 'experimental',
     roles: [],
+    group: 'voice',
   },
   {
     key: 'debug-badges',
@@ -626,6 +736,7 @@ export const FEATURE_REGISTRY = [
     flag: bool('off'),
     status: 'experimental',
     roles: ['tester'],
+    group: 'dev',
   },
   {
     key: 'error-page-simulator',
@@ -636,6 +747,7 @@ export const FEATURE_REGISTRY = [
     flag: bool('off'),
     status: 'experimental',
     roles: ['tester'],
+    group: 'dev',
   },
   {
     key: 'ab-testing-admin',
@@ -646,6 +758,7 @@ export const FEATURE_REGISTRY = [
     flag: bool('off'),
     status: 'experimental',
     roles: [],
+    group: 'dev',
   },
   {
     key: 'hero-tagline',
@@ -657,6 +770,7 @@ export const FEATURE_REGISTRY = [
     status: 'experimental',
     roles: [],
     hidden: true,
+    group: 'dev',
   },
 ];
 
@@ -687,6 +801,10 @@ export function getDefaultRoleFeatures() {
 
 export function getFeaturesByStatus(status) {
   return FEATURE_REGISTRY.filter((e) => e.status === status).map((e) => e.key);
+}
+
+export function getFeaturesByGroup(groupId) {
+  return FEATURE_REGISTRY.filter((e) => e.group === groupId).map((e) => e.key);
 }
 
 /**

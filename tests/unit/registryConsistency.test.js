@@ -2,8 +2,11 @@ import flagsJson from '../../flags.json';
 import {
   FEATURE_REGISTRY,
   FEATURES,
+  FEATURE_GROUPS,
+  FEATURE_GROUP_IDS,
   getFlagConfig,
   getDefaultRoleFeatures,
+  getFeaturesByGroup,
 } from '../../src/lib/featureRegistry';
 import { AB_EXPERIMENTS, AB_DEFAULT_CONFIG } from '../../src/lib/abExperiments';
 import { ROLES } from '../../hooks/useRole';
@@ -52,6 +55,32 @@ describe('registry ↔ role defaults consistency', () => {
     const defaults = getDefaultRoleFeatures();
     for (const role of Object.keys(defaults)) {
       expect(ROLES).toContain(role);
+    }
+  });
+});
+
+describe('registry feature groups', () => {
+  it('every registry entry declares a group', () => {
+    for (const entry of FEATURE_REGISTRY) {
+      expect(typeof entry.group).toBe('string');
+      expect(entry.group.length).toBeGreaterThan(0);
+    }
+  });
+
+  it('every entry group matches a FEATURE_GROUPS id', () => {
+    for (const entry of FEATURE_REGISTRY) {
+      expect(FEATURE_GROUP_IDS.has(entry.group)).toBe(true);
+    }
+  });
+
+  it('FEATURE_GROUPS ids are unique', () => {
+    const ids = FEATURE_GROUPS.map((g) => g.id);
+    expect(new Set(ids).size).toBe(ids.length);
+  });
+
+  it('every group has at least one registry entry', () => {
+    for (const group of FEATURE_GROUPS) {
+      expect(getFeaturesByGroup(group.id).length).toBeGreaterThan(0);
     }
   });
 });

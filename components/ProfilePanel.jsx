@@ -1,16 +1,8 @@
 import { ChevronLeft, X, User, Shield, FlameKindling, Users } from 'lucide-react';
 import { useTheme } from '../ui/ThemeContext';
-import Toggle from '../ui/Toggle';
-import VariantPicker from '../ui/VariantPicker';
 import { ROLES, ROLE_LABELS } from '../hooks/useRole';
 import ABTestingPanel from './ABTestingPanel';
-
-const APP_ANIMATION_OPTIONS = [
-  { value: 'seal',    label: 'Portal',   testId: 'app-animation-variant-seal' },
-  { value: 'fade',    label: 'Minimal',  testId: 'app-animation-variant-fade' },
-  { value: 'sparkle', label: 'Funken',   testId: 'app-animation-variant-sparkle' },
-  { value: 'ink',     label: 'Tinte',    testId: 'app-animation-variant-ink' },
-];
+import ProfileFeatureList from './ProfileFeatureList';
 
 /**
  * Profile panel - user stats, word blacklist, feature toggles, and admin tools.
@@ -33,6 +25,7 @@ export default function ProfilePanel({
   _rawFlagValues,
   userFeatureOverrides,
   onToggleFeature,
+  onSetFeaturesEnabled,
   // Role props
   role,
   setRole,
@@ -63,8 +56,6 @@ export default function ProfilePanel({
   ]);
   const { dark, hc, tc } = useTheme();
 
-  const _o = (key, raw) => Object.hasOwn(userFeatureOverrides, key) ? userFeatureOverrides[key] : raw;
-
   // Admin sees all features; others see only role-assigned features
   let visibleFeatures = isAdmin
     ? features
@@ -72,8 +63,6 @@ export default function ProfilePanel({
   if (simplifiedUi && !isAdmin) {
     visibleFeatures = visibleFeatures.filter((f) => !SIMPLIFIED_HIDDEN.has(f.key));
   }
-
-  const nonAdminRoles = ROLES.filter((r) => r !== 'admin');
 
   return (
     <div className="flex-1 flex flex-col min-h-0">
@@ -312,102 +301,19 @@ export default function ProfilePanel({
             </p>
           )}
 
-          <div className={`rounded-2xl border divide-y ${
-            dark ? 'border-amber-700/30 divide-amber-700/30' : 'border-amber-200 divide-amber-200'
-          }`}>
-            {visibleFeatures.map(({ key, label, description, Icon }) => {
-              const effective = _o(key, _rawFlagValues[key] ?? false);
-              const isUnreleased = !Object.hasOwn(_rawFlagValues, key);
-
-              return (
-                <div key={key} className={`px-5 py-4 flex items-start gap-4 ${
-                  dark ? 'text-amber-200' : 'text-amber-900'
-                }`}>
-                  <div className={`flex-shrink-0 mt-0.5 w-10 h-10 rounded-xl flex items-center justify-center transition-colors ${
-                    effective
-                      ? dark ? 'bg-amber-700/40 text-amber-300' : 'bg-amber-100 text-amber-700'
-                      : dark ? 'bg-slate-700/60 text-amber-700' : 'bg-amber-50/80 text-amber-400'
-                  }`}>
-                    <div className="w-5 h-5"><Icon /></div>
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <div className="flex items-center justify-between gap-3">
-                      <div className="flex items-center gap-2 min-w-0">
-                        <p className={`text-sm font-medium transition-opacity ${
-                          effective ? '' : 'opacity-40'
-                        }`}>{label}</p>
-                        {isUnreleased && (
-                          <span className={`flex-shrink-0 text-[10px] font-semibold px-1.5 py-0.5 rounded-full ${
-                            dark ? 'bg-violet-900/60 text-violet-300' : 'bg-violet-100 text-violet-700'
-                          }`}>
-                            unveröffentlicht
-                          </span>
-                        )}
-                      </div>
-                      <Toggle
-                        checked={effective}
-                        onChange={() => onToggleFeature(key)}
-                        label={label}
-                      />
-                    </div>
-                    <p className={`text-xs mt-1 leading-relaxed ${
-                      dark ? 'text-amber-600' : 'text-amber-500'
-                    }`}>{description}</p>
-                    <button
-                      onClick={() => onOpenDocs(key)}
-                      className={`text-xs mt-1 inline-block transition-colors hover:underline ${
-                        dark ? 'text-amber-400/70 hover:text-amber-400' : 'text-amber-600/70 hover:text-amber-700'
-                      }`}
-                    >
-                      Mehr erfahren →
-                    </button>
-
-                    {/* App-animation variant picker — inline under the toggle */}
-                    {key === 'app-animation' && effective && onSetAppAnimationVariant && (
-                      <div className="mt-3" data-testid="app-animation-variant-picker">
-                        <VariantPicker
-                          ariaLabel="App-Animation Variante"
-                          options={APP_ANIMATION_OPTIONS}
-                          value={appAnimationVariant}
-                          onChange={onSetAppAnimationVariant}
-                        />
-                      </div>
-                    )}
-
-                    {/* Admin: role-assignment row */}
-                    {isAdmin && (
-                      <div className="flex items-center gap-3 mt-2">
-                        <span className={`text-[10px] uppercase tracking-wider ${
-                          dark ? 'text-amber-700' : 'text-amber-400'
-                        }`}>Rollen:</span>
-                        {nonAdminRoles.map((r) => {
-                          const assigned = isFeatureAssignedToRole(key, r);
-                          return (
-                            <button
-                              key={r}
-                              data-testid={`role-assign-${key}-${r}`}
-                              onClick={() => toggleFeatureForRole(key, r)}
-                              className={`text-[10px] font-medium px-2 py-0.5 rounded-full border transition-colors ${
-                                assigned
-                                  ? dark
-                                    ? 'bg-violet-700/60 border-violet-500 text-violet-200'
-                                    : 'bg-violet-100 border-violet-400 text-violet-800'
-                                  : dark
-                                    ? 'border-amber-800/50 text-amber-800 hover:text-amber-600'
-                                    : 'border-amber-300 text-amber-400 hover:text-amber-600'
-                              }`}
-                            >
-                              {ROLE_LABELS[r]}
-                            </button>
-                          );
-                        })}
-                      </div>
-                    )}
-                  </div>
-                </div>
-              );
-            })}
-          </div>
+          <ProfileFeatureList
+            visibleFeatures={visibleFeatures}
+            _rawFlagValues={_rawFlagValues}
+            userFeatureOverrides={userFeatureOverrides}
+            onToggleFeature={onToggleFeature}
+            onSetFeaturesEnabled={onSetFeaturesEnabled}
+            isAdmin={isAdmin}
+            isFeatureAssignedToRole={isFeatureAssignedToRole}
+            toggleFeatureForRole={toggleFeatureForRole}
+            onOpenDocs={onOpenDocs}
+            appAnimationVariant={appAnimationVariant}
+            onSetAppAnimationVariant={onSetAppAnimationVariant}
+          />
         </div>
 
         {/* A/B testing panel */}

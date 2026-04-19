@@ -123,11 +123,11 @@ The variant-selection conditionals in `grimm-reader.jsx` lines 778 and 863–865
 
 ## Recommended order of attack
 
-**Phase 1 — safe refactors (no decisions required)**
+**Phase 1 — safe refactors (no decisions required)** — *done*
 
-1. Extract A/B variant selection into `components/AppVariantRenderer.jsx` (~2 h). Centralizes experiment wiring; trims ~30 lines from `grimm-reader.jsx`; makes variant logic testable.
-2. Extract feature-flag destructuring into `hooks/useAppFeatureFlags.js` (~1.5 h). Clarifies derived flags; eases onboarding.
-3. Move `FeatureDocs.jsx` to `components/` (~30 min). Aligns with guideline #2.
+1. ~~Extract A/B variant selection~~ landed as `src/lib/abVariantComponents.js` with `pickSidebarComponent` / `pickProfilePanelComponent` helpers + unit tests.
+2. ~~Extract feature-flag destructuring~~ landed as `hooks/useAppFeatureFlags.js` — absorbs the child-profile umbrella derivation and is unit-tested.
+3. ~~Move `FeatureDocs.jsx` to `components/`~~ done; tailwind/guidelines/test references updated.
 
 **Phase 2 — experiment resolution (blocked on product decision)**
 

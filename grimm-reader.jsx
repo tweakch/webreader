@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect, useCallback } from 'react';
 import { Menu, X, Plus, Minus, User } from 'lucide-react';
 import { FEATURES } from './features';
-import { useFeatureFlags } from './hooks/useFeatureFlags';
+import { useAppFeatureFlags } from './hooks/useAppFeatureFlags';
 import { useAppAnimation } from './hooks/useAppAnimation';
 import { useTypography } from './hooks/useTypography';
 import { usePersistence } from './hooks/usePersistence';
@@ -52,30 +52,23 @@ const GrimmMarchenApp = () => {
   const releaseMode = import.meta.env.VITE_RELEASE_MODE === 'released-only'
     ? 'released-only'
     : 'all';
-  const flags = useFeatureFlags({ releaseMode, role });
+  const flags = useAppFeatureFlags({ releaseMode, role });
   const { variant: appAnimationVariant, setVariant: setAppAnimationVariant } = useAppAnimation();
   const {
-    maxFontSize: rawMaxFontSize,
+    maxFontSize,
     showWordCount, showReadingDuration, showFontSizeControls, showPinchFontSize, showEinkFlash,
     showTapZones, showTapMiddleToggle, showAdaptionSwitcher, showTypographyPanel, showAttribution,
     showFavorites, showFavoritesOnlyToggle, showAudioPlayer, showHighContrastTheme,
-    showSimplifiedUi: rawShowSimplifiedUi, showTextToSpeech,
+    showSimplifiedUi, showTextToSpeech,
     showSpeedReader, showSpeedreaderOrp, showWordBlacklist, showDeepSearch, showStoryDirectories, showCollections, showDebugBadges, showSubscriberFonts, showErrorPageSimulator, showAppAnimation, showEnhancedGestures,
     showAbTesting, showAbTestingAdmin,
     showVoiceControl, showVoiceResume, showVoiceNavigation, showVoiceReadingControl, showVoiceDiscovery, showVoiceHandsFree,
-    showAgeFilter, showChildProfile, showIllustrations: rawShowIllustrations, showSuggestionFeeds,
+    showAgeFilter, showChildProfile, showIllustrations, showSuggestionFeeds,
+    ageFilterActive,
     _rawFlagValues,
     userFeatureOverrides, setUserFeatureOverrides, _o,
     flagTheme, bigFontsVariant,
   } = flags;
-
-  // Child-profile is an umbrella that forces simplified UI, illustrations,
-  // age-filter and a larger base font size on together. Individual toggles
-  // still win when the umbrella is off.
-  const showSimplifiedUi = rawShowSimplifiedUi || showChildProfile;
-  const showIllustrations = rawShowIllustrations || showChildProfile;
-  const ageFilterActive = showAgeFilter || showChildProfile;
-  const maxFontSize = showChildProfile && rawMaxFontSize < 34 ? 34 : rawMaxFontSize;
 
   // A/B testing
   const ab = useABTesting({ role, isAdmin });

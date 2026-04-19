@@ -44,6 +44,8 @@ export default function Sidebar({
   onCloseProfile,
   onCloseApp,
   simplifiedUi = false,
+  expanded = false,
+  onCollapseExpanded,
   showAgeFilter = false,
   childAge = null,
   onChildAgeChange,
@@ -51,13 +53,32 @@ export default function Sidebar({
   const { dark: darkMode } = useTheme();
 
   return (
-    <aside className={`fixed lg:static top-16 bottom-0 left-0 w-80 lg:w-72 z-30 transform transition-transform duration-300 flex flex-col ${
+    <aside className={`fixed lg:static top-16 bottom-0 left-0 ${expanded ? 'w-96 lg:w-96' : 'w-80 lg:w-72'} z-30 transform transition-all duration-300 flex flex-col ${
       menuOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'
     } ${
       darkMode
         ? 'bg-slate-950/95 border-amber-700/30'
         : 'bg-white/95 border-amber-200/50'
     } border-r backdrop-blur-sm`}>
+      {expanded && (
+        <div
+          data-testid="sidebar-expanded-bar"
+          className={`flex-shrink-0 px-4 py-2 text-xs flex items-center justify-between border-b ${
+            darkMode ? 'bg-slate-900 border-amber-700/30 text-amber-300' : 'bg-amber-50 border-amber-200/50 text-amber-800'
+          }`}
+        >
+          <span>Erweiterte Ansicht</span>
+          <button
+            onClick={() => onCollapseExpanded?.()}
+            className={`px-2 py-0.5 rounded transition-colors ${
+              darkMode ? 'hover:bg-slate-800' : 'hover:bg-amber-100'
+            }`}
+            data-testid="sidebar-collapse-expanded"
+          >
+            Kompakt
+          </button>
+        </div>
+      )}
       <div className="flex-1 min-h-0 overflow-y-auto">
 
         {/* Search - always visible */}

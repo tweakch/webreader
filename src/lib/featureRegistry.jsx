@@ -40,6 +40,7 @@ import {
   CreditCard,
   Palette,
   SunMoon,
+  Move,
   Baby,
 } from 'lucide-react';
 
@@ -357,6 +358,16 @@ export const FEATURE_REGISTRY = [
     flag: bool('off'),
     status: 'beta',
     roles: ['tester'],
+  },
+  {
+    key: 'enhanced-gestures',
+    kind: 'boolean',
+    label: 'Erweiterte Gesten',
+    description: 'Wischgesten aus allen Richtungen öffnen Drawer, ein langer Zug nach unten lädt die Seite neu.',
+    Icon: () => <Move size={20} strokeWidth={1.75} />,
+    flag: bool('off'),
+    status: 'beta',
+    roles: ['subscriber', 'tester'],
   },
   {
     key: 'text-to-speech',

@@ -28,6 +28,7 @@ import TypographyPanel, { LINE_HEIGHTS, WORD_SPACINGS, FONT_FAMILIES } from './u
 import AudioPlayer from './ui/AudioPlayer';
 import SpeedReaderView from './ui/SpeedReaderView';
 import DebugOverlay from './components/DebugOverlay';
+import GestureLayer from './components/GestureLayer';
 import { getStoryIndex, getCollectionIndex, loadStoryById, loadStoryMetadataById, loadAdaptionsByStoryId, loadStoryAudioMap } from './src/lib/storyLibrary';
 
 const SPEED_READER_FONT_SIZE = {
@@ -59,7 +60,7 @@ const GrimmMarchenApp = () => {
     showTapZones, showTapMiddleToggle, showAdaptionSwitcher, showTypographyPanel, showAttribution,
     showFavorites, showFavoritesOnlyToggle, showAudioPlayer, showHighContrastTheme,
     showSimplifiedUi: rawShowSimplifiedUi, showTextToSpeech,
-    showSpeedReader, showSpeedreaderOrp, showWordBlacklist, showDeepSearch, showStoryDirectories, showCollections, showDebugBadges, showSubscriberFonts, showErrorPageSimulator, showAppAnimation,
+    showSpeedReader, showSpeedreaderOrp, showWordBlacklist, showDeepSearch, showStoryDirectories, showCollections, showDebugBadges, showSubscriberFonts, showErrorPageSimulator, showAppAnimation, showEnhancedGestures,
     showAbTesting, showAbTestingAdmin,
     showVoiceControl, showVoiceResume, showVoiceNavigation, showVoiceReadingControl, showVoiceDiscovery, showVoiceHandsFree,
     showAgeFilter, showChildProfile, showIllustrations: rawShowIllustrations,
@@ -574,6 +575,8 @@ const GrimmMarchenApp = () => {
     };
   }, [showPinchFontSize, selectedStory, speedReaderMode, maxFontSize, setFontSize]);
 
+  const [sidebarExpanded, setSidebarExpanded] = useState(false);
+
   // When HC flag is toggled, map between normal and HC theme variants
   useEffect(() => {
     if (showHighContrastTheme) {
@@ -776,6 +779,7 @@ const GrimmMarchenApp = () => {
           menuOpen={menuOpen}
           onMenuToggle={() => setMenuOpen(false)}
           onMenuOpenChange={setMenuOpen}
+          expanded={showEnhancedGestures && sidebarExpanded} onCollapseExpanded={() => setSidebarExpanded(false)}
           searchTerm={searchTerm}
           onSearchChange={setSearchTerm}
           showDeepSearch={showDeepSearch}
@@ -1021,6 +1025,14 @@ const GrimmMarchenApp = () => {
         </button>
       )}
     </div>
+
+    {showEnhancedGestures && (
+      <GestureLayer enabled={!!selectedStory && !speedReaderMode && !profileOpen && !docsOpen && !personasDocsOpen}
+        readerAreaRef={readerAreaRef} pages={pages} currentPage={currentPage} totalPages={totalPages} onGoToPage={goToPage}
+        selectedStory={selectedStory} pageText={pageText} menuOpen={menuOpen} onMenuOpenChange={setMenuOpen}
+        sidebarExpanded={sidebarExpanded} onSidebarExpandedChange={setSidebarExpanded}
+        onOpenTypography={() => showTypographyPanel && setTypoPanelOpen(true)} />
+    )}
 
     <LeaveAppDialog
       open={leavePromptOpen}

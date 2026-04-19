@@ -3,8 +3,8 @@
   "fileSizeAllowlist": [
     {
       "file": "grimm-reader.jsx",
-      "limit": 1040,
-      "reason": "Top-level app composition + handlers. Grew by the child-profile umbrella destructure + childAge state + age-filter plumbing through the sidebar. Target: extract docs/profile/sidebar open-state and A/B wiring into a context; aim <600 lines."
+      "limit": 1055,
+      "reason": "Top-level app composition + handlers. Grew with the child-profile umbrella destructure, childAge state, age-filter plumbing, and the enhanced-gestures feature wiring. Target: extract docs/profile/sidebar open-state and A/B wiring into a context; aim <600 lines."
     },
     {
       "file": "FeatureDocs.jsx",
@@ -13,13 +13,13 @@
     },
     {
       "file": "src/lib/featureRegistry.jsx",
-      "limit": 690,
-      "reason": "Declarative registry — large by design; grew with retireBy annotations (rule 4) plus the age-filter and collections entries. Target: move role-default tables into a sibling registry; aim <500 lines."
+      "limit": 700,
+      "reason": "Declarative registry — large by design; grew with retireBy annotations (rule 4), the age-filter/collections entries, and the enhanced-gestures beta entry. Target: move role-default tables into a sibling registry; aim <500 lines."
     },
     {
       "file": "components/SidebarV2.jsx",
-      "limit": 815,
-      "reason": "Variant component awaiting A/B decision. Grew with collections blade, swipe gestures, and the age-filter picker. Target: promote + delete or split into Sidebar + SidebarTree."
+      "limit": 835,
+      "reason": "Variant component awaiting A/B decision. Grew with the collections blade, swipe gestures, the age-filter picker, and the enhanced-gestures expanded-mode bar. Target: promote + delete or split into Sidebar + SidebarTree."
     },
     {
       "file": "components/ProfilePanelTabbed.jsx",

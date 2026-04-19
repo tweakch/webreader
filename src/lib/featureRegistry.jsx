@@ -277,6 +277,16 @@ export const FEATURE_REGISTRY = [
     retireBy: '2026-12-31',
     roles: ALL_USERS,
   },
+  {
+    key: 'suggestion-feeds',
+    kind: 'boolean',
+    label: 'Vorschlags-Feeds',
+    description: 'Zeigt auf der Startseite tägliche Empfehlungs-Feeds nach Jahreszeit, Region, Moral, Motiv und Stimmung.',
+    Icon: () => <LayoutGrid size={20} strokeWidth={1.75} />,
+    flag: bool('off'),
+    status: 'experimental',
+    roles: ALL_USERS,
+  },
 
   // -------- Released but hidden (variant / infra flags) --------
   {

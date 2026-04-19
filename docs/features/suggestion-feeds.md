@@ -1,8 +1,10 @@
 ---
 id: "suggestion-feeds"
 name: "Suggestion Feeds"
-type: "strategic"
-status: "vision"
+type: "app"
+flag_key: "suggestion-feeds"
+lifecycle: "EXPERIMENT"
+flag_default: "off"
 category: "discovery"
 personas:
   - "02-parents"

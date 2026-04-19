@@ -221,7 +221,7 @@ export const FEEDS = [
   { id: 'mood-curious', label: 'Abenteuer & Entdeckung', axis: 'mood',
     terms: ['reisekamerad', 'abenteuer', 'nichts fuerchtet'] },
   { id: 'mood-thrill', label: 'Düstere Stoffe', axis: 'mood',
-    custom: (s) => KNOWN_DARK_SLUGS.has(s.slug),
+    custom: (s) => KNOWN_DARK_SLUGS.has(storySlug(s)),
     terms: ['blaubart', 'hexe', 'teufel', 'tod', 'geist', 'gespenst'] },
 
   // 6. READING-CONTEXT
@@ -267,8 +267,19 @@ function ageBandOverlaps(story, min, max) {
   return lo <= max && hi >= min;
 }
 
+function storySlug(story) {
+  if (story.slug) return story.slug;
+  // id is `${source}/${slug}` or `${source}/${directory}/${slug}`
+  if (typeof story.id === 'string') {
+    const parts = story.id.split('/');
+    return parts[parts.length - 1] || '';
+  }
+  return '';
+}
+
 function storyHaystack(story) {
-  return foldGerman(`${story.slug || ''} ${story.title || ''}`.replace(/[_-]+/g, ' '));
+  const slug = storySlug(story);
+  return foldGerman(`${slug} ${story.title || ''}`.replace(/[_-]+/g, ' '));
 }
 
 function scoreTerms(story, terms) {

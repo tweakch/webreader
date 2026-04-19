@@ -1,8 +1,9 @@
 import { Heart } from 'lucide-react';
 import { useTheme } from '../ui/ThemeContext';
+import SuggestionFeeds from './SuggestionFeeds';
 
 /**
- * Home view - resume banner and favorites grid.
+ * Home view - resume banner, suggestion feeds and favorites grid.
  * Shown when no story is selected.
  */
 export default function HomeView({
@@ -13,6 +14,8 @@ export default function HomeView({
   completedStories,
   showFavorites,
   showWordCount,
+  showSuggestionFeeds,
+  storyIndex,
   onSelectStory,
   onToggleFavorite,
 }) {
@@ -52,6 +55,15 @@ export default function HomeView({
             ×
           </button>
         </div>
+      )}
+
+      {/* Suggestion Feeds */}
+      {showSuggestionFeeds && (
+        <SuggestionFeeds
+          storyIndex={storyIndex}
+          onSelectStory={onSelectStory}
+          showWordCount={showWordCount}
+        />
       )}
 
       {/* Favorites Grid or Empty State */}
@@ -108,7 +120,7 @@ export default function HomeView({
             ))}
           </div>
         </div>
-      ) : (
+      ) : showSuggestionFeeds ? null : (
         <div className="w-full h-full flex flex-col items-center justify-center">
           <div className="text-6xl mb-4">📚</div>
           <p className={`text-2xl font-serif font-bold mb-2 ${

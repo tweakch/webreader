@@ -62,7 +62,7 @@ const GrimmMarchenApp = () => {
     showSpeedReader, showSpeedreaderOrp, showWordBlacklist, showDeepSearch, showStoryDirectories, showCollections, showDebugBadges, showSubscriberFonts, showErrorPageSimulator, showAppAnimation,
     showAbTesting, showAbTestingAdmin,
     showVoiceControl, showVoiceResume, showVoiceNavigation, showVoiceReadingControl, showVoiceDiscovery, showVoiceHandsFree,
-    showAgeFilter, showChildProfile, showIllustrations: rawShowIllustrations,
+    showAgeFilter, showChildProfile, showIllustrations: rawShowIllustrations, showSuggestionFeeds,
     _rawFlagValues,
     userFeatureOverrides, setUserFeatureOverrides, _o,
     flagTheme, bigFontsVariant,
@@ -997,6 +997,8 @@ const GrimmMarchenApp = () => {
               completedStories={completedStories}
               showFavorites={showFavorites}
               showWordCount={showWordCount}
+              showSuggestionFeeds={showSuggestionFeeds}
+              storyIndex={stories}
               onSelectStory={handleSelectStory}
               onToggleFavorite={toggleFavorite}
             />

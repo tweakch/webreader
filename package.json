@@ -7,6 +7,8 @@
   ],
   "dependencies": {
     "@openfeature/react-sdk": "^1.2.1",
+    "@tweakch/collection-grimm-klassiker": "*",
+    "@tweakch/collection-grimm-tiere": "*",
     "@tweakch/collection-grimm-top5": "*",
     "@vercel/analytics": "^2.0.1",
     "@vercel/speed-insights": "^2.0.0",

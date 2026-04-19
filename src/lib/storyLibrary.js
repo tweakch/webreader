@@ -12,9 +12,11 @@ const adaptionCache = new Map();
 const audioCache = new Map();
 
 const collectionStoryMap = new Map();
+const collectionAdaptionMap = new Map();
+const collectionCoverMap = new Map();
 for (const pkg of collections) {
   if (!pkg || !pkg.manifest || !pkg.stories) continue;
-  const { manifest, stories } = pkg;
+  const { manifest, stories, covers = {}, adaptions: pkgAdaptions = {} } = pkg;
   const source = manifest.id;
   for (const entry of manifest.stories || []) {
     const slug = entry.slug;
@@ -29,6 +31,30 @@ for (const pkg of collections) {
       sourceLabel: manifest.label || source,
       titleOverride: entry.title || null,
     });
+    if (typeof covers[slug] === 'string') {
+      collectionCoverMap.set(id, covers[slug]);
+    }
+    const slugAdaptions = pkgAdaptions[slug];
+    if (slugAdaptions && typeof slugAdaptions === 'object') {
+      const declared = Array.isArray(entry.adaptions) ? entry.adaptions : [];
+      const labelByName = new Map(declared.map((a) => [a.name, a.label]));
+      const parsed = Object.entries(slugAdaptions)
+        .filter(([, adaptionRaw]) => typeof adaptionRaw === 'string')
+        .map(([name, adaptionRaw]) => {
+          const fmMatch = adaptionRaw.match(/^---\n([\s\S]*?)\n---\n/);
+          const fmBlock = fmMatch ? fmMatch[1] : '';
+          const adaptionNameMatch = fmBlock.match(/^adaption:\s*"(.+)"$/m);
+          const titleMatch = fmBlock.match(/^title:\s*"(.+)"$/m);
+          const afterFm = fmMatch ? adaptionRaw.slice(fmMatch[0].length) : adaptionRaw;
+          const content = afterFm.replace(/^\*\*[^\n]*\*\*\n\n/, '').trimEnd();
+          return {
+            adaptionName: labelByName.get(name) || (adaptionNameMatch ? adaptionNameMatch[1] : name),
+            title: titleMatch ? titleMatch[1] : null,
+            content,
+          };
+        });
+      if (parsed.length > 0) collectionAdaptionMap.set(id, parsed);
+    }
   }
 }
 
@@ -202,7 +228,7 @@ export async function loadStoryMetadataById(storyId) {
 export async function loadAdaptionsByStoryId(storyId) {
   if (adaptionCache.has(storyId)) return adaptionCache.get(storyId);
 
-  const storyAdaptions = await Promise.all(
+  const fileAdaptions = await Promise.all(
     Object.entries(adaptionModules)
       .filter(([path]) => {
         const parts = path.split('/');
@@ -225,8 +251,15 @@ export async function loadAdaptionsByStoryId(storyId) {
       }),
   );
 
+  const collectionAdaptions = collectionAdaptionMap.get(storyId) || [];
+  const storyAdaptions = [...fileAdaptions, ...collectionAdaptions];
+
   adaptionCache.set(storyId, storyAdaptions);
   return storyAdaptions;
+}
+
+export function getStoryCoverUrl(storyId) {
+  return collectionCoverMap.get(storyId) || null;
 }
 
 export async function loadStoryAudioMap() {

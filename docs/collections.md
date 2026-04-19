@@ -10,11 +10,13 @@ Current model: **build-time install.** Installed collections are picked up by a 
 packages/collection-<id>/
 ├── package.json        # name: @tweakch/collection-<id>
 ├── collection.json     # manifest
-├── index.js            # ESM entrypoint, exports { manifest, stories }
+├── index.js            # ESM entrypoint, exports { manifest, stories, covers?, adaptions? }
 ├── README.md
 └── stories/
     └── <slug>/
-        └── content.md  # markdown with the same frontmatter as stories/
+        ├── content.md                      # markdown with the same frontmatter as stories/
+        ├── cover.svg                       # optional cover illustration
+        └── adaptions/<name>/content.md     # optional dialect / register variant
 ```
 
 ### `collection.json`
@@ -26,7 +28,16 @@ packages/collection-<id>/
   "description": "Five of the most beloved fairy tales from the Brothers Grimm.",
   "locale": "de",
   "stories": [
-    { "slug": "aschenputtel", "title": "Aschenputtel" }
+    {
+      "slug": "aschenputtel",
+      "title": "Aschenputtel",
+      "khmNumber": 21,
+      "atuType": "510A",
+      "coverImage": "cover.svg",
+      "adaptions": [
+        { "name": "schweizerdeutsch", "label": "Schweizer Fassung" }
+      ]
+    }
   ]
 }
 ```
@@ -35,19 +46,27 @@ packages/collection-<id>/
 - `label` is what the user sees in the sidebar.
 - `stories[].slug` must match a directory under `stories/` in the package.
 - `stories[].title` is optional — if omitted, the title comes from the markdown frontmatter.
+- `stories[].khmNumber` / `atuType` / `coverImage` are optional tags surfaced by consumers that want to display them.
+- `stories[].adaptions[]` declares variants that live under `stories/<slug>/adaptions/<name>/`. The `label` overrides the adaption-name baked into the variant's frontmatter.
 
 ### `index.js`
 
 ```js
 import manifest from './collection.json';
 import aschenputtel from './stories/aschenputtel/content.md?raw';
+import aschenputtelCover from './stories/aschenputtel/cover.svg?url';
+import aschenputtelSchweizerdeutsch from './stories/aschenputtel/adaptions/schweizerdeutsch/content.md?raw';
 
 export { manifest };
 export const stories = { aschenputtel };
-export default { manifest, stories };
+export const covers = { aschenputtel: aschenputtelCover };
+export const adaptions = {
+  aschenputtel: { schweizerdeutsch: aschenputtelSchweizerdeutsch },
+};
+export default { manifest, stories, covers, adaptions };
 ```
 
-The `?raw` query is a Vite feature, so collections are consumed by a Vite build only.
+The `?raw` and `?url` queries are Vite features, so collections are consumed by a Vite build only. `covers` and `adaptions` are optional — omit them if the collection has neither.
 
 ## Discovery
 

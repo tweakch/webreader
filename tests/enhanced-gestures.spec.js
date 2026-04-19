@@ -29,7 +29,7 @@ async function dispatchSwipe(page, selector, from, to) {
   await page.evaluate(({ selector, from, to }) => {
     const el = document.querySelector(selector);
     if (!el) throw new Error(`No element: ${selector}`);
-    const mkTouch = (x, y) => ({
+    const mkTouch = (x, y) => new Touch({
       identifier: 1, target: el, clientX: x, clientY: y, pageX: x, pageY: y,
     });
     const fire = (type, x, y) => {
@@ -100,7 +100,7 @@ test.describe('Enhanced gestures', () => {
     // Only dispatch start + move (no end) so the indicator is still visible.
     await page.evaluate(({ cx, yStart, yMove }) => {
       const el = document.querySelector('[data-testid="reader-viewport"]');
-      const mk = (x, y) => ({ identifier: 1, target: el, clientX: x, clientY: y, pageX: x, pageY: y });
+      const mk = (x, y) => new Touch({ identifier: 1, target: el, clientX: x, clientY: y, pageX: x, pageY: y });
       const start = new TouchEvent('touchstart', { bubbles: true, cancelable: true,
         touches: [mk(cx, yStart)], targetTouches: [mk(cx, yStart)], changedTouches: [mk(cx, yStart)] });
       const move = new TouchEvent('touchmove', { bubbles: true, cancelable: true,

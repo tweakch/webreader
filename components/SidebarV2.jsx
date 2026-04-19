@@ -70,6 +70,8 @@ export default function SidebarV2({
   ab,
   expanded = false,
   onCollapseExpanded,
+  dragProgress = 0,
+  externalGestures = false,
 }) {
   const { dark: darkMode } = useTheme();
 
@@ -130,13 +132,15 @@ export default function SidebarV2({
 
   // Swipe gestures: swipe right from the left edge opens the sidebar;
   // swipe left while the sidebar is open closes it. Ignored on larger viewports
-  // where the sidebar is statically visible.
+  // where the sidebar is statically visible. When `externalGestures` is true,
+  // GestureLayer owns the gesture lifecycle and this hook is a no-op.
   useEffect(() => {
+    if (externalGestures) return undefined;
     if (typeof window === 'undefined') return;
-    const EDGE_PX = 32;
-    const MIN_DX = 60;
-    const MAX_DY = 60;
-    const MAX_DT = 500;
+    const EDGE_PX = 44;
+    const MIN_DX = 40;
+    const MAX_DY = 80;
+    const MAX_DT = 600;
     let startX = 0;
     let startY = 0;
     let startTime = 0;
@@ -185,7 +189,7 @@ export default function SidebarV2({
       window.removeEventListener('touchend', onEnd);
       window.removeEventListener('touchcancel', onCancel);
     };
-  }, [menuOpen, onMenuOpenChange]);
+  }, [menuOpen, onMenuOpenChange, externalGestures]);
 
   // Auto-open the profile group when the profile panel is open, so the active
   // tab indicator is visible in the sidebar.
@@ -400,11 +404,40 @@ export default function SidebarV2({
 
   const showFavShelf = !searchTerm && !favoritesOnly && showFavorites && favoriteStories.length > 0;
 
+  // Drag-follow: when opening (menuOpen=false, dragProgress>0) or closing
+  // (menuOpen=true, dragProgress<0), override the CSS translate so the sidebar
+  // tracks the finger. No transition during drag for 1:1 responsiveness.
+  const dragOpening = !menuOpen && dragProgress > 0;
+  const dragClosing = menuOpen && dragProgress < 0;
+  const dragging = dragOpening || dragClosing;
+  let dragStyle;
+  if (dragOpening) {
+    dragStyle = { transform: `translateX(${(dragProgress - 1) * 100}%)`, transition: 'none' };
+  } else if (dragClosing) {
+    dragStyle = { transform: `translateX(${dragProgress * 100}%)`, transition: 'none' };
+  }
+
+  const backdropVisible = menuOpen || dragOpening;
+  const backdropOpacity = menuOpen ? 0.3 : Math.min(0.3, dragProgress * 0.3);
+
   return (
+    <>
+    {backdropVisible && (
+      <button
+        aria-label="Menü schließen"
+        data-testid="sidebar-backdrop"
+        onClick={() => onMenuOpenChange?.(false)}
+        className="fixed inset-0 top-16 z-20 bg-black backdrop-blur-[2px] lg:hidden"
+        style={{ opacity: backdropOpacity, transition: dragging ? 'none' : 'opacity 200ms ease-out' }}
+      />
+    )}
     <aside
       ref={asideRef}
       data-testid="sidebar-v2"
-      className={`fixed lg:static top-16 bottom-0 left-0 ${expanded ? 'w-96 lg:w-96' : 'w-80 lg:w-72'} z-30 transform transition-all duration-300 flex flex-col ${
+      style={dragStyle}
+      className={`fixed lg:static top-16 bottom-0 left-0 ${expanded ? 'w-96 lg:w-96' : 'w-80 lg:w-72'} z-30 transform flex flex-col ${
+        dragging ? '' : 'transition-all duration-300'
+      } ${
         menuOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'
       } ${
         darkMode
@@ -827,5 +860,6 @@ export default function SidebarV2({
         );
       })()}
     </aside>
+    </>
   );
 }

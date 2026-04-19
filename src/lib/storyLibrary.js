@@ -1,3 +1,5 @@
+import collections from 'virtual:webreader-collections';
+
 const storyModules2 = import.meta.glob('/stories/*/*/content.md', { query: '?raw', import: 'default' });
 const storyModules3 = import.meta.glob('/stories/*/*/*/content.md', { query: '?raw', import: 'default' });
 const adaptionModules = import.meta.glob('/stories/*/*/adaptions/*/content.md', { query: '?raw', import: 'default' });
@@ -23,19 +25,63 @@ const audioCache = new Map();
 export function buildCoverMap(modules) {
   const map = {};
   for (const [path, url] of Object.entries(modules)) {
-    const parts = path.split('/');
-    // /stories/{source}/{slug}/cover.ext           → 5 parts (6 after split incl. empty)
-    // /stories/{source}/{directory}/{slug}/cover.ext → 6 parts
-    const partsNoEmpty = parts.filter(Boolean); // ['stories', source, ...slug, 'cover.ext']
+    // /stories/{source}/{slug}/cover.ext            → 4 parts after filter
+    // /stories/{source}/{directory}/{slug}/cover.ext → 5 parts after filter
+    const partsNoEmpty = path.split('/').filter(Boolean);
     if (partsNoEmpty.length === 4) {
-      const id = `${partsNoEmpty[1]}/${partsNoEmpty[2]}`;
-      map[id] = url;
+      map[`${partsNoEmpty[1]}/${partsNoEmpty[2]}`] = url;
     } else if (partsNoEmpty.length === 5) {
-      const id = `${partsNoEmpty[1]}/${partsNoEmpty[2]}/${partsNoEmpty[3]}`;
-      map[id] = url;
+      map[`${partsNoEmpty[1]}/${partsNoEmpty[2]}/${partsNoEmpty[3]}`] = url;
     }
   }
   return map;
+}
+
+const collectionStoryMap = new Map();
+const collectionAdaptionMap = new Map();
+const collectionCoverMap = new Map();
+for (const pkg of collections) {
+  if (!pkg || !pkg.manifest || !pkg.stories) continue;
+  const { manifest, stories, covers = {}, adaptions: pkgAdaptions = {} } = pkg;
+  const source = manifest.id;
+  for (const entry of manifest.stories || []) {
+    const slug = entry.slug;
+    const raw = stories[slug];
+    if (typeof raw !== 'string') continue;
+    const id = `${source}/${slug}`;
+    collectionStoryMap.set(id, {
+      id,
+      source,
+      slug,
+      raw,
+      sourceLabel: manifest.label || source,
+      titleOverride: entry.title || null,
+    });
+    if (typeof covers[slug] === 'string') {
+      collectionCoverMap.set(id, covers[slug]);
+    }
+    const slugAdaptions = pkgAdaptions[slug];
+    if (slugAdaptions && typeof slugAdaptions === 'object') {
+      const declared = Array.isArray(entry.adaptions) ? entry.adaptions : [];
+      const labelByName = new Map(declared.map((a) => [a.name, a.label]));
+      const parsed = Object.entries(slugAdaptions)
+        .filter(([, adaptionRaw]) => typeof adaptionRaw === 'string')
+        .map(([name, adaptionRaw]) => {
+          const fmMatch = adaptionRaw.match(/^---\n([\s\S]*?)\n---\n/);
+          const fmBlock = fmMatch ? fmMatch[1] : '';
+          const adaptionNameMatch = fmBlock.match(/^adaption:\s*"(.+)"$/m);
+          const titleMatch = fmBlock.match(/^title:\s*"(.+)"$/m);
+          const afterFm = fmMatch ? adaptionRaw.slice(fmMatch[0].length) : adaptionRaw;
+          const content = afterFm.replace(/^\*\*[^\n]*\*\*\n\n/, '').trimEnd();
+          return {
+            adaptionName: labelByName.get(name) || (adaptionNameMatch ? adaptionNameMatch[1] : name),
+            title: titleMatch ? titleMatch[1] : null,
+            content,
+          };
+        });
+      if (parsed.length > 0) collectionAdaptionMap.set(id, parsed);
+    }
+  }
 }
 
 function parseStoryPath(path) {
@@ -59,14 +105,13 @@ function fallbackTitleFromSlug(slug) {
     .replace(/\b\p{L}/gu, (c) => c.toUpperCase());
 }
 
-export function parseStoryRaw(path, raw, coverMap = storyCoverMap) {
-  const { source, directory, slug } = parseStoryPath(path);
+function parseFrontmatter(raw, { slug, defaultSourceLabel, titleOverride }) {
   const fmMatch = raw.match(/^---\n([\s\S]*?)\n---\n/);
   const fmBlock = fmMatch ? fmMatch[1] : '';
   const titleMatch = fmBlock.match(/^title:\s*"(.+)"$/m);
-  const title = titleMatch ? titleMatch[1] : fallbackTitleFromSlug(slug);
+  const title = titleOverride || (titleMatch ? titleMatch[1] : fallbackTitleFromSlug(slug));
   const sourceLabelMatch = fmBlock.match(/^source:\s*"(.+)"$/m);
-  const sourceLabel = sourceLabelMatch ? sourceLabelMatch[1] : source;
+  const sourceLabel = defaultSourceLabel || (sourceLabelMatch ? sourceLabelMatch[1] : null);
   const wordCountMatch = fmBlock.match(/^wordCount:\s*(\d+)$/m);
   const wordCount = wordCountMatch ? parseInt(wordCountMatch[1], 10) : null;
   const ageMinMatch = fmBlock.match(/^ageMin:\s*(\d+)$/m);
@@ -75,36 +120,115 @@ export function parseStoryRaw(path, raw, coverMap = storyCoverMap) {
   const ageMax = ageMaxMatch ? parseInt(ageMaxMatch[1], 10) : null;
   const afterFm = fmMatch ? raw.slice(fmMatch[0].length) : raw;
   const content = afterFm.replace(/^#[^\n]*\n\n/, '').trimEnd();
-  const id = directory ? `${source}/${directory}/${slug}` : `${source}/${slug}`;
-  const coverUrl = coverMap[id] ?? null;
+  return { title, sourceLabel, wordCount, ageMin, ageMax, content };
+}
 
-  return { id, title, content, source, directory, sourceLabel, wordCount, ageMin, ageMax, coverUrl };
+export function parseStoryRaw(path, raw, coverMap = storyCoverMap) {
+  const { source, directory, slug } = parseStoryPath(path);
+  const { title, sourceLabel, wordCount, ageMin, ageMax, content } = parseFrontmatter(raw, {
+    slug,
+    defaultSourceLabel: null,
+    titleOverride: null,
+  });
+  const id = directory ? `${source}/${directory}/${slug}` : `${source}/${slug}`;
+  return {
+    id,
+    title,
+    content,
+    source,
+    directory,
+    sourceLabel: sourceLabel || source,
+    wordCount,
+    ageMin,
+    ageMax,
+    coverUrl: coverMap[id] ?? null,
+  };
+}
+
+function parseCollectionStory(entry) {
+  const { id, source, slug, raw, sourceLabel, titleOverride } = entry;
+  const { title, wordCount, ageMin, ageMax, content } = parseFrontmatter(raw, {
+    slug,
+    defaultSourceLabel: sourceLabel,
+    titleOverride,
+  });
+  return {
+    id,
+    title,
+    content,
+    source,
+    directory: null,
+    sourceLabel,
+    wordCount,
+    ageMin,
+    ageMax,
+    coverUrl: collectionCoverMap.get(id) ?? null,
+  };
 }
 
 export function getStoryIndex() {
-  const stories = Object.keys(storyModuleMap)
-    .map((path) => {
-      const { source, directory, slug } = parseStoryPath(path);
-      const id = directory ? `${source}/${directory}/${slug}` : `${source}/${slug}`;
-      return {
-        id,
-        title: fallbackTitleFromSlug(slug),
-        source,
-        directory,
-        sourceLabel: source,
-        wordCount: null,
-        ageMin: null,
-        ageMax: null,
-        coverUrl: storyCoverMap[id] ?? null,
-      };
-    })
-    .sort((a, b) => a.title.localeCompare(b.title, 'de'));
+  const fileStories = Object.keys(storyModuleMap).map((path) => {
+    const { source, directory, slug } = parseStoryPath(path);
+    const id = directory ? `${source}/${directory}/${slug}` : `${source}/${slug}`;
+    return {
+      id,
+      title: fallbackTitleFromSlug(slug),
+      source,
+      directory,
+      sourceLabel: source,
+      wordCount: null,
+      ageMin: null,
+      ageMax: null,
+      coverUrl: storyCoverMap[id] ?? null,
+    };
+  });
 
-  return stories;
+  const collectionStories = Array.from(collectionStoryMap.values()).map((entry) => ({
+    id: entry.id,
+    title: entry.titleOverride || fallbackTitleFromSlug(entry.slug),
+    source: entry.source,
+    directory: null,
+    sourceLabel: entry.sourceLabel,
+    wordCount: null,
+    ageMin: null,
+    ageMax: null,
+    coverUrl: collectionCoverMap.get(entry.id) ?? null,
+  }));
+
+  return [...fileStories, ...collectionStories].sort((a, b) => a.title.localeCompare(b.title, 'de'));
+}
+
+export function getCollectionIndex() {
+  return collections
+    .filter((pkg) => pkg && pkg.manifest)
+    .map((pkg) => ({
+      id: pkg.manifest.id,
+      label: pkg.manifest.label || pkg.manifest.id,
+      description: pkg.manifest.description || '',
+      locale: pkg.manifest.locale || null,
+      storyCount: Array.isArray(pkg.manifest.stories) ? pkg.manifest.stories.length : 0,
+    }));
 }
 
 export async function loadStoryById(storyId) {
   if (storyCache.has(storyId)) return storyCache.get(storyId);
+
+  if (collectionStoryMap.has(storyId)) {
+    const story = parseCollectionStory(collectionStoryMap.get(storyId));
+    storyCache.set(storyId, story);
+    storyMetadataCache.set(storyId, {
+      id: story.id,
+      title: story.title,
+      source: story.source,
+      directory: story.directory,
+      sourceLabel: story.sourceLabel,
+      wordCount: story.wordCount,
+      ageMin: story.ageMin,
+      ageMax: story.ageMax,
+      coverUrl: story.coverUrl,
+    });
+    return story;
+  }
 
   const match = Object.entries(storyModuleMap).find(([path]) => {
     const { source, directory, slug } = parseStoryPath(path);
@@ -155,7 +279,7 @@ export async function loadStoryMetadataById(storyId) {
 export async function loadAdaptionsByStoryId(storyId) {
   if (adaptionCache.has(storyId)) return adaptionCache.get(storyId);
 
-  const storyAdaptions = await Promise.all(
+  const fileAdaptions = await Promise.all(
     Object.entries(adaptionModules)
       .filter(([path]) => {
         const parts = path.split('/');
@@ -178,8 +302,15 @@ export async function loadAdaptionsByStoryId(storyId) {
       }),
   );
 
+  const collectionAdaptions = collectionAdaptionMap.get(storyId) || [];
+  const storyAdaptions = [...fileAdaptions, ...collectionAdaptions];
+
   adaptionCache.set(storyId, storyAdaptions);
   return storyAdaptions;
+}
+
+export function getStoryCoverUrl(storyId) {
+  return collectionCoverMap.get(storyId) || null;
 }
 
 export async function loadStoryAudioMap() {

@@ -1,0 +1,23 @@
+{
+  "id": "grimm-tiere",
+  "label": "Grimm Tiermärchen",
+  "description": "Zwölf Grimm-Märchen rund um Tiere — Wölfe, Füchse, Bienen, die Bremer Stadtmusikanten und mehr.",
+  "locale": "de",
+  "origin": "https://www.grimmstories.com/",
+  "curator": "tweakch",
+  "version": "0.1.0",
+  "stories": [
+    { "slug": "der_wolf_und_die_sieben_jungen_geisslein", "title": "Der Wolf und die sieben jungen Geisslein", "khmNumber": 5 },
+    { "slug": "katze_und_maus_in_gesellschaft", "title": "Katze und Maus in Gesellschaft", "khmNumber": 2 },
+    { "slug": "die_bremer_stadtmusikanten", "title": "Die Bremer Stadtmusikanten", "khmNumber": 27 },
+    { "slug": "der_hund_und_der_sperling", "title": "Der Hund und der Sperling", "khmNumber": 58 },
+    { "slug": "der_wolf_und_der_fuchs", "title": "Der Wolf und der Fuchs", "khmNumber": 73 },
+    { "slug": "der_fuchs_und_die_katze", "title": "Der Fuchs und die Katze", "khmNumber": 75 },
+    { "slug": "die_bienenkonigin", "title": "Die Bienenkönigin", "khmNumber": 62 },
+    { "slug": "der_zaunkoenig_und_der_baer", "title": "Der Zaunkönig und der Bär", "khmNumber": 102 },
+    { "slug": "die_eule", "title": "Die Eule", "khmNumber": 174 },
+    { "slug": "der_hase_und_der_igel", "title": "Der Hase und der Igel", "khmNumber": 187 },
+    { "slug": "die_scholle", "title": "Die Scholle", "khmNumber": 172 },
+    { "slug": "rohrdommel_und_wiedehopf", "title": "Rohrdommel und Wiedehopf", "khmNumber": 173 }
+  ]
+}

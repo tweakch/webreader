@@ -1,0 +1,62 @@
+name: Publish collection package
+
+on:
+  push:
+    tags:
+      - 'collection-*/v*'
+  workflow_dispatch:
+    inputs:
+      collection:
+        description: 'Collection package name (e.g. collection-grimm-top5)'
+        required: true
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Resolve collection name
+        id: resolve
+        run: |
+          if [ -n "${{ inputs.collection }}" ]; then
+            name="${{ inputs.collection }}"
+          else
+            # Tag format: collection-<name>/v<version>
+            ref="${GITHUB_REF#refs/tags/}"
+            name="${ref%%/v*}"
+          fi
+          if [ ! -d "packages/$name" ]; then
+            echo "Collection package not found: packages/$name" >&2
+            exit 1
+          fi
+          echo "name=$name" >> "$GITHUB_OUTPUT"
+          echo "dir=packages/$name" >> "$GITHUB_OUTPUT"
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          registry-url: 'https://npm.pkg.github.com'
+          scope: '@tweakch'
+
+      - name: Verify tag matches package version
+        if: startsWith(github.ref, 'refs/tags/')
+        run: |
+          ref="${GITHUB_REF#refs/tags/}"
+          tag_version="${ref##*/v}"
+          pkg_version=$(node -p "require('./${{ steps.resolve.outputs.dir }}/package.json').version")
+          if [ "$tag_version" != "$pkg_version" ]; then
+            echo "Tag version $tag_version does not match package.json version $pkg_version" >&2
+            exit 1
+          fi
+
+      - name: Publish
+        working-directory: ${{ steps.resolve.outputs.dir }}
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: npm publish

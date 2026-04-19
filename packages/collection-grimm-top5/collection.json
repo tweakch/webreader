@@ -1,0 +1,49 @@
+{
+  "id": "grimm-top5",
+  "label": "Top 5 Grimm",
+  "description": "Five of the most beloved fairy tales from the Brothers Grimm — enriched with KHM numbers, ATU tale types, themes, synopses, cover art, and dialect variants.",
+  "locale": "de",
+  "origin": "https://www.grimmstories.com/",
+  "curator": "tweakch",
+  "version": "0.2.0",
+  "stories": [
+    {
+      "slug": "aschenputtel",
+      "title": "Aschenputtel",
+      "khmNumber": 21,
+      "atuType": "510A",
+      "coverImage": "cover.svg",
+      "adaptions": [
+        { "name": "schweizerdeutsch", "label": "Schweizer Fassung" }
+      ]
+    },
+    {
+      "slug": "hansel_und_gretel",
+      "title": "Hänsel und Gretel",
+      "khmNumber": 15,
+      "atuType": "327A",
+      "coverImage": "cover.svg"
+    },
+    {
+      "slug": "rapunzel",
+      "title": "Rapunzel",
+      "khmNumber": 12,
+      "atuType": "310",
+      "coverImage": "cover.svg"
+    },
+    {
+      "slug": "rotkaeppchen",
+      "title": "Rotkäppchen",
+      "khmNumber": 26,
+      "atuType": "333",
+      "coverImage": "cover.svg"
+    },
+    {
+      "slug": "schneewittchen",
+      "title": "Schneewittchen",
+      "khmNumber": 53,
+      "atuType": "709",
+      "coverImage": "cover.svg"
+    }
+  ]
+}

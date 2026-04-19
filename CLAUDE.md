@@ -56,6 +56,10 @@ Sources can store stories at two depths:
 
 The app loads both with two `import.meta.glob` calls and detects depth from path length. Story ids are `{source}/{slug}` (2-level) or `{source}/{directory}/{slug}` (3-level).
 
+### Curated collections
+
+Curated collections live as npm packages under `packages/collection-*` (workspaces) and are published to GitHub Packages as `@tweakch/collection-*`. Each package exports `{ manifest, stories }` from its `index.js`, where `stories[slug]` is the raw markdown of a `content.md`. `vite.config.js` scans `node_modules/@tweakch/collection-*` and exposes them via the virtual module `virtual:webreader-collections`, which `src/lib/storyLibrary.js` merges into the story index. A collection appears as its own source in the sidebar (label from `collection.json`) as soon as it is installed — no feature flag. See `docs/collections.md` for the full spec and publish workflow.
+
 ### Key `data-testid` attributes
 
 Used by Playwright tests — don't remove them:

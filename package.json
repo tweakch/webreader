@@ -2,8 +2,17 @@
   "name": "webreader",
   "version": "0.1.1",
   "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
   "dependencies": {
     "@openfeature/react-sdk": "^1.2.1",
+    "@tweakch/collection-grimm-klassiker": "*",
+    "@tweakch/collection-grimm-tiere": "*",
+    "@tweakch/collection-grimm-top5": "*",
+    "@vercel/analytics": "^2.0.1",
+    "@vercel/speed-insights": "^2.0.0",
+    "@vercel/toolbar": "^0.2.2",
     "i18next": "^26.0.4",
     "lucide-react": "1.7.0",
     "react": "18.2.0",

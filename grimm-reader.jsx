@@ -88,6 +88,7 @@ const GrimmMarchenApp = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [typoPanelOpen, setTypoPanelOpen] = useState(false);
   const [profileOpen, setProfileOpen] = useState(false);
+  const [profileActiveTab, setProfileActiveTab] = useState(null);
   const [docsOpen, setDocsOpen] = useState(false);
   const [docsAnchor, setDocsAnchor] = useState(null);
   const [personasDocsOpen, setPersonasDocsOpen] = useState(false);
@@ -600,7 +601,8 @@ const GrimmMarchenApp = () => {
 
   // Forward nav helpers: register an undo before opening an overlay so device
   // back reverts to the prior view instead of leaving /app.
-  const handleOpenProfile = useCallback(() => {
+  const handleOpenProfile = useCallback((tabId = null) => {
+    setProfileActiveTab(tabId);
     if (profileOpen) return;
     pushBreadcrumb(() => setProfileOpen(false));
     setProfileOpen(true);
@@ -792,12 +794,19 @@ const GrimmMarchenApp = () => {
           storiesBySource={storiesBySource}
           onOpenProfile={handleOpenProfile}
           profileOpen={profileOpen}
+          profileActiveTab={profileActiveTab}
           onCloseProfile={goBack}
           onCloseApp={handleCloseApp}
           simplifiedUi={showSimplifiedUi}
           showAgeFilter={ageFilterActive}
           childAge={childAge}
           onChildAgeChange={setChildAge}
+          isAdmin={isAdmin}
+          role={role}
+          showErrorPageSimulator={showErrorPageSimulator}
+          showAbTesting={showAbTesting}
+          showAbTestingAdmin={showAbTestingAdmin}
+          ab={ab}
         />
           );
         })()}
@@ -838,6 +847,7 @@ const GrimmMarchenApp = () => {
               return (
             <ProfileComponent
               variant={profileLayoutVariant}
+              initialTab={profileActiveTab}
               onBack={goBack}
               onOpenDocs={handleOpenDocs}
               onOpenPersonasDocs={handleOpenPersonasDocs}

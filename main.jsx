@@ -3,9 +3,12 @@ import ReactDOM from 'react-dom/client';
 import { RouterProvider } from 'react-router-dom';
 import { I18nextProvider } from 'react-i18next';
 import { OpenFeatureProvider } from '@openfeature/react-sdk';
+import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from '@vercel/speed-insights/react';
 import { router } from './src/router';
 import ErrorBoundary from './components/ErrorBoundary';
 import AppAnimationWrapper from './components/AppAnimationWrapper';
+import VercelToolbarMount from './components/VercelToolbarMount';
 import i18n from './src/lib/i18n';
 import './src/lib/initFeatureFlags';
 import './index.css';
@@ -18,6 +21,9 @@ ReactDOM.createRoot(document.getElementById('root')).render(
           <RouterProvider router={router} />
         </I18nextProvider>
       </ErrorBoundary>
+      <Analytics />
+      <SpeedInsights />
+      <VercelToolbarMount />
     </OpenFeatureProvider>
   </React.StrictMode>
 );

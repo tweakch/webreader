@@ -87,6 +87,7 @@ export default function ProfilePanelTabbed({
   ab,
   simplifiedUi = false,
   variant = 'tabbed',
+  initialTab = null,
 }) {
   const { dark } = useTheme();
 
@@ -105,12 +106,19 @@ export default function ProfilePanelTabbed({
   ].filter((t) => t.visible);
 
   const [activeTab, setActiveTab] = useState(() => {
+    if (initialTab && tabs.some((t) => t.id === initialTab)) return initialTab;
     try {
       const stored = localStorage.getItem(ACTIVE_TAB_STORAGE);
       if (stored && tabs.some((t) => t.id === stored)) return stored;
     } catch { /* ignore */ }
     return DEFAULT_TAB;
   });
+
+  useEffect(() => {
+    if (initialTab && tabs.some((t) => t.id === initialTab) && initialTab !== activeTab) {
+      setActiveTab(initialTab);
+    }
+  }, [initialTab, tabs]); // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
     if (!tabs.some((t) => t.id === activeTab)) {

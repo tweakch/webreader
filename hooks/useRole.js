@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
-import { FEATURES } from '../features';
+import { FEATURES, getDefaultRoleFeatures } from '../src/lib/featureRegistry';
+import { resolveFeatureVisibility } from '../src/lib/featurePolicy';
 
 export const ROLES = ['guest', 'subscriber', 'tester', 'sales', 'admin'];
 
@@ -11,111 +12,12 @@ export const ROLE_LABELS = {
   admin: 'Admin',
 };
 
-function defaultRoleFeatures() {
-  return {
-    guest: [
-      'favorites',
-      'high-contrast-theme',
-      'audio-player',
-      'attribution',
-      'typography-panel',
-      'tap-middle-toggle',
-      'tap-zones',
-      'eink-flash',
-      'pinch-font-size',
-      'font-size-controls',
-      'favorites-only-toggle',
-    ],
-    subscriber: [
-      'favorites',
-      'favorites-only-toggle',
-      'word-count',
-      'reading-duration',
-      'font-size-controls',
-      'pinch-font-size',
-      'eink-flash',
-      'tap-zones',
-      'tap-middle-toggle',
-      'adaption-switcher',
-      'typography-panel',
-      'attribution',
-      'audio-player',
-      'word-blacklist',
-      'deep-search',
-      'story-directories',
-      'high-contrast-theme',
-      'speed-reader',
-      'speedreader-orp',
-      'subscriber-fonts',
-      'ab-testing',
-    ],
-    tester: [
-      'favorites',
-      'favorites-only-toggle',
-      'word-count',
-      'reading-duration',
-      'font-size-controls',
-      'pinch-font-size',
-      'eink-flash',
-      'tap-zones',
-      'tap-middle-toggle',
-      'adaption-switcher',
-      'typography-panel',
-      'attribution',
-      'audio-player',
-      'read-along',
-      'illustrations',
-      'child-profile',
-      'story-quiz',
-      'text-to-speech',
-      'word-blacklist',
-      'deep-search',
-      'story-directories',
-      'simplified-ui',
-      'high-contrast-theme',
-      'speed-reader',
-      'debug-badges',
-      'speedreader-orp',
-      'subscriber-fonts',
-      'error-page-simulator',
-      'ab-testing',
-    ],
-    sales: [
-      'favorites',
-      'favorites-only-toggle',
-      'word-count',
-      'reading-duration',
-      'font-size-controls',
-      'pinch-font-size',
-      'eink-flash',
-      'tap-zones',
-      'tap-middle-toggle',
-      'adaption-switcher',
-      'typography-panel',
-      'attribution',
-      'audio-player',
-      'story-directories',
-      'high-contrast-theme',
-      'subscriber-fonts',
-      'tier-badge',
-      'paywall',
-      'upgrade-cta',
-      'trial-banner',
-      'pricing-page',
-      'promo-code',
-      'referral-program',
-      'sales-mode',
-      'conversion-analytics',
-      'billing-portal-stub',
-      'ab-testing',
-    ],
-  };
-}
-
 /**
  * Role management hook.
- * Manages the current user role and which features are assigned to each role.
- * Admins see all features including unreleased ones and can assign features to roles.
+ * The default role→features mapping is derived from the registry, so adding a
+ * feature requires editing one file (src/lib/featureRegistry.jsx) only. Admins
+ * can still override the mapping via the profile panel — their overrides
+ * persist in localStorage and take precedence over the registry defaults.
  */
 export function useRole() {
   const [role, setRoleState] = useState(() =>
@@ -124,7 +26,7 @@ export function useRole() {
 
   const [roleFeatures, setRoleFeatures] = useState(() => {
     const stored = localStorage.getItem('wr-role-features');
-    return stored ? JSON.parse(stored) : defaultRoleFeatures();
+    return stored ? JSON.parse(stored) : getDefaultRoleFeatures();
   });
 
   const setRole = (newRole) => setRoleState(newRole);
@@ -139,9 +41,18 @@ export function useRole() {
 
   const isAdmin = role === 'admin';
 
-  // Admin sees all features; others see only features assigned to their role.
   const visibleFeatureKeys = new Set(
-    isAdmin ? FEATURES.map((f) => f.key) : (roleFeatures[role] ?? [])
+    FEATURES
+      .filter((entry) =>
+        resolveFeatureVisibility({
+          featureKey: entry.key,
+          role,
+          isAdmin,
+          roleFeatures,
+          registryDefaultRoles: entry.roles,
+        }).visible,
+      )
+      .map((entry) => entry.key),
   );
 
   const isFeatureAssignedToRole = (featureKey, targetRole) =>

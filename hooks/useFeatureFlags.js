@@ -1,176 +1,93 @@
 import { useState, useEffect } from 'react';
 import { useBooleanFlagValue, useStringFlagValue } from '@openfeature/react-sdk';
+import { FEATURE_REGISTRY, getRegistryMap } from '../src/lib/featureRegistry';
+import { resolveFeature } from '../src/lib/featurePolicy';
+
+const toShowKey = (key) =>
+  'show' + key
+    .split('-')
+    .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
+    .join('');
+
+const BOOLEAN_ENTRIES = FEATURE_REGISTRY.filter((e) => e.kind === 'boolean');
+const VARIANT_ENTRIES = FEATURE_REGISTRY.filter((e) => e.kind === 'variant');
+const REGISTRY_MAP = getRegistryMap();
 
 /**
  * Feature flag management hook.
- * Owns all boolean flags, 2 string flags, the user override layer, and the override function.
+ *
+ * Iterates the unified registry to read raw OpenFeature values, applies the
+ * pure `resolveFeature` policy (user overrides + release-readiness gate), and
+ * exposes each boolean flag as `show<CamelCase>` for ergonomic destructuring.
+ *
+ * @param {object} [opts]
+ * @param {'all'|'released-only'} [opts.releaseMode='all']
+ *   When 'released-only', features whose registry status is not 'released' are
+ *   forced off for non-privileged roles (admin/tester bypass the gate). Useful
+ *   for locking down production builds.
+ * @param {string} [opts.role]  Current role, used to evaluate the gate bypass.
+ *
+ * Adding a new flag? Edit src/lib/featureRegistry.jsx — this hook picks it up
+ * automatically and the resolved value is available as `showXxx` (derived
+ * from the registry key) plus `_rawFlagValues[key]`.
  */
-export function useFeatureFlags() {
-  // Raw flag reads from OpenFeature
-  const _rawWordCount = useBooleanFlagValue('word-count', false);
-  const _rawReadingDuration = useBooleanFlagValue('reading-duration', false);
-  const _rawFontSizeControls = useBooleanFlagValue('font-size-controls', true);
-  const _rawPinchFontSize = useBooleanFlagValue('pinch-font-size', false);
-  const _rawEinkFlash = useBooleanFlagValue('eink-flash', true);
-  const _rawTapZones = useBooleanFlagValue('tap-zones', true);
-  const _rawTapMiddleToggle = useBooleanFlagValue('tap-middle-toggle', true);
-  const _rawAdaptionSwitcher = useBooleanFlagValue('adaption-switcher', true);
-  const _rawTypographyPanel = useBooleanFlagValue('typography-panel', true);
-  const _rawAttribution = useBooleanFlagValue('attribution', true);
-  const _rawFavorites = useBooleanFlagValue('favorites', false);
-  const _rawFavoritesOnlyToggle = useBooleanFlagValue('favorites-only-toggle', false);
-  const _rawAudioPlayer = useBooleanFlagValue('audio-player', false);
-  const _rawHighContrastTheme = useBooleanFlagValue('high-contrast-theme', false);
-  const _rawSimplifiedUi = useBooleanFlagValue('simplified-ui', false);
-  const _rawTextToSpeech = useBooleanFlagValue('text-to-speech', false);
-  const _rawVoiceControl = useBooleanFlagValue('voice-control', false);
-  const _rawVoiceResume = useBooleanFlagValue('voice-resume', false);
-  const _rawVoiceNavigation = useBooleanFlagValue('voice-navigation', false);
-  const _rawVoiceReadingControl = useBooleanFlagValue('voice-reading-control', false);
-  const _rawVoiceDiscovery = useBooleanFlagValue('voice-discovery', false);
-  const _rawVoiceHandsFree = useBooleanFlagValue('voice-hands-free', false);
-  const _rawSpeedReader = useBooleanFlagValue('speed-reader', false);
-  const _rawSpeedreaderOrp = useBooleanFlagValue('speedreader-orp', false);
-  const _rawWordBlacklist = useBooleanFlagValue('word-blacklist', false);
-  const _rawDeepSearch = useBooleanFlagValue('deep-search', false);
-  const _rawStoryDirectories = useBooleanFlagValue('story-directories', false);
-  const _rawDebugBadges = useBooleanFlagValue('debug-badges', false);
-  const _rawSubscriberFonts = useBooleanFlagValue('subscriber-fonts', false);
-  const _rawErrorPageSimulator = useBooleanFlagValue('error-page-simulator', false);
-  const _rawAppAnimation = useBooleanFlagValue('app-animation', false);
-  const _rawAbTesting = useBooleanFlagValue('ab-testing', false);
-  const _rawAbTestingAdmin = useBooleanFlagValue('ab-testing-admin', false);
+export function useFeatureFlags({ releaseMode = 'all', role = 'guest' } = {}) {
+  const rawBooleans = {};
+  for (const entry of BOOLEAN_ENTRIES) {
+    rawBooleans[entry.key] = useBooleanFlagValue(
+      entry.key,
+      entry.flag.variants[entry.flag.defaultVariant] ?? false,
+    );
+  }
+  const rawVariants = {};
+  for (const entry of VARIANT_ENTRIES) {
+    rawVariants[entry.key] = useStringFlagValue(
+      entry.key,
+      entry.flag.defaultVariant,
+    );
+  }
 
-  // User feature overrides - stored in localStorage, take precedence over flag defaults
   const [userFeatureOverrides, setUserFeatureOverrides] = useState(() =>
-    JSON.parse(localStorage.getItem('wr-feature-overrides') ?? '{}')
+    JSON.parse(localStorage.getItem('wr-feature-overrides') ?? '{}'),
   );
 
   useEffect(() => {
     localStorage.setItem('wr-feature-overrides', JSON.stringify(userFeatureOverrides));
   }, [userFeatureOverrides]);
 
-  // Override function: if user has overridden a flag, use that; otherwise use raw flag
-  const _o = (key, raw) => Object.hasOwn(userFeatureOverrides, key) ? userFeatureOverrides[key] : raw;
+  const isAdmin = role === 'admin';
+  const resolved = {};
+  for (const entry of BOOLEAN_ENTRIES) {
+    const { effective } = resolveFeature({
+      featureKey: entry.key,
+      registry: REGISTRY_MAP,
+      role,
+      isAdmin,
+      // Release-gate scope: we care about the flag *value*, not role-based
+      // visibility here. Passing an explicit truthy roleFeatures map keeps the
+      // visibility layer out of the hook — useRole owns that separately.
+      roleFeatures: { [role]: [entry.key] },
+      userOverrides: userFeatureOverrides,
+      rawFlagValue: rawBooleans[entry.key],
+      releaseMode,
+    });
+    resolved[toShowKey(entry.key)] = effective;
+  }
 
-  // Resolved show-flags (after applying overrides)
-  const showWordCount = _o('word-count', _rawWordCount);
-  const showReadingDuration = _o('reading-duration', _rawReadingDuration);
-  const showFontSizeControls = _o('font-size-controls', _rawFontSizeControls);
-  const showPinchFontSize = _o('pinch-font-size', _rawPinchFontSize);
-  const showEinkFlash = _o('eink-flash', _rawEinkFlash);
-  const showTapZones = _o('tap-zones', _rawTapZones);
-  const showTapMiddleToggle = _o('tap-middle-toggle', _rawTapMiddleToggle);
-  const showAdaptionSwitcher = _o('adaption-switcher', _rawAdaptionSwitcher);
-  const showTypographyPanel = _o('typography-panel', _rawTypographyPanel);
-  const showAttribution = _o('attribution', _rawAttribution);
-  const showFavorites = _o('favorites', _rawFavorites);
-  const showFavoritesOnlyToggle = _o('favorites-only-toggle', _rawFavoritesOnlyToggle);
-  const showAudioPlayer = _o('audio-player', _rawAudioPlayer);
-  const showHighContrastTheme = _o('high-contrast-theme', _rawHighContrastTheme);
-  const showSimplifiedUi = _o('simplified-ui', _rawSimplifiedUi);
-  const showTextToSpeech = _o('text-to-speech', _rawTextToSpeech);
-  const showVoiceControl = _o('voice-control', _rawVoiceControl);
-  const showVoiceResume = _o('voice-resume', _rawVoiceResume);
-  const showVoiceNavigation = _o('voice-navigation', _rawVoiceNavigation);
-  const showVoiceReadingControl = _o('voice-reading-control', _rawVoiceReadingControl);
-  const showVoiceDiscovery = _o('voice-discovery', _rawVoiceDiscovery);
-  const showVoiceHandsFree = _o('voice-hands-free', _rawVoiceHandsFree);
-  const showSpeedReader = _o('speed-reader', _rawSpeedReader);
-  const showSpeedreaderOrp = _o('speedreader-orp', _rawSpeedreaderOrp);
-  const showWordBlacklist = _o('word-blacklist', _rawWordBlacklist);
-  const showDeepSearch = _o('deep-search', _rawDeepSearch);
-  const showStoryDirectories = _o('story-directories', _rawStoryDirectories);
-  const showDebugBadges = _o('debug-badges', _rawDebugBadges);
-  const showSubscriberFonts = _o('subscriber-fonts', _rawSubscriberFonts);
-  const showErrorPageSimulator = _o('error-page-simulator', _rawErrorPageSimulator);
-  const showAppAnimation = _o('app-animation', _rawAppAnimation);
-  const showAbTesting = _o('ab-testing', _rawAbTesting);
-  const showAbTestingAdmin = _o('ab-testing-admin', _rawAbTestingAdmin);
-
-  // Raw values keyed by feature key - used in profile feature toggles
-  const _rawFlagValues = {
-    'word-count': _rawWordCount,
-    'reading-duration': _rawReadingDuration,
-    'font-size-controls': _rawFontSizeControls,
-    'pinch-font-size': _rawPinchFontSize,
-    'eink-flash': _rawEinkFlash,
-    'tap-zones': _rawTapZones,
-    'tap-middle-toggle': _rawTapMiddleToggle,
-    'adaption-switcher': _rawAdaptionSwitcher,
-    'typography-panel': _rawTypographyPanel,
-    'attribution': _rawAttribution,
-    'favorites': _rawFavorites,
-    'favorites-only-toggle': _rawFavoritesOnlyToggle,
-    'audio-player': _rawAudioPlayer,
-    'high-contrast-theme': _rawHighContrastTheme,
-    'simplified-ui': _rawSimplifiedUi,
-    'text-to-speech': _rawTextToSpeech,
-    'voice-control': _rawVoiceControl,
-    'voice-resume': _rawVoiceResume,
-    'voice-navigation': _rawVoiceNavigation,
-    'voice-reading-control': _rawVoiceReadingControl,
-    'voice-discovery': _rawVoiceDiscovery,
-    'voice-hands-free': _rawVoiceHandsFree,
-    'speed-reader': _rawSpeedReader,
-    'speedreader-orp': _rawSpeedreaderOrp,
-    'word-blacklist': _rawWordBlacklist,
-    'deep-search': _rawDeepSearch,
-    'story-directories': _rawStoryDirectories,
-    'debug-badges': _rawDebugBadges,
-    'subscriber-fonts': _rawSubscriberFonts,
-    'error-page-simulator': _rawErrorPageSimulator,
-    'app-animation': _rawAppAnimation,
-    'ab-testing': _rawAbTesting,
-    'ab-testing-admin': _rawAbTestingAdmin,
+  const _o = (key, raw) => {
+    const override = Object.hasOwn(userFeatureOverrides, key)
+      ? userFeatureOverrides[key]
+      : raw;
+    return override;
   };
 
-  // String flags
-  const flagTheme = useStringFlagValue('theme', 'light');
-  // CTC: Register `big-fonts` in features.jsx — see docs/features/big-fonts.md
-  //   This flag is read here and drives `maxFontSize`, but the variant is not
-  //   listed in FEATURES, so users cannot toggle it from the profile panel.
-  //   Add a FEATURES entry that surfaces the four variants (off/big/bigger/
-  //   biggest) — likely as a small variant picker rather than a boolean.
-  // TODO(CTC): remove this comment once `big-fonts` is registered in FEATURES.
-  const bigFontsVariant = useStringFlagValue('big-fonts', 'off');
+  const bigFontsVariant = rawVariants['big-fonts'] ?? 'off';
   const maxFontSize = { off: 28, big: 28, bigger: 34, biggest: 40 }[bigFontsVariant] ?? 28;
+  const flagTheme = rawVariants['theme'] ?? 'light';
 
   return {
-    showWordCount,
-    showReadingDuration,
-    showFontSizeControls,
-    showPinchFontSize,
-    showEinkFlash,
-    showTapZones,
-    showTapMiddleToggle,
-    showAdaptionSwitcher,
-    showTypographyPanel,
-    showAttribution,
-    showFavorites,
-    showFavoritesOnlyToggle,
-    showAudioPlayer,
-    showHighContrastTheme,
-    showSimplifiedUi,
-    showTextToSpeech,
-    showVoiceControl,
-    showVoiceResume,
-    showVoiceNavigation,
-    showVoiceReadingControl,
-    showVoiceDiscovery,
-    showVoiceHandsFree,
-    showSpeedReader,
-    showSpeedreaderOrp,
-    showWordBlacklist,
-    showDeepSearch,
-    showStoryDirectories,
-    showDebugBadges,
-    showSubscriberFonts,
-    showErrorPageSimulator,
-    showAppAnimation,
-    showAbTesting,
-    showAbTestingAdmin,
-    _rawFlagValues,
+    ...resolved,
+    _rawFlagValues: rawBooleans,
     userFeatureOverrides,
     setUserFeatureOverrides,
     _o,

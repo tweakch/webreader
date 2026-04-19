@@ -41,8 +41,17 @@ const GrimmMarchenApp = () => {
   const [selectedStory, setSelectedStory] = useState(null);
   const [menuOpen, setMenuOpen] = useState(false);
   const [controlsVisible, setControlsVisible] = useState(true);
-  // Feature flags
-  const flags = useFeatureFlags();
+  // Role management (read first so feature flags can honour the release gate)
+  const {
+    role, setRole, isAdmin, visibleFeatureKeys, isFeatureAssignedToRole, toggleFeatureForRole,
+  } = useRole();
+
+  // Feature flags — released-only mode gates beta/experimental features off for
+  // guest/subscriber/sales roles, leaving admin and tester able to dogfood.
+  const releaseMode = import.meta.env.VITE_RELEASE_MODE === 'released-only'
+    ? 'released-only'
+    : 'all';
+  const flags = useFeatureFlags({ releaseMode, role });
   const { variant: appAnimationVariant, setVariant: setAppAnimationVariant } = useAppAnimation();
   const {
     maxFontSize,
@@ -57,11 +66,6 @@ const GrimmMarchenApp = () => {
     userFeatureOverrides, setUserFeatureOverrides, _o,
     flagTheme, bigFontsVariant,
   } = flags;
-
-  // Role management
-  const {
-    role, setRole, isAdmin, visibleFeatureKeys, isFeatureAssignedToRole, toggleFeatureForRole,
-  } = useRole();
 
   // A/B testing
   const ab = useABTesting({ role, isAdmin });

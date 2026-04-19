@@ -1,0 +1,60 @@
+name: Lighthouse
+
+on:
+  pull_request:
+    branches: [ "main" ]
+
+# A regression in reading performance (slow LCP, layout shift on font-size
+# changes) is just as user-visible as a broken test. This workflow runs
+# Lighthouse against the Vercel preview URL and fails the PR if the budgets
+# in .lighthouserc.json are exceeded.
+
+jobs:
+  lighthouse:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683  # v4.2.2
+
+      - name: Wait for Vercel preview deployment
+        id: preview
+        uses: patrickedqvist/wait-for-vercel-preview@6c4f1e65e7699b2d72b66742bd1eda68db1180a4  # v1.3.2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          max_timeout: 300
+        continue-on-error: true
+
+      - name: Skip if no preview URL
+        if: steps.preview.outputs.url == ''
+        run: |
+          echo "No Vercel preview URL available — skipping Lighthouse."
+          echo "Configure the Vercel GitHub integration to enable this job."
+          exit 0
+
+      - uses: actions/setup-node@39370e3970a6d050c480ffad4ff0ed4d3fdee5af  # v4.1.0
+        if: steps.preview.outputs.url != ''
+        with:
+          node-version: '22.x'
+
+      - name: Run Lighthouse CI against preview
+        if: steps.preview.outputs.url != ''
+        env:
+          LHCI_BUILD_CONTEXT__CURRENT_HASH: ${{ github.event.pull_request.head.sha }}
+          LHCI_BUILD_CONTEXT__COMMIT_TIME: ${{ github.event.pull_request.head.repo.pushed_at }}
+          LHCI_BUILD_CONTEXT__CURRENT_BRANCH: ${{ github.event.pull_request.head.ref }}
+          LHCI_BUILD_CONTEXT__COMMIT_MESSAGE: ${{ github.event.pull_request.title }}
+          LHCI_BUILD_CONTEXT__AUTHOR: ${{ github.event.pull_request.user.login }}
+        run: |
+          npm install -g @lhci/cli@0.14.x
+          # Collect against the landing page and the app reader route.
+          lhci collect \
+            --url="${{ steps.preview.outputs.url }}/" \
+            --url="${{ steps.preview.outputs.url }}/app"
+          lhci assert
+
+      - name: Upload Lighthouse reports
+        if: always() && steps.preview.outputs.url != ''
+        uses: actions/upload-artifact@4cec3d8aa04e39d1a68397de0c4cd6fb9dce8ec1  # v4.6.1
+        with:
+          name: lighthouse-report
+          path: .lighthouseci/
+          retention-days: 7

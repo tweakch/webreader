@@ -1,7 +1,7 @@
 {
-  "name": "@tweakch/collection-grimm-top5",
-  "version": "0.2.0",
-  "description": "Top 5 Grimm fairy tales curated as a webreader collection — enriched with KHM numbers, ATU tale types, themes, synopses, cover art, and dialect variants.",
+  "name": "@tweakch/collection-grimm-klassiker",
+  "version": "0.1.0",
+  "description": "Fifteen canonical Brothers Grimm fairy tales — the household classics beyond the Top 5.",
   "type": "module",
   "main": "./index.js",
   "exports": {
@@ -12,7 +12,6 @@
     "index.js",
     "collection.json",
     "stories/**/content.md",
-    "stories/**/cover.svg",
     "README.md"
   ],
   "keywords": [
@@ -24,7 +23,7 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/tweakch/webreader.git",
-    "directory": "packages/collection-grimm-top5"
+    "directory": "packages/collection-grimm-klassiker"
   },
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"

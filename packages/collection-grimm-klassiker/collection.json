@@ -1,0 +1,26 @@
+{
+  "id": "grimm-klassiker",
+  "label": "Grimm Klassiker",
+  "description": "Fünfzehn kanonische Grimm-Märchen — die Klassiker, die in keiner Hausbibliothek fehlen dürfen.",
+  "locale": "de",
+  "origin": "https://www.grimmstories.com/",
+  "curator": "tweakch",
+  "version": "0.1.0",
+  "stories": [
+    { "slug": "aschenputtel", "title": "Aschenputtel", "khmNumber": 21 },
+    { "slug": "das_tapfere_schneiderlein", "title": "Das tapfere Schneiderlein", "khmNumber": 20 },
+    { "slug": "der_froschkonig_oder_der_eiserne_heinrich", "title": "Der Froschkönig oder der eiserne Heinrich", "khmNumber": 1 },
+    { "slug": "der_gestiefelte_kater", "title": "Der gestiefelte Kater", "khmNumber": 33 },
+    { "slug": "die_bremer_stadtmusikanten", "title": "Die Bremer Stadtmusikanten", "khmNumber": 27 },
+    { "slug": "die_goldene_gans", "title": "Die goldene Gans", "khmNumber": 64 },
+    { "slug": "die_sterntaler", "title": "Die Sterntaler", "khmNumber": 153 },
+    { "slug": "dornroschen", "title": "Dornröschen", "khmNumber": 50 },
+    { "slug": "frau_holle", "title": "Frau Holle", "khmNumber": 24 },
+    { "slug": "hansel_und_gretel", "title": "Hänsel und Gretel", "khmNumber": 15 },
+    { "slug": "rapunzel", "title": "Rapunzel", "khmNumber": 12 },
+    { "slug": "rotkaeppchen", "title": "Rotkäppchen", "khmNumber": 26 },
+    { "slug": "rumpelstilzchen", "title": "Rumpelstilzchen", "khmNumber": 55 },
+    { "slug": "schneewittchen", "title": "Schneewittchen", "khmNumber": 53 },
+    { "slug": "tischchen_deck_dich_goldesel_und_knuppel_aus_dem_sack", "title": "Tischchen deck dich, Goldesel und Knüppel aus dem Sack", "khmNumber": 36 }
+  ]
+}

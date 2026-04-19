@@ -1,24 +1,9 @@
 ---
 title: "Rapunzel"
 source: "Grimms Märchen"
-author: "Brüder Grimm"
 url: "https://www.grimmstories.com/de/grimm_maerchen/rapunzel"
 crawledAt: "2026-04-03T09:10:21.776Z"
 wordCount: 1328
-readingTimeMinutes: 7
-khmNumber: 12
-atuType: "310"
-firstPublished: 1812
-themes: ["imprisonment", "forbidden love", "magic", "parental sacrifice", "tower"]
-characters: ["Rapunzel", "Zauberin", "Königssohn", "Vater", "Mutter"]
-synopsis: "Ein Mann stiehlt für seine schwangere Frau Rapunzeln aus dem Garten einer Zauberin und muss ihr dafür das neugeborene Kind überlassen. Rapunzel wächst in einem fensterlosen Turm auf, bis sie durch ihr langes Haar einen Königssohn empfängt. Verstossen in die Wüste, findet sie ihren geblendeten Geliebten wieder — ihre Tränen heilen seine Augen."
-moral: "Wahre Liebe findet einen Weg, auch durch Verbannung und Blindheit."
-coverImage: "cover.svg"
-illustrations:
-  - illustrator: "Johnny Gruelle"
-    work: "Rapunzel (1914)"
-    source: "Wikimedia Commons"
-    license: "Public Domain"
 ---
 
 Es war einmal ein Mann und eine Frau, die wünschten sich schon lange vergeblich ein Kind, endlich machte sich die Frau Hoffnung, der liebe Gott werde ihren Wunsch erfüllen. Die Leute hatten in ihrem Hinterhaus ein kleines Fenster, daraus konnte man in einen prächtigen Garten sehen, der voll der schönsten Blumen und Kräuter stand; er war aber von einer hohen Mauer umgeben, und niemand wagte hineinzugehen, weil er einer Zauberin gehörte, die große Macht hatte und von aller Welt gefürchtet ward. Eines Tages stand die Frau an diesem Fenster und sah in den Garten hinab, da erblickte sie ein Beet, das mit den schönsten Rapunzeln bepflanzt war; und sie sahen so frisch und grün aus, dass sie lüstern ward und das größte Verlangen empfand, von den Rapunzeln zu essen. Das Verlangen nahm jeden Tag zu, und da sie wusste, dass sie keine davon bekommen konnte, so fiel sie ganz ab, sah blass und elend aus. Da erschrak der Mann und fragte: "Was fehlt dir, liebe Frau?" - "Ach," antwortete sie, "wenn ich keine Rapunzeln aus dem Garten hinter unserm Hause zu essen kriege, so sterbe ich." Der Mann, der sie lieb hatte, dachte: "Eh du deine Frau sterben läßest, holst du ihr von den Rapunzeln, es mag kosten, was es will." In der Abenddämmerung stieg er also über die Mauer in den Garten der Zauberin, stach in aller Eile eine Handvoll Rapunzeln und brachte sie seiner Frau. Sie machte sich sogleich Salat daraus und aß sie in voller Begierde auf. Sie hatten ihr aber so gut, so gut geschmeckt, dass sie den andern Tag noch dreimal soviel Lust bekam. Sollte sie Ruhe haben, so musste der Mann noch einmal in den Garten steigen. Er machte sich also in der Abenddämmerung wieder hinab, als er aber die Mauer herabgeklettert war, erschrak er gewaltig, denn er sah die Zauberin vor sich stehen. "Wie kannst du es wagen," sprach sie mit zornigem Blick, "in meinen Garten zu steigen und wie ein Dieb mir meine Rapunzeln zu stehlen? Das soll dir schlecht bekommen." - "Ach," antwortete er, "lasst Gnade für Recht ergehen, ich habe mich nur aus Not dazu entschlossen: meine Frau hat Eure Rapunzeln aus dem Fenster erblickt, und empfindet ein so großes Gelüsten, dass sie sterben würde, wenn sie nicht davon zu essen bekäme." Da ließ die Zauberin in ihrem Zorne nach und sprach zu ihm: "Verhält es sich so, wie du sagst, so will ich dir gestatten, Rapunzeln mitzunehmen, soviel du willst, allein ich mache eine Bedingung: Du musst mir das Kind geben, das deine Frau zur Welt bringen wird. Es soll ihm gut gehen, und ich will für es sorgen wie eine Mutter." Der Mann sagte in der Angst alles zu, und als die Frau in Wochen kam, so erschien sogleich die Zauberin, gab dem Kinde den Namen Rapunzel und nahm es mit sich fort.

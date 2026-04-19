@@ -1,24 +1,9 @@
 ---
 title: "Rotkäppchen"
 source: "Grimms Märchen"
-author: "Brüder Grimm"
 url: "https://www.grimmstories.com/de/grimm_maerchen/rotkaeppchen"
 crawledAt: "2026-04-03T09:10:46.126Z"
 wordCount: 1273
-readingTimeMinutes: 6
-khmNumber: 26
-atuType: "333"
-firstPublished: 1812
-themes: ["innocence", "wolf", "warning", "rescue", "forest"]
-characters: ["Rotkäppchen", "Grossmutter", "Wolf", "Mutter", "Jäger"]
-synopsis: "Ein Mädchen mit einer roten Samtkappe soll ihrer kranken Grossmutter Kuchen und Wein bringen. Im Wald lässt es sich vom Wolf ablenken, der die Grossmutter und schliesslich Rotkäppchen verschlingt. Ein Jäger schneidet den schlafenden Wolf auf und befreit beide."
-moral: "Wer vom Weg abweicht, gerät in Gefahr — doch das Gute wird gerettet."
-coverImage: "cover.svg"
-illustrations:
-  - illustrator: "Gustave Doré"
-    work: "Le Petit Chaperon Rouge (1867)"
-    source: "Wikimedia Commons"
-    license: "Public Domain"
 ---
 
 Es war einmal ein kleines süßes Mädchen, das hatte jedermann lieb, der sie nur ansah, am allerliebsten aber ihre Großmutter, die wusste gar nicht, was sie alles dem Kinde geben sollte. Einmal schenkte sie ihm ein Käppchen von rotem Samt, und weil ihm das so wohl stand, und es nichts anders mehr tragen wollte, hieß es nur das Rotkäppchen. Eines Tages sprach seine Mutter zu ihm: "Komm, Rotkäppchen, da hast du ein Stück Kuchen und eine Flasche Wein, bring das der Großmutter hinaus; sie ist krank und schwach und wird sich daran laben. Mach dich auf, bevor es heiß wird, und wenn du hinauskommst, so geh hübsch sittsam und lauf nicht vom Wege ab, sonst fällst du und zerbrichst das Glas, und die Großmutter hat nichts. Und wenn du in ihre Stube kommst, so vergiss nicht guten Morgen zu sagen und guck nicht erst in allen Ecken herum!"

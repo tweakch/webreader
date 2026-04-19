@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 600" role="img" aria-labelledby="t d">
+  <title id="t">Schneewittchen</title>
+  <desc id="d">Cover illustration: red apple on black against a field of white snowflakes.</desc>
+  <defs>
+    <radialGradient id="bg" cx="0.5" cy="0.4" r="0.9">
+      <stop offset="0" stop-color="#282828"/>
+      <stop offset="1" stop-color="#000000"/>
+    </radialGradient>
+    <radialGradient id="apple" cx="0.35" cy="0.35" r="0.8">
+      <stop offset="0" stop-color="#ff5c5c"/>
+      <stop offset="0.7" stop-color="#a01820"/>
+      <stop offset="1" stop-color="#5a0a10"/>
+    </radialGradient>
+  </defs>
+  <rect width="400" height="600" fill="url(#bg)"/>
+  <rect x="16" y="16" width="368" height="568" fill="none" stroke="#d4af37" stroke-width="2"/>
+  <g fill="#ffffff" opacity="0.55">
+    <circle cx="50" cy="120" r="1.5"/>
+    <circle cx="120" cy="80" r="1"/>
+    <circle cx="180" cy="160" r="1.5"/>
+    <circle cx="260" cy="90" r="1"/>
+    <circle cx="320" cy="140" r="1.5"/>
+    <circle cx="360" cy="200" r="1"/>
+    <circle cx="70" cy="250" r="1"/>
+    <circle cx="330" cy="280" r="1.5"/>
+    <circle cx="40" cy="450" r="1"/>
+    <circle cx="360" cy="500" r="1.5"/>
+    <circle cx="90" cy="520" r="1"/>
+    <circle cx="300" cy="540" r="1"/>
+  </g>
+  <g transform="translate(200 360)">
+    <path d="M 0 -55 q -50 -10 -55 35 q -5 45 20 55 q 20 8 35 0 q 15 8 35 0 q 25 -10 20 -55 q -5 -45 -55 -35 z" fill="url(#apple)"/>
+    <path d="M -30 -50 q 10 -8 25 -3" fill="none" stroke="#ffb8b8" stroke-width="3" stroke-linecap="round" opacity="0.6"/>
+    <path d="M 0 -55 q -3 -15 5 -25 q 8 -5 12 2 q 3 8 -5 15" fill="#3a5a2a" stroke="#1a3a1a" stroke-width="1"/>
+    <path d="M 0 -55 q 2 -10 -5 -15" fill="#6a2a10" stroke="#3a1a08" stroke-width="2" stroke-linecap="round"/>
+  </g>
+  <text x="200" y="180" text-anchor="middle" font-family="Georgia, serif" font-size="36" fill="#f0f0f0" font-style="italic">Schneewittchen</text>
+  <text x="200" y="215" text-anchor="middle" font-family="Georgia, serif" font-size="14" fill="#b0b0b0" letter-spacing="4">KHM 53</text>
+  <text x="200" y="555" text-anchor="middle" font-family="Georgia, serif" font-size="13" fill="#b0b0b0">Brüder Grimm · 1812</text>
+</svg>

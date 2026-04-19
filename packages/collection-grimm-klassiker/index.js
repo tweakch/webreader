@@ -15,6 +15,10 @@ import rumpelstilzchen from './stories/rumpelstilzchen/content.md?raw';
 import schneewittchen from './stories/schneewittchen/content.md?raw';
 import tischchen_deck_dich_goldesel_und_knuppel_aus_dem_sack from './stories/tischchen_deck_dich_goldesel_und_knuppel_aus_dem_sack/content.md?raw';
 
+import openingIllustration from './assets/opening.svg?url';
+import endingIllustration from './assets/ending.svg?url';
+import ornamentIllustration from './assets/ornament.svg?url';
+
 export { manifest };
 
 export const stories = {
@@ -35,4 +39,10 @@ export const stories = {
   tischchen_deck_dich_goldesel_und_knuppel_aus_dem_sack,
 };
 
-export default { manifest, stories };
+export const illustrations = {
+  opening: openingIllustration,
+  ending: endingIllustration,
+  ornament: ornamentIllustration,
+};
+
+export default { manifest, stories, illustrations };

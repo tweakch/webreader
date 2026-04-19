@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 360" role="img" aria-labelledby="t d">
+  <title id="t">Und wenn sie nicht gestorben sind</title>
+  <desc id="d">Ending illustration: open storybook with swirling ribbon and rose under starry sky.</desc>
+  <defs>
+    <linearGradient id="ebg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1a2855"/>
+      <stop offset="1" stop-color="#0b1428"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#f4e4b2" stop-opacity="0.6"/>
+      <stop offset="1" stop-color="#f4e4b2" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="600" height="360" fill="url(#ebg)"/>
+  <ellipse cx="300" cy="220" rx="220" ry="80" fill="url(#glow)"/>
+  <g fill="#f4e4b2" opacity="0.9">
+    <circle cx="80" cy="60" r="1.3"/>
+    <circle cx="140" cy="40" r="1"/>
+    <circle cx="220" cy="70" r="1.5"/>
+    <circle cx="360" cy="45" r="1.1"/>
+    <circle cx="450" cy="60" r="1.4"/>
+    <circle cx="520" cy="40" r="1"/>
+    <circle cx="540" cy="90" r="1.2"/>
+    <circle cx="50" cy="110" r="1"/>
+    <circle cx="560" cy="150" r="1.3"/>
+    <circle cx="30" cy="180" r="1"/>
+  </g>
+  <g transform="translate(300 220)">
+    <path d="M -120 0 q -5 -12 -10 -10 q -4 2 0 8 q -30 -2 -40 20 q -4 10 6 8 q 30 -4 44 -26 z"
+          fill="#e8dcb9" stroke="#8b6914" stroke-width="1"/>
+    <path d="M -120 0 q -8 -4 -20 -4 q -20 0 -30 16" fill="none" stroke="#8b6914" stroke-width="0.6"/>
+    <path d="M 120 0 q 5 -12 10 -10 q 4 2 0 8 q 30 -2 40 20 q 4 10 -6 8 q -30 -4 -44 -26 z"
+          fill="#e8dcb9" stroke="#8b6914" stroke-width="1"/>
+    <path d="M 120 0 q 8 -4 20 -4 q 20 0 30 16" fill="none" stroke="#8b6914" stroke-width="0.6"/>
+    <path d="M -120 -10 q 0 -20 20 -26 q 40 -12 100 -12 q 60 0 100 12 q 20 6 20 26 l 0 22 q 0 -18 -20 -24 q -40 -10 -100 -10 q -60 0 -100 10 q -20 6 -20 24 z"
+          fill="#f4e4b2" stroke="#8b6914" stroke-width="1.2"/>
+    <line x1="0" y1="-48" x2="0" y2="12" stroke="#8b6914" stroke-width="1"/>
+    <g stroke="#8b6914" stroke-width="0.4" fill="none" opacity="0.7">
+      <line x1="-100" y1="-30" x2="-10" y2="-30"/>
+      <line x1="-100" y1="-22" x2="-10" y2="-22"/>
+      <line x1="-100" y1="-14" x2="-10" y2="-14"/>
+      <line x1="10" y1="-30" x2="100" y2="-30"/>
+      <line x1="10" y1="-22" x2="100" y2="-22"/>
+      <line x1="10" y1="-14" x2="100" y2="-14"/>
+    </g>
+    <text x="-55" y="-2" text-anchor="middle" font-family="Georgia, serif" font-size="14" font-style="italic" fill="#8b6914">Ende</text>
+    <text x="55" y="-2" text-anchor="middle" font-family="Georgia, serif" font-size="14" font-style="italic" fill="#8b6914">gut</text>
+  </g>
+  <g transform="translate(300 130)" fill="none" stroke="#d4af37" stroke-width="1.4">
+    <path d="M -80 10 q 30 -40 80 -20 q 40 16 60 -10"/>
+    <path d="M -80 10 q 30 -30 70 -14" opacity="0.5"/>
+  </g>
+  <g transform="translate(300 285)">
+    <g fill="#c94a4a" stroke="#6b1f1f" stroke-width="0.5">
+      <circle cx="0" cy="0" r="8"/>
+      <path d="M -6 -2 q 4 -6 12 0 q 2 4 -4 4 q -6 0 -8 -4 z" opacity="0.7"/>
+      <path d="M 6 -2 q -4 -6 -12 0 q -2 4 4 4 q 6 0 8 -4 z" opacity="0.7"/>
+      <circle cx="0" cy="-1" r="3" fill="#8b2a2a" stroke="none"/>
+    </g>
+    <path d="M -2 6 q -8 10 -14 22" fill="none" stroke="#4a6b5f" stroke-width="1.2"/>
+    <path d="M -8 12 q -6 0 -10 -4" fill="#4a6b5f" opacity="0.8"/>
+    <path d="M 2 6 q 8 10 14 22" fill="none" stroke="#4a6b5f" stroke-width="1.2"/>
+    <path d="M 8 12 q 6 0 10 -4" fill="#4a6b5f" opacity="0.8"/>
+  </g>
+  <rect x="30" y="30" width="540" height="300" fill="none" stroke="#d4af37" stroke-width="1.5"/>
+  <g fill="#d4af37">
+    <path d="M 30 30 l 16 0 l 0 3 l -13 0 l 0 13 l -3 0 z"/>
+    <path d="M 570 30 l -16 0 l 0 3 l 13 0 l 0 13 l 3 0 z"/>
+    <path d="M 30 330 l 16 0 l 0 -3 l -13 0 l 0 -13 l -3 0 z"/>
+    <path d="M 570 330 l -16 0 l 0 -3 l 13 0 l 0 -13 l 3 0 z"/>
+  </g>
+</svg>

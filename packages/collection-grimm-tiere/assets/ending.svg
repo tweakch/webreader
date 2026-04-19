@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 360" role="img" aria-labelledby="t d">
+  <title id="t">Ende der Tiergeschichte</title>
+  <desc id="d">Ending illustration: tree silhouette with sleeping animals under crescent moon and stars.</desc>
+  <defs>
+    <linearGradient id="ebgT" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1e2f55"/>
+      <stop offset="1" stop-color="#0b1220"/>
+    </linearGradient>
+    <radialGradient id="moonGlow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#f4e4b2" stop-opacity="0.5"/>
+      <stop offset="1" stop-color="#f4e4b2" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="600" height="360" fill="url(#ebgT)"/>
+  <circle cx="450" cy="110" r="60" fill="url(#moonGlow)"/>
+  <g transform="translate(450 110)">
+    <path d="M 0 -28 a 28 28 0 1 0 0 56 a 22 22 0 1 1 0 -56 z" fill="#f4e4b2"/>
+  </g>
+  <g fill="#f4e4b2" opacity="0.9">
+    <circle cx="80" cy="70" r="1.3"/>
+    <circle cx="140" cy="55" r="1"/>
+    <circle cx="220" cy="80" r="1.5"/>
+    <circle cx="360" cy="60" r="1.1"/>
+    <circle cx="520" cy="100" r="1.4"/>
+    <circle cx="560" cy="60" r="1"/>
+    <circle cx="60" cy="130" r="1.2"/>
+    <circle cx="540" cy="160" r="1.1"/>
+  </g>
+  <g fill="#1a2030">
+    <path d="M 30 300 q 80 -20 180 -10 q 120 10 240 -10 q 60 -8 120 5 l 0 40 l -540 0 z"/>
+  </g>
+  <g transform="translate(200 300)">
+    <path d="M 0 0 q -4 -40 0 -80 q 2 -30 6 -60 q 4 30 6 60 q 4 40 0 80 z" fill="#0a0f18"/>
+    <g fill="#0a0f18">
+      <path d="M -5 -100 q -20 -10 -40 -2 q 20 -4 40 6"/>
+      <path d="M 11 -100 q 20 -10 40 -2 q -20 -4 -40 6"/>
+      <path d="M -5 -70 q -30 -6 -50 10 q 30 -10 50 0"/>
+      <path d="M 11 -70 q 30 -6 50 10 q -30 -10 -50 0"/>
+      <path d="M -4 -40 q -25 0 -40 14 q 25 -10 40 -4"/>
+      <path d="M 10 -40 q 25 0 40 14 q -25 -10 -40 -4"/>
+      <ellipse cx="3" cy="-120" rx="30" ry="18"/>
+    </g>
+  </g>
+  <g transform="translate(150 300)" fill="#1a1a1a">
+    <ellipse cx="0" cy="0" rx="22" ry="6" opacity="0.5"/>
+    <path d="M -18 -2 q 0 -10 8 -12 q 4 -1 6 2 q 4 -8 12 -8 q 10 0 12 10 q 2 -2 6 -1 q 4 2 2 10 l 0 3 z"/>
+    <circle cx="-12" cy="-10" r="2.2" opacity="0.6"/>
+    <path d="M -10 -14 l 2 -4 l 2 3 z"/>
+  </g>
+  <g transform="translate(260 305)" fill="#1a1a1a">
+    <ellipse cx="0" cy="0" rx="18" ry="5" opacity="0.5"/>
+    <path d="M -14 -2 l 0 -8 q 0 -5 5 -5 l 14 0 q 5 0 5 5 l 0 8 z"/>
+    <path d="M -10 -14 l 1 -6 l 3 4 z"/>
+    <path d="M 10 -14 l -1 -6 l -3 4 z"/>
+  </g>
+  <g transform="translate(350 310)" fill="#1a1a1a">
+    <ellipse cx="0" cy="0" rx="20" ry="5" opacity="0.5"/>
+    <path d="M -16 -2 q 2 -10 10 -12 q 10 -2 14 4 q 4 -4 10 -1 q 6 4 2 12 z"/>
+    <path d="M -10 -14 q -4 -6 0 -8 q 4 0 4 6 z"/>
+    <path d="M 14 -14 l 2 -6 l 3 4 z"/>
+  </g>
+  <g transform="translate(300 175)" fill="none" stroke="#d4af37" stroke-width="1.2">
+    <path d="M -70 0 q 20 -18 40 -6 q 20 12 40 -4" opacity="0.7"/>
+  </g>
+  <text x="300" y="240" text-anchor="middle" font-family="Georgia, serif" font-size="28" font-style="italic" fill="#f4e4b2">Gute Nacht</text>
+  <text x="300" y="265" text-anchor="middle" font-family="Georgia, serif" font-size="14" fill="#b8a66b" letter-spacing="4">ENDE</text>
+  <rect x="30" y="30" width="540" height="300" fill="none" stroke="#d4af37" stroke-width="1.5"/>
+  <g fill="#d4af37">
+    <circle cx="30" cy="30" r="3"/>
+    <circle cx="570" cy="30" r="3"/>
+    <circle cx="30" cy="330" r="3"/>
+    <circle cx="570" cy="330" r="3"/>
+  </g>
+</svg>

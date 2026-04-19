@@ -1,4 +1,5 @@
 import { useTheme } from '../ui/ThemeContext';
+import { getStoryIllustrations } from '../src/lib/storyLibrary';
 
 /**
  * Renders the current page content with title, text, and action buttons.
@@ -31,6 +32,10 @@ export default function PageContent({
   const page = pages[currentPage];
   const isLastPage = currentPage === totalPages - 1;
   const isFavorite = favorites.has(selectedStory.id);
+  const illustrations = showIllustrations ? getStoryIllustrations(selectedStory.id) : null;
+  const ornamentColor = highContrast
+    ? (darkMode ? '#ffffff' : '#000000')
+    : darkMode ? '#b8a66b' : '#8b6914';
 
   return (
     <div
@@ -51,6 +56,14 @@ export default function PageContent({
                 className="mb-6 w-full rounded-xl object-cover max-h-80"
               />
             )}
+            {showIllustrations && !selectedStory.coverUrl && illustrations?.opening && (
+              <img
+                data-testid="story-opening-illustration"
+                src={illustrations.opening}
+                alt=""
+                className="mb-6 w-full rounded-xl object-cover max-h-80"
+              />
+            )}
             <h2 style={{ fontFamily }} className={`text-4xl font-bold mb-2 ${
               highContrast ? (darkMode ? 'text-white' : 'text-gray-900') : darkMode ? 'text-amber-200' : 'text-amber-900'
             }`}>
@@ -59,6 +72,14 @@ export default function PageContent({
             <div className={`h-1 w-20 rounded-full mb-8 ${
               highContrast ? (darkMode ? 'bg-white' : 'bg-black') : darkMode ? 'bg-amber-700' : 'bg-amber-300'
             }`} />
+            {showIllustrations && illustrations?.opening && selectedStory.coverUrl && (
+              <img
+                data-testid="story-opening-illustration"
+                src={illustrations.opening}
+                alt=""
+                className="mb-8 w-full rounded-xl object-cover max-h-64"
+              />
+            )}
           </>
         )}
 
@@ -70,27 +91,63 @@ export default function PageContent({
           {(() => {
             const paras = [];
             let currentPara = [];
+            let hadTrailingFullPara = false;
 
             page.tokens.forEach((token) => {
               currentPara.push(token.word);
               if (token.isPara) {
-                paras.push(currentPara.join(' '));
+                paras.push({ text: currentPara.join(' '), isComplete: true });
                 currentPara = [];
+                hadTrailingFullPara = true;
+              } else {
+                hadTrailingFullPara = false;
               }
             });
 
-            // If there are leftover words (happens when page breaks mid-paragraph)
+            // If there are leftover words (page breaks mid-paragraph), push as incomplete
             if (currentPara.length > 0) {
-              paras.push(currentPara.join(' '));
+              paras.push({ text: currentPara.join(' '), isComplete: false });
             }
 
-            return paras.map((text, idx) => (
-              <p key={idx} className="mb-6 first-letter:font-bold">
-                {text}
-              </p>
-            ));
+            const ornamentUrl = showIllustrations && illustrations?.ornament;
+
+            return paras.map((para, idx) => {
+              const isLastOnPage = idx === paras.length - 1;
+              const showOrnament = ornamentUrl && para.isComplete && !isLastOnPage;
+              return (
+                <div key={idx}>
+                  <p className="mb-6 first-letter:font-bold">{para.text}</p>
+                  {showOrnament && (
+                    <div
+                      data-testid="paragraph-ornament"
+                      aria-hidden="true"
+                      className="my-4 flex justify-center"
+                      style={{ color: ornamentColor }}
+                    >
+                      <img
+                        src={ornamentUrl}
+                        alt=""
+                        className="h-6 opacity-70"
+                        style={{ maxWidth: '200px' }}
+                      />
+                    </div>
+                  )}
+                </div>
+              );
+            });
           })()}
         </div>
+
+        {showIllustrations && isLastPage && illustrations?.ending && (
+          <div className="mt-8 flex justify-center">
+            <img
+              data-testid="story-ending-illustration"
+              src={illustrations.ending}
+              alt=""
+              className="w-full rounded-xl object-cover max-h-80"
+            />
+          </div>
+        )}
 
         {showAttribution && isLastPage && (
           <div className={`mt-8 pt-6 border-t ${

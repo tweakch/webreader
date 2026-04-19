@@ -12,6 +12,10 @@ import der_hase_und_der_igel from './stories/der_hase_und_der_igel/content.md?ra
 import die_scholle from './stories/die_scholle/content.md?raw';
 import rohrdommel_und_wiedehopf from './stories/rohrdommel_und_wiedehopf/content.md?raw';
 
+import openingIllustration from './assets/opening.svg?url';
+import endingIllustration from './assets/ending.svg?url';
+import ornamentIllustration from './assets/ornament.svg?url';
+
 export { manifest };
 
 export const stories = {
@@ -29,4 +33,10 @@ export const stories = {
   rohrdommel_und_wiedehopf,
 };
 
-export default { manifest, stories };
+export const illustrations = {
+  opening: openingIllustration,
+  ending: endingIllustration,
+  ornament: ornamentIllustration,
+};
+
+export default { manifest, stories, illustrations };

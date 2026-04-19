@@ -10,8 +10,12 @@ Current model: **build-time install.** Installed collections are picked up by a 
 packages/collection-<id>/
 ├── package.json        # name: @tweakch/collection-<id>
 ├── collection.json     # manifest
-├── index.js            # ESM entrypoint, exports { manifest, stories, covers?, adaptions? }
+├── index.js            # ESM entrypoint, exports { manifest, stories, covers?, illustrations?, adaptions? }
 ├── README.md
+├── assets/             # optional collection-level illustrations
+│   ├── opening.svg     #   beautiful opening art (shown on first page when cover is absent)
+│   ├── ending.svg      #   beautiful ending art (shown on the last page)
+│   └── ornament.svg    #   monochrome divider (uses currentColor), shown between paragraphs
 └── stories/
     └── <slug>/
         ├── content.md                      # markdown with the same frontmatter as stories/
@@ -56,17 +60,27 @@ import manifest from './collection.json';
 import aschenputtel from './stories/aschenputtel/content.md?raw';
 import aschenputtelCover from './stories/aschenputtel/cover.svg?url';
 import aschenputtelSchweizerdeutsch from './stories/aschenputtel/adaptions/schweizerdeutsch/content.md?raw';
+import openingIllustration from './assets/opening.svg?url';
+import endingIllustration from './assets/ending.svg?url';
+import ornamentIllustration from './assets/ornament.svg?url';
 
 export { manifest };
 export const stories = { aschenputtel };
 export const covers = { aschenputtel: aschenputtelCover };
+export const illustrations = {
+  opening: openingIllustration,
+  ending: endingIllustration,
+  ornament: ornamentIllustration,
+};
 export const adaptions = {
   aschenputtel: { schweizerdeutsch: aschenputtelSchweizerdeutsch },
 };
-export default { manifest, stories, covers, adaptions };
+export default { manifest, stories, covers, illustrations, adaptions };
 ```
 
-The `?raw` and `?url` queries are Vite features, so collections are consumed by a Vite build only. `covers` and `adaptions` are optional — omit them if the collection has neither.
+The `?raw` and `?url` queries are Vite features, so collections are consumed by a Vite build only. `covers`, `illustrations` and `adaptions` are optional — omit any key the collection doesn't provide.
+
+The `illustrations.ornament` SVG should use `stroke="currentColor"` / `fill="currentColor"` so it inherits the reader theme's accent color when rendered between paragraphs.
 
 ## Discovery
 

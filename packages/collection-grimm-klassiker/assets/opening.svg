@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 360" role="img" aria-labelledby="t d">
+  <title id="t">Klassische Märchen</title>
+  <desc id="d">Opening illustration: forest path leading to a distant castle under a starry dusk sky.</desc>
+  <defs>
+    <linearGradient id="kSky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f7d9a0"/>
+      <stop offset="0.45" stop-color="#c28a6c"/>
+      <stop offset="1" stop-color="#2d2548"/>
+    </linearGradient>
+    <linearGradient id="kPath" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#d4b47c"/>
+      <stop offset="1" stop-color="#7a5a2f"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="360" fill="#f8efd9"/>
+  <rect x="30" y="30" width="540" height="300" fill="url(#kSky)"/>
+  <circle cx="300" cy="155" r="36" fill="#fde9b7" opacity="0.85"/>
+  <g fill="#f4e4b2" opacity="0.85">
+    <circle cx="90" cy="60" r="1.1"/>
+    <circle cx="170" cy="50" r="1.3"/>
+    <circle cx="410" cy="55" r="1"/>
+    <circle cx="500" cy="75" r="1.3"/>
+    <circle cx="540" cy="50" r="1"/>
+  </g>
+  <g transform="translate(300 170)" fill="#16182a" stroke="#0a0a18" stroke-width="0.6">
+    <rect x="-26" y="-16" width="52" height="46"/>
+    <rect x="-34" y="-20" width="16" height="50"/>
+    <rect x="18" y="-20" width="16" height="50"/>
+    <polygon points="-34,-20 -26,-30 -18,-20"/>
+    <polygon points="18,-20 26,-30 34,-20"/>
+    <polygon points="-26,-16 0,-32 26,-16"/>
+    <rect x="-3" y="-4" width="6" height="12" fill="#ffdd77"/>
+    <rect x="-32" y="-10" width="4" height="6" fill="#ffdd77"/>
+    <rect x="28" y="-10" width="4" height="6" fill="#ffdd77"/>
+    <line x1="-30" y1="-33" x2="-30" y2="-42" stroke="#0a0a18"/>
+    <polygon points="-30,-42 -22,-39 -30,-36" fill="#c94a4a" stroke="none"/>
+    <line x1="30" y1="-33" x2="30" y2="-42" stroke="#0a0a18"/>
+    <polygon points="30,-42 38,-39 30,-36" fill="#c94a4a" stroke="none"/>
+  </g>
+  <path d="M 280 220 Q 200 260 120 320" fill="none" stroke="url(#kPath)" stroke-width="14" stroke-linecap="round"/>
+  <path d="M 320 220 Q 400 260 480 320" fill="none" stroke="url(#kPath)" stroke-width="14" stroke-linecap="round"/>
+  <g fill="#1a2030">
+    <path d="M 30 240 q 30 -10 70 -8 l 0 100 l -70 0 z"/>
+    <path d="M 70 210 l 0 24 l -8 0 z" opacity="0.8"/>
+    <path d="M 570 230 q -40 -10 -90 -6 l 0 106 l 90 0 z"/>
+    <path d="M 500 200 l 0 28 l -8 0 z" opacity="0.8"/>
+  </g>
+  <g fill="#1a2030">
+    <path d="M 95 280 l -5 -10 l -4 10 l -5 -12 l -5 12 l -4 -8 l -4 8 l 0 10 l 28 0 z"/>
+    <path d="M 520 280 l -5 -10 l -4 10 l -5 -12 l -5 12 l -4 -8 l -4 8 l 0 10 l 28 0 z"/>
+  </g>
+  <g fill="#2b2f3a">
+    <ellipse cx="200" cy="296" rx="22" ry="4" opacity="0.5"/>
+    <ellipse cx="400" cy="296" rx="22" ry="4" opacity="0.5"/>
+  </g>
+  <rect x="30" y="30" width="540" height="300" fill="none" stroke="#8b6914" stroke-width="2"/>
+  <rect x="36" y="36" width="528" height="288" fill="none" stroke="#d4af37" stroke-width="0.7"/>
+  <g fill="#8b6914">
+    <circle cx="30" cy="30" r="4"/>
+    <circle cx="570" cy="30" r="4"/>
+    <circle cx="30" cy="330" r="4"/>
+    <circle cx="570" cy="330" r="4"/>
+  </g>
+  <text x="300" y="320" text-anchor="middle" font-family="Georgia, serif" font-size="16" font-style="italic" fill="#5b3a1a">Es war einmal ein Märchen ...</text>
+</svg>

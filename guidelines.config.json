@@ -13,8 +13,8 @@
     },
     {
       "file": "src/lib/featureRegistry.jsx",
-      "limit": 700,
-      "reason": "Declarative registry — large by design; grew with retireBy annotations (rule 4), the age-filter/collections entries, and the enhanced-gestures beta entry. Target: move role-default tables into a sibling registry; aim <500 lines."
+      "limit": 820,
+      "reason": "Declarative registry — large by design; grew with retireBy annotations (rule 4), the age-filter/collections entries, the enhanced-gestures beta entry, and the new FEATURE_GROUPS table plus per-entry `group` field that drives grouped profile-panel sections. Target: move role-default tables and group metadata into sibling registries; aim <500 lines."
     },
     {
       "file": "components/SidebarV2.jsx",
@@ -40,11 +40,6 @@
       "file": "components/DebugOverlay.jsx",
       "limit": 480,
       "reason": "Debug-only panel. Target: split into DebugOverlayPanel + DebugOverlayFlags sections."
-    },
-    {
-      "file": "components/ProfilePanel.jsx",
-      "limit": 460,
-      "reason": "Base profile panel. Target: extract the feature-toggle list into a ProfileFeatureList subcomponent."
     },
     {
       "file": "ui/SpeedReaderView.jsx",

@@ -881,6 +881,7 @@ const GrimmMarchenApp = () => {
               _rawFlagValues={_rawFlagValues}
               userFeatureOverrides={userFeatureOverrides}
               onToggleFeature={(key) => setUserFeatureOverrides(prev => ({ ...prev, [key]: !_o(key, _rawFlagValues[key] ?? false) }))}
+              onSetFeaturesEnabled={(keys, enabled) => setUserFeatureOverrides(prev => ({ ...prev, ...Object.fromEntries(keys.map(k => [k, enabled])) }))}
               role={role}
               setRole={setRole}
               isAdmin={isAdmin}

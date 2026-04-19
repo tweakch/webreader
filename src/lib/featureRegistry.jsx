@@ -57,6 +57,9 @@ import {
  *   Icon        lucide-react icon component (may be null for hidden entries)
  *   flag        { defaultVariant, variants } — same shape as flags.json
  *   status      'released' | 'beta' | 'experimental' — drives release gating
+ *   retireBy    ISO date (released flags only) — when the flag itself must
+ *               be removed and the branch collapsed. See
+ *               CODING_GUIDELINES.md#4-released-flags-declare-a-retirement-date.
  *   roles       roles that see this feature by default (admin always sees all)
  *   hidden      true → excluded from profile toggles UI (kept in flag config)
  *
@@ -84,6 +87,7 @@ export const FEATURE_REGISTRY = [
     Icon: () => <Heart size={20} strokeWidth={1.75} />,
     flag: bool('on'),
     status: 'released',
+    retireBy: '2026-12-31',
     roles: ALL_USERS,
   },
   {
@@ -94,6 +98,7 @@ export const FEATURE_REGISTRY = [
     Icon: () => <Filter size={20} strokeWidth={1.75} />,
     flag: bool('on'),
     status: 'released',
+    retireBy: '2026-12-31',
     roles: ALL_USERS,
   },
   {
@@ -104,6 +109,7 @@ export const FEATURE_REGISTRY = [
     Icon: () => <FileText size={20} strokeWidth={1.75} />,
     flag: bool('off'),
     status: 'released',
+    retireBy: '2026-12-31',
     roles: ['subscriber', 'tester', 'sales'],
   },
   {
@@ -114,6 +120,7 @@ export const FEATURE_REGISTRY = [
     Icon: () => <Clock size={20} strokeWidth={1.75} />,
     flag: bool('on'),
     status: 'released',
+    retireBy: '2026-12-31',
     roles: ['subscriber', 'tester', 'sales'],
   },
   {
@@ -124,6 +131,7 @@ export const FEATURE_REGISTRY = [
     Icon: () => <Type size={20} strokeWidth={1.75} />,
     flag: bool('on'),
     status: 'released',
+    retireBy: '2026-12-31',
     roles: ALL_USERS,
   },
   {
@@ -134,6 +142,7 @@ export const FEATURE_REGISTRY = [
     Icon: () => <Type size={20} strokeWidth={1.75} />,
     flag: bool('off'),
     status: 'released',
+    retireBy: '2026-12-31',
     roles: ALL_USERS,
   },
   {
@@ -144,6 +153,7 @@ export const FEATURE_REGISTRY = [
     Icon: () => <Zap size={20} strokeWidth={1.75} />,
     flag: bool('on'),
     status: 'released',
+    retireBy: '2026-12-31',
     roles: ALL_USERS,
   },
   {
@@ -154,6 +164,7 @@ export const FEATURE_REGISTRY = [
     Icon: () => <Hand size={20} strokeWidth={1.75} />,
     flag: bool('on'),
     status: 'released',
+    retireBy: '2026-12-31',
     roles: ALL_USERS,
   },
   {
@@ -164,6 +175,7 @@ export const FEATURE_REGISTRY = [
     Icon: () => <Hand size={20} strokeWidth={1.75} />,
     flag: bool('on'),
     status: 'released',
+    retireBy: '2026-12-31',
     roles: ALL_USERS,
   },
   {
@@ -174,6 +186,7 @@ export const FEATURE_REGISTRY = [
     Icon: () => <ArrowLeftRight size={20} strokeWidth={1.75} />,
     flag: bool('on'),
     status: 'released',
+    retireBy: '2026-12-31',
     roles: ['subscriber', 'tester', 'sales'],
   },
   {
@@ -184,6 +197,7 @@ export const FEATURE_REGISTRY = [
     Icon: () => <SlidersHorizontal size={20} strokeWidth={1.75} />,
     flag: bool('on'),
     status: 'released',
+    retireBy: '2026-12-31',
     roles: ALL_USERS,
   },
   {
@@ -194,6 +208,7 @@ export const FEATURE_REGISTRY = [
     Icon: () => <Type size={20} strokeWidth={1.75} />,
     flag: bool('off'),
     status: 'released',
+    retireBy: '2026-12-31',
     roles: ['subscriber', 'tester', 'sales'],
   },
   {
@@ -204,6 +219,7 @@ export const FEATURE_REGISTRY = [
     Icon: () => <Quote size={20} strokeWidth={1.75} />,
     flag: bool('on'),
     status: 'released',
+    retireBy: '2026-12-31',
     roles: ALL_USERS,
   },
   {
@@ -214,6 +230,7 @@ export const FEATURE_REGISTRY = [
     Icon: () => <Volume2 size={20} strokeWidth={1.75} />,
     flag: bool('off'),
     status: 'released',
+    retireBy: '2026-12-31',
     roles: ALL_USERS,
   },
   {
@@ -224,6 +241,7 @@ export const FEATURE_REGISTRY = [
     Icon: () => <Contrast size={20} strokeWidth={1.75} />,
     flag: bool('off'),
     status: 'released',
+    retireBy: '2026-12-31',
     roles: ALL_USERS,
   },
   {
@@ -234,6 +252,7 @@ export const FEATURE_REGISTRY = [
     Icon: () => <Folder size={20} strokeWidth={1.75} />,
     flag: bool('off'),
     status: 'released',
+    retireBy: '2026-12-31',
     roles: ['subscriber', 'tester', 'sales'],
   },
 
@@ -249,6 +268,7 @@ export const FEATURE_REGISTRY = [
       variants: { light: 'light', dark: 'dark', system: 'system', 'light-hc': 'light-hc', 'dark-hc': 'dark-hc' },
     },
     status: 'released',
+    retireBy: '2027-06-30',
     roles: ALL_USERS,
     hidden: true,
   },
@@ -260,6 +280,7 @@ export const FEATURE_REGISTRY = [
     Icon: () => <SunMoon size={20} strokeWidth={1.75} />,
     flag: bool('on'),
     status: 'released',
+    retireBy: '2027-06-30',
     roles: ALL_USERS,
     hidden: true,
   },

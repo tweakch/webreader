@@ -35,6 +35,18 @@ function resolveTheme(setting, systemDark) {
   return 'light';
 }
 
+/**
+ * App-shell animation + resolved-theme state, persisted to localStorage and
+ * synchronised across tabs via the `storage` event and in-tab custom events.
+ *
+ * @returns {{
+ *   variant: 'seal'|'fade'|'sparkle'|'ink',
+ *   setVariant: (next: string) => void,
+ *   theme: 'light'|'dark'|'light-hc'|'dark-hc',
+ *   variantClass: string,
+ *   themeClass: string,
+ * }}
+ */
 export function useAppAnimation() {
   const [variant, setVariantState] = useState(readVariant);
   const [themeSetting, setThemeSetting] = useState(readThemeSetting);

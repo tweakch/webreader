@@ -6,7 +6,7 @@ import { useAppAnimation } from './hooks/useAppAnimation';
 import { useTypography } from './hooks/useTypography';
 import { usePersistence } from './hooks/usePersistence';
 import { useReader } from './hooks/useReader';
-import FeatureDocs from './FeatureDocs';
+import FeatureDocs from './components/FeatureDocs';
 import { useRole } from './hooks/useRole';
 import { useABTesting } from './hooks/useABTesting';
 import { useTextToSpeech, TTS_RATES } from './hooks/useTextToSpeech';

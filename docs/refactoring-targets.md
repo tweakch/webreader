@@ -92,7 +92,7 @@ No code is dead today, but both experiments have hard expiry dates. Failing to r
 | File | Verdict |
 |------|---------|
 | `grimm-reader.jsx` | Lazy-imported by `src/layouts/AppLayout.jsx`. Position is intentional — leave. |
-| `FeatureDocs.jsx` | UI component, should move to `components/FeatureDocs.jsx` for consistency. |
+| `FeatureDocs.jsx` | ~~At repo root~~ moved to `components/FeatureDocs.jsx`. |
 | `features.jsx` | Barrel re-export from `src/lib/featureRegistry`. Intentional — leave. |
 
 ## Misplaced concerns

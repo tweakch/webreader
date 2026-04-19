@@ -7,7 +7,7 @@
       "reason": "Top-level app composition + handlers. Grew with the child-profile umbrella destructure, childAge state, age-filter plumbing, and the enhanced-gestures feature wiring (incl. sidebar drag-progress state). Target: extract docs/profile/sidebar open-state and A/B wiring into a context; aim <600 lines."
     },
     {
-      "file": "FeatureDocs.jsx",
+      "file": "components/FeatureDocs.jsx",
       "limit": 1025,
       "reason": "All feature docs inline. Target: split per-feature doc bodies into MDX or per-file modules; aim <500 lines."
     },

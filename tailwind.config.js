@@ -5,7 +5,6 @@ module.exports = {
     "./grimm-reader.jsx",
     "./main.jsx",
     "./features.jsx",
-    "./FeatureDocs.jsx",
     "./design/**/*.{jsx,js}",
     "./src/**/*.{jsx,js}",
   ],

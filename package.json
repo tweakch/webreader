@@ -29,7 +29,8 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "npm run docs:check && vite build",
+    "docs:check": "node scripts/check-feature-docs.mjs",
     "crawl": "tsx crawlers/index.ts",
     "swiss-adaptions": "tsx crawlers/create-swiss-adaptions.ts",
     "normalize": "tsx crawlers/normalize.ts",

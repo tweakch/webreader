@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 
+/** Playback rates exposed in the TTS rate picker; index is the stored selection. */
 export const TTS_RATES = [0.7, 0.85, 1.0, 1.2, 1.5];
 const DEFAULT_RATE_IDX = 2;
 

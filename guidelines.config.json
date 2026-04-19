@@ -1,0 +1,60 @@
+{
+  "fileSizeLimit": 400,
+  "fileSizeAllowlist": [
+    {
+      "file": "grimm-reader.jsx",
+      "limit": 1010,
+      "reason": "Top-level app composition + handlers. Target: extract docs/profile/sidebar open-state and A/B wiring into a context; aim <600 lines."
+    },
+    {
+      "file": "FeatureDocs.jsx",
+      "limit": 1025,
+      "reason": "All feature docs inline. Target: split per-feature doc bodies into MDX or per-file modules; aim <500 lines."
+    },
+    {
+      "file": "src/lib/featureRegistry.jsx",
+      "limit": 675,
+      "reason": "Declarative registry — large by design; grew with the retireBy annotations required by rule 4. Target: move role-default tables into a sibling registry; aim <500 lines."
+    },
+    {
+      "file": "components/SidebarV2.jsx",
+      "limit": 655,
+      "reason": "Variant component awaiting A/B decision. Target: promote + delete or split into Sidebar + SidebarTree."
+    },
+    {
+      "file": "components/ProfilePanelTabbed.jsx",
+      "limit": 710,
+      "reason": "A/B variant. Target: promote winner; delete this file when experiment `profile-layout` resolves."
+    },
+    {
+      "file": "components/ProfilePanelGrouped.jsx",
+      "limit": 551,
+      "reason": "A/B variant. Target: promote winner; delete this file when experiment `profile-layout` resolves."
+    },
+    {
+      "file": "components/PersonasDocsView.jsx",
+      "limit": 545,
+      "reason": "Inline persona docs. Target: extract each persona section into `docs/personas/<id>.md` loaded via glob; aim <250 lines."
+    },
+    {
+      "file": "components/DebugOverlay.jsx",
+      "limit": 480,
+      "reason": "Debug-only panel. Target: split into DebugOverlayPanel + DebugOverlayFlags sections."
+    },
+    {
+      "file": "components/ProfilePanel.jsx",
+      "limit": 460,
+      "reason": "Base profile panel. Target: extract the feature-toggle list into a ProfileFeatureList subcomponent."
+    },
+    {
+      "file": "ui/SpeedReaderView.jsx",
+      "limit": 480,
+      "reason": "RSVP + ORP UI in one file. Target: extract ORP rendering into `ui/SpeedReaderOrpWord.jsx`."
+    }
+  ],
+  "componentPlacementDuplicateAllowlist": [],
+  "abVariantExpiryAllowlist": [],
+  "flagRetirementAllowlist": [],
+  "dataTestidAllowlist": [],
+  "hookJsdocAllowlist": []
+}

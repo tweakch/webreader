@@ -137,4 +137,4 @@ const parts = [
   '_Updated automatically on every push. Regenerate with the Summary workflow._',
 ];
 
-process.stdout.write(parts.join('\n'));
+process.stdout.write(parts.join('\n') + '\n');

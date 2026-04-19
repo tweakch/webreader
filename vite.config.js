@@ -44,6 +44,7 @@ export default defineConfig({
     __APP_VERSION__: JSON.stringify(pkg.version),
     __APP_COMMIT__: JSON.stringify(process.env.VERCEL_GIT_COMMIT_SHA?.slice(0, 7) || safeGitSha()),
     __APP_BUILD_TIME__: JSON.stringify(new Date().toISOString()),
+    'import.meta.env.VITE_VERCEL_ENV': JSON.stringify(process.env.VERCEL_ENV ?? ''),
   },
   plugins: [react(), webreaderCollectionsPlugin()],
   resolve: {

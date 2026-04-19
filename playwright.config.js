@@ -10,6 +10,11 @@ export default defineConfig({
   testDir: './tests',
   testMatch: ['**/*.spec.js'],
   testIgnore: ['**/unit/**'],
+  // Visual regression tests are gated behind RUN_VISUAL=1 until the
+  // baseline PNGs have been committed via the seed-visual-baselines
+  // workflow. Skip by default so a fresh clone doesn't fail CI on a
+  // missing snapshot.
+  grepInvert: process.env.RUN_VISUAL ? undefined : /@visual/,
   fullyParallel: true,
   workers: process.env.CI ? 2 : undefined,
   retries: process.env.CI ? 1 : 0,

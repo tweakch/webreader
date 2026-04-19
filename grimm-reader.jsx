@@ -54,18 +54,27 @@ const GrimmMarchenApp = () => {
   const flags = useFeatureFlags({ releaseMode, role });
   const { variant: appAnimationVariant, setVariant: setAppAnimationVariant } = useAppAnimation();
   const {
-    maxFontSize,
+    maxFontSize: rawMaxFontSize,
     showWordCount, showReadingDuration, showFontSizeControls, showPinchFontSize, showEinkFlash,
     showTapZones, showTapMiddleToggle, showAdaptionSwitcher, showTypographyPanel, showAttribution,
     showFavorites, showFavoritesOnlyToggle, showAudioPlayer, showHighContrastTheme,
-    showSimplifiedUi, showTextToSpeech,
+    showSimplifiedUi: rawShowSimplifiedUi, showTextToSpeech,
     showSpeedReader, showSpeedreaderOrp, showWordBlacklist, showDeepSearch, showStoryDirectories, showCollections, showDebugBadges, showSubscriberFonts, showErrorPageSimulator, showAppAnimation,
     showAbTesting, showAbTestingAdmin,
     showVoiceControl, showVoiceResume, showVoiceNavigation, showVoiceReadingControl, showVoiceDiscovery, showVoiceHandsFree,
+    showAgeFilter, showChildProfile, showIllustrations: rawShowIllustrations,
     _rawFlagValues,
     userFeatureOverrides, setUserFeatureOverrides, _o,
     flagTheme, bigFontsVariant,
   } = flags;
+
+  // Child-profile is an umbrella that forces simplified UI, illustrations,
+  // age-filter and a larger base font size on together. Individual toggles
+  // still win when the umbrella is off.
+  const showSimplifiedUi = rawShowSimplifiedUi || showChildProfile;
+  const showIllustrations = rawShowIllustrations || showChildProfile;
+  const ageFilterActive = showAgeFilter || showChildProfile;
+  const maxFontSize = showChildProfile && rawMaxFontSize < 34 ? 34 : rawMaxFontSize;
 
   // A/B testing
   const ab = useABTesting({ role, isAdmin });
@@ -85,6 +94,14 @@ const GrimmMarchenApp = () => {
   const [personasDocsOpen, setPersonasDocsOpen] = useState(false);
   const [activeSource, setActiveSource] = useState(() => localStorage.getItem('wr-last-source') || null);
   const [activeDirectory, setActiveDirectory] = useState(null);
+  const [childAge, setChildAge] = useState(() => {
+    const raw = localStorage.getItem('wr-child-age');
+    return raw ? parseInt(raw, 10) : null;
+  });
+  useEffect(() => {
+    if (childAge == null) localStorage.removeItem('wr-child-age');
+    else localStorage.setItem('wr-child-age', String(childAge));
+  }, [childAge]);
   const [stories, setStories] = useState([]);
   const [adaptionsByParent, setAdaptionsByParent] = useState({});
   const [storyAudioFiles, setStoryAudioFiles] = useState({});
@@ -263,12 +280,21 @@ const GrimmMarchenApp = () => {
   } = persist;
 
   const visibleStories = React.useMemo(() => {
-    if (blacklist.size === 0) return stories;
-    const words = [...blacklist].map(w => w.toLowerCase());
-    return stories.filter(s =>
-      !words.some(w => s.title.toLowerCase().includes(w))
-    );
-  }, [stories, blacklist]);
+    let list = stories;
+    if (blacklist.size > 0) {
+      const words = [...blacklist].map(w => w.toLowerCase());
+      list = list.filter(s => !words.some(w => s.title.toLowerCase().includes(w)));
+    }
+    if (ageFilterActive && typeof childAge === 'number') {
+      list = list.filter(s => {
+        if (s.ageMin == null && s.ageMax == null) return true;
+        if (s.ageMin != null && childAge < s.ageMin) return false;
+        if (s.ageMax != null && childAge > s.ageMax) return false;
+        return true;
+      });
+    }
+    return list;
+  }, [stories, blacklist, ageFilterActive, childAge]);
 
   const normalizedSearchTerm = searchTerm.trim().toLowerCase();
 
@@ -784,6 +810,9 @@ const GrimmMarchenApp = () => {
           onCloseProfile={goBack}
           onCloseApp={handleCloseApp}
           simplifiedUi={showSimplifiedUi}
+          showAgeFilter={ageFilterActive}
+          childAge={childAge}
+          onChildAgeChange={setChildAge}
           isAdmin={isAdmin}
           role={role}
           showErrorPageSimulator={showErrorPageSimulator}
@@ -946,6 +975,7 @@ const GrimmMarchenApp = () => {
               onToggleTts={handleToggleTts}
               onStopTts={handleStopTts}
               simplifiedUi={showSimplifiedUi}
+              showIllustrations={showIllustrations}
             />
           ) : isStoryLoading ? (
             <div className={`h-full w-full grid place-items-center ${darkMode ? 'text-amber-200' : 'text-amber-900'}`}>

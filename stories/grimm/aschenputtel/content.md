@@ -4,6 +4,8 @@ source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/aschenputtel"
 crawledAt: "2026-04-03T09:10:38.925Z"
 wordCount: 2412
+ageMin: 6
+ageMax: 12
 ---
 
 Einem reichen Manne, dem wurde seine Frau krank, und als sie fühlte, daß ihr Ende herankam, rief sie ihr einziges Töchterlein zu sich ans Bett und sprach: "Liebes Kind, bleibe fromm und gut, so wird dir der liebe Gott immer beistehen, und ich will vom Himmel auf dich herabblicken, und will um dich sein." Darauf tat sie die Augen zu und verschied. Das Mädchen ging jeden Tag hinaus zu dem Grabe der Mutter und weinte, und blieb fromm und gut. Als der Winter kam, deckte der Schnee ein weißes Tüchlein auf das Grab, und als die Sonne im Frühjahr es wieder herabgezogen hatte, nahm sich der Mann eine andere Frau.

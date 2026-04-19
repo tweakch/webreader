@@ -24,7 +24,7 @@ const READING_KEYS = new Set([
   'attribution', 'illustrations', 'read-along', 'story-quiz',
   'audio-player', 'text-to-speech',
   'speed-reader', 'speedreader-orp',
-  'word-blacklist', 'child-profile',
+  'word-blacklist', 'child-profile', 'age-filter',
 ]);
 
 const VOICE_KEYS = new Set([
@@ -54,7 +54,7 @@ const SIMPLIFIED_HIDDEN = new Set([
   'debug-badges', 'error-page-simulator', 'ab-testing', 'ab-testing-admin',
   'app-animation', 'word-blacklist', 'speed-reader', 'speedreader-orp',
   'subscriber-fonts', 'story-directories', 'deep-search', 'pinch-font-size',
-  'read-along', 'illustrations', 'child-profile', 'story-quiz',
+  'read-along', 'illustrations', 'story-quiz',
 ]);
 
 export default function ProfilePanelTabbed({

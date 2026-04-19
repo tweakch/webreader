@@ -23,7 +23,6 @@ export { FEATURES, FEATURE_REGISTRY } from './src/lib/featureRegistry';
 //     removed in the same change. Search for "CTC:" across the repo.
 //
 // --- MVP -------------------------------------------------------------------
-// CTC: Implement `age-filter` — see docs/features/age-filter.md
 // CTC: Implement `bedtime-mode` — see docs/features/bedtime-mode.md
 // CTC: Implement `sleep-timer` — see docs/features/sleep-timer.md
 // --- Near-term -------------------------------------------------------------

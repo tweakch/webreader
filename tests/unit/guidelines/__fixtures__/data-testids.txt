@@ -1,11 +1,14 @@
 ab-testing-panel
+age-filter
 app-animation-variant-picker
 back-to-directories
 back-to-sources
 blacklist-add
 blacklist-input
 blacklist-remove
+child-age-select
 close-app-button
+collections-blade
 completed-indicator
 debug-hud-flags
 debug-hud-fps
@@ -44,6 +47,7 @@ role-matrix-filter
 sidebar-v2
 sidebar-v2-clear-search
 sidebar-v2-collapse-all
+sidebar-v2-collections-group
 sidebar-v2-expand-all
 sidebar-v2-fav-shelf
 sidebar-v2-profile-group
@@ -61,6 +65,7 @@ speed-reader-word
 speed-reader-wpm-decrease
 speed-reader-wpm-increase
 story-close
+story-cover
 subscription-upgrade-cta
 tap-zone-left
 tap-zone-middle

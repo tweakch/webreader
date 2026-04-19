@@ -3,8 +3,8 @@
   "fileSizeAllowlist": [
     {
       "file": "grimm-reader.jsx",
-      "limit": 1010,
-      "reason": "Top-level app composition + handlers. Target: extract docs/profile/sidebar open-state and A/B wiring into a context; aim <600 lines."
+      "limit": 1040,
+      "reason": "Top-level app composition + handlers. Grew by the child-profile umbrella destructure + childAge state + age-filter plumbing through the sidebar. Target: extract docs/profile/sidebar open-state and A/B wiring into a context; aim <600 lines."
     },
     {
       "file": "FeatureDocs.jsx",
@@ -13,13 +13,13 @@
     },
     {
       "file": "src/lib/featureRegistry.jsx",
-      "limit": 675,
-      "reason": "Declarative registry — large by design; grew with the retireBy annotations required by rule 4. Target: move role-default tables into a sibling registry; aim <500 lines."
+      "limit": 690,
+      "reason": "Declarative registry — large by design; grew with retireBy annotations (rule 4) plus the age-filter and collections entries. Target: move role-default tables into a sibling registry; aim <500 lines."
     },
     {
       "file": "components/SidebarV2.jsx",
-      "limit": 655,
-      "reason": "Variant component awaiting A/B decision. Target: promote + delete or split into Sidebar + SidebarTree."
+      "limit": 815,
+      "reason": "Variant component awaiting A/B decision. Grew with collections blade, swipe gestures, and the age-filter picker. Target: promote + delete or split into Sidebar + SidebarTree."
     },
     {
       "file": "components/ProfilePanelTabbed.jsx",

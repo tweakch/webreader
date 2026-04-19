@@ -1,8 +1,10 @@
 import { useState, useEffect, useRef, useMemo, useCallback } from 'react';
-import { ChevronDown, ChevronRight, Heart, User, LogOut, Sparkles, X, ListCollapse, ListTree, Keyboard, BookmarkCheck, BadgeCheck, BookOpen, SlidersHorizontal, CreditCard, Bug } from 'lucide-react';
+import { ChevronDown, ChevronRight, Heart, User, LogOut, Sparkles, X, ListCollapse, ListTree, Keyboard, BookmarkCheck, BadgeCheck, BookOpen, SlidersHorizontal, CreditCard, Bug, Baby } from 'lucide-react';
 import { useTheme } from '../ui/ThemeContext';
 import SearchInput from '../ui/SearchInput';
 import StoryButton from '../ui/StoryButton';
+
+const CHILD_AGE_OPTIONS = [3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
 
 /**
  * SidebarV2 — experimental A/B variant of the sidebar.
@@ -57,6 +59,9 @@ export default function SidebarV2({
   profileActiveTab,
   onCloseProfile,
   onCloseApp,
+  showAgeFilter = false,
+  childAge = null,
+  onChildAgeChange,
   isAdmin,
   role,
   showErrorPageSimulator,
@@ -504,6 +509,37 @@ export default function SidebarV2({
             <p className={`mt-2 px-1 text-xs ${darkMode ? 'text-amber-600' : 'text-amber-700'}`}>
               Tiefensuche aktiv: Treffer im Inhalt werden nachgeladen.
             </p>
+          )}
+
+          {showAgeFilter && (
+            <div
+              data-testid="age-filter"
+              className={`mt-2 px-1 flex items-center gap-2 text-xs ${
+                darkMode ? 'text-amber-500' : 'text-amber-700'
+              }`}
+            >
+              <Baby size={14} />
+              <label htmlFor="child-age-select-v2">Alter</label>
+              <select
+                id="child-age-select-v2"
+                data-testid="child-age-select"
+                value={childAge ?? ''}
+                onChange={(e) => {
+                  const v = e.target.value;
+                  onChildAgeChange?.(v === '' ? null : parseInt(v, 10));
+                }}
+                className={`flex-1 rounded border px-2 py-1 ${
+                  darkMode
+                    ? 'bg-slate-900 border-amber-700/40 text-amber-200'
+                    : 'bg-white border-amber-300 text-amber-900'
+                }`}
+              >
+                <option value="">Alle Altersstufen</option>
+                {CHILD_AGE_OPTIONS.map((age) => (
+                  <option key={age} value={age}>{age} Jahre</option>
+                ))}
+              </select>
+            </div>
           )}
         </div>
       </div>

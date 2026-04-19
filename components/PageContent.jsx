@@ -22,6 +22,7 @@ export default function PageContent({
   onShare,
   onToggleFavorite,
   onClose,
+  showIllustrations = false,
 }) {
   const { dark: darkMode, hc: highContrast } = useTheme();
 
@@ -42,6 +43,14 @@ export default function PageContent({
       <div className="mx-auto w-full" style={{ maxWidth: textWidth + 'px' }}>
         {page.hasTitle && (
           <>
+            {showIllustrations && selectedStory.coverUrl && (
+              <img
+                data-testid="story-cover"
+                src={selectedStory.coverUrl}
+                alt=""
+                className="mb-6 w-full rounded-xl object-cover max-h-80"
+              />
+            )}
             <h2 style={{ fontFamily }} className={`text-4xl font-bold mb-2 ${
               highContrast ? (darkMode ? 'text-white' : 'text-gray-900') : darkMode ? 'text-amber-200' : 'text-amber-900'
             }`}>

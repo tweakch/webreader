@@ -4,6 +4,8 @@ source: "Grimms Märchen"
 url: "https://www.grimmstories.com/de/grimm_maerchen/hans_im_glueck"
 crawledAt: "2026-04-03T09:12:56.075Z"
 wordCount: 1868
+ageMin: 4
+ageMax: 12
 ---
 
 Hans hatte sieben Jahre bei seinem Herrn gedient, da sprach er zu ihm 'Herr, meine Zeit ist herum, nun wollte ich gerne wieder heim zu meiner Mutter, gebt mir meinen Lohn.' Der Herr antwortete 'du hast mir treu und ehrlich gedient, wie der Dienst war, so soll der Lohn sein,' und gab ihm ein Stück Gold, das so groß als Hansens Kopf war. Hans zog ein Tüchlein aus der Tasche, wickelte den Klumpen hinein, setzte ihn auf die Schulter und machte sich auf den Weg nach Haus. Wie er so dahinging und immer ein Bein vor das andere setzte, kam ihm ein Reiter in die Augen, der frisch und fröhlich auf einem muntern Pferd vorbeitrabte. 'Ach,' sprach Hans ganz laut, 'was ist das Reiten ein schönes Ding! da sitzt einer wie auf einem Stuhl, stößt sich an keinen Stein, spart die Schuh, und kommt fort, er weiß nicht wie.' Der Reiter, der das gehört hatte, hielt an und rief 'ei, Hans, warum laufst du auch zu Fuß?' 'Ich muß ja wohl,' antwortete er, 'da habe ich einen Klumpen heim zu tragen: es ist zwar Gold, aber ich kann den Kopf dabei nicht gerad halten, auch drückt mirs auf die Schulter.' 'Weißt du was,' sagte der Reiter, 'wir wollen tauschen: ich gebe dir mein Pferd, und du gibst mir deinen Klumpen.' 'Von Herzen gern,' sprach Hans, 'aber ich sage Euch, Ihr müßt Euch damit schleppen.' Der Reiter stieg ab, nahm das Gold und half dem Hans hinauf, gab ihm die Zügel fest in die Hände und sprach 'wenns nun recht geschwind soll gehen, so mußt du mit der Zunge schnalzen und hopp hopp rufen.'

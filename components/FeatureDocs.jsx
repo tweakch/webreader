@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { ChevronLeft, BookOpen } from 'lucide-react';
-import { FEATURES } from './features';
+import { FEATURES } from '../features';
 
 // ── Detailed German documentation for each feature ──────────────────────────
 

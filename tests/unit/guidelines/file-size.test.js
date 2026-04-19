@@ -21,7 +21,7 @@ const __filename = fileURLToPath(import.meta.url);
 const repoRoot = path.resolve(path.dirname(__filename), '..', '..', '..');
 
 const SCAN_ROOTS = ['components', 'ui', 'hooks', 'src'];
-const ROOT_GLOBS = ['grimm-reader.jsx', 'FeatureDocs.jsx', 'features.jsx', 'main.jsx'];
+const ROOT_GLOBS = ['grimm-reader.jsx', 'features.jsx', 'main.jsx'];
 const EXTS = new Set(['.js', '.jsx', '.ts', '.tsx', '.mjs']);
 
 function walk(dir, acc = []) {

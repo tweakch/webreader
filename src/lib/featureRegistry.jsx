@@ -365,6 +365,7 @@ export const FEATURE_REGISTRY = [
     flag: bool('off'),
     status: 'experimental',
     roles: ALL_USERS,
+    group: 'content',
   },
 
   // -------- Released but hidden (variant / infra flags) --------

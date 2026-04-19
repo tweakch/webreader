@@ -1,12 +1,12 @@
 import React, { useState, useRef, useEffect, useCallback } from 'react';
 import { Menu, X, Plus, Minus, User } from 'lucide-react';
 import { FEATURES } from './features';
-import { useFeatureFlags } from './hooks/useFeatureFlags';
+import { useAppFeatureFlags } from './hooks/useAppFeatureFlags';
 import { useAppAnimation } from './hooks/useAppAnimation';
 import { useTypography } from './hooks/useTypography';
 import { usePersistence } from './hooks/usePersistence';
 import { useReader } from './hooks/useReader';
-import FeatureDocs from './FeatureDocs';
+import FeatureDocs from './components/FeatureDocs';
 import { useRole } from './hooks/useRole';
 import { useABTesting } from './hooks/useABTesting';
 import { useTextToSpeech, TTS_RATES } from './hooks/useTextToSpeech';
@@ -15,14 +15,10 @@ import { useBreadcrumbNavigation } from './hooks/useBreadcrumbNavigation';
 import { ThemeContext } from './ui/ThemeContext';
 import Toggle from './ui/Toggle';
 import IconButton from './ui/IconButton';
-import ProfilePanel from './components/ProfilePanel';
-import ProfilePanelGrouped from './components/ProfilePanelGrouped';
-import ProfilePanelTabbed from './components/ProfilePanelTabbed';
 import PersonasDocsView from './components/PersonasDocsView';
 import HomeView from './components/HomeView';
 import ReaderView from './components/ReaderView';
-import Sidebar from './components/Sidebar';
-import SidebarV2 from './components/SidebarV2';
+import { pickSidebarComponent, pickProfilePanelComponent } from './src/lib/abVariantComponents';
 import LeaveAppDialog from './components/LeaveAppDialog';
 import TypographyPanel, { LINE_HEIGHTS, WORD_SPACINGS, FONT_FAMILIES } from './ui/TypographyPanel';
 import AudioPlayer from './ui/AudioPlayer';
@@ -53,35 +49,30 @@ const GrimmMarchenApp = () => {
   const releaseMode = import.meta.env.VITE_RELEASE_MODE === 'released-only'
     ? 'released-only'
     : 'all';
-  const flags = useFeatureFlags({ releaseMode, role });
+  const flags = useAppFeatureFlags({ releaseMode, role });
   const { variant: appAnimationVariant, setVariant: setAppAnimationVariant } = useAppAnimation();
   const {
-    maxFontSize: rawMaxFontSize,
+    maxFontSize,
     showWordCount, showReadingDuration, showFontSizeControls, showPinchFontSize, showEinkFlash,
     showTapZones, showTapMiddleToggle, showAdaptionSwitcher, showTypographyPanel, showAttribution,
     showFavorites, showFavoritesOnlyToggle, showAudioPlayer, showHighContrastTheme,
-    showSimplifiedUi: rawShowSimplifiedUi, showTextToSpeech,
+    showSimplifiedUi, showTextToSpeech,
     showSpeedReader, showSpeedreaderOrp, showWordBlacklist, showDeepSearch, showStoryDirectories, showCollections, showDebugBadges, showSubscriberFonts, showErrorPageSimulator, showAppAnimation, showEnhancedGestures,
     showAbTesting, showAbTestingAdmin,
     showVoiceControl, showVoiceResume, showVoiceNavigation, showVoiceReadingControl, showVoiceDiscovery, showVoiceHandsFree,
-    showAgeFilter, showChildProfile, showIllustrations: rawShowIllustrations, showSuggestionFeeds,
+    showAgeFilter, showChildProfile, showIllustrations, showSuggestionFeeds,
+    ageFilterActive,
     _rawFlagValues,
     userFeatureOverrides, setUserFeatureOverrides, _o,
     flagTheme, bigFontsVariant,
   } = flags;
 
-  // Child-profile is an umbrella that forces simplified UI, illustrations,
-  // age-filter and a larger base font size on together. Individual toggles
-  // still win when the umbrella is off.
-  const showSimplifiedUi = rawShowSimplifiedUi || showChildProfile;
-  const showIllustrations = rawShowIllustrations || showChildProfile;
-  const ageFilterActive = showAgeFilter || showChildProfile;
-  const maxFontSize = showChildProfile && rawMaxFontSize < 34 ? 34 : rawMaxFontSize;
-
   // A/B testing
   const ab = useABTesting({ role, isAdmin });
   const sidebarVariant = ab.getVariant('sidebar');
   const profileLayoutVariant = ab.getVariant('profile-layout');
+  const SidebarComponent = pickSidebarComponent(sidebarVariant);
+  const ProfileComponent = pickProfilePanelComponent(profileLayoutVariant);
 
   // Typography
   const typo = useTypography({ maxFontSize, subscriberFonts: showSubscriberFonts });
@@ -800,10 +791,7 @@ const GrimmMarchenApp = () => {
 
       {/* Main Content Area */}
       <div className="flex-1 flex overflow-hidden">
-        {/* Sidebar (A/B variant selection via useABTesting) */}
-        {(() => {
-          const SidebarComponent = sidebarVariant === 'v2' ? SidebarV2 : Sidebar;
-          return (
+        {/* Sidebar (A/B variant picked by pickSidebarComponent) */}
         <SidebarComponent
           menuOpen={menuOpen}
           onMenuToggle={() => setMenuOpen(false)}
@@ -855,8 +843,6 @@ const GrimmMarchenApp = () => {
           showAbTestingAdmin={showAbTestingAdmin}
           ab={ab}
         />
-          );
-        })()}
 
         {/* Hidden measurement container - off-screen, used to calculate paragraph heights */}
         <div
@@ -886,12 +872,6 @@ const GrimmMarchenApp = () => {
               onToggle={(key) => setUserFeatureOverrides(prev => ({ ...prev, [key]: !_o(key, _rawFlagValues[key] ?? false) }))}
             />
           ) : profileOpen ? (
-            (() => {
-              const ProfileComponent =
-                profileLayoutVariant === 'tabbed' ? ProfilePanelTabbed :
-                (profileLayoutVariant === 'grouped' || profileLayoutVariant === 'role-opt') ? ProfilePanelGrouped :
-                ProfilePanel;
-              return (
             <ProfileComponent
               variant={profileLayoutVariant}
               initialTab={profileActiveTab}
@@ -933,8 +913,6 @@ const GrimmMarchenApp = () => {
                 }
               }}
             />
-              );
-            })()
           ) : selectedStory ? (
             <ReaderView
               readerAreaRef={readerAreaRef}

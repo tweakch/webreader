@@ -7,14 +7,14 @@
       "reason": "Top-level app composition + handlers. Grew with the child-profile umbrella destructure, childAge state, age-filter plumbing, the enhanced-gestures feature wiring (incl. sidebar drag-progress state), and the GestureDrawerProvider/Viewport hoist plus per-page drawer registration props. Target: extract docs/profile/sidebar open-state and A/B wiring into a context; aim <600 lines."
     },
     {
-      "file": "FeatureDocs.jsx",
+      "file": "components/FeatureDocs.jsx",
       "limit": 1025,
       "reason": "All feature docs inline. Target: split per-feature doc bodies into MDX or per-file modules; aim <500 lines."
     },
     {
       "file": "src/lib/featureRegistry.jsx",
-      "limit": 820,
-      "reason": "Declarative registry — large by design; grew with retireBy annotations (rule 4), the age-filter/collections entries, the enhanced-gestures beta entry, and the new FEATURE_GROUPS table plus per-entry `group` field that drives grouped profile-panel sections. Target: move role-default tables and group metadata into sibling registries; aim <500 lines."
+      "limit": 830,
+      "reason": "Declarative registry — large by design; grew with retireBy annotations (rule 4), the age-filter/collections entries, the enhanced-gestures beta entry, and the new FEATURE_GROUPS table plus per-entry `group` field that drives grouped profile-panel sections. Target: move role-default tables and group metadata into sibling registries; aim <500 lines (docs/refactoring-targets.md phase 3 #6)."
     },
     {
       "file": "components/SidebarV2.jsx",

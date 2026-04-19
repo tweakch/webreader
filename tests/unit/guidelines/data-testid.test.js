@@ -24,7 +24,7 @@ const __filename = fileURLToPath(import.meta.url);
 const repoRoot = path.resolve(path.dirname(__filename), '..', '..', '..');
 
 const SCAN_ROOTS = ['components', 'ui', 'src'];
-const ROOT_FILES = ['grimm-reader.jsx', 'FeatureDocs.jsx'];
+const ROOT_FILES = ['grimm-reader.jsx'];
 const EXTS = new Set(['.jsx', '.tsx']);
 
 const LITERAL_RE = /data-testid\s*=\s*(?:"([^"]+)"|'([^']+)')/g;

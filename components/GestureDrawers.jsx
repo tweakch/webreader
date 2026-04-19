@@ -20,14 +20,17 @@ function useEscClose(open, onClose) {
   }, [open, onClose]);
 }
 
-function DrawerBackdrop({ open, onClose }) {
-  if (!open) return null;
+export function DrawerBackdrop({ open, onClose, dragProgress = 0, testId = 'gesture-drawer-backdrop' }) {
+  const visible = open || dragProgress > 0;
+  if (!visible) return null;
+  const opacity = open ? 0.3 : Math.min(0.3, dragProgress * 0.3);
   return (
     <button
       aria-label="Drawer schließen"
-      data-testid="gesture-drawer-backdrop"
+      data-testid={testId}
       onClick={onClose}
-      className="fixed inset-0 z-40 bg-black/30 backdrop-blur-[2px]"
+      className="fixed inset-0 z-40 bg-black backdrop-blur-[2px]"
+      style={{ opacity, transition: dragProgress > 0 && !open ? 'none' : 'opacity 200ms ease-out' }}
     />
   );
 }
@@ -79,18 +82,24 @@ export function ReloadIndicator({ progress }) {
  * Top drawer that hosts a quick-settings payload (typography, TTS, …)
  * passed as `children`. Slides in from the top edge.
  */
-export function HeaderDrawer({ open, onClose, children }) {
+export function HeaderDrawer({ open, onClose, children, dragProgress = 0 }) {
   const { tc } = useTheme();
   useEscClose(open, onClose);
+  const dragging = !open && dragProgress > 0;
+  const style = dragging
+    ? { transform: `translateY(${(dragProgress - 1) * 100}%)`, transition: 'none' }
+    : undefined;
   return (
     <>
-      <DrawerBackdrop open={open} onClose={onClose} />
+      <DrawerBackdrop open={open} onClose={onClose} dragProgress={dragProgress} />
       <div
         data-testid="gesture-header-drawer"
         data-open={open ? 'true' : 'false'}
-        aria-hidden={!open}
+        aria-hidden={!open && !dragging}
+        style={style}
         className={cn(
-          'fixed top-0 inset-x-0 z-50 border-b shadow-lg transition-transform duration-200 ease-out',
+          'fixed top-0 inset-x-0 z-50 border-b shadow-lg',
+          dragging ? '' : 'transition-transform duration-200 ease-out',
           open ? 'translate-y-0' : '-translate-y-full',
           tc({
             light:   'bg-white/95 border-amber-200 text-amber-900',
@@ -123,18 +132,24 @@ export function HeaderDrawer({ open, onClose, children }) {
  * Bottom drawer with a page-picker grid. Jumping to a page closes the
  * drawer; prev/next chevrons step without closing.
  */
-export function FooterDrawer({ open, onClose, totalPages, currentPage, onGoToPage, storyTitle }) {
+export function FooterDrawer({ open, onClose, totalPages, currentPage, onGoToPage, storyTitle, dragProgress = 0 }) {
   const { tc } = useTheme();
   useEscClose(open, onClose);
+  const dragging = !open && dragProgress > 0;
+  const style = dragging
+    ? { transform: `translateY(${(1 - dragProgress) * 100}%)`, transition: 'none' }
+    : undefined;
   return (
     <>
-      <DrawerBackdrop open={open} onClose={onClose} />
+      <DrawerBackdrop open={open} onClose={onClose} dragProgress={dragProgress} />
       <div
         data-testid="gesture-footer-drawer"
         data-open={open ? 'true' : 'false'}
-        aria-hidden={!open}
+        aria-hidden={!open && !dragging}
+        style={style}
         className={cn(
-          'fixed bottom-0 inset-x-0 z-50 border-t shadow-lg transition-transform duration-200 ease-out',
+          'fixed bottom-0 inset-x-0 z-50 border-t shadow-lg',
+          dragging ? '' : 'transition-transform duration-200 ease-out',
           open ? 'translate-y-0' : 'translate-y-full',
           tc({
             light:   'bg-white/95 border-amber-200 text-amber-900',

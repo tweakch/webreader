@@ -1,6 +1,8 @@
+import { useEffect } from 'react';
 import { X, List, Search, Bookmark, Activity } from 'lucide-react';
 import { cn } from '../ui/cn';
 import { useTheme } from '../ui/ThemeContext';
+import { DrawerBackdrop } from './GestureDrawers';
 
 const RIGHT_TABS = [
   { id: 'toc',      label: 'Inhalt',       Icon: List },
@@ -29,8 +31,9 @@ function previewPage(pages, i) {
 }
 
 /**
- * Right-side drawer hosting four research/analysis tabs: TOC, analysis,
- * bookmarks, and research shortcuts. Controlled by parent via `open`.
+ * Right-side drawer. Mirrors the sidebar interaction: edge swipe opens,
+ * swipe-away closes, backdrop dims the reader, and `dragProgress` (0..1)
+ * makes the drawer follow the finger during an in-flight gesture.
  */
 export default function RightDrawer({
   open,
@@ -44,28 +47,50 @@ export default function RightDrawer({
   onToggleBookmark,
   storyTitle,
   pageText,
+  dragProgress = 0,
 }) {
   const { tc } = useTheme();
   const tab = activeTab ?? 'toc';
   const paraStarts = pages ? pages.map((_, i) => previewPage(pages, i)) : [];
   const analysisStats = analyzeText(pageText);
 
+  useEffect(() => {
+    if (!open) return undefined;
+    const onKey = (e) => { if (e.key === 'Escape') onClose?.(); };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [open, onClose]);
+
+  const dragging = !open && dragProgress > 0;
+  const style = dragging
+    ? { transform: `translateX(${(1 - dragProgress) * 100}%)`, transition: 'none' }
+    : undefined;
+
   return (
-    <div
-      data-testid="gesture-right-drawer"
-      data-open={open ? 'true' : 'false'}
-      aria-hidden={!open}
-      className={cn(
-        'fixed top-0 right-0 bottom-0 w-80 max-w-[85vw] z-50 border-l shadow-lg transition-transform duration-200 ease-out flex flex-col',
-        open ? 'translate-x-0' : 'translate-x-full',
-        tc({
-          light:   'bg-white/95 border-amber-200 text-amber-900',
-          dark:    'bg-slate-900/95 border-amber-700/40 text-amber-200',
-          hcLight: 'bg-white border-black text-black',
-          hcDark:  'bg-black border-white text-white',
-        })
-      )}
-    >
+    <>
+      <DrawerBackdrop
+        open={open}
+        onClose={onClose}
+        dragProgress={dragProgress}
+        testId="gesture-right-drawer-backdrop"
+      />
+      <div
+        data-testid="gesture-right-drawer"
+        data-open={open ? 'true' : 'false'}
+        aria-hidden={!open && !dragging}
+        style={style}
+        className={cn(
+          'fixed top-0 right-0 bottom-0 w-80 max-w-[85vw] z-50 border-l shadow-lg flex flex-col',
+          dragging ? '' : 'transition-transform duration-200 ease-out',
+          open ? 'translate-x-0' : 'translate-x-full',
+          tc({
+            light:   'bg-white/95 border-amber-200 text-amber-900',
+            dark:    'bg-slate-900/95 border-amber-700/40 text-amber-200',
+            hcLight: 'bg-white border-black text-black',
+            hcDark:  'bg-black border-white text-white',
+          })
+        )}
+      >
       <div className={cn('flex items-center justify-between px-4 py-3 border-b', tc({
         light: 'border-amber-200', dark: 'border-amber-700/40', hcLight: 'border-black', hcDark: 'border-white',
       }))}>
@@ -202,6 +227,7 @@ export default function RightDrawer({
           </div>
         )}
       </div>
-    </div>
+      </div>
+    </>
   );
 }

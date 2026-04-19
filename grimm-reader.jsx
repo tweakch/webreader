@@ -577,6 +577,7 @@ const GrimmMarchenApp = () => {
   }, [showPinchFontSize, selectedStory, speedReaderMode, maxFontSize, setFontSize]);
 
   const [sidebarExpanded, setSidebarExpanded] = useState(false);
+  const [sidebarDragProgress, setSidebarDragProgress] = useState(0);
 
   // When HC flag is toggled, map between normal and HC theme variants
   useEffect(() => {
@@ -781,6 +782,8 @@ const GrimmMarchenApp = () => {
           onMenuToggle={() => setMenuOpen(false)}
           onMenuOpenChange={setMenuOpen}
           expanded={showEnhancedGestures && sidebarExpanded} onCollapseExpanded={() => setSidebarExpanded(false)}
+          dragProgress={showEnhancedGestures ? sidebarDragProgress : 0}
+          externalGestures={showEnhancedGestures}
           searchTerm={searchTerm}
           onSearchChange={setSearchTerm}
           showDeepSearch={showDeepSearch}
@@ -1035,6 +1038,7 @@ const GrimmMarchenApp = () => {
         readerAreaRef={readerAreaRef} pages={pages} currentPage={currentPage} totalPages={totalPages} onGoToPage={goToPage}
         selectedStory={selectedStory} pageText={pageText} menuOpen={menuOpen} onMenuOpenChange={setMenuOpen}
         sidebarExpanded={sidebarExpanded} onSidebarExpandedChange={setSidebarExpanded}
+        onSidebarDragOffsetChange={setSidebarDragProgress}
         onOpenTypography={() => showTypographyPanel && setTypoPanelOpen(true)} />
     )}
 

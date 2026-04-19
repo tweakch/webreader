@@ -236,6 +236,16 @@ export const FEATURE_REGISTRY = [
     status: 'released',
     roles: ['subscriber', 'tester', 'sales'],
   },
+  {
+    key: 'collections',
+    kind: 'boolean',
+    label: 'Sammlungen',
+    description: 'Hebt installierte Sammlungen als eigene Leiste in der Seitenleiste hervor - neben der Geschichten- und Profil-Leiste.',
+    Icon: () => <Sparkles size={20} strokeWidth={1.75} />,
+    flag: bool('off'),
+    status: 'released',
+    roles: ALL_USERS,
+  },
 
   // -------- Released but hidden (variant / infra flags) --------
   {

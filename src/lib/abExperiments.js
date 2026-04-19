@@ -25,7 +25,7 @@ export const AB_EXPERIMENTS = [
     defaultVariant: 'control',
     variants: [
       { id: 'control', label: 'Original', description: 'Die bestehende Drill-Down-Navigation.' },
-      { id: 'v2',      label: 'Baum v2',  description: 'Alles auf einer Ebene, Quellen ein- und ausklappbar, Tastatur-Navigation.' },
+      { id: 'v2',      label: 'Baum v2',  description: 'Baum-Navigation mit Sammlungen-Leiste und Wisch-Gesten zum Öffnen/Schließen.' },
     ],
   },
   {

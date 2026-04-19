@@ -41,6 +41,7 @@ import {
   Palette,
   SunMoon,
   Move,
+  Baby,
 } from 'lucide-react';
 
 /**
@@ -257,6 +258,16 @@ export const FEATURE_REGISTRY = [
     roles: ['subscriber', 'tester', 'sales'],
   },
   {
+    key: 'age-filter',
+    kind: 'boolean',
+    label: 'Altersfilter',
+    description: 'Blendet Märchen aus, die für das gewählte Kinderalter nicht geeignet sind (nutzt ageMin/ageMax aus dem Frontmatter).',
+    Icon: () => <Baby size={20} strokeWidth={1.75} />,
+    flag: bool('off'),
+    status: 'beta',
+    roles: ALL_USERS,
+  },
+  {
     key: 'collections',
     kind: 'boolean',
     label: 'Sammlungen',
@@ -264,6 +275,7 @@ export const FEATURE_REGISTRY = [
     Icon: () => <Sparkles size={20} strokeWidth={1.75} />,
     flag: bool('off'),
     status: 'released',
+    retireBy: '2026-12-31',
     roles: ALL_USERS,
   },
 
@@ -519,21 +531,21 @@ export const FEATURE_REGISTRY = [
     key: 'illustrations',
     kind: 'boolean',
     label: 'Illustrationen',
-    description: 'Zeigt zum Märchen passende Illustrationen an, sofern vorhanden.',
+    description: 'Zeigt zum Märchen passende Illustrationen an, sofern im Quellordner eine cover-Datei vorhanden ist.',
     Icon: () => <Image size={20} strokeWidth={1.75} />,
     flag: bool('off'),
-    status: 'experimental',
-    roles: ['tester'],
+    status: 'beta',
+    roles: ALL_USERS,
   },
   {
     key: 'child-profile',
     kind: 'boolean',
     label: 'Kinderprofil',
-    description: 'Separates Leseprofil für Kinder mit vereinfachter Oberfläche und altersgerechten Einstellungen.',
+    description: 'Schaltet vereinfachte Oberfläche, grosse Schrift, Illustrationen und Altersfilter gemeinsam ein.',
     Icon: () => <User size={20} strokeWidth={1.75} />,
     flag: bool('off'),
-    status: 'experimental',
-    roles: ['tester'],
+    status: 'beta',
+    roles: ALL_USERS,
   },
   {
     key: 'story-quiz',

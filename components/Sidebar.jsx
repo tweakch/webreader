@@ -1,15 +1,10 @@
-import { ChevronLeft, ChevronRight, Heart, User, LogOut } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Heart, User, LogOut, Baby } from 'lucide-react';
 import { useTheme } from '../ui/ThemeContext';
 import SearchInput from '../ui/SearchInput';
 import StoryButton from '../ui/StoryButton';
 import SourceButton from '../ui/SourceButton';
 
-// CTC: Wire `age-filter` here — see docs/features/age-filter.md
-//   When the flag is on, read `ageMin`/`ageMax` from each story's frontmatter
-//   and hide stories outside the configured child age range. The age range
-//   itself comes from localStorage (set in the profile panel).
-// TODO(CTC): remove this comment once age-filter filtering runs in this file
-//   and the FEATURES gap entry is removed.
+const CHILD_AGE_OPTIONS = [3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
 
 /**
  * Sidebar navigation - two-level source/story list with search and profile.
@@ -51,6 +46,9 @@ export default function Sidebar({
   simplifiedUi = false,
   expanded = false,
   onCollapseExpanded,
+  showAgeFilter = false,
+  childAge = null,
+  onChildAgeChange,
 }) {
   const { dark: darkMode } = useTheme();
 
@@ -113,6 +111,36 @@ export default function Sidebar({
             <p className={`mt-2 px-1 text-xs ${darkMode ? 'text-amber-600' : 'text-amber-700'}`}>
               Tiefensuche aktiv: Treffer im Inhalt werden nachgeladen.
             </p>
+          )}
+          {showAgeFilter && (
+            <div
+              data-testid="age-filter"
+              className={`mt-2 px-1 flex items-center gap-2 text-xs ${
+                darkMode ? 'text-amber-500' : 'text-amber-700'
+              }`}
+            >
+              <Baby size={14} />
+              <label htmlFor="child-age-select">Alter</label>
+              <select
+                id="child-age-select"
+                data-testid="child-age-select"
+                value={childAge ?? ''}
+                onChange={(e) => {
+                  const v = e.target.value;
+                  onChildAgeChange?.(v === '' ? null : parseInt(v, 10));
+                }}
+                className={`flex-1 rounded border px-2 py-1 ${
+                  darkMode
+                    ? 'bg-slate-900 border-amber-700/40 text-amber-200'
+                    : 'bg-white border-amber-300 text-amber-900'
+                }`}
+              >
+                <option value="">Alle Altersstufen</option>
+                {CHILD_AGE_OPTIONS.map((age) => (
+                  <option key={age} value={age}>{age} Jahre</option>
+                ))}
+              </select>
+            </div>
           )}
         </div>
 

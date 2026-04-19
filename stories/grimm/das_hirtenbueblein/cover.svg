@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 240" role="img" aria-label="Das Hirtenbüblein — Illustration">
+  <defs>
+    <linearGradient id="hirt-sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0c4a6e"/>
+      <stop offset="60%" stop-color="#7dd3fc"/>
+      <stop offset="100%" stop-color="#bef264"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="240" fill="url(#hirt-sky)"/>
+  <!-- stars -->
+  <g fill="#fef9c3" opacity="0.9">
+    <circle cx="40" cy="30" r="1.5"/>
+    <circle cx="95" cy="20" r="1"/>
+    <circle cx="150" cy="40" r="1.8"/>
+    <circle cx="210" cy="18" r="1.2"/>
+    <circle cx="280" cy="32" r="1.5"/>
+    <circle cx="350" cy="22" r="1.2"/>
+    <circle cx="65" cy="70" r="1"/>
+    <circle cx="315" cy="70" r="1.4"/>
+  </g>
+  <!-- moon -->
+  <circle cx="340" cy="55" r="18" fill="#fef3c7" opacity="0.95"/>
+  <circle cx="333" cy="50" r="17" fill="url(#hirt-sky)"/>
+  <!-- meadow hills -->
+  <path d="M0 180 Q110 140 220 170 Q320 195 400 160 L400 240 L0 240 Z" fill="#65a30d"/>
+  <path d="M0 210 Q120 185 240 205 Q340 220 400 200 L400 240 L0 240 Z" fill="#3f6212"/>
+  <!-- sheep -->
+  <g transform="translate(120 180)">
+    <ellipse cx="0" cy="0" rx="34" ry="22" fill="#f8fafc"/>
+    <circle cx="-18" cy="-10" r="10" fill="#f8fafc"/>
+    <circle cx="18" cy="-10" r="10" fill="#f8fafc"/>
+    <circle cx="0" cy="-18" r="10" fill="#f8fafc"/>
+    <circle cx="-28" cy="3" r="9" fill="#f8fafc"/>
+    <circle cx="28" cy="3" r="9" fill="#f8fafc"/>
+    <!-- face -->
+    <ellipse cx="-36" cy="4" rx="7" ry="9" fill="#1f2937"/>
+    <circle cx="-38" cy="1" r="1.4" fill="#f8fafc"/>
+    <!-- legs -->
+    <rect x="-14" y="18" width="3" height="10" fill="#1f2937"/>
+    <rect x="10" y="18" width="3" height="10" fill="#1f2937"/>
+  </g>
+  <!-- shepherd boy + crook -->
+  <g transform="translate(260 170)">
+    <circle cx="0" cy="-22" r="6" fill="#fbbf24"/>
+    <path d="M-6 -16 L-6 6 L-2 6 L0 -6 L2 6 L6 6 L6 -16 Z" fill="#7c2d12"/>
+    <path d="M-7 -10 L-14 2" stroke="#422006" stroke-width="2"/>
+    <path d="M7 -10 L16 -20 Q20 -26 14 -26" fill="none" stroke="#78350f" stroke-width="2.5" stroke-linecap="round"/>
+  </g>
+</svg>

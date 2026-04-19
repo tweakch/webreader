@@ -90,6 +90,7 @@ export default function ReaderView({
   onToggleTts,
   onStopTts,
   simplifiedUi,
+  showIllustrations,
 }) {
   const isLastPage = currentPage === totalPages - 1;
 
@@ -143,6 +144,7 @@ export default function ReaderView({
               onShare={onShare}
               onToggleFavorite={onToggleFavorite}
               onClose={onClose}
+              showIllustrations={showIllustrations}
             />
 
             {/* Tap zones */}

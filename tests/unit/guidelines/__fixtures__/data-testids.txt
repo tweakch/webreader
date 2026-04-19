@@ -1,10 +1,12 @@
 ab-testing-panel
+age-filter
 app-animation-variant-picker
 back-to-directories
 back-to-sources
 blacklist-add
 blacklist-input
 blacklist-remove
+child-age-select
 close-app-button
 collections-blade
 completed-indicator
@@ -79,6 +81,7 @@ speed-reader-word
 speed-reader-wpm-decrease
 speed-reader-wpm-increase
 story-close
+story-cover
 subscription-upgrade-cta
 tap-zone-left
 tap-zone-middle

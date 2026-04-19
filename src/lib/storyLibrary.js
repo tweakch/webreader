@@ -4,12 +4,38 @@ const storyModules2 = import.meta.glob('/stories/*/*/content.md', { query: '?raw
 const storyModules3 = import.meta.glob('/stories/*/*/*/content.md', { query: '?raw', import: 'default' });
 const adaptionModules = import.meta.glob('/stories/*/*/adaptions/*/content.md', { query: '?raw', import: 'default' });
 const storyAudioModules = import.meta.glob('/stories/*/*/audio.mp3', { query: '?url', import: 'default' });
+// Eager so cover URLs are available synchronously alongside the story metadata.
+// Keyed by file path; we map to story id in buildCoverMap() below.
+const storyCoverModules2 = import.meta.glob(
+  '/stories/*/*/cover.{svg,png,jpg,jpeg,webp}',
+  { query: '?url', import: 'default', eager: true },
+);
+const storyCoverModules3 = import.meta.glob(
+  '/stories/*/*/*/cover.{svg,png,jpg,jpeg,webp}',
+  { query: '?url', import: 'default', eager: true },
+);
 
 const storyModuleMap = { ...storyModules2, ...storyModules3 };
+const storyCoverMap = buildCoverMap({ ...storyCoverModules2, ...storyCoverModules3 });
 const storyCache = new Map();
 const storyMetadataCache = new Map();
 const adaptionCache = new Map();
 const audioCache = new Map();
+
+export function buildCoverMap(modules) {
+  const map = {};
+  for (const [path, url] of Object.entries(modules)) {
+    // /stories/{source}/{slug}/cover.ext            → 4 parts after filter
+    // /stories/{source}/{directory}/{slug}/cover.ext → 5 parts after filter
+    const partsNoEmpty = path.split('/').filter(Boolean);
+    if (partsNoEmpty.length === 4) {
+      map[`${partsNoEmpty[1]}/${partsNoEmpty[2]}`] = url;
+    } else if (partsNoEmpty.length === 5) {
+      map[`${partsNoEmpty[1]}/${partsNoEmpty[2]}/${partsNoEmpty[3]}`] = url;
+    }
+  }
+  return map;
+}
 
 const collectionStoryMap = new Map();
 const collectionAdaptionMap = new Map();
@@ -88,14 +114,18 @@ function parseFrontmatter(raw, { slug, defaultSourceLabel, titleOverride }) {
   const sourceLabel = defaultSourceLabel || (sourceLabelMatch ? sourceLabelMatch[1] : null);
   const wordCountMatch = fmBlock.match(/^wordCount:\s*(\d+)$/m);
   const wordCount = wordCountMatch ? parseInt(wordCountMatch[1], 10) : null;
+  const ageMinMatch = fmBlock.match(/^ageMin:\s*(\d+)$/m);
+  const ageMin = ageMinMatch ? parseInt(ageMinMatch[1], 10) : null;
+  const ageMaxMatch = fmBlock.match(/^ageMax:\s*(\d+)$/m);
+  const ageMax = ageMaxMatch ? parseInt(ageMaxMatch[1], 10) : null;
   const afterFm = fmMatch ? raw.slice(fmMatch[0].length) : raw;
   const content = afterFm.replace(/^#[^\n]*\n\n/, '').trimEnd();
-  return { title, sourceLabel, wordCount, content };
+  return { title, sourceLabel, wordCount, ageMin, ageMax, content };
 }
 
-function parseStoryRaw(path, raw) {
+export function parseStoryRaw(path, raw, coverMap = storyCoverMap) {
   const { source, directory, slug } = parseStoryPath(path);
-  const { title, sourceLabel, wordCount, content } = parseFrontmatter(raw, {
+  const { title, sourceLabel, wordCount, ageMin, ageMax, content } = parseFrontmatter(raw, {
     slug,
     defaultSourceLabel: null,
     titleOverride: null,
@@ -109,12 +139,15 @@ function parseStoryRaw(path, raw) {
     directory,
     sourceLabel: sourceLabel || source,
     wordCount,
+    ageMin,
+    ageMax,
+    coverUrl: coverMap[id] ?? null,
   };
 }
 
 function parseCollectionStory(entry) {
   const { id, source, slug, raw, sourceLabel, titleOverride } = entry;
-  const { title, wordCount, content } = parseFrontmatter(raw, {
+  const { title, wordCount, ageMin, ageMax, content } = parseFrontmatter(raw, {
     slug,
     defaultSourceLabel: sourceLabel,
     titleOverride,
@@ -127,6 +160,9 @@ function parseCollectionStory(entry) {
     directory: null,
     sourceLabel,
     wordCount,
+    ageMin,
+    ageMax,
+    coverUrl: collectionCoverMap.get(id) ?? null,
   };
 }
 
@@ -141,6 +177,9 @@ export function getStoryIndex() {
       directory,
       sourceLabel: source,
       wordCount: null,
+      ageMin: null,
+      ageMax: null,
+      coverUrl: storyCoverMap[id] ?? null,
     };
   });
 
@@ -151,6 +190,9 @@ export function getStoryIndex() {
     directory: null,
     sourceLabel: entry.sourceLabel,
     wordCount: null,
+    ageMin: null,
+    ageMax: null,
+    coverUrl: collectionCoverMap.get(entry.id) ?? null,
   }));
 
   return [...fileStories, ...collectionStories].sort((a, b) => a.title.localeCompare(b.title, 'de'));
@@ -181,6 +223,9 @@ export async function loadStoryById(storyId) {
       directory: story.directory,
       sourceLabel: story.sourceLabel,
       wordCount: story.wordCount,
+      ageMin: story.ageMin,
+      ageMax: story.ageMax,
+      coverUrl: story.coverUrl,
     });
     return story;
   }
@@ -205,6 +250,9 @@ export async function loadStoryById(storyId) {
     directory: story.directory,
     sourceLabel: story.sourceLabel,
     wordCount: story.wordCount,
+    ageMin: story.ageMin,
+    ageMax: story.ageMax,
+    coverUrl: story.coverUrl,
   });
 
   return story;
@@ -222,6 +270,9 @@ export async function loadStoryMetadataById(storyId) {
     directory: story.directory,
     sourceLabel: story.sourceLabel,
     wordCount: story.wordCount,
+    ageMin: story.ageMin,
+    ageMax: story.ageMax,
+    coverUrl: story.coverUrl,
   };
 }
 

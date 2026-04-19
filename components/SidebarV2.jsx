@@ -19,10 +19,15 @@ const CHILD_AGE_OPTIONS = [3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
  *  - Auto-scroll: the active story is scrolled into view when it changes.
  *  - Persistent expansion state in localStorage; opens the source containing
  *    the active story automatically.
+ *  - Collections blade: when the `collections` flag is on, installed collections
+ *    render in their own vertical blade, separate from the main stories list.
+ *  - Swipe gestures: swipe right from the left edge opens the sidebar; swipe
+ *    left anywhere while it's open closes it.
  */
 export default function SidebarV2({
   menuOpen,
   onMenuToggle,
+  onMenuOpenChange,
   searchTerm,
   onSearchChange,
   showDeepSearch,
@@ -47,6 +52,8 @@ export default function SidebarV2({
   filteredStories,
   sources,
   storiesBySource,
+  showCollections,
+  collectionSources,
   onOpenProfile,
   profileOpen,
   profileActiveTab,
@@ -68,6 +75,17 @@ export default function SidebarV2({
   const EXPANDED_DIRS_KEY = 'wr-sidebar-v2-expanded-dirs';
   const FAVSHELF_KEY = 'wr-sidebar-v2-favshelf-open';
   const PROFILE_GROUP_KEY = 'wr-sidebar-v2-profile-open';
+  const COLLECTIONS_GROUP_KEY = 'wr-sidebar-v2-collections-open';
+
+  const collectionSourceIds = useMemo(
+    () => new Set((collectionSources ?? []).map((s) => s.id)),
+    [collectionSources],
+  );
+  const storySources = useMemo(
+    () => (showCollections ? sources.filter((s) => !collectionSourceIds.has(s.id)) : sources),
+    [sources, collectionSourceIds, showCollections],
+  );
+  const hasCollectionsBlade = showCollections && (collectionSources?.length ?? 0) > 0;
 
   const [expandedSources, setExpandedSources] = useState(() => {
     const stored = localStorage.getItem(EXPANDED_KEY);
@@ -85,6 +103,7 @@ export default function SidebarV2({
   });
   const [favShelfOpen, setFavShelfOpen] = useState(() => localStorage.getItem(FAVSHELF_KEY) !== '0');
   const [profileGroupOpen, setProfileGroupOpen] = useState(() => localStorage.getItem(PROFILE_GROUP_KEY) !== '0');
+  const [collectionsGroupOpen, setCollectionsGroupOpen] = useState(() => localStorage.getItem(COLLECTIONS_GROUP_KEY) !== '0');
   const [showShortcuts, setShowShortcuts] = useState(false);
 
   useEffect(() => {
@@ -102,6 +121,69 @@ export default function SidebarV2({
   useEffect(() => {
     localStorage.setItem(PROFILE_GROUP_KEY, profileGroupOpen ? '1' : '0');
   }, [profileGroupOpen]);
+
+  useEffect(() => {
+    localStorage.setItem(COLLECTIONS_GROUP_KEY, collectionsGroupOpen ? '1' : '0');
+  }, [collectionsGroupOpen]);
+
+  // Swipe gestures: swipe right from the left edge opens the sidebar;
+  // swipe left while the sidebar is open closes it. Ignored on larger viewports
+  // where the sidebar is statically visible.
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    const EDGE_PX = 32;
+    const MIN_DX = 60;
+    const MAX_DY = 60;
+    const MAX_DT = 500;
+    let startX = 0;
+    let startY = 0;
+    let startTime = 0;
+    let tracking = false;
+
+    const isDesktop = () => window.matchMedia('(min-width: 1024px)').matches;
+
+    const onStart = (e) => {
+      if (e.touches.length !== 1) { tracking = false; return; }
+      if (isDesktop()) { tracking = false; return; }
+      const t = e.touches[0];
+      // To open: gesture must start near the left edge.
+      // To close: only meaningful while the sidebar is open; the sidebar
+      // covers the left side up to w-80 (~320px), so accept from anywhere.
+      if (!menuOpen && t.clientX > EDGE_PX) { tracking = false; return; }
+      startX = t.clientX;
+      startY = t.clientY;
+      startTime = Date.now();
+      tracking = true;
+    };
+
+    const onEnd = (e) => {
+      if (!tracking) return;
+      tracking = false;
+      const t = e.changedTouches[0];
+      const dx = t.clientX - startX;
+      const dy = t.clientY - startY;
+      const dt = Date.now() - startTime;
+      if (dt > MAX_DT) return;
+      if (Math.abs(dy) > MAX_DY) return;
+      if (Math.abs(dx) < MIN_DX) return;
+      if (dx > 0 && !menuOpen) {
+        onMenuOpenChange?.(true);
+      } else if (dx < 0 && menuOpen) {
+        onMenuOpenChange?.(false);
+      }
+    };
+
+    const onCancel = () => { tracking = false; };
+
+    window.addEventListener('touchstart', onStart, { passive: true });
+    window.addEventListener('touchend', onEnd, { passive: true });
+    window.addEventListener('touchcancel', onCancel, { passive: true });
+    return () => {
+      window.removeEventListener('touchstart', onStart);
+      window.removeEventListener('touchend', onEnd);
+      window.removeEventListener('touchcancel', onCancel);
+    };
+  }, [menuOpen, onMenuOpenChange]);
 
   // Auto-open the profile group when the profile panel is open, so the active
   // tab indicator is visible in the sidebar.
@@ -163,7 +245,7 @@ export default function SidebarV2({
     if (searchTerm) return filteredStories;
     if (favoritesOnly && showFavorites) return favoriteStories;
     const out = [];
-    for (const src of sources) {
+    for (const src of storySources) {
       if (!expandedSources.has(src.id)) continue;
       const srcStories = storiesBySource[src.id] ?? [];
       const dirs = showStoryDirectories ? (directoriesBySource[src.id] ?? []) : [];
@@ -178,7 +260,7 @@ export default function SidebarV2({
       }
     }
     return out;
-  }, [sources, storiesBySource, directoriesBySource, expandedSources, expandedDirs, searchTerm, filteredStories, favoritesOnly, showFavorites, favoriteStories, showStoryDirectories]);
+  }, [storySources, storiesBySource, directoriesBySource, expandedSources, expandedDirs, searchTerm, filteredStories, favoritesOnly, showFavorites, favoriteStories, showStoryDirectories]);
 
   const [focusIdx, setFocusIdx] = useState(-1);
   const asideRef = useRef(null);
@@ -535,6 +617,56 @@ export default function SidebarV2({
           </div>
         )}
 
+        {/* Collections blade — a separate vertical section for installed collections */}
+        {hasCollectionsBlade && !searchTerm && !favoritesOnly && (
+          <div className="px-3 pt-3" data-testid="collections-blade">
+            <button
+              data-testid="sidebar-v2-collections-group"
+              onClick={() => setCollectionsGroupOpen((v) => !v)}
+              aria-expanded={collectionsGroupOpen}
+              className={`w-full flex items-center gap-2 px-3 py-1.5 rounded-lg text-[11px] font-semibold uppercase tracking-wider transition-colors ${
+                darkMode ? 'text-violet-400 hover:bg-slate-800' : 'text-violet-600 hover:bg-violet-50'
+              }`}
+            >
+              {collectionsGroupOpen ? <ChevronDown size={12} /> : <ChevronRight size={12} />}
+              <Sparkles size={12} />
+              <span>Sammlungen</span>
+              <span className={`ml-auto tabular-nums normal-case ${darkMode ? 'text-violet-500' : 'text-violet-400'}`}>
+                {collectionSources.length}
+              </span>
+            </button>
+            {collectionsGroupOpen && (
+              <div className="mt-1 space-y-1">
+                {collectionSources.map((src) => {
+                  const isOpen = expandedSources.has(src.id);
+                  const srcStories = storiesBySource[src.id] ?? [];
+                  return (
+                    <div key={`coll-${src.id}`}>
+                      {sourceHeader(src, isOpen)}
+                      {isOpen && srcStories.map((story) => (
+                        <div key={`coll-s-${story.id}`} ref={storyRowRef(story)} className="pl-4">
+                          <StoryButton
+                            story={story}
+                            isActive={selectedStory?.id === story.id}
+                            isCompleted={completedStories.has(story.id)}
+                            isFavorite={favorites.has(story.id)}
+                            showWordCount={showWordCount}
+                            showFavoriteButton={showFavorites}
+                            testId="story-button"
+                            onClick={() => { onSelectStory(story); onMenuToggle(); }}
+                            onFavoriteClick={(e) => onToggleFavorite(story.id, e)}
+                          />
+                        </div>
+                      ))}
+                    </div>
+                  );
+                })}
+              </div>
+            )}
+            <div className={`mt-3 mx-1 h-px ${darkMode ? 'bg-amber-800/40' : 'bg-amber-200'}`} />
+          </div>
+        )}
+
         {/* Main content */}
         <div className="px-3 pt-3 pb-4 space-y-1">
           {favoritesOnly && showFavorites ? (
@@ -545,12 +677,12 @@ export default function SidebarV2({
             filteredStories.length === 0 ? (
               <p className={`px-2 py-3 text-sm ${darkMode ? 'text-amber-600' : 'text-amber-700'}`}>Keine Ergebnisse</p>
             ) : filteredStories.map((s, i) => renderStory(s, i, { showSourceBadge: true, inlineBadges: true }))
-          ) : sources.length === 0 ? (
+          ) : storySources.length === 0 ? (
             <p className={`px-2 py-3 text-sm ${darkMode ? 'text-amber-600' : 'text-amber-700'}`}>Keine Quellen verfügbar</p>
           ) : (
             (() => {
               let idxCursor = 0;
-              return sources.map((src) => {
+              return storySources.map((src) => {
                 const isOpen = expandedSources.has(src.id);
                 const srcStories = storiesBySource[src.id] ?? [];
                 const dirs = showStoryDirectories ? (directoriesBySource[src.id] ?? []) : [];

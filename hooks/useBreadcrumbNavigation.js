@@ -1,5 +1,8 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 
+const SENTINEL = '__wr_breadcrumb_root__';
+const ENTRY = '__wr_breadcrumb_entry__';
+
 /**
  * Intercepts the device back button so it walks back through in-app
  * breadcrumbs (e.g. source -> story -> speed-reader) before ever leaving /app.
@@ -10,10 +13,16 @@ import { useCallback, useEffect, useRef, useState } from 'react';
  * empty, the user is at the app's landing page and further back would leave
  * /app entirely - the hook surfaces a confirmation dialog via `leavePromptOpen`
  * instead of letting the browser exit immediately.
+ *
+ * @param {{ onLeaveApp?: () => void }} [opts]
+ * @returns {{
+ *   pushBreadcrumb: (undo: () => void) => void,
+ *   goBack: () => void,
+ *   leavePromptOpen: boolean,
+ *   confirmLeave: () => void,
+ *   cancelLeave: () => void,
+ * }}
  */
-const SENTINEL = '__wr_breadcrumb_root__';
-const ENTRY = '__wr_breadcrumb_entry__';
-
 export function useBreadcrumbNavigation({ onLeaveApp } = {}) {
   const stackRef = useRef([]);
   const [leavePromptOpen, setLeavePromptOpen] = useState(false);

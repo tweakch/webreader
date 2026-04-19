@@ -5,6 +5,12 @@ function getRecognitionCtor() {
   return window.SpeechRecognition || window.webkitSpeechRecognition || null;
 }
 
+/**
+ * Whether the current browser exposes a `SpeechRecognition` constructor
+ * (native or webkit-prefixed).
+ *
+ * @returns {boolean}
+ */
 export function isVoiceControlSupported() {
   return getRecognitionCtor() !== null;
 }

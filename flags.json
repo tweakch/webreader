@@ -118,6 +118,13 @@
       "off": false
     }
   },
+  "collections": {
+    "defaultVariant": "off",
+    "variants": {
+      "on": true,
+      "off": false
+    }
+  },
   "theme": {
     "defaultVariant": "light",
     "variants": {

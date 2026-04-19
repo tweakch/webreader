@@ -11,6 +11,9 @@
  *   description    - one-line purpose of the experiment
  *   defaultVariant - variant id used when no user selection exists
  *   variants       - array of { id, label, description? }
+ *   startedAt      - ISO date (YYYY-MM-DD) the experiment went live
+ *   expiresBy      - ISO date by which the experiment must be decided
+ *                    (see CODING_GUIDELINES.md#3-ab-variants-have-an-expiry-date)
  *
  * Default admin config (active, allowedRoles) lives in abDefaultConfig and
  * seeds localStorage['wr-ab-experiments'] on first run. Admins mutate the
@@ -23,9 +26,11 @@ export const AB_EXPERIMENTS = [
     label: 'Seitenleiste',
     description: 'Neue Seitenleiste mit hierarchischer Baumansicht, ohne Drill-Down.',
     defaultVariant: 'control',
+    startedAt: '2026-02-01',
+    expiresBy: '2026-07-01',
     variants: [
       { id: 'control', label: 'Original', description: 'Die bestehende Drill-Down-Navigation.' },
-      { id: 'v2',      label: 'Baum v2',  description: 'Alles auf einer Ebene, Quellen ein- und ausklappbar, Tastatur-Navigation.' },
+      { id: 'v2',      label: 'Baum v2',  description: 'Baum-Navigation mit Sammlungen-Leiste und Wisch-Gesten zum Öffnen/Schließen.' },
     ],
   },
   {
@@ -33,6 +38,8 @@ export const AB_EXPERIMENTS = [
     label: 'Zahlschranken-Stil',
     description: 'Wie stark blockieren Paywalls den Zugriff auf kostenpflichtige Features?',
     defaultVariant: 'soft-gate',
+    startedAt: '2026-03-01',
+    expiresBy: '2026-09-01',
     variants: [
       { id: 'hard-gate', label: 'Harte Sperre',  description: 'Feature ist bis zum Upgrade komplett gesperrt.' },
       { id: 'soft-gate', label: 'Sanfte Sperre', description: 'Feature funktioniert einmal oder fuer N Sekunden, dann gesperrt.' },
@@ -44,6 +51,8 @@ export const AB_EXPERIMENTS = [
     label: 'Upgrade-Hinweis-Text',
     description: 'Welcher Ton ueberzeugt mehr Nutzer zum Upgrade?',
     defaultVariant: 'feature-focused',
+    startedAt: '2026-03-01',
+    expiresBy: '2026-09-01',
     variants: [
       { id: 'feature-focused', label: 'Feature-fokussiert', description: '„Schalte Schnellleser + ORP frei".' },
       { id: 'outcome-focused', label: 'Ergebnis-fokussiert', description: '„Lies 3x schneller".' },
@@ -55,6 +64,8 @@ export const AB_EXPERIMENTS = [
     label: 'Preisseiten-Layout',
     description: 'Wie ist die Preisseite strukturiert?',
     defaultVariant: '4-tier',
+    startedAt: '2026-03-01',
+    expiresBy: '2026-09-01',
     variants: [
       { id: '3-tier', label: '3 Tarife',            description: 'Free / Pro / Family - Plus und Edu versteckt.' },
       { id: '4-tier', label: '4 Tarife',            description: 'Free / Plus / Pro / Family.' },
@@ -66,6 +77,8 @@ export const AB_EXPERIMENTS = [
     label: 'Testzeitraum-Laenge',
     description: 'Wie lange laeuft der kostenlose Testzeitraum?',
     defaultVariant: '14-days',
+    startedAt: '2026-03-01',
+    expiresBy: '2026-09-01',
     variants: [
       { id: '5-min',  label: '5 Minuten', description: 'Mikro-Trial fuer speed-reader und ORP.' },
       { id: '7-days', label: '7 Tage',    description: 'Kurzer Trial - schnelle Entscheidung.' },
@@ -78,6 +91,8 @@ export const AB_EXPERIMENTS = [
     label: 'Profil-Layout',
     description: 'Gruppierte, ausklappbare Sektionen im Profil vs. heutige flache Liste.',
     defaultVariant: 'flat',
+    startedAt: '2026-02-15',
+    expiresBy: '2026-06-15',
     variants: [
       { id: 'flat',     label: 'Heute (flach)',       description: 'Alle Bloecke untereinander, keine Ausklappen.' },
       { id: 'grouped',  label: 'Gruppiert',           description: 'Abschnitte sind ausklappbar und standardmaessig offen.' },
@@ -90,6 +105,8 @@ export const AB_EXPERIMENTS = [
     label: 'Hero-Pitch',
     description: 'Welche Positionierung spricht welche Persona am staerksten an?',
     defaultVariant: 'story-os',
+    startedAt: '2026-03-01',
+    expiresBy: '2026-09-01',
     variants: [
       { id: 'story-os',    label: 'Story OS',       description: 'Das Betriebssystem fuer Maerchen.' },
       { id: 'speed',       label: 'Schneller lesen', description: '3x schneller lesen mit ORP.' },

@@ -2,8 +2,10 @@ import { useState, useEffect } from 'react';
 import { FEATURES, getDefaultRoleFeatures } from '../src/lib/featureRegistry';
 import { resolveFeatureVisibility } from '../src/lib/featurePolicy';
 
+/** Known roles, ordered roughly by privilege (lowest → highest). */
 export const ROLES = ['guest', 'subscriber', 'tester', 'sales', 'admin'];
 
+/** German labels for the role ids in `ROLES`. */
 export const ROLE_LABELS = {
   guest: 'Gast',
   subscriber: 'Abonnent',

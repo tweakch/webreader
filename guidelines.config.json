@@ -3,8 +3,8 @@
   "fileSizeAllowlist": [
     {
       "file": "grimm-reader.jsx",
-      "limit": 1060,
-      "reason": "Top-level app composition + handlers. Grew with the child-profile umbrella destructure, childAge state, age-filter plumbing, and the enhanced-gestures feature wiring (incl. sidebar drag-progress state). Target: extract docs/profile/sidebar open-state and A/B wiring into a context; aim <600 lines."
+      "limit": 1090,
+      "reason": "Top-level app composition + handlers. Grew with the child-profile umbrella destructure, childAge state, age-filter plumbing, the enhanced-gestures feature wiring (incl. sidebar drag-progress state), and the GestureDrawerProvider/Viewport hoist plus per-page drawer registration props. Target: extract docs/profile/sidebar open-state and A/B wiring into a context; aim <600 lines."
     },
     {
       "file": "FeatureDocs.jsx",

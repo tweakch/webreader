@@ -1,14 +1,15 @@
 import { useEffect } from 'react';
-import { X, RotateCw, ChevronLeft, ChevronRight } from 'lucide-react';
+import { X, RotateCw } from 'lucide-react';
 import { cn } from '../ui/cn';
 import { useTheme } from '../ui/ThemeContext';
 
 /**
- * Shared drawer visuals for enhanced-gestures.
+ * Generic drawer frames used by `GestureDrawerViewport`.
  *
- * Exports `HeaderDrawer`, `FooterDrawer`, and `ReloadIndicator`. The
- * right-side drawer lives in a sibling file (`GestureRightDrawer.jsx`)
- * so each file stays under the per-file line budget.
+ * Each frame renders the chrome (backdrop, slide-in container, title row,
+ * close button) and accepts arbitrary `children`. Pages register the
+ * children via `GestureDrawerContext`. The `data-testid` attributes on
+ * the frames are preserved so Playwright specs keep working.
  */
 
 function useEscClose(open, onClose) {
@@ -78,11 +79,23 @@ export function ReloadIndicator({ progress }) {
   );
 }
 
-/**
- * Top drawer that hosts a quick-settings payload (typography, TTS, …)
- * passed as `children`. Slides in from the top edge.
- */
-export function HeaderDrawer({ open, onClose, children, dragProgress = 0 }) {
+function DrawerTitleBar({ title, onClose, closeTestId }) {
+  return (
+    <div className="flex items-center justify-between mb-2">
+      <span className="text-xs uppercase tracking-wider opacity-70 truncate">{title ?? ''}</span>
+      <button
+        onClick={onClose}
+        aria-label="Schließen"
+        data-testid={closeTestId}
+        className="p-1 rounded hover:bg-black/10"
+      >
+        <X size={16} />
+      </button>
+    </div>
+  );
+}
+
+export function HeaderDrawer({ open, onClose, title, children, dragProgress = 0 }) {
   const { tc } = useTheme();
   useEscClose(open, onClose);
   const dragging = !open && dragProgress > 0;
@@ -110,17 +123,7 @@ export function HeaderDrawer({ open, onClose, children, dragProgress = 0 }) {
         )}
       >
         <div className="max-w-3xl mx-auto px-5 pt-3 pb-4">
-          <div className="flex items-center justify-between mb-2">
-            <span className="text-xs uppercase tracking-wider opacity-70">Schnelleinstellungen</span>
-            <button
-              onClick={onClose}
-              aria-label="Schließen"
-              data-testid="gesture-header-drawer-close"
-              className="p-1 rounded hover:bg-black/10"
-            >
-              <X size={16} />
-            </button>
-          </div>
+          <DrawerTitleBar title={title} onClose={onClose} closeTestId="gesture-header-drawer-close" />
           {children}
         </div>
       </div>
@@ -128,11 +131,7 @@ export function HeaderDrawer({ open, onClose, children, dragProgress = 0 }) {
   );
 }
 
-/**
- * Bottom drawer with a page-picker grid. Jumping to a page closes the
- * drawer; prev/next chevrons step without closing.
- */
-export function FooterDrawer({ open, onClose, totalPages, currentPage, onGoToPage, storyTitle, dragProgress = 0 }) {
+export function FooterDrawer({ open, onClose, title, children, dragProgress = 0 }) {
   const { tc } = useTheme();
   useEscClose(open, onClose);
   const dragging = !open && dragProgress > 0;
@@ -160,63 +159,58 @@ export function FooterDrawer({ open, onClose, totalPages, currentPage, onGoToPag
         )}
       >
         <div className="max-w-3xl mx-auto px-5 pt-3 pb-4">
-          <div className="flex items-center justify-between mb-2">
-            <span className="text-xs uppercase tracking-wider opacity-70 truncate">
-              Seiten — {storyTitle ?? ''}
-            </span>
-            <button
-              onClick={onClose}
-              aria-label="Schließen"
-              data-testid="gesture-footer-drawer-close"
-              className="p-1 rounded hover:bg-black/10"
-            >
-              <X size={16} />
-            </button>
-          </div>
-          <div className="flex items-center gap-2 mb-3">
-            <button
-              onClick={() => onGoToPage?.(Math.max(0, currentPage - 1))}
-              disabled={currentPage === 0}
-              className="p-2 rounded hover:bg-black/10 disabled:opacity-30"
-              aria-label="Vorherige Seite"
-            >
-              <ChevronLeft size={18} />
-            </button>
-            <div className="text-sm tabular-nums">{currentPage + 1} / {totalPages}</div>
-            <button
-              onClick={() => onGoToPage?.(Math.min(totalPages - 1, currentPage + 1))}
-              disabled={currentPage >= totalPages - 1}
-              className="p-2 rounded hover:bg-black/10 disabled:opacity-30"
-              aria-label="Nächste Seite"
-            >
-              <ChevronRight size={18} />
-            </button>
-          </div>
-          <div
-            className="grid gap-1.5 max-h-40 overflow-y-auto"
-            style={{ gridTemplateColumns: 'repeat(auto-fill, minmax(44px, 1fr))' }}
-            data-testid="gesture-footer-drawer-grid"
-          >
-            {Array.from({ length: totalPages }).map((_, i) => (
-              <button
-                key={i}
-                data-testid={`gesture-page-${i}`}
-                onClick={() => { onGoToPage?.(i); onClose?.(); }}
-                className={cn(
-                  'h-10 rounded text-sm tabular-nums transition-colors',
-                  i === currentPage
-                    ? tc({ light: 'bg-amber-700 text-white', dark: 'bg-amber-500 text-slate-950', hcLight: 'bg-black text-white', hcDark: 'bg-white text-black' })
-                    : tc({ light: 'bg-amber-100 text-amber-900 hover:bg-amber-200', dark: 'bg-slate-800 text-amber-200 hover:bg-slate-700', hcLight: 'border border-black text-black hover:bg-gray-100', hcDark: 'border border-white text-white hover:bg-white/10' })
-                )}
-              >
-                {i + 1}
-              </button>
-            ))}
-          </div>
+          <DrawerTitleBar title={title} onClose={onClose} closeTestId="gesture-footer-drawer-close" />
+          {children}
         </div>
       </div>
     </>
   );
 }
 
-export { default as RightDrawer } from './GestureRightDrawer';
+export function RightDrawer({ open, onClose, title, children, dragProgress = 0 }) {
+  const { tc } = useTheme();
+  useEscClose(open, onClose);
+  const dragging = !open && dragProgress > 0;
+  const style = dragging
+    ? { transform: `translateX(${(1 - dragProgress) * 100}%)`, transition: 'none' }
+    : undefined;
+  return (
+    <>
+      <DrawerBackdrop open={open} onClose={onClose} dragProgress={dragProgress} testId="gesture-right-drawer-backdrop" />
+      <div
+        data-testid="gesture-right-drawer"
+        data-open={open ? 'true' : 'false'}
+        aria-hidden={!open && !dragging}
+        style={style}
+        className={cn(
+          'fixed top-0 right-0 bottom-0 w-80 max-w-[85vw] z-50 border-l shadow-lg flex flex-col',
+          dragging ? '' : 'transition-transform duration-200 ease-out',
+          open ? 'translate-x-0' : 'translate-x-full',
+          tc({
+            light:   'bg-white/95 border-amber-200 text-amber-900',
+            dark:    'bg-slate-900/95 border-amber-700/40 text-amber-200',
+            hcLight: 'bg-white border-black text-black',
+            hcDark:  'bg-black border-white text-white',
+          })
+        )}
+      >
+        <div className={cn('flex items-center justify-between px-4 py-3 border-b', tc({
+          light: 'border-amber-200', dark: 'border-amber-700/40', hcLight: 'border-black', hcDark: 'border-white',
+        }))}>
+          <span className="text-sm font-medium truncate">{title ?? ''}</span>
+          <button
+            onClick={onClose}
+            aria-label="Schließen"
+            data-testid="gesture-right-drawer-close"
+            className="p-1 rounded hover:bg-black/10"
+          >
+            <X size={16} />
+          </button>
+        </div>
+        <div className="flex-1 overflow-y-auto p-3 text-sm">
+          {children}
+        </div>
+      </div>
+    </>
+  );
+}

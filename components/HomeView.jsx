@@ -1,6 +1,8 @@
+import { useCallback } from 'react';
 import { Heart } from 'lucide-react';
 import { useTheme } from '../ui/ThemeContext';
 import SuggestionFeeds from './SuggestionFeeds';
+import HomeFooterDrawer from './gestureContent/HomeFooterDrawer';
 
 /**
  * Home view - resume banner, suggestion feeds and favorites grid.
@@ -18,11 +20,31 @@ export default function HomeView({
   storyIndex,
   onSelectStory,
   onToggleFavorite,
+  showEnhancedGestures,
+  onFocusSearch,
+  onToggleFavoritesOnly,
+  favoritesOnly,
+  recentStories,
 }) {
   const { dark } = useTheme();
+  const handleResumeLastStory = useCallback(() => {
+    if (!resumeSession) return;
+    onResume(resumeSession.story, resumeSession.page);
+  }, [resumeSession, onResume]);
 
   return (
     <div className="w-full h-full overflow-y-auto">
+      {showEnhancedGestures && (
+        <HomeFooterDrawer
+          onFocusSearch={onFocusSearch}
+          onToggleFavoritesOnly={onToggleFavoritesOnly}
+          favoritesOnly={favoritesOnly}
+          onResumeLastStory={handleResumeLastStory}
+          resumeAvailable={!!resumeSession}
+          recentStories={recentStories}
+          onSelectStory={onSelectStory}
+        />
+      )}
       {/* Resume Banner */}
       {resumeSession && (
         <div

@@ -55,8 +55,10 @@ export function useEnhancedGestures({
       onPreviewRef.current?.(null);
       return undefined;
     }
-    const target = targetRef?.current;
-    if (!target) return undefined;
+    // Resolve the target fresh at each touchstart rather than closing over
+    // it, so dynamic/fallback refs (e.g. reader-viewport when set, otherwise
+    // main content area) are honoured when the user navigates between pages.
+    const resolveTarget = () => targetRef?.current ?? null;
 
     const emitPreview = (p) => { onPreviewRef.current?.(p); };
 
@@ -82,6 +84,8 @@ export function useEnhancedGestures({
         emitPreview(null);
         return;
       }
+      const target = resolveTarget();
+      if (!target) { stateRef.current = null; return; }
       const t = e.touches[0];
       const rect = target.getBoundingClientRect();
       stateRef.current = {

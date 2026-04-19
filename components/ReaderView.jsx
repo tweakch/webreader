@@ -8,6 +8,9 @@ import NavBar from './NavBar';
 import SpeedReaderView from '../ui/SpeedReaderView';
 import TypographyPanel from '../ui/TypographyPanel';
 import AudioPlayer from '../ui/AudioPlayer';
+import ReaderHeaderDrawer from './gestureContent/ReaderHeaderDrawer';
+import ReaderRightDrawer from './gestureContent/ReaderRightDrawer';
+import ReaderFooterDrawer from './gestureContent/ReaderFooterDrawer';
 
 // CTC: Wire post-story content slot — see:
 //   - docs/features/discussion-questions.md (Socratic prompts)
@@ -91,11 +94,52 @@ export default function ReaderView({
   onStopTts,
   simplifiedUi,
   showIllustrations,
+  showEnhancedGestures,
+  onOpenProfile,
+  onOpenTypography,
+  onSetFontSize,
+  maxFontSize,
+  showFontSizeControls,
 }) {
   const isLastPage = currentPage === totalPages - 1;
+  const isFavoriteCurrent = !!(selectedStory && favorites?.has(selectedStory.id));
 
   return (
     <>
+      {showEnhancedGestures && !speedReaderMode && (
+        <>
+          <ReaderHeaderDrawer
+            onOpenProfile={onOpenProfile}
+            onOpenTypography={onOpenTypography}
+          />
+          <ReaderRightDrawer
+            pages={pages}
+            currentPage={currentPage}
+            onGoToPage={onGoToPage}
+            storyTitle={selectedStory?.title}
+          />
+          <ReaderFooterDrawer
+            totalPages={totalPages}
+            currentPage={currentPage}
+            onGoToPage={onGoToPage}
+            storyTitle={selectedStory?.title}
+            fontSize={fontSize}
+            maxFontSize={maxFontSize}
+            onFontSizeChange={onSetFontSize}
+            showFontSizeControls={showFontSizeControls}
+            ttsSupported={ttsSupported}
+            ttsPlaying={ttsPlaying}
+            ttsPaused={ttsPaused}
+            onToggleTts={onToggleTts}
+            onStopTts={onStopTts}
+            showTextToSpeech={showTextToSpeech}
+            onShare={onShare}
+            onToggleFavorite={onToggleFavorite}
+            isFavorite={isFavoriteCurrent}
+            showFavorites={showFavorites}
+          />
+        </>
+      )}
       {/* Reading viewport */}
       <div
         ref={readerAreaRef}

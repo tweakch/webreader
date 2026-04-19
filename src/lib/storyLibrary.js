@@ -20,7 +20,7 @@ const storyMetadataCache = new Map();
 const adaptionCache = new Map();
 const audioCache = new Map();
 
-function buildCoverMap(modules) {
+export function buildCoverMap(modules) {
   const map = {};
   for (const [path, url] of Object.entries(modules)) {
     const parts = path.split('/');
@@ -59,7 +59,7 @@ function fallbackTitleFromSlug(slug) {
     .replace(/\b\p{L}/gu, (c) => c.toUpperCase());
 }
 
-function parseStoryRaw(path, raw) {
+export function parseStoryRaw(path, raw, coverMap = storyCoverMap) {
   const { source, directory, slug } = parseStoryPath(path);
   const fmMatch = raw.match(/^---\n([\s\S]*?)\n---\n/);
   const fmBlock = fmMatch ? fmMatch[1] : '';
@@ -76,7 +76,7 @@ function parseStoryRaw(path, raw) {
   const afterFm = fmMatch ? raw.slice(fmMatch[0].length) : raw;
   const content = afterFm.replace(/^#[^\n]*\n\n/, '').trimEnd();
   const id = directory ? `${source}/${directory}/${slug}` : `${source}/${slug}`;
-  const coverUrl = storyCoverMap[id] ?? null;
+  const coverUrl = coverMap[id] ?? null;
 
   return { id, title, content, source, directory, sourceLabel, wordCount, ageMin, ageMax, coverUrl };
 }

@@ -59,6 +59,39 @@ describe('PageContent', () => {
     expect(container).toBeEmptyDOMElement();
   });
 
+  describe('illustrations', () => {
+    const storyWithCover = { ...STORY, coverUrl: '/stories/grimm/aschenputtel/cover.svg' };
+
+    it('renders the cover image on the title page when showIllustrations is on', () => {
+      render({ selectedStory: storyWithCover, showIllustrations: true });
+      const img = screen.getByTestId('story-cover');
+      expect(img).toBeInTheDocument();
+      expect(img).toHaveAttribute('src', '/stories/grimm/aschenputtel/cover.svg');
+    });
+
+    it('does not render the cover when showIllustrations is off', () => {
+      render({ selectedStory: storyWithCover, showIllustrations: false });
+      expect(screen.queryByTestId('story-cover')).not.toBeInTheDocument();
+    });
+
+    it('does not render the cover when the story has no coverUrl', () => {
+      render({ selectedStory: { ...STORY, coverUrl: null }, showIllustrations: true });
+      expect(screen.queryByTestId('story-cover')).not.toBeInTheDocument();
+    });
+
+    it('does not render the cover on non-title pages', () => {
+      const page2 = { hasTitle: false, tokens: [{ word: 'Weiter.', isPara: true }] };
+      render({
+        selectedStory: storyWithCover,
+        showIllustrations: true,
+        pages: [PAGE, page2],
+        currentPage: 1,
+        totalPages: 2,
+      });
+      expect(screen.queryByTestId('story-cover')).not.toBeInTheDocument();
+    });
+  });
+
   describe('last page actions', () => {
     it('shows close button on last page', () => {
       render({ currentPage: 0, totalPages: 1 });

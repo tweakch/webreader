@@ -1,3 +1,5 @@
+import collections from 'virtual:webreader-collections';
+
 const storyModules2 = import.meta.glob('/stories/*/*/content.md', { query: '?raw', import: 'default' });
 const storyModules3 = import.meta.glob('/stories/*/*/*/content.md', { query: '?raw', import: 'default' });
 const adaptionModules = import.meta.glob('/stories/*/*/adaptions/*/content.md', { query: '?raw', import: 'default' });
@@ -8,6 +10,27 @@ const storyCache = new Map();
 const storyMetadataCache = new Map();
 const adaptionCache = new Map();
 const audioCache = new Map();
+
+const collectionStoryMap = new Map();
+for (const pkg of collections) {
+  if (!pkg || !pkg.manifest || !pkg.stories) continue;
+  const { manifest, stories } = pkg;
+  const source = manifest.id;
+  for (const entry of manifest.stories || []) {
+    const slug = entry.slug;
+    const raw = stories[slug];
+    if (typeof raw !== 'string') continue;
+    const id = `${source}/${slug}`;
+    collectionStoryMap.set(id, {
+      id,
+      source,
+      slug,
+      raw,
+      sourceLabel: manifest.label || source,
+      titleOverride: entry.title || null,
+    });
+  }
+}
 
 function parseStoryPath(path) {
   const parts = path.split('/');
@@ -30,44 +53,111 @@ function fallbackTitleFromSlug(slug) {
     .replace(/\b\p{L}/gu, (c) => c.toUpperCase());
 }
 
-function parseStoryRaw(path, raw) {
-  const { source, directory, slug } = parseStoryPath(path);
+function parseFrontmatter(raw, { slug, defaultSourceLabel, titleOverride }) {
   const fmMatch = raw.match(/^---\n([\s\S]*?)\n---\n/);
   const fmBlock = fmMatch ? fmMatch[1] : '';
   const titleMatch = fmBlock.match(/^title:\s*"(.+)"$/m);
-  const title = titleMatch ? titleMatch[1] : fallbackTitleFromSlug(slug);
+  const title = titleOverride || (titleMatch ? titleMatch[1] : fallbackTitleFromSlug(slug));
   const sourceLabelMatch = fmBlock.match(/^source:\s*"(.+)"$/m);
-  const sourceLabel = sourceLabelMatch ? sourceLabelMatch[1] : source;
+  const sourceLabel = defaultSourceLabel || (sourceLabelMatch ? sourceLabelMatch[1] : null);
   const wordCountMatch = fmBlock.match(/^wordCount:\s*(\d+)$/m);
   const wordCount = wordCountMatch ? parseInt(wordCountMatch[1], 10) : null;
   const afterFm = fmMatch ? raw.slice(fmMatch[0].length) : raw;
   const content = afterFm.replace(/^#[^\n]*\n\n/, '').trimEnd();
-  const id = directory ? `${source}/${directory}/${slug}` : `${source}/${slug}`;
+  return { title, sourceLabel, wordCount, content };
+}
 
-  return { id, title, content, source, directory, sourceLabel, wordCount };
+function parseStoryRaw(path, raw) {
+  const { source, directory, slug } = parseStoryPath(path);
+  const { title, sourceLabel, wordCount, content } = parseFrontmatter(raw, {
+    slug,
+    defaultSourceLabel: null,
+    titleOverride: null,
+  });
+  const id = directory ? `${source}/${directory}/${slug}` : `${source}/${slug}`;
+  return {
+    id,
+    title,
+    content,
+    source,
+    directory,
+    sourceLabel: sourceLabel || source,
+    wordCount,
+  };
+}
+
+function parseCollectionStory(entry) {
+  const { id, source, slug, raw, sourceLabel, titleOverride } = entry;
+  const { title, wordCount, content } = parseFrontmatter(raw, {
+    slug,
+    defaultSourceLabel: sourceLabel,
+    titleOverride,
+  });
+  return {
+    id,
+    title,
+    content,
+    source,
+    directory: null,
+    sourceLabel,
+    wordCount,
+  };
 }
 
 export function getStoryIndex() {
-  const stories = Object.keys(storyModuleMap)
-    .map((path) => {
-      const { source, directory, slug } = parseStoryPath(path);
-      const id = directory ? `${source}/${directory}/${slug}` : `${source}/${slug}`;
-      return {
-        id,
-        title: fallbackTitleFromSlug(slug),
-        source,
-        directory,
-        sourceLabel: source,
-        wordCount: null,
-      };
-    })
-    .sort((a, b) => a.title.localeCompare(b.title, 'de'));
+  const fileStories = Object.keys(storyModuleMap).map((path) => {
+    const { source, directory, slug } = parseStoryPath(path);
+    const id = directory ? `${source}/${directory}/${slug}` : `${source}/${slug}`;
+    return {
+      id,
+      title: fallbackTitleFromSlug(slug),
+      source,
+      directory,
+      sourceLabel: source,
+      wordCount: null,
+    };
+  });
 
-  return stories;
+  const collectionStories = Array.from(collectionStoryMap.values()).map((entry) => ({
+    id: entry.id,
+    title: entry.titleOverride || fallbackTitleFromSlug(entry.slug),
+    source: entry.source,
+    directory: null,
+    sourceLabel: entry.sourceLabel,
+    wordCount: null,
+  }));
+
+  return [...fileStories, ...collectionStories].sort((a, b) => a.title.localeCompare(b.title, 'de'));
+}
+
+export function getCollectionIndex() {
+  return collections
+    .filter((pkg) => pkg && pkg.manifest)
+    .map((pkg) => ({
+      id: pkg.manifest.id,
+      label: pkg.manifest.label || pkg.manifest.id,
+      description: pkg.manifest.description || '',
+      locale: pkg.manifest.locale || null,
+      storyCount: Array.isArray(pkg.manifest.stories) ? pkg.manifest.stories.length : 0,
+    }));
 }
 
 export async function loadStoryById(storyId) {
   if (storyCache.has(storyId)) return storyCache.get(storyId);
+
+  if (collectionStoryMap.has(storyId)) {
+    const story = parseCollectionStory(collectionStoryMap.get(storyId));
+    storyCache.set(storyId, story);
+    storyMetadataCache.set(storyId, {
+      id: story.id,
+      title: story.title,
+      source: story.source,
+      directory: story.directory,
+      sourceLabel: story.sourceLabel,
+      wordCount: story.wordCount,
+    });
+    return story;
+  }
 
   const match = Object.entries(storyModuleMap).find(([path]) => {
     const { source, directory, slug } = parseStoryPath(path);

@@ -1,0 +1,32 @@
+{
+  "name": "@tweakch/collection-grimm-top5",
+  "version": "0.1.0",
+  "description": "Top 5 Grimm fairy tales curated as a webreader collection.",
+  "type": "module",
+  "main": "./index.js",
+  "exports": {
+    ".": "./index.js",
+    "./collection.json": "./collection.json"
+  },
+  "files": [
+    "index.js",
+    "collection.json",
+    "stories/**/content.md",
+    "README.md"
+  ],
+  "keywords": [
+    "webreader",
+    "webreader-collection",
+    "grimm",
+    "fairy-tales"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tweakch/webreader.git",
+    "directory": "packages/collection-grimm-top5"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
+  "license": "MIT"
+}

@@ -1,0 +1,15 @@
+{
+  "id": "grimm-top5",
+  "label": "Top 5 Grimm",
+  "description": "Five of the most beloved fairy tales from the Brothers Grimm.",
+  "locale": "de",
+  "origin": "https://www.grimmstories.com/",
+  "curator": "tweakch",
+  "stories": [
+    { "slug": "aschenputtel", "title": "Aschenputtel" },
+    { "slug": "hansel_und_gretel", "title": "Hänsel und Gretel" },
+    { "slug": "rapunzel", "title": "Rapunzel" },
+    { "slug": "rotkaeppchen", "title": "Rotkäppchen" },
+    { "slug": "schneewittchen", "title": "Schneewittchen" }
+  ]
+}

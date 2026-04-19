@@ -1,5 +1,9 @@
 import { useState, useRef, useEffect, useLayoutEffect, useCallback, useMemo } from 'react';
 
+// Ornament block height when illustrations are rendered between paragraphs:
+// my-4 (32px) + h-6 (24px) = 56px reserved after each completed paragraph.
+const ORNAMENT_RESERVE_PX = 56;
+
 /**
  * useReader - encapsulates page pagination, navigation, and speed reader logic.
  *
@@ -10,6 +14,8 @@ import { useState, useRef, useEffect, useLayoutEffect, useCallback, useMemo } fr
  * - selectedVariant: optional variant object with { adaptionName, content }
  * - typographyValues: { fontSize, lineHeight, textWidth, hPadding, wordSpacing, fontFamily }
  * - showSpeedReader: feature flag for speed reader
+ * - showIllustrations: when true, reserves vertical space between paragraphs
+ *   so rendered monochrome ornaments fit within the measured page.
  * - pendingResumePageRef: ref for resume page restoration
  *
  * Returns:
@@ -31,6 +37,7 @@ export function useReader({
   selectedVariant,
   typographyValues: { fontSize, lineHeight, textWidth, hPadding, wordSpacing, fontFamily },
   showSpeedReader,
+  showIllustrations = false,
   pendingResumePageRef,
 }) {
   const [pages, setPages] = useState([]);
@@ -136,8 +143,13 @@ export function useReader({
         tokens.shift();
         pageTokens.push(token);
 
-        // If paragraph ends, add a new paragraph element for the next word
+        // If paragraph ends, add a new paragraph element for the next word.
+        // When illustrations are shown, the completed paragraph is followed by
+        // an ornament in the rendered output — reserve that vertical space.
         if (token.isPara && tokens.length > 0) {
+          if (showIllustrations) {
+            currentPara.style.marginBottom = `calc(1.5rem + ${ORNAMENT_RESERVE_PX}px)`;
+          }
           currentPara = document.createElement('p');
           currentPara.style.cssText = 'margin:0 0 1.5rem;';
           contentDiv.appendChild(currentPara);
@@ -167,7 +179,7 @@ export function useReader({
       // Subsequent builds (resize, font change): clamp to valid range.
       setCurrentPage(p => Math.min(p, pages.length - 1));
     }
-  }, [selectedStory, selectedVariant, fontSize, lineHeight, textWidth, hPadding, wordSpacing, fontFamily]);
+  }, [selectedStory, selectedVariant, fontSize, lineHeight, textWidth, hPadding, wordSpacing, fontFamily, showIllustrations]);
 
   // Build pages synchronously before paint when story or font size changes
   useLayoutEffect(() => {

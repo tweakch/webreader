@@ -40,10 +40,18 @@ export function buildCoverMap(modules) {
 const collectionStoryMap = new Map();
 const collectionAdaptionMap = new Map();
 const collectionCoverMap = new Map();
+const collectionIllustrationsMap = new Map();
 for (const pkg of collections) {
   if (!pkg || !pkg.manifest || !pkg.stories) continue;
-  const { manifest, stories, covers = {}, adaptions: pkgAdaptions = {} } = pkg;
+  const { manifest, stories, covers = {}, illustrations, adaptions: pkgAdaptions = {} } = pkg;
   const source = manifest.id;
+  if (illustrations && typeof illustrations === 'object') {
+    collectionIllustrationsMap.set(source, {
+      opening: typeof illustrations.opening === 'string' ? illustrations.opening : null,
+      ending: typeof illustrations.ending === 'string' ? illustrations.ending : null,
+      ornament: typeof illustrations.ornament === 'string' ? illustrations.ornament : null,
+    });
+  }
   for (const entry of manifest.stories || []) {
     const slug = entry.slug;
     const raw = stories[slug];
@@ -311,6 +319,12 @@ export async function loadAdaptionsByStoryId(storyId) {
 
 export function getStoryCoverUrl(storyId) {
   return collectionCoverMap.get(storyId) || null;
+}
+
+export function getStoryIllustrations(storyId) {
+  if (!storyId) return null;
+  const sourceId = storyId.split('/')[0];
+  return collectionIllustrationsMap.get(sourceId) || null;
 }
 
 export async function loadStoryAudioMap() {

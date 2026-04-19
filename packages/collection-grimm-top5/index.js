@@ -13,6 +13,10 @@ import schneewittchenCover from './stories/schneewittchen/cover.svg?url';
 
 import aschenputtelSchweizerdeutsch from './stories/aschenputtel/adaptions/schweizerdeutsch/content.md?raw';
 
+import openingIllustration from './assets/opening.svg?url';
+import endingIllustration from './assets/ending.svg?url';
+import ornamentIllustration from './assets/ornament.svg?url';
+
 export { manifest };
 
 export const stories = {
@@ -31,10 +35,16 @@ export const covers = {
   schneewittchen: schneewittchenCover,
 };
 
+export const illustrations = {
+  opening: openingIllustration,
+  ending: endingIllustration,
+  ornament: ornamentIllustration,
+};
+
 export const adaptions = {
   aschenputtel: {
     schweizerdeutsch: aschenputtelSchweizerdeutsch,
   },
 };
 
-export default { manifest, stories, covers, adaptions };
+export default { manifest, stories, covers, illustrations, adaptions };

@@ -47,6 +47,7 @@ orp-panel-toggle
 orp-preview
 page-content
 page-counter
+paragraph-ornament
 prev-page
 profile-back-bottom
 profile-back-top
@@ -82,6 +83,8 @@ speed-reader-wpm-decrease
 speed-reader-wpm-increase
 story-close
 story-cover
+story-ending-illustration
+story-opening-illustration
 subscription-upgrade-cta
 tap-zone-left
 tap-zone-middle

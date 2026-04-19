@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 40" role="img" aria-labelledby="t">
+  <title id="t">Ornament</title>
+  <g fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round">
+    <line x1="10" y1="20" x2="90" y2="20"/>
+    <line x1="150" y1="20" x2="230" y2="20"/>
+    <path d="M 96 20 q 3 -5 8 -5 q 5 0 6 5 q 1 -5 6 -5 q 5 0 8 5" opacity="0.9"/>
+    <path d="M 116 20 q 3 5 8 5 q 5 0 6 -5 q 1 5 6 5 q 5 0 8 -5" opacity="0.9"/>
+    <g fill="currentColor" stroke="none">
+      <circle cx="120" cy="14" r="2.2"/>
+      <circle cx="120" cy="26" r="1.2"/>
+      <circle cx="94" cy="20" r="1.1"/>
+      <circle cx="146" cy="20" r="1.1"/>
+    </g>
+  </g>
+</svg>

@@ -415,6 +415,7 @@ const GrimmMarchenApp = () => {
     selectedVariant,
     typographyValues: { fontSize, lineHeight, textWidth, hPadding, wordSpacing, fontFamily },
     showSpeedReader,
+    showIllustrations,
     pendingResumePageRef,
   });
 

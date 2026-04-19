@@ -170,6 +170,13 @@
       "off": false
     }
   },
+  "enhanced-gestures": {
+    "defaultVariant": "off",
+    "variants": {
+      "on": true,
+      "off": false
+    }
+  },
   "text-to-speech": {
     "defaultVariant": "off",
     "variants": {

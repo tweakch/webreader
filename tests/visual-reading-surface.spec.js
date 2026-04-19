@@ -26,7 +26,7 @@ for (const bp of BREAKPOINTS) {
       await disableAppAnimation(page);
     });
 
-    test('page 1 of first story is pixel-stable', async ({ page }) => {
+    test('page 1 of first story is pixel-stable @visual', async ({ page }) => {
       await page.goto('/app');
       await page.waitForLoadState('networkidle');
 

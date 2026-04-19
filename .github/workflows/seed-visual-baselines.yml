@@ -1,0 +1,78 @@
+name: Seed visual baselines
+
+# Manually-triggered one-shot workflow: runs the visual regression
+# suite against a preview URL with --update-snapshots, then pushes the
+# generated PNG baselines back to the branch that triggered it.
+#
+# After the first successful run, the baselines live in
+#   tests/visual-reading-surface.spec.js-snapshots/
+# and subsequent PRs can opt into @visual tests by setting RUN_VISUAL=1.
+#
+# Inputs:
+#   preview_url   Vercel preview URL to snapshot. Required.
+#   target_branch Branch to commit baselines into. Defaults to the
+#                 branch the workflow ran on.
+
+on:
+  workflow_dispatch:
+    inputs:
+      preview_url:
+        description: "Vercel preview URL (e.g. https://webreader-git-….vercel.app)"
+        required: true
+      target_branch:
+        description: "Branch to commit baselines to (defaults to current ref)"
+        required: false
+
+permissions:
+  contents: write
+
+jobs:
+  seed:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683  # v4.2.2
+        with:
+          ref: ${{ inputs.target_branch || github.ref_name }}
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - uses: actions/setup-node@39370e3970a6d050c480ffad4ff0ed4d3fdee5af  # v4.1.0
+        with:
+          node-version: '22.x'
+          cache: 'npm'
+
+      - run: npm ci
+
+      - name: Cache Playwright browsers
+        uses: actions/cache@d4323d4df104b026a6aa633fdb11d772146be0bf  # v4.2.2
+        id: playwright-cache
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
+
+      - name: Install Playwright browsers
+        if: steps.playwright-cache.outputs.cache-hit != 'true'
+        run: npx playwright install --with-deps chromium
+
+      - name: Generate baselines against preview
+        env:
+          BASE_URL: ${{ inputs.preview_url }}
+          RUN_VISUAL: '1'
+        run: npx playwright test tests/visual-reading-surface.spec.js --update-snapshots
+
+      - name: Commit and push baselines
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          SNAPSHOTS_DIR="tests/visual-reading-surface.spec.js-snapshots"
+          if [ ! -d "$SNAPSHOTS_DIR" ] || [ -z "$(ls -A "$SNAPSHOTS_DIR" 2>/dev/null)" ]; then
+            echo "No baseline PNGs were generated. Did the tests actually run?"
+            exit 1
+          fi
+          git add "$SNAPSHOTS_DIR"
+          if git diff --cached --quiet; then
+            echo "No baseline changes — already up to date."
+            exit 0
+          fi
+          git commit -m "test(visual): seed baselines from ${{ inputs.preview_url }}"
+          git push origin HEAD

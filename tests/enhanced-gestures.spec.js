@@ -48,7 +48,14 @@ async function dispatchSwipe(page, selector, from, to) {
     const mkTouch = (x, y) => new Touch({
       identifier: 1, target: el, clientX: x, clientY: y, pageX: x, pageY: y,
     });
-    const fire = (type, x, y) => {
+    const firePointer = (type, x, y) => {
+      el.dispatchEvent(new PointerEvent(type, {
+        bubbles: true, cancelable: true,
+        pointerId: 1, pointerType: 'touch', isPrimary: true,
+        clientX: x, clientY: y,
+      }));
+    };
+    const fireTouch = (type, x, y) => {
       const touch = mkTouch(x, y);
       const event = new TouchEvent(type, {
         bubbles: true, cancelable: true,
@@ -58,9 +65,12 @@ async function dispatchSwipe(page, selector, from, to) {
       });
       el.dispatchEvent(event);
     };
-    fire('touchstart', from.x, from.y);
-    fire('touchmove',  to.x,   to.y);
-    fire('touchend',   to.x,   to.y);
+    firePointer('pointerdown', from.x, from.y);
+    fireTouch('touchstart', from.x, from.y);
+    firePointer('pointermove', to.x, to.y);
+    fireTouch('touchmove',  to.x,   to.y);
+    firePointer('pointerup', to.x, to.y);
+    fireTouch('touchend',   to.x,   to.y);
   }, { selector, from, to });
 }
 
@@ -72,7 +82,14 @@ async function dispatchHalfSwipe(page, selector, from, to) {
     const mk = (x, y) => new Touch({
       identifier: 1, target: el, clientX: x, clientY: y, pageX: x, pageY: y,
     });
-    const fire = (type, x, y) => {
+    const firePointer = (type, x, y) => {
+      el.dispatchEvent(new PointerEvent(type, {
+        bubbles: true, cancelable: true,
+        pointerId: 1, pointerType: 'touch', isPrimary: true,
+        clientX: x, clientY: y,
+      }));
+    };
+    const fireTouch = (type, x, y) => {
       const t = mk(x, y);
       const ev = new TouchEvent(type, {
         bubbles: true, cancelable: true,
@@ -80,8 +97,10 @@ async function dispatchHalfSwipe(page, selector, from, to) {
       });
       el.dispatchEvent(ev);
     };
-    fire('touchstart', from.x, from.y);
-    fire('touchmove',  to.x,   to.y);
+    firePointer('pointerdown', from.x, from.y);
+    fireTouch('touchstart', from.x, from.y);
+    firePointer('pointermove', to.x, to.y);
+    fireTouch('touchmove',  to.x,   to.y);
   }, { selector, from, to });
 }
 
@@ -135,7 +154,7 @@ test.describe('Enhanced gestures', () => {
     if (!reader) throw new Error('no viewport');
     const cx = reader.x + reader.width / 2;
     await dispatchHalfSwipe(page, '[data-testid="reader-viewport"]',
-      { x: cx, y: reader.y + 100 },
+      { x: cx, y: reader.y + 10 },
       { x: cx, y: reader.y + reader.height * 0.9 });
     await expect(page.locator('[data-testid="gesture-reload-indicator"]')).toBeVisible();
   });
@@ -169,8 +188,9 @@ test.describe('Enhanced gestures', () => {
     const transform = await page.evaluate(
       () => document.querySelector('[data-testid="gesture-right-drawer"]')?.style.transform || '',
     );
-    // Must track the finger (partial translate), not the resting translate-x-full state.
-    expect(transform).toMatch(/translateX\(/);
+    // Must track the finger (partial translate), not the resting closed state.
+    expect(transform).toMatch(/translate(X\(|3d\()/);
+    expect(transform).not.toContain('translate3d(100%, 0');
     expect(transform).not.toContain('translateX(100%)');
   });
 

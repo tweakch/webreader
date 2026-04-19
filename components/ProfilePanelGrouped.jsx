@@ -123,7 +123,7 @@ export default function ProfilePanelGrouped({
     'debug-badges', 'error-page-simulator', 'ab-testing', 'ab-testing-admin',
     'app-animation', 'word-blacklist', 'speed-reader', 'speedreader-orp',
     'subscriber-fonts', 'story-directories', 'deep-search', 'pinch-font-size',
-    'read-along', 'illustrations', 'child-profile', 'story-quiz',
+    'read-along', 'illustrations', 'story-quiz',
   ]);
 
   const _o = (key, raw) => Object.hasOwn(userFeatureOverrides, key) ? userFeatureOverrides[key] : raw;

@@ -111,6 +111,13 @@
       "off": false
     }
   },
+  "age-filter": {
+    "defaultVariant": "off",
+    "variants": {
+      "on": true,
+      "off": false
+    }
+  },
   "theme": {
     "defaultVariant": "light",
     "variants": {

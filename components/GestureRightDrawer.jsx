@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { X, List, Search, Bookmark, Activity } from 'lucide-react';
 import { cn } from '../ui/cn';
 import { useTheme } from '../ui/ThemeContext';
+import { DrawerBackdrop } from './GestureDrawers';
 
 const RIGHT_TABS = [
   { id: 'toc',      label: 'Inhalt',       Icon: List },
@@ -65,20 +66,14 @@ export default function RightDrawer({
     ? { transform: `translateX(${(1 - dragProgress) * 100}%)`, transition: 'none' }
     : undefined;
 
-  const backdropVisible = open || dragging;
-  const backdropOpacity = open ? 0.3 : Math.min(0.3, dragProgress * 0.3);
-
   return (
     <>
-      {backdropVisible && (
-        <button
-          aria-label="Drawer schließen"
-          data-testid="gesture-right-drawer-backdrop"
-          onClick={onClose}
-          className="fixed inset-0 z-40 bg-black backdrop-blur-[2px]"
-          style={{ opacity: backdropOpacity, transition: dragging ? 'none' : 'opacity 200ms ease-out' }}
-        />
-      )}
+      <DrawerBackdrop
+        open={open}
+        onClose={onClose}
+        dragProgress={dragProgress}
+        testId="gesture-right-drawer-backdrop"
+      />
       <div
         data-testid="gesture-right-drawer"
         data-open={open ? 'true' : 'false'}

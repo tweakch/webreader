@@ -20,14 +20,14 @@ function useEscClose(open, onClose) {
   }, [open, onClose]);
 }
 
-function DrawerBackdrop({ open, onClose, dragProgress = 0 }) {
+export function DrawerBackdrop({ open, onClose, dragProgress = 0, testId = 'gesture-drawer-backdrop' }) {
   const visible = open || dragProgress > 0;
   if (!visible) return null;
   const opacity = open ? 0.3 : Math.min(0.3, dragProgress * 0.3);
   return (
     <button
       aria-label="Drawer schließen"
-      data-testid="gesture-drawer-backdrop"
+      data-testid={testId}
       onClick={onClose}
       className="fixed inset-0 z-40 bg-black backdrop-blur-[2px]"
       style={{ opacity, transition: dragProgress > 0 && !open ? 'none' : 'opacity 200ms ease-out' }}

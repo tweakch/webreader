@@ -19,9 +19,16 @@ debug-modal-close
 debug-panel
 debug-panel-toggle
 directory-button
+drawer-indicator-bottom
+drawer-indicator-left
+drawer-indicator-right
+drawer-indicator-top
+drawer-indicators
+feed-card
+feed-label
+feed-row
 font-decrease
 font-increase
-gesture-drawer-backdrop
 gesture-footer-drawer
 gesture-footer-drawer-close
 gesture-footer-drawer-grid
@@ -59,6 +66,7 @@ resume-banner
 resume-confirm
 resume-dismiss
 role-matrix-filter
+sidebar-backdrop
 sidebar-collapse-expanded
 sidebar-expanded-bar
 sidebar-v2
@@ -86,6 +94,7 @@ story-cover
 story-ending-illustration
 story-opening-illustration
 subscription-upgrade-cta
+suggestion-feeds
 tap-zone-left
 tap-zone-middle
 tap-zone-right

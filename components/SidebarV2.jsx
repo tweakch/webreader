@@ -424,6 +424,9 @@ export default function SidebarV2({
   return (
     <>
     {backdropVisible && (
+      // top-16 / z-20 intentionally differs from the gesture-drawer backdrops
+      // (inset-0 / z-40): the app header (z-≥20) stays visible above the
+      // sidebar backdrop, while gesture drawers float above the header.
       <button
         aria-label="Menü schließen"
         data-testid="sidebar-backdrop"

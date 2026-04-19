@@ -11,10 +11,10 @@ const DRAG_GRACE = 10; // px — ignore tiny jitter before treating as a drag
 /**
  * Enhanced reader gestures.
  *
- * Detects single-finger swipes from any of the four edges of a target element
- * (or window) and dispatches app-level intents. Publishes a *live* preview of
- * the in-flight gesture so the UI can animate drawers following the finger.
- * Pinch (2+ fingers) is ignored so this coexists with `pinch-font-size`.
+ * Listens at the window level so touches on any overlay (sidebar, drawers)
+ * also dispatch, and uses `targetRef`'s bounding rect purely to decide which
+ * edge a gesture started from. Pinch (2+ fingers) is ignored so this coexists
+ * with `pinch-font-size`.
  *
  * Gesture vocabulary:
  *   swipe-down  from near the top edge    → open header drawer
@@ -24,9 +24,11 @@ const DRAG_GRACE = 10; // px — ignore tiny jitter before treating as a drag
  *   swipe-right from near the left edge   → open sidebar / expand
  *   swipe-left  anywhere (sidebar open)   → close sidebar
  *
- * Returns:
- *   reloadProgress — 0..1 for the pull-to-reload indicator.
- *   preview — live drag state: { edge, axis, dx, dy, distance, progress } or null.
+ * Callback `onPreview({ edge, axis, dx, dy, distance, progress }|null)` fires
+ * continuously while a gesture is in-flight so the UI can animate drawers
+ * following the finger.
+ *
+ * Returns `{ reloadProgress }` — 0..1 channel for the pull-to-reload indicator.
  */
 export function useEnhancedGestures({
   enabled,
@@ -92,6 +94,7 @@ export function useEnhancedGestures({
         fromLeft: t.clientX - rect.left <= EDGE_PX,
         fromRight: rect.right - t.clientX <= EDGE_PX,
         reloadArmed: false,
+        reloadRatio: 0,
         committedEdge: null,
       };
     };
@@ -115,8 +118,10 @@ export function useEnhancedGestures({
       if (dy > MIN_DIST && absDy > absDx * 1.5 && !s.fromTop) {
         const ratio = Math.max(0, Math.min(1, dy / s.rect.height));
         s.reloadArmed = ratio >= RELOAD_THRESHOLD;
+        s.reloadRatio = ratio;
         setReloadProgress(ratio);
-      } else if (reloadProgress !== 0) {
+      } else if (s.reloadRatio !== 0) {
+        s.reloadRatio = 0;
         setReloadProgress(0);
       }
 
@@ -183,9 +188,8 @@ export function useEnhancedGestures({
       if (!t) { setReloadProgress(0); return; }
       const dx = t.clientX - s.startX;
       const dy = t.clientY - s.startY;
-      const dt = Date.now() - s.startTime;
       setReloadProgress(0);
-      if (dt > MAX_DT && Math.abs(dx) < MIN_DIST * 2 && Math.abs(dy) < MIN_DIST * 2) return;
+      if (Date.now() - s.startTime > MAX_DT && Math.abs(dx) < MIN_DIST * 2 && Math.abs(dy) < MIN_DIST * 2) return;
       dispatch(s, dx, dy);
     };
 
@@ -195,15 +199,19 @@ export function useEnhancedGestures({
       emitPreview(null);
     };
 
-    target.addEventListener('touchstart', onTouchStart, { passive: true });
-    target.addEventListener('touchmove', onTouchMove, { passive: true });
-    target.addEventListener('touchend', onTouchEnd, { passive: true });
-    target.addEventListener('touchcancel', onTouchCancel, { passive: true });
+    // Listen on window so touches on the sidebar or drawers also reach us —
+    // otherwise swipe-left from within the open sidebar couldn't close it
+    // because the sidebar overlay sits above `target` in the stacking order.
+    // `target` is still used above for the bounding rect (edge detection).
+    window.addEventListener('touchstart', onTouchStart, { passive: true });
+    window.addEventListener('touchmove', onTouchMove, { passive: true });
+    window.addEventListener('touchend', onTouchEnd, { passive: true });
+    window.addEventListener('touchcancel', onTouchCancel, { passive: true });
     return () => {
-      target.removeEventListener('touchstart', onTouchStart);
-      target.removeEventListener('touchmove', onTouchMove);
-      target.removeEventListener('touchend', onTouchEnd);
-      target.removeEventListener('touchcancel', onTouchCancel);
+      window.removeEventListener('touchstart', onTouchStart);
+      window.removeEventListener('touchmove', onTouchMove);
+      window.removeEventListener('touchend', onTouchEnd);
+      window.removeEventListener('touchcancel', onTouchCancel);
     };
     // Re-register when callbacks change so closures see the latest handlers.
   }, [enabled, targetRef, onSwipeDownTop, onSwipeUpBottom, onSwipeLeftRight, onSwipeRight, onSwipeLeft, onReload]); // eslint-disable-line react-hooks/exhaustive-deps

@@ -94,6 +94,8 @@ export default function GestureLayer({
   const closeRight  = () => setDrawers((d) => ({ ...d, right: false }));
 
   // Push sidebar drag offset up to the parent so SidebarV2 can render it.
+  // A null preview or any non-sidebar edge resolves to offset 0, so the
+  // gesture-end clear is handled here too — no separate effect needed.
   const lastSidebarOffset = useRef(0);
   useEffect(() => {
     const edge = preview?.edge;
@@ -103,14 +105,6 @@ export default function GestureLayer({
     if (offset !== lastSidebarOffset.current) {
       lastSidebarOffset.current = offset;
       onSidebarDragOffsetChange?.(offset);
-    }
-  }, [preview, onSidebarDragOffsetChange]);
-
-  // Fire-and-forget clear when gesture ends.
-  useEffect(() => {
-    if (!preview && lastSidebarOffset.current !== 0) {
-      lastSidebarOffset.current = 0;
-      onSidebarDragOffsetChange?.(0);
     }
   }, [preview, onSidebarDragOffsetChange]);
 

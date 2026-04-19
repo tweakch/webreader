@@ -13,8 +13,13 @@ const VARIANTS_KEY = 'wr-ab-variants';
  *   - wr-ab-variants: user-selected variant per experiment
  *       { [expId]: variantId }
  *
- * Returns resolved variants (user choice when allowed, otherwise defaultVariant)
- * plus admin and user mutators.
+ * Role-access semantics mirror the feature registry: if an experiment is
+ * active and the caller's role is in `allowedRoles` (or they are admin),
+ * the resolved variant is the user's choice; otherwise it's the defaultVariant.
+ *
+ * Stored config seeds from `AB_DEFAULT_CONFIG` in abExperiments.js. Consistency
+ * between experiment ids, default variants, and allowed roles is enforced by
+ * tests/unit/registryConsistency.test.js.
  */
 export function useABTesting({ role, isAdmin }) {
   const [config, setConfig] = useState(() => {
@@ -62,7 +67,6 @@ export function useABTesting({ role, isAdmin }) {
     [userVariants, hasAccess],
   );
 
-  // Admin mutators
   const setExperimentActive = useCallback((id, active) => {
     setConfig((prev) => ({
       ...prev,
@@ -93,7 +97,6 @@ export function useABTesting({ role, isAdmin }) {
     }));
   }, []);
 
-  // User mutator
   const selectVariant = useCallback((id, variantId) => {
     setUserVariants((prev) => ({ ...prev, [id]: variantId }));
   }, []);

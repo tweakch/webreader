@@ -1,49 +1,364 @@
 {
-  "favorites":              { "defaultVariant": "on",  "variants": { "on": true, "off": false } },
-  "favorites-only-toggle":  { "defaultVariant": "on",  "variants": { "on": true, "off": false } },
-  "word-count":        { "defaultVariant": "off", "variants": { "on": true, "off": false } },
-  "reading-duration":  { "defaultVariant": "on",  "variants": { "on": true, "off": false } },
-  "font-size-controls":{ "defaultVariant": "on",  "variants": { "on": true, "off": false } },
-  "pinch-font-size":   { "defaultVariant": "off", "variants": { "on": true, "off": false } },
-  "eink-flash":        { "defaultVariant": "on",  "variants": { "on": true, "off": false } },
-  "tap-zones":         { "defaultVariant": "on",  "variants": { "on": true, "off": false } },
-  "tap-middle-toggle": { "defaultVariant": "on",  "variants": { "on": true, "off": false } },
-  "adaption-switcher": { "defaultVariant": "on", "variants": { "on": true, "off": false } },
-  "typography-panel":  { "defaultVariant": "on",  "variants": { "on": true, "off": false } },
-  "attribution":       { "defaultVariant": "on",  "variants": { "on": true, "off": false } },
-  "theme":             { "defaultVariant": "light", "variants": { "light": "light", "dark": "dark", "system": "system", "light-hc": "light-hc", "dark-hc": "dark-hc" } },
-  "theme-toggle":      { "defaultVariant": "on",  "variants": { "on": true, "off": false } },
-  "speed-reader":      { "defaultVariant": "off", "variants": { "on": true, "off": false } },
-  "speedreader-orp":   { "defaultVariant": "off", "variants": { "on": true, "off": false } },
-  "audio-player":      { "defaultVariant": "off", "variants": { "on": true, "off": false } },
-  "big-fonts":         { "defaultVariant": "off", "variants": { "off": "off", "big": "big", "bigger": "bigger", "biggest": "biggest" } },
-  "high-contrast-theme": { "defaultVariant": "off", "variants": { "on": true, "off": false } },
-  "simplified-ui":       { "defaultVariant": "off", "variants": { "on": true, "off": false } },
-  "text-to-speech":      { "defaultVariant": "off", "variants": { "on": true, "off": false } },
-  "voice-control":          { "defaultVariant": "off", "variants": { "on": true, "off": false } },
-  "voice-resume":           { "defaultVariant": "off", "variants": { "on": true, "off": false } },
-  "voice-navigation":       { "defaultVariant": "off", "variants": { "on": true, "off": false } },
-  "voice-reading-control":  { "defaultVariant": "off", "variants": { "on": true, "off": false } },
-  "voice-discovery":        { "defaultVariant": "off", "variants": { "on": true, "off": false } },
-  "voice-hands-free":       { "defaultVariant": "off", "variants": { "on": true, "off": false } },
-  "word-blacklist":      { "defaultVariant": "off", "variants": { "on": true, "off": false } },
-  "deep-search":         { "defaultVariant": "off", "variants": { "on": true, "off": false } },
-  "story-directories":   { "defaultVariant": "off", "variants": { "on": true, "off": false } },
-  "debug-badges":        { "defaultVariant": "off", "variants": { "on": true, "off": false } },
-  "hero-tagline":        { "defaultVariant": "off", "variants": { "on": true, "off": false } },
-  "subscriber-fonts":       { "defaultVariant": "off", "variants": { "on": true, "off": false } },
-  "error-page-simulator":   { "defaultVariant": "off", "variants": { "on": true, "off": false } },
-  "app-animation":          { "defaultVariant": "off", "variants": { "on": true, "off": false } },
-  "ab-testing":             { "defaultVariant": "off", "variants": { "on": true, "off": false } },
-  "ab-testing-admin":       { "defaultVariant": "off", "variants": { "on": true, "off": false } },
-  "tier-badge":             { "defaultVariant": "off", "variants": { "on": true, "off": false } },
-  "paywall":                { "defaultVariant": "off", "variants": { "on": true, "off": false } },
-  "upgrade-cta":            { "defaultVariant": "off", "variants": { "on": true, "off": false } },
-  "trial-banner":           { "defaultVariant": "off", "variants": { "on": true, "off": false } },
-  "pricing-page":           { "defaultVariant": "off", "variants": { "on": true, "off": false } },
-  "promo-code":             { "defaultVariant": "off", "variants": { "on": true, "off": false } },
-  "referral-program":       { "defaultVariant": "off", "variants": { "on": true, "off": false } },
-  "sales-mode":             { "defaultVariant": "off", "variants": { "on": true, "off": false } },
-  "conversion-analytics":   { "defaultVariant": "off", "variants": { "on": true, "off": false } },
-  "billing-portal-stub":    { "defaultVariant": "off", "variants": { "on": true, "off": false } }
+  "favorites": {
+    "defaultVariant": "on",
+    "variants": {
+      "on": true,
+      "off": false
+    }
+  },
+  "favorites-only-toggle": {
+    "defaultVariant": "on",
+    "variants": {
+      "on": true,
+      "off": false
+    }
+  },
+  "word-count": {
+    "defaultVariant": "off",
+    "variants": {
+      "on": true,
+      "off": false
+    }
+  },
+  "reading-duration": {
+    "defaultVariant": "on",
+    "variants": {
+      "on": true,
+      "off": false
+    }
+  },
+  "font-size-controls": {
+    "defaultVariant": "on",
+    "variants": {
+      "on": true,
+      "off": false
+    }
+  },
+  "pinch-font-size": {
+    "defaultVariant": "off",
+    "variants": {
+      "on": true,
+      "off": false
+    }
+  },
+  "eink-flash": {
+    "defaultVariant": "on",
+    "variants": {
+      "on": true,
+      "off": false
+    }
+  },
+  "tap-zones": {
+    "defaultVariant": "on",
+    "variants": {
+      "on": true,
+      "off": false
+    }
+  },
+  "tap-middle-toggle": {
+    "defaultVariant": "on",
+    "variants": {
+      "on": true,
+      "off": false
+    }
+  },
+  "adaption-switcher": {
+    "defaultVariant": "on",
+    "variants": {
+      "on": true,
+      "off": false
+    }
+  },
+  "typography-panel": {
+    "defaultVariant": "on",
+    "variants": {
+      "on": true,
+      "off": false
+    }
+  },
+  "subscriber-fonts": {
+    "defaultVariant": "off",
+    "variants": {
+      "on": true,
+      "off": false
+    }
+  },
+  "attribution": {
+    "defaultVariant": "on",
+    "variants": {
+      "on": true,
+      "off": false
+    }
+  },
+  "audio-player": {
+    "defaultVariant": "off",
+    "variants": {
+      "on": true,
+      "off": false
+    }
+  },
+  "high-contrast-theme": {
+    "defaultVariant": "off",
+    "variants": {
+      "on": true,
+      "off": false
+    }
+  },
+  "story-directories": {
+    "defaultVariant": "off",
+    "variants": {
+      "on": true,
+      "off": false
+    }
+  },
+  "theme": {
+    "defaultVariant": "light",
+    "variants": {
+      "light": "light",
+      "dark": "dark",
+      "system": "system",
+      "light-hc": "light-hc",
+      "dark-hc": "dark-hc"
+    }
+  },
+  "theme-toggle": {
+    "defaultVariant": "on",
+    "variants": {
+      "on": true,
+      "off": false
+    }
+  },
+  "speed-reader": {
+    "defaultVariant": "off",
+    "variants": {
+      "on": true,
+      "off": false
+    }
+  },
+  "speedreader-orp": {
+    "defaultVariant": "off",
+    "variants": {
+      "on": true,
+      "off": false
+    }
+  },
+  "word-blacklist": {
+    "defaultVariant": "off",
+    "variants": {
+      "on": true,
+      "off": false
+    }
+  },
+  "deep-search": {
+    "defaultVariant": "off",
+    "variants": {
+      "on": true,
+      "off": false
+    }
+  },
+  "simplified-ui": {
+    "defaultVariant": "off",
+    "variants": {
+      "on": true,
+      "off": false
+    }
+  },
+  "text-to-speech": {
+    "defaultVariant": "off",
+    "variants": {
+      "on": true,
+      "off": false
+    }
+  },
+  "big-fonts": {
+    "defaultVariant": "off",
+    "variants": {
+      "off": "off",
+      "big": "big",
+      "bigger": "bigger",
+      "biggest": "biggest"
+    }
+  },
+  "app-animation": {
+    "defaultVariant": "off",
+    "variants": {
+      "on": true,
+      "off": false
+    }
+  },
+  "ab-testing": {
+    "defaultVariant": "off",
+    "variants": {
+      "on": true,
+      "off": false
+    }
+  },
+  "tier-badge": {
+    "defaultVariant": "off",
+    "variants": {
+      "on": true,
+      "off": false
+    }
+  },
+  "paywall": {
+    "defaultVariant": "off",
+    "variants": {
+      "on": true,
+      "off": false
+    }
+  },
+  "upgrade-cta": {
+    "defaultVariant": "off",
+    "variants": {
+      "on": true,
+      "off": false
+    }
+  },
+  "trial-banner": {
+    "defaultVariant": "off",
+    "variants": {
+      "on": true,
+      "off": false
+    }
+  },
+  "pricing-page": {
+    "defaultVariant": "off",
+    "variants": {
+      "on": true,
+      "off": false
+    }
+  },
+  "promo-code": {
+    "defaultVariant": "off",
+    "variants": {
+      "on": true,
+      "off": false
+    }
+  },
+  "referral-program": {
+    "defaultVariant": "off",
+    "variants": {
+      "on": true,
+      "off": false
+    }
+  },
+  "sales-mode": {
+    "defaultVariant": "off",
+    "variants": {
+      "on": true,
+      "off": false
+    }
+  },
+  "conversion-analytics": {
+    "defaultVariant": "off",
+    "variants": {
+      "on": true,
+      "off": false
+    }
+  },
+  "billing-portal-stub": {
+    "defaultVariant": "off",
+    "variants": {
+      "on": true,
+      "off": false
+    }
+  },
+  "read-along": {
+    "defaultVariant": "off",
+    "variants": {
+      "on": true,
+      "off": false
+    }
+  },
+  "illustrations": {
+    "defaultVariant": "off",
+    "variants": {
+      "on": true,
+      "off": false
+    }
+  },
+  "child-profile": {
+    "defaultVariant": "off",
+    "variants": {
+      "on": true,
+      "off": false
+    }
+  },
+  "story-quiz": {
+    "defaultVariant": "off",
+    "variants": {
+      "on": true,
+      "off": false
+    }
+  },
+  "voice-control": {
+    "defaultVariant": "off",
+    "variants": {
+      "on": true,
+      "off": false
+    }
+  },
+  "voice-resume": {
+    "defaultVariant": "off",
+    "variants": {
+      "on": true,
+      "off": false
+    }
+  },
+  "voice-navigation": {
+    "defaultVariant": "off",
+    "variants": {
+      "on": true,
+      "off": false
+    }
+  },
+  "voice-reading-control": {
+    "defaultVariant": "off",
+    "variants": {
+      "on": true,
+      "off": false
+    }
+  },
+  "voice-discovery": {
+    "defaultVariant": "off",
+    "variants": {
+      "on": true,
+      "off": false
+    }
+  },
+  "voice-hands-free": {
+    "defaultVariant": "off",
+    "variants": {
+      "on": true,
+      "off": false
+    }
+  },
+  "debug-badges": {
+    "defaultVariant": "off",
+    "variants": {
+      "on": true,
+      "off": false
+    }
+  },
+  "error-page-simulator": {
+    "defaultVariant": "off",
+    "variants": {
+      "on": true,
+      "off": false
+    }
+  },
+  "ab-testing-admin": {
+    "defaultVariant": "off",
+    "variants": {
+      "on": true,
+      "off": false
+    }
+  },
+  "hero-tagline": {
+    "defaultVariant": "off",
+    "variants": {
+      "on": true,
+      "off": false
+    }
+  }
 }

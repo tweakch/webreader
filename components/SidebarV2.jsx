@@ -358,6 +358,7 @@ export default function SidebarV2({
     <button
       key={`src-${src.id}`}
       data-testid="source-button"
+      data-source-id={src.id}
       onClick={() => toggleSource(src.id)}
       className={`w-full flex items-center gap-2 px-3 py-2.5 rounded-lg transition-all ${
         darkMode ? 'text-amber-100 hover:bg-slate-800' : 'text-amber-900 hover:bg-amber-100'

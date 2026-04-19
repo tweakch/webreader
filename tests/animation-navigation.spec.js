@@ -161,13 +161,14 @@ test.describe('C – Sidebar open/close animation', () => {
     await disableAppAnimation(page);
   });
 
-  test('sidebar carries transition-transform duration-300 classes', async ({ page }) => {
+  test('sidebar carries a duration-300 transition for the slide animation', async ({ page }) => {
     await page.setViewportSize({ width: 375, height: 812 });
     await page.goto('/app');
     await page.waitForLoadState('networkidle');
 
     const sidebar = page.locator('aside').first();
-    await expect(sidebar).toHaveClass(/transition-transform/);
+    // Sidebar animates both width and transform, so it uses `transition-all`.
+    await expect(sidebar).toHaveClass(/transition-(?:transform|all)/);
     await expect(sidebar).toHaveClass(/duration-300/);
   });
 

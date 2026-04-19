@@ -15,6 +15,7 @@ export default function SourceButton({ src, onClick, simplifiedUi = false }) {
   return (
     <button
       data-testid="source-button"
+      data-source-id={src.id}
       onClick={onClick}
       className={cn(
         'w-full flex items-center justify-between rounded-lg transition-all',

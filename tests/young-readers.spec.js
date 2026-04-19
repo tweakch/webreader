@@ -36,8 +36,10 @@ test.describe('Young-reader features', () => {
     await page.waitForLoadState('networkidle');
     await openMenu(page);
 
-    // Drill into Grimm and pick Aschenputtel (has cover.svg)
-    const grimmSrc = page.locator('[data-testid="source-button"]').first();
+    // Drill into the base Grimm source. `.first()` is unstable now that
+    // curated Grimm collections also appear as sources; `data-source-id`
+    // is stable regardless of the label's lazy-metadata state.
+    const grimmSrc = page.locator('[data-testid="source-button"][data-source-id="grimm"]');
     await expect(grimmSrc).toBeVisible({ timeout: 5000 });
     await grimmSrc.click();
 
@@ -49,7 +51,9 @@ test.describe('Young-reader features', () => {
     const cover = page.locator('[data-testid="story-cover"]');
     await expect(cover).toBeVisible();
     const src = await cover.getAttribute('src');
-    expect(src).toMatch(/cover\.svg$/);
+    // Cover may be served as a file (`cover.svg`) or inlined as a
+    // `data:image/svg+xml,...` URL depending on collection packaging.
+    expect(src).toMatch(/(?:cover\.svg$|^data:image\/svg\+xml,)/);
   });
 
   test('age-filter: picker is hidden by default and shown when flag is on', async ({ page }) => {
@@ -73,8 +77,9 @@ test.describe('Young-reader features', () => {
     await page.waitForLoadState('networkidle');
     await openMenu(page);
 
-    // Drill into Grimm — story metadata loads lazily per-source
-    const grimmSrc = page.locator('[data-testid="source-button"]').first();
+    // Drill into the base Grimm source (see note above about `.first()`
+    // instability and why `data-source-id` is the stable selector).
+    const grimmSrc = page.locator('[data-testid="source-button"][data-source-id="grimm"]');
     await expect(grimmSrc).toBeVisible({ timeout: 5000 });
     await grimmSrc.click();
 

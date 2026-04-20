@@ -9,25 +9,25 @@ import { useGestureDrawers } from './GestureDrawerContext';
  * Single gesture+drawer host for the app. It:
  *   - Listens at the window level for pointer events and decides whether a
  *     pointerdown has started an edge drag (based on proximity to one of the
- *     four viewport edges and whether a drawer is registered there).
+ *     four reader-area edges and whether a drawer is registered there).
  *   - Drives the drawer transform directly on the DOM node during a drag for
  *     60fps follow, falling back to the CSS-driven open/close transition on
  *     release.
  *   - Commits a drag when progress ≥ COMMIT_RATIO OR velocity crosses
  *     VELOCITY_COMMIT.
- *   - A top-edge drag that passes RELOAD_RATIO of the viewport height triggers
+ *   - A top-edge drag that passes RELOAD_RATIO of the reader height triggers
  *     pull-to-reload (page reload by default, overridable via provider
  *     `onReload`).
  *
- * Left-edge gestures currently delegate to the sidebar component unless a
- * `left` drawer is registered (future extension). Sidebar close (swipe left
- * while menu open) is kept intact.
+ * The sidebar participates as a registered `left` slot on mobile + enhanced
+ * gestures (see `SidebarLeftSlot`); there are no sidebar-specific code paths
+ * here anymore.
  */
 
 const EDGE_ZONE = 44;           // px from edge to start a drag
 const COMMIT_RATIO = 0.32;      // ratio of drawer size to commit-open
 const VELOCITY_COMMIT = 0.55;   // px/ms — flick commits below COMMIT_RATIO
-const RELOAD_RATIO = 0.55;      // top drag past this × viewport height = reload
+const RELOAD_RATIO = 0.55;      // top drag past this × reader height = reload
 const DRAG_GRACE = 8;           // px — ignore jitter before treating as drag
 const DEFAULT_SIZE = { top: 320, right: 320, bottom: 280, left: 300 };
 const EDGE_CLOSED_TRANSFORM = {
@@ -36,21 +36,14 @@ const EDGE_CLOSED_TRANSFORM = {
   left: 'translate3d(-100%, 0, 0)',
   right: 'translate3d(100%, 0, 0)',
 };
+const EDGE_DIRECTION = { top: 1, bottom: -1, left: 1, right: -1 };
 
 function sizeOf(edge, slot) {
   if (slot?.size) return slot.size;
   return DEFAULT_SIZE[edge];
 }
 
-export default function GestureDrawerViewport({
-  enabled,
-  readerAreaRef,
-  menuOpen,
-  onMenuOpenChange,
-  sidebarExpanded,
-  onSidebarExpandedChange,
-  onSidebarDragOffsetChange,
-}) {
+export default function GestureDrawerViewport({ enabled, readerAreaRef }) {
   const { slots, openEdge, openDrawer, closeDrawer, onReload } = useGestureDrawers();
 
   const [preview, setPreview] = useState(null);
@@ -62,43 +55,19 @@ export default function GestureDrawerViewport({
 
   const anyGestureDrawerOpen = openEdge !== null;
 
-  // Mutual exclusion: if the sidebar opens, close any gesture drawer.
-  useEffect(() => {
-    if (menuOpen && anyGestureDrawerOpen) closeDrawer();
-  }, [menuOpen, anyGestureDrawerOpen, closeDrawer]);
-
-  // Collapse any expanded sidebar state when the menu closes.
-  useEffect(() => {
-    if (!menuOpen && sidebarExpanded) onSidebarExpandedChange?.(false);
-  }, [menuOpen, sidebarExpanded, onSidebarExpandedChange]);
-
-  // Publish sidebar drag offset (for the sidebar component to slide with the
-  // finger). `left` = opening, `left-close` = closing.
-  const lastSidebarOffset = useRef(0);
-  useEffect(() => {
-    const edge = preview?.edge;
-    let offset = 0;
-    if (edge === 'left-open') offset = Math.min(1, preview.progress);
-    else if (edge === 'left-close') offset = -Math.min(1, preview.progress);
-    if (offset !== lastSidebarOffset.current) {
-      lastSidebarOffset.current = offset;
-      onSidebarDragOffsetChange?.(offset);
-    }
-  }, [preview, onSidebarDragOffsetChange]);
-
   // ---------- pointer gesture ----------
 
-  // Edge detection uses the viewport (window) bounds so gestures originating
-  // above the reader area (e.g. near the top of the browser chrome) still
-  // register as a top-edge swipe. The readerAreaRef is only consulted for
-  // reload-ratio reference (reader-height-aware pull-to-reload).
+  // Edge detection uses the reader-area rect so a gesture from inside the
+  // reader within EDGE_ZONE of its top/bottom/left/right counts as edge-start.
+  // Negative deltas (touches above/below/outside the rect) are also accepted
+  // so the browser-chrome edge area is covered.
   const resolveBounds = useCallback(() => {
     const vw = typeof window !== 'undefined' ? window.innerWidth : 1;
     const vh = typeof window !== 'undefined' ? window.innerHeight : 1;
     const el = readerAreaRef?.current;
     const rect = el
       ? el.getBoundingClientRect()
-      : { top: 0, height: vh };
+      : { top: 0, bottom: vh, left: 0, right: vw, width: vw, height: vh };
     return { vw, vh, rect };
   }, [readerAreaRef]);
 
@@ -157,9 +126,6 @@ export default function GestureDrawerViewport({
     const shouldOpen = finalProgress > COMMIT_RATIO || velocityCommit;
 
     if (shouldOpen) {
-      // Close sidebar first so the mutual-exclusion effect doesn't
-      // immediately bounce our open call.
-      if (menuOpen) onMenuOpenChange?.(false);
       drawerEl.style.transform = 'translate3d(0, 0, 0)';
       if (backdropRef.current) {
         backdropRef.current.style.opacity = '0.3';
@@ -173,7 +139,7 @@ export default function GestureDrawerViewport({
         backdropRef.current.style.pointerEvents = 'none';
       }
     }
-  }, [openDrawer, menuOpen, onMenuOpenChange]);
+  }, [openDrawer]);
 
   const triggerReload = useCallback(() => {
     setReloadProgress(0);
@@ -195,10 +161,6 @@ export default function GestureDrawerViewport({
       const x = e.clientX;
       const y = e.clientY;
 
-      // Edge detection is relative to the reader rect so a gesture from inside
-      // the reader that's within EDGE_ZONE of its top/bottom/left/right counts
-      // as an edge-start. Negative deltas (touch above/below/outside the rect)
-      // are also accepted so the browser-chrome edge is covered.
       const dTop = y - rect.top;
       const dBottom = rect.bottom - y;
       const dLeft = x - rect.left;
@@ -208,19 +170,10 @@ export default function GestureDrawerViewport({
       else if (dBottom <= EDGE_ZONE && slots.bottom) edge = 'bottom';
       else if (dLeft <= EDGE_ZONE && slots.left) edge = 'left';
       else if (dRight <= EDGE_ZONE && slots.right) edge = 'right';
-
-      // Fallback: left-edge → sidebar open (legacy behavior), unless a `left`
-      // slot is registered (handled above).
-      let kind = 'drawer';
-      if (!edge && dLeft <= EDGE_ZONE && !menuOpen) { edge = 'left-open'; kind = 'sidebar'; }
-      // Sidebar-close drag: left-swipe anywhere while menu is open.
-      else if (!edge && menuOpen) { edge = 'left-close'; kind = 'sidebar'; }
-
       if (!edge) return;
 
       dragRef.current = {
         active: true,
-        kind,
         edge,
         pointerId: e.pointerId,
         startX: x,
@@ -229,12 +182,10 @@ export default function GestureDrawerViewport({
         lastY: y,
         lastT: performance.now(),
         velocity: 0,
-        direction: edge === 'top' || edge === 'bottom' ? (edge === 'top' ? 1 : -1)
-                 : edge === 'left' || edge === 'left-open' ? 1
-                 : -1,
+        direction: EDGE_DIRECTION[edge],
         vw, vh,
         readerHeight: rect.height || vh,
-        size: kind === 'drawer' ? sizeOf(edge, slots[edge]) : Math.min(320, vw * 0.75),
+        size: sizeOf(edge, slots[edge]),
         progress: 0,
         committedAxis: false,
       };
@@ -257,66 +208,44 @@ export default function GestureDrawerViewport({
       const dy = y - d.startY;
 
       if (!d.committedAxis) {
-        // Require enough travel before committing to an axis.
         if (Math.abs(dx) < DRAG_GRACE && Math.abs(dy) < DRAG_GRACE) return;
         const horizontal = Math.abs(dx) > Math.abs(dy);
         const axisOk =
           ((d.edge === 'top' || d.edge === 'bottom') && !horizontal) ||
-          ((d.edge === 'left' || d.edge === 'right' || d.edge === 'left-open' || d.edge === 'left-close') && horizontal);
+          ((d.edge === 'left' || d.edge === 'right') && horizontal);
         if (!axisOk) { dragRef.current = null; return; }
         d.committedAxis = true;
       }
 
-      if (d.kind === 'drawer') {
-        const progress = applyDragTransform(d.edge, dx, dy, d.size, d.readerHeight);
-        d.progress = progress;
-        setPreview({ edge: d.edge, progress });
-      } else {
-        // Sidebar drag-follow: report progress via preview state.
-        let progress = 0;
-        if (d.edge === 'left-open') progress = Math.min(1, Math.max(0, dx) / d.size);
-        else if (d.edge === 'left-close') progress = Math.min(1, Math.max(0, -dx) / d.size);
-        d.progress = progress;
-        setPreview({ edge: d.edge, progress });
-      }
+      const progress = applyDragTransform(d.edge, dx, dy, d.size, d.readerHeight);
+      d.progress = progress;
+      setPreview({ edge: d.edge, progress });
     };
 
     const endDrag = (d) => {
       dragRef.current = null;
       setPreview(null);
 
-      if (d.kind === 'drawer') {
-        // Reload intent: top-edge drag past RELOAD_RATIO of viewport height.
-        if (d.edge === 'top') {
-          const dy = d.lastY - d.startY;
-          if (dy > d.readerHeight * RELOAD_RATIO) {
-            const drawerEl = drawerRefs.current[d.edge];
-            if (drawerEl) {
-              drawerEl.style.transition = 'transform 400ms cubic-bezier(0.32, 0.72, 0.36, 1)';
-              drawerEl.style.transform = '';
-            }
-            if (backdropRef.current) {
-              backdropRef.current.style.transition = 'opacity 300ms ease-out';
-              backdropRef.current.style.opacity = '0';
-              backdropRef.current.style.pointerEvents = 'none';
-            }
-            triggerReload();
-            return;
+      // Reload intent: top-edge drag past RELOAD_RATIO of reader height.
+      if (d.edge === 'top') {
+        const dy = d.lastY - d.startY;
+        if (dy > d.readerHeight * RELOAD_RATIO) {
+          const drawerEl = drawerRefs.current[d.edge];
+          if (drawerEl) {
+            drawerEl.style.transition = 'transform 400ms cubic-bezier(0.32, 0.72, 0.36, 1)';
+            drawerEl.style.transform = '';
           }
-          setReloadProgress(0);
+          if (backdropRef.current) {
+            backdropRef.current.style.transition = 'opacity 300ms ease-out';
+            backdropRef.current.style.opacity = '0';
+            backdropRef.current.style.pointerEvents = 'none';
+          }
+          triggerReload();
+          return;
         }
-        commitOrReset(d, d.progress);
-      } else {
-        // Sidebar commit by ratio or velocity.
-        const velocityCommit = Math.abs(d.velocity) > VELOCITY_COMMIT;
-        const shouldToggle = d.progress > COMMIT_RATIO || velocityCommit;
-        if (shouldToggle) {
-          if (d.edge === 'left-open') onMenuOpenChange?.(true);
-          else if (d.edge === 'left-close') onMenuOpenChange?.(false);
-        }
-        // Clear the drag offset so the sidebar settles.
-        onSidebarDragOffsetChange?.(0);
+        setReloadProgress(0);
       }
+      commitOrReset(d, d.progress);
     };
 
     const onPointerUp = (e) => {
@@ -328,15 +257,10 @@ export default function GestureDrawerViewport({
     const onPointerCancel = (e) => {
       const d = dragRef.current;
       if (!d || e.pointerId !== d.pointerId) return;
-      // Reset without committing.
       dragRef.current = null;
       setPreview(null);
       setReloadProgress(0);
-      if (d.kind === 'drawer') {
-        commitOrReset(d, 0);
-      } else {
-        onSidebarDragOffsetChange?.(0);
-      }
+      commitOrReset(d, 0);
     };
 
     window.addEventListener('pointerdown', onPointerDown, { passive: true });
@@ -349,7 +273,7 @@ export default function GestureDrawerViewport({
       window.removeEventListener('pointerup', onPointerUp);
       window.removeEventListener('pointercancel', onPointerCancel);
     };
-  }, [enabled, slots, anyGestureDrawerOpen, menuOpen, resolveBounds, applyDragTransform, commitOrReset, triggerReload, onMenuOpenChange, onSidebarDragOffsetChange]);
+  }, [enabled, slots, anyGestureDrawerOpen, resolveBounds, applyDragTransform, commitOrReset, triggerReload]);
 
   // ---------- render ----------
 
@@ -359,8 +283,8 @@ export default function GestureDrawerViewport({
     <>
       <ReloadIndicator progress={reloadProgress} />
       <DrawerIndicators
-        anyDrawerOpen={menuOpen || anyGestureDrawerOpen}
-        activeEdge={preview?.edge === 'left-open' || preview?.edge === 'left-close' ? 'left' : preview?.edge}
+        anyDrawerOpen={anyGestureDrawerOpen}
+        activeEdge={preview?.edge}
         progress={preview?.progress ?? 0}
       />
       <DrawerBackdrop
@@ -380,6 +304,7 @@ export default function GestureDrawerViewport({
             onClose={closeDrawer}
             title={slot.title}
             size={slot.size}
+            chromeless={slot.chromeless}
           >
             {slot.content ?? null}
           </EdgeDrawer>

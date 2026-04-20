@@ -130,7 +130,7 @@ const EDGE_GRIP = {
  * imperatively set `transform` on the forwarded ref during a drag.
  */
 export const EdgeDrawer = forwardRef(function EdgeDrawer(
-  { edge, open, onClose, title, children, size },
+  { edge, open, onClose, title, children, size, chromeless = false },
   ref,
 ) {
   const { tc } = useTheme();
@@ -152,6 +152,34 @@ export const EdgeDrawer = forwardRef(function EdgeDrawer(
     transition: 'transform 320ms cubic-bezier(0.32, 0.72, 0.36, 1)',
     willChange: 'transform',
   };
+
+  // Chromeless: the slot owner provides its own header/close UI. The drawer
+  // frame still owns transform + positioning + theme background but no grip,
+  // title bar or close button is rendered.
+  if (chromeless) {
+    return (
+      <aside
+        ref={ref}
+        data-testid={testId}
+        data-open={open ? 'true' : 'false'}
+        data-edge={edge}
+        aria-hidden={!open}
+        style={baseStyle}
+        className={cn(
+          'fixed z-50 shadow-lg flex flex-col',
+          EDGE_CLASSES[edge],
+          tc({
+            light:   'bg-white/95 border-amber-200 text-amber-900',
+            dark:    'bg-slate-900/95 border-amber-700/40 text-amber-200',
+            hcLight: 'bg-white border-black text-black',
+            hcDark:  'bg-black border-white text-white',
+          }),
+        )}
+      >
+        {children}
+      </aside>
+    );
+  }
 
   return (
     <aside

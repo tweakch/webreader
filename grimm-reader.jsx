@@ -1045,6 +1045,11 @@ const GrimmMarchenApp = () => {
       open={leavePromptOpen}
       onConfirm={confirmLeave}
       onCancel={cancelLeave}
+      onRestart={
+        role === 'tester' || role === 'admin'
+          ? () => window.location.reload()
+          : undefined
+      }
     />
     {showDebugBadges && <DebugOverlay flagValues={_rawFlagValues} />}
     </GestureDrawerProvider>

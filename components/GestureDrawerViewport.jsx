@@ -113,8 +113,8 @@ export default function GestureDrawerViewport({ enabled, readerAreaRef }) {
     const drawerEl = drawerRefs.current[d.edge];
     if (!drawerEl) return;
 
-    drawerEl.style.transition = 'transform 320ms cubic-bezier(0.32, 0.72, 0.36, 1)';
-    if (backdropRef.current) backdropRef.current.style.transition = 'opacity 320ms ease-out';
+    drawerEl.style.transition = 'transform var(--motion-md) var(--motion-ease-standard)';
+    if (backdropRef.current) backdropRef.current.style.transition = 'opacity var(--motion-md) var(--motion-ease-standard)';
 
     const velocityCommit = Math.abs(d.velocity) > VELOCITY_COMMIT && d.velocity * d.direction > 0;
     const shouldCommit = finalProgress > COMMIT_RATIO || velocityCommit;

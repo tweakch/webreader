@@ -65,12 +65,33 @@ html, body {
   --anim-surface:     #fffbeb;   /* amber-50  */
   --anim-ink:         #78350f;   /* amber-900 */
 
-  /* World-gesture timing: enter blooms, exit folds. */
-  --anim-dur-enter:    560ms;
-  --anim-dur-exit:     360ms;
+  /* World-gesture timing: enter blooms, exit folds. Tight enough to stay
+     within the paper motion budget (see --motion-md) so the app entry never
+     lingers or draws attention to itself. */
+  --anim-dur-enter:    150ms;
+  --anim-dur-exit:     120ms;
   --anim-ease-out:     cubic-bezier(0.22, 1, 0.36, 1);  /* emphasized decelerate */
   --anim-ease-in:      cubic-bezier(0.4, 0, 1, 1);       /* soft accelerate */
   --anim-ease-spring:  cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* Paper surface tokens. Matte, slight cream, zero gloss. Used by the
+     reader chrome (nav bar, top bar, drawers) when the paper pass is on.
+     Themes below override these for dark / high-contrast variants. */
+  --paper-surface:    #faf6ee;
+  --paper-ink:        #1f1a12;
+  --paper-ink-muted:  #6b6558;
+  --paper-rule:       #e8e0cf;
+  --paper-hover:      rgba(31, 26, 18, 0.06);
+  --paper-accent:     rgba(31, 26, 18, 0.12);
+
+  /* Motion scale. Budget: nothing user-facing exceeds --motion-md (220ms).
+     --motion-xs is for "paper settle" (page-turn pulse),
+     --motion-sm is for chrome fades,
+     --motion-md is for drawer + backdrop. */
+  --motion-xs:            80ms;
+  --motion-sm:            150ms;
+  --motion-md:            220ms;
+  --motion-ease-standard: cubic-bezier(0.32, 0.72, 0.36, 1);
 }
 
 .app-theme-light {
@@ -79,6 +100,13 @@ html, body {
   --anim-accent-soft: #fde68a;
   --anim-surface:     #fffbeb;
   --anim-ink:         #78350f;
+
+  --paper-surface:    #faf6ee;
+  --paper-ink:        #1f1a12;
+  --paper-ink-muted:  #6b6558;
+  --paper-rule:       #e8e0cf;
+  --paper-hover:      rgba(31, 26, 18, 0.06);
+  --paper-accent:     rgba(31, 26, 18, 0.12);
 }
 .app-theme-dark {
   --anim-accent:      #fde68a;
@@ -86,6 +114,13 @@ html, body {
   --anim-accent-soft: #451a03;
   --anim-surface:     #0f172a;
   --anim-ink:         #fde68a;
+
+  --paper-surface:    #15110b;
+  --paper-ink:        #e8dfc9;
+  --paper-ink-muted:  #9a9283;
+  --paper-rule:       #2a2419;
+  --paper-hover:      rgba(232, 223, 201, 0.08);
+  --paper-accent:     rgba(232, 223, 201, 0.16);
 }
 .app-theme-light-hc {
   --anim-accent:      #000000;
@@ -93,6 +128,13 @@ html, body {
   --anim-accent-soft: #d4d4d4;
   --anim-surface:     #ffffff;
   --anim-ink:         #000000;
+
+  --paper-surface:    #ffffff;
+  --paper-ink:        #000000;
+  --paper-ink-muted:  #3f3f3f;
+  --paper-rule:       #000000;
+  --paper-hover:      rgba(0, 0, 0, 0.1);
+  --paper-accent:     rgba(0, 0, 0, 0.18);
 }
 .app-theme-dark-hc {
   --anim-accent:      #ffffff;
@@ -100,6 +142,13 @@ html, body {
   --anim-accent-soft: #262626;
   --anim-surface:     #000000;
   --anim-ink:         #ffffff;
+
+  --paper-surface:    #000000;
+  --paper-ink:        #ffffff;
+  --paper-ink-muted:  #c0c0c0;
+  --paper-rule:       #ffffff;
+  --paper-hover:      rgba(255, 255, 255, 0.15);
+  --paper-accent:     rgba(255, 255, 255, 0.25);
 }
 
 /* ── Shared: content motion ─────────────────────────────────────────────── */

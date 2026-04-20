@@ -284,26 +284,24 @@ export default function ReaderBottomBar({
         />
       )}
 
-      {visible && (
-        <div
-          data-testid="nav-bar"
-          className={`flex-shrink-0 ${navHeight} flex items-center justify-between px-6 backdrop-blur-sm border-t transition-colors ${
-            highContrast
-              ? darkMode
-                ? 'bg-black border-white/40 text-white'
-                : 'bg-white border-black/30 text-gray-900'
-              : darkMode
-                ? 'bg-slate-900/90 border-amber-700/30 text-amber-300'
-                : 'bg-white/90 border-amber-200/50 text-amber-800'
-          }`}
-        >
+      <div
+        data-testid="nav-bar"
+        aria-hidden={!visible}
+        className={`flex-shrink-0 ${navHeight} flex items-center justify-between px-6 border-t ${
+          visible ? 'opacity-100' : 'opacity-0 pointer-events-none'
+        }`}
+        style={{
+          backgroundColor: 'var(--paper-surface)',
+          color: 'var(--paper-ink)',
+          borderTopColor: 'var(--paper-rule)',
+          transition: 'opacity var(--motion-sm) var(--motion-ease-standard)',
+        }}
+      >
           <button
             data-testid="prev-page"
             onClick={onPrev}
             disabled={currentPage === 0 || speedReaderMode}
-            className={`${simplifiedUi ? 'p-2.5' : 'p-1'} rounded transition-colors disabled:opacity-30 ${
-              darkMode ? 'hover:bg-slate-700' : 'hover:bg-amber-100'
-            }`}
+            className={`${simplifiedUi ? 'p-2.5' : 'p-1'} rounded transition-colors disabled:opacity-30 hover:bg-[var(--paper-hover)]`}
           >
             <ChevronLeft size={simplifiedUi ? 28 : 20} />
           </button>
@@ -312,19 +310,12 @@ export default function ReaderBottomBar({
             onClick={onToggleTypoPanel}
             disabled={speedReaderMode || !showTypographyPanel}
             className={`flex flex-col items-center gap-0.5 min-w-0 overflow-hidden px-3 py-1 rounded-lg transition-colors disabled:opacity-30 ${
-              typoPanelOpen
-                ? darkMode
-                  ? 'bg-slate-700'
-                  : 'bg-amber-100'
-                : darkMode
-                  ? 'hover:bg-slate-800'
-                  : 'hover:bg-amber-50'
+              typoPanelOpen ? 'bg-[var(--paper-accent)]' : 'hover:bg-[var(--paper-hover)]'
             }`}
           >
             <span
-              className={`text-xs font-serif truncate max-w-full ${
-                darkMode ? 'text-amber-500' : 'text-amber-600'
-              }`}
+              className="text-xs font-serif truncate max-w-full"
+              style={{ color: 'var(--paper-ink-muted)' }}
             >
               {storyTitle}
             </span>
@@ -419,15 +410,12 @@ export default function ReaderBottomBar({
               data-testid="next-page"
               onClick={onNext}
               disabled={currentPage >= totalPages - 1 || speedReaderMode}
-              className={`${simplifiedUi ? 'p-2.5' : 'p-1'} rounded transition-colors disabled:opacity-30 ${
-                darkMode ? 'hover:bg-slate-700' : 'hover:bg-amber-100'
-              }`}
+              className={`${simplifiedUi ? 'p-2.5' : 'p-1'} rounded transition-colors disabled:opacity-30 hover:bg-[var(--paper-hover)]`}
             >
               <ChevronRight size={simplifiedUi ? 28 : 20} />
             </button>
           </div>
-        </div>
-      )}
+      </div>
     </>
   );
 }

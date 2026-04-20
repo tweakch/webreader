@@ -240,4 +240,91 @@ test.describe('Enhanced gestures', () => {
       .click({ position: { x: 360, y: 400 } });
     await expect(leftDrawer).toHaveAttribute('data-open', 'false');
   });
+
+  // --- Close-drag: swipe inside the open drawer in the close direction ----
+
+  test('open header drawer closes when swiping up on the drawer itself', async ({ page }) => {
+    await openFirstStory(page);
+    const viewport = page.viewportSize();
+    if (!viewport) throw new Error('no viewport');
+    const cx = viewport.width / 2;
+
+    // Open the header drawer with a swipe from the top edge.
+    await dispatchSwipe(page, '[data-testid="reader-viewport"]',
+      { x: cx, y: 10 }, { x: cx, y: 200 });
+    const drawer = page.locator('[data-testid="gesture-header-drawer"]');
+    await expect(drawer).toHaveAttribute('data-open', 'true');
+
+    // Now swipe up *on the drawer itself* in its close direction (up).
+    await dispatchSwipe(page, '[data-testid="gesture-header-drawer"]',
+      { x: cx, y: 250 }, { x: cx, y: 50 });
+    await expect(drawer).toHaveAttribute('data-open', 'false');
+  });
+
+  test('open footer drawer closes when swiping down on the drawer itself', async ({ page }) => {
+    await openFirstStory(page);
+    const reader = await page.locator('[data-testid="reader-viewport"]').boundingBox();
+    if (!reader) throw new Error('no viewport');
+    const cx = reader.x + reader.width / 2;
+    const yBottom = reader.y + reader.height - 10;
+
+    await dispatchSwipe(page, '[data-testid="reader-viewport"]',
+      { x: cx, y: yBottom }, { x: cx, y: yBottom - 220 });
+    const drawer = page.locator('[data-testid="gesture-footer-drawer"]');
+    await expect(drawer).toHaveAttribute('data-open', 'true');
+
+    const drawerBox = await drawer.boundingBox();
+    if (!drawerBox) throw new Error('no drawer box');
+    const drawerCy = drawerBox.y + 40;
+    await dispatchSwipe(page, '[data-testid="gesture-footer-drawer"]',
+      { x: cx, y: drawerCy }, { x: cx, y: drawerCy + 220 });
+    await expect(drawer).toHaveAttribute('data-open', 'false');
+  });
+
+  test('open header drawer does NOT close on a downward swipe (wrong direction)', async ({ page }) => {
+    await openFirstStory(page);
+    const viewport = page.viewportSize();
+    if (!viewport) throw new Error('no viewport');
+    const cx = viewport.width / 2;
+
+    await dispatchSwipe(page, '[data-testid="reader-viewport"]',
+      { x: cx, y: 10 }, { x: cx, y: 200 });
+    const drawer = page.locator('[data-testid="gesture-header-drawer"]');
+    await expect(drawer).toHaveAttribute('data-open', 'true');
+
+    // Swipe downward on the drawer — this is the opposite of the close
+    // direction, so the drawer must stay open.
+    await dispatchSwipe(page, '[data-testid="gesture-header-drawer"]',
+      { x: cx, y: 50 }, { x: cx, y: 250 });
+    await expect(drawer).toHaveAttribute('data-open', 'true');
+  });
+
+  // --- Browser gesture suppression (pull-to-refresh, overscroll-nav) ------
+
+  test('document suppresses native overscroll / pull-to-refresh via CSS', async ({ page }) => {
+    await page.goto('/app');
+    await page.waitForLoadState('networkidle');
+    const styles = await page.evaluate(() => {
+      const read = (el) => {
+        const s = window.getComputedStyle(el);
+        return {
+          overscrollY: s.overscrollBehaviorY || s.overscrollBehavior,
+          overscrollX: s.overscrollBehaviorX || s.overscrollBehavior,
+          touchAction: s.touchAction,
+        };
+      };
+      return {
+        html: read(document.documentElement),
+        body: read(document.body),
+      };
+    });
+    // Must resolve to `none`/`contain` (anything that is not `auto`) so the
+    // browser cannot chain overscroll into pull-to-refresh or swipe-back nav.
+    expect(['none', 'contain']).toContain(styles.html.overscrollY);
+    expect(['none', 'contain']).toContain(styles.body.overscrollY);
+    expect(['none', 'contain']).toContain(styles.html.overscrollX);
+    expect(['none', 'contain']).toContain(styles.body.overscrollX);
+    // `touch-action: manipulation` kills the 300ms tap delay + double-tap zoom.
+    expect(styles.body.touchAction).toMatch(/manipulation|none/);
+  });
 });

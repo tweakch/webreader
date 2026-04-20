@@ -54,6 +54,52 @@ describe('PageContent', () => {
     expect(screen.getByText('Es war einmal.')).toBeInTheDocument();
   });
 
+  it('bolds first letter on paragraph starts', () => {
+    render();
+    const p = screen.getByText('Es war einmal.');
+    expect(p.className).toContain('first-letter:font-bold');
+  });
+
+  it('does not bold first letter when page starts mid-paragraph', () => {
+    // Page 1 ends mid-paragraph (last token isPara=false), so page 2's first
+    // paragraph is a continuation and its first letter must not be bolded.
+    const page1 = {
+      hasTitle: true,
+      tokens: [
+        { word: 'Es', isPara: false },
+        { word: 'war', isPara: false },
+      ],
+    };
+    const page2 = {
+      hasTitle: false,
+      tokens: [
+        { word: 'einmal.', isPara: true },
+        { word: 'Dann', isPara: false },
+        { word: 'geschah', isPara: false },
+        { word: 'etwas.', isPara: true },
+      ],
+    };
+    render({ pages: [page1, page2], currentPage: 1, totalPages: 2 });
+    const continuation = screen.getByText('einmal.');
+    expect(continuation.className).not.toContain('first-letter:font-bold');
+    const newPara = screen.getByText('Dann geschah etwas.');
+    expect(newPara.className).toContain('first-letter:font-bold');
+  });
+
+  it('bolds first letter when previous page ended on a paragraph boundary', () => {
+    const page1 = {
+      hasTitle: true,
+      tokens: [{ word: 'Ende.', isPara: true }],
+    };
+    const page2 = {
+      hasTitle: false,
+      tokens: [{ word: 'Neuer', isPara: false }, { word: 'Absatz.', isPara: true }],
+    };
+    render({ pages: [page1, page2], currentPage: 1, totalPages: 2 });
+    const p = screen.getByText('Neuer Absatz.');
+    expect(p.className).toContain('first-letter:font-bold');
+  });
+
   it('returns null when the current page does not exist', () => {
     const { container } = render({ pages: [], currentPage: 0 });
     expect(container).toBeEmptyDOMElement();

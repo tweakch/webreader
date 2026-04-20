@@ -299,6 +299,12 @@ const GrimmMarchenApp = () => {
     return list;
   }, [stories, blacklist, ageFilterActive, childAge]);
 
+  const visibleAdaptionsByParent = React.useMemo(() => {
+    if (!ageFilterActive || typeof childAge !== 'number') return adaptionsByParent;
+    const fits = a => (a.ageMin == null || childAge >= a.ageMin) && (a.ageMax == null || childAge <= a.ageMax);
+    return Object.fromEntries(Object.entries(adaptionsByParent).map(([id, list]) => [id, list.filter(fits)]));
+  }, [adaptionsByParent, ageFilterActive, childAge]);
+
   const normalizedSearchTerm = searchTerm.trim().toLowerCase();
 
   const titleMatchedStoryIds = React.useMemo(() => {
@@ -975,7 +981,7 @@ const GrimmMarchenApp = () => {
               controlsVisible={controlsVisible}
               onToggleControls={setControlsVisible}
               showAdaptionSwitcher={showAdaptionSwitcher}
-              adaptionsByParent={adaptionsByParent}
+              adaptionsByParent={visibleAdaptionsByParent}
               onSelectVariant={selectVariant}
               showTypographyPanel={showTypographyPanel}
               typoPanelOpen={typoPanelOpen}

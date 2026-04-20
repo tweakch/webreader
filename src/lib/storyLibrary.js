@@ -79,11 +79,15 @@ for (const pkg of collections) {
           const fmBlock = fmMatch ? fmMatch[1] : '';
           const adaptionNameMatch = fmBlock.match(/^adaption:\s*"(.+)"$/m);
           const titleMatch = fmBlock.match(/^title:\s*"(.+)"$/m);
+          const ageMinMatch = fmBlock.match(/^ageMin:\s*(\d+)$/m);
+          const ageMaxMatch = fmBlock.match(/^ageMax:\s*(\d+)$/m);
           const afterFm = fmMatch ? adaptionRaw.slice(fmMatch[0].length) : adaptionRaw;
           const content = afterFm.replace(/^\*\*[^\n]*\*\*\n\n/, '').trimEnd();
           return {
             adaptionName: labelByName.get(name) || (adaptionNameMatch ? adaptionNameMatch[1] : name),
             title: titleMatch ? titleMatch[1] : null,
+            ageMin: ageMinMatch ? parseInt(ageMinMatch[1], 10) : null,
+            ageMax: ageMaxMatch ? parseInt(ageMaxMatch[1], 10) : null,
             content,
           };
         });
@@ -304,9 +308,17 @@ export async function loadAdaptionsByStoryId(storyId) {
         const adaptionName = adaptionNameMatch ? adaptionNameMatch[1] : parts[parts.length - 2];
         const titleMatch = fmBlock.match(/^title:\s*"(.+)"$/m);
         const title = titleMatch ? titleMatch[1] : null;
+        const ageMinMatch = fmBlock.match(/^ageMin:\s*(\d+)$/m);
+        const ageMaxMatch = fmBlock.match(/^ageMax:\s*(\d+)$/m);
         const afterFm = fmMatch ? raw.slice(fmMatch[0].length) : raw;
         const content = afterFm.replace(/^\*\*[^\n]*\*\*\n\n/, '').trimEnd();
-        return { adaptionName, title, content };
+        return {
+          adaptionName,
+          title,
+          ageMin: ageMinMatch ? parseInt(ageMinMatch[1], 10) : null,
+          ageMax: ageMaxMatch ? parseInt(ageMaxMatch[1], 10) : null,
+          content,
+        };
       }),
   );
 

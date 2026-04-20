@@ -14,7 +14,8 @@
       "atuType": "510A",
       "coverImage": "cover.svg",
       "adaptions": [
-        { "name": "schweizerdeutsch", "label": "Schweizer Fassung" }
+        { "name": "schweizerdeutsch", "label": "Schweizer Fassung" },
+        { "name": "contemporary", "label": "Moderne Fassung" }
       ]
     },
     {
@@ -22,28 +23,40 @@
       "title": "Hänsel und Gretel",
       "khmNumber": 15,
       "atuType": "327A",
-      "coverImage": "cover.svg"
+      "coverImage": "cover.svg",
+      "adaptions": [
+        { "name": "contemporary", "label": "Moderne Fassung" }
+      ]
     },
     {
       "slug": "rapunzel",
       "title": "Rapunzel",
       "khmNumber": 12,
       "atuType": "310",
-      "coverImage": "cover.svg"
+      "coverImage": "cover.svg",
+      "adaptions": [
+        { "name": "contemporary", "label": "Moderne Fassung" }
+      ]
     },
     {
       "slug": "rotkaeppchen",
       "title": "Rotkäppchen",
       "khmNumber": 26,
       "atuType": "333",
-      "coverImage": "cover.svg"
+      "coverImage": "cover.svg",
+      "adaptions": [
+        { "name": "contemporary", "label": "Moderne Fassung" }
+      ]
     },
     {
       "slug": "schneewittchen",
       "title": "Schneewittchen",
       "khmNumber": 53,
       "atuType": "709",
-      "coverImage": "cover.svg"
+      "coverImage": "cover.svg",
+      "adaptions": [
+        { "name": "contemporary", "label": "Moderne Fassung" }
+      ]
     }
   ]
 }

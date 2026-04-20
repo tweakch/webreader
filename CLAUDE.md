@@ -62,14 +62,16 @@ Curated collections live as npm packages under `packages/collection-*` (workspac
 
 ### Key `data-testid` attributes
 
+The full, authoritative list of literal `data-testid` values lives at `tests/unit/guidelines/__fixtures__/data-testids.txt` and is enforced by `tests/unit/guidelines/data-testid.test.js`. Prefer reading that snapshot over scanning the codebase. The callouts below are the ones Playwright flows rely on most — don't remove them without updating the tests.
+
 Used by Playwright tests — don't remove them:
-`reader-viewport`, `page-content`, `nav-bar`, `page-counter`, `prev-page`, `next-page`, `font-increase`, `font-decrease`, `menu-toggle`, `source-button`, `story-button`
+`reader-viewport`, `page-content`, `nav-bar`, `page-counter`, `prev-page`, `next-page`, `font-increase`, `font-decrease`, `menu-toggle`, `source-button`, `story-button`, `back-to-sources`
 
 Story-directories flag (visible when `story-directories` flag is on):
 `directory-button` (directory list items), `back-to-directories` (back button from story list to directory list)
 
 Speed reader (visible when `speed-reader` flag is on):
-`speed-reader-toggle` (nav-bar button to enter/exit mode), `speed-reader-word` (RSVP word display), `speed-reader-play` (play/pause), `speed-reader-back` (back to sentence start), `speed-reader-wpm-decrease`, `speed-reader-wpm-increase`
+`speed-reader-toggle` (nav-bar button to enter/exit mode), `speed-reader-word` (RSVP word display), `speed-reader-play` (play/pause), `speed-reader-back` (back to sentence start), `speed-reader-wpm-decrease`, `speed-reader-wpm-increase`, `speed-reader-font-decrease`, `speed-reader-font-increase`, `speed-reader-preview-decrease`, `speed-reader-preview-increase`
 
 ORP speed reader (visible when `speedreader-orp` flag is on and speed reader mode is active):
 `orp-panel-toggle` (gear button in RSVP controls row), `orp-preview` (live preview in panel), `orp-method-second-letter`, `orp-method-center`, `orp-method-fixed-index` (ORP method buttons), `orp-letter-index-input` (fixed index number input), `orp-highlight-toggle`, `orp-color-input` (letter highlight controls), `orp-bars-toggle`, `orp-bar-length` (guide bars controls), `orp-marker-toggle`, `orp-fixation-x`, `orp-fixation-y` (fixation point sliders)

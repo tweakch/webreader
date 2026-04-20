@@ -13,6 +13,12 @@ import schneewittchenCover from './stories/schneewittchen/cover.svg?url';
 
 import aschenputtelSchweizerdeutsch from './stories/aschenputtel/adaptions/schweizerdeutsch/content.md?raw';
 
+import aschenputtelContemporary from './stories/aschenputtel/adaptions/contemporary/content.md?raw';
+import hansel_und_gretelContemporary from './stories/hansel_und_gretel/adaptions/contemporary/content.md?raw';
+import rapunzelContemporary from './stories/rapunzel/adaptions/contemporary/content.md?raw';
+import rotkaeppchenContemporary from './stories/rotkaeppchen/adaptions/contemporary/content.md?raw';
+import schneewittchenContemporary from './stories/schneewittchen/adaptions/contemporary/content.md?raw';
+
 import openingIllustration from './assets/opening.svg?url';
 import endingIllustration from './assets/ending.svg?url';
 import ornamentIllustration from './assets/ornament.svg?url';
@@ -44,6 +50,19 @@ export const illustrations = {
 export const adaptions = {
   aschenputtel: {
     schweizerdeutsch: aschenputtelSchweizerdeutsch,
+    contemporary: aschenputtelContemporary,
+  },
+  hansel_und_gretel: {
+    contemporary: hansel_und_gretelContemporary,
+  },
+  rapunzel: {
+    contemporary: rapunzelContemporary,
+  },
+  rotkaeppchen: {
+    contemporary: rotkaeppchenContemporary,
+  },
+  schneewittchen: {
+    contemporary: schneewittchenContemporary,
   },
 };
 

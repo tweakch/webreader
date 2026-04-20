@@ -8,7 +8,6 @@ import ReaderBottomBar from './ReaderBottomBar';
 import SpeedReaderView from '../ui/SpeedReaderView';
 import TypographyPanel from '../ui/TypographyPanel';
 import AudioPlayer from '../ui/AudioPlayer';
-import ReaderHeaderDrawer from './gestureContent/ReaderHeaderDrawer';
 import ReaderRightDrawer from './gestureContent/ReaderRightDrawer';
 
 // CTC: Wire post-story content slot — see:
@@ -94,8 +93,6 @@ export default function ReaderView({
   simplifiedUi,
   showIllustrations,
   showEnhancedGestures,
-  onOpenProfile,
-  onOpenTypography,
   onSetFontSize,
   maxFontSize,
   showFontSizeControls,
@@ -106,15 +103,12 @@ export default function ReaderView({
   return (
     <>
       {showEnhancedGestures && !speedReaderMode && (
-        <>
-          <ReaderHeaderDrawer onOpenProfile={onOpenProfile} onOpenTypography={onOpenTypography} />
-          <ReaderRightDrawer
-            pages={pages}
-            currentPage={currentPage}
-            onGoToPage={onGoToPage}
-            storyTitle={selectedStory?.title}
-          />
-        </>
+        <ReaderRightDrawer
+          pages={pages}
+          currentPage={currentPage}
+          onGoToPage={onGoToPage}
+          storyTitle={selectedStory?.title}
+        />
       )}
       {/* Reading viewport */}
       <div

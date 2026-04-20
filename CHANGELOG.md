@@ -19,6 +19,14 @@ Release populated from the matching section below.
   (`nav-bar`, `prev-page`, `next-page`, `page-counter`, `tts-toggle`,
   `tts-stop`, `speed-reader-toggle`, `gesture-footer-drawer-grid`,
   `gesture-page-*`).
+- Merged the persistent header and the gesture header drawer into a single
+  `AppTopBar` component. The persistent header (menu toggle, title, font
+  size, voice control, theme toggle) and the swipe-down drawer (profile +
+  typography shortcuts) are now one coherent surface, registered at the app
+  root. The drawer registers only inside the reader (a story is selected) and
+  when enhanced gestures are on. All existing `data-testid`s are preserved
+  (`font-decrease`, `font-increase`, `menu-toggle`,
+  `gesture-header-open-profile`, `gesture-header-open-typography`).
 
 ### Added
 - **Senior-targeted features**: two new feature flags, both default `off`.

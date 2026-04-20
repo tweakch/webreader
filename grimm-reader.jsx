@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect, useCallback } from 'react';
-import { Menu, X, Plus, Minus, User } from 'lucide-react';
+import { User } from 'lucide-react';
 import { FEATURES } from './features';
 import { useAppFeatureFlags } from './hooks/useAppFeatureFlags';
 import { useAppAnimation } from './hooks/useAppAnimation';
@@ -14,10 +14,10 @@ import VoiceControl from './components/VoiceControl';
 import { useBreadcrumbNavigation } from './hooks/useBreadcrumbNavigation';
 import { ThemeContext } from './ui/ThemeContext';
 import Toggle from './ui/Toggle';
-import IconButton from './ui/IconButton';
 import PersonasDocsView from './components/PersonasDocsView';
 import HomeView from './components/HomeView';
 import ReaderView from './components/ReaderView';
+import AppTopBar from './components/AppTopBar';
 import { pickSidebarComponent, pickProfilePanelComponent } from './src/lib/abVariantComponents';
 import LeaveAppDialog from './components/LeaveAppDialog';
 import TypographyPanel, { LINE_HEIGHTS, WORD_SPACINGS, FONT_FAMILIES } from './ui/TypographyPanel';
@@ -26,7 +26,7 @@ import SpeedReaderView from './ui/SpeedReaderView';
 import DebugOverlay from './components/DebugOverlay';
 import GestureDrawerViewport from './components/GestureDrawerViewport';
 import { GestureDrawerProvider } from './components/GestureDrawerContext';
-import { SidebarLeftSlot, MenuToggleButton } from './components/SidebarDrawerBridge';
+import { SidebarLeftSlot } from './components/SidebarDrawerBridge';
 import { useIsMobile } from './hooks/useIsMobile';
 import { getStoryIndex, getCollectionIndex, loadStoryById, loadStoryMetadataById, loadAdaptionsByStoryId, loadStoryAudioMap } from './src/lib/storyLibrary';
 
@@ -703,111 +703,58 @@ const GrimmMarchenApp = () => {
         </div>
       )}
 
-      {/* Header */}
-      {controlsVisible && (
-      <header className={`flex-shrink-0 backdrop-blur-md transition-colors duration-300 z-40 ${
-        highContrast
-          ? (darkMode ? 'bg-black border-white/40' : 'bg-white border-black/30')
-          : darkMode
-          ? 'bg-slate-900/80 border-amber-700/30'
-          : 'bg-white/80 border-amber-200/50'
-      } border-b`}>
-        <div className="h-16 px-4 flex items-center justify-between">
-          <div className="flex items-center gap-3 min-w-0 overflow-hidden">
-            <MenuToggleButton
-              enabled={useDrawerSidebar}
-              menuOpen={menuOpen}
-              onMenuOpenChange={setSidebarOpen}
-              className="lg:hidden"
-            />
-            <h1 className={`text-2xl font-serif font-bold tracking-wide ${
-              darkMode ? 'text-amber-200' : 'text-amber-900'
-            }`}>
-              {selectedStory ? '' : 'Märchenschatz'}
-            </h1>
-          </div>
-
-          {selectedStory && showFontSizeControls && (
-            <div className="flex items-center gap-2">
-              <IconButton
-                data-testid="font-decrease"
-                onClick={() => setFontSize(Math.max(14, fontSize - 2))}
-              >
-                <Minus size={18} />
-              </IconButton>
-              <span className={`text-sm font-medium w-12 text-center ${
-                darkMode ? 'text-amber-200' : 'text-amber-900'
-              }`}>
-                {fontSize}
-              </span>
-              <IconButton
-                data-testid="font-increase"
-                onClick={() => setFontSize(Math.min(maxFontSize, fontSize + 2))}
-              >
-                <Plus size={18} />
-              </IconButton>
-            </div>
-          )}
-
-          <div className="flex items-center gap-2">
-            {showVoiceControl && (
-              <VoiceControl
-                showVoiceControl={showVoiceControl}
-                showVoiceResume={showVoiceResume}
-                showVoiceNavigation={showVoiceNavigation}
-                showVoiceReadingControl={showVoiceReadingControl}
-                showVoiceDiscovery={showVoiceDiscovery}
-                showVoiceHandsFree={showVoiceHandsFree}
-                showTextToSpeech={showTextToSpeech}
-                ttsSupported={ttsSupported}
-                stories={visibleStories}
-                selectedStory={selectedStory}
-                currentPage={currentPage}
-                totalPages={totalPages}
-                resumeSession={resumeSession}
-                favorites={favorites}
-                completedStories={completedStories}
-                onSelectStory={handleSelectStory}
-                onResume={(story, page) => {
-                  pendingResumePageRef.current = page;
-                  handleSelectStory(story);
-                }}
-                onGoToPage={goToPage}
-                onGoHome={goBack}
-                onShowFavorites={() => setFavoritesOnly(true)}
-                onSearch={(q) => setSearchTerm(q)}
-                onToggleTts={handleToggleTts}
-                onStopTts={handleStopTts}
-                ttsRateIdx={ttsRateIdx}
-                onSetTtsRateIdx={setTtsRateIdx}
-                ttsRatesLength={TTS_RATES.length}
-              />
-            )}
-            <button
-              onClick={() => setTheme(t => showHighContrastTheme
-                ? (t === 'light-hc' ? 'dark-hc' : 'light-hc')
-                : (t === 'light' ? 'dark' : t === 'dark' ? 'system' : 'light')
-              )}
-              title={
-                theme === 'light'    ? 'Switch to dark mode' :
-                theme === 'dark'     ? 'Switch to system theme' :
-                theme === 'system'   ? 'Switch to light mode' :
-                theme === 'light-hc' ? 'Switch to dark high contrast' :
-                                       'Switch to light high contrast'
-              }
-              className={`px-4 py-2 rounded-lg font-medium transition-all ${
-                theme === 'dark-hc'  ? 'bg-white text-black hover:bg-gray-100' :
-                theme === 'light-hc' ? 'bg-black text-white hover:bg-gray-900' :
-                darkMode             ? 'bg-amber-200 text-slate-900 hover:bg-amber-300' :
-                                       'bg-amber-900 text-white hover:bg-amber-800'
-              }`}
-            >
-              {theme === 'light' ? '🌙' : theme === 'dark' ? '🖥️' : theme === 'system' ? '☀️' : theme === 'light-hc' ? '🌙' : '☀️'}
-            </button>
-          </div>
-        </div>
-      </header>
-      )}
+      {/* Top surface: persistent header + complementary swipe-down drawer. */}
+      <AppTopBar
+        visible={controlsVisible}
+        selectedStory={selectedStory}
+        useDrawerSidebar={useDrawerSidebar}
+        menuOpen={menuOpen}
+        onMenuOpenChange={setSidebarOpen}
+        fontSize={fontSize}
+        maxFontSize={maxFontSize}
+        onSetFontSize={setFontSize}
+        showFontSizeControls={showFontSizeControls}
+        voiceControl={showVoiceControl ? (
+          <VoiceControl
+            showVoiceControl={showVoiceControl}
+            showVoiceResume={showVoiceResume}
+            showVoiceNavigation={showVoiceNavigation}
+            showVoiceReadingControl={showVoiceReadingControl}
+            showVoiceDiscovery={showVoiceDiscovery}
+            showVoiceHandsFree={showVoiceHandsFree}
+            showTextToSpeech={showTextToSpeech}
+            ttsSupported={ttsSupported}
+            stories={visibleStories}
+            selectedStory={selectedStory}
+            currentPage={currentPage}
+            totalPages={totalPages}
+            resumeSession={resumeSession}
+            favorites={favorites}
+            completedStories={completedStories}
+            onSelectStory={handleSelectStory}
+            onResume={(story, page) => {
+              pendingResumePageRef.current = page;
+              handleSelectStory(story);
+            }}
+            onGoToPage={goToPage}
+            onGoHome={goBack}
+            onShowFavorites={() => setFavoritesOnly(true)}
+            onSearch={(q) => setSearchTerm(q)}
+            onToggleTts={handleToggleTts}
+            onStopTts={handleStopTts}
+            ttsRateIdx={ttsRateIdx}
+            onSetTtsRateIdx={setTtsRateIdx}
+            ttsRatesLength={TTS_RATES.length}
+          />
+        ) : null}
+        theme={theme}
+        onSetTheme={setTheme}
+        showHighContrastTheme={showHighContrastTheme}
+        showEnhancedGestures={showEnhancedGestures}
+        speedReaderMode={speedReaderMode}
+        onOpenProfile={handleOpenProfile}
+        onOpenTypography={handleOpenTypographyPanel}
+      />
 
       {/* Main Content Area */}
       <div className="flex-1 flex overflow-hidden">
@@ -1031,8 +978,6 @@ const GrimmMarchenApp = () => {
               simplifiedUi={showSimplifiedUi}
               showIllustrations={showIllustrations}
               showEnhancedGestures={showEnhancedGestures}
-              onOpenProfile={handleOpenProfile}
-              onOpenTypography={handleOpenTypographyPanel}
               onSetFontSize={setFontSize}
               maxFontSize={maxFontSize}
               showFontSizeControls={showFontSizeControls}

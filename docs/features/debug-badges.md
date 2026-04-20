@@ -39,6 +39,20 @@ The control panel is opened from the bug icon in the bottom-right corner
 (`debug-panel-toggle`). Clicking a badge still opens the modal with
 `data-testid`, element tag, size, `aria-label`, and `role`.
 
+## How to enable
+
+Three common paths:
+
+- **Profile panel** → the feature overrides list flips `debug-badges` per-browser
+  (persisted to `localStorage` under `wr-feature-overrides`).
+- **Vercel Toolbar** → on a deployed preview, the Flags panel lists every flag
+  from `flags.json` via `api/.well-known/vercel/flags.js`.
+- **Default change** → edit `flags.json` → `debug-badges.defaultVariant` to
+  `"on"` (affects every visitor; only do this in an experiment branch).
+
+The `localStorage` override is a browser-local boolean — clear
+`wr-feature-overrides` to reset.
+
 ## Behavior
 
 - `DebugOverlay` is rendered once at the root when the flag is on.

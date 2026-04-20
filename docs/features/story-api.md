@@ -41,6 +41,12 @@ Public REST/GraphQL API exposing story content, metadata, and semantic graph dat
 - Authentication: API key per developer account
 - Rate limiting: standard tiered by plan
 
+### Today's foothold
+
+The repo already exposes one public endpoint at `api/.well-known/vercel/flags.js` (Vercel Functions, reads `flags.json`, gated by `FLAGS_SECRET`). Any REST surface can live alongside it under `api/` — the Vercel deployment model already routes `api/**.js` as serverless functions, no extra wiring required.
+
+Curated [collections](../collections.md) (`@tweakch/collection-*` npm packages) are a complementary distribution channel: stories as installable packages rather than fetched over HTTP.
+
 ## Embeddable Reader
 
 A `<story-reader src="story-id">` web component that developers can drop into any page — same reader engine, zero dependencies.
@@ -51,3 +57,4 @@ A `<story-reader src="story-id">` web component that developers can drop into an
 - [Story Remix](story-remix.md)
 - [Story Directories](story-directories.md) — existing app flag (structural foundation)
 - [Deep Search](deep-search.md) — existing app flag (search layer)
+- [Curated Collections](../collections.md) — complementary npm-package distribution

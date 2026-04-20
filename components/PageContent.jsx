@@ -109,14 +109,21 @@ export default function PageContent({
               paras.push({ text: currentPara.join(' '), isComplete: false });
             }
 
+            // The first paragraph on a page is a continuation (not a real start)
+            // when the previous page ended mid-paragraph.
+            const prevPage = currentPage > 0 ? pages[currentPage - 1] : null;
+            const prevLastToken = prevPage?.tokens?.[prevPage.tokens.length - 1];
+            const firstParaIsContinuation = !!prevLastToken && !prevLastToken.isPara;
+
             const ornamentUrl = showIllustrations && illustrations?.ornament;
 
             return paras.map((para, idx) => {
               const isLastOnPage = idx === paras.length - 1;
               const showOrnament = ornamentUrl && para.isComplete && !isLastOnPage;
+              const isParagraphStart = idx > 0 || !firstParaIsContinuation;
               return (
                 <div key={idx}>
-                  <p className="mb-6 first-letter:font-bold">{para.text}</p>
+                  <p className={isParagraphStart ? 'mb-6 first-letter:font-bold' : 'mb-6'}>{para.text}</p>
                   {showOrnament && (
                     <div
                       data-testid="paragraph-ornament"

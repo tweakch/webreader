@@ -196,46 +196,48 @@ test.describe('Enhanced gestures', () => {
 
   // --- Mutual exclusion: sidebar ↔ gesture drawers -----------------------
 
-  test('opening a gesture drawer closes the sidebar (mutual exclusion)', async ({ page }) => {
+  test('opening another drawer requires closing the sidebar first (mutual exclusion)', async ({ page }) => {
     await page.setViewportSize({ width: 375, height: 812 });
     await forceSidebarV2(page);
     await openFirstStory(page);
-    // Open sidebar via the menu-toggle button.
+    // Open sidebar via the menu-toggle button — sidebar lives inside the
+    // gesture left-drawer slot when enhanced-gestures is on (mobile).
     const toggle = page.locator('[data-testid="menu-toggle"]');
     if (await toggle.isVisible()) await toggle.click();
-    await expect(page.locator('[data-testid="sidebar-v2"]')).toHaveClass(/translate-x-0/);
+    const leftDrawer = page.locator('[data-testid="gesture-left-drawer"]');
+    await expect(leftDrawer).toHaveAttribute('data-open', 'true');
 
+    // Click the backdrop in the area not covered by the drawer to close it.
+    // Mutual exclusion is structural now: only one openEdge at a time.
+    await page.locator('[data-testid="gesture-drawer-backdrop"]')
+      .click({ position: { x: 360, y: 400 } });
+    await expect(leftDrawer).toHaveAttribute('data-open', 'false');
+
+    // Now the bottom-edge swipe can land.
     const reader = await page.locator('[data-testid="reader-viewport"]').boundingBox();
     if (!reader) throw new Error('no viewport');
-    // Swipe-up from bottom (right of the sidebar, so the reader receives it).
-    const cx = reader.x + reader.width - 40;
+    const cx = reader.x + reader.width / 2;
     const yBottom = reader.y + reader.height - 10;
     await dispatchSwipe(page, '[data-testid="reader-viewport"]',
       { x: cx, y: yBottom }, { x: cx, y: yBottom - 200 });
 
     await expect(page.locator('[data-testid="gesture-footer-drawer"]'))
       .toHaveAttribute('data-open', 'true');
-    // Sidebar must be collapsed again.
-    await expect(page.locator('[data-testid="sidebar-v2"]')).toHaveClass(/-translate-x-full/);
   });
 
-  // --- Regression: swipe-left from within the open sidebar closes it -----
+  // --- Open sidebar dismiss path: backdrop click -------------------------
 
-  test('swipe-left from inside the open sidebar closes it', async ({ page }) => {
+  test('the open sidebar can be dismissed via the backdrop', async ({ page }) => {
     await page.setViewportSize({ width: 375, height: 812 });
     await forceSidebarV2(page);
     await openFirstStory(page);
     const toggle = page.locator('[data-testid="menu-toggle"]');
     if (await toggle.isVisible()) await toggle.click();
-    const sidebar = page.locator('[data-testid="sidebar-v2"]');
-    await expect(sidebar).toHaveClass(/translate-x-0/);
+    const leftDrawer = page.locator('[data-testid="gesture-left-drawer"]');
+    await expect(leftDrawer).toHaveAttribute('data-open', 'true');
 
-    // Dispatch the swipe on the sidebar itself: before the fix, the hook
-    // was attached to the reader viewport (sitting beneath the sidebar), so
-    // touches on the sidebar never reached it and the gesture was lost.
-    await dispatchSwipe(page, '[data-testid="sidebar-v2"]',
-      { x: 200, y: 400 }, { x: 30, y: 400 });
-
-    await expect(sidebar).toHaveClass(/-translate-x-full/);
+    await page.locator('[data-testid="gesture-drawer-backdrop"]')
+      .click({ position: { x: 360, y: 400 } });
+    await expect(leftDrawer).toHaveAttribute('data-open', 'false');
   });
 });

@@ -46,20 +46,27 @@ export default function Sidebar({
   simplifiedUi = false,
   expanded = false,
   onCollapseExpanded,
+  embedded = false,
   showAgeFilter = false,
   childAge = null,
   onChildAgeChange,
 }) {
   const { dark: darkMode } = useTheme();
 
+  // Embedded: an outer EdgeDrawer owns positioning, transform, and background.
+  // Render as a plain flex column that fills the drawer.
+  const asideClassName = embedded
+    ? 'flex flex-col h-full overflow-hidden'
+    : `fixed lg:static top-16 bottom-0 left-0 ${expanded ? 'w-96 lg:w-96' : 'w-80 lg:w-72'} z-30 transform transition-all duration-300 flex flex-col ${
+        menuOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'
+      } ${
+        darkMode
+          ? 'bg-slate-950/95 border-amber-700/30'
+          : 'bg-white/95 border-amber-200/50'
+      } border-r backdrop-blur-sm`;
+
   return (
-    <aside className={`fixed lg:static top-16 bottom-0 left-0 ${expanded ? 'w-96 lg:w-96' : 'w-80 lg:w-72'} z-30 transform transition-all duration-300 flex flex-col ${
-      menuOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'
-    } ${
-      darkMode
-        ? 'bg-slate-950/95 border-amber-700/30'
-        : 'bg-white/95 border-amber-200/50'
-    } border-r backdrop-blur-sm`}>
+    <aside data-embedded={embedded ? 'true' : 'false'} className={asideClassName}>
       {expanded && (
         <div
           data-testid="sidebar-expanded-bar"

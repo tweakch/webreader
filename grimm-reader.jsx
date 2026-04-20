@@ -26,6 +26,8 @@ import SpeedReaderView from './ui/SpeedReaderView';
 import DebugOverlay from './components/DebugOverlay';
 import GestureDrawerViewport from './components/GestureDrawerViewport';
 import { GestureDrawerProvider } from './components/GestureDrawerContext';
+import { SidebarLeftSlot, MenuToggleButton } from './components/SidebarDrawerBridge';
+import { useIsMobile } from './hooks/useIsMobile';
 import { getStoryIndex, getCollectionIndex, loadStoryById, loadStoryMetadataById, loadAdaptionsByStoryId, loadStoryAudioMap } from './src/lib/storyLibrary';
 
 const SPEED_READER_FONT_SIZE = {
@@ -209,7 +211,7 @@ const GrimmMarchenApp = () => {
       });
     }
     setSelectedStory(null);
-    setMenuOpen(false);
+    setSidebarOpen(false);
     if (wasProfileOpen) setProfileOpen(false);
     if (wasDocsOpen) { setDocsOpen(false); setDocsAnchor(null); }
     if (wasPersonasOpen) setPersonasDocsOpen(false);
@@ -578,6 +580,20 @@ const GrimmMarchenApp = () => {
 
   const [sidebarExpanded, setSidebarExpanded] = useState(false);
   const [sidebarDragProgress, setSidebarDragProgress] = useState(0);
+  const isMobile = useIsMobile();
+  const useDrawerSidebar = showEnhancedGestures && isMobile;
+  const sidebarControllerRef = useRef(null);
+  // Unified sidebar open/close — sets the legacy menuOpen state and (when in
+  // drawer mode) drives the drawer system in the same batch, so existing
+  // setMenuOpen callsites (handleSelectStory, search focus, etc.) keep
+  // working without a two-way state sync loop.
+  const setSidebarOpen = useCallback((next) => {
+    setMenuOpen(next);
+    const ctl = sidebarControllerRef.current;
+    if (!ctl) return;
+    if (next) ctl.open();
+    else ctl.close();
+  }, []);
 
   // When HC flag is toggled, map between normal and HC theme variants
   useEffect(() => {
@@ -604,7 +620,6 @@ const GrimmMarchenApp = () => {
 
   const readingMinutes = Math.ceil(storyWordCount / 200);
 
-  const toggleMenu = () => setMenuOpen(!menuOpen);
   const handleCloseApp = useCallback(() => {
     if (showAppAnimation) {
       window.dispatchEvent(new CustomEvent('app:request-close'));
@@ -658,7 +673,7 @@ const GrimmMarchenApp = () => {
     pendingResumePageRef.current = page;
     handleSelectStory(story);
   }, [handleSelectStory, pendingResumePageRef]);
-  const handleFocusSearch = useCallback(() => setMenuOpen(true), []);
+  const handleFocusSearch = useCallback(() => setSidebarOpen(true), [setSidebarOpen]);
   const handleToggleFavoritesOnly = useCallback(() => setFavoritesOnly((v) => !v), [setFavoritesOnly]);
   const handleOpenTypographyPanel = useCallback(
     () => { if (showTypographyPanel) setTypoPanelOpen(true); },
@@ -693,13 +708,12 @@ const GrimmMarchenApp = () => {
       } border-b`}>
         <div className="h-16 px-4 flex items-center justify-between">
           <div className="flex items-center gap-3 min-w-0 overflow-hidden">
-            <IconButton
-              data-testid="menu-toggle"
-              onClick={toggleMenu}
+            <MenuToggleButton
+              enabled={useDrawerSidebar}
+              menuOpen={menuOpen}
+              onMenuOpenChange={setSidebarOpen}
               className="lg:hidden"
-            >
-              {menuOpen ? <X size={24} /> : <Menu size={24} />}
-            </IconButton>
+            />
             <h1 className={`text-2xl font-serif font-bold tracking-wide ${
               darkMode ? 'text-amber-200' : 'text-amber-900'
             }`}>
@@ -791,58 +805,78 @@ const GrimmMarchenApp = () => {
 
       {/* Main Content Area */}
       <div className="flex-1 flex overflow-hidden">
-        {/* Sidebar (A/B variant picked by pickSidebarComponent) */}
-        <SidebarComponent
-          menuOpen={menuOpen}
-          onMenuToggle={() => setMenuOpen(false)}
-          onMenuOpenChange={setMenuOpen}
-          expanded={showEnhancedGestures && sidebarExpanded} onCollapseExpanded={() => setSidebarExpanded(false)}
-          dragProgress={showEnhancedGestures ? sidebarDragProgress : 0}
-          externalGestures={showEnhancedGestures}
-          searchTerm={searchTerm}
-          onSearchChange={setSearchTerm}
-          showDeepSearch={showDeepSearch}
-          favoritesOnly={favoritesOnly}
-          onToggleFavoritesOnly={() => setFavoritesOnly(v => !v)}
-          showFavoritesOnlyToggle={showFavoritesOnlyToggle}
-          showFavorites={showFavorites}
-          selectedStory={selectedStory}
-          activeSource={activeSource}
-          onSelectSource={handleSelectSource}
-          activeDirectory={activeDirectory}
-          onSelectDirectory={handleSelectDirectory}
-          showStoryDirectories={showStoryDirectories}
-          directoriesBySource={directoriesBySource}
-          onSelectStory={handleSelectStory}
-          completedStories={completedStories}
-          favorites={favorites}
-          onToggleFavorite={toggleFavorite}
-          showWordCount={showWordCount}
-          showReadingDuration={showReadingDuration}
-          storyWordCount={storyWordCount}
-          readingMinutes={readingMinutes}
-          favoriteStories={favoriteStories}
-          filteredStories={filteredStories}
-          sources={sources}
-          storiesBySource={storiesBySource}
-          showCollections={showCollections}
-          collectionSources={collectionSources}
-          onOpenProfile={handleOpenProfile}
-          profileOpen={profileOpen}
-          profileActiveTab={profileActiveTab}
-          onCloseProfile={goBack}
-          onCloseApp={handleCloseApp}
-          simplifiedUi={showSimplifiedUi}
-          showAgeFilter={ageFilterActive}
-          childAge={childAge}
-          onChildAgeChange={setChildAge}
-          isAdmin={isAdmin}
-          role={role}
-          showErrorPageSimulator={showErrorPageSimulator}
-          showAbTesting={showAbTesting}
-          showAbTestingAdmin={showAbTestingAdmin}
-          ab={ab}
-        />
+        {/* Sidebar (A/B variant picked by pickSidebarComponent).
+            On mobile + enhanced-gestures it is rendered inside the left
+            edge drawer instead of as a flex sibling — see SidebarLeftSlot
+            below. The same React element is referenced from both paths;
+            only the active path actually mounts the component. */}
+        {(() => {
+          const sidebarNode = (
+            <SidebarComponent
+              menuOpen={menuOpen}
+              onMenuToggle={() => setSidebarOpen(false)}
+              onMenuOpenChange={setSidebarOpen}
+              expanded={showEnhancedGestures && !useDrawerSidebar && sidebarExpanded}
+              onCollapseExpanded={() => setSidebarExpanded(false)}
+              dragProgress={useDrawerSidebar ? 0 : (showEnhancedGestures ? sidebarDragProgress : 0)}
+              externalGestures={showEnhancedGestures || useDrawerSidebar}
+              embedded={useDrawerSidebar}
+              searchTerm={searchTerm}
+              onSearchChange={setSearchTerm}
+              showDeepSearch={showDeepSearch}
+              favoritesOnly={favoritesOnly}
+              onToggleFavoritesOnly={() => setFavoritesOnly(v => !v)}
+              showFavoritesOnlyToggle={showFavoritesOnlyToggle}
+              showFavorites={showFavorites}
+              selectedStory={selectedStory}
+              activeSource={activeSource}
+              onSelectSource={handleSelectSource}
+              activeDirectory={activeDirectory}
+              onSelectDirectory={handleSelectDirectory}
+              showStoryDirectories={showStoryDirectories}
+              directoriesBySource={directoriesBySource}
+              onSelectStory={handleSelectStory}
+              completedStories={completedStories}
+              favorites={favorites}
+              onToggleFavorite={toggleFavorite}
+              showWordCount={showWordCount}
+              showReadingDuration={showReadingDuration}
+              storyWordCount={storyWordCount}
+              readingMinutes={readingMinutes}
+              favoriteStories={favoriteStories}
+              filteredStories={filteredStories}
+              sources={sources}
+              storiesBySource={storiesBySource}
+              showCollections={showCollections}
+              collectionSources={collectionSources}
+              onOpenProfile={handleOpenProfile}
+              profileOpen={profileOpen}
+              profileActiveTab={profileActiveTab}
+              onCloseProfile={goBack}
+              onCloseApp={handleCloseApp}
+              simplifiedUi={showSimplifiedUi}
+              showAgeFilter={ageFilterActive}
+              childAge={childAge}
+              onChildAgeChange={setChildAge}
+              isAdmin={isAdmin}
+              role={role}
+              showErrorPageSimulator={showErrorPageSimulator}
+              showAbTesting={showAbTesting}
+              showAbTestingAdmin={showAbTestingAdmin}
+              ab={ab}
+            />
+          );
+          return useDrawerSidebar ? (
+            <SidebarLeftSlot
+              ref={sidebarControllerRef}
+              enabled
+              content={sidebarNode}
+              size={320}
+              menuOpen={menuOpen}
+              onMenuOpenChange={setMenuOpen}
+            />
+          ) : sidebarNode;
+        })()}
 
         {/* Hidden measurement container - off-screen, used to calculate paragraph heights */}
         <div
@@ -1053,11 +1087,6 @@ const GrimmMarchenApp = () => {
       <GestureDrawerViewport
         enabled={!speedReaderMode && !profileOpen && !docsOpen && !personasDocsOpen}
         readerAreaRef={gestureTargetRef}
-        menuOpen={menuOpen}
-        onMenuOpenChange={setMenuOpen}
-        sidebarExpanded={sidebarExpanded}
-        onSidebarExpandedChange={setSidebarExpanded}
-        onSidebarDragOffsetChange={setSidebarDragProgress}
       />
     )}
 

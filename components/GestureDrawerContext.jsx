@@ -88,9 +88,12 @@ export function useGestureDrawerSlot(edge, payload) {
  * Memoize `children` on the caller side (useMemo) so the payload identity
  * is stable across parent renders.
  */
-export function GestureDrawerContent({ edge, title, size, children }) {
+export function GestureDrawerContent({ edge, title, size, chromeless, children }) {
   const { setSlot } = useGestureDrawers();
-  const payload = useMemo(() => ({ title, size, content: children }), [title, size, children]);
+  const payload = useMemo(
+    () => ({ title, size, chromeless, content: children }),
+    [title, size, chromeless, children],
+  );
   useEffect(() => {
     setSlot(edge, payload);
     return () => setSlot(edge, null);

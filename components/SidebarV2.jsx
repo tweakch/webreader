@@ -72,6 +72,7 @@ export default function SidebarV2({
   onCollapseExpanded,
   dragProgress = 0,
   externalGestures = false,
+  embedded = false,
 }) {
   const { dark: darkMode } = useTheme();
 
@@ -408,8 +409,10 @@ export default function SidebarV2({
   // Drag-follow: when opening (menuOpen=false, dragProgress>0) or closing
   // (menuOpen=true, dragProgress<0), override the CSS translate so the sidebar
   // tracks the finger. No transition during drag for 1:1 responsiveness.
-  const dragOpening = !menuOpen && dragProgress > 0;
-  const dragClosing = menuOpen && dragProgress < 0;
+  // Embedded mode delegates transform/backdrop to the outer EdgeDrawer, so
+  // these are no-ops there.
+  const dragOpening = !embedded && !menuOpen && dragProgress > 0;
+  const dragClosing = !embedded && menuOpen && dragProgress < 0;
   const dragging = dragOpening || dragClosing;
   let dragStyle;
   if (dragOpening) {
@@ -418,8 +421,22 @@ export default function SidebarV2({
     dragStyle = { transform: `translateX(${dragProgress * 100}%)`, transition: 'none' };
   }
 
-  const backdropVisible = menuOpen || dragOpening;
+  const backdropVisible = !embedded && (menuOpen || dragOpening);
   const backdropOpacity = menuOpen ? 0.3 : Math.min(0.3, dragProgress * 0.3);
+
+  // Embedded: the EdgeDrawer owns positioning/transform/background; render the
+  // aside as a plain flex column that fills the drawer.
+  const asideClassName = embedded
+    ? 'flex flex-col h-full overflow-hidden'
+    : `fixed lg:static top-16 bottom-0 left-0 ${expanded ? 'w-96 lg:w-96' : 'w-80 lg:w-72'} z-30 transform flex flex-col ${
+        dragging ? '' : 'transition-all duration-300'
+      } ${
+        menuOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'
+      } ${
+        darkMode
+          ? 'bg-slate-950/95 border-amber-700/30'
+          : 'bg-white/95 border-amber-200/50'
+      } border-r backdrop-blur-sm`;
 
   return (
     <>
@@ -438,16 +455,9 @@ export default function SidebarV2({
     <aside
       ref={asideRef}
       data-testid="sidebar-v2"
-      style={dragStyle}
-      className={`fixed lg:static top-16 bottom-0 left-0 ${expanded ? 'w-96 lg:w-96' : 'w-80 lg:w-72'} z-30 transform flex flex-col ${
-        dragging ? '' : 'transition-all duration-300'
-      } ${
-        menuOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'
-      } ${
-        darkMode
-          ? 'bg-slate-950/95 border-amber-700/30'
-          : 'bg-white/95 border-amber-200/50'
-      } border-r backdrop-blur-sm`}
+      data-embedded={embedded ? 'true' : 'false'}
+      style={embedded ? undefined : dragStyle}
+      className={asideClassName}
     >
       {expanded && (
         <div

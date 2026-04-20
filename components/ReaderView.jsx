@@ -4,13 +4,12 @@ import EInkFlashOverlay from './EInkFlashOverlay';
 import TapZones from './TapZones';
 import EndOfStoryButtons from './EndOfStoryButtons';
 import VariantSwitcher from './VariantSwitcher';
-import NavBar from './NavBar';
+import ReaderBottomBar from './ReaderBottomBar';
 import SpeedReaderView from '../ui/SpeedReaderView';
 import TypographyPanel from '../ui/TypographyPanel';
 import AudioPlayer from '../ui/AudioPlayer';
 import ReaderHeaderDrawer from './gestureContent/ReaderHeaderDrawer';
 import ReaderRightDrawer from './gestureContent/ReaderRightDrawer';
-import ReaderFooterDrawer from './gestureContent/ReaderFooterDrawer';
 
 // CTC: Wire post-story content slot — see:
 //   - docs/features/discussion-questions.md (Socratic prompts)
@@ -108,35 +107,12 @@ export default function ReaderView({
     <>
       {showEnhancedGestures && !speedReaderMode && (
         <>
-          <ReaderHeaderDrawer
-            onOpenProfile={onOpenProfile}
-            onOpenTypography={onOpenTypography}
-          />
+          <ReaderHeaderDrawer onOpenProfile={onOpenProfile} onOpenTypography={onOpenTypography} />
           <ReaderRightDrawer
             pages={pages}
             currentPage={currentPage}
             onGoToPage={onGoToPage}
             storyTitle={selectedStory?.title}
-          />
-          <ReaderFooterDrawer
-            totalPages={totalPages}
-            currentPage={currentPage}
-            onGoToPage={onGoToPage}
-            storyTitle={selectedStory?.title}
-            fontSize={fontSize}
-            maxFontSize={maxFontSize}
-            onFontSizeChange={onSetFontSize}
-            showFontSizeControls={showFontSizeControls}
-            ttsSupported={ttsSupported}
-            ttsPlaying={ttsPlaying}
-            ttsPaused={ttsPaused}
-            onToggleTts={onToggleTts}
-            onStopTts={onStopTts}
-            showTextToSpeech={showTextToSpeech}
-            onShare={onShare}
-            onToggleFavorite={onToggleFavorite}
-            isFavorite={isFavoriteCurrent}
-            showFavorites={showFavorites}
           />
         </>
       )}
@@ -195,7 +171,7 @@ export default function ReaderView({
             {showTapZones && (
               <TapZones
                 onPrev={() => currentPage > 0 && onGoToPage(currentPage - 1)}
-                onClick={() => showTapMiddleToggle && onToggleControls(v => !v)}
+                onClick={() => showTapMiddleToggle && onToggleControls((v) => !v)}
                 onNext={() => currentPage < totalPages - 1 && onGoToPage(currentPage + 1)}
               />
             )}
@@ -256,30 +232,39 @@ export default function ReaderView({
         />
       )}
 
-      {/* Page navigation bar - flex sibling, not overlapping */}
-      {controlsVisible && (
-        <NavBar
-          currentPage={currentPage}
-          totalPages={totalPages}
-          storyTitle={selectedStory.title}
-          onPrev={() => onGoToPage(currentPage - 1)}
-          onNext={() => onGoToPage(currentPage + 1)}
-          showSpeedReader={showSpeedReader}
-          speedReaderMode={speedReaderMode}
-          onToggleSpeedReader={() => onSetSpeedReaderMode(v => !v)}
-          showTypographyPanel={showTypographyPanel}
-          typoPanelOpen={typoPanelOpen}
-          onToggleTypoPanel={onToggleTypoPanel}
-          srWordCount={srWords.length}
-          showTextToSpeech={showTextToSpeech}
-          ttsSupported={ttsSupported}
-          ttsPlaying={ttsPlaying}
-          ttsPaused={ttsPaused}
-          onToggleTts={onToggleTts}
-          onStopTts={onStopTts}
-          simplifiedUi={simplifiedUi}
-        />
-      )}
+      {/* Bottom surface: persistent nav bar + complementary swipe-up drawer. */}
+      <ReaderBottomBar
+        visible={controlsVisible}
+        currentPage={currentPage}
+        totalPages={totalPages}
+        storyTitle={selectedStory.title}
+        onPrev={() => onGoToPage(currentPage - 1)}
+        onNext={() => onGoToPage(currentPage + 1)}
+        onGoToPage={onGoToPage}
+        showSpeedReader={showSpeedReader}
+        speedReaderMode={speedReaderMode}
+        onToggleSpeedReader={() => onSetSpeedReaderMode((v) => !v)}
+        showTypographyPanel={showTypographyPanel}
+        typoPanelOpen={typoPanelOpen}
+        onToggleTypoPanel={onToggleTypoPanel}
+        srWordCount={srWords.length}
+        showTextToSpeech={showTextToSpeech}
+        ttsSupported={ttsSupported}
+        ttsPlaying={ttsPlaying}
+        ttsPaused={ttsPaused}
+        onToggleTts={onToggleTts}
+        onStopTts={onStopTts}
+        simplifiedUi={simplifiedUi}
+        showEnhancedGestures={showEnhancedGestures}
+        fontSize={fontSize}
+        maxFontSize={maxFontSize}
+        onFontSizeChange={onSetFontSize}
+        showFontSizeControls={showFontSizeControls}
+        onShare={onShare}
+        onToggleFavorite={onToggleFavorite}
+        isFavorite={isFavoriteCurrent}
+        showFavorites={showFavorites}
+      />
     </>
   );
 }

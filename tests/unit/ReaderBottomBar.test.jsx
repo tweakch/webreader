@@ -1,6 +1,7 @@
 import { screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import NavBar from '../../components/NavBar';
+import ReaderBottomBar from '../../components/ReaderBottomBar';
+import { GestureDrawerProvider } from '../../components/GestureDrawerContext';
 import { renderWithTheme } from './helpers';
 
 const defaults = {
@@ -19,10 +20,14 @@ const defaults = {
 };
 
 function render(props = {}) {
-  return renderWithTheme(<NavBar {...defaults} {...props} />);
+  return renderWithTheme(
+    <GestureDrawerProvider>
+      <ReaderBottomBar {...defaults} {...props} />
+    </GestureDrawerProvider>
+  );
 }
 
-describe('NavBar', () => {
+describe('ReaderBottomBar', () => {
   describe('page counter', () => {
     it('displays current page and total', () => {
       render({ currentPage: 2, totalPages: 7 });

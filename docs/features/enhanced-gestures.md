@@ -26,20 +26,29 @@ open and close the surrounding UI.
 
 ## Behavior
 
-- **Swipe down from the top edge** → opens the header drawer (typography
+Gestures are recognized anywhere on the viewport — the drawer that opens is
+chosen from the swipe direction, not where the finger went down. A swipe only
+commits once movement exceeds ~8 px so taps and button interactions are
+undisturbed.
+
+- **Swipe down (anywhere)** → opens the header drawer (typography
   quick-settings, TTS controls).
-- **Swipe up from the bottom edge** → opens the footer drawer (page
-  overview: jump to any page of the current story).
-- **Long swipe down (> 60% of viewport height)** → reloads the page. A
-  progress indicator tracks the gesture; releasing before the 60% threshold
-  aborts the reload.
-- **Swipe left (right → left) from the right edge** → opens the right
-  drawer (table of contents, search, bookmarks, content analysis).
-- **Swipe right from the left edge** → first opens the sidebar; a second
-  right-swipe expands the sidebar into its wide mode with more detailed
-  menu options.
-- **Swipe left while the sidebar is open** → collapses wide mode, then
-  closes the sidebar.
+- **Swipe up (anywhere)** → opens the footer drawer (page overview: jump
+  to any page of the current story).
+- **Swipe left (anywhere)** → opens the right drawer (table of contents,
+  search, bookmarks, content analysis).
+- **Swipe right (anywhere)** → opens the left drawer / sidebar.
+- **Long swipe down from near the top edge (> 55 % of reader height)** →
+  reloads the page. A progress indicator tracks the gesture; releasing
+  before the threshold aborts the reload. Starting a swipe-down away from
+  the top edge just opens the header drawer — it never reloads.
+- **While a drawer is open, any swipe on the backdrop closes it and does
+  not open another.** The user must release and start a fresh gesture to
+  open a different drawer. Swipes inside the open drawer's own content
+  (list scrolling, etc.) pass through untouched.
+
+If the swipe direction points at an edge that has no registered drawer on
+the current view, the gesture is dropped.
 
 Only active on touch-capable viewports (`@media (hover: none)`). Desktop
 pointer input is unaffected. Respects `prefers-reduced-motion`.

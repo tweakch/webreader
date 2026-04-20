@@ -7,24 +7,28 @@ import { useGestureDrawers } from './GestureDrawerContext';
  * GestureDrawerViewport
  *
  * Single gesture+drawer host for the app. It:
- *   - Listens at the window level for pointer events and decides whether a
- *     pointerdown has started an edge drag (based on proximity to one of the
- *     four reader-area edges and whether a drawer is registered there).
+ *   - Listens at the window level for pointer events. A pointerdown anywhere
+ *     in the viewport can start a drag; the target edge is decided from the
+ *     swipe direction once movement exceeds DRAG_GRACE (swipe right opens the
+ *     left drawer, swipe down opens the top drawer, etc.).
+ *   - While a drawer is open, any swipe on the backdrop closes it and does
+ *     not open another — the user must release and start a new gesture to
+ *     open a different drawer. Gestures inside the open drawer's own content
+ *     pass through so in-drawer scrolling / interactions keep working.
  *   - Drives the drawer transform directly on the DOM node during a drag for
  *     60fps follow, falling back to the CSS-driven open/close transition on
  *     release.
  *   - Commits a drag when progress ≥ COMMIT_RATIO OR velocity crosses
  *     VELOCITY_COMMIT.
- *   - A top-edge drag that passes RELOAD_RATIO of the reader height triggers
- *     pull-to-reload (page reload by default, overridable via provider
- *     `onReload`).
+ *   - Pull-to-reload fires when a swipe-down that started near the top of the
+ *     reader area exceeds RELOAD_RATIO × reader height.
  *
  * The sidebar participates as a registered `left` slot on mobile + enhanced
  * gestures (see `SidebarLeftSlot`); there are no sidebar-specific code paths
  * here anymore.
  */
 
-const EDGE_ZONE = 44;           // px from edge to start a drag
+const RELOAD_EDGE_ZONE = 44;    // px from top edge that arms pull-to-reload
 const COMMIT_RATIO = 0.32;      // ratio of drawer size to commit-open
 const VELOCITY_COMMIT = 0.55;   // px/ms — flick commits below COMMIT_RATIO
 const RELOAD_RATIO = 0.55;      // top drag past this × reader height = reload
@@ -37,6 +41,16 @@ const EDGE_CLOSED_TRANSFORM = {
   right: 'translate3d(100%, 0, 0)',
 };
 const EDGE_DIRECTION = { top: 1, bottom: -1, left: 1, right: -1 };
+
+// Map a committed swipe-axis direction to the drawer edge it opens:
+// horizontal swipe-right (dx > 0) exposes the LEFT drawer (which lives off
+// the left edge and slides in rightward), swipe-left exposes the RIGHT drawer,
+// and analogously for vertical.
+function edgeForSwipe(dx, dy) {
+  const horizontal = Math.abs(dx) > Math.abs(dy);
+  if (horizontal) return dx > 0 ? 'left' : 'right';
+  return dy > 0 ? 'top' : 'bottom';
+}
 
 function sizeOf(edge, slot) {
   if (slot?.size) return slot.size;
@@ -155,26 +169,26 @@ export default function GestureDrawerViewport({ enabled, readerAreaRef }) {
     const onPointerDown = (e) => {
       if (e.pointerType === 'mouse' && e.button !== 0) return;
       if (dragRef.current) return;
-      if (anyGestureDrawerOpen) return; // drawer is open — backdrop/Esc closes it
+
+      // If a drawer is open and the pointer went down inside the drawer's own
+      // content, leave the event alone — scrolling / taps inside the drawer
+      // must keep working. Any pointerdown elsewhere (backdrop, remaining
+      // viewport) arms a close-on-swipe drag.
+      if (anyGestureDrawerOpen) {
+        const openDrawerEl = drawerRefs.current[openEdge];
+        if (openDrawerEl && e.target instanceof Node && openDrawerEl.contains(e.target)) {
+          return;
+        }
+      }
 
       const { vw, vh, rect } = resolveBounds();
       const x = e.clientX;
       const y = e.clientY;
 
-      const dTop = y - rect.top;
-      const dBottom = rect.bottom - y;
-      const dLeft = x - rect.left;
-      const dRight = rect.right - x;
-      let edge = null;
-      if (dTop <= EDGE_ZONE && slots.top) edge = 'top';
-      else if (dBottom <= EDGE_ZONE && slots.bottom) edge = 'bottom';
-      else if (dLeft <= EDGE_ZONE && slots.left) edge = 'left';
-      else if (dRight <= EDGE_ZONE && slots.right) edge = 'right';
-      if (!edge) return;
-
       dragRef.current = {
         active: true,
-        edge,
+        edge: null,              // resolved from swipe direction on first move
+        closeMode: anyGestureDrawerOpen,
         pointerId: e.pointerId,
         startX: x,
         startY: y,
@@ -182,10 +196,11 @@ export default function GestureDrawerViewport({ enabled, readerAreaRef }) {
         lastY: y,
         lastT: performance.now(),
         velocity: 0,
-        direction: EDGE_DIRECTION[edge],
+        direction: 0,
         vw, vh,
         readerHeight: rect.height || vh,
-        size: sizeOf(edge, slots[edge]),
+        startedNearTop: (y - rect.top) <= RELOAD_EDGE_ZONE,
+        size: 0,
         progress: 0,
         committedAxis: false,
       };
@@ -201,7 +216,6 @@ export default function GestureDrawerViewport({ enabled, readerAreaRef }) {
       const dt = Math.max(1, now - d.lastT);
       const vx = (x - d.lastX) / dt;
       const vy = (y - d.lastY) / dt;
-      d.velocity = (d.edge === 'top' || d.edge === 'bottom') ? vy : vx;
       d.lastX = x; d.lastY = y; d.lastT = now;
 
       const dx = x - d.startX;
@@ -209,13 +223,25 @@ export default function GestureDrawerViewport({ enabled, readerAreaRef }) {
 
       if (!d.committedAxis) {
         if (Math.abs(dx) < DRAG_GRACE && Math.abs(dy) < DRAG_GRACE) return;
-        const horizontal = Math.abs(dx) > Math.abs(dy);
-        const axisOk =
-          ((d.edge === 'top' || d.edge === 'bottom') && !horizontal) ||
-          ((d.edge === 'left' || d.edge === 'right') && horizontal);
-        if (!axisOk) { dragRef.current = null; return; }
+
+        // A drawer is already open: any swipe closes it and ends the drag.
+        // The user must release + start a new gesture to open another drawer.
+        if (d.closeMode) {
+          dragRef.current = null;
+          setPreview(null);
+          closeDrawer();
+          return;
+        }
+
+        const edge = edgeForSwipe(dx, dy);
+        if (!slots[edge]) { dragRef.current = null; return; }
+        d.edge = edge;
+        d.direction = EDGE_DIRECTION[edge];
+        d.size = sizeOf(edge, slots[edge]);
         d.committedAxis = true;
       }
+
+      d.velocity = (d.edge === 'top' || d.edge === 'bottom') ? vy : vx;
 
       const progress = applyDragTransform(d.edge, dx, dy, d.size, d.readerHeight);
       d.progress = progress;
@@ -226,8 +252,10 @@ export default function GestureDrawerViewport({ enabled, readerAreaRef }) {
       dragRef.current = null;
       setPreview(null);
 
-      // Reload intent: top-edge drag past RELOAD_RATIO of reader height.
-      if (d.edge === 'top') {
+      // Reload intent: swipe-down that armed near the top edge and crossed
+      // RELOAD_RATIO of reader height. `startedNearTop` keeps reload from
+      // firing on long swipes that began mid-page.
+      if (d.edge === 'top' && d.startedNearTop) {
         const dy = d.lastY - d.startY;
         if (dy > d.readerHeight * RELOAD_RATIO) {
           const drawerEl = drawerRefs.current[d.edge];

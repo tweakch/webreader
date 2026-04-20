@@ -10,6 +10,24 @@ Release populated from the matching section below.
 
 ## [Unreleased]
 
+### Changed
+- Merged the bottom `NavBar` and the gesture footer drawer into a single
+  `ReaderBottomBar` component. The persistent bar and the swipe-up drawer are
+  now one coherent surface; the drawer drops controls already shown in the bar
+  (prev/next, page counter, TTS) and keeps complementary ones (page grid, font
+  size, share, favorite). All existing `data-testid`s are preserved
+  (`nav-bar`, `prev-page`, `next-page`, `page-counter`, `tts-toggle`,
+  `tts-stop`, `speed-reader-toggle`, `gesture-footer-drawer-grid`,
+  `gesture-page-*`).
+- Merged the persistent header and the gesture header drawer into a single
+  `AppTopBar` component. The persistent header (menu toggle, title, font
+  size, voice control, theme toggle) and the swipe-down drawer (profile +
+  typography shortcuts) are now one coherent surface, registered at the app
+  root. The drawer registers only inside the reader (a story is selected) and
+  when enhanced gestures are on. All existing `data-testid`s are preserved
+  (`font-decrease`, `font-increase`, `menu-toggle`,
+  `gesture-header-open-profile`, `gesture-header-open-typography`).
+
 ### Added
 - **Senior-targeted features**: two new feature flags, both default `off`.
   - `text-to-speech`: Web Speech API narration for any story. Adds

@@ -5,18 +5,28 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## Commands
 
 ```bash
-npm run dev          # Start dev server (http://localhost:5173)
-npm run build        # Production build → dist/
-npm run crawl        # Crawl all sources and write to stories/
-npm run crawl grimm  # Crawl a single source by id
-npm run test         # Run Playwright E2E tests (starts dev server automatically)
-npm run test:ui      # Playwright interactive UI mode
+npm run dev                  # Start dev server (http://localhost:5173)
+npm run build                # Production build → dist/ (runs docs:check first)
+npm run test:unit            # Vitest unit tests — fastest loop, no browser
+npm run test:unit:watch      # Vitest in watch mode
+npm run test                 # Playwright E2E (starts the dev server itself)
+npm run test:ui              # Playwright interactive UI
+npm run docs:check           # Assert every flag has a docs/features/ file
+npm run format               # Prettier write (format:check for CI read-only)
+npm run crawl                # Crawl every source into stories/
+npm run crawl grimm          # Crawl a single source by id
+npm run crawl -- --limit 10  # Cap stories per source (useful for debugging)
+npm run content:report       # Story counts + health report
+npm run content:duplicates   # Detect duplicate slugs across sources
+npm run content:orphans      # Detect orphaned files under stories/
 ```
 
 Run a single test file or grep pattern:
 ```bash
 npx playwright test pagination.spec.js
 npx playwright test -g "dead space"
+npx vitest run tests/unit/useReader.test.jsx
+npm run test:unit -- guidelines   # only the guideline-enforcement tests
 ```
 
 ## Architecture

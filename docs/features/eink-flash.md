@@ -4,7 +4,7 @@ name: "E-Ink Flash"
 type: "app"
 flag_key: "eink-flash"
 lifecycle: "STABLE"
-flag_default: "on"
+flag_default: "off"
 category: "reader-ui"
 personas:
   - "09-seniors"
@@ -16,10 +16,10 @@ children: []
 
 # E-Ink Flash
 
-**Flag:** `eink-flash` · **Lifecycle:** STABLE · **Default:** on
+**Flag:** `eink-flash` · **Lifecycle:** STABLE · **Default:** off
 **Personas:** [Seniors](../personas/09-seniors.md)
 
-A brief full-screen flash on page turn, replicating the refresh effect of e-ink displays.
+A brief full-screen flash on page turn, replicating the refresh effect of e-ink displays. Off by default so the paper reading surface commits page turns instantly; readers who prefer a visual tick can opt in.
 
 ## Behavior
 

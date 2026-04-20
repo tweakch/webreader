@@ -42,7 +42,7 @@
     }
   },
   "eink-flash": {
-    "defaultVariant": "on",
+    "defaultVariant": "off",
     "variants": {
       "on": true,
       "off": false

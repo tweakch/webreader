@@ -426,6 +426,7 @@ const GrimmMarchenApp = () => {
     showSpeedReader,
     showIllustrations,
     pendingResumePageRef,
+    enablePageTurnFlash: showEinkFlash,
   });
 
   // Text-to-speech - reads the current page aloud and auto-advances.

@@ -29,9 +29,7 @@ feed-label
 feed-row
 font-decrease
 font-increase
-gesture-footer-drawer
 gesture-footer-drawer-grid
-gesture-header-drawer
 gesture-header-open-profile
 gesture-header-open-typography
 gesture-home-focus-search
@@ -40,12 +38,11 @@ gesture-home-resume
 gesture-home-toggle-favorites
 gesture-reload-indicator
 gesture-right-bookmarks
-gesture-right-drawer
-gesture-right-drawer-close
 gesture-right-toc
 leave-app-cancel
 leave-app-confirm
 leave-app-dialog
+leave-app-restart
 lock-screen
 menu-toggle
 nav-bar

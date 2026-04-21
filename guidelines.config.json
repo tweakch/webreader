@@ -22,6 +22,11 @@
       "reason": "Variant component awaiting A/B decision. Grew with the collections blade, swipe gestures, the age-filter picker, the enhanced-gestures expanded-mode bar, and the drag-follow backdrop + transform for enhanced-gestures. Target: promote + delete or split into Sidebar + SidebarTree."
     },
     {
+      "file": "components/GestureDrawerViewport.jsx",
+      "limit": 500,
+      "reason": "Single gesture state-machine host for all four drawer edges: pointer sampling, velocity estimation, angle-cone gating, open/close mode decision, scrollable-ancestor absorption, commit projection, pull-to-reload arming, stuck-drag watchdog, synthetic-click suppression. Target: extract the pointer state machine into `hooks/useDrawerGesture.js` and keep this file as the render shell; aim <300 lines."
+    },
+    {
       "file": "components/ProfilePanelTabbed.jsx",
       "limit": 710,
       "reason": "A/B variant. Target: promote winner; delete this file when experiment `profile-layout` resolves."

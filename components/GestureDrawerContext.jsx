@@ -87,12 +87,23 @@ export function useGestureDrawerSlot(edge, payload) {
  *
  * Memoize `children` on the caller side (useMemo) so the payload identity
  * is stable across parent renders.
+ *
+ * Optional payload flags:
+ *   - `chromeless`  — the slot renders its own header/close UI; the drawer
+ *                     frame contributes only transform + positioning.
+ *   - `offsetTop`   — `top`-edge only. Docks the drawer `offsetTop` px below
+ *                     the viewport top instead of at y=0, so it can read as
+ *                     an extension of a persistent header strip.
+ *   - `noBackdrop`  — suppresses the global drawer backdrop while this slot
+ *                     is open. For surfaces that sit inline with chrome
+ *                     (e.g. an expanded header) rather than floating over
+ *                     content.
  */
-export function GestureDrawerContent({ edge, title, size, chromeless, children }) {
+export function GestureDrawerContent({ edge, title, size, chromeless, offsetTop, noBackdrop, children }) {
   const { setSlot } = useGestureDrawers();
   const payload = useMemo(
-    () => ({ title, size, chromeless, content: children }),
-    [title, size, chromeless, children],
+    () => ({ title, size, chromeless, offsetTop, noBackdrop, content: children }),
+    [title, size, chromeless, offsetTop, noBackdrop, children],
   );
   useEffect(() => {
     setSlot(edge, payload);

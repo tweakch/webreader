@@ -84,7 +84,7 @@ export default function GestureDrawerViewport({ enabled, readerAreaRef }) {
     return { vw, vh, rect };
   }, [readerAreaRef]);
 
-  const applyOpenDragTransform = useCallback((edge, dx, dy, size, height) => {
+  const applyOpenDragTransform = useCallback((edge, dx, dy, size, height, noBackdrop) => {
     const drawerEl = drawerRefs.current[edge];
     if (!drawerEl) return 0;
     const { progress, transform, reloadRatio } =
@@ -93,7 +93,7 @@ export default function GestureDrawerViewport({ enabled, readerAreaRef }) {
     if (reloadRatio !== null) setReloadProgress(reloadRatio);
     drawerEl.style.transition = 'none';
     drawerEl.style.transform = transform;
-    if (backdropRef.current) {
+    if (backdropRef.current && !noBackdrop) {
       backdropRef.current.style.transition = 'none';
       backdropRef.current.style.opacity = String(progress * 0.3);
       backdropRef.current.style.pointerEvents = progress > 0.05 ? 'auto' : 'none';
@@ -101,14 +101,14 @@ export default function GestureDrawerViewport({ enabled, readerAreaRef }) {
     return progress;
   }, []);
 
-  const applyCloseDragTransform = useCallback((edge, dx, dy, size) => {
+  const applyCloseDragTransform = useCallback((edge, dx, dy, size, noBackdrop) => {
     const drawerEl = drawerRefs.current[edge];
     if (!drawerEl) return 0;
     const { progress, transform } = computeCloseDragTransform(edge, dx, dy, size);
 
     drawerEl.style.transition = 'none';
     drawerEl.style.transform = transform;
-    if (backdropRef.current) {
+    if (backdropRef.current && !noBackdrop) {
       backdropRef.current.style.transition = 'none';
       // Backdrop fades from 0.3 (open) to 0 (closed) as close-progress grows.
       backdropRef.current.style.opacity = String((1 - progress) * 0.3);
@@ -147,18 +147,21 @@ export default function GestureDrawerViewport({ enabled, readerAreaRef }) {
       ratio: COMMIT_PROJECTION_RATIO,
     });
 
+    // `noBackdrop` slots keep the global backdrop dormant even when open.
+    const writeBackdrop = backdropRef.current && !d.noBackdrop;
+
     if (d.mode === 'close') {
       // Close-drag: committing means fully closing; aborting springs back open.
       if (shouldCommit) {
         drawerEl.style.transform = EDGE_CLOSED_TRANSFORM[d.edge] ?? '';
-        if (backdropRef.current) {
+        if (writeBackdrop) {
           backdropRef.current.style.opacity = '0';
           backdropRef.current.style.pointerEvents = 'none';
         }
         closeDrawer();
       } else {
         drawerEl.style.transform = 'translate3d(0, 0, 0)';
-        if (backdropRef.current) {
+        if (writeBackdrop) {
           backdropRef.current.style.opacity = '0.3';
           backdropRef.current.style.pointerEvents = 'auto';
         }
@@ -169,14 +172,14 @@ export default function GestureDrawerViewport({ enabled, readerAreaRef }) {
     // Open-drag: committing means fully opening; aborting snaps closed.
     if (shouldCommit) {
       drawerEl.style.transform = 'translate3d(0, 0, 0)';
-      if (backdropRef.current) {
+      if (writeBackdrop) {
         backdropRef.current.style.opacity = '0.3';
         backdropRef.current.style.pointerEvents = 'auto';
       }
       openDrawer(d.edge);
     } else {
       drawerEl.style.transform = EDGE_CLOSED_TRANSFORM[d.edge] ?? '';
-      if (backdropRef.current) {
+      if (writeBackdrop) {
         backdropRef.current.style.opacity = '0';
         backdropRef.current.style.pointerEvents = 'none';
       }
@@ -306,6 +309,7 @@ export default function GestureDrawerViewport({ enabled, readerAreaRef }) {
           d.mode = 'close';
           d.direction = closeAxis.sign;
           d.size = sizeOf(edge, slots[edge]);
+          d.noBackdrop = !!slots[edge]?.noBackdrop;
           d.committedAxis = true;
         } else {
           const edge = edgeForSwipe(dx, dy);
@@ -314,6 +318,7 @@ export default function GestureDrawerViewport({ enabled, readerAreaRef }) {
           d.edge = edge;
           d.direction = EDGE_DIRECTION[edge];
           d.size = sizeOf(edge, slots[edge]);
+          d.noBackdrop = !!slots[edge]?.noBackdrop;
           d.committedAxis = true;
         }
       }
@@ -324,8 +329,8 @@ export default function GestureDrawerViewport({ enabled, readerAreaRef }) {
       d.velocity = (d.edge === 'top' || d.edge === 'bottom') ? vy : vx;
 
       const progress = d.mode === 'close'
-        ? applyCloseDragTransform(d.edge, dx, dy, d.size)
-        : applyOpenDragTransform(d.edge, dx, dy, d.size, d.readerHeight);
+        ? applyCloseDragTransform(d.edge, dx, dy, d.size, d.noBackdrop)
+        : applyOpenDragTransform(d.edge, dx, dy, d.size, d.readerHeight, d.noBackdrop);
       d.progress = progress;
       setPreview({ edge: d.edge, progress });
     };
@@ -390,6 +395,11 @@ export default function GestureDrawerViewport({ enabled, readerAreaRef }) {
   // ---------- render ----------
 
   const edges = ['top', 'bottom', 'left', 'right'];
+  const activeSlot = openEdge ? slots[openEdge] : null;
+  // `noBackdrop` lets a slot opt out of the dimming overlay so it can sit
+  // inline with page chrome (e.g. an expanded header) without darkening the
+  // reader below it.
+  const backdropOpen = anyGestureDrawerOpen && !activeSlot?.noBackdrop;
 
   return (
     <>
@@ -401,7 +411,7 @@ export default function GestureDrawerViewport({ enabled, readerAreaRef }) {
       />
       <DrawerBackdrop
         ref={backdropRef}
-        open={anyGestureDrawerOpen}
+        open={backdropOpen}
         onClose={closeDrawer}
       />
       {edges.map((edge) => {
@@ -417,6 +427,7 @@ export default function GestureDrawerViewport({ enabled, readerAreaRef }) {
             title={slot.title}
             size={slot.size}
             chromeless={slot.chromeless}
+            offsetTop={slot.offsetTop}
           >
             {slot.content ?? null}
           </EdgeDrawer>

@@ -2,44 +2,39 @@ import { useMemo } from 'react';
 import { Minus, Plus, User, SlidersHorizontal } from 'lucide-react';
 import { MenuToggleButton } from './SidebarDrawerBridge';
 import IconButton from '../ui/IconButton';
-import { cn } from '../ui/cn';
 import { useTheme } from '../ui/ThemeContext';
 import { GestureDrawerContent, useGestureDrawers } from './GestureDrawerContext';
 
 /**
  * Unified app top surface.
  *
- * Renders the persistent header (menu toggle, title/branding, font size
- * controls, voice control slot, theme toggle) and — when enhanced gestures
- * are enabled inside the reader — also registers the swipe-down drawer
- * content that extends it with shortcuts to the Profile panel and the
- * typography panel.
+ * Renders the compact persistent header (menu toggle, title/branding,
+ * font-size controls, voice control slot, theme toggle) and — when
+ * enhanced gestures are enabled in the reader — registers the swipe-down
+ * slot that expands the header downward to reveal Profile + Typography
+ * shortcuts.
  *
- * The drawer purely adds shortcuts; it does not duplicate any persistent
- * header control.
+ * The expanded region reads as a second row of the header, not a
+ * drawer-over-content: it docks below the compact strip via
+ * `offsetTop: 64`, suppresses the dim backdrop via `noBackdrop`, and
+ * registers chromeless so we own its layout. The drawer purely adds
+ * shortcuts; it does not duplicate any persistent header control.
  */
 
-function DrawerBody({ onOpenProfile, onOpenTypography }) {
-  const { tc } = useTheme();
+const HEADER_H = 64; // px — matches the `h-16` compact strip.
+
+function HeaderExtension({ onOpenProfile, onOpenTypography }) {
   const { closeDrawer } = useGestureDrawers();
-  const btn = cn(
-    'flex-1 flex items-center justify-center gap-2 py-3 rounded-lg text-sm transition-colors',
-    tc({
-      light: 'bg-amber-100 text-amber-900 hover:bg-amber-200',
-      dark: 'bg-slate-800 text-amber-200 hover:bg-slate-700',
-      hcLight: 'border border-black',
-      hcDark: 'border border-white',
-    })
-  );
   return (
-    <div className="flex gap-2">
+    <div className="flex items-center gap-2 px-4 pt-2 pb-3">
       <button
         data-testid="gesture-header-open-profile"
         onClick={() => {
           closeDrawer();
           onOpenProfile?.();
         }}
-        className={btn}
+        className="flex-1 flex items-center justify-center gap-2 py-2.5 rounded-lg text-sm font-medium transition-colors hover:bg-[var(--paper-hover)]"
+        style={{ color: 'var(--paper-ink)' }}
       >
         <User size={16} /> Profil
       </button>
@@ -49,7 +44,8 @@ function DrawerBody({ onOpenProfile, onOpenTypography }) {
           closeDrawer();
           onOpenTypography?.();
         }}
-        className={btn}
+        className="flex-1 flex items-center justify-center gap-2 py-2.5 rounded-lg text-sm font-medium transition-colors hover:bg-[var(--paper-hover)]"
+        style={{ color: 'var(--paper-ink)' }}
       >
         <SlidersHorizontal size={16} /> Typografie
       </button>
@@ -59,11 +55,16 @@ function DrawerBody({ onOpenProfile, onOpenTypography }) {
 
 function DrawerRegistration({ onOpenProfile, onOpenTypography }) {
   const node = useMemo(
-    () => <DrawerBody onOpenProfile={onOpenProfile} onOpenTypography={onOpenTypography} />,
+    () => <HeaderExtension onOpenProfile={onOpenProfile} onOpenTypography={onOpenTypography} />,
     [onOpenProfile, onOpenTypography]
   );
   return (
-    <GestureDrawerContent edge="header" title="Schnelleinstellungen">
+    <GestureDrawerContent
+      edge="header"
+      chromeless
+      offsetTop={HEADER_H}
+      noBackdrop
+    >
       {node}
     </GestureDrawerContent>
   );
@@ -89,6 +90,8 @@ export default function AppTopBar({
   onOpenTypography,
 }) {
   const { dark: darkMode, hc: highContrast } = useTheme();
+  const { openEdge } = useGestureDrawers();
+  const extensionOpen = openEdge === 'top';
 
   // The drawer registers only in the reader (selectedStory present) and only
   // when gesture input is active. The persistent header is orthogonal to the
@@ -113,8 +116,10 @@ export default function AppTopBar({
         style={{
           backgroundColor: 'var(--paper-surface)',
           color: 'var(--paper-ink)',
-          borderBottomColor: 'var(--paper-rule)',
-          transition: 'opacity var(--motion-sm) var(--motion-ease-standard)',
+          // When the header extension is open, drop the seam so the compact
+          // strip and the extension read as one continuous surface.
+          borderBottomColor: extensionOpen ? 'transparent' : 'var(--paper-rule)',
+          transition: 'opacity var(--motion-sm) var(--motion-ease-standard), border-bottom-color var(--motion-md) var(--motion-ease-standard)',
         }}
       >
           <div className="h-16 px-4 flex items-center justify-between">

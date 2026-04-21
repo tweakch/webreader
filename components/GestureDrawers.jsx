@@ -105,7 +105,7 @@ const EDGE_TO_CLOSE_TESTID = {
 };
 
 const EDGE_CLASSES = {
-  top:    'top-0 inset-x-0 border-b',
+  top:    'inset-x-0 border-b',
   bottom: 'bottom-0 inset-x-0 border-t',
   right:  'top-0 right-0 bottom-0 border-l flex flex-col',
   left:   'top-0 left-0 bottom-0 border-r flex flex-col',
@@ -130,7 +130,7 @@ const EDGE_GRIP = {
  * imperatively set `transform` on the forwarded ref during a drag.
  */
 export const EdgeDrawer = forwardRef(function EdgeDrawer(
-  { edge, open, onClose, title, children, size, chromeless = false },
+  { edge, open, onClose, title, children, size, chromeless = false, offsetTop },
   ref,
 ) {
   useEscClose(open, onClose);
@@ -142,12 +142,18 @@ export const EdgeDrawer = forwardRef(function EdgeDrawer(
     ? (isHorizontal ? { width: size, maxWidth: '85vw' } : { height: size, maxHeight: '85vh' })
     : (edge === 'right' ? { width: '20rem', maxWidth: '85vw' } : undefined);
 
+  // `offsetTop` docks a top-edge drawer N px below the viewport top so it
+  // can read as an extension of a persistent header strip. Ignored for
+  // other edges.
+  const topStyle = edge === 'top' ? { top: offsetTop ?? 0 } : null;
+
   // Paper drawer frame: surface + ink + rule come from the active theme's
   // `--paper-*` tokens. The transform is a symmetric slide on all four
   // axes — no bounce, no flourish. Transition duration uses the shared
   // motion-ease-standard so every drawer breathes at the same tempo.
   const baseStyle = {
     ...sizeStyle,
+    ...topStyle,
     transform: open ? 'translate3d(0, 0, 0)' : EDGE_CLOSED_TRANSFORM[edge],
     transition: 'transform var(--motion-md) var(--motion-ease-standard)',
     willChange: 'transform',

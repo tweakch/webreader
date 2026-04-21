@@ -10,8 +10,10 @@ is not, and the tokens that encode it. Implementation lives in `index.css`,
 
 1. **Paper is the medium, not the effect.** No page curl, no 3D flip, no fold
    simulation. The surface *is* paper; we don't animate as if it were.
-2. **Chrome recedes.** During reading, the nav bar and top bar fade away and
-   return on intent. Controls never compete with text.
+2. **Chrome is quiet, not hidden.** The nav bar and top bar stay visible so
+   a reach for a control always finds one. Quietness comes from surface
+   (paper tokens, no blur, no shadow), not from disappearing. The only way
+   chrome goes away is if the user asks (tap-middle toggle).
 3. **Motion is confidence.** Every user-facing transition finishes within
    `--motion-md` (220ms). Anything longer is decoration; delete it.
 4. **Axes are uniform.** All four edges share one gesture grammar and one
@@ -83,8 +85,7 @@ lives at any edge.
 
 ## Verification
 
-- `npm run dev` — reader surface uses the paper tokens; chrome fades after
-  idle; drawers open/close within budget.
+- `npm run dev` — reader surface uses the paper tokens; drawers open / close
+  within budget; nav bar stays visible unless the user taps middle.
 - `npm run test:unit` — testid guideline snapshot still green.
-- `npm run test` — `tests/paper-chrome.spec.js`,
-  `tests/drawer-uniformity.spec.js`, plus existing specs green.
+- `npm run test` — existing gesture + navigation specs green.

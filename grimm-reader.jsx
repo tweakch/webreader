@@ -6,7 +6,6 @@ import { useAppAnimation } from './hooks/useAppAnimation';
 import { useTypography } from './hooks/useTypography';
 import { usePersistence } from './hooks/usePersistence';
 import { useReader } from './hooks/useReader';
-import { useIdleChrome } from './hooks/useIdleChrome';
 import FeatureDocs from './components/FeatureDocs';
 import { useRole } from './hooks/useRole';
 import { useABTesting } from './hooks/useABTesting';
@@ -507,12 +506,6 @@ const GrimmMarchenApp = () => {
     localStorage.setItem('wr-last-page', currentPage);
   }, [selectedStory, currentPage]);
 
-  // Chrome recedes while reading. Paused when an overlay is open.
-  useIdleChrome({
-    active: !!selectedStory,
-    paused: speedReaderMode || profileOpen || docsOpen || personasDocsOpen || typoPanelOpen,
-    setVisible: setControlsVisible,
-  });
 
   const [theme, setTheme] = useState(() => localStorage.getItem('wr-theme') ?? flagTheme); // 'light' | 'dark' | 'system'
   const [systemDark, setSystemDark] = useState(

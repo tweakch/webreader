@@ -50,6 +50,88 @@ export function sizeOf(edge, slot) {
   return DEFAULT_SIZE[edge];
 }
 
+// --- Pointer sampling ---------------------------------------------------
+//
+// Modern gesture engines (iOS `UIPanGestureRecognizer`, Android
+// `VelocityTracker`) keep a small sliding window of recent pointer
+// samples so the velocity estimate survives single-frame jitter. Six
+// samples at ~120Hz is ~50ms of history — stable velocity without
+// hurting responsiveness. We recompute on every pointermove; it's cheap.
+
+export const SAMPLE_WINDOW = 6;
+
+export function createSampleBuffer() {
+  return [];
+}
+
+export function pushSample(buffer, x, y, t) {
+  buffer.push({ x, y, t });
+  if (buffer.length > SAMPLE_WINDOW) buffer.shift();
+}
+
+/**
+ * Recency-weighted velocity across the sample buffer. More recent
+ * segments carry more weight so a held pointer (velocity → 0) doesn't
+ * get dragged up by a stale earlier flick. Returns px/ms on each axis.
+ */
+export function computeVelocity(buffer) {
+  if (buffer.length < 2) return { vx: 0, vy: 0 };
+  let sx = 0, sy = 0, totalW = 0;
+  for (let i = 1; i < buffer.length; i++) {
+    const a = buffer[i - 1];
+    const b = buffer[i];
+    const dt = Math.max(1, b.t - a.t);
+    const w = i;
+    sx += ((b.x - a.x) / dt) * w;
+    sy += ((b.y - a.y) / dt) * w;
+    totalW += w;
+  }
+  return { vx: sx / totalW, vy: sy / totalW };
+}
+
+/**
+ * Angular deviation of a motion vector from its dominant cardinal axis,
+ * in radians. 0 is perfectly on-axis; π/4 is 45° (maximally ambiguous).
+ * Used for the "direction cone" confidence gate — a swipe only commits
+ * when it lives inside a narrow cone around one of the four axes.
+ */
+export function axisDeviationRad(dx, dy) {
+  const ax = Math.abs(dx);
+  const ay = Math.abs(dy);
+  if (ax === 0 && ay === 0) return 0;
+  const dominant = Math.max(ax, ay);
+  const other = Math.min(ax, ay);
+  return Math.atan2(other, dominant);
+}
+
+/**
+ * Ease-in amplifier: bends the first `zone` px of travel upward so the
+ * drawer visually leaps to meet the finger after commit, then re-converges
+ * to 1:1 tracking. Boost peaks mid-zone and is zero at both endpoints —
+ * so past `zone` the finger-to-drawer mapping is exact.
+ */
+export function amplifyTravel(travel, zone = 60, peakBoost = 12) {
+  if (travel <= 0) return 0;
+  if (travel >= zone) return travel;
+  const ratio = travel / zone;
+  return travel + peakBoost * Math.sin(ratio * Math.PI);
+}
+
+/**
+ * Projection-based commit decision. Mirrors iOS `projectedEndPoint` and
+ * Android fling-decay: instead of binary velocity thresholding, project
+ * where the drawer would settle if the aligned velocity decayed over
+ * `projectionMs`, and commit if the projection crosses `ratio` of size.
+ *
+ * `aligned` is the velocity component along the open axis with sign —
+ * positive means "moving toward open," negative means "moving back."
+ * Only the positive component contributes to the forecast.
+ */
+export function projectCommit({ travel, aligned, size, projectionMs = 180, ratio = 0.5 }) {
+  const forecast = travel + Math.max(0, aligned) * projectionMs;
+  return forecast >= size * ratio;
+}
+
 // Walk from `target` up toward `boundary` (inclusive), looking for a
 // scrollable ancestor that can absorb a swipe in the finger direction
 // implied by (dx, dy). Returns true if native scroll should win.
@@ -104,28 +186,32 @@ export function computeOpenDragTransform(edge, dx, dy, size, height) {
 
   if (edge === 'top') {
     const travel = Math.max(0, dy);
-    progress = Math.min(1, travel / size);
-    const offset = -size + Math.min(travel, size);
-    const overshoot = Math.max(0, travel - size);
+    const rendered = amplifyTravel(travel);
+    progress = Math.min(1, rendered / size);
+    const offset = -size + Math.min(rendered, size);
+    const overshoot = Math.max(0, rendered - size);
     const pull = overshoot > 0 ? Math.pow(overshoot, 0.7) * 0.6 : 0;
     transform = `translate3d(0, ${offset + pull}px, 0)`;
     reloadRatio = Math.max(0, Math.min(1, travel / height));
   } else if (edge === 'bottom') {
     const travel = Math.max(0, -dy);
-    progress = Math.min(1, travel / size);
-    const offset = size - Math.min(travel, size);
-    const overshoot = Math.max(0, travel - size);
+    const rendered = amplifyTravel(travel);
+    progress = Math.min(1, rendered / size);
+    const offset = size - Math.min(rendered, size);
+    const overshoot = Math.max(0, rendered - size);
     const pull = overshoot > 0 ? Math.pow(overshoot, 0.7) * 0.6 : 0;
     transform = `translate3d(0, ${offset - pull}px, 0)`;
   } else if (edge === 'left') {
     const travel = Math.max(0, dx);
-    progress = Math.min(1, travel / size);
-    const offset = -size + Math.min(travel, size);
+    const rendered = amplifyTravel(travel);
+    progress = Math.min(1, rendered / size);
+    const offset = -size + Math.min(rendered, size);
     transform = `translate3d(${offset}px, 0, 0)`;
   } else if (edge === 'right') {
     const travel = Math.max(0, -dx);
-    progress = Math.min(1, travel / size);
-    const offset = size - Math.min(travel, size);
+    const rendered = amplifyTravel(travel);
+    progress = Math.min(1, rendered / size);
+    const offset = size - Math.min(rendered, size);
     transform = `translate3d(${offset}px, 0, 0)`;
   }
 

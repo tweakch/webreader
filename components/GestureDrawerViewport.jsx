@@ -6,9 +6,14 @@ import {
   CLOSE_AXIS,
   EDGE_CLOSED_TRANSFORM,
   EDGE_DIRECTION,
+  axisDeviationRad,
   computeCloseDragTransform,
   computeOpenDragTransform,
+  computeVelocity,
+  createSampleBuffer,
   edgeForSwipe,
+  projectCommit,
+  pushSample,
   scrollableAncestorCanAbsorb,
   sizeOf,
 } from './gestureDrawerHelpers';
@@ -17,10 +22,14 @@ import {
  * GestureDrawerViewport
  *
  * Single gesture+drawer host for the app. It:
- *   - Listens at the window level for pointer events. A pointerdown anywhere
- *     in the viewport can start a drag; the target edge is decided from the
- *     swipe direction once movement exceeds DRAG_GRACE (swipe right opens the
- *     left drawer, swipe down opens the top drawer, etc.).
+ *   - Listens at the window level for pointer events. Every pointermove
+ *     is pushed into a small ring buffer; a drag "commits" once either
+ *     the fast path fires (travel > MIN_DIST, weighted velocity above
+ *     MIN_VELOCITY, and motion inside an angular cone around one
+ *     cardinal axis) or the slow path fires (travel > FALLBACK_DIST,
+ *     still inside the cone). Before commit, nothing moves visually;
+ *     after commit, the drawer's open-drag transform ease-in-amplifies
+ *     the first ~60px so the surface leaps to meet the finger.
  *   - While a drawer is open, a swipe *in that drawer's close direction*
  *     (top→up, bottom→down, left→left, right→right) progressively pulls the
  *     drawer closed, whether the swipe starts on the backdrop or on the
@@ -30,17 +39,22 @@ import {
  *   - Drives the drawer transform directly on the DOM node during a drag for
  *     60fps follow, falling back to the CSS-driven open/close transition on
  *     release.
- *   - Commits a drag when progress ≥ COMMIT_RATIO OR velocity crosses
- *     VELOCITY_COMMIT.
+ *   - Commits at release via projection: forecasts where the drawer would
+ *     rest if the aligned velocity decayed over `PROJECTION_MS` and commits
+ *     once that forecast crosses half the drawer's size — the same model
+ *     iOS uses for sheet detents.
  *   - Pull-to-reload fires when a swipe-down that started near the top of the
  *     reader area exceeds RELOAD_RATIO × reader height.
  */
 
-const RELOAD_EDGE_ZONE = 44;    // px from top edge that arms pull-to-reload
-const COMMIT_RATIO = 0.32;      // ratio of drawer size to commit-open
-const VELOCITY_COMMIT = 0.55;   // px/ms — flick commits below COMMIT_RATIO
-const RELOAD_RATIO = 0.55;      // top drag past this × reader height = reload
-const DRAG_GRACE = 8;           // px — ignore jitter before treating as drag
+const RELOAD_EDGE_ZONE = 44;                  // px from top edge that arms pull-to-reload
+const RELOAD_RATIO = 0.55;                    // top drag past this × reader height = reload
+const MIN_DIST = 3;                           // px — minimum travel before any gate fires
+const FALLBACK_DIST = 10;                     // px — slow-deliberate commit without velocity
+const MIN_VELOCITY = 0.15;                    // px/ms — fast-path velocity threshold
+const ANGLE_CONE_RAD = 35 * Math.PI / 180;    // ±35° cone around a cardinal axis
+const PROJECTION_MS = 180;                    // ms — release-time forecast window
+const COMMIT_PROJECTION_RATIO = 0.5;          // projected progress ≥ this → commit
 
 export default function GestureDrawerViewport({ enabled, readerAreaRef }) {
   const { slots, openEdge, openDrawer, closeDrawer, onReload } = useGestureDrawers();
@@ -113,11 +127,25 @@ export default function GestureDrawerViewport({ enabled, readerAreaRef }) {
     const drawerEl = drawerRefs.current[d.edge];
     if (!drawerEl) return;
 
-    drawerEl.style.transition = 'transform 320ms cubic-bezier(0.32, 0.72, 0.36, 1)';
-    if (backdropRef.current) backdropRef.current.style.transition = 'opacity 320ms ease-out';
+    drawerEl.style.transition = 'transform var(--motion-md) var(--motion-ease-standard)';
+    if (backdropRef.current) backdropRef.current.style.transition = 'opacity var(--motion-md) var(--motion-ease-standard)';
 
-    const velocityCommit = Math.abs(d.velocity) > VELOCITY_COMMIT && d.velocity * d.direction > 0;
-    const shouldCommit = finalProgress > COMMIT_RATIO || velocityCommit;
+    // Projection-based commit: forecast where the drawer would come to rest
+    // if the velocity aligned with the commit direction decayed over
+    // PROJECTION_MS, and commit if the forecast crosses half of the drawer's
+    // size. `finalProgress` and `d.direction` are already oriented toward
+    // the commit outcome for both modes — open-drag "commits" by opening,
+    // close-drag "commits" by closing — so one formula covers both. A mild
+    // flick that's only 20% through still commits if the projection reaches
+    // the halfway line. Matches the iOS sheet-detent / Material fling model.
+    const aligned = (d.velocity ?? 0) * (d.direction ?? 1);
+    const shouldCommit = projectCommit({
+      travel: finalProgress * d.size,
+      aligned,
+      size: d.size,
+      projectionMs: PROJECTION_MS,
+      ratio: COMMIT_PROJECTION_RATIO,
+    });
 
     if (d.mode === 'close') {
       // Close-drag: committing means fully closing; aborting springs back open.
@@ -187,6 +215,9 @@ export default function GestureDrawerViewport({ enabled, readerAreaRef }) {
         }
       }
 
+      const now = performance.now();
+      const samples = createSampleBuffer();
+      pushSample(samples, x, y, now);
       dragRef.current = {
         active: true,
         mode: null,              // 'open' | 'close' — decided on first move
@@ -199,8 +230,9 @@ export default function GestureDrawerViewport({ enabled, readerAreaRef }) {
         startY: y,
         lastX: x,
         lastY: y,
-        lastT: performance.now(),
-        velocity: 0,
+        lastT: now,
+        samples,                 // ring buffer of recent (x, y, t) samples
+        velocity: 0,             // aligned axis velocity (signed, px/ms)
         direction: 0,
         vw, vh,
         readerHeight: rect.height || vh,
@@ -218,16 +250,30 @@ export default function GestureDrawerViewport({ enabled, readerAreaRef }) {
       const x = e.clientX;
       const y = e.clientY;
       const now = performance.now();
-      const dt = Math.max(1, now - d.lastT);
-      const vx = (x - d.lastX) / dt;
-      const vy = (y - d.lastY) / dt;
       d.lastX = x; d.lastY = y; d.lastT = now;
+      pushSample(d.samples, x, y, now);
 
       const dx = x - d.startX;
       const dy = y - d.startY;
 
       if (!d.committedAxis) {
-        if (Math.abs(dx) < DRAG_GRACE && Math.abs(dy) < DRAG_GRACE) return;
+        // Always-on sampling. The gate is:
+        //   fast path — dist > MIN_DIST AND velocity > MIN_VELOCITY
+        //               AND motion vector within ANGLE_CONE of a cardinal axis
+        //   slow path — dist > FALLBACK_DIST AND motion within ANGLE_CONE
+        // Below MIN_DIST nothing can commit; between MIN_DIST and FALLBACK_DIST
+        // a fast flick commits immediately; above FALLBACK_DIST a deliberate
+        // slow drag commits even without velocity.
+        const dist = Math.hypot(dx, dy);
+        if (dist < MIN_DIST) return;
+
+        const { vx, vy } = computeVelocity(d.samples);
+        const speed = Math.hypot(vx, vy);
+        const deviation = axisDeviationRad(dx, dy);
+        const withinCone = deviation <= ANGLE_CONE_RAD;
+        const fastPath = withinCone && speed >= MIN_VELOCITY;
+        const slowPath = withinCone && dist >= FALLBACK_DIST;
+        if (!(fastPath || slowPath)) return;
 
         // A drawer is already open: decide whether this is a close-drag.
         // Close-drag commits only if:
@@ -272,6 +318,9 @@ export default function GestureDrawerViewport({ enabled, readerAreaRef }) {
         }
       }
 
+      // Aligned velocity along the committed axis, signed. The `+` direction
+      // is opening; a negative value means the user is pulling back.
+      const { vx, vy } = computeVelocity(d.samples);
       d.velocity = (d.edge === 'top' || d.edge === 'bottom') ? vy : vx;
 
       const progress = d.mode === 'close'

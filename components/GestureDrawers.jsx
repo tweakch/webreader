@@ -38,11 +38,11 @@ export const DrawerBackdrop = forwardRef(function DrawerBackdrop(
       data-open={open ? 'true' : 'false'}
       onClick={onClose}
       tabIndex={open ? 0 : -1}
-      className="fixed inset-0 z-40 bg-black backdrop-blur-[2px]"
+      className="fixed inset-0 z-40 bg-black"
       style={{
         opacity: open ? 0.3 : 0,
         pointerEvents: open ? 'auto' : 'none',
-        transition: 'opacity 220ms ease-out',
+        transition: 'opacity var(--motion-md) var(--motion-ease-standard)',
       }}
     />
   );
@@ -133,7 +133,6 @@ export const EdgeDrawer = forwardRef(function EdgeDrawer(
   { edge, open, onClose, title, children, size, chromeless = false },
   ref,
 ) {
-  const { tc } = useTheme();
   useEscClose(open, onClose);
 
   const testId = EDGE_TO_TESTID[edge] ?? `gesture-${edge}-drawer`;
@@ -143,18 +142,22 @@ export const EdgeDrawer = forwardRef(function EdgeDrawer(
     ? (isHorizontal ? { width: size, maxWidth: '85vw' } : { height: size, maxHeight: '85vh' })
     : (edge === 'right' ? { width: '20rem', maxWidth: '85vw' } : undefined);
 
-  // Default transform-style leaves the CSS class in control when open,
-  // and offscreen when closed. The viewport overrides transform imperatively
-  // mid-drag and clears it on release so CSS takes over again.
+  // Paper drawer frame: surface + ink + rule come from the active theme's
+  // `--paper-*` tokens. The transform is a symmetric slide on all four
+  // axes — no bounce, no flourish. Transition duration uses the shared
+  // motion-ease-standard so every drawer breathes at the same tempo.
   const baseStyle = {
     ...sizeStyle,
     transform: open ? 'translate3d(0, 0, 0)' : EDGE_CLOSED_TRANSFORM[edge],
-    transition: 'transform 320ms cubic-bezier(0.32, 0.72, 0.36, 1)',
+    transition: 'transform var(--motion-md) var(--motion-ease-standard)',
     willChange: 'transform',
+    backgroundColor: 'var(--paper-surface)',
+    color: 'var(--paper-ink)',
+    borderColor: 'var(--paper-rule)',
   };
 
   // Chromeless: the slot owner provides its own header/close UI. The drawer
-  // frame still owns transform + positioning + theme background but no grip,
+  // frame still owns transform + positioning + paper surface but no grip,
   // title bar or close button is rendered.
   if (chromeless) {
     return (
@@ -165,16 +168,7 @@ export const EdgeDrawer = forwardRef(function EdgeDrawer(
         data-edge={edge}
         aria-hidden={!open}
         style={baseStyle}
-        className={cn(
-          'fixed z-50 shadow-lg flex flex-col',
-          EDGE_CLASSES[edge],
-          tc({
-            light:   'bg-white/95 border-amber-200 text-amber-900',
-            dark:    'bg-slate-900/95 border-amber-700/40 text-amber-200',
-            hcLight: 'bg-white border-black text-black',
-            hcDark:  'bg-black border-white text-white',
-          }),
-        )}
+        className={cn('fixed z-50 flex flex-col', EDGE_CLASSES[edge])}
       >
         {children}
       </aside>
@@ -189,47 +183,25 @@ export const EdgeDrawer = forwardRef(function EdgeDrawer(
       data-edge={edge}
       aria-hidden={!open}
       style={baseStyle}
-      className={cn(
-        'fixed z-50 shadow-lg',
-        EDGE_CLASSES[edge],
-        tc({
-          light:   'bg-white/95 border-amber-200 text-amber-900',
-          dark:    'bg-slate-900/95 border-amber-700/40 text-amber-200',
-          hcLight: 'bg-white border-black text-black',
-          hcDark:  'bg-black border-white text-white',
-        }),
-      )}
+      className={cn('fixed z-50', EDGE_CLASSES[edge])}
     >
       <span
         aria-hidden
-        className={cn(
-          'absolute rounded-full pointer-events-none',
-          EDGE_GRIP[edge],
-          tc({
-            light:   'bg-amber-900/25',
-            dark:    'bg-amber-200/25',
-            hcLight: 'bg-black/60',
-            hcDark:  'bg-white/60',
-          }),
-        )}
+        className={cn('absolute rounded-full pointer-events-none', EDGE_GRIP[edge])}
+        style={{ backgroundColor: 'var(--paper-ink-muted)', opacity: 0.4 }}
       />
       {isHorizontal ? (
         <>
           <div
-            className={cn(
-              'flex items-center justify-between px-4 py-3 border-b',
-              tc({
-                light: 'border-amber-200', dark: 'border-amber-700/40',
-                hcLight: 'border-black', hcDark: 'border-white',
-              }),
-            )}
+            className="flex items-center justify-between px-4 py-3 border-b"
+            style={{ borderBottomColor: 'var(--paper-rule)' }}
           >
             <span className="text-sm font-medium truncate">{title ?? ''}</span>
             <button
               onClick={onClose}
               aria-label="Schließen"
               data-testid={closeTestId}
-              className="p-1 rounded hover:bg-black/10"
+              className="p-1 rounded hover:bg-[var(--paper-hover)]"
             >
               <X size={16} />
             </button>
@@ -246,7 +218,7 @@ export const EdgeDrawer = forwardRef(function EdgeDrawer(
               onClick={onClose}
               aria-label="Schließen"
               data-testid={closeTestId}
-              className="p-1 rounded hover:bg-black/10"
+              className="p-1 rounded hover:bg-[var(--paper-hover)]"
             >
               <X size={16} />
             </button>

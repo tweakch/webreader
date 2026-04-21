@@ -39,6 +39,7 @@ export function useReader({
   showSpeedReader,
   showIllustrations = false,
   pendingResumePageRef,
+  enablePageTurnFlash = false,
 }) {
   const [pages, setPages] = useState([]);
   const [currentPage, setCurrentPage] = useState(0);
@@ -195,17 +196,34 @@ export function useReader({
     return () => observer.disconnect();
   }, [selectedStory, buildPages]);
 
-  // Navigate to page with flash animation
+  // Navigate to page. When the e-ink flash is off (paper default) the commit
+  // is synchronous — no 80ms flash delay, no intermediate state. When the
+  // flash is on (user opt-in) the original timing is preserved so the
+  // refresh effect still reads as "real".
   const goToPage = useCallback((newPage) => {
     if (isFlashing) return;
     const clamped = Math.max(0, Math.min(newPage, totalPages - 1));
     if (clamped === currentPage) return;
+    if (import.meta.env.DEV) {
+      performance.mark('wr-page-turn-start');
+    }
+    if (!enablePageTurnFlash) {
+      setCurrentPage(clamped);
+      if (import.meta.env.DEV) {
+        queueMicrotask(() => {
+          try {
+            performance.measure('wr-page-turn', 'wr-page-turn-start');
+          } catch {}
+        });
+      }
+      return;
+    }
     setIsFlashing(true);
     setTimeout(() => {
       setCurrentPage(clamped);
       setTimeout(() => setIsFlashing(false), 50);
     }, 80);
-  }, [totalPages, currentPage, isFlashing]);
+  }, [totalPages, currentPage, isFlashing, enablePageTurnFlash]);
 
   // Keyboard navigation
   useEffect(() => {

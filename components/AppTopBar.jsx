@@ -105,18 +105,18 @@ export default function AppTopBar({
         <DrawerRegistration onOpenProfile={onOpenProfile} onOpenTypography={onOpenTypography} />
       )}
 
-      {visible && (
-        <header
-          className={`flex-shrink-0 backdrop-blur-md transition-colors duration-300 z-40 ${
-            highContrast
-              ? darkMode
-                ? 'bg-black border-white/40'
-                : 'bg-white border-black/30'
-              : darkMode
-                ? 'bg-slate-900/80 border-amber-700/30'
-                : 'bg-white/80 border-amber-200/50'
-          } border-b`}
-        >
+      <header
+        aria-hidden={!visible}
+        className={`flex-shrink-0 z-40 border-b ${
+          visible ? 'opacity-100' : 'opacity-0 pointer-events-none'
+        }`}
+        style={{
+          backgroundColor: 'var(--paper-surface)',
+          color: 'var(--paper-ink)',
+          borderBottomColor: 'var(--paper-rule)',
+          transition: 'opacity var(--motion-sm) var(--motion-ease-standard)',
+        }}
+      >
           <div className="h-16 px-4 flex items-center justify-between">
             <div className="flex items-center gap-3 min-w-0 overflow-hidden">
               <MenuToggleButton
@@ -126,9 +126,8 @@ export default function AppTopBar({
                 className="lg:hidden"
               />
               <h1
-                className={`text-2xl font-serif font-bold tracking-wide ${
-                  darkMode ? 'text-amber-200' : 'text-amber-900'
-                }`}
+                className="text-2xl font-serif font-bold tracking-wide"
+                style={{ color: 'var(--paper-ink)' }}
               >
                 {selectedStory ? '' : 'Märchenschatz'}
               </h1>
@@ -143,9 +142,8 @@ export default function AppTopBar({
                   <Minus size={18} />
                 </IconButton>
                 <span
-                  className={`text-sm font-medium w-12 text-center ${
-                    darkMode ? 'text-amber-200' : 'text-amber-900'
-                  }`}
+                  className="text-sm font-medium w-12 text-center"
+                  style={{ color: 'var(--paper-ink)' }}
                 >
                   {fontSize}
                 </span>
@@ -207,8 +205,7 @@ export default function AppTopBar({
               </button>
             </div>
           </div>
-        </header>
-      )}
+      </header>
     </>
   );
 }

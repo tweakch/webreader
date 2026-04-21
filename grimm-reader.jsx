@@ -6,6 +6,7 @@ import { useAppAnimation } from './hooks/useAppAnimation';
 import { useTypography } from './hooks/useTypography';
 import { usePersistence } from './hooks/usePersistence';
 import { useReader } from './hooks/useReader';
+import { useIdleChrome } from './hooks/useIdleChrome';
 import FeatureDocs from './components/FeatureDocs';
 import { useRole } from './hooks/useRole';
 import { useABTesting } from './hooks/useABTesting';
@@ -425,6 +426,7 @@ const GrimmMarchenApp = () => {
     showSpeedReader,
     showIllustrations,
     pendingResumePageRef,
+    enablePageTurnFlash: showEinkFlash,
   });
 
   // Text-to-speech - reads the current page aloud and auto-advances.
@@ -504,6 +506,13 @@ const GrimmMarchenApp = () => {
     localStorage.setItem('wr-last-story', selectedStory.id);
     localStorage.setItem('wr-last-page', currentPage);
   }, [selectedStory, currentPage]);
+
+  // Chrome recedes while reading. Paused when an overlay is open.
+  useIdleChrome({
+    active: !!selectedStory,
+    paused: speedReaderMode || profileOpen || docsOpen || personasDocsOpen || typoPanelOpen,
+    setVisible: setControlsVisible,
+  });
 
   const [theme, setTheme] = useState(() => localStorage.getItem('wr-theme') ?? flagTheme); // 'light' | 'dark' | 'system'
   const [systemDark, setSystemDark] = useState(
@@ -1023,7 +1032,7 @@ const GrimmMarchenApp = () => {
           onClick={handleOpenProfile}
           data-testid="profile-fab"
           aria-label="Mein Profil"
-          className={`lg:hidden fixed bottom-5 right-5 z-20 w-14 h-14 rounded-full shadow-lg flex items-center justify-center transition-all active:scale-95 ${
+          className={`lg:hidden fixed bottom-5 right-5 z-20 w-14 h-14 rounded-full flex items-center justify-center transition-all active:scale-95 ${
             darkMode
               ? 'bg-amber-700 text-white hover:bg-amber-600'
               : 'bg-amber-900 text-white hover:bg-amber-800'

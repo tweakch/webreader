@@ -461,7 +461,7 @@ export const FEATURE_REGISTRY = [
     label: 'Erweiterte Gesten',
     description: 'Wischgesten aus allen Richtungen öffnen Drawer, ein langer Zug nach unten lädt die Seite neu.',
     Icon: () => <Move size={20} strokeWidth={1.75} />,
-    flag: bool('off'),
+    flag: bool('on'),
     status: 'beta',
     roles: ['subscriber', 'tester'],
     group: 'navigation',

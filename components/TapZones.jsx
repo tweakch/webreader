@@ -1,3 +1,5 @@
+import { gestureLog } from '../src/lib/gestureLog';
+
 /**
  * Left and right tap zones for page navigation.
  * Two invisible 30%-width divs on the sides that call prev/next on click.
@@ -14,22 +16,31 @@ export default function TapZones({ onPrev, onClick, onNext }) {
         data-testid="tap-zone-left"
         className="absolute left-0 top-0 bottom-0 z-10 cursor-pointer"
         style={{ width: '30%' }}
-        onClick={onPrev}
+        onClick={(e) => {
+          gestureLog('tap.zone.left', { x: e.clientX, y: e.clientY });
+          onPrev?.();
+        }}
       />
 
       {/* Middle: 40% */}
-      <div 
-        data-testid="tap-zone-middle" 
-        className="absolute left-[30%] right-[30%] top-0 bottom-0 z-10 cursor-pointer" 
-        onClick={onClick} 
+      <div
+        data-testid="tap-zone-middle"
+        className="absolute left-[30%] right-[30%] top-0 bottom-0 z-10 cursor-pointer"
+        onClick={(e) => {
+          gestureLog('tap.zone.middle', { x: e.clientX, y: e.clientY });
+          onClick?.();
+        }}
       />
-      
+
       {/* Right tap zone - next page */}
       <div
         data-testid="tap-zone-right"
         className="absolute right-0 top-0 bottom-0 z-10 cursor-pointer"
         style={{ width: '30%' }}
-        onClick={onNext}
+        onClick={(e) => {
+          gestureLog('tap.zone.right', { x: e.clientX, y: e.clientY });
+          onNext?.();
+        }}
       />
     </>
   );

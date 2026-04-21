@@ -4,7 +4,7 @@ name: "Enhanced Gestures"
 type: "app"
 flag_key: "enhanced-gestures"
 lifecycle: "EXPERIMENT"
-flag_default: "off"
+flag_default: "on"
 category: "reader-ui"
 personas:
   - "09-seniors"
@@ -18,7 +18,7 @@ children: []
 
 # Enhanced Gestures
 
-**Flag:** `enhanced-gestures` · **Lifecycle:** EXPERIMENT · **Default:** off
+**Flag:** `enhanced-gestures` · **Lifecycle:** EXPERIMENT · **Default:** on
 
 Multi-direction swipe gestures inside the reader viewport. Layered on top
 of tap zones and pinch-to-zoom: taps keep driving page navigation, gestures

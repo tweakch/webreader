@@ -47,14 +47,15 @@ import {
  *     reader area exceeds RELOAD_RATIO × reader height.
  */
 
-const RELOAD_EDGE_ZONE = 44;                  // px from top edge that arms pull-to-reload
-const RELOAD_RATIO = 0.55;                    // top drag past this × reader height = reload
-const MIN_DIST = 3;                           // px — minimum travel before any gate fires
-const FALLBACK_DIST = 10;                     // px — slow-deliberate commit without velocity
-const MIN_VELOCITY = 0.15;                    // px/ms — fast-path velocity threshold
-const ANGLE_CONE_RAD = 35 * Math.PI / 180;    // ±35° cone around a cardinal axis
-const PROJECTION_MS = 180;                    // ms — release-time forecast window
-const COMMIT_PROJECTION_RATIO = 0.5;          // projected progress ≥ this → commit
+const RELOAD_EDGE_ZONE = 44; // px from top edge that arms pull-to-reload
+const RELOAD_RATIO = 0.55; // top drag past this × reader height = reload
+const MIN_DIST = 2; // px — minimum travel before any gate fires
+const FALLBACK_DIST = 2; // px — slow-deliberate commit without velocity
+const MIN_VELOCITY = 0.15; // px/ms — fast-path velocity threshold
+const ANGLE_CONE_RAD = (35 * Math.PI) / 180; // ±35° cone around a cardinal axis
+const PROJECTION_MS = 180; // ms — release-time forecast window
+const COMMIT_PROJECTION_RATIO = 0.5; // projected progress ≥ this → commit
+const STALE_DRAG_MS = 1500; // ms with no pointer events → assume stuck drag
 
 export default function GestureDrawerViewport({ enabled, readerAreaRef }) {
   const { slots, openEdge, openDrawer, closeDrawer, onReload } = useGestureDrawers();
@@ -87,8 +88,13 @@ export default function GestureDrawerViewport({ enabled, readerAreaRef }) {
   const applyOpenDragTransform = useCallback((edge, dx, dy, size, height, noBackdrop) => {
     const drawerEl = drawerRefs.current[edge];
     if (!drawerEl) return 0;
-    const { progress, transform, reloadRatio } =
-      computeOpenDragTransform(edge, dx, dy, size, height);
+    const { progress, transform, reloadRatio } = computeOpenDragTransform(
+      edge,
+      dx,
+      dy,
+      size,
+      height
+    );
 
     if (reloadRatio !== null) setReloadProgress(reloadRatio);
     drawerEl.style.transition = 'none';
@@ -117,74 +123,79 @@ export default function GestureDrawerViewport({ enabled, readerAreaRef }) {
     return progress;
   }, []);
 
-  const commitOrReset = useCallback((d, finalProgress) => {
-    // A tap (pointerdown + pointerup with no qualifying move) ends here
-    // without ever committing an axis. There is nothing to animate — leaving
-    // the drawer's style alone preserves whatever state it had before the
-    // tap (open drawers stay open, closed stay closed).
-    if (!d.committedAxis || !d.mode) return;
+  const commitOrReset = useCallback(
+    (d, finalProgress) => {
+      // A tap (pointerdown + pointerup with no qualifying move) ends here
+      // without ever committing an axis. There is nothing to animate — leaving
+      // the drawer's style alone preserves whatever state it had before the
+      // tap (open drawers stay open, closed stay closed).
+      if (!d.committedAxis || !d.mode) return;
 
-    const drawerEl = drawerRefs.current[d.edge];
-    if (!drawerEl) return;
+      const drawerEl = drawerRefs.current[d.edge];
+      if (!drawerEl) return;
 
-    drawerEl.style.transition = 'transform var(--motion-md) var(--motion-ease-standard)';
-    if (backdropRef.current) backdropRef.current.style.transition = 'opacity var(--motion-md) var(--motion-ease-standard)';
+      drawerEl.style.transition = 'transform var(--motion-md) var(--motion-ease-standard)';
+      if (backdropRef.current)
+        backdropRef.current.style.transition =
+          'opacity var(--motion-md) var(--motion-ease-standard)';
 
-    // Projection-based commit: forecast where the drawer would come to rest
-    // if the velocity aligned with the commit direction decayed over
-    // PROJECTION_MS, and commit if the forecast crosses half of the drawer's
-    // size. `finalProgress` and `d.direction` are already oriented toward
-    // the commit outcome for both modes — open-drag "commits" by opening,
-    // close-drag "commits" by closing — so one formula covers both. A mild
-    // flick that's only 20% through still commits if the projection reaches
-    // the halfway line. Matches the iOS sheet-detent / Material fling model.
-    const aligned = (d.velocity ?? 0) * (d.direction ?? 1);
-    const shouldCommit = projectCommit({
-      travel: finalProgress * d.size,
-      aligned,
-      size: d.size,
-      projectionMs: PROJECTION_MS,
-      ratio: COMMIT_PROJECTION_RATIO,
-    });
+      // Projection-based commit: forecast where the drawer would come to rest
+      // if the velocity aligned with the commit direction decayed over
+      // PROJECTION_MS, and commit if the forecast crosses half of the drawer's
+      // size. `finalProgress` and `d.direction` are already oriented toward
+      // the commit outcome for both modes — open-drag "commits" by opening,
+      // close-drag "commits" by closing — so one formula covers both. A mild
+      // flick that's only 20% through still commits if the projection reaches
+      // the halfway line. Matches the iOS sheet-detent / Material fling model.
+      const aligned = (d.velocity ?? 0) * (d.direction ?? 1);
+      const shouldCommit = projectCommit({
+        travel: finalProgress * d.size,
+        aligned,
+        size: d.size,
+        projectionMs: PROJECTION_MS,
+        ratio: COMMIT_PROJECTION_RATIO,
+      });
 
-    // `noBackdrop` slots keep the global backdrop dormant even when open.
-    const writeBackdrop = backdropRef.current && !d.noBackdrop;
+      // `noBackdrop` slots keep the global backdrop dormant even when open.
+      const writeBackdrop = backdropRef.current && !d.noBackdrop;
 
-    if (d.mode === 'close') {
-      // Close-drag: committing means fully closing; aborting springs back open.
-      if (shouldCommit) {
-        drawerEl.style.transform = EDGE_CLOSED_TRANSFORM[d.edge] ?? '';
-        if (writeBackdrop) {
-          backdropRef.current.style.opacity = '0';
-          backdropRef.current.style.pointerEvents = 'none';
+      if (d.mode === 'close') {
+        // Close-drag: committing means fully closing; aborting springs back open.
+        if (shouldCommit) {
+          drawerEl.style.transform = EDGE_CLOSED_TRANSFORM[d.edge] ?? '';
+          if (writeBackdrop) {
+            backdropRef.current.style.opacity = '0';
+            backdropRef.current.style.pointerEvents = 'none';
+          }
+          closeDrawer();
+        } else {
+          drawerEl.style.transform = 'translate3d(0, 0, 0)';
+          if (writeBackdrop) {
+            backdropRef.current.style.opacity = '0.3';
+            backdropRef.current.style.pointerEvents = 'auto';
+          }
         }
-        closeDrawer();
-      } else {
+        return;
+      }
+
+      // Open-drag: committing means fully opening; aborting snaps closed.
+      if (shouldCommit) {
         drawerEl.style.transform = 'translate3d(0, 0, 0)';
         if (writeBackdrop) {
           backdropRef.current.style.opacity = '0.3';
           backdropRef.current.style.pointerEvents = 'auto';
         }
+        openDrawer(d.edge);
+      } else {
+        drawerEl.style.transform = EDGE_CLOSED_TRANSFORM[d.edge] ?? '';
+        if (writeBackdrop) {
+          backdropRef.current.style.opacity = '0';
+          backdropRef.current.style.pointerEvents = 'none';
+        }
       }
-      return;
-    }
-
-    // Open-drag: committing means fully opening; aborting snaps closed.
-    if (shouldCommit) {
-      drawerEl.style.transform = 'translate3d(0, 0, 0)';
-      if (writeBackdrop) {
-        backdropRef.current.style.opacity = '0.3';
-        backdropRef.current.style.pointerEvents = 'auto';
-      }
-      openDrawer(d.edge);
-    } else {
-      drawerEl.style.transform = EDGE_CLOSED_TRANSFORM[d.edge] ?? '';
-      if (writeBackdrop) {
-        backdropRef.current.style.opacity = '0';
-        backdropRef.current.style.pointerEvents = 'none';
-      }
-    }
-  }, [openDrawer, closeDrawer]);
+    },
+    [openDrawer, closeDrawer]
+  );
 
   const triggerReload = useCallback(() => {
     setReloadProgress(0);
@@ -192,14 +203,40 @@ export default function GestureDrawerViewport({ enabled, readerAreaRef }) {
     else if (typeof window !== 'undefined') window.location.reload();
   }, [onReload]);
 
+  // After a committed drag the browser still dispatches a `click` on the
+  // original pointerdown target; without this, a drag-to-open on a button
+  // also fires the button handler. 400ms safety timeout removes the
+  // listener if no click ever follows.
+  const suppressNextClick = useCallback(() => {
+    if (typeof window === 'undefined') return;
+    const suppress = (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      window.removeEventListener('click', suppress, true);
+    };
+    window.addEventListener('click', suppress, true);
+    setTimeout(() => window.removeEventListener('click', suppress, true), 400);
+  }, []);
+
   // Window pointerdown — decide whether a drag starts at all.
   useEffect(() => {
-    if (!enabled) { setPreview(null); setReloadProgress(0); return undefined; }
+    if (!enabled) {
+      setPreview(null);
+      setReloadProgress(0);
+      return undefined;
+    }
     if (typeof window === 'undefined') return undefined;
 
     const onPointerDown = (e) => {
       if (e.pointerType === 'mouse' && e.button !== 0) return;
-      if (dragRef.current) return;
+      // Clear a stuck drag from a dropped pointerup/pointercancel. Without
+      // this, a single dropped event locks all further drags until reload.
+      const existing = dragRef.current;
+      if (existing) {
+        const age = performance.now() - (existing.lastT ?? 0);
+        if (age > STALE_DRAG_MS) dragRef.current = null;
+        else return;
+      }
 
       const { vw, vh, rect } = resolveBounds();
       const x = e.clientX;
@@ -223,7 +260,7 @@ export default function GestureDrawerViewport({ enabled, readerAreaRef }) {
       pushSample(samples, x, y, now);
       dragRef.current = {
         active: true,
-        mode: null,              // 'open' | 'close' — decided on first move
+        mode: null, // 'open' | 'close' — decided on first move
         edge: anyGestureDrawerOpen ? openEdge : null,
         closeMode: anyGestureDrawerOpen,
         insideOpenDrawer,
@@ -234,12 +271,13 @@ export default function GestureDrawerViewport({ enabled, readerAreaRef }) {
         lastX: x,
         lastY: y,
         lastT: now,
-        samples,                 // ring buffer of recent (x, y, t) samples
-        velocity: 0,             // aligned axis velocity (signed, px/ms)
+        samples, // ring buffer of recent (x, y, t) samples
+        velocity: 0, // aligned axis velocity (signed, px/ms)
         direction: 0,
-        vw, vh,
+        vw,
+        vh,
         readerHeight: rect.height || vh,
-        startedNearTop: (y - rect.top) <= RELOAD_EDGE_ZONE,
+        startedNearTop: y - rect.top <= RELOAD_EDGE_ZONE,
         size: 0,
         progress: 0,
         committedAxis: false,
@@ -253,7 +291,9 @@ export default function GestureDrawerViewport({ enabled, readerAreaRef }) {
       const x = e.clientX;
       const y = e.clientY;
       const now = performance.now();
-      d.lastX = x; d.lastY = y; d.lastT = now;
+      d.lastX = x;
+      d.lastY = y;
+      d.lastT = now;
       pushSample(d.samples, x, y, now);
 
       const dx = x - d.startX;
@@ -288,21 +328,23 @@ export default function GestureDrawerViewport({ enabled, readerAreaRef }) {
         if (d.closeMode) {
           const edge = d.edge;
           const closeAxis = CLOSE_AXIS[edge];
-          if (!closeAxis) { dragRef.current = null; return; }
-          const axisMatches = closeAxis.axis === 'y'
-            ? Math.abs(dy) > Math.abs(dx)
-            : Math.abs(dx) > Math.abs(dy);
-          const signMatches = closeAxis.axis === 'y'
-            ? Math.sign(dy) === closeAxis.sign
-            : Math.sign(dx) === closeAxis.sign;
+          if (!closeAxis) {
+            dragRef.current = null;
+            return;
+          }
+          const axisMatches =
+            closeAxis.axis === 'y' ? Math.abs(dy) > Math.abs(dx) : Math.abs(dx) > Math.abs(dy);
+          const signMatches =
+            closeAxis.axis === 'y'
+              ? Math.sign(dy) === closeAxis.sign
+              : Math.sign(dx) === closeAxis.sign;
           if (!axisMatches || !signMatches) {
             // Wrong direction — abort so native handling (scroll, tap) wins.
             dragRef.current = null;
             return;
           }
           const openDrawerEl = drawerRefs.current[edge];
-          if (d.insideOpenDrawer
-              && scrollableAncestorCanAbsorb(d.targetEl, openDrawerEl, dx, dy)) {
+          if (d.insideOpenDrawer && scrollableAncestorCanAbsorb(d.targetEl, openDrawerEl, dx, dy)) {
             dragRef.current = null;
             return;
           }
@@ -313,7 +355,10 @@ export default function GestureDrawerViewport({ enabled, readerAreaRef }) {
           d.committedAxis = true;
         } else {
           const edge = edgeForSwipe(dx, dy);
-          if (!slots[edge]) { dragRef.current = null; return; }
+          if (!slots[edge]) {
+            dragRef.current = null;
+            return;
+          }
           d.mode = 'open';
           d.edge = edge;
           d.direction = EDGE_DIRECTION[edge];
@@ -326,11 +371,12 @@ export default function GestureDrawerViewport({ enabled, readerAreaRef }) {
       // Aligned velocity along the committed axis, signed. The `+` direction
       // is opening; a negative value means the user is pulling back.
       const { vx, vy } = computeVelocity(d.samples);
-      d.velocity = (d.edge === 'top' || d.edge === 'bottom') ? vy : vx;
+      d.velocity = d.edge === 'top' || d.edge === 'bottom' ? vy : vx;
 
-      const progress = d.mode === 'close'
-        ? applyCloseDragTransform(d.edge, dx, dy, d.size, d.noBackdrop)
-        : applyOpenDragTransform(d.edge, dx, dy, d.size, d.readerHeight, d.noBackdrop);
+      const progress =
+        d.mode === 'close'
+          ? applyCloseDragTransform(d.edge, dx, dy, d.size, d.noBackdrop)
+          : applyOpenDragTransform(d.edge, dx, dy, d.size, d.readerHeight, d.noBackdrop);
       d.progress = progress;
       setPreview({ edge: d.edge, progress });
     };
@@ -338,6 +384,10 @@ export default function GestureDrawerViewport({ enabled, readerAreaRef }) {
     const endDrag = (d) => {
       dragRef.current = null;
       setPreview(null);
+
+      // Past click-slop — swallow the synthetic click so the drag doesn't
+      // also trigger whatever button it started on.
+      if (d.committedAxis) suppressNextClick();
 
       // Reload intent: swipe-down that armed near the top edge and crossed
       // RELOAD_RATIO of reader height. Only for open-drags on the top edge;
@@ -388,9 +438,19 @@ export default function GestureDrawerViewport({ enabled, readerAreaRef }) {
       window.removeEventListener('pointerup', onPointerUp);
       window.removeEventListener('pointercancel', onPointerCancel);
     };
-  }, [enabled, slots, anyGestureDrawerOpen, openEdge, resolveBounds,
-      applyOpenDragTransform, applyCloseDragTransform, commitOrReset,
-      triggerReload, closeDrawer]);
+  }, [
+    enabled,
+    slots,
+    anyGestureDrawerOpen,
+    openEdge,
+    resolveBounds,
+    applyOpenDragTransform,
+    applyCloseDragTransform,
+    commitOrReset,
+    triggerReload,
+    suppressNextClick,
+    closeDrawer,
+  ]);
 
   // ---------- render ----------
 
@@ -409,18 +469,16 @@ export default function GestureDrawerViewport({ enabled, readerAreaRef }) {
         activeEdge={preview?.edge}
         progress={preview?.progress ?? 0}
       />
-      <DrawerBackdrop
-        ref={backdropRef}
-        open={backdropOpen}
-        onClose={closeDrawer}
-      />
+      <DrawerBackdrop ref={backdropRef} open={backdropOpen} onClose={closeDrawer} />
       {edges.map((edge) => {
         const slot = slots[edge];
         if (!slot) return null;
         return (
           <EdgeDrawer
             key={edge}
-            ref={(el) => { drawerRefs.current[edge] = el; }}
+            ref={(el) => {
+              drawerRefs.current[edge] = el;
+            }}
             edge={edge}
             open={openEdge === edge}
             onClose={closeDrawer}

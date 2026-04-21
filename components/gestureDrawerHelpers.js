@@ -29,10 +29,10 @@ export const EDGE_DIRECTION = { top: 1, bottom: -1, left: 1, right: -1 };
 // For the top drawer you swipe up (dy < 0) to close; for the right drawer
 // you swipe right (dx > 0); etc.
 export const CLOSE_AXIS = {
-  top:    { axis: 'y', sign: -1 },
-  bottom: { axis: 'y', sign:  1 },
-  left:   { axis: 'x', sign: -1 },
-  right:  { axis: 'x', sign:  1 },
+  top: { axis: 'y', sign: -1 },
+  bottom: { axis: 'y', sign: 1 },
+  left: { axis: 'x', sign: -1 },
+  right: { axis: 'x', sign: 1 },
 };
 
 // Map a committed swipe-axis direction to the drawer edge it opens:
@@ -76,7 +76,9 @@ export function pushSample(buffer, x, y, t) {
  */
 export function computeVelocity(buffer) {
   if (buffer.length < 2) return { vx: 0, vy: 0 };
-  let sx = 0, sy = 0, totalW = 0;
+  let sx = 0,
+    sy = 0,
+    totalW = 0;
   for (let i = 1; i < buffer.length; i++) {
     const a = buffer[i - 1];
     const b = buffer[i];
@@ -105,19 +107,6 @@ export function axisDeviationRad(dx, dy) {
 }
 
 /**
- * Ease-in amplifier: bends the first `zone` px of travel upward so the
- * drawer visually leaps to meet the finger after commit, then re-converges
- * to 1:1 tracking. Boost peaks mid-zone and is zero at both endpoints —
- * so past `zone` the finger-to-drawer mapping is exact.
- */
-export function amplifyTravel(travel, zone = 60, peakBoost = 12) {
-  if (travel <= 0) return 0;
-  if (travel >= zone) return travel;
-  const ratio = travel / zone;
-  return travel + peakBoost * Math.sin(ratio * Math.PI);
-}
-
-/**
  * Projection-based commit decision. Mirrors iOS `projectedEndPoint` and
  * Android fling-decay: instead of binary velocity thresholding, project
  * where the drawer would settle if the aligned velocity decayed over
@@ -141,19 +130,22 @@ export function projectCommit({ travel, aligned, size, projectionMs = 180, ratio
 // scrollTop > 0; and analogously for horizontal.
 export function scrollableAncestorCanAbsorb(target, boundary, dx, dy) {
   if (!target || !(target instanceof Element)) return false;
-  const getStyle = typeof window !== 'undefined' && window.getComputedStyle
-    ? (node) => window.getComputedStyle(node)
-    : null;
+  const getStyle =
+    typeof window !== 'undefined' && window.getComputedStyle
+      ? (node) => window.getComputedStyle(node)
+      : null;
   if (!getStyle) return false;
   const absX = Math.abs(dx);
   const absY = Math.abs(dy);
   let node = target;
   while (node && node !== boundary?.parentElement) {
     const style = getStyle(node);
-    const canScrollY = (style.overflowY === 'auto' || style.overflowY === 'scroll')
-      && node.scrollHeight > node.clientHeight + 1;
-    const canScrollX = (style.overflowX === 'auto' || style.overflowX === 'scroll')
-      && node.scrollWidth > node.clientWidth + 1;
+    const canScrollY =
+      (style.overflowY === 'auto' || style.overflowY === 'scroll') &&
+      node.scrollHeight > node.clientHeight + 1;
+    const canScrollX =
+      (style.overflowX === 'auto' || style.overflowX === 'scroll') &&
+      node.scrollWidth > node.clientWidth + 1;
     if (absY >= absX && canScrollY) {
       const maxTop = node.scrollHeight - node.clientHeight;
       if (dy < 0 && node.scrollTop < maxTop - 1) return true;
@@ -172,8 +164,10 @@ export function scrollableAncestorCanAbsorb(target, boundary, dx, dy) {
 
 /**
  * Compute the drawer transform + progress for an OPEN-drag: the drawer slides
- * in from its edge as the finger travels. `dx`/`dy` are measured from
- * pointerdown; `size` is the drawer's closed-axis extent.
+ * in from its edge as the finger travels 1:1 with no ease-in, matching the
+ * iOS sheet / Android bottom-sheet feel. Past fully-open the drawer rubber-
+ * bands with a decaying `Math.pow(overshoot, 0.7) * 0.6` pull so the surface
+ * resists the finger without a hard stop.
  *
  * Returns `{ progress, transform, reloadRatio }`. `reloadRatio` is non-null
  * only for the `top` edge — the viewport uses it to drive the
@@ -186,32 +180,28 @@ export function computeOpenDragTransform(edge, dx, dy, size, height) {
 
   if (edge === 'top') {
     const travel = Math.max(0, dy);
-    const rendered = amplifyTravel(travel);
-    progress = Math.min(1, rendered / size);
-    const offset = -size + Math.min(rendered, size);
-    const overshoot = Math.max(0, rendered - size);
+    progress = Math.min(1, travel / size);
+    const offset = -size + Math.min(travel, size);
+    const overshoot = Math.max(0, travel - size);
     const pull = overshoot > 0 ? Math.pow(overshoot, 0.7) * 0.6 : 0;
     transform = `translate3d(0, ${offset + pull}px, 0)`;
     reloadRatio = Math.max(0, Math.min(1, travel / height));
   } else if (edge === 'bottom') {
     const travel = Math.max(0, -dy);
-    const rendered = amplifyTravel(travel);
-    progress = Math.min(1, rendered / size);
-    const offset = size - Math.min(rendered, size);
-    const overshoot = Math.max(0, rendered - size);
+    progress = Math.min(1, travel / size);
+    const offset = size - Math.min(travel, size);
+    const overshoot = Math.max(0, travel - size);
     const pull = overshoot > 0 ? Math.pow(overshoot, 0.7) * 0.6 : 0;
     transform = `translate3d(0, ${offset - pull}px, 0)`;
   } else if (edge === 'left') {
     const travel = Math.max(0, dx);
-    const rendered = amplifyTravel(travel);
-    progress = Math.min(1, rendered / size);
-    const offset = -size + Math.min(rendered, size);
+    progress = Math.min(1, travel / size);
+    const offset = -size + Math.min(travel, size);
     transform = `translate3d(${offset}px, 0, 0)`;
   } else if (edge === 'right') {
     const travel = Math.max(0, -dx);
-    const rendered = amplifyTravel(travel);
-    progress = Math.min(1, rendered / size);
-    const offset = size - Math.min(rendered, size);
+    progress = Math.min(1, travel / size);
+    const offset = size - Math.min(travel, size);
     transform = `translate3d(${offset}px, 0, 0)`;
   }
 

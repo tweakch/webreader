@@ -28,6 +28,7 @@ import GestureDrawerViewport from './components/GestureDrawerViewport';
 import { GestureDrawerProvider } from './components/GestureDrawerContext';
 import { SidebarLeftSlot } from './components/SidebarDrawerBridge';
 import { useIsMobile } from './hooks/useIsMobile';
+import { gestureLog } from './src/lib/gestureLog';
 import { getStoryIndex, getCollectionIndex, loadStoryById, loadStoryMetadataById, loadAdaptionsByStoryId, loadStoryAudioMap } from './src/lib/storyLibrary';
 
 const SPEED_READER_FONT_SIZE = {
@@ -547,6 +548,7 @@ const GrimmMarchenApp = () => {
 
     const onTouchStart = (event) => {
       if (event.touches.length !== 2) return;
+      gestureLog('pinch.start', { startFontSize: fontSizeRef.current });
       pinchGestureRef.current = {
         active: true,
         startDistance: distance(event.touches),
@@ -556,6 +558,8 @@ const GrimmMarchenApp = () => {
 
     const onTouchMove = (event) => {
       if (!pinchGestureRef.current.active || event.touches.length !== 2) return;
+      // preventDefault here is the suspected culprit for "pointer events on the
+      // reader don't reach window listeners" — log when it fires.
       event.preventDefault();
       const currentDistance = distance(event.touches);
       if (pinchGestureRef.current.startDistance <= 0) return;
@@ -568,7 +572,8 @@ const GrimmMarchenApp = () => {
     };
 
     const onTouchEnd = (event) => {
-      if (event.touches.length < 2) {
+      if (pinchGestureRef.current.active && event.touches.length < 2) {
+        gestureLog('pinch.end', {});
         pinchGestureRef.current.active = false;
       }
     };

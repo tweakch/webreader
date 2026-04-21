@@ -185,7 +185,7 @@
     }
   },
   "enhanced-gestures": {
-    "defaultVariant": "off",
+    "defaultVariant": "on",
     "variants": {
       "on": true,
       "off": false

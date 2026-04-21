@@ -3,6 +3,7 @@ import { ChevronDown, ChevronRight, Heart, User, LogOut, Sparkles, X, ListCollap
 import { useTheme } from '../ui/ThemeContext';
 import SearchInput from '../ui/SearchInput';
 import StoryButton from '../ui/StoryButton';
+import { gestureLog } from '../src/lib/gestureLog';
 
 const CHILD_AGE_OPTIONS = [3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
 
@@ -136,8 +137,12 @@ export default function SidebarV2({
   // where the sidebar is statically visible. When `externalGestures` is true,
   // GestureLayer owns the gesture lifecycle and this hook is a no-op.
   useEffect(() => {
-    if (externalGestures) return undefined;
+    if (externalGestures) {
+      gestureLog('sidebarv2.swipe-handler.skip', { reason: 'external-gestures' });
+      return undefined;
+    }
     if (typeof window === 'undefined') return;
+    gestureLog('sidebarv2.swipe-handler.install', {});
     const EDGE_PX = 44;
     const MIN_DX = 40;
     const MAX_DY = 80;
@@ -151,12 +156,29 @@ export default function SidebarV2({
 
     const onStart = (e) => {
       if (e.touches.length !== 1) { tracking = false; return; }
-      if (isDesktop()) { tracking = false; return; }
+      if (isDesktop()) {
+        gestureLog('sidebarv2.swipe.skip', { reason: 'desktop' });
+        tracking = false;
+        return;
+      }
       const t = e.touches[0];
       // To open: gesture must start near the left edge.
       // To close: only meaningful while the sidebar is open; the sidebar
       // covers the left side up to w-80 (~320px), so accept from anywhere.
-      if (!menuOpen && t.clientX > EDGE_PX) { tracking = false; return; }
+      if (!menuOpen && t.clientX > EDGE_PX) {
+        gestureLog('sidebarv2.swipe.skip', {
+          reason: 'outside-edge-zone',
+          clientX: Math.round(t.clientX),
+          edgePx: EDGE_PX,
+        });
+        tracking = false;
+        return;
+      }
+      gestureLog('sidebarv2.swipe.start', {
+        x: Math.round(t.clientX),
+        y: Math.round(t.clientY),
+        menuOpen,
+      });
       startX = t.clientX;
       startY = t.clientY;
       startTime = Date.now();
@@ -170,12 +192,35 @@ export default function SidebarV2({
       const dx = t.clientX - startX;
       const dy = t.clientY - startY;
       const dt = Date.now() - startTime;
-      if (dt > MAX_DT) return;
-      if (Math.abs(dy) > MAX_DY) return;
-      if (Math.abs(dx) < MIN_DX) return;
+      if (dt > MAX_DT) {
+        gestureLog('sidebarv2.swipe.reject', {
+          reason: 'too-slow',
+          dt,
+          dx: Math.round(dx),
+          dy: Math.round(dy),
+        });
+        return;
+      }
+      if (Math.abs(dy) > MAX_DY) {
+        gestureLog('sidebarv2.swipe.reject', {
+          reason: 'too-diagonal',
+          dx: Math.round(dx),
+          dy: Math.round(dy),
+        });
+        return;
+      }
+      if (Math.abs(dx) < MIN_DX) {
+        gestureLog('sidebarv2.swipe.reject', {
+          reason: 'too-short',
+          dx: Math.round(dx),
+        });
+        return;
+      }
       if (dx > 0 && !menuOpen) {
+        gestureLog('sidebarv2.swipe.open', { dx: Math.round(dx) });
         onMenuOpenChange?.(true);
       } else if (dx < 0 && menuOpen) {
+        gestureLog('sidebarv2.swipe.close', { dx: Math.round(dx) });
         onMenuOpenChange?.(false);
       }
     };

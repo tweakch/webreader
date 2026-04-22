@@ -67,6 +67,24 @@ export default function GestureDrawerViewport({ enabled, readerAreaRef }) {
   const drawerRefs = useRef({});
   const backdropRef = useRef(null);
   const dragRef = useRef(null);
+  // Slots change identity on every parent render (React children aren't
+  // memoized at the boundary), but the *set of edges that have a slot* is
+  // what the pointer handlers actually read. Track a stable shape string
+  // for the effect dep and a ref for the live payload — this stops the
+  // pointer listeners from being torn down and re-installed each render,
+  // which was cutting gestures mid-drag.
+  const slotsRef = useRef(slots);
+  slotsRef.current = slots;
+  const slotShape =
+    `${slots.top ? '1' : '0'}${slots.bottom ? '1' : '0'}` +
+    `${slots.left ? '1' : '0'}${slots.right ? '1' : '0'}`;
+
+  // `openEdge` is also read inside pointerdown to decide close-vs-open
+  // mode. Reading via a ref keeps the pointer listeners stable across
+  // drawer open/close cycles — which otherwise would tear down the
+  // listeners at the exact moment a user is starting their next gesture.
+  const openEdgeRef = useRef(openEdge);
+  openEdgeRef.current = openEdge;
 
   const anyGestureDrawerOpen = openEdge !== null;
 
@@ -233,22 +251,13 @@ export default function GestureDrawerViewport({ enabled, readerAreaRef }) {
   // Window pointerdown — decide whether a drag starts at all.
   useEffect(() => {
     if (!enabled) {
-      gestureLog('viewport.disabled', { anyDrawerOpen: anyGestureDrawerOpen });
+      gestureLog('viewport.disabled', {});
       setPreview(null);
       setReloadProgress(0);
       return undefined;
     }
     if (typeof window === 'undefined') return undefined;
-    gestureLog('viewport.enabled', {
-      slots: {
-        top: !!slots.top,
-        bottom: !!slots.bottom,
-        left: !!slots.left,
-        right: !!slots.right,
-      },
-      anyDrawerOpen: anyGestureDrawerOpen,
-      openEdge,
-    });
+    gestureLog('viewport.enabled', { slotShape });
 
     const onPointerDown = (e) => {
       if (e.pointerType === 'mouse' && e.button !== 0) return;
@@ -271,13 +280,18 @@ export default function GestureDrawerViewport({ enabled, readerAreaRef }) {
       const { vw, vh, rect } = resolveBounds();
       const x = e.clientX;
       const y = e.clientY;
+      // Snapshot drawer state at pointerdown time so the rest of the drag
+      // reads consistent values — the refs are live but we only need the
+      // initial state to classify open-vs-close mode.
+      const liveOpenEdge = openEdgeRef.current;
+      const drawerOpen = liveOpenEdge !== null;
       gestureLog('gesture.pointerdown', {
         x: Math.round(x),
         y: Math.round(y),
         pointerType: e.pointerType,
         target: describeTarget(e.target),
-        anyDrawerOpen: anyGestureDrawerOpen,
-        openEdge,
+        anyDrawerOpen: drawerOpen,
+        openEdge: liveOpenEdge,
         readerRect: {
           top: Math.round(rect.top),
           left: Math.round(rect.left),
@@ -292,8 +306,8 @@ export default function GestureDrawerViewport({ enabled, readerAreaRef }) {
       // possible, same rules — the progressive-close animation is consistent
       // whether you swipe on the drawer or the backdrop).
       let insideOpenDrawer = false;
-      if (anyGestureDrawerOpen) {
-        const openDrawerEl = drawerRefs.current[openEdge];
+      if (drawerOpen) {
+        const openDrawerEl = drawerRefs.current[liveOpenEdge];
         if (openDrawerEl && e.target instanceof Node && openDrawerEl.contains(e.target)) {
           insideOpenDrawer = true;
         }
@@ -305,8 +319,8 @@ export default function GestureDrawerViewport({ enabled, readerAreaRef }) {
       dragRef.current = {
         active: true,
         mode: null, // 'open' | 'close' — decided on first move
-        edge: anyGestureDrawerOpen ? openEdge : null,
-        closeMode: anyGestureDrawerOpen,
+        edge: drawerOpen ? liveOpenEdge : null,
+        closeMode: drawerOpen,
         insideOpenDrawer,
         targetEl: e.target instanceof Element ? e.target : null,
         pointerId: e.pointerId,
@@ -418,10 +432,11 @@ export default function GestureDrawerViewport({ enabled, readerAreaRef }) {
             dragRef.current = null;
             return;
           }
+          const liveSlot = slotsRef.current[edge];
           d.mode = 'close';
           d.direction = closeAxis.sign;
-          d.size = sizeOf(edge, slots[edge]);
-          d.noBackdrop = !!slots[edge]?.noBackdrop;
+          d.size = sizeOf(edge, liveSlot);
+          d.noBackdrop = !!liveSlot?.noBackdrop;
           d.committedAxis = true;
           gestureLog('gesture.commit', {
             mode: 'close',
@@ -432,17 +447,18 @@ export default function GestureDrawerViewport({ enabled, readerAreaRef }) {
           });
         } else {
           const edge = edgeForSwipe(dx, dy);
-          if (!slots[edge]) {
+          const liveSlots = slotsRef.current;
+          if (!liveSlots[edge]) {
             gestureLog('gesture.abort', {
               reason: 'no-slot',
               edge,
               dx: Math.round(dx),
               dy: Math.round(dy),
               registeredSlots: {
-                top: !!slots.top,
-                bottom: !!slots.bottom,
-                left: !!slots.left,
-                right: !!slots.right,
+                top: !!liveSlots.top,
+                bottom: !!liveSlots.bottom,
+                left: !!liveSlots.left,
+                right: !!liveSlots.right,
               },
             });
             dragRef.current = null;
@@ -451,8 +467,8 @@ export default function GestureDrawerViewport({ enabled, readerAreaRef }) {
           d.mode = 'open';
           d.edge = edge;
           d.direction = EDGE_DIRECTION[edge];
-          d.size = sizeOf(edge, slots[edge]);
-          d.noBackdrop = !!slots[edge]?.noBackdrop;
+          d.size = sizeOf(edge, liveSlots[edge]);
+          d.noBackdrop = !!liveSlots[edge]?.noBackdrop;
           d.committedAxis = true;
           gestureLog('gesture.commit', {
             mode: 'open',
@@ -571,9 +587,7 @@ export default function GestureDrawerViewport({ enabled, readerAreaRef }) {
     };
   }, [
     enabled,
-    slots,
-    anyGestureDrawerOpen,
-    openEdge,
+    slotShape,
     resolveBounds,
     applyOpenDragTransform,
     applyCloseDragTransform,

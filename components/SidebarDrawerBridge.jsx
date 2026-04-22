@@ -36,9 +36,9 @@ export const SidebarLeftSlot = forwardRef(function SidebarLeftSlot(
   // callsites can route through the drawer system instead of fighting the
   // openEdge → menuOpen sync.
   useImperativeHandle(controllerRef, () => ({
-    open: () => openDrawer('left'),
-    close: () => closeDrawer(),
-    toggle: () => (openEdge === 'left' ? closeDrawer() : openDrawer('left')),
+    open: () => openDrawer('left', 'sidebar-controller'),
+    close: () => closeDrawer('sidebar-controller'),
+    toggle: () => (openEdge === 'left' ? closeDrawer('sidebar-controller') : openDrawer('left', 'sidebar-controller')),
   }), [openDrawer, closeDrawer, openEdge]);
 
   if (!enabled) return null;
@@ -60,7 +60,7 @@ export function useSidebarToggle({ enabled, menuOpen, onMenuOpenChange }) {
   const isOpen = openEdge === 'left';
   return {
     isOpen,
-    toggle: () => (isOpen ? closeDrawer() : openDrawer('left')),
+    toggle: () => (isOpen ? closeDrawer('menu-toggle') : openDrawer('left', 'menu-toggle')),
   };
 }
 

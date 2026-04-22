@@ -201,7 +201,7 @@ export default function GestureDrawerViewport({ enabled, readerAreaRef }) {
             backdropRef.current.style.pointerEvents = 'none';
           }
           gestureLog('drawer.close', { edge: d.edge, source: 'gesture' });
-          closeDrawer();
+          closeDrawer('gesture');
         } else {
           drawerEl.style.transform = 'translate3d(0, 0, 0)';
           if (writeBackdrop) {
@@ -220,7 +220,7 @@ export default function GestureDrawerViewport({ enabled, readerAreaRef }) {
           backdropRef.current.style.pointerEvents = 'auto';
         }
         gestureLog('drawer.open', { edge: d.edge, source: 'gesture' });
-        openDrawer(d.edge);
+        openDrawer(d.edge, 'gesture');
       } else {
         drawerEl.style.transform = EDGE_CLOSED_TRANSFORM[d.edge] ?? '';
         if (writeBackdrop) {
@@ -352,6 +352,14 @@ export default function GestureDrawerViewport({ enabled, readerAreaRef }) {
         peakDist: 0,
         peakSpeed: 0,
         peakDeviationRad: Math.PI / 2,
+        // Per-drag event counters. If pointerdown arrives but pointermove /
+        // pointerup never do, the counts in the final `gesture.end` log tell
+        // us which event was starved — which narrows "who ate the gesture"
+        // to the browser (touch → scroll hijack) vs. a stopPropagation
+        // somewhere in the DOM.
+        moveCount: 0,
+        startT: now,
+        endedBy: null,
       };
     };
 
@@ -365,6 +373,15 @@ export default function GestureDrawerViewport({ enabled, readerAreaRef }) {
       d.lastX = x;
       d.lastY = y;
       d.lastT = now;
+      d.moveCount += 1;
+      if (d.moveCount === 1) {
+        gestureLog('gesture.pointermove.first', {
+          dx: Math.round(x - d.startX),
+          dy: Math.round(y - d.startY),
+          closeMode: d.closeMode,
+          edge: d.edge,
+        });
+      }
       pushSample(d.samples, x, y, now);
 
       const dx = x - d.startX;
@@ -501,6 +518,7 @@ export default function GestureDrawerViewport({ enabled, readerAreaRef }) {
     };
 
     const endDrag = (d) => {
+      const dt = Math.round(performance.now() - d.startT);
       dragRef.current = null;
       setPreview(null);
 
@@ -518,14 +536,19 @@ export default function GestureDrawerViewport({ enabled, readerAreaRef }) {
           closeMode: d.closeMode,
           edge: d.edge,
           insideOpenDrawer: d.insideOpenDrawer,
+          moveCount: d.moveCount,
+          dtMs: dt,
+          endedBy: d.endedBy,
           reason:
-            d.peakDist < MIN_DIST
-              ? 'below-min-dist'
-              : (d.peakDeviationRad * 180) / Math.PI > 35
-                ? 'outside-angle-cone'
-                : d.peakSpeed < MIN_VELOCITY && d.peakDist < FALLBACK_DIST
-                  ? 'below-speed-and-fallback'
-                  : 'unknown',
+            d.moveCount === 0
+              ? 'no-moves-observed'
+              : d.peakDist < MIN_DIST
+                ? 'below-min-dist'
+                : (d.peakDeviationRad * 180) / Math.PI > 35
+                  ? 'outside-angle-cone'
+                  : d.peakSpeed < MIN_VELOCITY && d.peakDist < FALLBACK_DIST
+                    ? 'below-speed-and-fallback'
+                    : 'unknown',
         });
       } else {
         gestureLog('gesture.release', {
@@ -533,6 +556,9 @@ export default function GestureDrawerViewport({ enabled, readerAreaRef }) {
           edge: d.edge,
           progress: Math.round(d.progress * 100) / 100,
           velocity: Math.round((d.velocity ?? 0) * 1000) / 1000,
+          moveCount: d.moveCount,
+          dtMs: dt,
+          endedBy: d.endedBy,
         });
       }
 
@@ -563,33 +589,76 @@ export default function GestureDrawerViewport({ enabled, readerAreaRef }) {
 
     const onPointerUp = (e) => {
       const d = dragRef.current;
+      // Raw log BEFORE the guard: if this fires but the matching pointerdown's
+      // drag was already cleared, we know the drag died mid-way.
+      gestureLog('gesture.pointerup.raw', {
+        hasActiveDrag: !!(d && d.active),
+        samePointer: !!(d && e.pointerId === d.pointerId),
+      });
       if (!d || !d.active || e.pointerId !== d.pointerId) return;
+      d.endedBy = 'pointerup';
       endDrag(d);
     };
 
     const onPointerCancel = (e) => {
       const d = dragRef.current;
-      if (!d || e.pointerId !== d.pointerId) return;
-      gestureLog('gesture.pointercancel', {
-        committedAxis: d.committedAxis,
-        mode: d.mode,
-        edge: d.edge,
+      gestureLog('gesture.pointercancel.raw', {
+        hasActiveDrag: !!(d && d.active),
+        samePointer: !!(d && e.pointerId === d.pointerId),
+        committedAxis: !!d?.committedAxis,
+        mode: d?.mode ?? null,
+        edge: d?.edge ?? null,
       });
+      if (!d || e.pointerId !== d.pointerId) return;
+      d.endedBy = 'pointercancel';
       dragRef.current = null;
       setPreview(null);
       setReloadProgress(0);
       commitOrReset(d, 0);
     };
 
+    // Native touch mirror. If pointerdown/up stop arriving mid-drag but these
+    // fire, a pointer-event listener upstream is stopping propagation or the
+    // browser is synthesizing touches only. Batched counter on touchmove to
+    // avoid log spam.
+    let touchMoveCount = 0;
+    let touchSeqStart = 0;
+    const onTouchStart = (e) => {
+      touchMoveCount = 0;
+      touchSeqStart = performance.now();
+      gestureLog('touch.start', {
+        touches: e.touches.length,
+        x: Math.round(e.touches[0]?.clientX ?? 0),
+        y: Math.round(e.touches[0]?.clientY ?? 0),
+        target: describeTarget(e.target),
+      });
+    };
+    const onTouchMove = () => { touchMoveCount += 1; };
+    const onTouchEnd = (e) => {
+      gestureLog('touch.end', {
+        type: e.type,
+        moveCount: touchMoveCount,
+        dtMs: Math.round(performance.now() - touchSeqStart),
+      });
+    };
+
     window.addEventListener('pointerdown', onPointerDown, { passive: true });
     window.addEventListener('pointermove', onPointerMove, { passive: true });
     window.addEventListener('pointerup', onPointerUp, { passive: true });
     window.addEventListener('pointercancel', onPointerCancel, { passive: true });
+    window.addEventListener('touchstart', onTouchStart, { passive: true });
+    window.addEventListener('touchmove', onTouchMove, { passive: true });
+    window.addEventListener('touchend', onTouchEnd, { passive: true });
+    window.addEventListener('touchcancel', onTouchEnd, { passive: true });
     return () => {
       window.removeEventListener('pointerdown', onPointerDown);
       window.removeEventListener('pointermove', onPointerMove);
       window.removeEventListener('pointerup', onPointerUp);
       window.removeEventListener('pointercancel', onPointerCancel);
+      window.removeEventListener('touchstart', onTouchStart);
+      window.removeEventListener('touchmove', onTouchMove);
+      window.removeEventListener('touchend', onTouchEnd);
+      window.removeEventListener('touchcancel', onTouchEnd);
     };
   }, [
     enabled,

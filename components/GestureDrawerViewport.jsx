@@ -23,14 +23,14 @@ import {
  * GestureDrawerViewport
  *
  * Single gesture+drawer host for the app. It:
- *   - Listens at the window level for pointer events. Every pointermove
- *     is pushed into a small ring buffer; a drag "commits" once either
- *     the fast path fires (travel > MIN_DIST, weighted velocity above
- *     MIN_VELOCITY, and motion inside an angular cone around one
- *     cardinal axis) or the slow path fires (travel > FALLBACK_DIST,
- *     still inside the cone). Before commit, nothing moves visually;
- *     after commit, the drawer's open-drag transform ease-in-amplifies
- *     the first ~60px so the surface leaps to meet the finger.
+ *   - Listens at the window level for pointer events. A drag "commits"
+ *     to an axis once the pointer has travelled past MIN_DIST (anti-tap
+ *     jitter guard) inside an angular cone around one cardinal axis.
+ *     The drawer then follows the finger 1:1 so a slow deliberate pull
+ *     shows live feedback instead of dead-zoning. `commitPath` keeps
+ *     the old fast-path / slow-path labels for telemetry only. Release-
+ *     time projection decides whether the drawer opens/closes or snaps
+ *     back; click suppression only fires on an actual state change.
  *   - While a drawer is open, a swipe *in that drawer's close direction*
  *     (top→up, bottom→down, left→left, right→right) progressively pulls the
  *     drawer closed, whether the swipe starts on the backdrop or on the
@@ -148,6 +148,22 @@ export default function GestureDrawerViewport({ enabled, readerAreaRef }) {
     return progress;
   }, []);
 
+  // After a committed drag the browser still dispatches a `click` on the
+  // original pointerdown target; without this, a drag-to-open on a button
+  // also fires the button handler. 400ms safety timeout removes the
+  // listener if no click ever follows.
+  const suppressNextClick = useCallback(() => {
+    if (typeof window === 'undefined') return;
+    const suppress = (e) => {
+      gestureLog('gesture.click-suppressed', { target: describeTarget(e.target) });
+      e.preventDefault();
+      e.stopPropagation();
+      window.removeEventListener('click', suppress, true);
+    };
+    window.addEventListener('click', suppress, true);
+    setTimeout(() => window.removeEventListener('click', suppress, true), 400);
+  }, []);
+
   const commitOrReset = useCallback(
     (d, finalProgress) => {
       // A tap (pointerdown + pointerup with no qualifying move) ends here
@@ -192,6 +208,7 @@ export default function GestureDrawerViewport({ enabled, readerAreaRef }) {
             backdropRef.current.style.pointerEvents = 'none';
           }
           closeDrawer('gesture');
+          suppressNextClick();
         } else {
           drawerEl.style.transform = 'translate3d(0, 0, 0)';
           if (writeBackdrop) {
@@ -209,6 +226,7 @@ export default function GestureDrawerViewport({ enabled, readerAreaRef }) {
           backdropRef.current.style.pointerEvents = 'auto';
         }
         openDrawer(d.edge, 'gesture');
+        suppressNextClick();
       } else {
         drawerEl.style.transform = EDGE_CLOSED_TRANSFORM[d.edge] ?? '';
         if (writeBackdrop) {
@@ -217,7 +235,7 @@ export default function GestureDrawerViewport({ enabled, readerAreaRef }) {
         }
       }
     },
-    [openDrawer, closeDrawer]
+    [openDrawer, closeDrawer, suppressNextClick]
   );
 
   const triggerReload = useCallback(() => {
@@ -225,22 +243,6 @@ export default function GestureDrawerViewport({ enabled, readerAreaRef }) {
     if (typeof onReload === 'function') onReload();
     else if (typeof window !== 'undefined') window.location.reload();
   }, [onReload]);
-
-  // After a committed drag the browser still dispatches a `click` on the
-  // original pointerdown target; without this, a drag-to-open on a button
-  // also fires the button handler. 400ms safety timeout removes the
-  // listener if no click ever follows.
-  const suppressNextClick = useCallback(() => {
-    if (typeof window === 'undefined') return;
-    const suppress = (e) => {
-      gestureLog('gesture.click-suppressed', { target: describeTarget(e.target) });
-      e.preventDefault();
-      e.stopPropagation();
-      window.removeEventListener('click', suppress, true);
-    };
-    window.addEventListener('click', suppress, true);
-    setTimeout(() => window.removeEventListener('click', suppress, true), 400);
-  }, []);
 
   // Window pointerdown — decide whether a drag starts at all.
   useEffect(() => {
@@ -355,10 +357,11 @@ export default function GestureDrawerViewport({ enabled, readerAreaRef }) {
         const deviation = axisDeviationRad(dx, dy);
         if (speed > d.peakSpeed) d.peakSpeed = speed;
         if (deviation < d.peakDeviationRad) d.peakDeviationRad = deviation;
-        const withinCone = deviation <= ANGLE_CONE_RAD;
-        const fastPath = withinCone && speed >= MIN_VELOCITY;
-        const slowPath = withinCone && dist >= FALLBACK_DIST;
-        if (!(fastPath || slowPath)) return;
+        if (deviation > ANGLE_CONE_RAD) return;
+        // Past MIN_DIST + axis-aligned: start following. fastPath/slowPath
+        // are telemetry only now — projection decides commit on release.
+        const fastPath = speed >= MIN_VELOCITY;
+        const slowPath = dist >= FALLBACK_DIST;
 
         if (d.closeMode) {
           const edge = d.edge;
@@ -394,7 +397,7 @@ export default function GestureDrawerViewport({ enabled, readerAreaRef }) {
           d.size = sizeOf(edge, liveSlot);
           d.noBackdrop = !!liveSlot?.noBackdrop;
           d.committedAxis = true;
-          d.commitPath = fastPath ? 'fast' : 'slow';
+          d.commitPath = fastPath ? 'fast' : slowPath ? 'slow' : 'preview';
         } else {
           const edge = edgeForSwipe(dx, dy);
           const liveSlots = slotsRef.current;
@@ -411,7 +414,7 @@ export default function GestureDrawerViewport({ enabled, readerAreaRef }) {
           d.size = sizeOf(edge, liveSlots[edge]);
           d.noBackdrop = !!liveSlots[edge]?.noBackdrop;
           d.committedAxis = true;
-          d.commitPath = fastPath ? 'fast' : 'slow';
+          d.commitPath = fastPath ? 'fast' : slowPath ? 'slow' : 'preview';
         }
       }
 
@@ -476,7 +479,7 @@ export default function GestureDrawerViewport({ enabled, readerAreaRef }) {
         openEdgeAtStart: d.openEdgeAtStart,
         mode: d.mode,
         edge: d.edge,
-        commitPath: d.commitPath, // 'fast' | 'slow' | null
+        commitPath: d.commitPath, // 'fast' | 'slow' | 'preview' | null
         progress: Math.round(d.progress * 100) / 100,
         velocity: Math.round((d.velocity ?? 0) * 1000) / 1000,
         peakDist: Math.round(d.peakDist),
@@ -490,7 +493,9 @@ export default function GestureDrawerViewport({ enabled, readerAreaRef }) {
     const endDrag = (d) => {
       dragRef.current = null;
       setPreview(null);
-      if (d.committedAxis) suppressNextClick();
+      // Click suppression lives inside commitOrReset now: only drags that
+      // change drawer state eat the follow-up click. Drags that snap back
+      // let the original click through.
       emitTrace(d);
 
       // Reload intent: swipe-down that armed near the top edge and crossed
@@ -576,7 +581,6 @@ export default function GestureDrawerViewport({ enabled, readerAreaRef }) {
     applyCloseDragTransform,
     commitOrReset,
     triggerReload,
-    suppressNextClick,
     closeDrawer,
   ]);
 

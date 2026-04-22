@@ -1,4 +1,5 @@
 import { createContext, useCallback, useContext, useEffect, useMemo, useState } from 'react';
+import { gestureLog } from '../src/lib/gestureLog';
 
 /**
  * Pages register drawer payloads (top/bottom/left/right) via
@@ -42,8 +43,20 @@ export function GestureDrawerProvider({ children, globalDrawers = null, onReload
     setPageSlots((prev) => (prev[key] === payload ? prev : { ...prev, [key]: payload }));
   }, []);
 
-  const openDrawer = useCallback((edge) => setOpenEdge(canonicalEdge(edge)), []);
-  const closeDrawer = useCallback(() => setOpenEdge(null), []);
+  // Tolerate being called with a synthetic event as first arg (e.g.
+  // DrawerBackdrop's `onClick={onClose}`) by only treating strings as a
+  // source label. Anything else is logged as 'unknown'.
+  const normalizeSource = (s) => (typeof s === 'string' ? s : 'unknown');
+
+  const openDrawer = useCallback((edge, source) => {
+    const canonical = canonicalEdge(edge);
+    gestureLog('drawer.state.open', { edge: canonical, source: normalizeSource(source) });
+    setOpenEdge(canonical);
+  }, []);
+  const closeDrawer = useCallback((source) => {
+    gestureLog('drawer.state.close', { source: normalizeSource(source) });
+    setOpenEdge(null);
+  }, []);
 
   const merged = useMemo(() => {
     const next = { ...pageSlots };

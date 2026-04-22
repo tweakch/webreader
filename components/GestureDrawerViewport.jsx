@@ -184,23 +184,13 @@ export default function GestureDrawerViewport({ enabled, readerAreaRef }) {
       // `noBackdrop` slots keep the global backdrop dormant even when open.
       const writeBackdrop = backdropRef.current && !d.noBackdrop;
 
-      gestureLog('gesture.commit-decision', {
-        mode: d.mode,
-        edge: d.edge,
-        finalProgress: Math.round(finalProgress * 100) / 100,
-        aligned: Math.round(aligned * 1000) / 1000,
-        shouldCommit,
-      });
-
       if (d.mode === 'close') {
-        // Close-drag: committing means fully closing; aborting springs back open.
         if (shouldCommit) {
           drawerEl.style.transform = EDGE_CLOSED_TRANSFORM[d.edge] ?? '';
           if (writeBackdrop) {
             backdropRef.current.style.opacity = '0';
             backdropRef.current.style.pointerEvents = 'none';
           }
-          gestureLog('drawer.close', { edge: d.edge, source: 'gesture' });
           closeDrawer('gesture');
         } else {
           drawerEl.style.transform = 'translate3d(0, 0, 0)';
@@ -212,14 +202,12 @@ export default function GestureDrawerViewport({ enabled, readerAreaRef }) {
         return;
       }
 
-      // Open-drag: committing means fully opening; aborting snaps closed.
       if (shouldCommit) {
         drawerEl.style.transform = 'translate3d(0, 0, 0)';
         if (writeBackdrop) {
           backdropRef.current.style.opacity = '0.3';
           backdropRef.current.style.pointerEvents = 'auto';
         }
-        gestureLog('drawer.open', { edge: d.edge, source: 'gesture' });
         openDrawer(d.edge, 'gesture');
       } else {
         drawerEl.style.transform = EDGE_CLOSED_TRANSFORM[d.edge] ?? '';
@@ -257,13 +245,11 @@ export default function GestureDrawerViewport({ enabled, readerAreaRef }) {
   // Window pointerdown — decide whether a drag starts at all.
   useEffect(() => {
     if (!enabled) {
-      gestureLog('viewport.disabled', {});
       setPreview(null);
       setReloadProgress(0);
       return undefined;
     }
     if (typeof window === 'undefined') return undefined;
-    gestureLog('viewport.enabled', { slotShape });
 
     const onPointerDown = (e) => {
       if (e.pointerType === 'mouse' && e.button !== 0) return;
@@ -273,12 +259,9 @@ export default function GestureDrawerViewport({ enabled, readerAreaRef }) {
       if (existing) {
         const age = performance.now() - (existing.lastT ?? 0);
         if (age > STALE_DRAG_MS) {
-          gestureLog('gesture.stale-drag.cleared', { ageMs: Math.round(age) });
+          gestureLog('gesture.stale-drag', { ageMs: Math.round(age) });
           dragRef.current = null;
         } else {
-          gestureLog('gesture.pointerdown.blocked-by-active-drag', {
-            ageMs: Math.round(age),
-          });
           return;
         }
       }
@@ -291,20 +274,6 @@ export default function GestureDrawerViewport({ enabled, readerAreaRef }) {
       // initial state to classify open-vs-close mode.
       const liveOpenEdge = openEdgeRef.current;
       const drawerOpen = liveOpenEdge !== null;
-      gestureLog('gesture.pointerdown', {
-        x: Math.round(x),
-        y: Math.round(y),
-        pointerType: e.pointerType,
-        target: describeTarget(e.target),
-        anyDrawerOpen: drawerOpen,
-        openEdge: liveOpenEdge,
-        readerRect: {
-          top: Math.round(rect.top),
-          left: Math.round(rect.left),
-          width: Math.round(rect.width),
-          height: Math.round(rect.height),
-        },
-      });
 
       // If a drawer is already open, figure out whether this pointerdown is
       // on the drawer itself (possible close-drag gated by direction + scroll
@@ -329,14 +298,16 @@ export default function GestureDrawerViewport({ enabled, readerAreaRef }) {
         closeMode: drawerOpen,
         insideOpenDrawer,
         targetEl: e.target instanceof Element ? e.target : null,
+        startTarget: describeTarget(e.target),
         pointerId: e.pointerId,
+        pointerType: e.pointerType,
         startX: x,
         startY: y,
         lastX: x,
         lastY: y,
         lastT: now,
-        samples, // ring buffer of recent (x, y, t) samples
-        velocity: 0, // aligned axis velocity (signed, px/ms)
+        samples,
+        velocity: 0,
         direction: 0,
         vw,
         vh,
@@ -345,21 +316,16 @@ export default function GestureDrawerViewport({ enabled, readerAreaRef }) {
         size: 0,
         progress: 0,
         committedAxis: false,
-        // Diagnostic peak: max travel distance + smallest cone deviation
-        // seen during the drag. Logged on pointerup if the gesture never
-        // committed, so we can see whether the gate rejected or the finger
-        // simply didn't move far enough.
         peakDist: 0,
         peakSpeed: 0,
         peakDeviationRad: Math.PI / 2,
-        // Per-drag event counters. If pointerdown arrives but pointermove /
-        // pointerup never do, the counts in the final `gesture.end` log tell
-        // us which event was starved — which narrows "who ate the gesture"
-        // to the browser (touch → scroll hijack) vs. a stopPropagation
-        // somewhere in the DOM.
         moveCount: 0,
+        touchMoveCount: 0,
         startT: now,
-        endedBy: null,
+        endedBy: 'missing',
+        commitPath: null, // 'fast' | 'slow'
+        abortReason: null, // 'no-close-axis' | 'close-wrong-direction' | 'scroll-ancestor-absorb' | 'no-slot'
+        openEdgeAtStart: liveOpenEdge,
       };
     };
 
@@ -374,27 +340,12 @@ export default function GestureDrawerViewport({ enabled, readerAreaRef }) {
       d.lastY = y;
       d.lastT = now;
       d.moveCount += 1;
-      if (d.moveCount === 1) {
-        gestureLog('gesture.pointermove.first', {
-          dx: Math.round(x - d.startX),
-          dy: Math.round(y - d.startY),
-          closeMode: d.closeMode,
-          edge: d.edge,
-        });
-      }
       pushSample(d.samples, x, y, now);
 
       const dx = x - d.startX;
       const dy = y - d.startY;
 
       if (!d.committedAxis) {
-        // Always-on sampling. The gate is:
-        //   fast path — dist > MIN_DIST AND velocity > MIN_VELOCITY
-        //               AND motion vector within ANGLE_CONE of a cardinal axis
-        //   slow path — dist > FALLBACK_DIST AND motion within ANGLE_CONE
-        // Below MIN_DIST nothing can commit; between MIN_DIST and FALLBACK_DIST
-        // a fast flick commits immediately; above FALLBACK_DIST a deliberate
-        // slow drag commits even without velocity.
         const dist = Math.hypot(dx, dy);
         if (dist > d.peakDist) d.peakDist = dist;
         if (dist < MIN_DIST) return;
@@ -409,19 +360,13 @@ export default function GestureDrawerViewport({ enabled, readerAreaRef }) {
         const slowPath = withinCone && dist >= FALLBACK_DIST;
         if (!(fastPath || slowPath)) return;
 
-        // A drawer is already open: decide whether this is a close-drag.
-        // Close-drag commits only if:
-        //   (a) the dominant axis matches the drawer's close axis,
-        //   (b) the finger is moving in the close-sign (e.g. up for top), and
-        //   (c) no scrollable ancestor inside the drawer can absorb the move
-        //       (so the internal story list can scroll without the drawer
-        //       sliding closed underneath).
         if (d.closeMode) {
           const edge = d.edge;
           const closeAxis = CLOSE_AXIS[edge];
           if (!closeAxis) {
-            gestureLog('gesture.abort', { reason: 'no-close-axis', edge });
-            dragRef.current = null;
+            d.abortReason = 'no-close-axis';
+            d.endedBy = 'gate-abort';
+            endDrag(d);
             return;
           }
           const axisMatches =
@@ -431,28 +376,16 @@ export default function GestureDrawerViewport({ enabled, readerAreaRef }) {
               ? Math.sign(dy) === closeAxis.sign
               : Math.sign(dx) === closeAxis.sign;
           if (!axisMatches || !signMatches) {
-            // Wrong direction — abort so native handling (scroll, tap) wins.
-            gestureLog('gesture.abort', {
-              reason: 'close-wrong-direction',
-              edge,
-              dx: Math.round(dx),
-              dy: Math.round(dy),
-              axisMatches,
-              signMatches,
-            });
-            dragRef.current = null;
+            d.abortReason = 'close-wrong-direction';
+            d.endedBy = 'gate-abort';
+            endDrag(d);
             return;
           }
           const openDrawerEl = drawerRefs.current[edge];
           if (d.insideOpenDrawer && scrollableAncestorCanAbsorb(d.targetEl, openDrawerEl, dx, dy)) {
-            gestureLog('gesture.abort', {
-              reason: 'scroll-ancestor-absorb',
-              edge,
-              dx: Math.round(dx),
-              dy: Math.round(dy),
-              target: describeTarget(d.targetEl),
-            });
-            dragRef.current = null;
+            d.abortReason = 'scroll-ancestor-absorb';
+            d.endedBy = 'gate-abort';
+            endDrag(d);
             return;
           }
           const liveSlot = slotsRef.current[edge];
@@ -461,30 +394,15 @@ export default function GestureDrawerViewport({ enabled, readerAreaRef }) {
           d.size = sizeOf(edge, liveSlot);
           d.noBackdrop = !!liveSlot?.noBackdrop;
           d.committedAxis = true;
-          gestureLog('gesture.commit', {
-            mode: 'close',
-            edge,
-            dx: Math.round(dx),
-            dy: Math.round(dy),
-            speed: Math.round(speed * 1000) / 1000,
-          });
+          d.commitPath = fastPath ? 'fast' : 'slow';
         } else {
           const edge = edgeForSwipe(dx, dy);
           const liveSlots = slotsRef.current;
           if (!liveSlots[edge]) {
-            gestureLog('gesture.abort', {
-              reason: 'no-slot',
-              edge,
-              dx: Math.round(dx),
-              dy: Math.round(dy),
-              registeredSlots: {
-                top: !!liveSlots.top,
-                bottom: !!liveSlots.bottom,
-                left: !!liveSlots.left,
-                right: !!liveSlots.right,
-              },
-            });
-            dragRef.current = null;
+            d.abortReason = 'no-slot';
+            d.edge = edge;
+            d.endedBy = 'gate-abort';
+            endDrag(d);
             return;
           }
           d.mode = 'open';
@@ -493,14 +411,7 @@ export default function GestureDrawerViewport({ enabled, readerAreaRef }) {
           d.size = sizeOf(edge, liveSlots[edge]);
           d.noBackdrop = !!liveSlots[edge]?.noBackdrop;
           d.committedAxis = true;
-          gestureLog('gesture.commit', {
-            mode: 'open',
-            edge,
-            dx: Math.round(dx),
-            dy: Math.round(dy),
-            speed: Math.round(speed * 1000) / 1000,
-            path: fastPath ? 'fast' : 'slow',
-          });
+          d.commitPath = fastPath ? 'fast' : 'slow';
         }
       }
 
@@ -517,50 +428,70 @@ export default function GestureDrawerViewport({ enabled, readerAreaRef }) {
       setPreview({ edge: d.edge, progress });
     };
 
-    const endDrag = (d) => {
+    // Emit one consolidated `gesture.trace` at the end of the gesture. This
+    // replaces the per-event log spam (pointerdown/move/up/commit/release/
+    // never-committed/abort) with a single row per user interaction so one
+    // page of Vercel logs fits many complete gestures instead of fragments
+    // of a few.
+    const emitTrace = (d) => {
       const dt = Math.round(performance.now() - d.startT);
+      const dx = Math.round(d.lastX - d.startX);
+      const dy = Math.round(d.lastY - d.startY);
+      const peakDeviationDeg = Math.round((d.peakDeviationRad * 180) / Math.PI);
+
+      // Classify outcome.
+      let outcome;
+      let rejectReason = null;
+      if (d.committedAxis) {
+        outcome = d.mode; // 'open' | 'close'
+      } else if (d.abortReason) {
+        outcome = 'abort';
+        rejectReason = d.abortReason;
+      } else {
+        outcome = 'tap';
+        rejectReason =
+          d.moveCount === 0
+            ? 'no-moves-observed'
+            : d.peakDist < MIN_DIST
+              ? 'below-min-dist'
+              : peakDeviationDeg > 35
+                ? 'outside-angle-cone'
+                : d.peakSpeed < MIN_VELOCITY && d.peakDist < FALLBACK_DIST
+                  ? 'below-speed-and-fallback'
+                  : 'unknown';
+      }
+
+      gestureLog('gesture.trace', {
+        outcome,
+        startTarget: d.startTarget,
+        startX: Math.round(d.startX),
+        startY: Math.round(d.startY),
+        dx,
+        dy,
+        dtMs: dt,
+        pointerType: d.pointerType,
+        moveCount: d.moveCount,
+        touchMoveCount: d.touchMoveCount,
+        endedBy: d.endedBy, // 'pointerup' | 'pointercancel' | 'missing' (gate-abort path)
+        openEdgeAtStart: d.openEdgeAtStart,
+        mode: d.mode,
+        edge: d.edge,
+        commitPath: d.commitPath, // 'fast' | 'slow' | null
+        progress: Math.round(d.progress * 100) / 100,
+        velocity: Math.round((d.velocity ?? 0) * 1000) / 1000,
+        peakDist: Math.round(d.peakDist),
+        peakSpeed: Math.round(d.peakSpeed * 1000) / 1000,
+        peakDeviationDeg,
+        rejectReason,
+        insideOpenDrawer: d.insideOpenDrawer,
+      });
+    };
+
+    const endDrag = (d) => {
       dragRef.current = null;
       setPreview(null);
-
-      // Past click-slop — swallow the synthetic click so the drag doesn't
-      // also trigger whatever button it started on.
       if (d.committedAxis) suppressNextClick();
-
-      // Log the outcome. If the gesture never committed, the peak telemetry
-      // tells us why: too little travel, too slow, or angle outside the cone.
-      if (!d.committedAxis) {
-        gestureLog('gesture.never-committed', {
-          peakDist: Math.round(d.peakDist),
-          peakSpeed: Math.round(d.peakSpeed * 1000) / 1000,
-          peakDeviationDeg: Math.round((d.peakDeviationRad * 180) / Math.PI),
-          closeMode: d.closeMode,
-          edge: d.edge,
-          insideOpenDrawer: d.insideOpenDrawer,
-          moveCount: d.moveCount,
-          dtMs: dt,
-          endedBy: d.endedBy,
-          reason:
-            d.moveCount === 0
-              ? 'no-moves-observed'
-              : d.peakDist < MIN_DIST
-                ? 'below-min-dist'
-                : (d.peakDeviationRad * 180) / Math.PI > 35
-                  ? 'outside-angle-cone'
-                  : d.peakSpeed < MIN_VELOCITY && d.peakDist < FALLBACK_DIST
-                    ? 'below-speed-and-fallback'
-                    : 'unknown',
-        });
-      } else {
-        gestureLog('gesture.release', {
-          mode: d.mode,
-          edge: d.edge,
-          progress: Math.round(d.progress * 100) / 100,
-          velocity: Math.round((d.velocity ?? 0) * 1000) / 1000,
-          moveCount: d.moveCount,
-          dtMs: dt,
-          endedBy: d.endedBy,
-        });
-      }
+      emitTrace(d);
 
       // Reload intent: swipe-down that armed near the top edge and crossed
       // RELOAD_RATIO of reader height. Only for open-drags on the top edge;
@@ -568,7 +499,7 @@ export default function GestureDrawerViewport({ enabled, readerAreaRef }) {
       if (d.mode === 'open' && d.edge === 'top' && d.startedNearTop) {
         const dy = d.lastY - d.startY;
         if (dy > d.readerHeight * RELOAD_RATIO) {
-          gestureLog('gesture.reload-triggered', { dy: Math.round(dy) });
+          gestureLog('gesture.reload', { dy: Math.round(dy) });
           const drawerEl = drawerRefs.current[d.edge];
           if (drawerEl) {
             drawerEl.style.transition = 'transform 400ms cubic-bezier(0.32, 0.72, 0.36, 1)';
@@ -584,17 +515,16 @@ export default function GestureDrawerViewport({ enabled, readerAreaRef }) {
         }
         setReloadProgress(0);
       }
+      if (d.abortReason || !d.committedAxis) {
+        // Gate-abort and tap paths don't need commitOrReset — there was no
+        // in-progress drawer transform to settle.
+        return;
+      }
       commitOrReset(d, d.progress);
     };
 
     const onPointerUp = (e) => {
       const d = dragRef.current;
-      // Raw log BEFORE the guard: if this fires but the matching pointerdown's
-      // drag was already cleared, we know the drag died mid-way.
-      gestureLog('gesture.pointerup.raw', {
-        hasActiveDrag: !!(d && d.active),
-        samePointer: !!(d && e.pointerId === d.pointerId),
-      });
       if (!d || !d.active || e.pointerId !== d.pointerId) return;
       d.endedBy = 'pointerup';
       endDrag(d);
@@ -602,44 +532,26 @@ export default function GestureDrawerViewport({ enabled, readerAreaRef }) {
 
     const onPointerCancel = (e) => {
       const d = dragRef.current;
-      gestureLog('gesture.pointercancel.raw', {
-        hasActiveDrag: !!(d && d.active),
-        samePointer: !!(d && e.pointerId === d.pointerId),
-        committedAxis: !!d?.committedAxis,
-        mode: d?.mode ?? null,
-        edge: d?.edge ?? null,
-      });
       if (!d || e.pointerId !== d.pointerId) return;
       d.endedBy = 'pointercancel';
       dragRef.current = null;
       setPreview(null);
       setReloadProgress(0);
-      commitOrReset(d, 0);
+      emitTrace(d);
+      if (d.committedAxis) commitOrReset(d, 0);
     };
 
-    // Native touch mirror. If pointerdown/up stop arriving mid-drag but these
-    // fire, a pointer-event listener upstream is stopping propagation or the
-    // browser is synthesizing touches only. Batched counter on touchmove to
-    // avoid log spam.
-    let touchMoveCount = 0;
-    let touchSeqStart = 0;
-    const onTouchStart = (e) => {
-      touchMoveCount = 0;
-      touchSeqStart = performance.now();
-      gestureLog('touch.start', {
-        touches: e.touches.length,
-        x: Math.round(e.touches[0]?.clientX ?? 0),
-        y: Math.round(e.touches[0]?.clientY ?? 0),
-        target: describeTarget(e.target),
-      });
+    // Native touch mirror — only to count touchmove events per drag so the
+    // trace can report touchMoveCount alongside pointer moveCount. If one is
+    // high and the other is low, we can tell whether the browser is starving
+    // us of pointer events.
+    const onTouchStart = () => {
+      const d = dragRef.current;
+      if (d) d.touchMoveCount = 0;
     };
-    const onTouchMove = () => { touchMoveCount += 1; };
-    const onTouchEnd = (e) => {
-      gestureLog('touch.end', {
-        type: e.type,
-        moveCount: touchMoveCount,
-        dtMs: Math.round(performance.now() - touchSeqStart),
-      });
+    const onTouchMove = () => {
+      const d = dragRef.current;
+      if (d) d.touchMoveCount += 1;
     };
 
     window.addEventListener('pointerdown', onPointerDown, { passive: true });
@@ -648,8 +560,6 @@ export default function GestureDrawerViewport({ enabled, readerAreaRef }) {
     window.addEventListener('pointercancel', onPointerCancel, { passive: true });
     window.addEventListener('touchstart', onTouchStart, { passive: true });
     window.addEventListener('touchmove', onTouchMove, { passive: true });
-    window.addEventListener('touchend', onTouchEnd, { passive: true });
-    window.addEventListener('touchcancel', onTouchEnd, { passive: true });
     return () => {
       window.removeEventListener('pointerdown', onPointerDown);
       window.removeEventListener('pointermove', onPointerMove);
@@ -657,8 +567,6 @@ export default function GestureDrawerViewport({ enabled, readerAreaRef }) {
       window.removeEventListener('pointercancel', onPointerCancel);
       window.removeEventListener('touchstart', onTouchStart);
       window.removeEventListener('touchmove', onTouchMove);
-      window.removeEventListener('touchend', onTouchEnd);
-      window.removeEventListener('touchcancel', onTouchEnd);
     };
   }, [
     enabled,

@@ -291,9 +291,15 @@ export default function GestureDrawerViewport({ enabled, readerAreaRef }) {
       const now = performance.now();
       const samples = createSampleBuffer();
       pushSample(samples, x, y, now);
+      // In close mode we already know the edge, so pre-populate the size,
+      // noBackdrop, and direction fields. That lets the first pointermove
+      // start translating the drawer immediately without waiting for a
+      // commit decision — the drawer follows the finger from pixel 1.
+      const liveOpenSlot = drawerOpen ? slotsRef.current[liveOpenEdge] : null;
+      const closeAxis = drawerOpen ? CLOSE_AXIS[liveOpenEdge] : null;
       dragRef.current = {
         active: true,
-        mode: null, // 'open' | 'close' — decided on first move
+        mode: null, // 'open' | 'close' — set once axis tracking starts
         edge: drawerOpen ? liveOpenEdge : null,
         closeMode: drawerOpen,
         insideOpenDrawer,
@@ -308,12 +314,13 @@ export default function GestureDrawerViewport({ enabled, readerAreaRef }) {
         lastT: now,
         samples,
         velocity: 0,
-        direction: 0,
+        direction: drawerOpen ? closeAxis.sign : 0,
         vw,
         vh,
         readerHeight: rect.height || vh,
         startedNearTop: y - rect.top <= RELOAD_EDGE_ZONE,
-        size: 0,
+        size: drawerOpen ? sizeOf(liveOpenEdge, liveOpenSlot) : 0,
+        noBackdrop: drawerOpen ? !!liveOpenSlot?.noBackdrop : false,
         progress: 0,
         committedAxis: false,
         peakDist: 0,
@@ -323,8 +330,8 @@ export default function GestureDrawerViewport({ enabled, readerAreaRef }) {
         touchMoveCount: 0,
         startT: now,
         endedBy: 'missing',
-        commitPath: null, // 'fast' | 'slow'
-        abortReason: null, // 'no-close-axis' | 'close-wrong-direction' | 'scroll-ancestor-absorb' | 'no-slot'
+        commitPath: null,
+        abortReason: null,
         openEdgeAtStart: liveOpenEdge,
       };
     };
@@ -344,80 +351,81 @@ export default function GestureDrawerViewport({ enabled, readerAreaRef }) {
 
       const dx = x - d.startX;
       const dy = y - d.startY;
+      const dist = Math.hypot(dx, dy);
+      if (dist > d.peakDist) d.peakDist = dist;
 
-      if (!d.committedAxis) {
-        const dist = Math.hypot(dx, dy);
-        if (dist > d.peakDist) d.peakDist = dist;
-        if (dist < MIN_DIST) return;
+      // Telemetry only — no longer gates commit. The drawer tracks the
+      // finger 1:1 from the first meaningful move; release-time projection
+      // decides whether to fully open/close or revert.
+      const { vx, vy } = computeVelocity(d.samples);
+      const speed = Math.hypot(vx, vy);
+      const deviation = axisDeviationRad(dx, dy);
+      if (speed > d.peakSpeed) d.peakSpeed = speed;
+      if (deviation < d.peakDeviationRad) d.peakDeviationRad = deviation;
 
-        const { vx, vy } = computeVelocity(d.samples);
-        const speed = Math.hypot(vx, vy);
-        const deviation = axisDeviationRad(dx, dy);
-        if (speed > d.peakSpeed) d.peakSpeed = speed;
-        if (deviation < d.peakDeviationRad) d.peakDeviationRad = deviation;
-        const withinCone = deviation <= ANGLE_CONE_RAD;
-        const fastPath = withinCone && speed >= MIN_VELOCITY;
-        const slowPath = withinCone && dist >= FALLBACK_DIST;
-        if (!(fastPath || slowPath)) return;
-
-        if (d.closeMode) {
-          const edge = d.edge;
-          const closeAxis = CLOSE_AXIS[edge];
-          if (!closeAxis) {
-            d.abortReason = 'no-close-axis';
-            d.endedBy = 'gate-abort';
-            endDrag(d);
-            return;
-          }
-          const axisMatches =
-            closeAxis.axis === 'y' ? Math.abs(dy) > Math.abs(dx) : Math.abs(dx) > Math.abs(dy);
-          const signMatches =
-            closeAxis.axis === 'y'
-              ? Math.sign(dy) === closeAxis.sign
-              : Math.sign(dx) === closeAxis.sign;
-          if (!axisMatches || !signMatches) {
-            d.abortReason = 'close-wrong-direction';
-            d.endedBy = 'gate-abort';
-            endDrag(d);
-            return;
-          }
-          const openDrawerEl = drawerRefs.current[edge];
-          if (d.insideOpenDrawer && scrollableAncestorCanAbsorb(d.targetEl, openDrawerEl, dx, dy)) {
-            d.abortReason = 'scroll-ancestor-absorb';
-            d.endedBy = 'gate-abort';
-            endDrag(d);
-            return;
-          }
-          const liveSlot = slotsRef.current[edge];
-          d.mode = 'close';
-          d.direction = closeAxis.sign;
-          d.size = sizeOf(edge, liveSlot);
-          d.noBackdrop = !!liveSlot?.noBackdrop;
-          d.committedAxis = true;
-          d.commitPath = fastPath ? 'fast' : 'slow';
-        } else {
-          const edge = edgeForSwipe(dx, dy);
-          const liveSlots = slotsRef.current;
-          if (!liveSlots[edge]) {
-            d.abortReason = 'no-slot';
-            d.edge = edge;
-            d.endedBy = 'gate-abort';
-            endDrag(d);
-            return;
-          }
-          d.mode = 'open';
+      // Open mode needs to pick an edge on the first meaningful move. A
+      // tiny dead zone (EDGE_PICK_MIN_DIST) keeps sub-pixel jitter from
+      // picking an edge when the user is actually tapping. If the picked
+      // edge has no slot registered we leave the drag alive and don't
+      // lock in an edge, so the user can reverse into a valid direction
+      // and the drawer will start following from that moment.
+      const EDGE_PICK_MIN_DIST = 3;
+      if (!d.closeMode && !d.committedAxis) {
+        if (dist < EDGE_PICK_MIN_DIST) return;
+        const edge = edgeForSwipe(dx, dy);
+        const liveSlots = slotsRef.current;
+        if (!liveSlots[edge]) {
+          d.abortReason = 'no-slot';
           d.edge = edge;
-          d.direction = EDGE_DIRECTION[edge];
-          d.size = sizeOf(edge, liveSlots[edge]);
-          d.noBackdrop = !!liveSlots[edge]?.noBackdrop;
-          d.committedAxis = true;
-          d.commitPath = fastPath ? 'fast' : 'slow';
+          return;
         }
+        d.abortReason = null;
+        d.mode = 'open';
+        d.edge = edge;
+        d.direction = EDGE_DIRECTION[edge];
+        d.size = sizeOf(edge, liveSlots[edge]);
+        d.noBackdrop = !!liveSlots[edge]?.noBackdrop;
+        d.committedAxis = true;
+        d.commitPath = speed >= MIN_VELOCITY ? 'fast' : 'slow';
       }
 
-      // Aligned velocity along the committed axis, signed. The `+` direction
-      // is opening; a negative value means the user is pulling back.
-      const { vx, vy } = computeVelocity(d.samples);
+      // Close mode already has the edge from pointerdown. Once the user
+      // has moved in the close direction we stay committed — reversing
+      // back toward the open position just drives progress toward 0 via
+      // the normal close transform (pulling the drawer back toward its
+      // fully-open rest). That way the finger never "loses" the drawer
+      // mid-drag; they can wobble around and the surface tracks.
+      if (d.closeMode && !d.committedAxis) {
+        const closeAxis = CLOSE_AXIS[d.edge];
+        const axisMatches = closeAxis.axis === 'y'
+          ? Math.abs(dy) > Math.abs(dx)
+          : Math.abs(dx) > Math.abs(dy);
+        const signMatches = closeAxis.axis === 'y'
+          ? Math.sign(dy) === closeAxis.sign
+          : Math.sign(dx) === closeAxis.sign;
+        const openDrawerEl = drawerRefs.current[d.edge];
+        const scrollAbsorbs =
+          d.insideOpenDrawer &&
+          scrollableAncestorCanAbsorb(d.targetEl, openDrawerEl, dx, dy);
+        if (scrollAbsorbs) {
+          // Let native scroll handle it until scroll is exhausted.
+          d.abortReason = 'scroll-ancestor-absorb';
+          return;
+        }
+        if (!axisMatches || !signMatches) {
+          // Wrong direction on first move — stay dormant, keep drag alive.
+          // Drawer doesn't move; user can reverse into close direction.
+          d.abortReason = 'close-wrong-direction';
+          return;
+        }
+        d.abortReason = null;
+        d.mode = 'close';
+        d.committedAxis = true;
+        if (!d.commitPath) d.commitPath = speed >= MIN_VELOCITY ? 'fast' : 'slow';
+      }
+
+      if (!d.committedAxis) return;
+
       d.velocity = d.edge === 'top' || d.edge === 'bottom' ? vy : vx;
 
       const progress =
@@ -439,27 +447,19 @@ export default function GestureDrawerViewport({ enabled, readerAreaRef }) {
       const dy = Math.round(d.lastY - d.startY);
       const peakDeviationDeg = Math.round((d.peakDeviationRad * 180) / Math.PI);
 
-      // Classify outcome.
-      let outcome;
-      let rejectReason = null;
-      if (d.committedAxis) {
-        outcome = d.mode; // 'open' | 'close'
-      } else if (d.abortReason) {
-        outcome = 'abort';
-        rejectReason = d.abortReason;
-      } else {
-        outcome = 'tap';
-        rejectReason =
-          d.moveCount === 0
+      // Outcome is simply whether the drag finished in a committed-axis
+      // state or not. `rejectReason` captures why tracking was gated off
+      // during the drag (wrong direction, scroll absorbed, no slot) OR
+      // why the finger never produced a move worth tracking.
+      const outcome = d.committedAxis ? d.mode : 'tap';
+      const rejectReason = d.committedAxis
+        ? null
+        : d.abortReason ??
+          (d.moveCount === 0
             ? 'no-moves-observed'
-            : d.peakDist < MIN_DIST
-              ? 'below-min-dist'
-              : peakDeviationDeg > 35
-                ? 'outside-angle-cone'
-                : d.peakSpeed < MIN_VELOCITY && d.peakDist < FALLBACK_DIST
-                  ? 'below-speed-and-fallback'
-                  : 'unknown';
-      }
+            : d.peakDist < 3
+              ? 'below-edge-pick-min-dist'
+              : 'unknown');
 
       gestureLog('gesture.trace', {
         outcome,
@@ -515,11 +515,7 @@ export default function GestureDrawerViewport({ enabled, readerAreaRef }) {
         }
         setReloadProgress(0);
       }
-      if (d.abortReason || !d.committedAxis) {
-        // Gate-abort and tap paths don't need commitOrReset — there was no
-        // in-progress drawer transform to settle.
-        return;
-      }
+      if (!d.committedAxis) return;
       commitOrReset(d, d.progress);
     };
 

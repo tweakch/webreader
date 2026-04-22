@@ -50,8 +50,14 @@ import {
 
 const RELOAD_EDGE_ZONE = 44; // px from top edge that arms pull-to-reload
 const RELOAD_RATIO = 0.55; // top drag past this × reader height = reload
-const MIN_DIST = 2; // px — minimum travel before any gate fires
-const FALLBACK_DIST = 2; // px — slow-deliberate commit without velocity
+// Gate thresholds are calibrated so that a natural tap (a few px of
+// pointer roll between pointerdown and pointerup) does NOT commit to a
+// swipe. Production logs showed taps with dx≈2px committing the slow
+// path, hijacking tap-zone-middle taps into drawer opens. MIN_DIST at
+// 8 covers normal tap jitter; FALLBACK_DIST at 16 aligns with the
+// Material tap-slop convention for "this was a deliberate drag."
+const MIN_DIST = 8; // px — minimum travel before any gate fires
+const FALLBACK_DIST = 16; // px — slow-deliberate commit without velocity
 const MIN_VELOCITY = 0.15; // px/ms — fast-path velocity threshold
 const ANGLE_CONE_RAD = (35 * Math.PI) / 180; // ±35° cone around a cardinal axis
 const PROJECTION_MS = 180; // ms — release-time forecast window

@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { forwardRef, useCallback, useEffect, useImperativeHandle, useRef, useState } from 'react';
 import { EdgeDrawer, DrawerBackdrop, ReloadIndicator } from './GestureDrawers';
 import DrawerIndicators from './DrawerIndicators';
 import { useGestureDrawers } from './GestureDrawerContext';
@@ -64,11 +64,49 @@ const PROJECTION_MS = 180; // ms — release-time forecast window
 const COMMIT_PROJECTION_RATIO = 0.5; // projected progress ≥ this → commit
 const STALE_DRAG_MS = 1500; // ms with no pointer events → assume stuck drag
 
+/**
+ * Live drag-feedback overlay (edge indicators + pull-to-reload bar). Isolated
+ * into its own component with an imperative handle so per-frame drag updates
+ * re-render only these two lightweight indicators — NOT the parent viewport
+ * with its four EdgeDrawers and blade content, which used to reconcile on
+ * every pointermove.
+ */
+const DragFeedback = forwardRef(function DragFeedback({ anyDrawerOpen }, ref) {
+  const [edge, setEdge] = useState(null);
+  const [progress, setProgress] = useState(0);
+  const [reload, setReloadState] = useState(0);
+  useImperativeHandle(
+    ref,
+    () => ({
+      setDrag(e, p) {
+        setEdge(e);
+        setProgress(p);
+      },
+      setReload(r) {
+        setReloadState(r);
+      },
+      reset() {
+        setEdge(null);
+        setProgress(0);
+        setReloadState(0);
+      },
+    }),
+    []
+  );
+  return (
+    <>
+      <ReloadIndicator progress={reload} />
+      <DrawerIndicators anyDrawerOpen={anyDrawerOpen} activeEdge={edge} progress={progress} />
+    </>
+  );
+});
+
 export default function GestureDrawerViewport({ enabled, readerAreaRef }) {
   const { slots, openEdge, openDrawer, closeDrawer, onReload } = useGestureDrawers();
 
-  const [preview, setPreview] = useState(null);
-  const [reloadProgress, setReloadProgress] = useState(0);
+  // Imperative handle to the drag-feedback overlay — updated per frame during
+  // a drag without re-rendering this component.
+  const feedbackRef = useRef(null);
 
   const drawerRefs = useRef({});
   const backdropRef = useRef(null);
@@ -121,7 +159,7 @@ export default function GestureDrawerViewport({ enabled, readerAreaRef }) {
       height
     );
 
-    if (reloadRatio !== null) setReloadProgress(reloadRatio);
+    if (reloadRatio !== null) feedbackRef.current?.setReload(reloadRatio);
     drawerEl.style.transition = 'none';
     drawerEl.style.transform = transform;
     if (backdropRef.current && !noBackdrop) {
@@ -221,7 +259,7 @@ export default function GestureDrawerViewport({ enabled, readerAreaRef }) {
   );
 
   const triggerReload = useCallback(() => {
-    setReloadProgress(0);
+    feedbackRef.current?.setReload(0);
     if (typeof onReload === 'function') onReload();
     else if (typeof window !== 'undefined') window.location.reload();
   }, [onReload]);
@@ -245,8 +283,7 @@ export default function GestureDrawerViewport({ enabled, readerAreaRef }) {
   // Window pointerdown — decide whether a drag starts at all.
   useEffect(() => {
     if (!enabled) {
-      setPreview(null);
-      setReloadProgress(0);
+      feedbackRef.current?.reset();
       return undefined;
     }
     if (typeof window === 'undefined') return undefined;
@@ -303,8 +340,7 @@ export default function GestureDrawerViewport({ enabled, readerAreaRef }) {
       clearWatchdog();
       releasePointer(d);
       dragRef.current = null;
-      setPreview(null);
-      setReloadProgress(0);
+      feedbackRef.current?.reset();
       emitTrace(d);
       if (d.committedAxis) settleToRest(d);
     };
@@ -507,7 +543,7 @@ export default function GestureDrawerViewport({ enabled, readerAreaRef }) {
           ? applyCloseDragTransform(d.edge, dx, dy, d.size, d.noBackdrop)
           : applyOpenDragTransform(d.edge, dx, dy, d.size, d.readerHeight, d.noBackdrop);
       d.progress = progress;
-      setPreview({ edge: d.edge, progress });
+      feedbackRef.current?.setDrag(d.edge, progress);
     };
 
     // Emit one consolidated `gesture.trace` at the end of the gesture. This
@@ -573,7 +609,7 @@ export default function GestureDrawerViewport({ enabled, readerAreaRef }) {
       clearWatchdog();
       releasePointer(d);
       dragRef.current = null;
-      setPreview(null);
+      feedbackRef.current?.reset();
       if (d.committedAxis) suppressNextClick();
       emitTrace(d);
 
@@ -597,7 +633,6 @@ export default function GestureDrawerViewport({ enabled, readerAreaRef }) {
           triggerReload();
           return;
         }
-        setReloadProgress(0);
       }
       if (d.abortReason || !d.committedAxis) {
         // Gate-abort and tap paths don't need commitOrReset — there was no
@@ -621,8 +656,7 @@ export default function GestureDrawerViewport({ enabled, readerAreaRef }) {
       clearWatchdog();
       releasePointer(d);
       dragRef.current = null;
-      setPreview(null);
-      setReloadProgress(0);
+      feedbackRef.current?.reset();
       emitTrace(d);
       // A cancelled drag reverts to its pre-drag resting state — never a
       // velocity-dependent half-commit. Predictable beats clever here.
@@ -695,12 +729,7 @@ export default function GestureDrawerViewport({ enabled, readerAreaRef }) {
 
   return (
     <>
-      <ReloadIndicator progress={reloadProgress} />
-      <DrawerIndicators
-        anyDrawerOpen={anyGestureDrawerOpen}
-        activeEdge={preview?.edge}
-        progress={preview?.progress ?? 0}
-      />
+      <DragFeedback ref={feedbackRef} anyDrawerOpen={anyGestureDrawerOpen} />
       <DrawerBackdrop ref={backdropRef} open={backdropOpen} onClose={closeDrawer} />
       {noBackdropDismiss && (
         <button

@@ -7,14 +7,11 @@ import { EDGE_CLOSED_TRANSFORM, RELOAD_RATIO } from './gestureDrawerHelpers';
 /**
  * Generic drawer frames used by `GestureDrawerViewport`.
  *
- * The four edges (top / bottom / left / right) are rendered by a single
- * `EdgeDrawer` component. Thin wrappers `HeaderDrawer` / `FooterDrawer` /
- * `RightDrawer` preserve the existing `data-testid` surface that Playwright
- * relies on.
- *
- * The viewport drives the drawer transform directly during a drag via the
- * forwarded `ref` — this keeps the live-follow animation at 60fps without
- * React re-renders. CSS handles the open/close transition.
+ * A single `EdgeDrawer` component renders whichever edge is docked (the app
+ * now only registers the left sidebar and right reader drawer). The viewport
+ * drives the drawer transform directly during a drag via the forwarded `ref` —
+ * this keeps the live-follow animation at 60fps without React re-renders. CSS
+ * handles the open/close transition.
  */
 
 function useEscClose(open, onClose) {
@@ -95,28 +92,20 @@ export function ReloadIndicator({ progress }) {
 }
 
 const EDGE_TO_TESTID = {
-  top: 'gesture-header-drawer',
-  bottom: 'gesture-footer-drawer',
   right: 'gesture-right-drawer',
   left: 'gesture-left-drawer',
 };
 const EDGE_TO_CLOSE_TESTID = {
-  top: 'gesture-header-drawer-close',
-  bottom: 'gesture-footer-drawer-close',
   right: 'gesture-right-drawer-close',
   left: 'gesture-left-drawer-close',
 };
 
 const EDGE_CLASSES = {
-  top:    'inset-x-0 border-b',
-  bottom: 'bottom-0 inset-x-0 border-t',
   right:  'top-0 right-0 bottom-0 border-l flex flex-col',
   left:   'top-0 left-0 bottom-0 border-r flex flex-col',
 };
 
 const EDGE_GRIP = {
-  top:    'bottom-1.5 left-1/2 -translate-x-1/2 w-10 h-1',
-  bottom: 'top-1.5 left-1/2 -translate-x-1/2 w-10 h-1',
   right:  'left-1.5 top-1/2 -translate-y-1/2 w-1 h-10',
   left:   'right-1.5 top-1/2 -translate-y-1/2 w-1 h-10',
 };
@@ -233,15 +222,4 @@ export const EdgeDrawer = forwardRef(function EdgeDrawer(
       )}
     </aside>
   );
-});
-
-// Legacy named exports (thin aliases). Keep so external imports don't break.
-export const HeaderDrawer = forwardRef(function HeaderDrawer(props, ref) {
-  return <EdgeDrawer ref={ref} edge="top" {...props} />;
-});
-export const FooterDrawer = forwardRef(function FooterDrawer(props, ref) {
-  return <EdgeDrawer ref={ref} edge="bottom" {...props} />;
-});
-export const RightDrawer = forwardRef(function RightDrawer(props, ref) {
-  return <EdgeDrawer ref={ref} edge="right" {...props} />;
 });

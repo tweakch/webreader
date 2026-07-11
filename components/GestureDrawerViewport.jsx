@@ -505,19 +505,31 @@ export default function GestureDrawerViewport({ enabled, readerAreaRef }) {
           const edge = edgeForSwipe(dx, dy);
           const liveSlots = slotsRef.current;
           if (!liveSlots[edge]) {
-            d.abortReason = 'no-slot';
+            // Standalone pull-to-reload: a downward swipe that starts at the
+            // top edge, with no top blade to open, is a reload gesture. No
+            // other edge without a slot does anything.
+            if (edge === 'top' && d.startedNearTop) {
+              d.mode = 'reload';
+              d.edge = 'top';
+              d.direction = 1;
+              d.committedAxis = true;
+              d.commitPath = fastPath ? 'fast' : 'slow';
+            } else {
+              d.abortReason = 'no-slot';
+              d.edge = edge;
+              d.endedBy = 'gate-abort';
+              endDrag(d);
+              return;
+            }
+          } else {
+            d.mode = 'open';
             d.edge = edge;
-            d.endedBy = 'gate-abort';
-            endDrag(d);
-            return;
+            d.direction = EDGE_DIRECTION[edge];
+            d.size = sizeOf(edge, liveSlots[edge]);
+            d.noBackdrop = !!liveSlots[edge]?.noBackdrop;
+            d.committedAxis = true;
+            d.commitPath = fastPath ? 'fast' : 'slow';
           }
-          d.mode = 'open';
-          d.edge = edge;
-          d.direction = EDGE_DIRECTION[edge];
-          d.size = sizeOf(edge, liveSlots[edge]);
-          d.noBackdrop = !!liveSlots[edge]?.noBackdrop;
-          d.committedAxis = true;
-          d.commitPath = fastPath ? 'fast' : 'slow';
         }
       }
 
@@ -540,12 +552,20 @@ export default function GestureDrawerViewport({ enabled, readerAreaRef }) {
       const { vx, vy } = computeVelocity(d.samples);
       d.velocity = d.edge === 'top' || d.edge === 'bottom' ? vy : vx;
 
-      const progress =
-        d.mode === 'close'
-          ? applyCloseDragTransform(d.edge, dx, dy, d.size, d.noBackdrop)
-          : applyOpenDragTransform(d.edge, dx, dy, d.size, d.readerHeight, d.noBackdrop);
-      d.progress = progress;
-      feedbackRef.current?.setDrag(d.edge, progress);
+      if (d.mode === 'reload') {
+        // No drawer to move — just drive the pull-to-reload indicator off how
+        // far down the reader the finger has travelled.
+        const ratio = Math.max(0, Math.min(1, (d.lastY - d.startY) / (d.readerHeight || 1)));
+        d.progress = ratio;
+        feedbackRef.current?.setReload(ratio);
+      } else {
+        const progress =
+          d.mode === 'close'
+            ? applyCloseDragTransform(d.edge, dx, dy, d.size, d.noBackdrop)
+            : applyOpenDragTransform(d.edge, dx, dy, d.size, d.readerHeight, d.noBackdrop);
+        d.progress = progress;
+        feedbackRef.current?.setDrag(d.edge, progress);
+      }
     };
 
     // Emit one consolidated `gesture.trace` at the end of the gesture. This
@@ -615,26 +635,16 @@ export default function GestureDrawerViewport({ enabled, readerAreaRef }) {
       if (d.committedAxis) suppressNextClick();
       emitTrace(d);
 
-      // Reload intent: swipe-down that armed near the top edge and crossed
-      // RELOAD_RATIO of reader height. Only for open-drags on the top edge;
-      // close-drags on the already-open top drawer never trigger reload.
-      if (d.mode === 'open' && d.edge === 'top' && d.startedNearTop) {
+      // Pull-to-reload: the dedicated top-edge reload drag reloads if it
+      // crossed RELOAD_RATIO of reader height. Either way the gesture is done
+      // (the feedbackRef.reset() above already cleared the indicator).
+      if (d.mode === 'reload') {
         const dy = d.lastY - d.startY;
         if (dy > d.readerHeight * RELOAD_RATIO) {
           gestureLog('gesture.reload', { dy: Math.round(dy) });
-          const drawerEl = drawerRefs.current[d.edge];
-          if (drawerEl) {
-            drawerEl.style.transition = 'transform 400ms cubic-bezier(0.32, 0.72, 0.36, 1)';
-            drawerEl.style.transform = '';
-          }
-          if (backdropRef.current) {
-            backdropRef.current.style.transition = 'opacity 300ms ease-out';
-            backdropRef.current.style.opacity = '0';
-            backdropRef.current.style.pointerEvents = 'none';
-          }
           triggerReload();
-          return;
         }
+        return;
       }
       if (d.abortReason || !d.committedAxis) {
         // Gate-abort and tap paths don't need commitOrReset — there was no
@@ -716,7 +726,10 @@ export default function GestureDrawerViewport({ enabled, readerAreaRef }) {
 
   // ---------- render ----------
 
-  const edges = ['top', 'bottom', 'left', 'right'];
+  // Only the left (sidebar) and right (reader TOC/bookmarks) blades are
+  // registered now. A top-edge swipe-down is handled as pull-to-reload in the
+  // pointer logic, not as a drawer; bottom-edge swipes do nothing.
+  const edges = ['left', 'right'];
   const activeSlot = openEdge ? slots[openEdge] : null;
   // `noBackdrop` lets a slot opt out of the dimming overlay so it can sit
   // inline with page chrome (e.g. an expanded header) without darkening the

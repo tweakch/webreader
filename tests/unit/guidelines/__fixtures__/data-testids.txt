@@ -29,13 +29,7 @@ feed-label
 feed-row
 font-decrease
 font-increase
-gesture-footer-drawer-grid
-gesture-header-open-profile
-gesture-header-open-typography
-gesture-home-focus-search
-gesture-home-recent
-gesture-home-resume
-gesture-home-toggle-favorites
+gesture-drawer-dismiss
 gesture-reload-indicator
 gesture-right-bookmarks
 gesture-right-toc

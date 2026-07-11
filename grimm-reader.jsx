@@ -676,23 +676,6 @@ const GrimmMarchenApp = () => {
     throw new Error('Simulated 500 error (error-page-simulator)');
   }
 
-  const recentStoryObjs = React.useMemo(() => {
-    const ids = [...completedStories];
-    const byId = new Map(stories.map((s) => [s.id, s]));
-    return ids.map((id) => byId.get(id)).filter(Boolean);
-  }, [completedStories, stories]);
-
-  const handleResumeFromSession = useCallback((story, page) => {
-    pendingResumePageRef.current = page;
-    handleSelectStory(story);
-  }, [handleSelectStory, pendingResumePageRef]);
-  const handleFocusSearch = useCallback(() => setSidebarOpen(true), [setSidebarOpen]);
-  const handleToggleFavoritesOnly = useCallback(() => setFavoritesOnly((v) => !v), [setFavoritesOnly]);
-  const handleOpenTypographyPanel = useCallback(
-    () => { if (showTypographyPanel) setTypoPanelOpen(true); },
-    [showTypographyPanel],
-  );
-
   return (
     <ThemeContext.Provider value={{ dark: darkMode, hc: highContrast }}>
     <GestureDrawerProvider>
@@ -757,10 +740,6 @@ const GrimmMarchenApp = () => {
         theme={theme}
         onSetTheme={setTheme}
         showHighContrastTheme={showHighContrastTheme}
-        showEnhancedGestures={showEnhancedGestures}
-        speedReaderMode={speedReaderMode}
-        onOpenProfile={handleOpenProfile}
-        onOpenTypography={handleOpenTypographyPanel}
       />
 
       {/* Main Content Area */}
@@ -1013,11 +992,6 @@ const GrimmMarchenApp = () => {
               storyIndex={stories}
               onSelectStory={handleSelectStory}
               onToggleFavorite={toggleFavorite}
-              showEnhancedGestures={showEnhancedGestures}
-              onFocusSearch={handleFocusSearch}
-              onToggleFavoritesOnly={handleToggleFavoritesOnly}
-              favoritesOnly={favoritesOnly}
-              recentStories={recentStoryObjs}
             />
           )}
         </main>

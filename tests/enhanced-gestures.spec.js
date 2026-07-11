@@ -111,30 +111,6 @@ test.describe('Enhanced gestures', () => {
     if (!browser.browserType().name().includes('chromium')) test.skip();
   });
 
-  test('swipe down from the top edge opens the header drawer', async ({ page }) => {
-    await openFirstStory(page);
-    const viewport = page.viewportSize();
-    if (!viewport) throw new Error('no viewport');
-    const cx = viewport.width / 2;
-    await dispatchSwipe(page, '[data-testid="reader-viewport"]',
-      { x: cx, y: 10 }, { x: cx, y: 180 });
-    const drawer = page.locator('[data-testid="gesture-header-drawer"]');
-    await expect(drawer).toHaveAttribute('data-open', 'true');
-  });
-
-  test('swipe up from the bottom edge opens the footer drawer with page picker', async ({ page }) => {
-    await openFirstStory(page);
-    const reader = await page.locator('[data-testid="reader-viewport"]').boundingBox();
-    if (!reader) throw new Error('no viewport');
-    const cx = reader.x + reader.width / 2;
-    const yBottom = reader.y + reader.height - 10;
-    await dispatchSwipe(page, '[data-testid="reader-viewport"]',
-      { x: cx, y: yBottom }, { x: cx, y: yBottom - 200 });
-    const drawer = page.locator('[data-testid="gesture-footer-drawer"]');
-    await expect(drawer).toHaveAttribute('data-open', 'true');
-    await expect(page.locator('[data-testid="gesture-footer-drawer-grid"]')).toBeVisible();
-  });
-
   test('swipe left from the right edge opens the right drawer', async ({ page }) => {
     await openFirstStory(page);
     const reader = await page.locator('[data-testid="reader-viewport"]').boundingBox();
@@ -213,15 +189,15 @@ test.describe('Enhanced gestures', () => {
       .click({ position: { x: 360, y: 400 } });
     await expect(leftDrawer).toHaveAttribute('data-open', 'false');
 
-    // Now the bottom-edge swipe can land.
+    // Now a right-edge swipe can land.
     const reader = await page.locator('[data-testid="reader-viewport"]').boundingBox();
     if (!reader) throw new Error('no viewport');
-    const cx = reader.x + reader.width / 2;
-    const yBottom = reader.y + reader.height - 10;
+    const cy = reader.y + reader.height / 2;
+    const xRight = reader.x + reader.width - 10;
     await dispatchSwipe(page, '[data-testid="reader-viewport"]',
-      { x: cx, y: yBottom }, { x: cx, y: yBottom - 200 });
+      { x: xRight, y: cy }, { x: xRight - 200, y: cy });
 
-    await expect(page.locator('[data-testid="gesture-footer-drawer"]'))
+    await expect(page.locator('[data-testid="gesture-right-drawer"]'))
       .toHaveAttribute('data-open', 'true');
   });
 
@@ -241,61 +217,50 @@ test.describe('Enhanced gestures', () => {
     await expect(leftDrawer).toHaveAttribute('data-open', 'false');
   });
 
-  // --- Close-drag: swipe inside the open drawer in the close direction ----
+  // --- Close-drag: any committed swipe closes an open blade ---------------
 
-  test('open header drawer closes when swiping up on the drawer itself', async ({ page }) => {
-    await openFirstStory(page);
-    const viewport = page.viewportSize();
-    if (!viewport) throw new Error('no viewport');
-    const cx = viewport.width / 2;
-
-    // Open the header drawer with a swipe from the top edge.
-    await dispatchSwipe(page, '[data-testid="reader-viewport"]',
-      { x: cx, y: 10 }, { x: cx, y: 200 });
-    const drawer = page.locator('[data-testid="gesture-header-drawer"]');
-    await expect(drawer).toHaveAttribute('data-open', 'true');
-
-    // Now swipe up *on the drawer itself* in its close direction (up).
-    await dispatchSwipe(page, '[data-testid="gesture-header-drawer"]',
-      { x: cx, y: 250 }, { x: cx, y: 50 });
-    await expect(drawer).toHaveAttribute('data-open', 'false');
-  });
-
-  test('open footer drawer closes when swiping down on the drawer itself', async ({ page }) => {
+  test('open right drawer closes when swiping right on the drawer itself', async ({ page }) => {
     await openFirstStory(page);
     const reader = await page.locator('[data-testid="reader-viewport"]').boundingBox();
     if (!reader) throw new Error('no viewport');
-    const cx = reader.x + reader.width / 2;
-    const yBottom = reader.y + reader.height - 10;
+    const cy = reader.y + reader.height / 2;
+    const xRight = reader.x + reader.width - 10;
 
+    // Open the right drawer with a swipe-left from the right edge.
     await dispatchSwipe(page, '[data-testid="reader-viewport"]',
-      { x: cx, y: yBottom }, { x: cx, y: yBottom - 220 });
-    const drawer = page.locator('[data-testid="gesture-footer-drawer"]');
+      { x: xRight, y: cy }, { x: xRight - 220, y: cy });
+    const drawer = page.locator('[data-testid="gesture-right-drawer"]');
     await expect(drawer).toHaveAttribute('data-open', 'true');
 
+    // Swipe right *on the drawer itself* in its close direction.
     const drawerBox = await drawer.boundingBox();
     if (!drawerBox) throw new Error('no drawer box');
-    const drawerCy = drawerBox.y + 40;
-    await dispatchSwipe(page, '[data-testid="gesture-footer-drawer"]',
-      { x: cx, y: drawerCy }, { x: cx, y: drawerCy + 220 });
+    const dcx = drawerBox.x + 40;
+    await dispatchSwipe(page, '[data-testid="gesture-right-drawer"]',
+      { x: dcx, y: cy }, { x: dcx + 220, y: cy });
     await expect(drawer).toHaveAttribute('data-open', 'false');
   });
 
-  test('open header drawer also closes on an off-axis swipe (close-on-any-gesture)', async ({ page }) => {
+  test('open right drawer also closes on an off-axis swipe (close-on-any-gesture)', async ({ page }) => {
     await openFirstStory(page);
-    const viewport = page.viewportSize();
-    if (!viewport) throw new Error('no viewport');
-    const cx = viewport.width / 2;
+    const reader = await page.locator('[data-testid="reader-viewport"]').boundingBox();
+    if (!reader) throw new Error('no viewport');
+    const cy = reader.y + reader.height / 2;
+    const xRight = reader.x + reader.width - 10;
 
     await dispatchSwipe(page, '[data-testid="reader-viewport"]',
-      { x: cx, y: 10 }, { x: cx, y: 200 });
-    const drawer = page.locator('[data-testid="gesture-header-drawer"]');
+      { x: xRight, y: cy }, { x: xRight - 220, y: cy });
+    const drawer = page.locator('[data-testid="gesture-right-drawer"]');
     await expect(drawer).toHaveAttribute('data-open', 'true');
 
     // Any committed swipe dismisses an open blade — even the "wrong"
-    // direction — so the user can never get stuck with an open drawer.
-    await dispatchSwipe(page, '[data-testid="gesture-header-drawer"]',
-      { x: cx, y: 50 }, { x: cx, y: 250 });
+    // direction (here: a downward swipe on a horizontally-docked drawer) —
+    // so the user can never get stuck with an open drawer.
+    const drawerBox = await drawer.boundingBox();
+    if (!drawerBox) throw new Error('no drawer box');
+    const dcx = drawerBox.x + drawerBox.width / 2;
+    await dispatchSwipe(page, '[data-testid="gesture-right-drawer"]',
+      { x: dcx, y: cy - 100 }, { x: dcx, y: cy + 160 });
     await expect(drawer).toHaveAttribute('data-open', 'false');
   });
 

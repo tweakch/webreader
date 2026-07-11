@@ -98,7 +98,6 @@ export default function ReaderView({
   showFontSizeControls,
 }) {
   const isLastPage = currentPage === totalPages - 1;
-  const isFavoriteCurrent = !!(selectedStory && favorites?.has(selectedStory.id));
 
   return (
     <>
@@ -230,7 +229,7 @@ export default function ReaderView({
         />
       )}
 
-      {/* Bottom surface: persistent nav bar + complementary swipe-up drawer. */}
+      {/* Persistent reader navigation bar. */}
       <ReaderBottomBar
         visible={controlsVisible}
         currentPage={currentPage}
@@ -238,7 +237,6 @@ export default function ReaderView({
         storyTitle={selectedStory.title}
         onPrev={() => onGoToPage(currentPage - 1)}
         onNext={() => onGoToPage(currentPage + 1)}
-        onGoToPage={onGoToPage}
         showSpeedReader={showSpeedReader}
         speedReaderMode={speedReaderMode}
         onToggleSpeedReader={() => onSetSpeedReaderMode((v) => !v)}
@@ -253,15 +251,6 @@ export default function ReaderView({
         onToggleTts={onToggleTts}
         onStopTts={onStopTts}
         simplifiedUi={simplifiedUi}
-        showEnhancedGestures={showEnhancedGestures}
-        fontSize={fontSize}
-        maxFontSize={maxFontSize}
-        onFontSizeChange={onSetFontSize}
-        showFontSizeControls={showFontSizeControls}
-        onShare={onShare}
-        onToggleFavorite={onToggleFavorite}
-        isFavorite={isFavoriteCurrent}
-        showFavorites={showFavorites}
       />
     </>
   );

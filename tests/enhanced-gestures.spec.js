@@ -281,7 +281,7 @@ test.describe('Enhanced gestures', () => {
     await expect(drawer).toHaveAttribute('data-open', 'false');
   });
 
-  test('open header drawer does NOT close on a downward swipe (wrong direction)', async ({ page }) => {
+  test('open header drawer also closes on an off-axis swipe (close-on-any-gesture)', async ({ page }) => {
     await openFirstStory(page);
     const viewport = page.viewportSize();
     if (!viewport) throw new Error('no viewport');
@@ -292,11 +292,11 @@ test.describe('Enhanced gestures', () => {
     const drawer = page.locator('[data-testid="gesture-header-drawer"]');
     await expect(drawer).toHaveAttribute('data-open', 'true');
 
-    // Swipe downward on the drawer — this is the opposite of the close
-    // direction, so the drawer must stay open.
+    // Any committed swipe dismisses an open blade — even the "wrong"
+    // direction — so the user can never get stuck with an open drawer.
     await dispatchSwipe(page, '[data-testid="gesture-header-drawer"]',
       { x: cx, y: 50 }, { x: cx, y: 250 });
-    await expect(drawer).toHaveAttribute('data-open', 'true');
+    await expect(drawer).toHaveAttribute('data-open', 'false');
   });
 
   // --- Browser gesture suppression (pull-to-refresh, overscroll-nav) ------

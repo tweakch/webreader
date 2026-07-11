@@ -324,7 +324,7 @@ export default function GestureDrawerViewport({ enabled, readerAreaRef }) {
         startT: now,
         endedBy: 'missing',
         commitPath: null, // 'fast' | 'slow'
-        abortReason: null, // 'no-close-axis' | 'close-wrong-direction' | 'scroll-ancestor-absorb' | 'no-slot'
+        abortReason: null, // 'close-any-direction' | 'scroll-ancestor-absorb' | 'no-slot'
         openEdgeAtStart: liveOpenEdge,
       };
     };
@@ -363,38 +363,41 @@ export default function GestureDrawerViewport({ enabled, readerAreaRef }) {
         if (d.closeMode) {
           const edge = d.edge;
           const closeAxis = CLOSE_AXIS[edge];
-          if (!closeAxis) {
-            d.abortReason = 'no-close-axis';
-            d.endedBy = 'gate-abort';
-            endDrag(d);
-            return;
-          }
-          const axisMatches =
-            closeAxis.axis === 'y' ? Math.abs(dy) > Math.abs(dx) : Math.abs(dx) > Math.abs(dy);
-          const signMatches =
-            closeAxis.axis === 'y'
-              ? Math.sign(dy) === closeAxis.sign
-              : Math.sign(dx) === closeAxis.sign;
-          if (!axisMatches || !signMatches) {
-            d.abortReason = 'close-wrong-direction';
-            d.endedBy = 'gate-abort';
-            endDrag(d);
-            return;
-          }
           const openDrawerEl = drawerRefs.current[edge];
+          // Inner scrollable content still wins — that's scrolling within the
+          // blade, not a dismiss gesture.
           if (d.insideOpenDrawer && scrollableAncestorCanAbsorb(d.targetEl, openDrawerEl, dx, dy)) {
             d.abortReason = 'scroll-ancestor-absorb';
             d.endedBy = 'gate-abort';
             endDrag(d);
             return;
           }
-          const liveSlot = slotsRef.current[edge];
-          d.mode = 'close';
-          d.direction = closeAxis.sign;
-          d.size = sizeOf(edge, liveSlot);
-          d.noBackdrop = !!liveSlot?.noBackdrop;
-          d.committedAxis = true;
-          d.commitPath = fastPath ? 'fast' : 'slow';
+          const alignedClose =
+            !!closeAxis &&
+            (closeAxis.axis === 'y'
+              ? Math.abs(dy) > Math.abs(dx) && Math.sign(dy) === closeAxis.sign
+              : Math.abs(dx) > Math.abs(dy) && Math.sign(dx) === closeAxis.sign);
+          if (alignedClose) {
+            // Swipe toward the resting edge: natural progressive close where
+            // the blade follows the finger.
+            const liveSlot = slotsRef.current[edge];
+            d.mode = 'close';
+            d.direction = closeAxis.sign;
+            d.size = sizeOf(edge, liveSlot);
+            d.noBackdrop = !!liveSlot?.noBackdrop;
+            d.committedAxis = true;
+            d.commitPath = fastPath ? 'fast' : 'slow';
+          } else {
+            // Close-on-any-gesture: any other committed swipe dismisses the
+            // blade too, so an open blade never traps the user. There is no
+            // natural finger-follow for an off-axis drag, so snap it shut with
+            // the standard CSS transition via closeDrawer().
+            d.abortReason = 'close-any-direction';
+            d.endedBy = 'gate-abort';
+            closeDrawer('gesture-any');
+            endDrag(d);
+            return;
+          }
         } else {
           const edge = edgeForSwipe(dx, dy);
           const liveSlots = slotsRef.current;
@@ -597,6 +600,12 @@ export default function GestureDrawerViewport({ enabled, readerAreaRef }) {
   // inline with page chrome (e.g. an expanded header) without darkening the
   // reader below it.
   const backdropOpen = anyGestureDrawerOpen && !activeSlot?.noBackdrop;
+  // A `noBackdrop` slot has no backdrop to catch a tap-outside, which left
+  // those blades (the header extension) with no tap-to-dismiss. This
+  // transparent layer restores it. It sits at z-30 — below the persistent
+  // header (z-40) and the drawer (z-50) — so it dismisses on a tap in the
+  // reading area without hijacking the header's own controls.
+  const noBackdropDismiss = anyGestureDrawerOpen && !!activeSlot?.noBackdrop;
 
   return (
     <>
@@ -607,6 +616,15 @@ export default function GestureDrawerViewport({ enabled, readerAreaRef }) {
         progress={preview?.progress ?? 0}
       />
       <DrawerBackdrop ref={backdropRef} open={backdropOpen} onClose={closeDrawer} />
+      {noBackdropDismiss && (
+        <button
+          aria-label="Drawer schließen"
+          data-testid="gesture-drawer-dismiss"
+          onClick={() => closeDrawer('dismiss-layer')}
+          className="fixed inset-0 z-30"
+          style={{ background: 'transparent', touchAction: 'none' }}
+        />
+      )}
       {edges.map((edge) => {
         const slot = slots[edge];
         if (!slot) return null;

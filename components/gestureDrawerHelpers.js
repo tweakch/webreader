@@ -13,6 +13,13 @@
 
 export const DEFAULT_SIZE = { top: 320, right: 320, bottom: 280, left: 300 };
 
+// Fraction of reader height a top-edge swipe-down must cross to trigger
+// pull-to-reload. Shared by the viewport (trigger threshold) and the
+// ReloadIndicator (the "release to reload" armed state) so the hint and the
+// action can never drift apart. Set high enough that a normal pull to open
+// the header extension does not tip into an accidental full-app reload.
+export const RELOAD_RATIO = 0.7;
+
 export const EDGE_CLOSED_TRANSFORM = {
   top: 'translate3d(0, -100%, 0)',
   bottom: 'translate3d(0, 100%, 0)',

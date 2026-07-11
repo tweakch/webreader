@@ -7,6 +7,7 @@ import {
   CLOSE_AXIS,
   EDGE_CLOSED_TRANSFORM,
   EDGE_DIRECTION,
+  RELOAD_RATIO,
   axisDeviationRad,
   computeCloseDragTransform,
   computeOpenDragTransform,
@@ -49,7 +50,8 @@ import {
  */
 
 const RELOAD_EDGE_ZONE = 44; // px from top edge that arms pull-to-reload
-const RELOAD_RATIO = 0.55; // top drag past this × reader height = reload
+// RELOAD_RATIO is shared from gestureDrawerHelpers so the viewport trigger and
+// the ReloadIndicator armed-state hint stay in lockstep.
 // Gate thresholds are calibrated so that a natural tap (a few px of
 // pointer roll between pointerdown and pointerup) does NOT commit to a
 // swipe. Production logs showed taps with dx≈2px committing the slow

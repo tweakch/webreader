@@ -2,6 +2,7 @@ import { forwardRef, useEffect } from 'react';
 import { X, RotateCw } from 'lucide-react';
 import { cn } from '../ui/cn';
 import { useTheme } from '../ui/ThemeContext';
+import { EDGE_CLOSED_TRANSFORM, RELOAD_RATIO } from './gestureDrawerHelpers';
 
 /**
  * Generic drawer frames used by `GestureDrawerViewport`.
@@ -56,7 +57,7 @@ export const DrawerBackdrop = forwardRef(function DrawerBackdrop(
  */
 export function ReloadIndicator({ progress }) {
   const { tc } = useTheme();
-  const armed = progress >= 0.55;
+  const armed = progress >= RELOAD_RATIO;
   if (progress <= 0) return null;
   return (
     <div
@@ -113,13 +114,6 @@ const EDGE_CLASSES = {
   left:   'top-0 left-0 bottom-0 border-r flex flex-col',
 };
 
-const EDGE_CLOSED_TRANSFORM = {
-  top: 'translate3d(0, -100%, 0)',
-  bottom: 'translate3d(0, 100%, 0)',
-  left: 'translate3d(-100%, 0, 0)',
-  right: 'translate3d(100%, 0, 0)',
-};
-
 const EDGE_GRIP = {
   top:    'bottom-1.5 left-1/2 -translate-x-1/2 w-10 h-1',
   bottom: 'top-1.5 left-1/2 -translate-x-1/2 w-10 h-1',
@@ -158,7 +152,10 @@ export const EdgeDrawer = forwardRef(function EdgeDrawer(
     ...topStyle,
     transform: open ? 'translate3d(0, 0, 0)' : EDGE_CLOSED_TRANSFORM[edge],
     transition: 'transform var(--motion-md) var(--motion-ease-standard)',
-    willChange: 'transform',
+    // Only promote the open drawer to its own layer — keeping all four
+    // permanently composited wasted memory. The imperative drag transform
+    // promotes on first write, so drag-open is still smooth.
+    willChange: open ? 'transform' : 'auto',
     backgroundColor: 'var(--paper-surface)',
     color: 'var(--paper-ink)',
     borderColor: 'var(--paper-rule)',

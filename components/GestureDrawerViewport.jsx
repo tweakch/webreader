@@ -251,6 +251,68 @@ export default function GestureDrawerViewport({ enabled, readerAreaRef }) {
     }
     if (typeof window === 'undefined') return undefined;
 
+    // A stuck drag (dropped pointerup/cancel) would otherwise block all input
+    // until the next pointerdown clears it — up to STALE_DRAG_MS of dead UI.
+    // This watchdog clears it proactively. It measures *inactivity*: every
+    // move re-arms it, so only a genuinely stalled drag fires.
+    let watchdog = null;
+    const clearWatchdog = () => {
+      if (watchdog !== null) {
+        clearTimeout(watchdog);
+        watchdog = null;
+      }
+    };
+
+    // Best-effort pointer capture: keeps moves flowing even if the finger
+    // slides off the origin element, and tells the browser we own this
+    // pointer — which cuts down spurious pointercancels mid-drag.
+    const releasePointer = (d) => {
+      if (d?.captured && d.targetEl?.releasePointerCapture) {
+        try {
+          d.targetEl.releasePointerCapture(d.pointerId);
+        } catch {
+          /* best-effort */
+        }
+      }
+    };
+
+    // Revert the drawer to its pre-drag resting position (open-drag → closed,
+    // close-drag → open) with the standard transition. Used when a gesture is
+    // interrupted (pointercancel / watchdog) so an aborted drag lands in a
+    // definite state instead of half-committing on residual velocity.
+    const settleToRest = (d) => {
+      const drawerEl = drawerRefs.current[d.edge];
+      if (!drawerEl) return;
+      const stayOpen = d.mode === 'close'; // a cancelled close leaves it open
+      drawerEl.style.transition = 'transform var(--motion-md) var(--motion-ease-standard)';
+      drawerEl.style.transform = stayOpen
+        ? 'translate3d(0, 0, 0)'
+        : (EDGE_CLOSED_TRANSFORM[d.edge] ?? '');
+      if (backdropRef.current && !d.noBackdrop) {
+        backdropRef.current.style.transition = 'opacity var(--motion-md) var(--motion-ease-standard)';
+        backdropRef.current.style.opacity = stayOpen ? '0.3' : '0';
+        backdropRef.current.style.pointerEvents = stayOpen ? 'auto' : 'none';
+      }
+    };
+
+    const onWatchdogTimeout = () => {
+      const d = dragRef.current;
+      if (!d) return;
+      gestureLog('gesture.watchdog', { ageMs: Math.round(performance.now() - (d.lastT ?? 0)) });
+      d.endedBy = 'watchdog';
+      clearWatchdog();
+      releasePointer(d);
+      dragRef.current = null;
+      setPreview(null);
+      setReloadProgress(0);
+      emitTrace(d);
+      if (d.committedAxis) settleToRest(d);
+    };
+    const armWatchdog = () => {
+      clearWatchdog();
+      watchdog = setTimeout(onWatchdogTimeout, STALE_DRAG_MS);
+    };
+
     const onPointerDown = (e) => {
       if (e.pointerType === 'mouse' && e.button !== 0) return;
       // Clear a stuck drag from a dropped pointerup/pointercancel. Without
@@ -326,7 +388,9 @@ export default function GestureDrawerViewport({ enabled, readerAreaRef }) {
         commitPath: null, // 'fast' | 'slow'
         abortReason: null, // 'close-any-direction' | 'scroll-ancestor-absorb' | 'no-slot'
         openEdgeAtStart: liveOpenEdge,
+        captured: false,
       };
+      armWatchdog();
     };
 
     const onPointerMove = (e) => {
@@ -341,6 +405,7 @@ export default function GestureDrawerViewport({ enabled, readerAreaRef }) {
       d.lastT = now;
       d.moveCount += 1;
       pushSample(d.samples, x, y, now);
+      armWatchdog(); // activity → reset the stuck-drag timer
 
       const dx = x - d.startX;
       const dy = y - d.startY;
@@ -418,6 +483,20 @@ export default function GestureDrawerViewport({ enabled, readerAreaRef }) {
         }
       }
 
+      // Claim the pointer the moment we commit so the drag survives the finger
+      // sliding off the origin element and the browser stops eyeing it for its
+      // own gestures. Best-effort — window listeners already deliver events.
+      if (d.committedAxis && !d.captured) {
+        try {
+          if (d.targetEl?.isConnected && d.targetEl.setPointerCapture) {
+            d.targetEl.setPointerCapture(d.pointerId);
+            d.captured = true;
+          }
+        } catch {
+          /* capture is best-effort */
+        }
+      }
+
       // Aligned velocity along the committed axis, signed. The `+` direction
       // is opening; a negative value means the user is pulling back.
       const { vx, vy } = computeVelocity(d.samples);
@@ -491,6 +570,8 @@ export default function GestureDrawerViewport({ enabled, readerAreaRef }) {
     };
 
     const endDrag = (d) => {
+      clearWatchdog();
+      releasePointer(d);
       dragRef.current = null;
       setPreview(null);
       if (d.committedAxis) suppressNextClick();
@@ -537,11 +618,15 @@ export default function GestureDrawerViewport({ enabled, readerAreaRef }) {
       const d = dragRef.current;
       if (!d || e.pointerId !== d.pointerId) return;
       d.endedBy = 'pointercancel';
+      clearWatchdog();
+      releasePointer(d);
       dragRef.current = null;
       setPreview(null);
       setReloadProgress(0);
       emitTrace(d);
-      if (d.committedAxis) commitOrReset(d, 0);
+      // A cancelled drag reverts to its pre-drag resting state — never a
+      // velocity-dependent half-commit. Predictable beats clever here.
+      if (d.committedAxis) settleToRest(d);
     };
 
     // Native touch mirror. Two jobs:
@@ -573,6 +658,7 @@ export default function GestureDrawerViewport({ enabled, readerAreaRef }) {
     // passive:false so onTouchMove can preventDefault once a drag commits.
     window.addEventListener('touchmove', onTouchMove, { passive: false });
     return () => {
+      clearWatchdog();
       window.removeEventListener('pointerdown', onPointerDown);
       window.removeEventListener('pointermove', onPointerMove);
       window.removeEventListener('pointerup', onPointerUp);

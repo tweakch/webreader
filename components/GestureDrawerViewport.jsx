@@ -541,17 +541,25 @@ export default function GestureDrawerViewport({ enabled, readerAreaRef }) {
       if (d.committedAxis) commitOrReset(d, 0);
     };
 
-    // Native touch mirror — only to count touchmove events per drag so the
-    // trace can report touchMoveCount alongside pointer moveCount. If one is
-    // high and the other is low, we can tell whether the browser is starving
-    // us of pointer events.
+    // Native touch mirror. Two jobs:
+    //   1. Count touchmove events per drag so the trace can report
+    //      touchMoveCount alongside pointer moveCount.
+    //   2. Claim the gesture. Once a drag has committed to an axis we
+    //      `preventDefault` every touchmove so the browser cannot start (or
+    //      continue) a scroll/pan out from under the drag. Passive pointer
+    //      listeners cannot do this, and it is the #1 reason drawer drags died
+    //      mid-flight on mobile — the browser began a scroll and fired
+    //      pointercancel. Before commit we stay passive so native scroll in
+    //      non-gesture areas (sidebar list, drawer bodies) is untouched.
     const onTouchStart = () => {
       const d = dragRef.current;
       if (d) d.touchMoveCount = 0;
     };
-    const onTouchMove = () => {
+    const onTouchMove = (e) => {
       const d = dragRef.current;
-      if (d) d.touchMoveCount += 1;
+      if (!d) return;
+      d.touchMoveCount += 1;
+      if (d.committedAxis && e.cancelable) e.preventDefault();
     };
 
     window.addEventListener('pointerdown', onPointerDown, { passive: true });
@@ -559,7 +567,8 @@ export default function GestureDrawerViewport({ enabled, readerAreaRef }) {
     window.addEventListener('pointerup', onPointerUp, { passive: true });
     window.addEventListener('pointercancel', onPointerCancel, { passive: true });
     window.addEventListener('touchstart', onTouchStart, { passive: true });
-    window.addEventListener('touchmove', onTouchMove, { passive: true });
+    // passive:false so onTouchMove can preventDefault once a drag commits.
+    window.addEventListener('touchmove', onTouchMove, { passive: false });
     return () => {
       window.removeEventListener('pointerdown', onPointerDown);
       window.removeEventListener('pointermove', onPointerMove);

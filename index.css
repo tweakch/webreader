@@ -10,15 +10,23 @@
 }
 
 /* ── Global gesture ownership ───────────────────────────────────────────────
-   The app owns its pointer gestures via `GestureDrawerViewport`. Tell the
-   browser not to hijack them:
+   The app owns its pointer gestures via `GestureDrawerViewport`. Ownership is
+   layered so native scroll still works where it should:
      • `overscroll-behavior: none`  — kills pull-to-refresh and rubber-band
        overscroll-nav (iOS Safari swipe-back, Chrome pull-to-reload). Applied
        at html + body so no overscroll chain escapes to the viewport.
-     • `touch-action: manipulation` — kills the 300ms tap delay + double-tap
-       zoom. Still allows panning/scrolling inside scrollable drawer content.
+     • `touch-action: manipulation` (here) — kills the 300ms tap delay +
+       double-tap zoom app-wide while leaving native scroll intact for the
+       sidebar list, marketing pages, and scrollable drawer bodies.
+     • `touch-action: none` on the *reader viewport* and the *drawer backdrop*
+       (set inline on those elements) — both are non-scrolling surfaces, so
+       they claim edge swipes on both axes before the browser can start a pan.
+     • Non-passive `touchmove` in the viewport — once a drag commits to an
+       axis it `preventDefault`s, stopping the browser from scrolling out from
+       under a drag that began over a scrollable area.
    Scrollable drawer content keeps its own `overscroll-contain` so inner
-   scroll rubber-bands within its own frame without bubbling to the document.
+   scroll rubber-bands within its own frame without bubbling to the document;
+   the viewport's `scrollableAncestorCanAbsorb` check yields to that scroll.
    ────────────────────────────────────────────────────────────────────────── */
 
 html, body {

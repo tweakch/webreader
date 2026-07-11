@@ -115,6 +115,10 @@ export default function ReaderView({
         ref={readerAreaRef}
         data-testid="reader-viewport"
         className="flex-1 overflow-hidden relative"
+        // The reading surface is paginated and never scrolls, so it can own
+        // both gesture axes. `touch-action: none` stops the browser from
+        // claiming edge swipes as scroll/pan before the gesture engine can.
+        style={{ touchAction: 'none' }}
       >
         {speedReaderMode ? (
           <SpeedReaderView

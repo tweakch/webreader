@@ -42,6 +42,8 @@ export const DrawerBackdrop = forwardRef(function DrawerBackdrop(
       style={{
         opacity: open ? 0.3 : 0,
         pointerEvents: open ? 'auto' : 'none',
+        // The backdrop never scrolls — let it own close-drags on both axes.
+        touchAction: 'none',
         transition: 'opacity var(--motion-md) var(--motion-ease-standard)',
       }}
     />

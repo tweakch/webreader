@@ -187,8 +187,8 @@ export default function ReaderView({
         )}
       </div>
 
-      {/* Variant switcher - shown only when adaptions exist */}
-      {showAdaptionSwitcher && (adaptionsByParent[selectedStory.id] ?? []).length > 0 && (
+      {/* Variant switcher - shown only when adaptions exist. Hidden with chrome. */}
+      {showAdaptionSwitcher && controlsVisible && (adaptionsByParent[selectedStory.id] ?? []).length > 0 && (
         <VariantSwitcher
           adaptions={adaptionsByParent[selectedStory.id]}
           selectedVariant={selectedVariant}
@@ -196,8 +196,9 @@ export default function ReaderView({
         />
       )}
 
-      {/* Typography panel - slides open above nav bar */}
-      {showTypographyPanel && typoPanelOpen && (
+      {/* Typography panel - slides open above nav bar. Hidden with chrome so
+          Vorlesen keeps the full reading surface once settings are dismissed. */}
+      {showTypographyPanel && typoPanelOpen && controlsVisible && (
         <TypographyPanel
           lineHeightIdx={lineHeightIdx}
           onLineHeightChange={onLineHeightChange}

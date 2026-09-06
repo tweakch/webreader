@@ -109,16 +109,19 @@ export default function AppTopBar({
       )}
 
       <header
+        data-testid="app-top-bar"
         aria-hidden={!visible}
-        className={`flex-shrink-0 z-40 border-b ${
-          visible ? 'opacity-100' : 'opacity-0 pointer-events-none'
+        className={`z-40 overflow-hidden ${
+          visible
+            ? 'flex-shrink-0 opacity-100 border-b'
+            : 'h-0 max-h-0 min-h-0 opacity-0 pointer-events-none border-0'
         }`}
         style={{
           backgroundColor: 'var(--paper-surface)',
           color: 'var(--paper-ink)',
           // When the header extension is open, drop the seam so the compact
           // strip and the extension read as one continuous surface.
-          borderBottomColor: extensionOpen ? 'transparent' : 'var(--paper-rule)',
+          borderBottomColor: visible && !extensionOpen ? 'var(--paper-rule)' : 'transparent',
           transition: 'opacity var(--motion-sm) var(--motion-ease-standard), border-bottom-color var(--motion-md) var(--motion-ease-standard)',
         }}
       >

@@ -12,6 +12,7 @@ personas:
 related_features:
   - "read-along"
   - "child-profile"
+  - "tap-middle-toggle"
 parent: null
 children: []
 ---
@@ -96,6 +97,12 @@ const image = byParagraph.get(paragraphIndex); // undefined if skipped
 - `getStoryIllustrations(storyId, { storyVersion, content })` — collection chrome (`opening` / `ending` / `ornament`) plus `pack`, `byParagraph`, and `skipped`
 
 Page-slot rendering (Chrome-Hide / Bild-Slot) is owned by Lesefluss. This module only resolves *what* belongs on *which paragraph*.
+
+## Bild-Slot + Chrome-Hide (Lesefluss)
+
+When the `illustrations` flag is on, `useReader` consumes `getIllustrationSlotMap` and inserts **one dedicated pager page** after each resolved paragraph in `byParagraph`. Word-packing continues around the slot. Empty `byParagraph` / skipped images → pager unchanged.
+
+Full-screen Vorlesen uses the existing [Tap Middle Toggle](tap-middle-toggle.md) path — no new gestures, `enhanced-gestures` stays off.
 
 ## Collection-level illustrations (companion model)
 

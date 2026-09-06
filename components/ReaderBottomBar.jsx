@@ -287,13 +287,13 @@ export default function ReaderBottomBar({
       <div
         data-testid="nav-bar"
         aria-hidden={!visible}
-        className={`flex-shrink-0 ${navHeight} flex items-center justify-between px-6 border-t ${
-          visible ? 'opacity-100' : 'opacity-0 pointer-events-none'
-        }`}
+        className={`overflow-hidden ${
+          visible ? `flex-shrink-0 ${navHeight} opacity-100` : 'h-0 max-h-0 min-h-0 opacity-0 pointer-events-none'
+        } flex items-center justify-between px-6 border-t`}
         style={{
           backgroundColor: 'var(--paper-surface)',
           color: 'var(--paper-ink)',
-          borderTopColor: 'var(--paper-rule)',
+          borderTopColor: visible ? 'var(--paper-rule)' : 'transparent',
           transition: 'opacity var(--motion-sm) var(--motion-ease-standard)',
         }}
       >

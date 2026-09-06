@@ -1,8 +1,29 @@
 import { useState, useRef, useEffect, useLayoutEffect, useCallback, useMemo } from 'react';
+import { getIllustrationSlotMap, hashStoryContent } from '../src/lib/illustrationPacks';
 
 // Ornament block height when illustrations are rendered between paragraphs:
 // my-4 (32px) + h-6 (24px) = 56px reserved after each completed paragraph.
 const ORNAMENT_RESERVE_PX = 56;
+const EMPTY_SLOT_MAP = new Map();
+
+function makeIllustrationPage(image) {
+  return {
+    tokens: [],
+    hasTitle: false,
+    illustration: {
+      src: image.src,
+      alt: image.alt || '',
+      id: image.id,
+      paragraphIndex: image.anchor?.index,
+    },
+  };
+}
+
+function flushIllustrationSlots(pages, pending) {
+  for (const image of pending) {
+    if (image?.src) pages.push(makeIllustrationPage(image));
+  }
+}
 
 /**
  * useReader - encapsulates page pagination, navigation, and speed reader logic.
@@ -15,11 +36,15 @@ const ORNAMENT_RESERVE_PX = 56;
  * - typographyValues: { fontSize, lineHeight, textWidth, hPadding, wordSpacing, fontFamily }
  * - showSpeedReader: feature flag for speed reader
  * - showIllustrations: when true, reserves vertical space between paragraphs
- *   so rendered monochrome ornaments fit within the measured page.
+ *   so rendered monochrome ornaments fit within the measured page, and
+ *   inserts pack slots from `getIllustrationSlotMap` (`byParagraph`).
+ * - illustrationByParagraph: optional `Map<paragraphIndex, image>` override
+ *   (tests). When omitted, Feel resolve is used. Missing/skipped images
+ *   leave the pager unchanged. Anchors are paragraph indexes only.
  * - pendingResumePageRef: ref for resume page restoration
  *
  * Returns:
- * - pages: array of { tokens: [...], hasTitle: bool }
+ * - pages: array of { tokens: [...], hasTitle: bool, illustration?: object }
  * - currentPage: current page index
  * - setCurrentPage: function to set current page
  * - totalPages: total number of pages
@@ -38,6 +63,7 @@ export function useReader({
   typographyValues: { fontSize, lineHeight, textWidth, hPadding, wordSpacing, fontFamily },
   showSpeedReader,
   showIllustrations = false,
+  illustrationByParagraph = null,
   pendingResumePageRef,
   enablePageTurnFlash = false,
 }) {
@@ -47,6 +73,20 @@ export function useReader({
   const [isFlashing, setIsFlashing] = useState(false);
   const [speedReaderMode, setSpeedReaderMode] = useState(false);
   const lastResetStoryRef = useRef(null);
+  const activeContent = selectedVariant?.content ?? selectedStory?.content ?? '';
+  const storyId = selectedStory?.id ?? null;
+  const resolvedByParagraph = useMemo(() => {
+    if (illustrationByParagraph instanceof Map) return illustrationByParagraph;
+    if (!showIllustrations || !storyId) return EMPTY_SLOT_MAP;
+    return getIllustrationSlotMap(storyId, {
+      storyVersion: hashStoryContent(activeContent),
+      content: activeContent,
+    }).byParagraph;
+  }, [showIllustrations, storyId, activeContent, illustrationByParagraph]);
+  const slotKey = useMemo(
+    () => [...resolvedByParagraph.entries()].map(([i, img]) => `${i}:${img?.src || ''}`).join('|'),
+    [resolvedByParagraph],
+  );
 
   // Build pages via DOM measurement word-packing algorithm
   const buildPages = useCallback(() => {
@@ -84,6 +124,8 @@ export function useReader({
     // Render and measure: build pages by adding words until they overflow
     const pages = [];
     let isFirstPage = true;
+    let completedParagraphs = 0;
+    const slotMap = showIllustrations ? resolvedByParagraph : EMPTY_SLOT_MAP;
 
     while (tokens.length > 0) {
       m.innerHTML = '';
@@ -108,6 +150,7 @@ export function useReader({
       m.appendChild(contentDiv);
 
       let pageTokens = [];
+      const pendingSlots = [];
 
       // Fill this page with words
       while (tokens.length > 0) {
@@ -136,6 +179,11 @@ export function useReader({
             currentPara.textContent = word;
             tokens.shift();
             pageTokens.push(token);
+            if (token.isPara) {
+              const image = slotMap.get(completedParagraphs);
+              completedParagraphs += 1;
+              if (image?.src) pendingSlots.push(image);
+            }
           }
           break;
         }
@@ -147,13 +195,21 @@ export function useReader({
         // If paragraph ends, add a new paragraph element for the next word.
         // When illustrations are shown, the completed paragraph is followed by
         // an ornament in the rendered output — reserve that vertical space.
-        if (token.isPara && tokens.length > 0) {
-          if (showIllustrations) {
-            currentPara.style.marginBottom = `calc(1.5rem + ${ORNAMENT_RESERVE_PX}px)`;
+        // A pack image for this paragraph becomes its own page after this one.
+        if (token.isPara) {
+          const image = slotMap.get(completedParagraphs);
+          completedParagraphs += 1;
+          if (image?.src) {
+            pendingSlots.push(image);
+            if (tokens.length > 0) break;
+          } else if (tokens.length > 0) {
+            if (showIllustrations) {
+              currentPara.style.marginBottom = `calc(1.5rem + ${ORNAMENT_RESERVE_PX}px)`;
+            }
+            currentPara = document.createElement('p');
+            currentPara.style.cssText = 'margin:0 0 1.5rem;';
+            contentDiv.appendChild(currentPara);
           }
-          currentPara = document.createElement('p');
-          currentPara.style.cssText = 'margin:0 0 1.5rem;';
-          contentDiv.appendChild(currentPara);
         }
       }
 
@@ -161,6 +217,7 @@ export function useReader({
         tokens: pageTokens,
         hasTitle: isFirstPage,
       });
+      flushIllustrationSlots(pages, pendingSlots);
 
       isFirstPage = false;
     }
@@ -180,7 +237,7 @@ export function useReader({
       // Subsequent builds (resize, font change): clamp to valid range.
       setCurrentPage(p => Math.min(p, pages.length - 1));
     }
-  }, [selectedStory, selectedVariant, fontSize, lineHeight, textWidth, hPadding, wordSpacing, fontFamily, showIllustrations]);
+  }, [selectedStory, selectedVariant, fontSize, lineHeight, textWidth, hPadding, wordSpacing, fontFamily, showIllustrations, resolvedByParagraph, slotKey]);
 
   // Build pages synchronously before paint when story or font size changes
   useLayoutEffect(() => {

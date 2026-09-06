@@ -1024,8 +1024,9 @@ const GrimmMarchenApp = () => {
       </div>
 
       {/* Thumb-reachable profile FAB — mobile/tablet only, hidden while any
-          overlay is open so the reader view isn't cluttered. */}
-      {!profileOpen && !docsOpen && !personasDocsOpen && !menuOpen && (
+          overlay is open so the reader view isn't cluttered. Also hidden
+          with reader chrome so Vorlesen keeps a clear full screen. */}
+      {!profileOpen && !docsOpen && !personasDocsOpen && !menuOpen && (controlsVisible || !selectedStory) && (
         <button
           onClick={handleOpenProfile}
           data-testid="profile-fab"

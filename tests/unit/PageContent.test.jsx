@@ -125,6 +125,28 @@ describe('PageContent', () => {
       expect(screen.queryByTestId('story-cover')).not.toBeInTheDocument();
     });
 
+    it('renders a pack slot as a dedicated page', () => {
+      const slotPage = {
+        hasTitle: false,
+        tokens: [],
+        illustration: { src: '/packs/die_sterntaler/girl.svg', alt: 'Feld', id: 'girl-in-field' },
+      };
+      render({
+        showIllustrations: true,
+        pages: [PAGE, slotPage],
+        currentPage: 1,
+        totalPages: 2,
+      });
+      const img = screen.getByTestId('story-illustration-slot');
+      expect(img).toHaveAttribute('src', '/packs/die_sterntaler/girl.svg');
+      expect(screen.queryByText('Aschenputtel')).not.toBeInTheDocument();
+    });
+
+    it('does not render a slot when the page has no illustration src', () => {
+      render({ showIllustrations: true });
+      expect(screen.queryByTestId('story-illustration-slot')).not.toBeInTheDocument();
+    });
+
     it('does not render the cover on non-title pages', () => {
       const page2 = { hasTitle: false, tokens: [{ word: 'Weiter.', isPara: true }] };
       render({

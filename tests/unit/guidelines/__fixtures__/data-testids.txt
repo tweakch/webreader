@@ -1,6 +1,7 @@
 ab-testing-panel
 age-filter
 app-animation-variant-picker
+app-top-bar
 back-to-directories
 back-to-sources
 blacklist-add
@@ -90,6 +91,7 @@ speed-reader-wpm-increase
 story-close
 story-cover
 story-ending-illustration
+story-illustration-slot
 story-opening-illustration
 subscription-upgrade-cta
 suggestion-feeds

@@ -187,8 +187,8 @@ export default function ReaderView({
         )}
       </div>
 
-      {/* Variant switcher - shown only when adaptions exist */}
-      {showAdaptionSwitcher && (adaptionsByParent[selectedStory.id] ?? []).length > 0 && (
+      {/* Variant switcher - shown only when adaptions exist. Hidden with chrome. */}
+      {showAdaptionSwitcher && controlsVisible && (adaptionsByParent[selectedStory.id] ?? []).length > 0 && (
         <VariantSwitcher
           adaptions={adaptionsByParent[selectedStory.id]}
           selectedVariant={selectedVariant}

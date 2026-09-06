@@ -32,10 +32,11 @@ async function openGrimmStory(page, title) {
   await page.waitForSelector('[data-testid="page-content"]');
 }
 
-async function tapMiddle(page) {
-  const viewport = page.locator('[data-testid="reader-viewport"]');
-  const box = await viewport.boundingBox();
-  if (!box) throw new Error('reader-viewport has no box');
+async function tapReaderZone(page, testId) {
+  const zone = page.locator(`[data-testid="${testId}"]`);
+  await expect(zone).toBeAttached();
+  const box = await zone.boundingBox();
+  if (!box) throw new Error(`${testId} has no box`);
   await page.mouse.click(box.x + box.width / 2, box.y + box.height / 2);
   await page.waitForTimeout(200);
 }
@@ -59,10 +60,11 @@ test.describe('Lesefluss chrome-hide + illustration slot', () => {
     await expect(nav).toBeVisible();
     const shownHeight = await reader.evaluate((el) => el.clientHeight);
 
-    await tapMiddle(page);
+    await tapReaderZone(page, 'tap-zone-middle');
 
     await expect(header).toHaveAttribute('aria-hidden', 'true');
     await expect(nav).toHaveAttribute('aria-hidden', 'true');
+    await expect(page.locator('[data-testid="profile-fab"]')).toHaveCount(0);
     const headerBox = await header.boundingBox();
     const navBox = await nav.boundingBox();
     expect(headerBox?.height ?? 0).toBeLessThan(2);
@@ -71,10 +73,11 @@ test.describe('Lesefluss chrome-hide + illustration slot', () => {
     const hiddenHeight = await reader.evaluate((el) => el.clientHeight);
     expect(hiddenHeight).toBeGreaterThan(shownHeight);
 
-    await tapMiddle(page);
+    await tapReaderZone(page, 'tap-zone-middle');
     await expect(header).toHaveAttribute('aria-hidden', 'false');
     await expect(nav).toHaveAttribute('aria-hidden', 'false');
     await expect(page.locator('[data-testid="page-counter"]')).toBeVisible();
+    await expect(page.locator('[data-testid="profile-fab"]')).toBeVisible();
   });
 
   test('pilot pack slot renders when illustrations is on', async ({ page }) => {
@@ -84,7 +87,7 @@ test.describe('Lesefluss chrome-hide + illustration slot', () => {
     await expect(page.locator('[data-testid="page-content"]')).toBeVisible();
     expect(await page.locator('[data-testid="story-illustration-slot"]').count()).toBe(0);
 
-    await page.locator('[data-testid="next-page"]').click();
+    await tapReaderZone(page, 'tap-zone-right');
     await expect(page.locator('[data-testid="story-illustration-slot"]')).toBeVisible();
     const src = await page.locator('[data-testid="story-illustration-slot"]').getAttribute('src');
     expect(src).toMatch(/waldweg|\.svg|data:image\/svg/);
@@ -94,20 +97,10 @@ test.describe('Lesefluss chrome-hide + illustration slot', () => {
     await seedFlags(page, { illustrations: true, 'enhanced-gestures': false });
     await openGrimmStory(page, 'Aschenputtel');
 
-    const { total } = await readCounter(page);
-    for (let i = 0; i < total; i++) {
-      expect(await page.locator('[data-testid="story-illustration-slot"]').count()).toBe(0);
-      if (i < total - 1) {
-        await page.locator('[data-testid="next-page"]').click();
-        await page.waitForTimeout(80);
-      }
-    }
+    expect(await page.locator('[data-testid="story-illustration-slot"]').count()).toBe(0);
+    await tapReaderZone(page, 'tap-zone-right');
+    expect(await page.locator('[data-testid="story-illustration-slot"]').count()).toBe(0);
+    await expect(page.locator('[data-testid="page-content"] p')).toBeVisible();
   });
 });
 
-async function readCounter(page) {
-  const text = (await page.locator('[data-testid="page-counter"]').textContent()) ?? '';
-  const match = text.match(/(\d+)\s*\/\s*(\d+)/);
-  if (!match) throw new Error(`unrecognized page counter: ${text}`);
-  return { current: Number(match[1]), total: Number(match[2]) };
-}

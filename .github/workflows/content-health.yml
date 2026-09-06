@@ -8,10 +8,6 @@ on:
       - 'stories/**'
       - 'scripts/smoke-crawl.mjs'
       - '.github/workflows/content-health.yml'
-  schedule:
-    # Run every Monday 06:00 UTC. Upstream source structure changes
-    # silently — a scheduled smoke-crawl catches them before they rot.
-    - cron: '0 6 * * 1'
   workflow_dispatch:
 
 jobs:

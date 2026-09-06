@@ -1,4 +1,11 @@
 import collections from 'virtual:webreader-collections';
+import { bundledIllustrationPackRegistry } from './illustrationPackLoader';
+
+export {
+  computeStoryVersion,
+  hashParagraphStart,
+  hashStoryContent,
+} from './illustrationPackLoader';
 
 const storyModules2 = import.meta.glob('/stories/*/*/content.md', { query: '?raw', import: 'default' });
 const storyModules3 = import.meta.glob('/stories/*/*/*/content.md', { query: '?raw', import: 'default' });
@@ -130,14 +137,16 @@ function parseFrontmatter(raw, { slug, defaultSourceLabel, titleOverride }) {
   const ageMin = ageMinMatch ? parseInt(ageMinMatch[1], 10) : null;
   const ageMaxMatch = fmBlock.match(/^ageMax:\s*(\d+)$/m);
   const ageMax = ageMaxMatch ? parseInt(ageMaxMatch[1], 10) : null;
+  const versionMatch = fmBlock.match(/^version:\s*"([^"]+)"$/m) || fmBlock.match(/^version:\s*(\S+)$/m);
+  const version = versionMatch ? versionMatch[1] : null;
   const afterFm = fmMatch ? raw.slice(fmMatch[0].length) : raw;
   const content = afterFm.replace(/^#[^\n]*\n\n/, '').trimEnd();
-  return { title, sourceLabel, wordCount, ageMin, ageMax, content };
+  return { title, sourceLabel, wordCount, ageMin, ageMax, version, content };
 }
 
 export function parseStoryRaw(path, raw, coverMap = storyCoverMap) {
   const { source, directory, slug } = parseStoryPath(path);
-  const { title, sourceLabel, wordCount, ageMin, ageMax, content } = parseFrontmatter(raw, {
+  const { title, sourceLabel, wordCount, ageMin, ageMax, version, content } = parseFrontmatter(raw, {
     slug,
     defaultSourceLabel: null,
     titleOverride: null,
@@ -153,13 +162,14 @@ export function parseStoryRaw(path, raw, coverMap = storyCoverMap) {
     wordCount,
     ageMin,
     ageMax,
+    version,
     coverUrl: coverMap[id] ?? null,
   };
 }
 
 function parseCollectionStory(entry) {
   const { id, source, slug, raw, sourceLabel, titleOverride } = entry;
-  const { title, wordCount, ageMin, ageMax, content } = parseFrontmatter(raw, {
+  const { title, wordCount, ageMin, ageMax, version, content } = parseFrontmatter(raw, {
     slug,
     defaultSourceLabel: sourceLabel,
     titleOverride,
@@ -174,6 +184,7 @@ function parseCollectionStory(entry) {
     wordCount,
     ageMin,
     ageMax,
+    version,
     coverUrl: collectionCoverMap.get(id) ?? null,
   };
 }
@@ -237,6 +248,7 @@ export async function loadStoryById(storyId) {
       wordCount: story.wordCount,
       ageMin: story.ageMin,
       ageMax: story.ageMax,
+      version: story.version,
       coverUrl: story.coverUrl,
     });
     return story;
@@ -264,6 +276,7 @@ export async function loadStoryById(storyId) {
     wordCount: story.wordCount,
     ageMin: story.ageMin,
     ageMax: story.ageMax,
+    version: story.version,
     coverUrl: story.coverUrl,
   });
 
@@ -284,6 +297,7 @@ export async function loadStoryMetadataById(storyId) {
     wordCount: story.wordCount,
     ageMin: story.ageMin,
     ageMax: story.ageMax,
+    version: story.version,
     coverUrl: story.coverUrl,
   };
 }
@@ -333,10 +347,33 @@ export function getStoryCoverUrl(storyId) {
   return collectionCoverMap.get(storyId) || null;
 }
 
-export function getStoryIllustrations(storyId) {
+/**
+ * Collection-level opening/ending/ornament plus, when given a story object,
+ * paragraph-anchored pack slots from `illustration-packs/`. Pack lookup
+ * fails soft (`slots: []`) so a missing pack cannot change pager layout.
+ *
+ * @param {string | { id?: string, version?: string, content?: string } | null} storyOrId
+ */
+export function getStoryIllustrations(storyOrId) {
+  const storyId = typeof storyOrId === 'string' ? storyOrId : storyOrId?.id;
   if (!storyId) return null;
-  const sourceId = storyId.split('/')[0];
-  return collectionIllustrationsMap.get(sourceId) || null;
+  const collection = collectionIllustrationsMap.get(storyId.split('/')[0]) || null;
+  const pack = typeof storyOrId === 'object' && storyOrId
+    ? bundledIllustrationPackRegistry.resolveForStory(storyOrId)
+    : null;
+  if (!collection && !pack) return null;
+  return {
+    opening: collection?.opening ?? null,
+    ending: collection?.ending ?? null,
+    ornament: collection?.ornament ?? null,
+    pack,
+    slots: pack ? pack.slots : [],
+  };
+}
+
+/** Soft-fail pack resolve for Lesefluss. Never throws; empty slots = unchanged pager. */
+export function getStoryIllustrationSlots(story) {
+  return bundledIllustrationPackRegistry.resolveForStory(story);
 }
 
 export async function loadStoryAudioMap() {

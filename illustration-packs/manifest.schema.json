@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://webreader.local/illustration-packs/manifest.schema.json",
+  "title": "Illustration pack manifest",
+  "description": "External illustration pack for a single story version. Images are not embedded in Markdown. Anchor by paragraph index (0-based), never by page — pages drift with font and viewport.",
+  "type": "object",
+  "additionalProperties": true,
+  "required": ["storyId", "storyVersion", "packId", "images"],
+  "properties": {
+    "storyId": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Canonical story id, e.g. grimm-klassiker/die_sterntaler"
+    },
+    "storyVersion": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Exact match against frontmatter version, or the content hash from computeStoryVersion(). Mismatch skips the whole pack."
+    },
+    "packId": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Stable pack identifier, e.g. die-sterntaler-v1"
+    },
+    "images": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": true,
+        "required": ["id", "src", "anchor"],
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Unique within the pack"
+          },
+          "src": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Filename relative to the pack directory, or an absolute http(s) URL"
+          },
+          "anchor": {
+            "type": "object",
+            "additionalProperties": true,
+            "required": ["paragraph"],
+            "properties": {
+              "paragraph": {
+                "type": "integer",
+                "minimum": 0,
+                "description": "0-based paragraph index in the story body (split on blank lines, same as the pager)"
+              },
+              "hash": {
+                "type": "string",
+                "minLength": 1,
+                "description": "Optional hash of the paragraph start from hashParagraphStart(). Mismatch skips only this image."
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

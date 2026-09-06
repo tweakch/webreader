@@ -1,4 +1,4 @@
-import { parseStoryRaw, buildCoverMap } from '../../src/lib/storyLibrary';
+import { parseStoryRaw, buildCoverMap, getStoryIllustrationSlots } from '../../src/lib/storyLibrary';
 
 describe('parseStoryRaw', () => {
   const twoLevelPath = '/stories/grimm/aschenputtel/content.md';
@@ -57,6 +57,26 @@ Es war einmal ein Kind.`;
   it('returns null coverUrl when the story is not in the cover map', () => {
     const story = parseStoryRaw(twoLevelPath, fm(), {});
     expect(story.coverUrl).toBeNull();
+  });
+
+  it('extracts frontmatter version for illustration-pack pinning', () => {
+    const quoted = parseStoryRaw(twoLevelPath, fm('version: "1"'), {});
+    const bare = parseStoryRaw(twoLevelPath, fm('version: 2'), {});
+    expect(quoted.version).toBe('1');
+    expect(bare.version).toBe('2');
+    expect(parseStoryRaw(twoLevelPath, fm(), {}).version).toBeNull();
+  });
+});
+
+describe('getStoryIllustrationSlots', () => {
+  it('fails soft when no matching pack is installed', () => {
+    const result = getStoryIllustrationSlots({
+      id: 'grimm-klassiker/die_sterntaler',
+      version: '1',
+      content: 'Es war einmal ein kleines Mädchen.',
+    });
+    expect(result.slots).toEqual([]);
+    expect(['empty', 'skipped']).toContain(result.status);
   });
 });
 

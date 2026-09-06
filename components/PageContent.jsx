@@ -32,7 +32,10 @@ export default function PageContent({
   const page = pages[currentPage];
   const isLastPage = currentPage === totalPages - 1;
   const isFavorite = favorites.has(selectedStory.id);
-  const illustrations = showIllustrations ? getStoryIllustrations(selectedStory.id) : null;
+  // Pass the story object so the pack loader can exact-match storyId+version.
+  // Slots are resolved here (soft-fail) but not rendered — Lesefluss owns
+  // Chrome-Hide / slot layout. Empty slots must not change pager measurement.
+  const illustrations = showIllustrations ? getStoryIllustrations(selectedStory) : null;
   const ornamentColor = highContrast
     ? (darkMode ? '#ffffff' : '#000000')
     : darkMode ? '#b8a66b' : '#8b6914';

@@ -45,7 +45,7 @@ export default function PageContent({
           <img
             data-testid="story-illustration-slot"
             src={page.illustration.src}
-            alt=""
+            alt={page.illustration.alt || ''}
             className="w-full max-h-full rounded-xl object-contain"
           />
         </div>

@@ -1,33 +1,28 @@
 import { useState, useRef, useEffect, useLayoutEffect, useCallback, useMemo } from 'react';
+import { getIllustrationSlotMap, hashStoryContent } from '../src/lib/illustrationPacks';
 
 // Ornament block height when illustrations are rendered between paragraphs:
 // my-4 (32px) + h-6 (24px) = 56px reserved after each completed paragraph.
 const ORNAMENT_RESERVE_PX = 56;
+const EMPTY_SLOT_MAP = new Map();
 
-function makeIllustrationPage(slot) {
+function makeIllustrationPage(image) {
   return {
     tokens: [],
     hasTitle: false,
-    illustration: { src: slot.src, version: slot.version, storyId: slot.storyId },
+    illustration: {
+      src: image.src,
+      alt: image.alt || '',
+      id: image.id,
+      paragraphIndex: image.anchor?.index,
+    },
   };
 }
 
-/** Insert the pack slot after the page that just closed, if the anchor matches. */
-function maybeInsertIllustrationSlot(pages, slot, { isFirstPage, completedParagraphs, inserted }) {
-  if (inserted || !slot?.src || !slot.anchor) return false;
-  if (slot.anchor.type === 'after-title' && isFirstPage) {
-    pages.push(makeIllustrationPage(slot));
-    return true;
+function flushIllustrationSlots(pages, pending) {
+  for (const image of pending) {
+    if (image?.src) pages.push(makeIllustrationPage(image));
   }
-  if (
-    slot.anchor.type === 'after-paragraph'
-    && Number.isInteger(slot.anchor.index)
-    && completedParagraphs > slot.anchor.index
-  ) {
-    pages.push(makeIllustrationPage(slot));
-    return true;
-  }
-  return false;
 }
 
 /**
@@ -41,10 +36,11 @@ function maybeInsertIllustrationSlot(pages, slot, { isFirstPage, completedParagr
  * - typographyValues: { fontSize, lineHeight, textWidth, hPadding, wordSpacing, fontFamily }
  * - showSpeedReader: feature flag for speed reader
  * - showIllustrations: when true, reserves vertical space between paragraphs
- *   so rendered monochrome ornaments fit within the measured page.
- * - illustrationSlot: optional pack slot `{ src, anchor, version }`. When
- *   `showIllustrations` is on and `src` is set, a dedicated illustration
- *   page is inserted at `anchor`. Missing src → pager unchanged.
+ *   so rendered monochrome ornaments fit within the measured page, and
+ *   inserts pack slots from `getIllustrationSlotMap` (`byParagraph`).
+ * - illustrationByParagraph: optional `Map<paragraphIndex, image>` override
+ *   (tests). When omitted, Feel resolve is used. Missing/skipped images
+ *   leave the pager unchanged. Anchors are paragraph indexes only.
  * - pendingResumePageRef: ref for resume page restoration
  *
  * Returns:
@@ -67,7 +63,7 @@ export function useReader({
   typographyValues: { fontSize, lineHeight, textWidth, hPadding, wordSpacing, fontFamily },
   showSpeedReader,
   showIllustrations = false,
-  illustrationSlot = null,
+  illustrationByParagraph = null,
   pendingResumePageRef,
   enablePageTurnFlash = false,
 }) {
@@ -77,11 +73,20 @@ export function useReader({
   const [isFlashing, setIsFlashing] = useState(false);
   const [speedReaderMode, setSpeedReaderMode] = useState(false);
   const lastResetStoryRef = useRef(null);
-  const slotSrc = illustrationSlot?.src || null;
-  const slotAnchorType = illustrationSlot?.anchor?.type || null;
-  const slotAnchorIndex = illustrationSlot?.anchor?.index;
-  const slotVersion = illustrationSlot?.version;
-  const slotStoryId = illustrationSlot?.storyId;
+  const activeContent = selectedVariant?.content ?? selectedStory?.content ?? '';
+  const storyId = selectedStory?.id ?? null;
+  const resolvedByParagraph = useMemo(() => {
+    if (illustrationByParagraph instanceof Map) return illustrationByParagraph;
+    if (!showIllustrations || !storyId) return EMPTY_SLOT_MAP;
+    return getIllustrationSlotMap(storyId, {
+      storyVersion: hashStoryContent(activeContent),
+      content: activeContent,
+    }).byParagraph;
+  }, [showIllustrations, storyId, activeContent, illustrationByParagraph]);
+  const slotKey = useMemo(
+    () => [...resolvedByParagraph.entries()].map(([i, img]) => `${i}:${img?.src || ''}`).join('|'),
+    [resolvedByParagraph],
+  );
 
   // Build pages via DOM measurement word-packing algorithm
   const buildPages = useCallback(() => {
@@ -120,15 +125,7 @@ export function useReader({
     const pages = [];
     let isFirstPage = true;
     let completedParagraphs = 0;
-    let slotInserted = false;
-    const slot = (showIllustrations && slotSrc && slotAnchorType)
-      ? {
-          src: slotSrc,
-          version: slotVersion,
-          storyId: slotStoryId,
-          anchor: { type: slotAnchorType, index: slotAnchorIndex },
-        }
-      : null;
+    const slotMap = showIllustrations ? resolvedByParagraph : EMPTY_SLOT_MAP;
 
     while (tokens.length > 0) {
       m.innerHTML = '';
@@ -153,6 +150,7 @@ export function useReader({
       m.appendChild(contentDiv);
 
       let pageTokens = [];
+      const pendingSlots = [];
 
       // Fill this page with words
       while (tokens.length > 0) {
@@ -181,6 +179,11 @@ export function useReader({
             currentPara.textContent = word;
             tokens.shift();
             pageTokens.push(token);
+            if (token.isPara) {
+              const image = slotMap.get(completedParagraphs);
+              completedParagraphs += 1;
+              if (image?.src) pendingSlots.push(image);
+            }
           }
           break;
         }
@@ -192,31 +195,29 @@ export function useReader({
         // If paragraph ends, add a new paragraph element for the next word.
         // When illustrations are shown, the completed paragraph is followed by
         // an ornament in the rendered output — reserve that vertical space.
-        if (token.isPara && tokens.length > 0) {
-          if (showIllustrations) {
-            currentPara.style.marginBottom = `calc(1.5rem + ${ORNAMENT_RESERVE_PX}px)`;
+        // A pack image for this paragraph becomes its own page after this one.
+        if (token.isPara) {
+          const image = slotMap.get(completedParagraphs);
+          completedParagraphs += 1;
+          if (image?.src) {
+            pendingSlots.push(image);
+            if (tokens.length > 0) break;
+          } else if (tokens.length > 0) {
+            if (showIllustrations) {
+              currentPara.style.marginBottom = `calc(1.5rem + ${ORNAMENT_RESERVE_PX}px)`;
+            }
+            currentPara = document.createElement('p');
+            currentPara.style.cssText = 'margin:0 0 1.5rem;';
+            contentDiv.appendChild(currentPara);
           }
-          currentPara = document.createElement('p');
-          currentPara.style.cssText = 'margin:0 0 1.5rem;';
-          contentDiv.appendChild(currentPara);
         }
       }
-
-      const parasOnThisPage = pageTokens.filter((t) => t.isPara).length;
-      completedParagraphs += parasOnThisPage;
 
       pages.push({
         tokens: pageTokens,
         hasTitle: isFirstPage,
       });
-
-      if (maybeInsertIllustrationSlot(pages, slot, {
-        isFirstPage,
-        completedParagraphs,
-        inserted: slotInserted,
-      })) {
-        slotInserted = true;
-      }
+      flushIllustrationSlots(pages, pendingSlots);
 
       isFirstPage = false;
     }
@@ -236,7 +237,7 @@ export function useReader({
       // Subsequent builds (resize, font change): clamp to valid range.
       setCurrentPage(p => Math.min(p, pages.length - 1));
     }
-  }, [selectedStory, selectedVariant, fontSize, lineHeight, textWidth, hPadding, wordSpacing, fontFamily, showIllustrations, slotSrc, slotAnchorType, slotAnchorIndex, slotVersion, slotStoryId]);
+  }, [selectedStory, selectedVariant, fontSize, lineHeight, textWidth, hPadding, wordSpacing, fontFamily, showIllustrations, resolvedByParagraph, slotKey]);
 
   // Build pages synchronously before paint when story or font size changes
   useLayoutEffect(() => {

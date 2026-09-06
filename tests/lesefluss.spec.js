@@ -3,8 +3,8 @@ import { test, expect } from '@playwright/test';
 import { disableAppAnimation } from './test-utils';
 
 /**
- * Option 3 Lesefluss feel: chrome-hide via existing middle-tap, plus one
- * illustration-pack slot on the Rotkäppchen pilot. Target ~540px mobile.
+ * Option 3 Lesefluss feel: chrome-hide via existing middle-tap, plus
+ * getIllustrationSlotMap pages for the Sterntaler pilot. Target ~540px.
  */
 
 async function seedFlags(page, flags) {
@@ -15,7 +15,7 @@ async function seedFlags(page, flags) {
   }, flags);
 }
 
-async function openGrimmStory(page, title) {
+async function openSourceStory(page, sourceId, title) {
   await page.goto('/app');
   await page.waitForLoadState('networkidle');
   const hamburger = page.locator('[data-testid="menu-toggle"]');
@@ -23,9 +23,9 @@ async function openGrimmStory(page, title) {
     await hamburger.click();
     await page.waitForTimeout(200);
   }
-  const grimmSrc = page.locator('[data-testid="source-button"][data-source-id="grimm"]');
-  await expect(grimmSrc).toBeVisible({ timeout: 5000 });
-  await grimmSrc.click();
+  const src = page.locator(`[data-testid="source-button"][data-source-id="${sourceId}"]`);
+  await expect(src).toBeVisible({ timeout: 5000 });
+  await src.click();
   const story = page.locator('[data-testid="story-button"]', { hasText: title });
   await expect(story).toBeVisible({ timeout: 5000 });
   await story.click();
@@ -50,7 +50,7 @@ test.describe('Lesefluss chrome-hide + illustration slot', () => {
 
   test('middle tap collapses chrome so the reader uses the full screen', async ({ page }) => {
     await seedFlags(page, { 'enhanced-gestures': false });
-    await openGrimmStory(page, 'Aschenputtel');
+    await openSourceStory(page, 'grimm', 'Aschenputtel');
 
     const header = page.locator('[data-testid="app-top-bar"]');
     const nav = page.locator('[data-testid="nav-bar"]');
@@ -82,20 +82,27 @@ test.describe('Lesefluss chrome-hide + illustration slot', () => {
 
   test('pilot pack slot renders when illustrations is on', async ({ page }) => {
     await seedFlags(page, { illustrations: true, 'enhanced-gestures': false });
-    await openGrimmStory(page, 'Rotkäppchen');
+    await openSourceStory(page, 'grimm-klassiker', 'Die Sterntaler');
 
     await expect(page.locator('[data-testid="page-content"]')).toBeVisible();
     expect(await page.locator('[data-testid="story-illustration-slot"]').count()).toBe(0);
 
-    await tapReaderZone(page, 'tap-zone-right');
-    await expect(page.locator('[data-testid="story-illustration-slot"]')).toBeVisible();
+    let found = false;
+    for (let i = 0; i < 6; i++) {
+      await tapReaderZone(page, 'tap-zone-right');
+      if (await page.locator('[data-testid="story-illustration-slot"]').count()) {
+        found = true;
+        break;
+      }
+    }
+    expect(found).toBe(true);
     const src = await page.locator('[data-testid="story-illustration-slot"]').getAttribute('src');
-    expect(src).toMatch(/waldweg|\.svg|data:image\/svg/);
+    expect(src).toMatch(/girl-in-field|\.svg|data:image\/svg/);
   });
 
   test('missing pack leaves paging without a slot page', async ({ page }) => {
     await seedFlags(page, { illustrations: true, 'enhanced-gestures': false });
-    await openGrimmStory(page, 'Aschenputtel');
+    await openSourceStory(page, 'grimm', 'Aschenputtel');
 
     expect(await page.locator('[data-testid="story-illustration-slot"]').count()).toBe(0);
     await tapReaderZone(page, 'tap-zone-right');

@@ -129,7 +129,7 @@ describe('PageContent', () => {
       const slotPage = {
         hasTitle: false,
         tokens: [],
-        illustration: { src: '/packs/rotkaeppchen/waldweg.svg', version: 1 },
+        illustration: { src: '/packs/die_sterntaler/girl.svg', alt: 'Feld', id: 'girl-in-field' },
       };
       render({
         showIllustrations: true,
@@ -138,7 +138,7 @@ describe('PageContent', () => {
         totalPages: 2,
       });
       const img = screen.getByTestId('story-illustration-slot');
-      expect(img).toHaveAttribute('src', '/packs/rotkaeppchen/waldweg.svg');
+      expect(img).toHaveAttribute('src', '/packs/die_sterntaler/girl.svg');
       expect(screen.queryByText('Aschenputtel')).not.toBeInTheDocument();
     });
 

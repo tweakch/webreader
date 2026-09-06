@@ -643,7 +643,7 @@ export const FEATURE_REGISTRY = [
     key: 'illustrations',
     kind: 'boolean',
     label: 'Illustrationen',
-    description: 'Zeigt zum Märchen passende Illustrationen an, sofern im Quellordner eine cover-Datei vorhanden ist.',
+    description: 'Zeigt zum Märchen passende Illustrationen an, sofern ein Illustration-Pack oder eine Cover-Datei vorhanden ist.',
     Icon: () => <Image size={20} strokeWidth={1.75} />,
     flag: bool('off'),
     status: 'beta',

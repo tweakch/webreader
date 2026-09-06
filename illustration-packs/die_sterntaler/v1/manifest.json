@@ -1,0 +1,26 @@
+{
+  "packId": "die_sterntaler-v1",
+  "storyId": "grimm-klassiker/die_sterntaler",
+  "storyVersion": "3645b111",
+  "locale": "de",
+  "images": [
+    {
+      "id": "girl-in-field",
+      "src": "images/01-girl-in-field.svg",
+      "alt": "Ein kleines Mädchen geht mit einem Stück Brot hinaus aufs Feld.",
+      "anchor": { "type": "paragraph", "index": 0, "hash": "e1f839ba" }
+    },
+    {
+      "id": "giving-bread",
+      "src": "images/02-giving-bread.svg",
+      "alt": "Das Mädchen reicht einem hungrigen Mann sein ganzes Stück Brot.",
+      "anchor": { "type": "paragraph", "index": 1, "hash": "5a0300e9" }
+    },
+    {
+      "id": "stars-falling",
+      "src": "images/03-stars-falling.svg",
+      "alt": "Sterne fallen als blanke Taler vom Himmel auf das Mädchen.",
+      "anchor": { "type": "paragraph", "index": 2, "hash": "e932ee0b" }
+    }
+  ]
+}

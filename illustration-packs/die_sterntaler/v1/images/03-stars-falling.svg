@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 360" role="img" aria-labelledby="st3-t st3-d">
+  <title id="st3-t">Die Sterntaler fallen</title>
+  <desc id="st3-d">Goldene Sterne fallen als Taler vom Nachthimmel auf das Mädchen im neuen weissen Kleid.</desc>
+  <defs>
+    <linearGradient id="st3-sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2d2548"/>
+      <stop offset="0.55" stop-color="#1a1630"/>
+      <stop offset="1" stop-color="#0b0a1a"/>
+    </linearGradient>
+    <linearGradient id="st3-ground" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#3f5c28"/>
+      <stop offset="1" stop-color="#243418"/>
+    </linearGradient>
+    <radialGradient id="st3-glow" cx="0.5" cy="0.35" r="0.45">
+      <stop offset="0" stop-color="#f4e4b2" stop-opacity="0.45"/>
+      <stop offset="1" stop-color="#f4e4b2" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="600" height="360" fill="#f8efd9"/>
+  <rect x="24" y="24" width="552" height="312" fill="url(#st3-sky)"/>
+  <ellipse cx="300" cy="150" rx="220" ry="90" fill="url(#st3-glow)"/>
+  <ellipse cx="300" cy="312" rx="290" ry="58" fill="url(#st3-ground)"/>
+  <g fill="#ffdd77">
+    <circle cx="90" cy="70" r="3"/>
+    <circle cx="150" cy="48" r="2.2"/>
+    <circle cx="210" cy="80" r="3.4"/>
+    <circle cx="280" cy="42" r="2.6"/>
+    <circle cx="340" cy="68" r="3"/>
+    <circle cx="410" cy="40" r="2.4"/>
+    <circle cx="470" cy="78" r="3.2"/>
+    <circle cx="530" cy="54" r="2.2"/>
+    <circle cx="120" cy="120" r="4"/>
+    <circle cx="190" cy="140" r="3.2"/>
+    <circle cx="250" cy="110" r="4.4"/>
+    <circle cx="320" cy="128" r="3.6"/>
+    <circle cx="390" cy="104" r="4"/>
+    <circle cx="460" cy="136" r="3.4"/>
+    <circle cx="160" cy="180" r="5"/>
+    <circle cx="230" cy="196" r="4.2"/>
+    <circle cx="370" cy="188" r="4.8"/>
+    <circle cx="440" cy="176" r="4"/>
+  </g>
+  <g fill="#f4e4b2" opacity="0.85">
+    <polygon points="210,92 213,100 222,101 215,107 217,116 210,111 203,116 205,107 198,101 207,100"/>
+    <polygon points="390,86 393,94 402,95 395,101 397,110 390,105 383,110 385,101 378,95 387,94"/>
+    <polygon points="300,58 304,68 315,69 307,76 309,87 300,81 291,87 293,76 285,69 296,68"/>
+  </g>
+  <g transform="translate(300 200)">
+    <ellipse cx="0" cy="68" rx="20" ry="5" fill="#1a2010" opacity="0.4"/>
+    <g fill="#ffdd77">
+      <circle cx="-28" cy="62" r="5"/>
+      <circle cx="-16" cy="68" r="4"/>
+      <circle cx="18" cy="66" r="4.5"/>
+      <circle cx="30" cy="60" r="5"/>
+      <circle cx="8" cy="70" r="3.5"/>
+    </g>
+    <rect x="-5" y="40" width="4" height="22" rx="2" fill="#5b3a1a"/>
+    <rect x="1" y="40" width="4" height="22" rx="2" fill="#5b3a1a"/>
+    <path d="M -18 18 Q 0 46 18 18 L 12 42 L -12 42 Z" fill="#f7f2e6"/>
+    <circle cx="0" cy="8" r="12" fill="#f4d4b8"/>
+    <path d="M -12 6 Q -15 -8 0 -10 Q 15 -8 12 6 Q 8 -2 0 -2 Q -8 -2 -12 6 Z" fill="#5b3a1a"/>
+    <rect x="-26" y="22" width="16" height="4" rx="2" fill="#f4d4b8"/>
+    <rect x="10" y="22" width="16" height="4" rx="2" fill="#f4d4b8"/>
+  </g>
+  <rect x="24" y="24" width="552" height="312" fill="none" stroke="#8b6914" stroke-width="2"/>
+  <rect x="30" y="30" width="540" height="300" fill="none" stroke="#d4af37" stroke-width="0.8"/>
+</svg>

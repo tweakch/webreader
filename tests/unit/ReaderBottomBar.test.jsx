@@ -107,4 +107,21 @@ describe('ReaderBottomBar', () => {
       expect(onToggleSpeedReader).toHaveBeenCalledOnce();
     });
   });
+
+  describe('chrome hide', () => {
+    it('collapses out of the flex flow when not visible', () => {
+      render({ visible: false });
+      const nav = screen.getByTestId('nav-bar');
+      expect(nav).toHaveAttribute('aria-hidden', 'true');
+      expect(nav.className).toMatch(/\bh-0\b/);
+      expect(nav.className).toMatch(/pointer-events-none/);
+    });
+
+    it('keeps nav-bar in the document so settings stay reachable when shown', () => {
+      render({ visible: true });
+      const nav = screen.getByTestId('nav-bar');
+      expect(nav).toHaveAttribute('aria-hidden', 'false');
+      expect(nav.className).not.toMatch(/\bh-0\b/);
+    });
+  });
 });

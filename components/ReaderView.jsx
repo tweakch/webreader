@@ -196,8 +196,9 @@ export default function ReaderView({
         />
       )}
 
-      {/* Typography panel - slides open above nav bar */}
-      {showTypographyPanel && typoPanelOpen && (
+      {/* Typography panel - slides open above nav bar. Hidden with chrome so
+          Vorlesen keeps the full reading surface once settings are dismissed. */}
+      {showTypographyPanel && typoPanelOpen && controlsVisible && (
         <TypographyPanel
           lineHeightIdx={lineHeightIdx}
           onLineHeightChange={onLineHeightChange}

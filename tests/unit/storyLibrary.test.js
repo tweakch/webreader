@@ -3,7 +3,11 @@ import {
   buildCoverMap,
   getStoryIllustrationPack,
   getStoryIllustrations,
+  hashStoryContent,
 } from '../../src/lib/storyLibrary';
+
+const PILOT_STORY_ID = 'grimm-klassiker/die_sterntaler';
+const PILOT_VERSION = '3645b111';
 
 describe('parseStoryRaw', () => {
   const twoLevelPath = '/stories/grimm/aschenputtel/content.md';
@@ -98,31 +102,51 @@ describe('buildCoverMap', () => {
 });
 
 describe('getStoryIllustrationPack', () => {
-  it('resolves the Sterntaler pilot pack by storyId', () => {
-    const pack = getStoryIllustrationPack('grimm-klassiker/die_sterntaler');
+  it('resolves the Sterntaler pilot pack on an exact storyVersion match', () => {
+    const pack = getStoryIllustrationPack(PILOT_STORY_ID, { storyVersion: PILOT_VERSION });
     expect(pack).not.toBeNull();
     expect(pack.images.length).toBeGreaterThan(0);
     expect(pack.images[0].src).toBeTruthy();
-    expect(pack.images[0].anchor).toEqual({ type: 'paragraph', index: 0 });
+    expect(pack.images[0].anchor).toMatchObject({ type: 'paragraph', index: 0 });
+    expect(pack.images.every((image) => image.anchor.type === 'paragraph')).toBe(true);
+  });
+
+  it('soft-fails when the version is omitted or does not match', () => {
+    expect(getStoryIllustrationPack(PILOT_STORY_ID)).toBeNull();
+    expect(getStoryIllustrationPack(PILOT_STORY_ID, { storyVersion: 'nope' })).toBeNull();
   });
 
   it('returns null when no pack exists', () => {
-    expect(getStoryIllustrationPack('grimm-klassiker/aschenputtel')).toBeNull();
+    expect(
+      getStoryIllustrationPack('grimm-klassiker/aschenputtel', { storyVersion: PILOT_VERSION })
+    ).toBeNull();
   });
 });
 
 describe('getStoryIllustrations', () => {
-  it('attaches the pack next to collection-level chrome for the pilot story', () => {
-    const illustrations = getStoryIllustrations('grimm-klassiker/die_sterntaler');
+  it('attaches the slot Map next to collection chrome when the content hash matches', () => {
+    expect(hashStoryContent).toBeTypeOf('function');
+    const illustrations = getStoryIllustrations(PILOT_STORY_ID, { storyVersion: PILOT_VERSION });
     expect(illustrations).not.toBeNull();
     expect(illustrations.pack?.packId).toBe('die_sterntaler-v1');
+    expect(illustrations.byParagraph.get(0).id).toBe('girl-in-field');
+    expect(illustrations.skipped).toEqual([]);
     expect(illustrations).toHaveProperty('opening');
     expect(illustrations).toHaveProperty('ending');
     expect(illustrations).toHaveProperty('ornament');
   });
 
+  it('keeps collection chrome and an empty Map when storyVersion is omitted', () => {
+    const illustrations = getStoryIllustrations(PILOT_STORY_ID);
+    expect(illustrations.pack).toBeNull();
+    expect(illustrations.byParagraph.size).toBe(0);
+    expect(illustrations.skipped[0].reason).toBe('version-required');
+  });
+
   it('returns collection chrome without a pack for a story that has no pack', () => {
-    const illustrations = getStoryIllustrations('grimm-klassiker/aschenputtel');
+    const illustrations = getStoryIllustrations('grimm-klassiker/aschenputtel', {
+      storyVersion: PILOT_VERSION,
+    });
     expect(illustrations).not.toBeNull();
     expect(illustrations.pack).toBeNull();
     expect(illustrations.opening || illustrations.ending || illustrations.ornament).toBeTruthy();

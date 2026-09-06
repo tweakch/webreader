@@ -1,15 +1,16 @@
-const ANCHOR_TYPES = new Set(['page', 'paragraph']);
+import { hashParagraphStart, splitStoryParagraphs } from './storyContentHash';
+
+export { hashStoryContent, hashParagraphStart, splitStoryParagraphs } from './storyContentHash';
 
 const manifestModules = import.meta.glob('/illustration-packs/*/v*/manifest.json', {
   eager: true,
   import: 'default',
 });
 
-const imageModules = import.meta.glob('/illustration-packs/*/v*/images/*.{svg,png,jpg,jpeg,webp}', {
-  query: '?url',
-  import: 'default',
-  eager: true,
-});
+const imageModules = import.meta.glob(
+  '/illustration-packs/*/v*/images/*.{svg,png,jpg,jpeg,webp}',
+  { query: '?url', import: 'default', eager: true }
+);
 
 function isNonEmptyString(value) {
   return typeof value === 'string' && value.trim().length > 0;
@@ -17,21 +18,11 @@ function isNonEmptyString(value) {
 
 function parseAnchor(raw) {
   if (!raw || typeof raw !== 'object') return null;
-  if (!ANCHOR_TYPES.has(raw.type)) return null;
+  if (raw.type !== 'paragraph') return null;
   const index = Number(raw.index);
   if (!Number.isInteger(index) || index < 0) return null;
-  return { type: raw.type, index };
-}
-
-function compareStoryVersions(a, b) {
-  const na = Number(a);
-  const nb = Number(b);
-  if (Number.isFinite(na) && Number.isFinite(nb)) return na - nb;
-  return String(a).localeCompare(String(b), 'en', { numeric: true });
-}
-
-function pickLatestPack(packs) {
-  return [...packs].sort((a, b) => compareStoryVersions(a.storyVersion, b.storyVersion)).at(-1);
+  const hash = isNonEmptyString(raw.hash) ? raw.hash.trim() : null;
+  return hash ? { type: 'paragraph', index, hash } : { type: 'paragraph', index };
 }
 
 function resolvePackSrc(packDir, relSrc, imageModulesByPath) {
@@ -42,17 +33,16 @@ function resolvePackSrc(packDir, relSrc, imageModulesByPath) {
 }
 
 /**
- * Normalize a pack manifest. Images with a missing file, bad anchor, or empty
- * src are dropped so callers can treat an incomplete pack as a partial set
- * instead of a pager failure.
+ * Normalize a pack manifest. Page anchors, missing files, and empty srcs are
+ * dropped (soft-fail) so an incomplete pack never breaks the pager.
  */
 export function parseIllustrationPack(raw, { resolveSrc, manifestPath } = {}) {
   if (!raw || typeof raw !== 'object') return null;
   const packId = isNonEmptyString(raw.packId) ? raw.packId.trim() : null;
   const storyId = isNonEmptyString(raw.storyId) ? raw.storyId.trim() : null;
-  if (!packId || !storyId) return null;
+  const storyVersion = isNonEmptyString(raw.storyVersion) ? String(raw.storyVersion).trim() : null;
+  if (!packId || !storyId || !storyVersion) return null;
 
-  const storyVersion = raw.storyVersion == null ? '1' : String(raw.storyVersion);
   const locale = isNonEmptyString(raw.locale) ? raw.locale.trim() : null;
   const imagesIn = Array.isArray(raw.images) ? raw.images : [];
   const images = [];
@@ -95,27 +85,66 @@ export function buildIllustrationPackIndex(manifests = {}, images = {}) {
 const loadedPacks = buildIllustrationPackIndex(manifestModules, imageModules);
 
 /**
- * Resolve the illustration pack for a story. When `storyVersion` is omitted,
- * the highest matching version wins. A missing pack is `null`.
+ * Exact `storyVersion` match only. A missing or different version is `null`
+ * (soft-fail) — never a fallback pack for another text revision.
  */
 export function getIllustrationPack(storyId, { storyVersion } = {}, packs = loadedPacks) {
-  if (!storyId) return null;
-  const matches = packs.filter((pack) => pack.storyId === storyId);
-  if (matches.length === 0) return null;
-  if (storyVersion != null && String(storyVersion) !== '') {
-    const version = String(storyVersion);
-    return matches.find((pack) => pack.storyVersion === version) || null;
-  }
-  return pickLatestPack(matches) || null;
+  if (!storyId || storyVersion == null || String(storyVersion) === '') return null;
+  const version = String(storyVersion);
+  return packs.find((pack) => pack.storyId === storyId && pack.storyVersion === version) || null;
 }
 
-/** Look up one pack image by page or paragraph anchor. Missing → `null`. */
+/** Look up one pack image by paragraph index. Missing → `null`. */
 export function getAnchoredIllustration(pack, anchor) {
-  const parsed = parseAnchor(anchor);
+  const parsed = parseAnchor(typeof anchor === 'number' ? { type: 'paragraph', index: anchor } : anchor);
   if (!pack || !parsed) return null;
-  return (
-    pack.images.find(
-      (image) => image.anchor.type === parsed.type && image.anchor.index === parsed.index
-    ) || null
-  );
+  return pack.images.find((image) => image.anchor.index === parsed.index) || null;
+}
+
+function skipReason(image, paragraphs) {
+  const { index, hash } = image.anchor;
+  if (!image.src) return { reason: 'missing-src', imageId: image.id, index };
+  if (!Array.isArray(paragraphs) || !hash) return null;
+  const live = paragraphs[index];
+  if (live == null) return { reason: 'paragraph-missing', imageId: image.id, index };
+  if (hashParagraphStart(live) !== hash) {
+    return { reason: 'paragraph-hash-mismatch', imageId: image.id, index };
+  }
+  return null;
+}
+
+/**
+ * Soft-fail slot map for Feel / Bild-Slot: paragraph index → image.
+ * Version mismatch, page anchors, missing files, and paragraph-hash drift
+ * skip that image and record a reason — the pager is unchanged.
+ */
+export function getIllustrationSlotMap(storyId, { storyVersion, content, paragraphs } = {}, packs = loadedPacks) {
+  const byParagraph = new Map();
+  const skipped = [];
+  const paras = Array.isArray(paragraphs)
+    ? paragraphs
+    : content != null
+      ? splitStoryParagraphs(content)
+      : null;
+
+  const pack = getIllustrationPack(storyId, { storyVersion }, packs);
+  if (!pack) {
+    skipped.push({
+      reason: storyVersion ? 'version-mismatch' : 'version-required',
+      storyId: storyId || null,
+      storyVersion: storyVersion == null ? null : String(storyVersion),
+    });
+    return { byParagraph, skipped, pack: null };
+  }
+
+  for (const image of pack.images) {
+    const fail = skipReason(image, paras);
+    if (fail) {
+      skipped.push(fail);
+      continue;
+    }
+    byParagraph.set(image.anchor.index, image);
+  }
+
+  return { byParagraph, skipped, pack };
 }

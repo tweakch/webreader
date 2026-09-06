@@ -1,9 +1,11 @@
 import collections from 'virtual:webreader-collections';
-import { getIllustrationPack } from './illustrationPacks';
+import { getIllustrationSlotMap } from './illustrationPacks';
 
 export {
   getIllustrationPack as getStoryIllustrationPack,
   getAnchoredIllustration,
+  getIllustrationSlotMap,
+  hashStoryContent,
 } from './illustrationPacks';
 
 const storyModules2 = import.meta.glob('/stories/*/*/content.md', { query: '?raw', import: 'default' });
@@ -339,17 +341,19 @@ export function getStoryCoverUrl(storyId) {
   return collectionCoverMap.get(storyId) || null;
 }
 
-export function getStoryIllustrations(storyId) {
+export function getStoryIllustrations(storyId, { storyVersion, content, paragraphs } = {}) {
   if (!storyId) return null;
   const sourceId = storyId.split('/')[0];
   const collection = collectionIllustrationsMap.get(sourceId) || null;
-  const pack = getIllustrationPack(storyId);
-  if (!collection && !pack) return null;
+  const slots = getIllustrationSlotMap(storyId, { storyVersion, content, paragraphs });
+  if (!collection && !slots.pack && slots.byParagraph.size === 0) return null;
   return {
     opening: collection?.opening ?? null,
     ending: collection?.ending ?? null,
     ornament: collection?.ornament ?? null,
-    pack,
+    pack: slots.pack,
+    byParagraph: slots.byParagraph,
+    skipped: slots.skipped,
   };
 }
 

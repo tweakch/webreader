@@ -1,4 +1,7 @@
 import { validateIllustrationPackManifest } from './illustrationPackSchema';
+import { hashParagraphStart, hashStoryContent, splitStoryParagraphs } from './storyContentHash';
+
+export { hashParagraphStart, hashStoryContent, splitStoryParagraphs } from './storyContentHash';
 
 const bundledPackManifests = import.meta.glob('/illustration-packs/*/v*/manifest.json', {
   eager: true,
@@ -18,13 +21,10 @@ export const ILLUSTRATION_PACK_SKIP = {
   MISSING_SRC: 'missing-src',
   ANCHOR_OUT_OF_RANGE: 'anchor-out-of-range',
   ANCHOR_HASH_MISMATCH: 'anchor-hash-mismatch',
+  ANCHOR_PAGE: 'page-anchor',
   DUPLICATE_ID: 'duplicate-id',
   DUPLICATE_PARAGRAPH: 'duplicate-paragraph',
 };
-
-const FNV_OFFSET = 0x811c9dc5;
-const FNV_PRIME = 0x01000193;
-const PARAGRAPH_HASH_CHARS = 64;
 
 /**
  * Empty pack result. Lesefluss must treat `slots: []` as "render the
@@ -49,43 +49,9 @@ export function emptyIllustrationPackResult(reason = ILLUSTRATION_PACK_SKIP.NO_P
 }
 
 /**
- * FNV-1a 32-bit, hex, prefixed. Sync and identical in Node + browser so
- * Inhalt can pin `storyVersion` / `anchor.hash` without Web Crypto.
- *
- * @param {string} str
- * @returns {string} e.g. `fnv1a:811c9dc5`
- */
-export function fnv1a32Hex(str) {
-  let hash = FNV_OFFSET;
-  for (let i = 0; i < str.length; i++) {
-    hash ^= str.charCodeAt(i);
-    hash = Math.imul(hash, FNV_PRIME) >>> 0;
-  }
-  return `fnv1a:${hash.toString(16).padStart(8, '0')}`;
-}
-
-export function hashStoryContent(content) {
-  return fnv1a32Hex(normalizeForHash(content));
-}
-
-/**
- * Hash of the first 64 characters of a paragraph (whitespace-collapsed).
- * Optional stability check when a story edit shifts text but not indexes.
- *
- * @param {string} paragraph
- * @param {number} [length]
- */
-export function hashParagraphStart(paragraph, length = PARAGRAPH_HASH_CHARS) {
-  const start = String(paragraph ?? '')
-    .replace(/\s+/g, ' ')
-    .trim()
-    .slice(0, length);
-  return fnv1a32Hex(start);
-}
-
-/**
  * Canonical version a pack must exact-match.
- * Prefers frontmatter `version`; otherwise hashes the pager body.
+ * Prefers frontmatter `version`; otherwise hashes the pager body
+ * with the same FNV-1a UTF-8 hex as Inhalt (#70).
  *
  * @param {{ version?: string | null, content?: string | null } | null | undefined} story
  */
@@ -94,17 +60,6 @@ export function computeStoryVersion(story) {
   if (typeof declared === 'string' && declared.trim()) return declared.trim();
   if (typeof declared === 'number' && Number.isFinite(declared)) return String(declared);
   return hashStoryContent(story?.content ?? '');
-}
-
-/**
- * Same split the pager uses (`useReader` tokens). Do not filter empties —
- * indexes must stay aligned with the body the reader paginates.
- *
- * @param {string | null | undefined} content
- * @returns {string[]}
- */
-export function splitStoryParagraphs(content) {
-  return String(content ?? '').split('\n\n');
 }
 
 /**
@@ -126,7 +81,7 @@ export function resolveIllustrationPack({
   manifest,
   assets = null,
 } = {}) {
-  const validated = validateIllustrationPackManifest(manifest);
+  const validated = validateIllustrationPackManifest(manifest, { lenient: true });
   if (!validated.ok) {
     return emptyIllustrationPackResult(ILLUSTRATION_PACK_SKIP.INVALID_MANIFEST, {
       storyId: storyId ?? null,
@@ -198,6 +153,7 @@ export function resolveIllustrationPack({
       src: resolvedSrc,
       paragraphIndex,
       packId: pack.packId,
+      alt: image.alt || '',
     });
   }
 
@@ -241,7 +197,7 @@ export function createIllustrationPackRegistry({ manifests = {}, assets = {} } =
 
       const forStory = [];
       for (const entry of entries) {
-        const validated = validateIllustrationPackManifest(entry.manifest);
+        const validated = validateIllustrationPackManifest(entry.manifest, { lenient: true });
         if (!validated.ok) continue;
         if (validated.value.storyId !== story.id) continue;
         forStory.push({ ...entry, value: validated.value });
@@ -272,6 +228,47 @@ export function createIllustrationPackRegistry({ manifests = {}, assets = {} } =
         manifest: chosen.value,
         assets: assetsForPackDir(assets, chosen.packDir),
       });
+    },
+
+    /** Pack metadata + resolved srcs, no paragraph-hash check (Inhalt `getIllustrationPack`). */
+    getPack(storyId, storyVersion) {
+      if (!storyId || storyVersion == null || String(storyVersion) === '') return null;
+      const version = String(storyVersion);
+      const matches = [];
+      for (const entry of entries) {
+        const validated = validateIllustrationPackManifest(entry.manifest, { lenient: true });
+        if (!validated.ok) continue;
+        if (validated.value.storyId !== storyId || validated.value.storyVersion !== version)
+          continue;
+        matches.push({ ...entry, value: validated.value });
+      }
+      if (matches.length === 0) return null;
+      matches.sort((a, b) => packPathVersion(a.path) - packPathVersion(b.path));
+      const chosen = matches[matches.length - 1];
+      const packAssets = assetsForPackDir(assets, chosen.packDir);
+      const images = chosen.value.images
+        .map((image) => {
+          const src = resolvePackSrc(image.src, packAssets);
+          if (!src) return null;
+          return {
+            id: image.id,
+            src,
+            relSrc: image.src,
+            alt: image.alt || '',
+            anchor: {
+              type: 'paragraph',
+              index: image.anchor.paragraph,
+              ...(image.anchor.hash ? { hash: image.anchor.hash } : {}),
+            },
+          };
+        })
+        .filter(Boolean);
+      return {
+        packId: chosen.value.packId,
+        storyId: chosen.value.storyId,
+        storyVersion: chosen.value.storyVersion,
+        images,
+      };
     },
   };
 }
@@ -313,10 +310,43 @@ export function resolvePackSrc(src, assets) {
   return trimmed;
 }
 
-function normalizeForHash(content) {
-  return String(content ?? '')
-    .replace(/\r\n/g, '\n')
-    .trim();
+/** Feel API (Inhalt #70): paragraph index → slot. Soft-fail → empty Map. */
+export function toIllustrationSlotMap(result) {
+  const byParagraph = new Map();
+  for (const slot of result.slots) byParagraph.set(slot.paragraphIndex, slot);
+  return {
+    byParagraph,
+    skipped: result.skipped,
+    pack:
+      result.status === 'matched'
+        ? { packId: result.packId, storyId: result.storyId, storyVersion: result.storyVersion }
+        : null,
+  };
+}
+
+export function getIllustrationSlotMap(storyOrId, opts = {}) {
+  const story =
+    typeof storyOrId === 'string'
+      ? { id: storyOrId, version: opts.storyVersion, content: opts.content }
+      : {
+          ...storyOrId,
+          version: opts.storyVersion ?? storyOrId?.version,
+          content: opts.content ?? storyOrId?.content,
+        };
+  const result = opts.manifest
+    ? resolveIllustrationPack({
+        storyId: story.id,
+        storyVersion: opts.storyVersion ?? computeStoryVersion(story),
+        paragraphs: opts.paragraphs ?? splitStoryParagraphs(story.content),
+        manifest: opts.manifest,
+        assets: opts.assets ?? null,
+      })
+    : bundledIllustrationPackRegistry.resolveForStory(story);
+  return { ...toIllustrationSlotMap(result), result };
+}
+
+export function getIllustrationPack(storyId, { storyVersion } = {}) {
+  return bundledIllustrationPackRegistry.getPack(storyId, storyVersion);
 }
 
 /**

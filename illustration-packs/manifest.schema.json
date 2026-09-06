@@ -39,20 +39,35 @@
             "minLength": 1,
             "description": "Filename relative to the pack directory, or an absolute http(s) URL"
           },
+          "alt": {
+            "type": "string",
+            "description": "Optional accessible label (Inhalt packs)"
+          },
           "anchor": {
             "type": "object",
             "additionalProperties": true,
-            "required": ["paragraph"],
+            "description": "Brief form uses `paragraph`. Inhalt #70 uses `{ type: \"paragraph\", index }`. Both are 0-based.",
+            "anyOf": [{ "required": ["paragraph"] }, { "required": ["index"] }],
             "properties": {
               "paragraph": {
                 "type": "integer",
                 "minimum": 0,
-                "description": "0-based paragraph index in the story body (split on blank lines, same as the pager)"
+                "description": "0-based paragraph index (Technik brief)"
+              },
+              "type": {
+                "type": "string",
+                "const": "paragraph",
+                "description": "Inhalt #70; page anchors are rejected"
+              },
+              "index": {
+                "type": "integer",
+                "minimum": 0,
+                "description": "0-based paragraph index (Inhalt #70 alias for paragraph)"
               },
               "hash": {
                 "type": "string",
                 "minLength": 1,
-                "description": "Optional hash of the paragraph start from hashParagraphStart(). Mismatch skips only this image."
+                "description": "Optional hashParagraphStart() (FNV-1a UTF-8, 8 hex, first 48 trimmed chars)"
               }
             }
           }

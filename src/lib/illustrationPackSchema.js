@@ -28,9 +28,10 @@ export const ILLUSTRATION_PACK_IMAGE_REQUIRED_FIELDS = ['id', 'src', 'anchor'];
 
 /**
  * @param {unknown} input raw object or JSON string
+ * @param {{ lenient?: boolean }} [opts] when lenient, invalid images are dropped (soft-fail) instead of failing the pack
  * @returns {{ ok: true, value: ValidatedIllustrationPack } | { ok: false, errors: SchemaError[] }}
  */
-export function validateIllustrationPackManifest(input) {
+export function validateIllustrationPackManifest(input, { lenient = false } = {}) {
   const parsed = coerceManifestInput(input);
   if (!parsed.ok) return parsed;
 
@@ -52,19 +53,22 @@ export function validateIllustrationPackManifest(input) {
   }
 
   const images = [];
+  const imageErrors = [];
   if (Array.isArray(raw.images)) {
     raw.images.forEach((image, index) => {
       const path = `images[${index}]`;
-      const normalized = validateImageEntry(image, path, errors);
+      const normalized = validateImageEntry(image, path, imageErrors);
       if (normalized) images.push(normalized);
     });
   }
 
+  if (!lenient) errors.push(...imageErrors);
   if (errors.length > 0) return { ok: false, errors };
 
   return {
     ok: true,
     value: { storyId, storyVersion, packId, images },
+    warnings: lenient ? imageErrors : [],
   };
 }
 
@@ -93,7 +97,8 @@ function validateImageEntry(image, path, errors) {
   const anchor = validateAnchor(image.anchor, `${path}.anchor`, errors);
 
   if (!id || !src || !anchor) return null;
-  return { id, src, anchor };
+  const alt = typeof image.alt === 'string' ? image.alt.trim() : '';
+  return alt ? { id, src, alt, anchor } : { id, src, anchor };
 }
 
 function validateAnchor(anchor, path, errors) {
@@ -105,19 +110,24 @@ function validateAnchor(anchor, path, errors) {
     errors.push({ path, message: 'anchor must be an object' });
     return null;
   }
-  if (!Object.prototype.hasOwnProperty.call(anchor, 'paragraph')) {
+  if (anchor.type != null && anchor.type !== 'paragraph') {
     errors.push({
-      path: `${path}.paragraph`,
-      message: 'anchor.paragraph is required (0-based index; do not use page)',
+      path: `${path}.type`,
+      message: 'anchor.type must be "paragraph" (page anchors are not allowed)',
     });
     return null;
   }
 
-  const paragraph = anchor.paragraph;
-  if (!Number.isInteger(paragraph) || paragraph < 0) {
+  // Brief: `{ paragraph }`. Inhalt #70: `{ type: "paragraph", index }`.
+  const paragraph = Number.isInteger(anchor.paragraph)
+    ? anchor.paragraph
+    : Number.isInteger(anchor.index)
+      ? anchor.index
+      : null;
+  if (paragraph == null || paragraph < 0) {
     errors.push({
       path: `${path}.paragraph`,
-      message: 'anchor.paragraph must be a non-negative integer',
+      message: 'anchor.paragraph (or Inhalt alias anchor.index) must be a non-negative integer',
     });
     return null;
   }

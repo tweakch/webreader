@@ -1,8 +1,12 @@
+import { readFileSync } from 'node:fs';
+import { dirname, join } from 'node:path';
+import { fileURLToPath } from 'node:url';
 import {
   ILLUSTRATION_PACK_SKIP,
   computeStoryVersion,
   createIllustrationPackRegistry,
   emptyIllustrationPackResult,
+  getIllustrationSlotMap,
   hashParagraphStart,
   hashStoryContent,
   resolveIllustrationPack,
@@ -45,15 +49,15 @@ describe('computeStoryVersion / hashes', () => {
     const b = hashStoryContent('Es war einmal.');
     const c = hashStoryContent('Es war einmal!\n');
     expect(a).toBe(b);
-    expect(a).toMatch(/^fnv1a:[0-9a-f]{8}$/);
+    expect(a).toMatch(/^[0-9a-f]{8}$/);
     expect(c).not.toBe(a);
     expect(computeStoryVersion({ content: 'Es war einmal.' })).toBe(a);
   });
 
-  it('hashes a collapsed paragraph start', () => {
-    const hash = hashParagraphStart('  Und   wie es so stand  ');
+  it('hashes a trimmed paragraph start (Inhalt #70: first 48 chars, UTF-8 FNV-1a)', () => {
+    const hash = hashParagraphStart('  Und wie es so stand  ');
     expect(hash).toBe(hashParagraphStart('Und wie es so stand'));
-    expect(hash).toMatch(/^fnv1a:[0-9a-f]{8}$/);
+    expect(hash).toMatch(/^[0-9a-f]{8}$/);
   });
 
   it('splits paragraphs the same way as the pager', () => {
@@ -77,6 +81,7 @@ describe('resolveIllustrationPack — soft fail', () => {
         src: '/packs/stars-fall.webp',
         paragraphIndex: 2,
         packId: 'die-sterntaler-v1',
+        alt: '',
       },
     ]);
     expect(result.skipped).toEqual([]);
@@ -191,7 +196,7 @@ describe('resolveIllustrationPack — soft fail', () => {
       assets: { 'a.webp': '/a.webp', 'b.webp': '/b.webp', 'c.webp': '/c.webp' },
     });
     expect(result.slots).toEqual([
-      { id: 'a', src: '/a.webp', paragraphIndex: 0, packId: 'die-sterntaler-v1' },
+      { id: 'a', src: '/a.webp', paragraphIndex: 0, packId: 'die-sterntaler-v1', alt: '' },
     ]);
     expect(result.skipped.map((s) => s.reason)).toEqual([
       ILLUSTRATION_PACK_SKIP.DUPLICATE_ID,
@@ -293,5 +298,64 @@ describe('resolvePackSrc', () => {
     expect(resolvePackSrc('https://x/a.webp', {})).toBe('https://x/a.webp');
     expect(resolvePackSrc('/static/a.webp', {})).toBe('/static/a.webp');
     expect(resolvePackSrc('data:image/gif;base64,xx', {})).toBe('data:image/gif;base64,xx');
+  });
+});
+
+describe('Inhalt #70 compatibility', () => {
+  function loadPilotBody() {
+    const root = join(dirname(fileURLToPath(import.meta.url)), '..', '..');
+    const raw = readFileSync(
+      join(root, 'packages/collection-grimm-klassiker/stories/die_sterntaler/content.md'),
+      'utf8'
+    );
+    const fmMatch = raw.match(/^---\n([\s\S]*?)\n---\n/);
+    const afterFm = fmMatch ? raw.slice(fmMatch[0].length) : raw;
+    return afterFm.replace(/^#[^\n]*\n\n/, '').trimEnd();
+  }
+
+  it('pins Die Sterntaler to the same content hash as the Inhalt pack', () => {
+    const body = loadPilotBody();
+    const paragraphs = splitStoryParagraphs(body);
+    expect(hashStoryContent(body)).toBe('3645b111');
+    expect(paragraphs).toHaveLength(3);
+    expect(hashParagraphStart(paragraphs[0])).toBe('e1f839ba');
+    expect(hashParagraphStart(paragraphs[1])).toBe('5a0300e9');
+    expect(hashParagraphStart(paragraphs[2])).toBe('e932ee0b');
+  });
+
+  it('resolves an Inhalt-shaped manifest via getIllustrationSlotMap', () => {
+    const body = loadPilotBody();
+    const { byParagraph, skipped, pack } = getIllustrationSlotMap(STORY_ID, {
+      storyVersion: '3645b111',
+      content: body,
+      manifest: {
+        packId: 'die_sterntaler-v1',
+        storyId: STORY_ID,
+        storyVersion: '3645b111',
+        locale: 'de',
+        images: [
+          {
+            id: 'girl-in-field',
+            src: 'images/01-girl-in-field.svg',
+            alt: 'Feld',
+            anchor: { type: 'paragraph', index: 0, hash: 'e1f839ba' },
+          },
+          {
+            id: 'stars-falling',
+            src: 'https://cdn.example/stars.svg',
+            anchor: { type: 'paragraph', index: 2, hash: 'e932ee0b' },
+          },
+        ],
+      },
+      assets: { 'images/01-girl-in-field.svg': '/built/girl.svg' },
+    });
+    expect(pack.packId).toBe('die_sterntaler-v1');
+    expect(skipped).toEqual([]);
+    expect(byParagraph.get(0)).toMatchObject({
+      id: 'girl-in-field',
+      src: '/built/girl.svg',
+      paragraphIndex: 0,
+    });
+    expect(byParagraph.get(2).src).toBe('https://cdn.example/stars.svg');
   });
 });

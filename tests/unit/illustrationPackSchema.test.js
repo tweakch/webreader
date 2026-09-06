@@ -98,6 +98,52 @@ describe('validateIllustrationPackManifest', () => {
     expect(result.errors[0].path).toBe('images[0].anchor.paragraph');
   });
 
+  it('accepts Inhalt #70 { type, index } anchors and normalizes to paragraph', () => {
+    const result = validateIllustrationPackManifest({
+      ...validManifest,
+      images: [
+        {
+          id: 'x',
+          src: 'x.webp',
+          alt: 'Sterne',
+          anchor: { type: 'paragraph', index: 2, hash: 'e932ee0b' },
+        },
+      ],
+    });
+    expect(result.ok).toBe(true);
+    expect(result.value.images[0]).toEqual({
+      id: 'x',
+      src: 'x.webp',
+      alt: 'Sterne',
+      anchor: { paragraph: 2, hash: 'e932ee0b' },
+    });
+  });
+
+  it('rejects anchor.type other than paragraph', () => {
+    const result = validateIllustrationPackManifest({
+      ...validManifest,
+      images: [{ id: 'x', src: 'x.webp', anchor: { type: 'page', index: 0 } }],
+    });
+    expect(result.ok).toBe(false);
+    expect(result.errors[0].path).toBe('images[0].anchor.type');
+  });
+
+  it('in lenient mode drops bad images and keeps the pack', () => {
+    const result = validateIllustrationPackManifest(
+      {
+        ...validManifest,
+        images: [
+          { id: 'ok', src: 'ok.webp', anchor: { paragraph: 0 } },
+          { id: 'page', src: 'x.webp', anchor: { type: 'page', index: 0 } },
+        ],
+      },
+      { lenient: true }
+    );
+    expect(result.ok).toBe(true);
+    expect(result.value.images).toEqual([{ id: 'ok', src: 'ok.webp', anchor: { paragraph: 0 } }]);
+    expect(result.warnings.length).toBeGreaterThan(0);
+  });
+
   it('rejects a negative or non-integer paragraph index', () => {
     expect(
       validateIllustrationPackManifest({
@@ -129,7 +175,10 @@ describe('illustration-packs/manifest.schema.json', () => {
     );
     expect(schema.required).toEqual(ILLUSTRATION_PACK_REQUIRED_FIELDS);
     expect(schema.properties.images.items.required).toEqual(['id', 'src', 'anchor']);
-    expect(schema.properties.images.items.properties.anchor.required).toEqual(['paragraph']);
+    expect(schema.properties.images.items.properties.anchor.anyOf).toEqual([
+      { required: ['paragraph'] },
+      { required: ['index'] },
+    ]);
     expect(schema.properties.images.items.properties.anchor.properties.paragraph.minimum).toBe(0);
   });
 });

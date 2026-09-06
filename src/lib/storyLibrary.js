@@ -3,6 +3,8 @@ import { bundledIllustrationPackRegistry } from './illustrationPackLoader';
 
 export {
   computeStoryVersion,
+  getIllustrationPack as getStoryIllustrationPack,
+  getIllustrationSlotMap,
   hashParagraphStart,
   hashStoryContent,
 } from './illustrationPackLoader';

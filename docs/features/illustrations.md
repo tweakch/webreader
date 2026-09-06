@@ -51,16 +51,18 @@ JSON Schema: [`illustration-packs/manifest.schema.json`](../../illustration-pack
 
 ### `manifest.json`
 
-| Field                       | Required | Notes                                                                                                                        |
-| --------------------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------- |
-| `storyId`                   | yes      | Canonical id, e.g. `grimm-klassiker/die_sterntaler`                                                                          |
-| `storyVersion`              | yes      | **Exact** match against frontmatter `version`, else the content hash from `computeStoryVersion()`                            |
-| `packId`                    | yes      | Stable pack id, e.g. `die-sterntaler-v1`                                                                                     |
-| `images[]`                  | yes      | May be empty                                                                                                                 |
-| `images[].id`               | yes      | Unique within the pack                                                                                                       |
-| `images[].src`              | yes      | Filename relative to the pack dir, or an absolute `http(s)` URL                                                              |
-| `images[].anchor.paragraph` | yes      | **0-based** paragraph index. Same blank-line split as the pager. Do **not** anchor by page — pages drift with font/viewport. |
-| `images[].anchor.hash`      | no       | `hashParagraphStart(paragraph)` of the first 64 collapsed characters. Mismatch skips **only that image**.                    |
+| Field                       | Required | Notes                                                                                                                   |
+| --------------------------- | -------- | ----------------------------------------------------------------------------------------------------------------------- |
+| `storyId`                   | yes      | Canonical id, e.g. `grimm-klassiker/die_sterntaler`                                                                     |
+| `storyVersion`              | yes      | **Exact** match against frontmatter `version`, else `hashStoryContent(body)` (FNV-1a UTF-8, 8 hex — same as Inhalt #70) |
+| `packId`                    | yes      | Stable pack id, e.g. `die-sterntaler-v1`                                                                                |
+| `images[]`                  | yes      | May be empty                                                                                                            |
+| `images[].id`               | yes      | Unique within the pack                                                                                                  |
+| `images[].src`              | yes      | Filename relative to the pack dir, or an absolute `http(s)` URL                                                         |
+| `images[].alt`              | no       | Optional accessible label                                                                                               |
+| `images[].anchor.paragraph` | yes\*    | **0-based** paragraph index (Technik brief). Same blank-line split as the pager. Do **not** use page.                   |
+| `images[].anchor.index`     | yes\*    | Inhalt #70 alias for `paragraph`, with `type: "paragraph"`                                                              |
+| `images[].anchor.hash`      | no       | `hashParagraphStart(paragraph)` — first 48 trimmed chars, FNV-1a UTF-8 hex. Mismatch skips **only that image**.         |
 
 Unknown extra fields are ignored.
 
@@ -72,7 +74,9 @@ Prefer an explicit frontmatter field so packs do not churn on whitespace:
 version: '1'
 ```
 
-`storyVersion` in the manifest must equal `"1"`. If `version` is absent, the loader hashes the pager body (`fnv1a:<8 hex chars>` via `computeStoryVersion`). Mismatch → skip the whole pack.
+`storyVersion` in the manifest must equal `"1"`. If `version` is absent, the loader hashes the pager body (`hashStoryContent` → 8 hex chars, e.g. Sterntaler `3645b111`). Mismatch → skip the whole pack.
+
+The loader accepts **both** anchor spellings so #70 can merge without a rewrite.
 
 ### Soft-fail (Technik contract)
 
@@ -95,16 +99,21 @@ Do not change `buildPages` measurement unless a slot is actually present. Call:
 ```js
 import {
   getStoryIllustrationSlots,
+  getIllustrationSlotMap,
   computeStoryVersion,
   hashParagraphStart,
 } from '../src/lib/storyLibrary';
-// PageContent already calls getStoryIllustrations(selectedStory) when the flag
-// is on; use `.slots` / `.pack`. Do not render until this slice lands.
 
 const pack = getStoryIllustrationSlots(selectedStory);
 // pack.status: 'empty' | 'skipped' | 'matched'
-// pack.slots: [{ id, src, paragraphIndex, packId }]
+// pack.slots: [{ id, src, paragraphIndex, packId, alt }]
 // pack.skipped: [{ id, reason }]
+
+// Inhalt #70 Feel alias — same data as a Map:
+const { byParagraph, skipped } = getIllustrationSlotMap(selectedStory.id, {
+  storyVersion: computeStoryVersion(selectedStory),
+  content: selectedStory.content,
+});
 ```
 
 - If `pack.slots` is empty → render exactly as today (cover / collection ornament only).

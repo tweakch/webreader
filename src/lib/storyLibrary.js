@@ -1,4 +1,10 @@
 import collections from 'virtual:webreader-collections';
+import { getIllustrationPack } from './illustrationPacks';
+
+export {
+  getIllustrationPack as getStoryIllustrationPack,
+  getAnchoredIllustration,
+} from './illustrationPacks';
 
 const storyModules2 = import.meta.glob('/stories/*/*/content.md', { query: '?raw', import: 'default' });
 const storyModules3 = import.meta.glob('/stories/*/*/*/content.md', { query: '?raw', import: 'default' });
@@ -336,7 +342,15 @@ export function getStoryCoverUrl(storyId) {
 export function getStoryIllustrations(storyId) {
   if (!storyId) return null;
   const sourceId = storyId.split('/')[0];
-  return collectionIllustrationsMap.get(sourceId) || null;
+  const collection = collectionIllustrationsMap.get(sourceId) || null;
+  const pack = getIllustrationPack(storyId);
+  if (!collection && !pack) return null;
+  return {
+    opening: collection?.opening ?? null,
+    ending: collection?.ending ?? null,
+    ornament: collection?.ornament ?? null,
+    pack,
+  };
 }
 
 export async function loadStoryAudioMap() {

@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 360" role="img" aria-labelledby="st1-t st1-d">
+  <title id="st1-t">Das Mädchen geht aufs Feld</title>
+  <desc id="st1-d">Ein kleines Mädchen in einem roten Kleid geht mit einem Stück Brot auf einem Feldweg unter einem Abendhimmel.</desc>
+  <defs>
+    <linearGradient id="st1-sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f7d9a0"/>
+      <stop offset="0.5" stop-color="#c28a6c"/>
+      <stop offset="1" stop-color="#2d2548"/>
+    </linearGradient>
+    <linearGradient id="st1-field" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#7ea34a"/>
+      <stop offset="1" stop-color="#3f5c28"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="360" fill="#f8efd9"/>
+  <rect x="24" y="24" width="552" height="312" fill="url(#st1-sky)"/>
+  <circle cx="470" cy="92" r="28" fill="#fde9b7" opacity="0.9"/>
+  <g fill="#f4e4b2">
+    <circle cx="80" cy="56" r="1.4"/>
+    <circle cx="140" cy="44" r="1.1"/>
+    <circle cx="220" cy="62" r="1.3"/>
+    <circle cx="360" cy="50" r="1"/>
+    <circle cx="520" cy="70" r="1.2"/>
+  </g>
+  <ellipse cx="300" cy="300" rx="290" ry="70" fill="url(#st1-field)"/>
+  <path d="M 40 300 Q 180 250 300 270 Q 420 290 560 250" fill="none" stroke="#d4b47c" stroke-width="18" stroke-linecap="round"/>
+  <g fill="#1a2030">
+    <path d="M 70 210 l 18 -70 l 18 70 z"/>
+    <rect x="82" y="210" width="12" height="36"/>
+    <path d="M 500 200 l 22 -80 l 22 80 z"/>
+    <rect x="516" y="200" width="12" height="46"/>
+  </g>
+  <g transform="translate(250 214)">
+    <ellipse cx="0" cy="52" rx="16" ry="4" fill="#2b3a1a" opacity="0.35"/>
+    <rect x="-5" y="28" width="4" height="20" rx="2" fill="#5b3a1a"/>
+    <rect x="1" y="28" width="4" height="20" rx="2" fill="#5b3a1a"/>
+    <path d="M -16 8 Q 0 32 16 8 L 10 30 L -10 30 Z" fill="#c45c5c"/>
+    <circle cx="0" cy="0" r="11" fill="#f4d4b8"/>
+    <path d="M -11 -2 Q -14 -14 0 -16 Q 14 -14 11 -2 Q 8 -10 -0 -10 Q -8 -10 -11 -2 Z" fill="#5b3a1a"/>
+    <circle cx="-12" cy="16" r="3.2" fill="#f4d4b8"/>
+    <circle cx="13" cy="16" r="3.2" fill="#f4d4b8"/>
+    <ellipse cx="18" cy="20" rx="7" ry="4" fill="#d4a574"/>
+  </g>
+  <rect x="24" y="24" width="552" height="312" fill="none" stroke="#8b6914" stroke-width="2"/>
+  <rect x="30" y="30" width="540" height="300" fill="none" stroke="#d4af37" stroke-width="0.8"/>
+</svg>

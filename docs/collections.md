@@ -38,9 +38,7 @@ packages/collection-<id>/
       "khmNumber": 21,
       "atuType": "510A",
       "coverImage": "cover.svg",
-      "adaptions": [
-        { "name": "schweizerdeutsch", "label": "Schweizer Fassung" }
-      ]
+      "adaptions": [{ "name": "schweizerdeutsch", "label": "Schweizer Fassung" }]
     }
   ]
 }
@@ -81,6 +79,8 @@ export default { manifest, stories, covers, illustrations, adaptions };
 The `?raw` and `?url` queries are Vite features, so collections are consumed by a Vite build only. `covers`, `illustrations` and `adaptions` are optional — omit any key the collection doesn't provide.
 
 The `illustrations.ornament` SVG should use `stroke="currentColor"` / `fill="currentColor"` so it inherits the reader theme's accent color when rendered between paragraphs.
+
+Collection-level `opening` / `ending` / `ornament` art is **not** the per-story illustration pack. Anchored, versioned images live in `illustration-packs/<slug>/v<version>/` and are documented in [Illustrations](features/illustrations.md). Markdown stays text-only.
 
 ## Discovery
 

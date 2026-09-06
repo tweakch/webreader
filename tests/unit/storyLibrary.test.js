@@ -1,4 +1,9 @@
-import { parseStoryRaw, buildCoverMap } from '../../src/lib/storyLibrary';
+import {
+  parseStoryRaw,
+  buildCoverMap,
+  getStoryIllustrationPack,
+  getStoryIllustrations,
+} from '../../src/lib/storyLibrary';
 
 describe('parseStoryRaw', () => {
   const twoLevelPath = '/stories/grimm/aschenputtel/content.md';
@@ -84,13 +89,46 @@ describe('buildCoverMap', () => {
       '/stories/grimm/aschenputtel/cover.svg': '/assets/a.svg',
       '/stories/sagen/bern/riesenstein/cover.webp': '/assets/r.webp',
     });
-    expect(Object.keys(map).sort()).toEqual([
-      'grimm/aschenputtel',
-      'sagen/bern/riesenstein',
-    ]);
+    expect(Object.keys(map).sort()).toEqual(['grimm/aschenputtel', 'sagen/bern/riesenstein']);
   });
 
   it('returns an empty map for an empty modules object', () => {
     expect(buildCoverMap({})).toEqual({});
+  });
+});
+
+describe('getStoryIllustrationPack', () => {
+  it('resolves the Sterntaler pilot pack by storyId', () => {
+    const pack = getStoryIllustrationPack('grimm-klassiker/die_sterntaler');
+    expect(pack).not.toBeNull();
+    expect(pack.images.length).toBeGreaterThan(0);
+    expect(pack.images[0].src).toBeTruthy();
+    expect(pack.images[0].anchor).toEqual({ type: 'paragraph', index: 0 });
+  });
+
+  it('returns null when no pack exists', () => {
+    expect(getStoryIllustrationPack('grimm-klassiker/aschenputtel')).toBeNull();
+  });
+});
+
+describe('getStoryIllustrations', () => {
+  it('attaches the pack next to collection-level chrome for the pilot story', () => {
+    const illustrations = getStoryIllustrations('grimm-klassiker/die_sterntaler');
+    expect(illustrations).not.toBeNull();
+    expect(illustrations.pack?.packId).toBe('die_sterntaler-v1');
+    expect(illustrations).toHaveProperty('opening');
+    expect(illustrations).toHaveProperty('ending');
+    expect(illustrations).toHaveProperty('ornament');
+  });
+
+  it('returns collection chrome without a pack for a story that has no pack', () => {
+    const illustrations = getStoryIllustrations('grimm-klassiker/aschenputtel');
+    expect(illustrations).not.toBeNull();
+    expect(illustrations.pack).toBeNull();
+    expect(illustrations.opening || illustrations.ending || illustrations.ornament).toBeTruthy();
+  });
+
+  it('returns null when the story has neither collection chrome nor a pack', () => {
+    expect(getStoryIllustrations('grimm/unknown-story')).toBeNull();
   });
 });

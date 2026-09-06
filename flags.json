@@ -98,7 +98,7 @@
     }
   },
   "high-contrast-theme": {
-    "defaultVariant": "off",
+    "defaultVariant": "on",
     "variants": {
       "on": true,
       "off": false
@@ -185,7 +185,7 @@
     }
   },
   "enhanced-gestures": {
-    "defaultVariant": "on",
+    "defaultVariant": "off",
     "variants": {
       "on": true,
       "off": false
@@ -199,7 +199,7 @@
     }
   },
   "big-fonts": {
-    "defaultVariant": "off",
+    "defaultVariant": "big",
     "variants": {
       "off": "off",
       "big": "big",

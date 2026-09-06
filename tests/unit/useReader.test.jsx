@@ -116,6 +116,78 @@ describe('useReader', () => {
     expect(result.current.currentPage).toBe(1);
   });
 
+  const PILOT_SLOT = {
+    storyId: STORY.id,
+    version: 1,
+    anchor: { type: 'after-title' },
+    src: '/packs/pilot.svg',
+  };
+
+  it('inserts a dedicated illustration page after the title page', () => {
+    const refs = createRefs();
+    const pendingResumePageRef = { current: null };
+    const { result } = renderHook(() => useReader({
+      ...refs,
+      selectedStory: STORY,
+      selectedVariant: null,
+      typographyValues: {
+        fontSize: 18,
+        lineHeight: 1.8,
+        textWidth: 640,
+        hPadding: 32,
+        wordSpacing: 'normal',
+        fontFamily: 'Georgia, serif',
+      },
+      showSpeedReader: false,
+      showIllustrations: true,
+      illustrationSlot: PILOT_SLOT,
+      pendingResumePageRef,
+    }));
+
+    const slotIndex = result.current.pages.findIndex((p) => p.illustration?.src);
+    expect(slotIndex).toBe(1);
+    expect(result.current.pages[slotIndex].tokens).toEqual([]);
+    expect(result.current.pages[0].hasTitle).toBe(true);
+    expect(result.current.pages.some((p) => p.tokens.length > 0 && !p.illustration)).toBe(true);
+  });
+
+  it('does not change paging when the illustration src is missing', () => {
+    const refs = createRefs();
+    const pendingResumePageRef = { current: null };
+    const typographyValues = {
+      fontSize: 18,
+      lineHeight: 1.8,
+      textWidth: 640,
+      hPadding: 32,
+      wordSpacing: 'normal',
+      fontFamily: 'Georgia, serif',
+    };
+    const { result: without } = renderHook(() => useReader({
+      ...refs,
+      selectedStory: STORY,
+      selectedVariant: null,
+      typographyValues,
+      showSpeedReader: false,
+      showIllustrations: true,
+      illustrationSlot: null,
+      pendingResumePageRef: { current: null },
+    }));
+    const missingSlot = { storyId: STORY.id, version: 1, anchor: { type: 'after-title' }, src: null };
+    const { result: missing } = renderHook(() => useReader({
+      ...createRefs(),
+      selectedStory: STORY,
+      selectedVariant: null,
+      typographyValues,
+      showSpeedReader: false,
+      showIllustrations: true,
+      illustrationSlot: missingSlot,
+      pendingResumePageRef: { current: null },
+    }));
+
+    expect(missing.current.totalPages).toBe(without.current.totalPages);
+    expect(missing.current.pages.some((p) => p.illustration)).toBe(false);
+  });
+
   it('forces speedReaderMode off when speed reader flag is disabled', () => {
     const refs = createRefs();
     const pendingResumePageRef = { current: null };

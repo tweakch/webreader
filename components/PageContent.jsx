@@ -31,6 +31,27 @@ export default function PageContent({
 
   const page = pages[currentPage];
   const isLastPage = currentPage === totalPages - 1;
+
+  if (page.illustration?.src) {
+    return (
+      <div
+        data-testid="page-content"
+        className={`h-full transition-colors duration-300 ${
+          highContrast ? (darkMode ? 'bg-black' : 'bg-white') : darkMode ? 'bg-slate-800/50' : 'bg-white/70'
+        }`}
+        style={{ padding: `2rem ${hPadding}px` }}
+      >
+        <div className="mx-auto h-full w-full flex items-center justify-center" style={{ maxWidth: textWidth + 'px' }}>
+          <img
+            data-testid="story-illustration-slot"
+            src={page.illustration.src}
+            alt=""
+            className="w-full max-h-full rounded-xl object-contain"
+          />
+        </div>
+      </div>
+    );
+  }
   const isFavorite = favorites.has(selectedStory.id);
   const illustrations = showIllustrations ? getStoryIllustrations(selectedStory.id) : null;
   const ornamentColor = highContrast

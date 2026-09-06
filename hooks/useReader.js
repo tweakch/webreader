@@ -4,6 +4,32 @@ import { useState, useRef, useEffect, useLayoutEffect, useCallback, useMemo } fr
 // my-4 (32px) + h-6 (24px) = 56px reserved after each completed paragraph.
 const ORNAMENT_RESERVE_PX = 56;
 
+function makeIllustrationPage(slot) {
+  return {
+    tokens: [],
+    hasTitle: false,
+    illustration: { src: slot.src, version: slot.version, storyId: slot.storyId },
+  };
+}
+
+/** Insert the pack slot after the page that just closed, if the anchor matches. */
+function maybeInsertIllustrationSlot(pages, slot, { isFirstPage, completedParagraphs, inserted }) {
+  if (inserted || !slot?.src || !slot.anchor) return false;
+  if (slot.anchor.type === 'after-title' && isFirstPage) {
+    pages.push(makeIllustrationPage(slot));
+    return true;
+  }
+  if (
+    slot.anchor.type === 'after-paragraph'
+    && Number.isInteger(slot.anchor.index)
+    && completedParagraphs > slot.anchor.index
+  ) {
+    pages.push(makeIllustrationPage(slot));
+    return true;
+  }
+  return false;
+}
+
 /**
  * useReader - encapsulates page pagination, navigation, and speed reader logic.
  *
@@ -16,10 +42,13 @@ const ORNAMENT_RESERVE_PX = 56;
  * - showSpeedReader: feature flag for speed reader
  * - showIllustrations: when true, reserves vertical space between paragraphs
  *   so rendered monochrome ornaments fit within the measured page.
+ * - illustrationSlot: optional pack slot `{ src, anchor, version }`. When
+ *   `showIllustrations` is on and `src` is set, a dedicated illustration
+ *   page is inserted at `anchor`. Missing src → pager unchanged.
  * - pendingResumePageRef: ref for resume page restoration
  *
  * Returns:
- * - pages: array of { tokens: [...], hasTitle: bool }
+ * - pages: array of { tokens: [...], hasTitle: bool, illustration?: object }
  * - currentPage: current page index
  * - setCurrentPage: function to set current page
  * - totalPages: total number of pages
@@ -38,6 +67,7 @@ export function useReader({
   typographyValues: { fontSize, lineHeight, textWidth, hPadding, wordSpacing, fontFamily },
   showSpeedReader,
   showIllustrations = false,
+  illustrationSlot = null,
   pendingResumePageRef,
   enablePageTurnFlash = false,
 }) {
@@ -47,6 +77,11 @@ export function useReader({
   const [isFlashing, setIsFlashing] = useState(false);
   const [speedReaderMode, setSpeedReaderMode] = useState(false);
   const lastResetStoryRef = useRef(null);
+  const slotSrc = illustrationSlot?.src || null;
+  const slotAnchorType = illustrationSlot?.anchor?.type || null;
+  const slotAnchorIndex = illustrationSlot?.anchor?.index;
+  const slotVersion = illustrationSlot?.version;
+  const slotStoryId = illustrationSlot?.storyId;
 
   // Build pages via DOM measurement word-packing algorithm
   const buildPages = useCallback(() => {
@@ -84,6 +119,16 @@ export function useReader({
     // Render and measure: build pages by adding words until they overflow
     const pages = [];
     let isFirstPage = true;
+    let completedParagraphs = 0;
+    let slotInserted = false;
+    const slot = (showIllustrations && slotSrc && slotAnchorType)
+      ? {
+          src: slotSrc,
+          version: slotVersion,
+          storyId: slotStoryId,
+          anchor: { type: slotAnchorType, index: slotAnchorIndex },
+        }
+      : null;
 
     while (tokens.length > 0) {
       m.innerHTML = '';
@@ -157,10 +202,21 @@ export function useReader({
         }
       }
 
+      const parasOnThisPage = pageTokens.filter((t) => t.isPara).length;
+      completedParagraphs += parasOnThisPage;
+
       pages.push({
         tokens: pageTokens,
         hasTitle: isFirstPage,
       });
+
+      if (maybeInsertIllustrationSlot(pages, slot, {
+        isFirstPage,
+        completedParagraphs,
+        inserted: slotInserted,
+      })) {
+        slotInserted = true;
+      }
 
       isFirstPage = false;
     }
@@ -180,7 +236,7 @@ export function useReader({
       // Subsequent builds (resize, font change): clamp to valid range.
       setCurrentPage(p => Math.min(p, pages.length - 1));
     }
-  }, [selectedStory, selectedVariant, fontSize, lineHeight, textWidth, hPadding, wordSpacing, fontFamily, showIllustrations]);
+  }, [selectedStory, selectedVariant, fontSize, lineHeight, textWidth, hPadding, wordSpacing, fontFamily, showIllustrations, slotSrc, slotAnchorType, slotAnchorIndex, slotVersion, slotStoryId]);
 
   // Build pages synchronously before paint when story or font size changes
   useLayoutEffect(() => {

@@ -29,7 +29,7 @@ import { GestureDrawerProvider } from './components/GestureDrawerContext';
 import { SidebarLeftSlot } from './components/SidebarDrawerBridge';
 import { useIsMobile } from './hooks/useIsMobile';
 import { gestureLog } from './src/lib/gestureLog';
-import { getStoryIndex, getCollectionIndex, loadStoryById, loadStoryMetadataById, loadAdaptionsByStoryId, loadStoryAudioMap } from './src/lib/storyLibrary';
+import { getStoryIndex, getCollectionIndex, loadStoryById, loadStoryMetadataById, loadAdaptionsByStoryId, loadStoryAudioMap, getStoryIllustrationSlot } from './src/lib/storyLibrary';
 
 const SPEED_READER_FONT_SIZE = {
   min: 40,
@@ -425,6 +425,9 @@ const GrimmMarchenApp = () => {
     typographyValues: { fontSize, lineHeight, textWidth, hPadding, wordSpacing, fontFamily },
     showSpeedReader,
     showIllustrations,
+    illustrationSlot: showIllustrations && selectedStory
+      ? getStoryIllustrationSlot(selectedStory.id)
+      : null,
     pendingResumePageRef,
     enablePageTurnFlash: showEinkFlash,
   });

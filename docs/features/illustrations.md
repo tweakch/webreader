@@ -4,7 +4,7 @@ name: "Illustrations"
 type: "app"
 flag_key: "illustrations"
 lifecycle: "EXPERIMENT"
-flag_default: "off"
+flag_default: "on"
 category: "gen-alpha"
 personas:
   - "01-pre-readers"
@@ -19,14 +19,14 @@ children: []
 
 # Illustrations
 
-**Flag:** `illustrations` · **Lifecycle:** EXPERIMENT · **Default:** off
+**Flag:** `illustrations` · **Lifecycle:** EXPERIMENT · **Default:** on
 **Personas:** [Pre-Readers](../personas/01-pre-readers.md) · [Parents](../personas/02-parents.md)
 
 Displays story-appropriate illustrations when available. Images are **additional downloadable content** — they are not embedded in story Markdown.
 
 ## Behavior
 
-- Flag default is **off**. Callers check the flag before rendering.
+- Flag default is **on**. Callers still soft-fail missing packs.
 - Missing, unreadable, version-mismatched, or unresolvable images are **soft-failed** (skipped). The pager does not throw or change layout.
 - Story `content.md` stays text-only. Do not inline images in Markdown.
 

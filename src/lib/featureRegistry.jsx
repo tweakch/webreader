@@ -645,7 +645,7 @@ export const FEATURE_REGISTRY = [
     label: 'Illustrationen',
     description: 'Zeigt zum Märchen passende Illustrationen an, sofern ein Illustration-Pack oder eine Cover-Datei vorhanden ist.',
     Icon: () => <Image size={20} strokeWidth={1.75} />,
-    flag: bool('off'),
+    flag: bool('on'),
     status: 'beta',
     roles: ALL_USERS,
     group: 'content',
